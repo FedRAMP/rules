@@ -6,10 +6,10 @@
     "test": "bun test",
     "test:schema": "bun run validate-schema.ts",
     "test:ids": "bun run validate-item-ids.ts",
-    "test:keywords": "bun run verify-primary-key-word.ts",
-    "test:terms": "bun run update-frr-terms.ts",
-    "validate": "bun run test:schema && bun run test:ids && bun run test:keywords && bun run test:terms",
-    "terms:update": "bun run update-frr-terms.ts --write",
+    "test:keywords": "bun run validate-primary-key-word.ts",
+    "test:terms": "bun run validate-terms.ts",
+    "validate": "bun run validate.ts",
+    "terms:update": "bun run validate-terms.ts --write",
     "ids:fix": "bun run validate-item-ids.ts --in-place"
   },
   "dependencies": {

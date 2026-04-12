@@ -1,0 +1,4 @@
+{
+  "rulesFile": "../fedramp-consolidated-rules.json",
+  "schemaFile": "../schemas/fedramp-consolidated-rules.schema.json"
+}

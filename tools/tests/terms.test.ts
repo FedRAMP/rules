@@ -1,12 +1,76 @@
 import { expect, test } from "bun:test";
 
 import { loadRulesDocument } from "../src/rules";
-import { applyTermSync, collectTermSyncChanges } from "../src/terms";
+import {
+  applyDefinitionTermTitleChanges,
+  applyTermSync,
+  collectDefinitionTermTitleChanges,
+  collectTermSyncChanges,
+  toDefaultTitleCase,
+} from "../src/terms";
 import type { RulesDocument } from "../src/types";
+
+test("all FRD terms use the default title casing", () => {
+  const changes = collectDefinitionTermTitleChanges(loadRulesDocument());
+  expect(changes).toEqual([]);
+});
 
 test("all terms arrays match the structured term extraction rules", () => {
   const changes = collectTermSyncChanges(loadRulesDocument());
   expect(changes).toEqual([]);
+});
+
+test("default title casing capitalizes title words while preserving intentional mixed case", () => {
+  expect(toDefaultTitleCase("Top-level administrative account")).toBe("Top-Level Administrative Account");
+  expect(toDefaultTitleCase("FedRAMP Security Inbox")).toBe("FedRAMP Security Inbox");
+});
+
+test("definition title fixes update the term without appending to updated history", () => {
+  const document: RulesDocument = {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-04-12",
+    },
+    FRD: {
+      info: {},
+      data: {
+        both: {
+          "FRD-TLA": {
+            term: "Top-level administrative account",
+            definition: "Test definition",
+            updated: [
+              {
+                date: "2026-02-04",
+                comment: "Existing note.",
+              },
+            ],
+          },
+        },
+      },
+    },
+    FRR: {},
+    KSI: {},
+  };
+
+  const changes = applyDefinitionTermTitleChanges(document);
+
+  expect(changes).toEqual([
+    {
+      id: "FRD-TLA",
+      location: "FRD.data.both.FRD-TLA",
+      currentTerm: "Top-level administrative account",
+      nextTerm: "Top-Level Administrative Account",
+    },
+  ]);
+  expect(document.FRD.data.both["FRD-TLA"].term).toBe("Top-Level Administrative Account");
+  expect(document.FRD.data.both["FRD-TLA"].updated).toEqual([
+    {
+      date: "2026-02-04",
+      comment: "Existing note.",
+    },
+  ]);
 });
 
 test("term sync prepends an updated entry when the date is not already present", () => {

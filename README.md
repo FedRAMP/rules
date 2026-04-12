@@ -10,7 +10,7 @@ This is a work in progress as of April 2026 as we push towards Consolidated Rule
 2026. Apologies for any related inconvenience.
 
 The canonical dataset and schema locations are declared in
-`/Users/pwx/github/pete-gov/rules/fedramp-rules.config.json`.
+`/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json`.
 
 The tooling lives in `/Users/pwx/github/pete-gov/rules/tools` and now shares one
 configuration-backed loading path for schema validation, ID alignment checks,

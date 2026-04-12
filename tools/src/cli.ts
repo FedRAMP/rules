@@ -1,5 +1,8 @@
 import { writeFileSync } from "node:fs";
 
+const ANSI_RESET = "\u001b[0m";
+const ANSI_GREEN = "\u001b[32m";
+
 export function hasFlag(flag: string): boolean {
   return process.argv.slice(2).includes(flag);
 }
@@ -19,4 +22,8 @@ export function printJson(value: unknown): void {
 
 export function writeJsonFile(filePath: string, value: unknown): void {
   writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf-8");
+}
+
+export function green(text: string): string {
+  return `${ANSI_GREEN}${text}${ANSI_RESET}`;
 }

@@ -1,3 +1,4 @@
+import { green } from "./src/cli";
 import { getResolvedPaths } from "./src/config";
 import { validateSchema } from "./src/schema-validation";
 
@@ -9,7 +10,7 @@ console.log(`Rules file: ${rulesPath}`);
 console.log(`Schema file: ${schemaPath}`);
 
 if (result.valid) {
-  console.log("Schema validation passed.");
+  console.log(green("Schema validation passed."));
   process.exit(0);
 }
 

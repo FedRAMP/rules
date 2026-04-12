@@ -9,6 +9,13 @@ export interface TermSyncChange {
   nextTerms: string[];
 }
 
+export interface DefinitionTermTitleChange {
+  id: string;
+  location: string;
+  currentTerm: string;
+  nextTerm: string;
+}
+
 const TERM_UPDATE_COMMENT = "Updated the related terms.";
 
 function escapeRegExp(value: string): string {
@@ -54,6 +61,52 @@ function buildTermLookup(document: RulesDocument): Map<string, string> {
   return lookup;
 }
 
+function titleCaseWord(word: string): string {
+  if (word.length === 0) {
+    return word;
+  }
+
+  if (/^[A-Z0-9]+$/.test(word)) {
+    return word;
+  }
+
+  if (/[A-Z].*[A-Z]/.test(word.slice(1))) {
+    return word;
+  }
+
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+}
+
+export function toDefaultTitleCase(term: string): string {
+  return term.replace(/\b[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)?\b/gu, (word) => {
+    const separator = word.includes("’") ? "’" : word.includes("'") ? "'" : "";
+
+    if (!separator) {
+      return titleCaseWord(word);
+    }
+
+    return word.split(separator).map(titleCaseWord).join(separator);
+  });
+}
+
+export function collectDefinitionTermTitleChanges(document: RulesDocument): DefinitionTermTitleChange[] {
+  const changes: DefinitionTermTitleChange[] = [];
+
+  for (const { id, source, definition } of getDefinitionEntries(document)) {
+    const nextTerm = toDefaultTitleCase(definition.term);
+    if (definition.term !== nextTerm) {
+      changes.push({
+        id,
+        location: source,
+        currentTerm: definition.term,
+        nextTerm,
+      });
+    }
+  }
+
+  return changes;
+}
+
 export function collectTermSyncChanges(document: RulesDocument): TermSyncChange[] {
   const lookup = buildTermLookup(document);
   const changes: TermSyncChange[] = [];
@@ -85,6 +138,20 @@ export function collectTermSyncChanges(document: RulesDocument): TermSyncChange[
       });
     }
   });
+
+  return changes;
+}
+
+export function applyDefinitionTermTitleChanges(document: RulesDocument): DefinitionTermTitleChange[] {
+  const changes = collectDefinitionTermTitleChanges(document);
+  const changesByLocation = new Map(changes.map((change) => [change.location, change]));
+
+  for (const { source, definition } of getDefinitionEntries(document)) {
+    const change = changesByLocation.get(source);
+    if (change) {
+      definition.term = change.nextTerm;
+    }
+  }
 
   return changes;
 }

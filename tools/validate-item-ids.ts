@@ -1,5 +1,5 @@
 import { getResolvedPaths } from "./src/config";
-import { getOptionValue, hasFlag, writeJsonFile } from "./src/cli";
+import { getOptionValue, green, hasFlag, writeJsonFile } from "./src/cli";
 import { fixIdAlignment } from "./src/id-alignment";
 import { cloneDocument, loadRulesDocument, writeRulesDocument } from "./src/rules";
 
@@ -24,7 +24,7 @@ console.log(`Rules file: ${rulesPath}`);
 console.log(writeMode ? "Mode: FIX" : "Mode: CHECK");
 
 if (result.issues.length === 0) {
-  console.log("All IDs are aligned with their parent keys.");
+  console.log(green("All IDs are aligned with their parent keys."));
   process.exit(0);
 }
 
@@ -52,8 +52,8 @@ if (!writeMode) {
 
 if (inPlace || !outputPath) {
   writeRulesDocument(working);
-  console.log(`Applied ${result.fixedCount} ID fixes in place.`);
+  console.log(green(`Applied ${result.fixedCount} ID fixes in place.`));
 } else {
   writeJsonFile(outputPath, working);
-  console.log(`Wrote updated rules file to ${outputPath}.`);
+  console.log(green(`Wrote updated rules file to ${outputPath}.`));
 }

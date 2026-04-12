@@ -4,7 +4,7 @@ This directory contains the TypeScript tooling used to validate and maintain the
 FedRAMP consolidated rules dataset.
 
 All commands in this directory load the repository's shared configuration from
-[fedramp-rules.config.json](/Users/pwx/github/pete-gov/rules/fedramp-rules.config.json:1),
+[fedramp-rules.config.json](/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json:1),
 which defines:
 
 - the canonical consolidated rules JSON file
@@ -29,7 +29,10 @@ Run the complete validation suite:
 bun run validate
 ```
 
-This runs all of the following checks:
+This runs the validation runner in
+[tools/validate.ts](/Users/pwx/github/pete-gov/rules/tools/validate.ts:1),
+which executes all of the following checks and prints a final success message
+when they all pass:
 
 - `bun run test:schema`
   Validates the configured consolidated rules JSON against the configured schema.
@@ -39,8 +42,8 @@ This runs all of the following checks:
   Checks that each `primary_key_word` matches the first normative keyword in the
   associated statement.
 - `bun run test:terms`
-  Checks that each `terms` array matches the current structured term extraction
-  logic.
+  Checks that each FRD `term` uses the default title casing and that each
+  `terms` array matches the current structured term extraction logic.
 
 Run the Bun test suite directly:
 
@@ -49,7 +52,7 @@ bun test
 ```
 
 This executes the test files in `tools/tests` and is useful when working on the
- tooling itself.
+tooling itself.
 
 ## Maintenance Commands
 
@@ -60,7 +63,8 @@ bun run terms:update
 ```
 
 This applies the same logic used by `bun run test:terms`, but writes the updated
-`terms` arrays back to the configured rules JSON.
+FRD term title fixes and `terms` array updates back to the configured rules
+JSON.
 
 Fix ID alignment issues in place:
 
@@ -93,17 +97,43 @@ bun run validate-item-ids.ts --write --output ./fedramp-consolidated-rules.fixed
 Check term synchronization without modifying the file:
 
 ```bash
-bun run update-frr-terms.ts
+bun run validate-terms.ts
 ```
 
 Apply term synchronization directly:
 
 ```bash
-bun run update-frr-terms.ts --write
+bun run validate-terms.ts --write
+```
+
+Check primary keyword alignment without modifying the file:
+
+```bash
+bun run validate-primary-key-word.ts
+```
+
+Validate the configured rules file against the schema directly:
+
+```bash
+bun run validate-schema.ts
 ```
 
 ## Project Layout
 
+- [tools/fedramp-rules.config.json](/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json:1)
+  Declares the canonical rules JSON file and schema file for all tools.
+- [tools/validate.ts](/Users/pwx/github/pete-gov/rules/tools/validate.ts:1)
+  Runs the full validation suite and prints a final pass/fail summary.
+- [tools/validate-schema.ts](/Users/pwx/github/pete-gov/rules/tools/validate-schema.ts:1)
+  Validates the configured consolidated rules JSON against the configured schema.
+- [tools/validate-item-ids.ts](/Users/pwx/github/pete-gov/rules/tools/validate-item-ids.ts:1)
+  Checks and optionally fixes rule IDs nested under `data` blocks.
+- [tools/validate-primary-key-word.ts](/Users/pwx/github/pete-gov/rules/tools/validate-primary-key-word.ts:1)
+  Checks that each `primary_key_word` matches the first normative keyword in the
+  associated statement.
+- [tools/validate-terms.ts](/Users/pwx/github/pete-gov/rules/tools/validate-terms.ts:1)
+  Checks FRD term title casing and FRR/KSI term synchronization, and can write
+  fixes back to the configured rules JSON.
 - [tools/src/config.ts](/Users/pwx/github/pete-gov/rules/tools/src/config.ts:1)
   Loads and resolves the shared repository config.
 - [tools/src/rules.ts](/Users/pwx/github/pete-gov/rules/tools/src/rules.ts:1)
@@ -124,6 +154,6 @@ bun run update-frr-terms.ts --write
 1. Make changes to `/Users/pwx/github/pete-gov/rules/fedramp-consolidated-rules.json`
    or `/Users/pwx/github/pete-gov/rules/schemas/fedramp-consolidated-rules.schema.json`.
 2. Run `bun run validate`.
-3. If terms are out of sync, run `bun run terms:update`.
+3. If terms need normalization, run `bun run terms:update`.
 4. If IDs need normalization, run `bun run ids:fix`.
 5. Run `bun run validate` again before committing.

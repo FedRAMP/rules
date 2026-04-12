@@ -1,3 +1,4 @@
+import { green } from "./src/cli";
 import { getResolvedPaths } from "./src/config";
 import { findPrimaryKeywordIssues } from "./src/keywords";
 import { loadRulesDocument } from "./src/rules";
@@ -9,7 +10,7 @@ console.log(`Using config: ${configPath}`);
 console.log(`Rules file: ${rulesPath}`);
 
 if (issues.length === 0) {
-  console.log("No primary keyword mismatches found.");
+  console.log(green("No primary keyword mismatches found."));
   process.exit(0);
 }
 
