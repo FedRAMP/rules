@@ -167,7 +167,6 @@
       "type": "object",
       "required": ["term", "definition"],
       "properties": {
-        "fka": { "type": "string" },
         "term": { "type": "string" },
         "alts": { "type": "array", "items": { "type": "string" } },
         "definition": { "type": "string" },
@@ -221,8 +220,6 @@
         }
       ],
       "properties": {
-        "fka": { "type": "string" },
-        "fkas": { "type": "array", "items": { "type": "string" } },
         "statement": { "type": "string" },
         "danger": { "type": "string" },
         "terms": { "type": "array", "items": { "type": "string" } },
@@ -356,7 +353,6 @@
         }
       ],
       "properties": {
-        "fka": { "type": "string" },
         "name": { "type": "string" },
         "statement": { "type": "string" },
         "controls": { "type": "array", "items": { "type": "string" } },
