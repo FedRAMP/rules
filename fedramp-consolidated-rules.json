@@ -5714,7 +5714,7 @@
         "KSI-AFR-ADS": {
           "fka": "KSI-AFR-03",
           "name": "Authorization Data Sharing",
-          "statement": "Determine how authorization data will be shared with all necessary parties in alignment with the FedRAMP Authorization Data Sharing (ADS) process and persistently address all related requirements and recommendations.",
+          "statement": "Authorization data is shared with all necessary parties in alignment with the FedRAMP Authorization Data Sharing (ADS) process, and all related requirements and recommendations are persistently addressed.",
           "reference": "Authorization Data Sharing",
           "reference_url": "https://fedramp.gov/docs/20x/authorization-data-sharing",
           "controls": [
@@ -5743,7 +5743,7 @@
         "KSI-AFR-CCM": {
           "fka": "KSI-AFR-06",
           "name": "Collaborative Continuous Monitoring",
-          "statement": "Maintain a plan and process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties in alignment with the FedRAMP Collaborative Continuous Monitoring (CCM) process and persistently address all related requirements and recommendations.",
+          "statement": "A process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties is maintained in alignment with FedRAMP Collaborative Continuous Monitoring (CCM) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "Collaborative Continuous Monitoring",
           "reference_url": "https://fedramp.gov/docs/20x/collaborative-continuous-monitoring",
           "updated": [
@@ -5752,16 +5752,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "All Necessary Parties",
-            "Persistently",
-            "Quarterly Review"
-          ]
+          "terms": ["All Necessary Parties", "Persistently", "Quarterly Review"]
         },
         "KSI-AFR-FSI": {
           "fka": "KSI-AFR-08",
           "name": "FedRAMP Security Inbox",
-          "statement": "Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.",
+          "statement": "A secure inbox is maintained to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "FedRAMP Security Inbox",
           "reference_url": "https://fedramp.gov/docs/20x/fedramp-security-inbox",
           "updated": [
@@ -5770,15 +5766,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "FedRAMP Security Inbox",
-            "Persistently"
-          ]
+          "terms": ["FedRAMP Security Inbox", "Persistently"]
         },
         "KSI-AFR-ICP": {
           "fka": "KSI-AFR-10",
           "name": "Incident Communications Procedures",
-          "statement": "Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and persistently address all related requirements and recommendations.",
+          "statement": "FedRAMP's Incident Communications Procedures (ICP) are integrated into incident response procedures, and all related requirements and recommendations are persistently addressed.",
           "reference": "Incident Communications Procedures",
           "reference_url": "https://fedramp.gov/docs/20x/incident-communications-procedures",
           "updated": [
@@ -5787,16 +5780,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Incident",
-            "Persistently",
-            "Vulnerability Response"
-          ]
+          "terms": ["Incident", "Persistently", "Vulnerability Response"]
         },
         "KSI-AFR-MAS": {
           "fka": "KSI-AFR-01",
           "name": "Minimum Assessment Scope",
-          "statement": "Apply the FedRAMP Minimum Assessment Scope (MAS) to identify and document the scope of the cloud service offering to be assessed for FedRAMP authorization and persistently address all related requirements and recommendations.",
+          "statement": "The FedRAMP Minimum Assessment Scope (MAS) is used to identify and document the scope of the cloud service offering to be assessed for FedRAMP certification, and all related requirements and recommendations are persistently addressed.",
           "controls": [
             "ac-1",
             "ac-21",
@@ -5836,15 +5825,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Cloud Service Offering",
-            "Persistently"
-          ]
+          "terms": ["Cloud Service Offering", "Persistently"]
         },
         "KSI-AFR-PVA": {
           "fka": "KSI-AFR-09",
           "name": "Persistent Validation and Assessment",
-          "statement": "Persistently validate, assess, and report on the effectiveness and status of security decisions and policies that are implemented within the cloud service offering in alignment with the FedRAMP 20x Persistent Validation and Assessment (PVA) process, and persistently address all related requirements and recommendations.",
+          "statement": "The effectiveness and status of security decisions and policies are persistently validated, assessed, and reported on following the FedRAMP Persistent Validation and Assessment (PVA) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "Persistent Validation and Assessment",
           "reference_url": "https://fedramp.gov/docs/20x/persistent-validation-and-assessment",
           "updated": [
@@ -5862,7 +5848,7 @@
         "KSI-AFR-SCG": {
           "fka": "KSI-AFR-07",
           "name": "Secure Configuration Guide",
-          "statement": "Develop secure by default configurations and provide guidance for secure configuration of the cloud service offering to customers in alignment with the FedRAMP Secure Configuration Guide (SCG) process and persistently address all related requirements and recommendations.",
+          "statement": "Guidance for the secure configuration of the cloud service offering is provided to customers in alignment with FedRAMP Secure Configuration Guide (SCG) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "Secure Configuration Guide",
           "reference_url": "https://fedramp.gov/docs/20x/secure-configuration-guide",
           "updated": [
@@ -5871,15 +5857,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Cloud Service Offering",
-            "Persistently"
-          ]
+          "terms": ["Cloud Service Offering", "Persistently"]
         },
         "KSI-AFR-SCN": {
           "fka": "KSI-AFR-05",
           "name": "Significant Change Notifications",
-          "statement": "Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) process and persistently address all related requirements and recommendations.",
+          "statement": "Changes to the cloud service offering are tracked and all necessary parties are notified in alignment with FedRAMP Significant Change Notifications (SCN) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "Significant Change Notifications",
           "reference_url": "https://fedramp.gov/docs/20x/significant-change-notifications",
           "controls": [
@@ -5916,7 +5899,7 @@
         "KSI-AFR-UCM": {
           "fka": "KSI-AFR-11",
           "name": "Using Cryptographic Modules",
-          "statement": "Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) guidance and persistently address all related requirements and recommendations.",
+          "statement": "Cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with FedRAMP Using Cryptographic Modules (UCM) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "Using Cryptographic Modules",
           "reference_url": "https://fedramp.gov/docs/20x/using-cryptographic-modules",
           "updated": [
@@ -5925,15 +5908,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Federal Customer Data",
-            "Persistently"
-          ]
+          "terms": ["Federal Customer Data", "Persistently"]
         },
         "KSI-AFR-VDR": {
           "fka": "KSI-AFR-04",
           "name": "Vulnerability Detection and Response",
-          "statement": "Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) process and persistently address all related requirements and recommendations.",
+          "statement": "Vulnerabilities are persistently detected and responded to in alignment with FedRAMP Vulnerability Detection and Response (VDR) rules, and all related requirements and recommendations are persistently addressed.",
           "reference": "Vulnerability Detection and Response",
           "reference_url": "https://fedramp.gov/docs/20x/vulnerability-detection-and-response",
           "controls": [
@@ -6006,7 +5986,7 @@
         "KSI-CMT-LMC": {
           "fka": "KSI-CMT-01",
           "name": "Logging Changes",
-          "statement": "Log and monitor modifications to the cloud service offering.",
+          "statement": "Modifications to the cloud service offering are logged and monitored.",
           "controls": [
             "au-2",
             "cm-3",
@@ -6022,14 +6002,12 @@
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Cloud Service Offering"
-          ]
+          "terms": ["Cloud Service Offering"]
         },
         "KSI-CMT-RMV": {
           "fka": "KSI-CMT-02",
           "name": "Redeploying vs Modifying",
-          "statement": "Execute changes to machine-based information resources through redeployment of version controlled immutable resources rather than direct modification wherever reasonable.",
+          "statement": "Changes to machine-based information resources are executed through the redeployment of version controlled immutable resources rather than direct modification wherever reasonable.",
           "controls": [
             "cm-2",
             "cm-3",
@@ -6053,45 +6031,28 @@
         "KSI-CMT-RVP": {
           "fka": "KSI-CMT-04",
           "name": "Reviewing Change Procedures",
-          "statement": "Persistently review the effectiveness of documented change management procedures.",
-          "controls": [
-            "cm-3",
-            "cm-3.2",
-            "cm-3.4",
-            "cm-5",
-            "cm-7.1",
-            "cm-9"
-          ],
+          "statement": "The effectiveness of documented change management procedures is persistently reviewed.",
+          "controls": ["cm-3", "cm-3.2", "cm-3.4", "cm-5", "cm-7.1", "cm-9"],
           "updated": [
             {
               "date": "2026-02-04",
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-CMT-VTD": {
           "fka": "KSI-CMT-03",
           "name": "Validating Throughout Deployment",
-          "statement": "Automate persistent testing and validation of changes throughout deployment.",
-          "controls": [
-            "cm-3",
-            "cm-3.2",
-            "cm-4.2",
-            "si-2"
-          ],
+          "statement": "Persistent testing and validation of changes throughout deployment is automated.",
+          "controls": ["cm-3", "cm-3.2", "cm-4.2", "si-2"],
           "updated": [
             {
               "date": "2026-02-04",
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Persistent Validation",
-            "Persistently"
-          ]
+          "terms": ["Persistent Validation", "Persistently"]
         }
       }
     },
@@ -6105,11 +6066,8 @@
         "KSI-CNA-DFP": {
           "fka": "KSI-CNA-04",
           "name": "Defining Functionality and Privileges",
-          "statement": "Strictly define the functionality and privileges for infrastructure and services.",
-          "controls": [
-            "cm-2",
-            "si-3"
-          ],
+          "statement": "The functionality and privileges for infrastructure and services are strictly defined.",
+          "controls": ["cm-2", "si-3"],
           "updated": [
             {
               "date": "2026-02-04",
@@ -6122,10 +6080,10 @@
           "name": "Enforcing Intended State",
           "varies_by_level": {
             "low": {
-              "statement": "**Optional:** Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
+              "statement": "**Optional:** Automated services are used to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
             },
             "moderate": {
-              "statement": "Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
+              "statement": "Automated services are used to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
             }
           },
           "controls": [
@@ -6147,12 +6105,8 @@
         "KSI-CNA-IBP": {
           "fka": "KSI-CNA-07",
           "name": "Implementing Best Practices",
-          "statement": "Persistently ensure cloud-native machine-based information resources are implemented based on the host provider's best practices and documented guidance.",
-          "controls": [
-            "ac-17.3",
-            "cm-2",
-            "pl-10"
-          ],
+          "statement": "The use of cloud-native machine-based information resources is persistently reviewed against the host provider's best practices and guidance.",
+          "controls": ["ac-17.3", "cm-2", "pl-10"],
           "updated": [
             {
               "date": "2026-02-04",
@@ -6168,7 +6122,7 @@
         "KSI-CNA-MAT": {
           "fka": "KSI-CNA-02",
           "name": "Minimizing Attack Surface",
-          "statement": "Persistently ensure machine-based information resources have a minimal attack surface and that lateral movement is minimized if compromised.",
+          "statement": "Machine-based information resources are persistently reviewed to ensure they have a minimal attack surface and that lateral movement is minimized if compromised.",
           "controls": [
             "ac-17.3",
             "ac-18.1",
@@ -6200,7 +6154,7 @@
         "KSI-CNA-OFA": {
           "fka": "KSI-CNA-06",
           "name": "Optimizing for Availability",
-          "statement": "Appropriately optimize machine-based information resources for high availability and rapid recovery.",
+          "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately optimized for high availability and rapid recovery.",
           "controls": [],
           "updated": [
             {
@@ -6216,14 +6170,8 @@
         "KSI-CNA-RNT": {
           "fka": "KSI-CNA-01",
           "name": "Restricting Network Traffic",
-          "statement": "Persistently ensure all machine-based information resources are configured to limit inbound and outbound network traffic.",
-          "controls": [
-            "ac-17.3",
-            "ca-9",
-            "cm-7.1",
-            "sc-7.5",
-            "si-8"
-          ],
+          "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately configured to limit inbound and outbound network traffic.",
+          "controls": ["ac-17.3", "ca-9", "cm-7.1", "sc-7.5", "si-8"],
           "updated": [
             {
               "date": "2026-02-04",
@@ -6239,26 +6187,20 @@
         "KSI-CNA-RVP": {
           "fka": "KSI-CNA-05",
           "name": "Reviewing Protections",
-          "statement": "Persistently review the effectiveness of protection against denial of service attacks and other unwanted activity.",
-          "controls": [
-            "sc-5",
-            "si-8",
-            "si-8.2"
-          ],
+          "statement": "The effectiveness of protection against denial of service attacks and other unwanted activity for machine-based information resources is persistently reviewed.",
+          "controls": ["sc-5", "si-8", "si-8.2"],
           "updated": [
             {
               "date": "2026-02-04",
               "comment": "Removed italics and changed the ID as part of new standardization in v0.9.0-beta; no material changes."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-CNA-ULN": {
           "fka": "KSI-CNA-03",
           "name": "Using Logical Networking",
-          "statement": "Use logical networking and related capabilities to enforce traffic flow controls.",
+          "statement": "Logical networking and related capabilities are used to enforce traffic flow controls.",
           "controls": [
             "ac-12",
             "ac-17.3",
