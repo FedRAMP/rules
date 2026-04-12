@@ -2893,12 +2893,10 @@
             }
           },
           "IAS": {
-            "MKT-IAS-FRR": {
-              "name": "FedRAMP Recognition",
+            "MKT-IAS-OFR": {
+              "name": "Only FedRAMP Recognized Assessors",
               "statement": "Assessors MUST obtain and maintain FedRAMP Recognition to be listed in the FedRAMP Marketplace.",
-              "affects": [
-                "Assessors"
-              ],
+              "affects": ["Assessors"],
               "primary_key_word": "MUST",
               "updated": [
                 {
@@ -2916,9 +2914,7 @@
                 "Types of independent services offered",
                 "Optional: Positive attestations from customers or customer references"
               ],
-              "affects": [
-                "Assessors"
-              ],
+              "affects": ["Assessors"],
               "primary_key_word": "MUST",
               "updated": [
                 {
@@ -2930,16 +2926,12 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
-              "terms": [
-                "Machine-Readable"
-              ]
+              "terms": ["Machine-Readable"]
             },
             "MKT-IAS-LRQ": {
               "name": "Listing Requests for Assessors",
               "statement": "Assessors MUST complete the Assessor Listing Request Form at https://fedramp.gov/forms/assessor-listing-request/ to request listing in the FedRAMP Marketplace.",
-              "affects": [
-                "Assessors"
-              ],
+              "affects": ["Assessors"],
               "primary_key_word": "MUST",
               "updated": [
                 {
