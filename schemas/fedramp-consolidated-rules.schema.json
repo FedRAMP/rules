@@ -239,6 +239,10 @@
         "updated": { "$ref": "#/$defs/updated_list" },
         "note": { "type": "string" },
         "notes": { "type": "array", "items": { "type": "string" } },
+        "corrective_actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "examples": {
           "type": "array",
           "items": {
