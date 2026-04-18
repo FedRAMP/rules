@@ -117,10 +117,20 @@
         "is": { "type": "string", "enum": ["required", "optional", "no"] },
         "signup_url": { "type": "string" },
         "current_status": { "type": "string" },
+        "date": { "$ref": "#/$defs/effective_dates" },
         "start_date": { "type": "string", "format": "date" },
         "end_date": { "type": "string", "format": "date" },
         "comments": { "type": "array", "items": { "type": "string" } },
         "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "effective_dates": {
+      "type": "object",
+      "properties": {
+        "obtain": { "type": "string", "format": "date" },
+        "maintain": { "type": "string", "format": "date" },
+        "grace_ends": { "type": "string", "format": "date" }
       },
       "additionalProperties": false
     },
@@ -225,8 +235,15 @@
         "terms": { "type": "array", "items": { "type": "string" } },
         "affects": { "type": "array", "items": { "type": "string" } },
         "name": { "type": "string" },
+        "reference": { "type": "string" },
+        "reference_url": { "type": "string", "format": "uri" },
+        "reference_url_web_name": { "type": "string" },
         "primary_key_word": {
           "$ref": "#/$defs/primary_key_word_enum"
+        },
+        "controls": {
+          "type": "array",
+          "items": { "type": "string" }
         },
         "following_information": {
           "type": "array",

@@ -12,24 +12,22 @@
       "web_name": "fedramp-definitions",
       "effective": {
         "rev5": {
-          "is": "optional",
-          "signup_url": "",
-          "current_status": "Wide Release",
-          "start_date": "2025-09-01",
-          "end_date": "2027-12-22",
-          "comments": [
-            "Rev5 Authorized providers MUST apply these definitions for Rev5 Balance Improvement Release materials; these definitions do not always apply in legacy Rev5 materials."
-          ]
+          "is": "required",
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-05-04",
+            "maintain": "2026-05-04",
+            "grace_ends": "2026-05-04"
+          }
         },
         "20x": {
           "is": "required",
-          "signup_url": "https://www.fedramp.gov/20x/phase-two/participate/",
-          "current_status": "Phase 2 Pilot",
-          "start_date": "2025-11-18",
-          "end_date": "2026-03-31",
-          "comments": [
-            "FedRAMP 20x pilot participants MUST apply these definitions to all FedRAMP 20x requirements and recommendations."
-          ]
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-05-04",
+            "maintain": "2026-05-04",
+            "grace_ends": "2026-05-04"
+          }
         }
       },
       "front_matter": {
@@ -1709,7 +1707,7 @@
           },
           "FRP": {
             "description": "These requirements and recommendations apply to FedRAMP when communicating with cloud service providers.",
-            "name": "FedRAMP's Responsibilities"
+            "name": "FedRAMP Responsibilities"
           }
         }
       },
@@ -2388,7 +2386,7 @@
         "labels": {
           "FRP": {
             "description": "These requirements and recommendations apply to FedRAMP activities related to the FedRAMP Marketplace.",
-            "name": "FedRAMP's Responsibilities"
+            "name": "FedRAMP Responsibilities"
           },
           "CSO": {
             "description": "These requirements and recommendations apply to all cloud service offerings seeking listing in the FedRAMP Marketplace.",
@@ -2688,7 +2686,7 @@
             "description": "These requirements and recommendations apply to all cloud service offerings following the 20x path.",
             "name": "20x-Specific Provider Responsibilities"
           },
-          "TPX": {
+          "IAS": {
             "description": "These requirements and recommendations apply to all assessors performing verification and validation for the 20x path.",
             "name": "20x-Specific Assessor Responsibilities"
           }
@@ -2823,7 +2821,7 @@
             },
             "PVA-CSX-RAD": {
               "name": "Receiving Advice",
-              "statement": "Providers MAY ask for and accept advice from their assessor during assessment regarding techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their validation and reporting procedures for Key Security Indicators, UNLESS doing so might compromise the objectivity and integrity of the assessment (see also PVA-TPX-SHA).",
+              "statement": "Providers MAY ask for and accept advice from their assessor during assessment regarding techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their validation and reporting procedures for Key Security Indicators, UNLESS doing so might compromise the objectivity and integrity of the assessment (see also PVA-IAS-SHA).",
               "affects": ["Providers"],
               "primary_key_word": "MAY",
               "note": "The related A2LA requirements are waived for FedRAMP 20x Phase Two assessments.",
@@ -2836,8 +2834,8 @@
               "terms": ["Persistent Validation"]
             }
           },
-          "TPX": {
-            "PVA-TPX-UNP": {
+          "IAS": {
+            "PVA-IAS-UNP": {
               "name": "Underlying Processes",
               "statement": "Assessors MUST verify and validate the underlying processes (both machine-based and non-machine-based) that providers use to validate Key Security Indicators; this should include at least:",
               "affects": ["Assessors"],
@@ -2860,7 +2858,7 @@
                 "Persistent Validation"
               ]
             },
-            "PVA-TPX-PDK": {
+            "PVA-IAS-PDK": {
               "name": "Processes Derived from Key Security Indicators",
               "statement": "Assessors MUST verify and validate the implementation of processes derived from Key Security Indicators to determine whether or not the provider has accurately documented their process and goals.",
               "affects": ["Assessors"],
@@ -2873,7 +2871,7 @@
               ],
               "terms": ["Persistent Validation"]
             },
-            "PVA-TPX-OUC": {
+            "PVA-IAS-OUC": {
               "name": "Outcome Consistency",
               "statement": "Assessors MUST verify and validate whether or not the underlying processes are consistently creating the desired security outcome documented by the provider.",
               "affects": ["Assessors"],
@@ -2886,7 +2884,7 @@
               ],
               "terms": ["Persistent Validation"]
             },
-            "PVA-TPX-MME": {
+            "PVA-IAS-MME": {
               "name": "Mixed Methods Evaluation",
               "statement": "Assessors MUST perform evaluation using a combination of quantitative and expert qualitative assessment as appropriate AND document which is applied to which aspect of the assessment.",
               "affects": ["Assessors"],
@@ -2898,7 +2896,7 @@
                 }
               ]
             },
-            "PVA-TPX-PAD": {
+            "PVA-IAS-PAD": {
               "name": "Procedure Adherence",
               "statement": "Assessors MUST assess whether or not procedures are consistently followed, including the processes in place to ensure this occurs, without relying solely on the existence of a procedure document for assessing if appropriate processes and procedures are in place.",
               "note": "This includes evaluating tests or plans for activities that may occur in the future but have not yet occurred.",
@@ -2911,7 +2909,7 @@
                 }
               ]
             },
-            "PVA-TPX-SUM": {
+            "PVA-IAS-SUM": {
               "name": "Assessment Summary",
               "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each Key Security Indicator; this summary will be included in the authorization data for the cloud service offering.",
               "affects": ["Assessors"],
@@ -2924,7 +2922,7 @@
               ],
               "terms": ["Authorization Data", "Cloud Service Offering"]
             },
-            "PVA-TPX-STE": {
+            "PVA-IAS-STE": {
               "name": "Static Evidence",
               "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
               "affects": ["Assessors"],
@@ -2936,7 +2934,7 @@
                 }
               ]
             },
-            "PVA-TPX-NOR": {
+            "PVA-IAS-NOR": {
               "name": "No Overall Recommendation",
               "statement": "Assessors MUST NOT deliver an overall recommendation on whether or not the cloud service offering meets the requirements for FedRAMP authorization.",
               "affects": ["Assessors"],
@@ -2950,7 +2948,7 @@
               ],
               "terms": ["Cloud Service Offering"]
             },
-            "PVA-TPX-PEX": {
+            "PVA-IAS-PEX": {
               "name": "Provider Experts",
               "statement": "Assessors SHOULD engage provider experts in discussion to understand the decisions made by the provider and inform expert qualitative assessment, and SHOULD perform independent research to test such information as part of the expert qualitative assessment process.",
               "affects": ["Assessors"],
@@ -2962,7 +2960,7 @@
                 }
               ]
             },
-            "PVA-TPX-SHA": {
+            "PVA-IAS-SHA": {
               "name": "Sharing Advice",
               "statement": "Assessors MAY share advice with providers they are assessing about techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their validation and reporting procedures for Key Security Indicators, UNLESS doing so might compromise the objectivity and integrity of the assessment (see also PVA-CSX-RAD).",
               "affects": ["Assessors"],
@@ -3238,7 +3236,7 @@
           },
           "FRP": {
             "description": "These requirements and recommendations apply to FedRAMP and may result in indirect application to cloud service providers.",
-            "name": "FedRAMP's Responsibilities"
+            "name": "FedRAMP Responsibilities"
           }
         }
       },
@@ -3830,7 +3828,7 @@
           },
           "FRP": {
             "description": "These requirements and recommendations apply to FedRAMP when setting expectations for specific cloud service providers.",
-            "name": "FedRAMP's Responsibilities"
+            "name": "FedRAMP Responsibilities"
           },
           "BST": {
             "description": "These recommendations for best practices apply to all cloud service providers.",
@@ -4758,68 +4756,362 @@
         }
       }
     },
-    "KSI": {
+    "FRC": {
       "info": {
-        "name": "Key Security Indicators",
-        "short_name": "KSI",
-        "web_name": "key-security-indicators",
+        "name": "FedRAMP Certification",
+        "short_name": "FRC",
+        "web_name": "fedramp-certification",
         "effective": {
           "rev5": {
-            "is": "no"
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-01-01"
+            }
           },
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2027-05-04",
-              "maintain": "2027-01-01",
+              "maintain": "2027-05-04",
               "grace_ends": "2027-05-04"
             }
           }
         },
         "front_matter": {
-          "authority": [
-            {
-              "reference": "OMB Circular A-130",
-              "reference_url": "https://whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf",
-              "description": "Appendix I states \"Agencies may also develop overlays for specific types of information or communities of interest (e.g., all web-based applications, all health care-related systems) as part of the security control selection process. Overlays provide a specification of security or privacy controls, control enhancements, supplemental guidance, and other supporting information as part of the tailoring process, that is intended to complement (and further refine) security control baselines. The overlay may be more stringent or less stringent than the original security control baseline and can be applied to multiple information systems.\""
-            },
-            {
-              "reference": "NIST SP 800-53B",
-              "reference_url": "https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final",
-              "description": "Section 2.5 states \"As the number of controls in [SP 800-53] grows in response to an increasingly sophisticated threat space, it is important for organizations to have the ability to describe key capabilities needed to protect organizational missions and business functions, and to subsequently select controls that—if properly designed, developed, and implemented—produce such capabilities. The use of capabilities simplifies how the protection problem is viewed conceptually. Using the construct of a capability provides a method of grouping controls that are employed for a common purpose or to achieve a common objective.\" This section later states \"Ultimately, authorization decisions (i.e., risk acceptance decisions) are made based on the degree to which the desired capabilities have been effectively achieved.\""
-            },
-            {
-              "reference": "NIST SP 800-53A",
-              "reference_url": "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final",
-              "description": "Section 3.5 states \"When organizations employ the concept of capabilities, automated and manual assessments account for all security and privacy controls that comprise the security and privacy capabilities. Assessors are aware of how the controls work together to provide such capabilities.\""
-            },
-            {
-              "reference": "FedRAMP Authorization Act (44 USC § 3609 (a) (1))",
-              "reference_url": "https://fedramp.gov/docs/authority/law/#a-roles-and-responsibilities",
-              "description": "requires that the Administrator of the General Services Administration shall \"in consultation with the [DHS] Secretary, develop, coordinate, and implement a process to support agency review, reuse, and standardization, where appropriate, of security assessments of cloud computing products and services...\" 44 USC § 3609 (c) (2) further states that \"the [GSA] Administrator shall establish a means for the automation of security assessments and reviews.\"",
-              "delegation": "These responsibilities are delegated to the FedRAMP Director",
-              "delegation_url": "https://www.gsa.gov/directives-library/gsa-delegations-of-authority-fedramp"
-            }
-          ],
-          "purpose": "Modern cloud services use automated or code-driven configuration management and control planes to ensure predictable, repeatable, reliable, and secure outcomes during deployment and operation. The majority of a service security assessment can take place continuously via automated validation for simple cloud-native services if the need for a traditional control-by-control narrative approach is removed.",
-          "expected_outcomes": [
-            "Cloud service providers following commercial security best practices will be able to meet and validate FedRAMP security requirements with the application of simple changes and automated capabilities",
-            "Third-party independent assessors will have a simpler framework to assess security and implementation decisions based on engineering decisions in context",
-            "Federal agencies will be able to easily, quickly, and effectively review and consume security information about the service to make informed risk-based authorization to operate decisions based on their planned use case"
-          ]
+          "authority": [],
+          "purpose": ""
         },
         "labels": {
+          "FRP": {
+            "description": "These requirements and recommendations apply to FedRAMP.",
+            "name": "FedRAMP Responsibilities"
+          },
+          "CSO": {
+            "description": "These requirements and recommendations apply to cloud service providers obtaining and maintaining any FedRAMP Certification.",
+            "name": "General Provider Responsibilities"
+          },
+          "CSL": {
+            "description": "These requirements and recommendations apply to cloud service offerings for FedRAMP Rev5 Certifications.",
+            "name": "Rev5-Specific Provider Responsibilities"
+          },
           "CSX": {
-            "description": "These requirements and recommendations apply to all cloud service offerings following the 20x path.",
+            "description": "These requirements and recommendations apply to cloud service offerings for FedRAMP 20x Certifications.",
             "name": "20x-Specific Provider Responsibilities"
+          },
+          "IAS": {
+            "description": "These requirements and recommendations apply to independent assessment services supporting all FedRAMP Certifications.",
+            "name": "Independent Assessor Responsibilities"
+          },
+          "IAX": {
+            "description": "These requirements and recommendations apply to independent assessment services supporting FedRAMP 20x Certifications.",
+            "name": "Independent Assessor Responsibilities"
+          },
+          "IAL": {
+            "description": "These requirements and recommendations apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
+            "name": "Independent Assessor Responsibilities"
           }
         }
       },
       "data": {
+        "both": {
+          "CSO": {
+            "FRC-CSO-ADS": {
+              "name": "Authorization Data Sharing",
+              "statement": "Providers MUST follow and persistently address the Authorization Data Sharing (ADS) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Authorization Data Sharing",
+              "reference_url_web_name": "authorization-data-sharing",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "controls": [
+                "ac-3",
+                "ac-4",
+                "au-2",
+                "au-3",
+                "au-6",
+                "ca-2",
+                "ir-4",
+                "ra-5",
+                "sc-8"
+              ],
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Authorization Data", "Persistently"]
+            },
+            "FRC-CSO-CCM": {
+              "name": "Collaborative Continuous Monitoring",
+              "statement": "Providers MUST follow and persistently address the Collaborative Continuous Monitoring (CCM) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Collaborative Continuous Monitoring",
+              "reference_url_web_name": "collaborative-continuous-monitoring",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Persistently"]
+            },
+            "FRC-CSO-FSI": {
+              "name": "FedRAMP Security Inbox",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Security Inbox (FSI) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "FedRAMP Security Inbox",
+              "reference_url_web_name": "fedramp-security-inbox",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["FedRAMP Security Inbox", "Persistently"]
+            },
+            "FRC-CSO-ICP": {
+              "name": "Incident Communications Procedures",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Incident Communications Procedures (ICP) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Incident Communications Procedures",
+              "reference_url_web_name": "incident-communications-procedures",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Incident", "Persistently"]
+            },
+            "FRC-CSO-MAS": {
+              "name": "Minimum Assessment Scope",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Minimum Assessment Scope (MAS) rules, based on the applicability and effective date(s) in those rules.",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "controls": [
+                "ac-1",
+                "ac-21",
+                "at-1",
+                "au-1",
+                "ca-1",
+                "cm-1",
+                "cp-1",
+                "cp-2.1",
+                "cp-2.8",
+                "cp-4.1",
+                "ia-1",
+                "ir-1",
+                "ma-1",
+                "mp-1",
+                "pe-1",
+                "pl-1",
+                "pl-2",
+                "pl-4",
+                "pl-4.1",
+                "ps-1",
+                "ra-1",
+                "ra-9",
+                "sa-1",
+                "sc-1",
+                "si-1",
+                "sr-1",
+                "sr-2",
+                "sr-3",
+                "sr-11"
+              ],
+              "reference": "Minimum Assessment Scope",
+              "reference_url_web_name": "minimum-assessment-scope",
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Persistently"]
+            },
+            "FRC-CSO-PVA": {
+              "name": "Persistent Validation and Assessment",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Persistent Validation and Assessment (PVA) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Persistent Validation and Assessment",
+              "reference_url_web_name": "persistent-validation-and-assessment",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Persistent Validation", "Persistently"]
+            },
+            "FRC-CSO-SCG": {
+              "name": "Secure Configuration Guide",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Secure Configuration Guide (SCG) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Secure Configuration Guide",
+              "reference_url_web_name": "secure-configuration-guide",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Persistently"]
+            },
+            "FRC-CSO-SCN": {
+              "name": "Significant Change Notifications",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Significant Change Notifications (SCN) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Significant Change Notifications",
+              "reference_url_web_name": "significant-change-notifications",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "controls": [
+                "ca-7.4",
+                "cm-3.4",
+                "cm-4",
+                "cm-7.1",
+                "au-5",
+                "ca-5",
+                "ca-7",
+                "ra-5",
+                "ra-5.2",
+                "sa-22",
+                "si-2",
+                "si-2.2",
+                "si-3",
+                "si-5",
+                "si-7.7",
+                "si-10",
+                "si-11"
+              ],
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Persistently", "Significant Change"]
+            },
+            "FRC-CSO-UCM": {
+              "name": "Using Cryptographic Modules",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Using Cryptographic Modules (UCM) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Using Cryptographic Modules",
+              "reference_url_web_name": "using-cryptographic-modules",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "updated": [
+                {
+                  "date": "2026-04-18",
+                  "comment": "Updated the related terms."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": ["Persistently"]
+            },
+            "FRC-CSO-VDR": {
+              "name": "Vulnerability Detection and Response",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Vulnerability Detection and Response (VDR) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Vulnerability Detection and Response",
+              "reference_url_web_name": "vulnerability-detection-and-response",
+              "affects": ["Providers"],
+              "primary_key_word": "MUST",
+              "controls": [
+                "ca-2",
+                "ca-7",
+                "ca-7.6",
+                "ir-1",
+                "ir-4",
+                "ir-4.1",
+                "ir-5",
+                "ir-5.1",
+                "ir-6",
+                "ir-6.1",
+                "ir-6.2",
+                "pm-3",
+                "pm-5",
+                "pm-31",
+                "ra-2",
+                "ra-2.1",
+                "ra-3",
+                "ra-3.3",
+                "ra-5",
+                "ra-5.2",
+                "ra-5.3",
+                "ra-5.4",
+                "ra-5.5",
+                "ra-5.6",
+                "ra-5.7",
+                "ra-5.11",
+                "ra-9",
+                "ra-10",
+                "si-2",
+                "si-2.1",
+                "si-2.2",
+                "si-2.4",
+                "si-2.5",
+                "si-3",
+                "si-3.1",
+                "si-3.2",
+                "si-4",
+                "si-4.2",
+                "si-4.3",
+                "si-4.7",
+                "ca-7.4",
+                "ra-7"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ],
+              "terms": [
+                "Persistently",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
+              ]
+            }
+          }
+        },
         "20x": {
           "CSX": {
-            "KSI-CSX-SUM": {
+            "FRC-CSX-SUM": {
               "statement": "Providers MUST maintain simple high-level summaries of at least the following for each Key Security Indicator:",
               "following_information": [
                 "Goals for how it will be implemented and validated, including clear pass/fail criteria and traceability",
@@ -4847,7 +5139,7 @@
                 "Persistent Validation"
               ]
             },
-            "KSI-CSX-MAS": {
+            "FRC-CSX-MAS": {
               "statement": "Providers SHOULD apply ALL Key Security Indicators to ALL aspects of their cloud service offering that are within the FedRAMP Minimum Assessment Scope.",
               "name": "Application within MAS",
               "affects": ["Providers"],
@@ -4863,46 +5155,6 @@
                 }
               ],
               "terms": ["Cloud Service Offering"]
-            },
-            "KSI-CSX-ORD": {
-              "statement": "Providers MAY use the following order of criticality for approaching Authorization by FedRAMP Key Security Indicators for an initial authorization package:",
-              "following_information": [
-                "Minimum Assessment Scope (MAS)",
-                "Authorization Data Sharing (ADS)",
-                "Using Cryptographic Modules (UCM)",
-                "Vulnerability Detection and Response (VDR)",
-                "Significant Change Notifications (SCN)",
-                "Persistent Validation and Assessment (PVA)",
-                "Secure Configuration Guide (RSC)",
-                "Collaborative Continuous Monitoring (CCM)",
-                "FedRAMP Security Inbox (FSI)",
-                "Incident Communications Procedures (ICP)"
-              ],
-              "name": "AFR Order of Criticality",
-              "affects": ["Providers"],
-              "primary_key_word": "MAY",
-              "impact": {
-                "low": true,
-                "moderate": true
-              },
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ],
-              "terms": [
-                "Authorization Data",
-                "Authorization Package",
-                "FedRAMP Security Inbox",
-                "Incident",
-                "Persistent Validation",
-                "Persistently",
-                "Significant Change",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ]
             }
           }
         }
@@ -4910,276 +5162,6 @@
     }
   },
   "KSI": {
-    "AFR": {
-      "id": "KSI-AFR",
-      "name": "Authorization by FedRAMP",
-      "web_name": "authorization-by-fedramp",
-      "short_name": "AFR",
-      "theme": "A secure cloud service provider seeking FedRAMP authorization will address all FedRAMP 20x requirements and recommendations, including government-specific requirements for maintaining a secure system and reporting on activities to government customers.",
-      "indicators": {
-        "KSI-AFR-ADS": {
-          "name": "Authorization Data Sharing",
-          "statement": "Authorization data is shared with all necessary parties in alignment with the FedRAMP Authorization Data Sharing (ADS) process, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Authorization Data Sharing",
-          "reference_url": "https://fedramp.gov/docs/20x/authorization-data-sharing",
-          "controls": [
-            "ac-3",
-            "ac-4",
-            "au-2",
-            "au-3",
-            "au-6",
-            "ca-2",
-            "ir-4",
-            "ra-5",
-            "sc-8"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": [
-            "All Necessary Parties",
-            "Authorization Data",
-            "Persistently"
-          ]
-        },
-        "KSI-AFR-CCM": {
-          "name": "Collaborative Continuous Monitoring",
-          "statement": "A process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties is maintained in alignment with FedRAMP Collaborative Continuous Monitoring (CCM) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Collaborative Continuous Monitoring",
-          "reference_url": "https://fedramp.gov/docs/20x/collaborative-continuous-monitoring",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["All Necessary Parties", "Persistently", "Quarterly Review"]
-        },
-        "KSI-AFR-FSI": {
-          "name": "FedRAMP Security Inbox",
-          "statement": "A secure inbox is maintained to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "FedRAMP Security Inbox",
-          "reference_url": "https://fedramp.gov/docs/20x/fedramp-security-inbox",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["FedRAMP Security Inbox", "Persistently"]
-        },
-        "KSI-AFR-ICP": {
-          "name": "Incident Communications Procedures",
-          "statement": "FedRAMP's Incident Communications Procedures (ICP) are integrated into incident response procedures, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Incident Communications Procedures",
-          "reference_url": "https://fedramp.gov/docs/20x/incident-communications-procedures",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["Incident", "Persistently", "Vulnerability Response"]
-        },
-        "KSI-AFR-MAS": {
-          "name": "Minimum Assessment Scope",
-          "statement": "The FedRAMP Minimum Assessment Scope (MAS) is used to identify and document the scope of the cloud service offering to be assessed for FedRAMP certification, and all related requirements and recommendations are persistently addressed.",
-          "controls": [
-            "ac-1",
-            "ac-21",
-            "at-1",
-            "au-1",
-            "ca-1",
-            "cm-1",
-            "cp-1",
-            "cp-2.1",
-            "cp-2.8",
-            "cp-4.1",
-            "ia-1",
-            "ir-1",
-            "ma-1",
-            "mp-1",
-            "pe-1",
-            "pl-1",
-            "pl-2",
-            "pl-4",
-            "pl-4.1",
-            "ps-1",
-            "ra-1",
-            "ra-9",
-            "sa-1",
-            "sc-1",
-            "si-1",
-            "sr-1",
-            "sr-2",
-            "sr-3",
-            "sr-11"
-          ],
-          "reference": "Minimum Assessment Scope",
-          "reference_url": "https://fedramp.gov/docs/20x/minimum-assessment-scope",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["Cloud Service Offering", "Persistently"]
-        },
-        "KSI-AFR-PVA": {
-          "name": "Persistent Validation and Assessment",
-          "statement": "The effectiveness and status of security decisions and policies are persistently validated, assessed, and reported on following the FedRAMP Persistent Validation and Assessment (PVA) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Persistent Validation and Assessment",
-          "reference_url": "https://fedramp.gov/docs/20x/persistent-validation-and-assessment",
-          "updated": [
-            {
-              "date": "2026-04-12",
-              "comment": "Updated the related terms."
-            },
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["Persistent Validation", "Persistently"]
-        },
-        "KSI-AFR-SCG": {
-          "name": "Secure Configuration Guide",
-          "statement": "Guidance for the secure configuration of the cloud service offering is provided to customers in alignment with FedRAMP Secure Configuration Guide (SCG) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Secure Configuration Guide",
-          "reference_url": "https://fedramp.gov/docs/20x/secure-configuration-guide",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["Cloud Service Offering", "Persistently"]
-        },
-        "KSI-AFR-SCN": {
-          "name": "Significant Change Notifications",
-          "statement": "Changes to the cloud service offering are tracked and all necessary parties are notified in alignment with FedRAMP Significant Change Notifications (SCN) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Significant Change Notifications",
-          "reference_url": "https://fedramp.gov/docs/20x/significant-change-notifications",
-          "controls": [
-            "ca-7.4",
-            "cm-3.4",
-            "cm-4",
-            "cm-7.1",
-            "au-5",
-            "ca-5",
-            "ca-7",
-            "ra-5",
-            "ra-5.2",
-            "sa-22",
-            "si-2",
-            "si-2.2",
-            "si-3",
-            "si-5",
-            "si-7.7",
-            "si-10",
-            "si-11"
-          ],
-          "updated": [
-            {
-              "date": "2026-04-12",
-              "comment": "Updated the related terms."
-            },
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": [
-            "All Necessary Parties",
-            "Cloud Service Offering",
-            "Persistently",
-            "Significant Change"
-          ]
-        },
-        "KSI-AFR-UCM": {
-          "name": "Using Cryptographic Modules",
-          "statement": "Cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with FedRAMP Using Cryptographic Modules (UCM) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Using Cryptographic Modules",
-          "reference_url": "https://fedramp.gov/docs/20x/using-cryptographic-modules",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": ["Federal Customer Data", "Persistently"]
-        },
-        "KSI-AFR-VDR": {
-          "name": "Vulnerability Detection and Response",
-          "statement": "Vulnerabilities are persistently detected and responded to in alignment with FedRAMP Vulnerability Detection and Response (VDR) rules, and all related requirements and recommendations are persistently addressed.",
-          "reference": "Vulnerability Detection and Response",
-          "reference_url": "https://fedramp.gov/docs/20x/vulnerability-detection-and-response",
-          "controls": [
-            "ca-2",
-            "ca-7",
-            "ca-7.6",
-            "ir-1",
-            "ir-4",
-            "ir-4.1",
-            "ir-5",
-            "ir-5.1",
-            "ir-6",
-            "ir-6.1",
-            "ir-6.2",
-            "pm-3",
-            "pm-5",
-            "pm-31",
-            "ra-2",
-            "ra-2.1",
-            "ra-3",
-            "ra-3.3",
-            "ra-5",
-            "ra-5.2",
-            "ra-5.3",
-            "ra-5.4",
-            "ra-5.5",
-            "ra-5.6",
-            "ra-5.7",
-            "ra-5.11",
-            "ra-9",
-            "ra-10",
-            "si-2",
-            "si-2.1",
-            "si-2.2",
-            "si-2.4",
-            "si-2.5",
-            "si-3",
-            "si-3.1",
-            "si-3.2",
-            "si-4",
-            "si-4.2",
-            "si-4.3",
-            "si-4.7",
-            "ca-7.4",
-            "ra-7"
-          ],
-          "updated": [
-            {
-              "date": "2026-04-12",
-              "comment": "Updated the related terms."
-            },
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": [
-            "Persistently",
-            "Vulnerability",
-            "Vulnerability Detection",
-            "Vulnerability Response"
-          ]
-        }
-      }
-    },
     "CMT": {
       "id": "KSI-CMT",
       "name": "Change Management",

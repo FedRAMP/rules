@@ -6,9 +6,9 @@ Generated from `fedramp-consolidated-rules.json` (version 2026.0.1.1-wip, last u
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ADS | Authorization Data Sharing | Consolidated Rules for 2026 | 2027-01-01 | 2027-08-01 | 2028-03-01 | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 14 | 0 | 5 | 0 | 1 | 2026-06-01 |
 | CCM | Collaborative Continuous Monitoring | Consolidated Rules for 2026 | 2027-01-01 | 2027-04-02 | 2027-10-01 | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 11 | 3 | 8 | 1 | 5 | 2026-06-01 |
+| FRC | FedRAMP Certification | Consolidated Rules for 2026 | 2027-01-01 | 2027-01-01 | 2027-01-01 | Consolidated Rules for 2026 | 2027-05-04 | 2027-05-04 | 2027-05-04 | 11 | 0 | 1 | 0 | 0 | 2026-06-01 |
 | FSI | FedRAMP Security Inbox | Consolidated Rules for 2026 | 2026-01-05 | 2026-01-05 | 2026-07-01 | Consolidated Rules for 2026 | 2026-01-05 | 2026-01-05 | 2026-07-01 | 13 | 0 | 2 | 0 | 1 | 2026-06-01 |
 | ICP | Incident Communications Procedures | Consolidated Rules for 2026 | 2027-01-01 | 2027-01-01 | 2027-06-01 | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 6 | 1 | 2 | 0 | 0 | 2026-06-01 |
-| KSI | Key Security Indicators | - | N/A | N/A | N/A | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 1 | 0 | 1 | 0 | 1 | 2026-06-01 |
 | MAS | Minimum Assessment Scope | Consolidated Rules for 2026 | 2027-01-01 | 2027-01-01 | 2027-06-01 | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 4 | 0 | 0 | 0 | 1 | 2026-06-01 |
 | MKT | Marketplace Listing | Consolidated Rules for 2026 | 2027-01-01 | 2027-01-01 | 2027-06-01 | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 12 | 1 | 0 | 0 | 0 | 2026-06-01 |
 | PVA | Persistent Validation and Assessment | - | N/A | N/A | N/A | Consolidated Rules for 2026 | 2027-05-04 | 2027-01-01 | 2027-05-04 | 13 | 2 | 3 | 0 | 2 | 2026-06-01 |
