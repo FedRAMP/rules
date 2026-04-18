@@ -45,6 +45,26 @@ when they all pass:
   Checks that each FRD `term` uses the default title casing and that each
   `terms` array matches the current structured term extraction logic.
 
+### Summary Commands
+
+Summary generators follow the `summary:*` naming pattern so additional summary
+scripts can be added over time without colliding with the validation commands.
+
+Run summary generation from `/Users/pwx/github/pete-gov/rules/tools`:
+
+```bash
+bun run summary:rules
+```
+
+This runs
+[tools/summary-rules.ts](/Users/pwx/github/pete-gov/rules/tools/summary-rules.ts:1),
+which reads the configured consolidated rules JSON, summarizes each FRR
+document, and writes the output to
+[RULES.md](/Users/pwx/github/pete-gov/rules/RULES.md:1).
+
+Use this whenever you want to refresh the root summary after editing
+`fedramp-consolidated-rules.json`.
+
 Run the Bun test suite directly:
 
 ```bash
