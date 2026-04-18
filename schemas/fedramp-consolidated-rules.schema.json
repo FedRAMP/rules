@@ -152,8 +152,7 @@
             "additionalProperties": false
           }
         },
-        "purpose": { "type": "string" },
-        "expected_outcomes": { "type": "array", "items": { "type": "string" } }
+        "purpose": { "type": "string" }
       },
       "additionalProperties": false
     },
