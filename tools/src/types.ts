@@ -30,6 +30,10 @@ export interface RequirementLevel {
   pain_timeframes?: unknown[];
 }
 
+export type ClassKey = "a" | "b" | "c" | "d";
+
+export type RequirementByClass = Partial<Record<ClassKey, RequirementLevel>>;
+
 export interface RequirementLike {
   fka?: string;
   fkas?: string[];
@@ -41,11 +45,7 @@ export interface RequirementLike {
   following_information_bullets?: string[];
   terms?: string[];
   updated?: UpdatedEntry[];
-  varies_by_level?: {
-    low?: RequirementLevel;
-    moderate?: RequirementLevel;
-    high?: RequirementLevel;
-  };
+  varies_by_class?: RequirementByClass;
 }
 
 export interface Requirement extends RequirementLike {

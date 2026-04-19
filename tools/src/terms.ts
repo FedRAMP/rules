@@ -16,7 +16,7 @@ export interface DefinitionTermTitleChange {
   nextTerm: string;
 }
 
-const TERM_UPDATE_COMMENT = "Updated the related terms.";
+export const TERM_UPDATE_COMMENT = "Updated the related terms.";
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -194,17 +194,21 @@ function recordTermUpdate(entity: RequirementLike, entryDate: string): void {
 export function applyTermSync(
   document: RulesDocument,
   options?: {
+    addComment?: boolean;
     entryDate?: string;
   },
 ): TermSyncChange[] {
   const changes = collectTermSyncChanges(document);
+  const addComment = options?.addComment ?? false;
   const entryDate = options?.entryDate ?? getTodayDate();
 
   visitRequirements(document, ({ location, requirement }) => {
     const match = changes.find((change) => change.location === location);
     if (match) {
       requirement.terms = match.nextTerms;
-      recordTermUpdate(requirement, entryDate);
+      if (addComment) {
+        recordTermUpdate(requirement, entryDate);
+      }
     }
   });
 
@@ -212,7 +216,9 @@ export function applyTermSync(
     const match = changes.find((change) => change.location === location);
     if (match) {
       indicator.terms = match.nextTerms;
-      recordTermUpdate(indicator, entryDate);
+      if (addComment) {
+        recordTermUpdate(indicator, entryDate);
+      }
     }
   });
 

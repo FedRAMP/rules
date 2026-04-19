@@ -1,4 +1,12 @@
-import type { DefinitionEntry, KsiIndicator, Requirement, RequirementLevel, RulesDocument } from "./types";
+import type {
+  DefinitionEntry,
+  KsiIndicator,
+  Requirement,
+  RequirementByClass,
+  RulesDocument,
+} from "./types";
+
+const CLASS_KEYS = ["a", "b", "c", "d"] as const;
 
 export interface RequirementVisit {
   id: string;
@@ -76,11 +84,7 @@ export function getSearchableTextParts(entity: {
   notes?: string[];
   following_information?: string[];
   following_information_bullets?: string[];
-  varies_by_level?: {
-    low?: RequirementLevel;
-    moderate?: RequirementLevel;
-    high?: RequirementLevel;
-  };
+  varies_by_class?: RequirementByClass;
 }): string[] {
   const parts: string[] = [];
 
@@ -99,9 +103,9 @@ export function getSearchableTextParts(entity: {
   if (entity.following_information_bullets?.length) {
     parts.push(...entity.following_information_bullets);
   }
-  if (entity.varies_by_level) {
-    for (const level of ["low", "moderate", "high"] as const) {
-      const statement = entity.varies_by_level[level]?.statement;
+  if (entity.varies_by_class) {
+    for (const classKey of CLASS_KEYS) {
+      const statement = entity.varies_by_class[classKey]?.statement;
       if (statement) {
         parts.push(statement);
       }

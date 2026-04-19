@@ -9,17 +9,23 @@ import {
 import { loadRulesDocument, writeRulesDocument } from "./src/rules";
 
 const updateMode = hasFlag("--update") || hasFlag("--write");
+const commentMode = hasFlag("-comment") || hasFlag("--comment");
 const { configPath, rulesPath } = getResolvedPaths();
 const document = loadRulesDocument();
 
 console.log(`Using config: ${configPath}`);
 console.log(`Rules file: ${rulesPath}`);
 console.log(updateMode ? "Mode: UPDATE" : "Mode: CHECK");
+if (updateMode) {
+  console.log(`Updated history comments: ${commentMode ? "ENABLED" : "DISABLED"}`);
+}
 
 const titleChanges = updateMode
   ? applyDefinitionTermTitleChanges(document)
   : collectDefinitionTermTitleChanges(document);
-const syncChanges = updateMode ? applyTermSync(document) : collectTermSyncChanges(document);
+const syncChanges = updateMode
+  ? applyTermSync(document, { addComment: commentMode })
+  : collectTermSyncChanges(document);
 
 if (titleChanges.length === 0 && syncChanges.length === 0) {
   console.log(green("Terms are already synchronized."));

@@ -84,7 +84,16 @@ bun run terms:update
 
 This applies the same logic used by `bun run test:terms`, but writes the updated
 FRD term title fixes and `terms` array updates back to the configured rules
-JSON.
+JSON. By default, this command does not add a new `updated` history comment to
+the entries it changes.
+
+If you also want term synchronization changes to add the standard
+`"Updated the related terms."` comment to the matching `updated` entry for the
+current day, pass `-comment`:
+
+```bash
+bun run terms:update -- -comment
+```
 
 Fix ID alignment issues in place:
 
@@ -124,6 +133,12 @@ Apply term synchronization directly:
 
 ```bash
 bun run validate-terms.ts --write
+```
+
+Apply term synchronization directly and add `updated` history comments:
+
+```bash
+bun run validate-terms.ts --write -comment
 ```
 
 Check primary keyword alignment without modifying the file:

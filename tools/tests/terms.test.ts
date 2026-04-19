@@ -2,6 +2,7 @@ import { expect, test } from "bun:test";
 
 import { loadRulesDocument } from "../src/rules";
 import {
+  TERM_UPDATE_COMMENT,
   applyDefinitionTermTitleChanges,
   applyTermSync,
   collectDefinitionTermTitleChanges,
@@ -73,7 +74,7 @@ test("definition title fixes update the term without appending to updated histor
   ]);
 });
 
-test("term sync prepends an updated entry when the date is not already present", () => {
+test("term sync updates terms without appending to updated history by default", () => {
   const document: RulesDocument = {
     info: {
       title: "Test",
@@ -123,10 +124,69 @@ test("term sync prepends an updated entry when the date is not already present",
   const changes = applyTermSync(document, { entryDate: "2026-04-12" });
 
   expect(changes).toHaveLength(1);
+  expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].terms).toEqual(["Agency"]);
+  expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].updated).toEqual([
+    {
+      date: "2026-02-04",
+      comment: "Existing note.",
+    },
+  ]);
+});
+
+test("term sync prepends an updated entry when comment mode is enabled", () => {
+  const document: RulesDocument = {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-04-12",
+    },
+    FRD: {
+      info: {},
+      data: {
+        both: {
+          "FRD-AGY": {
+            term: "Agency",
+            definition: "Test definition",
+            alts: ["agency"],
+          },
+        },
+      },
+    },
+    FRR: {
+      MAS: {
+        info: {},
+        data: {
+          both: {
+            CSO: {
+              "MAS-CSO-TST": {
+                name: "Test requirement",
+                affects: ["Providers"],
+                statement: "Providers MUST notify an agency.",
+                primary_key_word: "MUST",
+                terms: [],
+                updated: [
+                  {
+                    date: "2026-02-04",
+                    comment: "Existing note.",
+                  },
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  };
+
+  const changes = applyTermSync(document, { addComment: true, entryDate: "2026-04-12" });
+
+  expect(changes).toHaveLength(1);
   expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].updated).toEqual([
     {
       date: "2026-04-12",
-      comment: "Updated the related terms.",
+      comment: TERM_UPDATE_COMMENT,
     },
     {
       date: "2026-02-04",
@@ -135,7 +195,7 @@ test("term sync prepends an updated entry when the date is not already present",
   ]);
 });
 
-test("term sync appends to an existing comment when the same updated date is already present", () => {
+test("term sync appends to an existing comment when comment mode is enabled and the same date is already present", () => {
   const document: RulesDocument = {
     info: {
       title: "Test",
@@ -182,13 +242,13 @@ test("term sync appends to an existing comment when the same updated date is alr
     KSI: {},
   };
 
-  const changes = applyTermSync(document, { entryDate: "2026-04-12" });
+  const changes = applyTermSync(document, { addComment: true, entryDate: "2026-04-12" });
 
   expect(changes).toHaveLength(1);
   expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].updated).toEqual([
     {
       date: "2026-04-12",
-      comment: "Reviewed wording. Updated the related terms.",
+      comment: `Reviewed wording. ${TERM_UPDATE_COMMENT}`,
     },
   ]);
 });

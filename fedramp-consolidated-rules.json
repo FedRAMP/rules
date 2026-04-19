@@ -45,6 +45,17 @@
     },
     "data": {
       "both": {
+        "FRD-AAP": {
+          "term": "All Affected Parties",
+          "alts": ["all affected parties"],
+          "definition": "All federal entities whose interests are affected directly or are likely to be affected directly in the event of a vulnerability or incident related to federal customer data. This always includes FedRAMP and the directly impacted federal customer agency.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-ACV": {
           "term": "Accepted Vulnerability",
           "alts": ["accepted vulnerability", "accepted vulnerabilities"],
@@ -165,6 +176,34 @@
             }
           ]
         },
+        "FRD-DTM": {
+          "term": "Deterministic Telemetry",
+          "alts": ["deterministic telemetry"],
+          "definition": "Verifiable data collected directly from an authoritative source that represents a factual and reproducible observation of the attributes of a system such as the system's state, configuration, or behavior.",
+          "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as “Generative AI”) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-FIR": {
+          "term": "Final Incident Report (FIR)",
+          "alts": [
+            "final incident report",
+            "final incident reports",
+            "FIR",
+            "FIRs"
+          ],
+          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-FPV": {
           "term": "False Positive Vulnerability",
           "alts": [
@@ -209,7 +248,7 @@
             "fully mitigated vulnerability",
             "fully mitigated vulnerabilities"
           ],
-          "definition": "A vulnerability where the likelihood of exploitation or potential adverse impact of exploitation has been reduced from the original evaluation until either are negligible, but the vulnerability is still detected.",
+          "definition": "A vulnerability where the likelihood of exploitation or Potential Adverse Impact N-rating has been reduced from the original evaluation until either are negligible, but the vulnerability is still detected.",
           "updated": [
             {
               "date": "2026-06-01",
@@ -228,14 +267,21 @@
             }
           ]
         },
+        "FRD-IIR": {
+          "term": "Initial Incident Report (IIR)",
+          "alts": ["initial incident report", "initial incident reports", "IIR", "IIRs"],
+          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-IPC": {
-          "term": "Impact Categorization Change",
-          "alts": [
-            "impact categorization",
-            "impact categorization change",
-            "impact categorization changes"
-          ],
-          "definition": "The type of significant change that is likely to increase or decrease the impact level categorization for the entire cloud service offering (e.g. from low to moderate or from high to moderate).",
+          "term": "Certification Class Change",
+          "alts": ["certification class change", "certification class changes"],
+          "definition": "The type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
           "updated": [
             {
               "date": "2026-06-01",
@@ -377,6 +423,17 @@
             }
           ]
         },
+        "FRD-MGN": {
+          "term": "Machine-Generated",
+          "alts": ["machine-generated"],
+          "definition": "Automatically produced by a computer process, application, or other mechanism without the intervention or manipulation of a human during production.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-MRD": {
           "term": "Machine-Readable",
           "alts": ["machine-readable"],
@@ -412,6 +469,22 @@
             }
           ]
         },
+        "FRD-OIR": {
+          "term": "Ongoing Incident Report (OIR)",
+          "alts": [
+            "ongoing incident report",
+            "ongoing incident reports",
+            "OIR",
+            "OIRs"
+          ],
+          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-ODV": {
           "term": "Overdue Vulnerability",
           "alts": ["overdue vulnerability", "overdue vulnerabilities"],
@@ -429,7 +502,7 @@
             "partially mitigated vulnerability",
             "partially mitigated vulnerabilities"
           ],
-          "definition": "A vulnerability where the likelihood or potential adverse impact of exploitation has been reduced from the original evaluation but the risk of exploitation still exists and the vulnerability is still detected.",
+          "definition": "A vulnerability where the likelihood or Potential Adverse Impact N-rating has been reduced from the original evaluation but the risk of exploitation still exists and the vulnerability is still detected.",
           "updated": [
             {
               "date": "2026-06-01",
@@ -440,7 +513,7 @@
         "FRD-PFA": {
           "term": "Persistent FedRAMP Assessment",
           "alts": ["persistent FedRAMP assessment", "PFRA"],
-          "definition": "Follow-on assessments of a cloud service offering focused on Key Security Indicators, coordinated by the provider with all necessary assessors, to maintain FedRAMP Certification or change its impact categorization.",
+          "definition": "Follow-on assessments of a cloud service offering focused on Key Security Indicators, coordinated by the provider with all necessary assessors, to maintain FedRAMP Certification or change its FedRAMP Certification class.",
           "updated": [
             {
               "date": "2026-06-01",
@@ -480,8 +553,13 @@
         },
         "FRD-PAI": {
           "term": "Potential Adverse Impact (Of Vulnerability Exploitation)",
-          "alts": ["potential adverse impact", "potential adverse impacts"],
-          "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impact to agencies that _likely_ could result if a threat actor exploits a _vulnerability_ in the _cloud service offering_; as estimated following FedRAMP recommendations and requirements.",
+          "alts": [
+            "potential adverse impact",
+            "potential adverse impacts",
+            "PAIN",
+            "Potential Adverse Impact N-rating"
+          ],
+          "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impact to agencies that likely could result if a threat actor exploits a vulnerability in the cloud service offering; as estimated following FedRAMP recommendations and requirements to calculate the Potential Adverse Impact N-rating (PAIN).",
           "updated": [
             {
               "date": "2026-06-01",
@@ -506,6 +584,19 @@
           "alts": ["promptly", "prompt"],
           "definition": "Without unnecessary delay.",
           "note": "The use of promptly in FedRAMP materials frames conveys a need for urgent action where the expected time frame will vary by circumstance but earlier action is more likely to improve security outcomes and increase the security posture of a cloud service offering.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-CAT": {
+          "term": "Security Category",
+          "alts": ["security category", "security categories"],
+          "definition": "Has the meaning from NIST FIPS 199, which is \"The characterization of information or an information system based on an assessment of the potential impact that a loss of confidentiality, integrity, or availability of such information or information system would have on organizational operations, organizational assets, or individuals.\"",
+          "reference": "NIST FIPS 199 Standards for Security Categorization of Federal Information and Information Systems",
+          "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
           "updated": [
             {
               "date": "2026-06-01",
@@ -539,6 +630,18 @@
           "term": "Remediated Vulnerability",
           "alts": ["remediated vulnerability", "remediated vulnerabilities"],
           "definition": "A vulnerability that has been neutralized or eliminated and is no longer detected.",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-RSP": {
+          "term": "Responsibly",
+          "alts": ["responsibly"],
+          "definition": "In a way that shows that you have good judgment and the ability to act correctly and make decisions on your own.",
+          "note": "Refrain from broadcasting any details that might assist adversaries in their endeavors, disclosing vulnerabilities prior to full remediation, or providing overly specific technical information that could potentially facilitate further compromise. In short: use your best judgment, don’t be that guy.",
           "updated": [
             {
               "date": "2026-06-01",
@@ -766,15 +869,15 @@
           "CSX": {
             "CDS-CSX-UTC": {
               "statement": "Providers MUST use a FedRAMP-compatible trust center to store and share FedRAMP Certification data with all necessary parties.",
-              "terms": ["All Necessary Parties", "Certification Data", "Trust Center"],
+              "terms": [
+                "All Necessary Parties",
+                "Certification Data",
+                "Trust Center"
+              ],
               "affects": ["Providers"],
               "name": "Use Trust Centers",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -797,10 +900,6 @@
               "primary_key_word": "MAY",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -813,10 +912,6 @@
               "name": "USDA Connect",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -842,10 +937,6 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -862,10 +953,6 @@
               "name": "Use Trust Centers",
               "primary_key_word": "SHOULD",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -899,7 +986,7 @@
                 "UEI Number",
                 "Contact Information",
                 "Overall Service Description",
-                "Detailed list of specific services and their security objectives (see CDS-CSO-SVC)",
+                "Detailed list of specific services and their security categories (see CDS-CSO-SVC)",
                 "Summary of customer responsibilities and secure configuration guidance (if applicable, see the FedRAMP Secure Configuration Guide process)",
                 "Process for accessing information in the trust center (if applicable)",
                 "Availability status and recent disruptions for the trust center (if applicable)",
@@ -909,26 +996,18 @@
               "note": "Generally, this information should be available on a public webpage.",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
             },
             "CDS-CSO-SVC": {
-              "statement": "Providers MUST publicly share a detailed list of specific services and their security objectives that are included in the cloud service offering using clear feature or service names that align with standard public marketing materials; this list MUST be complete enough for a potential customer to determine which services are and are not included in the FedRAMP Minimum Assessment Scope without requesting access to underlying FedRAMP Certification data.",
+              "statement": "Providers MUST publicly share a detailed list of specific services and their security categories that are included in the cloud service offering using clear feature or service names that align with standard public marketing materials; this list MUST be complete enough for a potential customer to determine which services are and are not included in the FedRAMP Minimum Assessment Scope without requesting access to underlying FedRAMP Certification data.",
               "terms": ["Certification Data", "Cloud Service Offering"],
               "affects": ["Providers"],
               "name": "Service List",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -942,10 +1021,6 @@
               "name": "Consistency Between Formats",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -984,10 +1059,6 @@
               ],
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1000,10 +1071,6 @@
               "name": "Historical FedRAMP Certification data",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1024,10 +1091,6 @@
               "name": "Public Guidance",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1041,10 +1104,6 @@
               "primary_key_word": "SHOULD",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1056,10 +1115,6 @@
               "name": "Agency Access Denial",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1091,10 +1146,6 @@
               "note": "\"Without interruption\" means that parties should not have to request manual approval each time they need to access FedRAMP Certification data or go through a complicated process. The preferred way of ensuring access without interruption is to use on-demand just-in-time access provisioning.",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1107,10 +1158,6 @@
               "name": "Programmatic Access",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1125,10 +1172,6 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1141,10 +1184,6 @@
               "name": "Access Logging",
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1163,10 +1202,6 @@
               "primary_key_word": "SHOULD",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1183,10 +1218,6 @@
               "name": "Self-Service Access Management",
               "primary_key_word": "SHOULD",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1294,14 +1325,6 @@
               ],
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
-                  "date": "2026-04-12",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1317,10 +1340,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1339,10 +1358,6 @@
               "note": "This could be email by default but providers are encouraged to consider something more interactive as appropriate.",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1356,10 +1371,6 @@
               "primary_key_word": "MUST",
               "note": "This is intended to encourage sharing of information and decrease the burden on the cloud service provider - providing this summary will reduce duplicate questions from agencies and ensure FedRAMP has access to this information. It is generally in the provider’s interest to update this addendum frequently throughout the quarter.",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1377,10 +1388,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST NOT",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1413,10 +1420,6 @@
               "primary_key_word": "MAY",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1425,21 +1428,21 @@
           },
           "QTR": {
             "CCM-QTR-MTG": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers for Class B offerings SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
-                "moderate": {
-                  "statement": "Providers MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                "c": {
+                  "statement": "Providers for Class C offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
-                "high": {
-                  "statement": "Providers MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                "d": {
+                  "statement": "Providers for Class D offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
@@ -1467,10 +1470,6 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1483,10 +1482,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1518,10 +1513,6 @@
               "primary_key_word": "SHOULD",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1551,10 +1542,6 @@
               "affects": ["Providers"],
               "primary_key_word": "SHOULD",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1621,10 +1608,6 @@
               "note": "This is required by 44 USC § 35, OMB A-130, FIPS-200, and M-24-15.",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1651,10 +1634,6 @@
               "primary_key_word": "MUST",
               "note": "Agencies are required to notify FedRAMP by OMB Memorandum M-24-15 section IV (a).",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -1691,10 +1670,6 @@
               "note": "This is a statutory requirement in 44 USC § 3613 (e) related to the Presumption of Adequacy for a FedRAMP Certification.",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -1711,35 +1686,6 @@
               "name": "Consider Security Category",
               "affects": ["Agencies"],
               "primary_key_word": "SHOULD",
-              "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "CCM-AGM-SSR": {
-              "name": "Senior Security Reviewer",
-              "varies_by_level": {
-                "low": {
-                  "statement": "Agencies MAY designate a senior information security official to review Ongoing Certification Reports and represent the agency at Quarterly Reviews for cloud service offerings included in agency information systems with a Security Objective of Low.",
-                  "primary_key_word": "MAY"
-                },
-                "moderate": {
-                  "statement": "Agencies MAY designate a senior information security official to review Ongoing Certification Reports and represent the agency at Quarterly Reviews for cloud service offerings included in agency information systems with a Security Objective of Moderate.",
-                  "primary_key_word": "MAY"
-                },
-                "high": {
-                  "statement": "Agencies SHOULD designate a senior information security official to review Ongoing Certification Reports and represent the agency at Quarterly Reviews for cloud service offerings included in agency information systems with a Security Objective of High.",
-                  "primary_key_word": "SHOULD"
-                }
-              },
-              "terms": ["Agency", "Cloud Service Offering", "Quarterly Review"],
-              "affects": ["Agencies"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1767,10 +1713,6 @@
               "affects": ["Agencies"],
               "primary_key_word": "SHOULD",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -2026,14 +1968,14 @@
               "name": "Complete Required Actions",
               "affects": ["Providers"],
               "primary_key_word": "MUST",
-              "note": "Timeframes may vary by impact level of the cloud service offering.",
+              "note": "Timeframes may vary by FedRAMP Certification class.",
               "updated": [
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
-              "terms": ["Cloud Service Offering"]
+              "terms": []
             },
             "FSI-CSO-EMR": {
               "statement": "Providers MUST route Emergency designated messages sent by FedRAMP to a senior security official for their awareness.",
@@ -2051,7 +1993,7 @@
             "FSI-CSO-IMA": {
               "statement": "Providers SHOULD complete the required actions in Important designated messages sent by FedRAMP within the timeframe specified in the message.",
               "name": "Important Message Actions",
-              "note": "Timeframes may vary by impact level of the cloud service offering.",
+              "note": "Timeframes may vary by FedRAMP Certification class.",
               "affects": ["Providers"],
               "primary_key_word": "SHOULD",
               "updated": [
@@ -2060,7 +2002,7 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
-              "terms": ["Cloud Service Offering"]
+              "terms": []
             },
             "FSI-CSO-ACK": {
               "statement": "Providers SHOULD promptly and automatically acknowledge the receipt of messages received from FedRAMP in their FedRAMP Security Inbox.",
@@ -2365,6 +2307,7 @@
               ],
               "terms": [
                 "Agency",
+                "Certification Package",
                 "Cloud Service Offering",
                 "Federal Customer Data",
                 "Handle",
@@ -2373,11 +2316,11 @@
               ]
             },
             "MAS-CSO-FLO": {
-              "statement": "Providers MUST clearly identify, document, and explain information flows and security objectives for ALL information resources or sets of information resources in the cloud service offering.",
+              "statement": "Providers MUST clearly identify, document, and explain information flows and security categories for ALL information resources or sets of information resources in the cloud service offering.",
               "affects": ["Providers"],
-              "name": "Information Flows and Security Objectives",
+              "name": "Information Flows and Security Categories",
               "primary_key_word": "MUST",
-              "note": "Information resources (including third-party information resources) MAY vary by security objectives as appropriate to the level of information handled or impacted by the information resource.",
+              "note": "Information resources (including third-party information resources) MAY vary by security category as appropriate to the type of information handled by or impacted by the information resource.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2435,16 +2378,13 @@
               "primary_key_word": "MAY",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
               "terms": [
                 "Agency",
+                "Certification Package",
                 "Cloud Service Offering",
                 "Information Resource"
               ],
@@ -2538,10 +2478,6 @@
               "primary_key_word": "MUST NOT",
               "updated": [
                 {
-                  "date": "2026-04-12",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -2564,10 +2500,6 @@
                 "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP. "
               ],
               "updated": [
-                {
-                  "date": "2026-04-12",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -2619,10 +2551,6 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-12",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -2656,10 +2584,6 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-12",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -2689,10 +2613,6 @@
                 "Advisors removed from the Marketplace for failure to respond to FedRAMP will not be eligible for listing for at least 6 months unless there are extenuating circumstances."
               ],
               "updated": [
-                {
-                  "date": "2026-04-12",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -2865,10 +2785,6 @@
               ],
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -2887,22 +2803,18 @@
               ]
             },
             "PVA-CSX-PMV": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers MUST complete the validation processes for Key Security Indicators of machine-based information resources at least once every 7 days.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings MUST complete the validation processes for Key Security Indicators of machine-based information resources at least once every 7 days.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 },
-                "moderate": {
-                  "statement": "Providers MUST complete the validation processes for Key Security Indicators of machine-based information resources at least once every 3 days.",
+                "c": {
+                  "statement": "Providers of Class C offerings MUST complete the validation processes for Key Security Indicators of machine-based information resources at least once every 3 days.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "days",
                   "timeframe_num": 3
-                },
-                "high": {
-                  "statement": "Providers SHOULD plan for this requirement to be more frequent at 20x High but the anticipated requirements for this FRR have not yet been established for 20x High.",
-                  "primary_key_word": "SHOULD"
                 }
               },
               "name": "Persistent Machine Validation",
@@ -2911,7 +2823,8 @@
                 "Information Resource",
                 "Machine-Based (Information Resources)",
                 "Persistent Validation"
-              ]
+              ],
+              "updated": []
             },
             "PVA-CSX-PTE": {
               "name": "Provide Technical Evidence",
@@ -3022,10 +2935,6 @@
               "affects": ["Assessors"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -3170,16 +3079,12 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
               "note": "These instructions may appear in a variety of ways; it is up to the provider to do so in the most appropriate and effective ways for their specific customer needs.",
-              "terms": []
+              "terms": ["Certification Package"]
             },
             "SCG-CSO-PUB": {
               "statement": "Providers SHOULD make the Secure Configuration Guide available publicly.",
@@ -3326,7 +3231,7 @@
               "description": "section VI states \"FedRAMP should seek input from CSPs and develop processes that enable CSPs to maintain an agile deployment lifecycle that does not require advance Government approval, while giving the Government the visibility and information it needs to maintain ongoing confidence in the FedRAMP Certified system and to respond timely and appropriately to incidents.\""
             }
           ],
-          "purpose": "The Significant Change Notification (SCN) process establishes conditions for FedRAMP Certified cloud service providers to make most significant changes without requiring advance government approval. Agency authorizing officials who authorize the use of FedRAMP Certified cloud services are expected to account for the risk of cloud service providers making changes to improve the service.\n\nThis process broadly identifies four types of significant changes, from least impactful to most impactful:\n1. Routine Recurring\n2. Adaptive\n3. Transformative\n4. Impact Categorization\n\nThese categories, and the resulting requirements, apply only to significant changes."
+          "purpose": "The Significant Change Notification (SCN) process establishes conditions for FedRAMP Certified cloud service providers to make most significant changes without requiring advance government approval. Agency authorizing officials who authorize the use of FedRAMP Certified cloud services are expected to account for the risk of cloud service providers making changes to improve the service.\n\nThis process broadly identifies four types of significant changes, from least impactful to most impactful:\n1. Routine Recurring\n2. Adaptive\n3. Transformative\n4. Certification Class Change\n\nThese categories, and the resulting requirements, apply only to significant changes."
         },
         "labels": {
           "CSO": {
@@ -3378,15 +3283,11 @@
               "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification package by default.",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
-              "terms": ["Significant Change"]
+              "terms": ["Certification Package", "Significant Change"]
             },
             "SCN-CSO-INF": {
               "name": "Required Information",
@@ -3420,10 +3321,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -3466,10 +3363,6 @@
               "primary_key_word": "MAY",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -3478,7 +3371,7 @@
                 "The sharing mechanism should be designed based on the needs of the provider and their customers and may vary between providers.",
                 "The default sharing mechanism for most providers during the SCN beta was to send an email to agency customers and upload a copy of the notification to the provider's secure sharing location."
               ],
-              "terms": ["Agency"]
+              "terms": ["Agency", "Certification Package"]
             },
             "SCN-CSO-EMG": {
               "name": "Emergency Changes",
@@ -3487,16 +3380,13 @@
               "primary_key_word": "MAY",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
               "terms": [
                 "All Necessary Parties",
+                "Certification Package",
                 "Incident",
                 "Significant Change",
                 "Transformative Change"
@@ -3510,7 +3400,7 @@
               "primary_key_word": "MUST",
               "following_information": [
                 "Is it a significant change? --> Continue evaluation and follow the Significant Change Notification process.",
-                "If it is, is it an impact categorization change?  --> This requires a new assessment and cannot be done under the Significant Change Notification process.",
+                "If it is, is it an FedRAMP Certification class change?  --> This requires a new assessment and cannot be done under the Significant Change Notification process.",
                 "If it is not, is it a routine recurring change? --> Follow the Routine Recurring Change process (SCN-RTR Routine Recurring Changes).",
                 "If it is not, is it a transformative change? --> Follow the Transformative Change process (SCN-TRF Transformative Changes).",
                 "If it is not, then it is an adaptive change --> Follow the Adaptive Change process (SCN-ADP Adaptive Changes)."
@@ -3523,7 +3413,7 @@
               ],
               "terms": [
                 "Adaptive Change",
-                "Impact Categorization Change",
+                "Certification Class Change",
                 "Routine Recurring Change",
                 "Significant Change",
                 "Transformative Change"
@@ -3750,15 +3640,11 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ],
-              "terms": ["Transformative Change"],
+              "terms": ["Certification Package", "Transformative Change"],
               "note": "This requirement is focused on service documentation like user guides, information listed in the marketplace, and other such materials; it does not require updating the system security plan or FedRAMP Certification package."
             },
             "SCN-TRF-TPR": {
@@ -3777,7 +3663,7 @@
                   ],
                   "examples": [
                     "The addition, removal, or replacement of a critical third party service that handles a significant portion of information (e.g., IaaS change)",
-                    "Increasing the security categorization of a service within the offering that actively handles federal customer data (does NOT include impact change of entire offering - see impact categorization change)",
+                    "Increasing the security categorization of a service within the offering that actively handles federal customer data (does NOT include impact change of entire offering - see FedRAMP Certification class change)",
                     "Replacement of underlying management planes or paradigm shift in workload orchestration (e.g., bare-metal servers or virtual machines to containers, migration to kubernetes)",
                     "Datacenter migration where large amounts of federal customer data is moved across boundaries different from normal day-to-day operations",
                     "Adding a new AI-based capability that impacts federal customer data in a different way than existing services or capabilities (such as integrating a new third-party service or training on federal customer data)"
@@ -3827,7 +3713,7 @@
           }
         },
         "front_matter": {
-          "purpose": "This set of requirements and recommendations converts the existing FedRAMP Policy for Cryptographic Module Selection and Use (https://www.fedramp.gov/resources/documents/FedRAMP_Policy_for_Cryptographic_Module_Selection_v1.1.0.pdf) to the simpler FedRAMP 20x style and clarifies the implementation expectations for FedRAMP 20x.\n\nThe notable change from the default Rev5 Policy for Cryptographic Module Selection and Use is that the use of cryptographic modules (or update streams) validated under the NIST Cryptographic Module Validation Program are not explicitly required when cryptographic modules are used to protect federal customer data in cloud service offerings seeking FedRAMP Certification at the Moderate impact level. This acknowledges that not all Moderate impact federal customer data is considered “sensitive” and allows both cloud service providers and agency customers to make risk-based decisions about their use of Moderate impact services for agency use cases that do not include sensitive data.\n\nFedRAMP recommends that cloud service providers seeking FedRAMP Certification at the Moderate impact level use such cryptographic modules whenever technically feasible and reasonable but acknowledges there may be sound reasons not to do so across the board at the Moderate impact level. As always, the reasoning and justification for such decisions must be documented by the cloud service provider."
+          "purpose": "This set of requirements and recommendations converts the existing FedRAMP Policy for Cryptographic Module Selection and Use (https://www.fedramp.gov/resources/documents/FedRAMP_Policy_for_Cryptographic_Module_Selection_v1.1.0.pdf) to the simpler FedRAMP 20x style and clarifies the implementation expectations for FedRAMP 20x.\n\nThe notable change from the default Rev5 Policy for Cryptographic Module Selection and Use is that the use of cryptographic modules (or update streams) validated under the NIST Cryptographic Module Validation Program are not explicitly required when cryptographic modules are used to protect federal customer data in cloud service offerings obtaining FedRAMP Class B Certification. This acknowledges that not all Moderate impact federal customer data is considered “sensitive” and allows both cloud service providers and agency customers to make risk-based decisions about their use of Moderate impact services for agency use cases that do not include sensitive data.\n\nFedRAMP recommends that cloud service providers obtaining FedRAMP Certification Class B use such cryptographic modules whenever technically feasible and reasonable but acknowledges there may be sound reasons not to do so across the board for FedRAMP Certification Class B. As always, the reasoning and justification for such decisions must be documented by the cloud service provider."
         },
         "labels": {
           "CSX": {
@@ -3853,23 +3739,24 @@
               "terms": ["Federal Customer Data", "Persistent Validation"]
             },
             "UCM-CSX-UVM": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "MAY"
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "SHOULD"
                 },
-                "high": {
-                  "statement": "Providers MUST use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+                "d": {
+                  "statement": "Providers of Class D offerings MUST use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "MUST"
                 }
               },
               "name": "Using Validated Cryptographic Modules",
               "affects": ["Providers"],
-              "terms": ["Federal Customer Data", "Persistent Validation"]
+              "terms": ["Federal Customer Data", "Persistent Validation"],
+              "updated": []
             },
             "UCM-CSX-CAT": {
               "statement": "Providers SHOULD configure agency tenants by default to use cryptographic services that use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when such modules are available.",
@@ -4040,10 +3927,6 @@
               "primary_key_word": "MUST",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -4059,7 +3942,7 @@
               "primary_key_word": "MUST",
               "notes": [
                 "The simple reality is that most traditional vulnerabilities discovered by scanners or during assessment are not likely to be exploitable; exploitation typically requires an unrealistic set of circumstances that will not occur during normal operation. The likelihood of exploitation will vary depending on so many factors that FedRAMP will not recommend a specific framework for approaching this beyond the recommendations and requirements in this document.",
-                "The proof, ultimately, is in the pudding - providers who regularly evaluate vulnerabilities as not likely exploitable without careful consideration are more likely to suffer from an adverse impact where the root cause was an exploited vulnerability that was improperly evaluated. If done recklessly or deliberately, such actions will have a potential adverse impact on a provider's FedRAMP Certification."
+                "The proof, ultimately, is in the pudding - providers who regularly evaluate vulnerabilities as not likely exploitable without careful consideration are more likely to suffer from an adverse impact where the root cause was an exploited vulnerability that was improperly evaluated. If done recklessly or deliberately, such actions will have a negative impact on a provider's FedRAMP Certification."
               ],
               "updated": [
                 {
@@ -4071,7 +3954,6 @@
                 "Cloud Service Offering",
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
-                "Potential Adverse Impact (Of Vulnerability Exploitation)",
                 "Regularly",
                 "Vulnerability",
                 "Vulnerability Detection"
@@ -4102,7 +3984,7 @@
               ]
             },
             "VDR-EVA-EPA": {
-              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential adverse impact of exploitation on government customers AND assign one of the following potential adverse impact ratings:",
+              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential adverse impact of exploitation on government customers AND assign one of the following Potential Adverse Impact N-ratings (PAIN):",
               "name": "Estimate Potential Adverse Impact",
               "affects": ["Providers"],
               "primary_key_word": "MUST",
@@ -4357,21 +4239,21 @@
               "terms": ["Known Exploited Vulnerability (KEV)", "Vulnerability"]
             },
             "VDR-TFR-MRH": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
-                "high": {
-                  "statement": "Providers SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
@@ -4386,24 +4268,25 @@
                 "Vulnerability",
                 "Vulnerability Detection",
                 "Vulnerability Response"
-              ]
+              ],
+              "updated": []
             },
             "VDR-TFR-PSD": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 7 days.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 7 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 3 days.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 3 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 3
                 },
-                "high": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once per day.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once per day.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 1
@@ -4417,24 +4300,25 @@
                 "Persistently",
                 "Vulnerability",
                 "Vulnerability Detection"
-              ]
+              ],
+              "updated": []
             },
             "VDR-TFR-PDD": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 14 days.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 14 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
-                "high": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 7 days.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 7 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
@@ -4449,24 +4333,25 @@
                 "Persistently",
                 "Vulnerability",
                 "Vulnerability Detection"
-              ]
+              ],
+              "updated": []
             },
             "VDR-TFR-PCD": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every six months.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every six months.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 6
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
-                "high": {
-                  "statement": "Providers SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
@@ -4490,21 +4375,21 @@
               ]
             },
             "VDR-TFR-EVU": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 7 days of detection.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 7 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 5 days of detection.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 5 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 5
                 },
-                "high": {
-                  "statement": "Providers SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 2 days of detection.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 2 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 2
@@ -4512,12 +4397,13 @@
               },
               "name": "Evaluate Vulnerabilities Quickly",
               "affects": ["Providers"],
-              "terms": ["Vulnerability", "Vulnerability Detection"]
+              "terms": ["Vulnerability", "Vulnerability Detection"],
+              "updated": []
             },
             "VDR-TFR-PVR": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below (in days), factoring for the current potential adverse impact, internet reachability, and likely exploitability:",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below (in days), factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": [
                     {
@@ -4546,8 +4432,8 @@
                     }
                   ]
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below (in days), factoring for the current potential adverse impact, internet reachability, and likely exploitability:",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact N-rating within the timeframes from evaluation shown below (in days), factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": [
                     {
@@ -4576,8 +4462,8 @@
                     }
                   ]
                 },
-                "high": {
-                  "statement": "Providers SHOULD partially mitigate vulnerabilities to a lower potential adverse impact within the maximum time-frames from evaluation shown below (in days), factoring for the current potential adverse impact, internet reachability, and likely exploitability:",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD partially mitigate vulnerabilities to a lower Potential Adverse Impact N-rating within the maximum time-frames from evaluation shown below (in days), factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": [
                     {
@@ -4613,7 +4499,8 @@
                 "Likely",
                 "Potential Adverse Impact (Of Vulnerability Exploitation)",
                 "Vulnerability"
-              ]
+              ],
+              "updated": []
             },
             "VDR-TFR-RMN": {
               "statement": "Providers SHOULD mitigate or remediate remaining vulnerabilities during routine operations as determined necessary by the provider.",
@@ -4623,17 +4510,17 @@
               "terms": ["Vulnerability"]
             },
             "VDR-TFR-IRI": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers MAY treat internet-reachable likely exploitable vulnerabilities with a potential adverse impact of N4 or N5 as a security incident until they are partially mitigated to N3 or below.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "MAY"
                 },
-                "moderate": {
-                  "statement": "Providers SHOULD treat internet-reachable likely exploitable vulnerabilities with a potential adverse impact of N4 or N5 as a security incident until they are partially mitigated to N3 or below.",
+                "c": {
+                  "statement": "Providers of Class C offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "SHOULD"
                 },
-                "high": {
-                  "statement": "Providers SHOULD treat internet-reachable likely exploitable vulnerabilities with a potential adverse impact of N4 or N5 as a security incident until they are partially mitigated to N3 or below.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
@@ -4645,20 +4532,21 @@
                 "Likely Exploitable Vulnerability (LEV)",
                 "Potential Adverse Impact (Of Vulnerability Exploitation)",
                 "Vulnerability"
-              ]
+              ],
+              "updated": []
             },
             "VDR-TFR-NRI": {
-              "varies_by_level": {
-                "low": {
-                  "statement": "Providers MAY treat likely exploitable vulnerabilities that are NOT internet-reachable with a potential adverse impact of N5 as a security incident until they are partially mitigated to N4 or below.",
+              "varies_by_class": {
+                "b": {
+                  "statement": "Providers of Class B offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
-                "moderate": {
-                  "statement": "Providers MAY treat likely exploitable vulnerabilities that are NOT internet-reachable with a potential adverse impact of N5 as a security incident until they are partially mitigated to N4 or below.",
+                "c": {
+                  "statement": "Providers of Class C offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
-                "high": {
-                  "statement": "Providers SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable with a potential adverse impact of N5 as a security incident until they are partially mitigated to N4 or below.",
+                "d": {
+                  "statement": "Providers of Class D offerings SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
@@ -4670,7 +4558,8 @@
                 "Likely Exploitable Vulnerability (LEV)",
                 "Potential Adverse Impact (Of Vulnerability Exploitation)",
                 "Vulnerability"
-              ]
+              ],
+              "updated": []
             }
           },
           "RPT": {
@@ -4680,10 +4569,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -4721,9 +4606,9 @@
                 "Time of completed evaluation",
                 "Is it an internet-reachable vulnerability or not?",
                 "Is it a likely exploitable vulnerability or not?",
-                "Historically and currently estimated potential adverse impact of exploitation",
-                "Time and level of each completed and evaluated reduction in potential adverse impact",
-                "Estimated time and target level of next reduction in potential adverse impact",
+                "Historically and currently estimated Potential Adverse Impact N-rating of exploitation",
+                "Time and Potential Adverse Impact N-rating of each completed and evaluated reduction in Potential Adverse Impact N-rating",
+                "Estimated time and target Potential Adverse Impact N-rating of next reduction in Potential Adverse Impact N-rating",
                 "Is it currently or is it likely to become an overdue vulnerability or not? If so, explain.",
                 "Any supplementary information the provider responsibly determines will help federal agencies assess or mitigate the risk to their federal customer data within the cloud service offering resulting from the vulnerability",
                 "Final disposition of the vulnerability"
@@ -4760,7 +4645,7 @@
                 "Time of completed evaluation",
                 "Is it an internet-reachable vulnerability or not?",
                 "Is it a likely exploitable vulnerability or not?",
-                "Currently estimated potential adverse impact of exploitation",
+                "Currently estimated Potential Adverse Impact N-rating",
                 "Explanation of why this is an accepted vulnerability",
                 "Any supplementary information the provider determines will responsibly help federal agencies assess or mitigate the risk to their federal customer data within the cloud service offering resulting from the accepted vulnerability"
               ],
@@ -4822,7 +4707,7 @@
             "VDR-AGM-RVR": {
               "statement": "Agencies SHOULD review the information provided in vulnerability reports at appropriate and reasonable intervals commensurate with the expectations and risk posture indicated by their Authorization to Operate, and SHOULD use automated processing and filtering of machine readable information from cloud service providers.",
               "name": "Review Vulnerability Reports",
-              "note": "FedRAMP recommends that agencies only review overdue and accepted vulnerabilities with a potential adverse impact of N3 or higher unless the cloud service provider recommends mitigations or the service is included in a higher risk federal information system. Furthermore, accepted vulnerabilities generally only need to be reviewed when they are added or during an updated risk assessment due to changes in the agency's use or authorization.",
+              "note": "FedRAMP recommends that agencies only review overdue and accepted vulnerabilities Potential Adverse Impact N-rating > 2 unless the cloud service provider recommends mitigations or the service is included in a higher risk federal information system. Furthermore, accepted vulnerabilities generally only need to be reviewed when they are added or during an updated risk assessment due to changes in the agency's use or authorization.",
               "affects": ["Agencies"],
               "primary_key_word": "SHOULD",
               "updated": [
@@ -4973,10 +4858,6 @@
               ],
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -4991,10 +4872,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -5025,10 +4902,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -5076,10 +4949,6 @@
               "reference_url_web_name": "minimum-assessment-scope",
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -5109,10 +4978,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -5148,10 +5013,6 @@
               ],
               "updated": [
                 {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
-                {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
@@ -5166,10 +5027,6 @@
               "affects": ["Providers"],
               "primary_key_word": "MUST",
               "updated": [
-                {
-                  "date": "2026-04-18",
-                  "comment": "Updated the related terms."
-                },
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -5258,10 +5115,6 @@
               "name": "Implementation Summaries",
               "affects": ["Providers"],
               "primary_key_word": "MUST",
-              "impact": {
-                "low": true,
-                "moderate": true
-              },
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5278,10 +5131,6 @@
               "name": "Application within MAS",
               "affects": ["Providers"],
               "primary_key_word": "SHOULD",
-              "impact": {
-                "low": true,
-                "moderate": true
-              },
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5392,11 +5241,11 @@
         },
         "KSI-CNA-EIS": {
           "name": "Enforcing Intended State",
-          "varies_by_level": {
-            "low": {
+          "varies_by_class": {
+            "b": {
               "statement": "**Optional:** Automated services are used to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
             },
-            "moderate": {
+            "c": {
               "statement": "Automated services are used to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
             }
           },
@@ -5466,10 +5315,6 @@
           "controls": [],
           "updated": [
             {
-              "date": "2026-04-12",
-              "comment": "Updated the related terms."
-            },
-            {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
@@ -5501,10 +5346,6 @@
           "statement": "The effectiveness of protection against denial of service attacks and other unwanted activity for machine-based information resources is persistently reviewed.",
           "controls": ["sc-5", "si-8", "si-8.2"],
           "updated": [
-            {
-              "date": "2026-04-12",
-              "comment": "Updated the related terms."
-            },
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
@@ -5867,11 +5708,11 @@
       "indicators": {
         "KSI-MLA-ALA": {
           "name": "Authorizing Log Access",
-          "varies_by_level": {
-            "low": {
+          "varies_by_class": {
+            "b": {
               "statement": "**Optional:** Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity."
             },
-            "moderate": {
+            "c": {
               "statement": "Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity."
             }
           },
@@ -6003,7 +5844,7 @@
         },
         "KSI-PIY-RES": {
           "name": "Reviewing Executive Support",
-          "statement": "Persistently review executive support for achieving the organization's security objectives.",
+          "statement": "Persistently review executive support for achieving the organization's security goals.",
           "controls": [],
           "updated": [
             {
@@ -6015,7 +5856,7 @@
         },
         "KSI-PIY-RIS": {
           "name": "Reviewing Investments in Security",
-          "statement": "Persistently review the effectiveness of the organization's investments in achieving security objectives.",
+          "statement": "Persistently review the effectiveness of the organization's investments in achieving security goals.",
           "controls": [
             "ac-5",
             "ca-2",
@@ -6233,11 +6074,11 @@
         },
         "KSI-SVC-PRR": {
           "name": "Preventing Residual Risk",
-          "varies_by_level": {
-            "low": {
+          "varies_by_class": {
+            "b": {
               "statement": "**Optional:** Persistently review plans, procedures, and the state of information resources after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
             },
-            "moderate": {
+            "c": {
               "statement": "Persistently review plans, procedures, and the state of information resources after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
             }
           },
@@ -6257,11 +6098,11 @@
         },
         "KSI-SVC-RUD": {
           "name": "Removing Unwanted Data",
-          "varies_by_level": {
-            "low": {
+          "varies_by_class": {
+            "b": {
               "statement": "**Optional:** Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
             },
-            "moderate": {
+            "c": {
               "statement": "Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
             }
           },
@@ -6298,11 +6139,11 @@
         },
         "KSI-SVC-VCM": {
           "name": "Validating Communications",
-          "varies_by_level": {
-            "low": {
+          "varies_by_class": {
+            "b": {
               "statement": "**Optional:** Persistently validate the authenticity and integrity of communications between machine-based information resources using automation."
             },
-            "moderate": {
+            "c": {
               "statement": "Persistently validate the authenticity and integrity of communications between machine-based information resources using automation."
             }
           },

@@ -221,8 +221,8 @@
           "required": ["statement", "primary_key_word"]
         },
         {
-          "properties": { "varies_by_level": {} },
-          "required": ["varies_by_level"],
+          "properties": { "varies_by_class": {} },
+          "required": ["varies_by_class"],
           "not": {
             "required": ["primary_key_word"]
           }
@@ -272,12 +272,13 @@
             "additionalProperties": false
           }
         },
-        "varies_by_level": {
+        "varies_by_class": {
           "type": "object",
           "properties": {
-            "low": { "$ref": "#/$defs/frr_requirement_level" },
-            "moderate": { "$ref": "#/$defs/frr_requirement_level" },
-            "high": { "$ref": "#/$defs/frr_requirement_level" }
+            "a": { "$ref": "#/$defs/frr_requirement_level" },
+            "b": { "$ref": "#/$defs/frr_requirement_level" },
+            "c": { "$ref": "#/$defs/frr_requirement_level" },
+            "d": { "$ref": "#/$defs/frr_requirement_level" }
           },
           "additionalProperties": false
         },
@@ -316,16 +317,7 @@
           }
         },
         "reference": { "type": "string" },
-        "reference_url": { "type": "string", "format": "uri" },
-        "impact": {
-          "type": "object",
-          "properties": {
-            "low": { "type": "boolean" },
-            "moderate": { "type": "boolean" },
-            "high": { "type": "boolean" }
-          },
-          "additionalProperties": false
-        }
+        "reference_url": { "type": "string", "format": "uri" }
       },
       "additionalProperties": false
     },
@@ -368,8 +360,8 @@
           "required": ["statement"]
         },
         {
-          "properties": { "varies_by_level": {} },
-          "required": ["varies_by_level"]
+          "properties": { "varies_by_class": {} },
+          "required": ["varies_by_class"]
         }
       ],
       "properties": {
@@ -379,12 +371,13 @@
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "updated": { "$ref": "#/$defs/updated_list" },
-        "varies_by_level": {
+        "varies_by_class": {
           "type": "object",
           "properties": {
-            "low": { "$ref": "#/$defs/ksi_indicator_level" },
-            "moderate": { "$ref": "#/$defs/ksi_indicator_level" },
-            "high": { "$ref": "#/$defs/ksi_indicator_level" }
+            "a": { "$ref": "#/$defs/ksi_indicator_level" },
+            "b": { "$ref": "#/$defs/ksi_indicator_level" },
+            "c": { "$ref": "#/$defs/ksi_indicator_level" },
+            "d": { "$ref": "#/$defs/ksi_indicator_level" }
           },
           "additionalProperties": false
         },

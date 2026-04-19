@@ -94,8 +94,8 @@ function summarizeProcess(shortName: string, process: RulesDocument["FRR"][strin
       for (const requirement of Object.values(rulesById as Record<string, Requirement>)) {
         incrementKeywordCount(keywordCounts, requirement.primary_key_word);
 
-        for (const level of Object.values(requirement.varies_by_level ?? {})) {
-          incrementKeywordCount(keywordCounts, level?.primary_key_word);
+        for (const classVariant of Object.values(requirement.varies_by_class ?? {})) {
+          incrementKeywordCount(keywordCounts, classVariant?.primary_key_word);
         }
 
         latestUpdated = updateLatestDate(
