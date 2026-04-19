@@ -1,6 +1,10 @@
-# rules
+# work in progress
 
-This repository contains structured machine-readable rules for FedRAMP.
+This repository will contain structured machine-readable rules for FedRAMP.
+
+## this is just a public preview for awareness and should not be used for anything yet, very much being actively developed
+
+---
 
 These rules previously lived in the [https://github.com/fedramp/docs](docs) repository
 but we're moving them over to here to keep machine-readable rule management separate
