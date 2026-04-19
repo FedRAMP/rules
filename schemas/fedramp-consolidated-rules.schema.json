@@ -145,6 +145,7 @@
         "is": { "type": "string", "enum": ["required", "optional", "no"] },
         "current_status": { "type": "string" },
         "date": { "$ref": "#/$defs/effective_dates" },
+        "class": { "$ref": "#/$defs/effective_classes" },
         "comments": { "type": "array", "items": { "type": "string" } },
         "warnings": { "type": "array", "items": { "type": "string" } },
         "signup_url": { "type": "string" }
@@ -159,6 +160,49 @@
         "maintain": { "type": "string", "format": "date" },
         "grace_ends": { "type": "string", "format": "date" }
       },
+      "additionalProperties": false
+    },
+    "effective_classes": {
+      "type": "object",
+      "required": ["a", "b", "c", "d"],
+      "properties": {
+        "a": { "$ref": "#/$defs/effective_class_entry" },
+        "b": { "$ref": "#/$defs/effective_class_entry" },
+        "c": { "$ref": "#/$defs/effective_class_entry" },
+        "d": { "$ref": "#/$defs/effective_class_entry" }
+      },
+      "additionalProperties": false
+    },
+    "effective_class_entry": {
+      "type": "object",
+      "required": ["applies_in_full"],
+      "properties": {
+        "applies_in_full": { "type": "boolean" },
+        "applies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3}$"
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "applies_in_full": { "const": true }
+          }
+        },
+        {
+          "required": ["applies"],
+          "properties": {
+            "applies_in_full": { "const": false },
+            "applies": {
+              "type": "array",
+              "minItems": 1
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "front_matter": {

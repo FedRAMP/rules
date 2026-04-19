@@ -1,9 +1,9 @@
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-import { getRepoRoot } from "./src/config";
-import { loadRulesDocument } from "./src/rules";
-import type { Requirement, RulesDocument, UpdatedEntry } from "./src/types";
+import { getRepoRoot } from "./config";
+import { loadRulesDocument } from "./rules";
+import type { Requirement, RulesDocument, UpdatedEntry } from "./types";
 
 const DEFAULT_KEYWORD_ORDER = ["MUST", "MUST NOT", "SHOULD", "SHOULD NOT", "MAY"];
 
@@ -184,7 +184,7 @@ function renderTable(summaries: ProcessSummary[], keywordColumns: string[]): str
   return [header, divider, ...rows].map((row) => `| ${row.join(" | ")} |`).join("\n");
 }
 
-function buildSummaryMarkdown(document: RulesDocument): string {
+export function buildRulesSummaryMarkdown(document: RulesDocument): string {
   const summaries = Object.entries(document.FRR)
     .map(([shortName, process]) => summarizeProcess(shortName, process))
     .sort((left, right) => left.shortName.localeCompare(right.shortName));
@@ -201,9 +201,11 @@ function buildSummaryMarkdown(document: RulesDocument): string {
   ].join("\n");
 }
 
-const document = loadRulesDocument();
-const outputPath = resolve(getRepoRoot(), "RULES.md");
-const markdown = buildSummaryMarkdown(document);
+export function writeRulesSummary(): string {
+  const document = loadRulesDocument();
+  const outputPath = resolve(getRepoRoot(), "RULES.md");
+  const markdown = buildRulesSummaryMarkdown(document);
 
-writeFileSync(outputPath, markdown, "utf-8");
-console.log(`Wrote ${outputPath}`);
+  writeFileSync(outputPath, markdown, "utf-8");
+  return outputPath;
+}

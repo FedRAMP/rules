@@ -1,109 +1,231 @@
-# work in progress
+# FedRAMP Rules// Work in Progress
 
-This repository will contain structured machine-readable rules for FedRAMP.
+> THIS REPOSITORY IS UNDER RAPID PROTOTYPING AND DEVELOPMENT.
+>
+> These are not official rules yet. Do not use these rules for anything other than
+> general awareness of the direction things are shifting.
+>
+> Expect rapid unexpected changes until things are formally published and shared
+> with the world. For now, consider this to be merely a preview.
 
-## this is just a public preview for awareness and should not be used for anything yet, very much being actively developed
+This repository contains the structured machine-readable FedRAMP consolidated
+rules dataset and the supporting schema and tooling used to maintain it.
 
----
+The canonical dataset currently identifies itself with two truths and a lie:
 
-These rules previously lived in the [https://github.com/fedramp/docs](docs) repository
-but we're moving them over to here to keep machine-readable rule management separate
-from documentation.
+- title: `FedRAMP Consolidated Rules WIP PREVIEW`
+- version: `2026.0.1.1-wip-preview`
+- last_updated: `2026-06-01`
 
-This is a work in progress as of April 2026 as we push towards Consolidated Rules for
-2026. Apologies for any related inconvenience.
+## What Is Here
 
-The canonical dataset and schema locations are declared in
-`/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json`.
+The repository currently centers on one canonical rules document,
+one canonical schema, and one tooling workspace:
 
-The tooling lives in `/Users/pwx/github/pete-gov/rules/tools` and now shares one
-configuration-backed loading path for schema validation, ID alignment checks,
-primary keyword validation, and terms synchronization.
+- [fedramp-consolidated-rules.json](/Users/pwx/github/pete-gov/rules/fedramp-consolidated-rules.json:1)
+  The main machine-readable rules dataset.
+- [schemas/fedramp-consolidated-rules.schema.json](/Users/pwx/github/pete-gov/rules/schemas/fedramp-consolidated-rules.schema.json:1)
+  The JSON Schema that defines the supported document shape.
+- [tools](/Users/pwx/github/pete-gov/rules/tools)
+  Bun and TypeScript tooling for tests, fixes, and generated summaries.
+- [RULES.md](/Users/pwx/github/pete-gov/rules/RULES.md:1)
+  A generated summary of the current FRR processes.
 
-# OG Documentation JSON Information // needs editing probably
+## Current Dataset Shape
 
-This document provides a guide to the structure and data types found in `FRMR.documentation.json`.
+The top-level dataset has four sections:
 
-## High-Level Structure
+- `info`
+  File-level metadata such as title, description, version, and `last_updated`.
+- `FRD`
+  FedRAMP Definitions.
+- `FRR`
+  FedRAMP Rules documents, including requirements and recommendations.
+- `KSI`
+  Key Security Indicators.
 
-The JSON root object is divided into three primary sections, plus metadata:
+At the moment, the dataset contains:
 
-1.  **`info`**: File-level metadata (version, last updated).
-2.  **`FRD` (FedRAMP Definitions)**: The glossary of terms.
-3.  **`FRR` (FedRAMP Requirements and Recommendations)**: The collection of policy processes and their specific requirements.
-4.  **`KSI` (Key Security Indicators)**: The security capabilities and validation criteria.
+- 57 FRD definitions
+- 12 FRR process documents
+- 46 KSI indicators across 10 KSI themes
 
-Integrators should treat this file as a relational database dump where `FRD` provides the vocabulary referenced by keys in `FRR` and `KSI`.
+The current FRR process set is:
 
-## 1. FedRAMP Definitions (`FRD`)
+- `CCM` Collaborative Continuous Monitoring
+- `CDS` Certification Data Sharing
+- `FRC` FedRAMP Certification
+- `FSI` FedRAMP Security Inbox
+- `ICP` Incident Communications Procedures
+- `MAS` Minimum Assessment Scope
+- `MKT` Marketplace Listing
+- `PVA` Persistent Validation and Assessment
+- `SCG` Secure Configuration Guide
+- `SCN` Significant Change Notifications
+- `UCM` Using Cryptographic Modules
+- `VDR` Vulnerability Detection and Response
 
-The `FRD` section is a dictionary of terms used throughout the documentation.
+The current KSI theme set is:
 
-### Data Layout
-*   **`FRD.data.both`**: Currently, all definitions are grouped under the `both` key, implying applicability to both 20x and Rev5 frameworks.
-*   **Keys**: The keys (e.g., `FRD-ACV`) are stable identifiers.
-*   **Fields**:
-    *   `term`: The human-readable term.
-    *   `definition`: The normative definition.
-    *   `alts`: A list of synonyms or alternative capitalizations. Useful for search indexing.
-    *   `fka`: "Formerly Known As" ID, tracking lineage.
-    *   `updated`: An array of change log entries.
+- `CED` Cybersecurity Education
+- `CMT` Change Management
+- `CNA` Cloud Native Architecture
+- `IAM` Identity and Access Management
+- `INR` Incident Response
+- `MLA` Monitoring, Logging, and Auditing
+- `PIY` Policy and Inventory
+- `RPL` Recovery Planning
+- `SCR` Supply Chain Risk
+- `SVC` Service Configuration
 
-**Integration Tip**: When rendering requirements from FRR, scan the text for words matching `term` or `alts` in FRD to provide tooltips or hyperlinks.
+## Repository Model
 
-## 2. FedRAMP Requirements and Recommendations (`FRR`)
+The data model is intentionally opinionated. The schema does not just allow
+"some JSON"; it tries to preserve a specific structure that is stable enough
+for downstream automation.
 
-This section represents hierarchical policy documents.
+Some of the main modeling choices are:
 
-### Data Layout
-The `FRR` object is keyed by **Process ID** (e.g., `ADS`, `VDR`). Each process represents a specific policy document.
+- each FRR document and KSI theme uses compact stable identifiers
+- FRD, FRR, and KSI entries use strongly patterned IDs such as `FRD-XXX`,
+  `ABC-DEF-123`, and `KSI-ABC-123`
+- applicability is modeled explicitly through `both`, `20x`, and `rev5`
+  containers rather than inferred from text
+- FRR document metadata requires `effective` entries for both `20x` and `rev5`
+- `effective` and metadata can now capture dates, status, signup URLs, warnings,
+  comments, and class-specific applicability
+- FRR requirements and KSI indicators can be single-statement entries or
+  `varies_by_class` entries
 
-#### Process Structure
-*   `info`: Metadata including `effective` dates for `rev5` and `20x`.
-*   `front_matter`: Narrative content like `authority`, `purpose`, and `expected_outcomes`.
-*   `labels`: A lookup table defining the actors/scopes (e.g., `CSO` = "General Provider Responsibilities").
-*   `data`: The core requirements tree.
 
-#### The Requirements Tree (`FRR.<Process>.data`)
-The data is nested to allow for context-specific rendering:
-1.  **Applicability Layer** (`both`, `20x`, `rev5`): Determines which framework the requirements apply to.
-2.  **Label Layer** (`CSO`, `TRC`, etc.): Groups requirements by the actor defined in `labels`.
-3.  **Requirement Object** (Keyed by ID, e.g., `ADS-CSO-PUB`):
-    *   `statement`: The normative text.
-    *   `primary_key_word`: The RFC 2119 keyword (MUST, SHOULD, MAY).
-    *   `terms`: A list of FRD terms used in this statement.
-    *   `affects`: The specific actor the requirement applies to.
-    *   `following_information`: An ordered list of sub-points or checklist items.
-    *   `examples`: Structured examples (often with "Do" and "Don't" scenarios).
+## FRD, FRR, and KSI At a Glance
 
-**Integration Tip**: To generate a complete checklist for a provider, iterate through `data.both` and `data.20x` (if targeting 20x), then flatten the requirements found under the `CSO` label.
+### FRD
 
-## 3. Key Security Indicators (`KSI`)
+`FRD` is the controlled vocabulary for the rest of the repository.
 
-The `KSI` section defines security outcomes mapped to NIST controls.
+Definitions typically include:
 
-### Data Layout
-The `KSI` object is keyed by **Domain ID** (e.g., `IAM`, `VDR`).
+- `term`
+- `definition`
+- `alts`
+- optional notes and references
+- structured `updated` history
 
-#### Domain Structure
-*   `theme`: A high-level summary of the security goal.
-*   `indicators`: A dictionary of specific indicators.
+The tooling uses FRD as the source of truth for term synchronization in FRR and
+KSI content.
 
-#### Indicator Object
-*   `statement`: The validation criteria.
-*   `controls`: An array of NIST SP 800-53 control identifiers (e.g., `ac-2`, `ia-5`).
-*   `reference`: Links to external or internal documentation.
+### FRR
 
-**Integration Tip**: Use the `controls` array to map FedRAMP 20x capabilities back to legacy NIST-based GRC tools.
+`FRR` holds the process-oriented rules documents. Each FRR document contains:
 
-## 4. Timeframe Attributes in Requirements
+- `info`
+  Name, short name, web name, effective status, and front matter
+- optional `labels`
+  Structured label definitions such as `CSO`, `OCR`, `UTC`, and related scopes
+- `data`
+  The requirement tree organized by applicability and label
 
-Some requirements within the `FRR` section, particularly those that vary by impact level (`varies_by_level`), may include structured timeframe data to facilitate automated validation or reporting.
+The requirement tree is intentionally layered:
 
-### Data Layout
-When a requirement object (or a level-specific object within `varies_by_level`) includes timeframe constraints, it will have the following fields:
+1. applicability: `both`, `20x`, `rev5`
+2. label bucket: actor or scope label such as `CSO` or `UTC`
+3. requirement ID: a stable key such as `VDR-CSO-...`
 
-*   `timeframe_type`: The unit of time (e.g., `days`, `month`).
-*   `timeframe_num`: The numeric value associated with the unit (e.g., `7`, `1`).
+Requirements can carry structured details such as:
 
-**Integration Tip**: These fields allow programmatic extraction of deadlines or frequencies without parsing the natural language `statement`. For example, a requirement with `timeframe_type: "days"` and `timeframe_num: 7` implies a weekly cadence.
+- `statement`
+- `primary_key_word`
+- `varies_by_class`
+- `affects`
+- `following_information`
+- `examples`
+- `timeframe_type` and `timeframe_num`
+- `notification`
+- `controls`
+- `terms`
+- `updated`
+
+### KSI
+
+`KSI` captures security indicators using a similarly structured model.
+
+Indicators include:
+
+- stable indicator IDs
+- `name`
+- `statement` or `varies_by_class`
+- `controls`
+- optional references
+- `terms`
+- `updated`
+
+KSI is meant to support a more structured security-capability view than the FRR
+documents alone.
+
+## Effective Metadata
+
+One of the more important current modeling areas is the `info.effective`
+structure used by FRD and FRR documents.
+
+Each document records explicit `20x` and `rev5` entries, and each entry can
+capture:
+
+- whether the document `is` required, optional, or not applicable
+- current status text
+- obtain, maintain, and grace-end dates
+- comments or warnings
+- signup URLs when relevant
+- class-specific applicability metadata
+
+For some FRR documents, the schema now supports `class` tracking for classes
+`a`, `b`, `c`, and `d`, including whether a class applies in full or only to a
+listed subset of requirement IDs.
+
+## Tooling
+
+The supported command model for repository maintenance is:
+
+- `bun run test`
+- `bun run fix`
+- `bun run summary`
+
+The tooling lives under [tools](/Users/pwx/github/pete-gov/rules/tools), with
+shared implementation under `tools/src`.
+
+At a high level:
+
+- `bun run test`
+  Verifies schema correctness, ID alignment, keyword consistency, term
+  synchronization, property ordering, and tool behavior
+- `bun run fix`
+  Applies the fixable normalizations
+- `bun run summary`
+  Regenerates derived outputs such as [RULES.md](/Users/pwx/github/pete-gov/rules/RULES.md:1)
+
+For the detailed tooling reference, see
+[tools/README.md](/Users/pwx/github/pete-gov/rules/tools/README.md:1).
+
+## Canonical Paths
+
+The canonical file paths used by the tooling are declared in
+[tools/fedramp-rules.config.json](/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json:1).
+
+That configuration currently points the tools at:
+
+- [fedramp-consolidated-rules.json](/Users/pwx/github/pete-gov/rules/fedramp-consolidated-rules.json:1)
+- [schemas/fedramp-consolidated-rules.schema.json](/Users/pwx/github/pete-gov/rules/schemas/fedramp-consolidated-rules.schema.json:1)
+
+## Repository Status
+
+This repository is no longer just a placeholder for a future rules file. It now
+contains:
+
+- an actively developed consolidated rules dataset
+- a strict schema that encodes the intended document model
+- generated summary output
+- a working Bun-based maintenance toolchain
+
+It is still a working repository, but it already embodies substantial structure
+and should be understood as the source-of-truth codebase for the machine-readable
+rules work in progress.
