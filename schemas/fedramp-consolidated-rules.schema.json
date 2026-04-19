@@ -45,20 +45,12 @@
       "patternProperties": {
         "^[A-Z]{3}$": {
           "type": "object",
-          "required": [
-            "id",
-            "name",
-            "web_name",
-            "short_name",
-            "theme",
-            "indicators"
-          ],
+          "required": ["id", "name", "web_name", "short_name", "indicators"],
           "properties": {
             "id": { "type": "string", "pattern": "^KSI-[A-Z]{3}$" },
             "name": { "type": "string" },
             "web_name": { "type": "string" },
             "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
-            "theme": { "type": "string" },
             "indicators": {
               "type": "object",
               "patternProperties": {

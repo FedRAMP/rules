@@ -48,9 +48,7 @@
         "FRD-AAP": {
           "term": "All Affected Parties",
           "definition": "All federal entities whose interests are affected directly or are likely to be affected directly in the event of a vulnerability or incident related to federal customer data. This always includes FedRAMP and the directly impacted federal customer agency.",
-          "alts": [
-            "all affected parties"
-          ],
+          "alts": ["all affected parties"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -61,10 +59,7 @@
         "FRD-ACV": {
           "term": "Accepted Vulnerability",
           "definition": "A vulnerability that the provider does not intend to fully mitigate or remediate, OR that has not or will not be fully mitigated or remediated within the maximum overdue period recommended or required by FedRAMP.",
-          "alts": [
-            "accepted vulnerability",
-            "accepted vulnerabilities"
-          ],
+          "alts": ["accepted vulnerability", "accepted vulnerabilities"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -76,11 +71,7 @@
           "term": "Adaptive Change",
           "definition": "The type of significant change that does not routinely recur but does not introduce substantive potential security risks that need to be assessed in depth.",
           "note": "Adaptive changes typically require careful planning that focuses on engineering execution instead of customer adoption, can be verified with minor changes to existing automated validation procedures, and do not require large changes to operational procedures, deployment plans, or documentation.",
-          "alts": [
-            "adaptive",
-            "adaptive change",
-            "adaptive changes"
-          ],
+          "alts": ["adaptive", "adaptive change", "adaptive changes"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -91,10 +82,7 @@
         "FRD-AGY": {
           "term": "Agency",
           "definition": "Has the meaning given in 44 U.S. Code § 3502 (1), which is \"any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include—(A) the Government Accountability Office; (B) Federal Election Commission; (C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or (D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.\"",
-          "alts": [
-            "agency",
-            "agencies"
-          ],
+          "alts": ["agency", "agencies"],
           "reference": "44 U.S. Code § 3502 (1)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -107,9 +95,7 @@
         "FRD-ANA": {
           "term": "All Necessary Assessors",
           "definition": "All entities who participate in the FedRAMP assessment of a cloud service offering in the context of a FedRAMP Certification. This always includes FedRAMP and any FedRAMP Recognized independent assessor contracted by the provider to perform a FedRAMP assessment.",
-          "alts": [
-            "all necessary assessors"
-          ],
+          "alts": ["all necessary assessors"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -120,9 +106,7 @@
         "FRD-ANP": {
           "term": "All Necessary Parties",
           "definition": "All entities whose interests are affected directly by activity related to a specific cloud service offering in the context of FedRAMP Certifications. This always includes FedRAMP and any agency customer who is using the cloud service offering, but may include additional parties depending on agreements made by the cloud service provider (such as consultants or third-party assessors). Potential agency customers or third-party cloud service providers should also be included in most cases but this is not a mandatory requirement under FedRAMP as ultimately the cloud service provider may choose who they wish to do business with.",
-          "alts": [
-            "all necessary parties"
-          ],
+          "alts": ["all necessary parties"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -134,10 +118,7 @@
           "term": "Certification Package",
           "definition": "Has meaning from 44 USC § 3607 (b)(8) given to \"authorization package\", which is \"the essential information that can be used by an agency to determine whether to authorize the operation of an information system or the use of a designated set of common controls for all cloud computing products and services [certified] by FedRAMP.\"",
           "note": "In FedRAMP documentation, certification package always refers to a FedRAMP Certification package unless otherwise specified.",
-          "alts": [
-            "certification package",
-            "certification packages"
-          ],
+          "alts": ["certification package", "certification packages"],
           "reference": "44 USC § 3607 (b)(8)",
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
           "updated": [
@@ -151,9 +132,7 @@
           "term": "Certification Data",
           "definition": "The collective information required by FedRAMP for initial and ongoing assessment and FedRAMP Certification of a cloud service offering, including the certification package.",
           "note": "In FedRAMP documentation, certification data always refers to FedRAMP Certification data unless otherwise specified.",
-          "alts": [
-            "certification data"
-          ],
+          "alts": ["certification data"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -178,10 +157,7 @@
         "FRD-CSO": {
           "term": "Cloud Service Offering",
           "definition": "A specific, packaged cloud computing product or service provided by a cloud service provider that can be used by a customer. FedRAMP Certification of the cloud computing product or service is based on the Minimum Assessment Scope.",
-          "alts": [
-            "cloud service offering",
-            "cloud service offerings"
-          ],
+          "alts": ["cloud service offering", "cloud service offerings"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -192,11 +168,7 @@
         "FRD-DFT": {
           "term": "Drift",
           "definition": "Changes to information resources that cause deviations from the intended and assessed state; common forms of drift include changes to configurations, deployed software, privileges, running processes, and availability.",
-          "alts": [
-            "drift",
-            "drifts",
-            "drifting"
-          ],
+          "alts": ["drift", "drifts", "drifting"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -208,9 +180,7 @@
           "term": "Deterministic Telemetry",
           "definition": "Verifiable data collected directly from an authoritative source that represents a factual and reproducible observation of the attributes of a system such as the system's state, configuration, or behavior.",
           "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as “Generative AI”) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
-          "alts": [
-            "deterministic telemetry"
-          ],
+          "alts": ["deterministic telemetry"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -252,11 +222,7 @@
         "FRD-FSI": {
           "term": "FedRAMP Security Inbox",
           "definition": "An email address that meets the requirements outlined in the FedRAMP Security Inbox requirements.",
-          "alts": [
-            "security inbox",
-            "security inboxes",
-            "FSI"
-          ],
+          "alts": ["security inbox", "security inboxes", "FSI"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -293,12 +259,7 @@
         "FRD-HAN": {
           "term": "Handle",
           "definition": "Has the plain language meaning inclusive of any possible action taken with information, such as access, collect, control, create, display, disclose, disseminate, dispose, maintain, manipulate, process, receive, review, store, transmit, use... etc.",
-          "alts": [
-            "handle",
-            "handles",
-            "handled",
-            "handling"
-          ],
+          "alts": ["handle", "handles", "handled", "handling"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -325,10 +286,7 @@
         "FRD-IPC": {
           "term": "Certification Class Change",
           "definition": "The type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
-          "alts": [
-            "certification class change",
-            "certification class changes"
-          ],
+          "alts": ["certification class change", "certification class changes"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -339,10 +297,7 @@
         "FRD-INT": {
           "term": "Incident",
           "definition": "Has the meaning given in 44 USC § 3552 (b)(2) applied to federal customer data, which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of [federal customer data]; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies [related to federal customer data].\"",
-          "alts": [
-            "incident",
-            "incidents"
-          ],
+          "alts": ["incident", "incidents"],
           "reference": "44 USC § 3552 (b)(2)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapII-sec3552",
           "updated": [
@@ -356,10 +311,7 @@
           "term": "Information Resource",
           "definition": "Has the meaning from 44 USC § 3502 (6): \"information and related resources, such as personnel, equipment, funds, and information technology.\" This includes any aspect of the cloud service offering, both technical and managerial, including everything that makes up the business of the offering from non-machine-based information resources like organizational policies, procedures, employees, etc. to machine-based information resources like hardware, software, cloud services, code, etc.",
           "note": "Information resources are either machine-based or non-machine-based; any requirement or recommendation that references information resources without specifying a type is inclusive of all information resources.",
-          "alts": [
-            "information resource",
-            "information resources"
-          ],
+          "alts": ["information resource", "information resources"],
           "reference": "44 USC § 3502 (6)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -372,10 +324,7 @@
         "FRD-IFA": {
           "term": "Initial FedRAMP Assessment",
           "definition": "The first full assessment of a cloud service offering obtaining FedRAMP Certification, coordinated by the provider with all necessary assessors, that results in a FedRAMP Certification.",
-          "alts": [
-            "initial FedRAMP assessment",
-            "IFRA"
-          ],
+          "alts": ["initial FedRAMP assessment", "IFRA"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -426,10 +375,7 @@
         "FRD-LKY": {
           "term": "Likely",
           "definition": "A reasonable degree of probability based on context.",
-          "alts": [
-            "likely",
-            "likelihood"
-          ],
+          "alts": ["likely", "likelihood"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -462,10 +408,7 @@
         "FRD-LAE": {
           "term": "Limited Adverse Effect",
           "definition": "A minor negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in degradation of the availability or performance of services within the cloud service offering for a minority of relevant users; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a small amount of the federal customer data stored within the cloud service offering by only a few relevant users.",
-          "alts": [
-            "limited adverse effect",
-            "limited adverse effects"
-          ],
+          "alts": ["limited adverse effect", "limited adverse effects"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -477,10 +420,7 @@
           "term": "Machine-Based (Information Resources)",
           "definition": "Any information technology information resource—including systems, processes, software, hardware, services, cloud-native capabilities, and any other such capability, component, or resource—that relies primarily on mechanical or electronic devices (i.e. computers) for operation.",
           "note": "All other information resources that do not rely on computers are non-machine-based information resources.",
-          "alts": [
-            "machine-based",
-            "machine based"
-          ],
+          "alts": ["machine-based", "machine based"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -491,9 +431,7 @@
         "FRD-MGN": {
           "term": "Machine-Generated",
           "definition": "Automatically produced by a computer process, application, or other mechanism without the intervention or manipulation of a human during production.",
-          "alts": [
-            "machine-generated"
-          ],
+          "alts": ["machine-generated"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -504,9 +442,7 @@
         "FRD-MRD": {
           "term": "Machine-Readable",
           "definition": "Has the meaning from 44 U.S. Code § 3502 (18) which is \"the term \"machine-readable\", when used with respect to data, means data in a format that can be easily processed by a computer without human intervention while ensuring no semantic meaning is lost\"",
-          "alts": [
-            "machine-readable"
-          ],
+          "alts": ["machine-readable"],
           "reference": "44 U.S. Code § 3502 (18)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -519,10 +455,7 @@
         "FRD-NAE": {
           "term": "Negligible Adverse Effect",
           "definition": "A small negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in minor inconvenience when accessing or using services within the cloud service offering; OR (ii) result in degradation of the availability or performance of services within the cloud service offering for only a few relevant users.",
-          "alts": [
-            "negligible adverse effect",
-            "negligible adverse effects"
-          ],
+          "alts": ["negligible adverse effect", "negligible adverse effects"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -533,11 +466,7 @@
         "FRD-OCR": {
           "term": "Ongoing Certification Report (OCR)",
           "definition": "A regular report that is supplied by FedRAMP Certified cloud service providers to agency customers, aligned to the requirements and recommendations in the FedRAMP Collaborative Continuous Monitoring process.",
-          "alts": [
-            "ongoing certification report",
-            "OCR",
-            "OCRs"
-          ],
+          "alts": ["ongoing certification report", "OCR", "OCRs"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -564,10 +493,7 @@
         "FRD-ODV": {
           "term": "Overdue Vulnerability",
           "definition": "A vulnerability that the provider intends to fully mitigate or remediate but has not or will not do so within the time frames recommended or required by FedRAMP.",
-          "alts": [
-            "overdue vulnerability",
-            "overdue vulnerabilities"
-          ],
+          "alts": ["overdue vulnerability", "overdue vulnerabilities"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -592,10 +518,7 @@
         "FRD-PFA": {
           "term": "Persistent FedRAMP Assessment",
           "definition": "Follow-on assessments of a cloud service offering focused on Key Security Indicators, coordinated by the provider with all necessary assessors, to maintain FedRAMP Certification or change its FedRAMP Certification class.",
-          "alts": [
-            "persistent FedRAMP assessment",
-            "PFRA"
-          ],
+          "alts": ["persistent FedRAMP assessment", "PFRA"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -625,10 +548,7 @@
           "term": "Persistently",
           "definition": "Occurring in a firm, steady way that is repeated over a long period of time in spite of obstacles or difficulties. Persistent activities may vary between actors, may occur irregularly, and may include interruptions or waiting periods between cycles. These attributes of persistent activities should be intentional, understood, and documented; the status of persistent activities will always be known. ",
           "note": "The use of persistently indicates a process that may not always occur continuously (without interruption or gaps) or regularly (on a consistent, predictable basis) but will repeat frequently in cycles. It aligns generally with historical misuse of \"continuous\" in federal information security policies.",
-          "alts": [
-            "persistently",
-            "persistent"
-          ],
+          "alts": ["persistently", "persistent"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -656,10 +576,7 @@
           "term": "Privileged Account",
           "definition": "An account with elevated privileges that enables administrative functions over some aspect of the cloud service offering that may affect the confidentiality, integrity, or availability of information beyond those given to normal users; levels of privilege may vary wildly.",
           "note": "Any references to privileged accounts in FedRAMP materials should be presumed to apply to privileged roles or other similar capabilities that are used to assign privileges to privileged accounts.",
-          "alts": [
-            "privileged account",
-            "privileged accounts"
-          ],
+          "alts": ["privileged account", "privileged accounts"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -671,10 +588,7 @@
           "term": "Promptly",
           "definition": "Without unnecessary delay.",
           "note": "The use of promptly in FedRAMP materials frames conveys a need for urgent action where the expected time frame will vary by circumstance but earlier action is more likely to improve security outcomes and increase the security posture of a cloud service offering.",
-          "alts": [
-            "promptly",
-            "prompt"
-          ],
+          "alts": ["promptly", "prompt"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -685,10 +599,7 @@
         "FRD-CAT": {
           "term": "Security Category",
           "definition": "Has the meaning from NIST FIPS 199, which is \"The characterization of information or an information system based on an assessment of the potential impact that a loss of confidentiality, integrity, or availability of such information or information system would have on organizational operations, organizational assets, or individuals.\"",
-          "alts": [
-            "security category",
-            "security categories"
-          ],
+          "alts": ["security category", "security categories"],
           "reference": "NIST FIPS 199 Standards for Security Categorization of Federal Information and Information Systems",
           "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
           "updated": [
@@ -701,10 +612,7 @@
         "FRD-QTR": {
           "term": "Quarterly Review",
           "definition": "A regular synchronous meeting hosted by a FedRAMP Certified cloud service provider for agency customers, aligned to the requirements and recommendations in the FedRAMP Collaborative Continuous Monitoring process.",
-          "alts": [
-            "quarterly review",
-            "quarterly reviews"
-          ],
+          "alts": ["quarterly review", "quarterly reviews"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -715,10 +623,7 @@
         "FRD-RGL": {
           "term": "Regularly",
           "definition": "Performing the activity on a consistent, predictable, and repeated basis, at set intervals, automatically if possible, following a documented plan. These intervals may vary as appropriate between different requirements.",
-          "alts": [
-            "regularly",
-            "regular"
-          ],
+          "alts": ["regularly", "regular"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -729,10 +634,7 @@
         "FRD-RMV": {
           "term": "Remediated Vulnerability",
           "definition": "A vulnerability that has been neutralized or eliminated and is no longer detected.",
-          "alts": [
-            "remediated vulnerability",
-            "remediated vulnerabilities"
-          ],
+          "alts": ["remediated vulnerability", "remediated vulnerabilities"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -744,9 +646,7 @@
           "term": "Responsibly",
           "definition": "In a way that shows that you have good judgment and the ability to act correctly and make decisions on your own.",
           "note": "Refrain from broadcasting any details that might assist adversaries in their endeavors, disclosing vulnerabilities prior to full remediation, or providing overly specific technical information that could potentially facilitate further compromise. In short: use your best judgment, don’t be that guy.",
-          "alts": [
-            "responsibly"
-          ],
+          "alts": ["responsibly"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -772,10 +672,7 @@
         "FRD-SAE": {
           "term": "Serious Adverse Effect",
           "definition": "A significant negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in intermittent or ongoing degradation in the availability or performance of services within the cloud service offering, causing unpredictable interruptions to operations for 12+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a minority of the federal customer data stored within the cloud service offering.",
-          "alts": [
-            "serious adverse effect",
-            "serious adverse effects"
-          ],
+          "alts": ["serious adverse effect", "serious adverse effects"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -786,10 +683,7 @@
         "FRD-SGC": {
           "term": "Significant Change",
           "definition": "Has the meaning given in NIST SP 800-37 Rev. 2 which is \"a change that is likely to substantively affect the security or privacy posture of a system.\"",
-          "alts": [
-            "significant change",
-            "significant changes"
-          ],
+          "alts": ["significant change", "significant changes"],
           "reference": "NIST SP 800-37 Rev. 2",
           "reference_url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
           "updated": [
@@ -848,10 +742,7 @@
           "term": "Trust Center",
           "definition": "A secure repository or service used by cloud service providers to store and share certification data. Trust centers are the complete and definitive source for certification data and must meet the requirements outlined in the FedRAMP Certification Data Sharing process to be FedRAMP-compatible.",
           "note": "In FedRAMP documentation, all references to trust centers indicate FedRAMP-compatible trust centers unless otherwise specified.",
-          "alts": [
-            "trust center",
-            "trust centers"
-          ],
+          "alts": ["trust center", "trust centers"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -862,10 +753,7 @@
         "FRD-VUL": {
           "term": "Vulnerability",
           "definition": "Has the meaning given to \"security vulnerability\" in 6 USC § 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
-          "alts": [
-            "vulnerability",
-            "vulnerabilities"
-          ],
+          "alts": ["vulnerability", "vulnerabilities"],
           "reference": "6 USC § 650 (25)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title6/USCODE-2024-title6-chap1-subchapXVIII-sec650",
           "updated": [
@@ -928,6 +816,27 @@
               "obtain": "2027-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
+            },
+            "class": {
+              "a": {
+                "applies_in_full": false,
+                "applies": [
+                  "CDS-CSO-PUB",
+                  "CDS-CSO-SVC",
+                  "CDS-UTC-PGD",
+                  "CDS-UTC-AGA",
+                  "CDS-CSL-UTC"
+                ]
+              },
+              "b": {
+                "applies_in_full": true
+              },
+              "c": {
+                "applies_in_full": true
+              },
+              "d": {
+                "applies_in_full": true
+              }
             }
           },
           "rev5": {
@@ -937,6 +846,27 @@
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
               "grace_ends": "2028-03-01"
+            },
+            "class": {
+              "a": {
+                "applies_in_full": false,
+                "applies": [
+                  "CDS-CSO-PUB",
+                  "CDS-CSO-SVC",
+                  "CDS-UTC-PGD",
+                  "CDS-UTC-AGA",
+                  "CDS-CSL-UTC"
+                ]
+              },
+              "b": {
+                "applies_in_full": true
+              },
+              "c": {
+                "applies_in_full": true
+              },
+              "d": {
+                "applies_in_full": true
+              }
             },
             "signup_url": "ADDME"
           }
@@ -1376,6 +1306,31 @@
               "obtain": "2027-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
+            },
+            "class": {
+              "a": {
+                "applies_in_full": false,
+                "applies": [
+                  "CCM-OCR-AVL",
+                  "CCM-OCR-NRD",
+                  "CCM-OCR-FBM",
+                  "CCM-OCR-LSI",
+                  "CCM-OCR-SOR",
+                  "CCM-OCR-RPS",
+                  "CCM-QTR-MTG",
+                  "CCM-QTR-NID",
+                  "CCM-QTR-SRR"
+                ]
+              },
+              "b": {
+                "applies_in_full": true
+              },
+              "c": {
+                "applies_in_full": true
+              },
+              "d": {
+                "applies_in_full": true
+              }
             }
           },
           "rev5": {
@@ -1385,6 +1340,31 @@
               "obtain": "2027-01-01",
               "maintain": "2027-04-02",
               "grace_ends": "2027-10-01"
+            },
+            "class": {
+              "a": {
+                "applies_in_full": false,
+                "applies": [
+                  "CCM-OCR-AVL",
+                  "CCM-OCR-NRD",
+                  "CCM-OCR-FBM",
+                  "CCM-OCR-LSI",
+                  "CCM-OCR-SOR",
+                  "CCM-OCR-RPS",
+                  "CCM-QTR-MTG",
+                  "CCM-QTR-NID",
+                  "CCM-QTR-SRR"
+                ]
+              },
+              "b": {
+                "applies_in_full": true
+              },
+              "c": {
+                "applies_in_full": true
+              },
+              "d": {
+                "applies_in_full": true
+              }
             },
             "signup_url": "ADDME"
           }
@@ -1615,7 +1595,7 @@
             "CCM-OCR-AFS": {
               "name": "Anonymized Feedback Summary",
               "statement": "Providers MUST maintain an anonymized and desensitized summary of the feedback, questions, and answers about each Ongoing Certification Report as an addendum to the Ongoing Certification Report.",
-              "note": "This is intended to encourage sharing of information and decrease the burden on the cloud service provider - providing this summary will reduce duplicate questions from agencies and ensure FedRAMP has access to this information. It is generally in the provider’s interest to update this addendum frequently throughout the quarter.",
+              "note": "This is intended to encourage sharing of information and decrease the burden on the cloud service provider - providing this summary will reduce duplicate questions from agencies and ensure FedRAMP has access to this information. It is generally in the provider's interest to update this addendum frequently throughout the quarter.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": ["Agency", "Ongoing Certification Report (OCR)"],
@@ -1680,6 +1660,12 @@
             "CCM-QTR-MTG": {
               "name": "Quarterly Review Meeting",
               "varies_by_class": {
+                "a": {
+                  "statement": "Providers for Class A offerings MAY host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "primary_key_word": "MAY",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
                 "b": {
                   "statement": "Providers for Class B offerings SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "SHOULD",
@@ -1866,6 +1852,20 @@
               "obtain": "2026-01-05",
               "maintain": "2026-01-05",
               "grace_ends": "2026-07-01"
+            },
+            "class": {
+              "a": {
+                "applies_in_full": true
+              },
+              "b": {
+                "applies_in_full": true
+              },
+              "c": {
+                "applies_in_full": true
+              },
+              "d": {
+                "applies_in_full": true
+              }
             }
           },
           "rev5": {
@@ -1875,6 +1875,20 @@
               "obtain": "2026-01-05",
               "maintain": "2026-01-05",
               "grace_ends": "2026-07-01"
+            },
+            "class": {
+              "a": {
+                "applies_in_full": true
+              },
+              "b": {
+                "applies_in_full": true
+              },
+              "c": {
+                "applies_in_full": true
+              },
+              "d": {
+                "applies_in_full": true
+              }
             }
           }
         },
@@ -2760,10 +2774,7 @@
             "MKT-PRE-REQ": {
               "name": "Preparation Phase Requirements",
               "statement": "Providers MUST implement a minimum set of requirements to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
-              "following_information": [
-                "ADS: requirements",
-                "CCM: requirements"
-              ],
+              "following_information": ["CDS: requirements", "CCM: requirements"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "updated": [
@@ -4394,7 +4405,7 @@
           "RPT": {
             "VDR-RPT-PER": {
               "name": "Persistent Reporting",
-              "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification data and are subject to the FedRAMP FedRAMP Certification data Sharing (ADS) process.",
+              "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification data and are subject to the FedRAMP FedRAMP Certification data Sharing (CDS) process.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -4975,7 +4986,7 @@
       "data": {
         "both": {
           "CSO": {
-            "FRC-CSO-ADS": {
+            "FRC-CSO-CDS": {
               "name": "FedRAMP Certification Data Sharing",
               "statement": "Providers MUST follow and persistently address the FedRAMP Certification Data Sharing (CDS) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "FedRAMP Certification Data Sharing",
@@ -5287,7 +5298,6 @@
       "name": "Change Management",
       "web_name": "change-management",
       "short_name": "CMT",
-      "theme": "A secure cloud service provider will ensure that all changes are properly documented and configuration baselines are updated accordingly.",
       "indicators": {
         "KSI-CMT-LMC": {
           "name": "Logging Changes",
@@ -5307,13 +5317,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Cloud Service Offering"
-          ]
+          "terms": ["Cloud Service Offering"]
         },
         "KSI-CMT-RMV": {
           "name": "Redeploying vs Modifying",
-          "statement": "Changes to machine-based information resources are executed through the redeployment of version controlled immutable resources rather than direct modification wherever reasonable.",
+          "statement": "Changes to machine-based information resources are executed through the redeployment of version controlled resources rather than direct modification wherever reasonable.",
           "controls": [
             "cm-2",
             "cm-3",
@@ -5337,43 +5345,26 @@
         "KSI-CMT-RVP": {
           "name": "Reviewing Change Procedures",
           "statement": "The effectiveness of documented change management procedures is persistently reviewed.",
-          "controls": [
-            "cm-3",
-            "cm-3.2",
-            "cm-3.4",
-            "cm-5",
-            "cm-7.1",
-            "cm-9"
-          ],
+          "controls": ["cm-3", "cm-3.2", "cm-3.4", "cm-5", "cm-7.1", "cm-9"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-CMT-VTD": {
           "name": "Validating Throughout Deployment",
           "statement": "Persistent testing and validation of changes throughout deployment is automated.",
-          "controls": [
-            "cm-3",
-            "cm-3.2",
-            "cm-4.2",
-            "si-2"
-          ],
+          "controls": ["cm-3", "cm-3.2", "cm-4.2", "si-2"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistent Validation",
-            "Persistently"
-          ]
+          "terms": ["Persistent Validation", "Persistently"]
         }
       }
     },
@@ -5382,15 +5373,11 @@
       "name": "Cloud Native Architecture",
       "web_name": "cloud-native-architecture",
       "short_name": "CNA",
-      "theme": "A secure cloud service offering will use cloud native architecture and design principles to enforce and enhance the confidentiality, integrity and availability of the system.",
       "indicators": {
         "KSI-CNA-DFP": {
           "name": "Defining Functionality and Privileges",
           "statement": "The functionality and privileges for infrastructure and services are strictly defined.",
-          "controls": [
-            "cm-2",
-            "si-3"
-          ],
+          "controls": ["cm-2", "si-3"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5400,10 +5387,7 @@
         },
         "KSI-CNA-EIS": {
           "name": "Enforcing Intended State",
-          "controls": [
-            "ca-2.1",
-            "ca-7.1"
-          ],
+          "controls": ["ca-2.1", "ca-7.1"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5412,10 +5396,10 @@
           ],
           "varies_by_class": {
             "b": {
-              "statement": "**Optional:** Automated services are used to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
+              "statement": "**Optional:** Automated services are used to persistently assess the security of all machine-based information resources and automatically enforce their intended operational state."
             },
             "c": {
-              "statement": "Automated services are used to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state."
+              "statement": "Automated services are used to persistently assess the security of all machine-based information resources and automatically enforce their intended operational state."
             }
           },
           "terms": [
@@ -5426,12 +5410,8 @@
         },
         "KSI-CNA-IBP": {
           "name": "Implementing Best Practices",
-          "statement": "The use of cloud-native machine-based information resources is persistently reviewed against the host provider's best practices and guidance.",
-          "controls": [
-            "ac-17.3",
-            "cm-2",
-            "pl-10"
-          ],
+          "statement": "The use and configuration of third-party machine-based information resources is persistently compared against the original provider's best practices and guidance.",
+          "controls": ["ac-17.3", "cm-2", "pl-10"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5494,13 +5474,7 @@
         "KSI-CNA-RNT": {
           "name": "Restricting Network Traffic",
           "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately configured to limit inbound and outbound network traffic.",
-          "controls": [
-            "ac-17.3",
-            "ca-9",
-            "cm-7.1",
-            "sc-7.5",
-            "si-8"
-          ],
+          "controls": ["ac-17.3", "ca-9", "cm-7.1", "sc-7.5", "si-8"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5516,11 +5490,7 @@
         "KSI-CNA-RVP": {
           "name": "Reviewing Protections",
           "statement": "The effectiveness of protection against denial of service attacks and other unwanted activity for machine-based information resources is persistently reviewed.",
-          "controls": [
-            "sc-5",
-            "si-8",
-            "si-8.2"
-          ],
+          "controls": ["sc-5", "si-8", "si-8.2"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5535,7 +5505,7 @@
         },
         "KSI-CNA-ULN": {
           "name": "Using Logical Networking",
-          "statement": "Logical networking and related capabilities are used to enforce traffic flow controls.",
+          "statement": "Logical networking and related capabilities are used and persistently reviewed to enforce traffic flow controls.",
           "controls": [
             "ac-12",
             "ac-17.3",
@@ -5560,67 +5530,20 @@
       "name": "Cybersecurity Education",
       "web_name": "cybersecurity-education",
       "short_name": "CED",
-      "theme": "A secure cloud service provider will educate their employees on cybersecurity measures, testing them persistently to ensure their knowledge is satisfactory.",
       "indicators": {
-        "KSI-CED-DET": {
-          "name": "Reviewing Development and Engineering Training",
-          "statement": "Persistently review the effectiveness of role-specific training given to development and engineering staff that covers best practices for delivering secure software.",
+        "KSI-CED-RAT": {
+          "name": "Reviewing All Training",
+          "statement": "The effectiveness of relevant cybersecurity education and training is persistently reviewed, including at least general training for all employees, role-specific training for employees in high risk roles, training for development and engineering staff on secure software delivery, and training for staff involved with incident response or disaster recovery.",
           "controls": [
             "cp-3",
             "ir-2",
-            "ps-6"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": [
-            "Persistently"
-          ]
-        },
-        "KSI-CED-RGT": {
-          "name": "Reviewing General Training",
-          "statement": "Persistently review the effectiveness of training given to all employees on policies, procedures, and security-related topics.",
-          "controls": [
+            "ps-6",
             "at-2",
             "at-2.2",
             "at-2.3",
             "at-3.5",
             "at-4",
-            "ir-2.3"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": [
-            "Persistently"
-          ]
-        },
-        "KSI-CED-RRT": {
-          "name": "Reviewing Response and Recovery Training",
-          "statement": "Persistently review the effectiveness of role-specific training given to staff involved with incident response or disaster recovery.",
-          "controls": [],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ],
-          "terms": [
-            "Incident",
-            "Persistently",
-            "Vulnerability Response"
-          ]
-        },
-        "KSI-CED-RST": {
-          "name": "Reviewing Role-Specific Training",
-          "statement": "Persistently review the effectiveness of role-specific training given to employees in high risk roles, including at least roles with privileged access.",
-          "controls": [
+            "ir-2.3",
             "at-2",
             "at-2.3",
             "at-3",
@@ -5632,9 +5555,7 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         }
       }
     },
@@ -5643,11 +5564,10 @@
       "name": "Identity and Access Management",
       "web_name": "identity-and-access-management",
       "short_name": "IAM",
-      "theme": "A secure cloud service offering will protect user data, control access, and apply zero trust principles.",
       "indicators": {
         "KSI-IAM-AAM": {
           "name": "Automating Account Management",
-          "statement": "Securely manage the lifecycle and privileges of all accounts, roles, and groups, using automation.",
+          "statement": "The lifecycle and privileges of all accounts, roles, and groups are securely managed using automation.",
           "controls": [
             "ac-2.2",
             "ac-2.3",
@@ -5668,7 +5588,7 @@
         },
         "KSI-IAM-APM": {
           "name": "Adopting Passwordless Methods",
-          "statement": "Use secure passwordless methods for user authentication and authorization when feasible, otherwise enforce strong passwords with MFA for authentication.",
+          "statement": "Secure passwordless methods are used for user authentication and authorization when feasible, otherwise strong passwords with phishing-resistant MFA is used.",
           "controls": [
             "ac-2",
             "ac-3",
@@ -5678,7 +5598,15 @@
             "ia-5.1",
             "ia-5.2",
             "ia-5.6",
-            "ia-6"
+            "ia-6",
+            "ac-2",
+            "ia-2",
+            "ia-2.1",
+            "ia-2.2",
+            "ia-2.8",
+            "ia-5",
+            "ia-8",
+            "sc-23"
           ],
           "updated": [
             {
@@ -5689,7 +5617,7 @@
         },
         "KSI-IAM-ELP": {
           "name": "Ensuring Least Privilege",
-          "statement": "Persistently ensure that identity and access management employs measures to ensure each user or device can only access the resources they need.",
+          "statement": "Identity and access management measures are used and persistently reviewed to ensure each user or device can only access the resources they need.",
           "controls": [
             "ac-2.5",
             "ac-2.6",
@@ -5732,13 +5660,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-IAM-JIT": {
           "name": "Authorizing Just-in-Time",
-          "statement": "Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.",
+          "statement": "A least-privileged, role and attribute-based, and just-in-time security authorization model is used and persistently reviewed for all user and non-user accounts and services.",
           "controls": [
             "ac-2",
             "ac-2.1",
@@ -5786,29 +5712,9 @@
             }
           ]
         },
-        "KSI-IAM-MFA": {
-          "name": "Enforcing Phishing-Resistant MFA",
-          "statement": "Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication.",
-          "controls": [
-            "ac-2",
-            "ia-2",
-            "ia-2.1",
-            "ia-2.2",
-            "ia-2.8",
-            "ia-5",
-            "ia-8",
-            "sc-23"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
         "KSI-IAM-SNU": {
           "name": "Securing Non-User Authentication",
-          "statement": "Enforce appropriately secure authentication methods for non-user accounts and services.",
+          "statement": "Appropriately secure authentication methods are used and persistently reviewed for non-user accounts and services.",
           "controls": [
             "ac-2",
             "ac-2.2",
@@ -5827,7 +5733,7 @@
         },
         "KSI-IAM-SUS": {
           "name": "Responding to Suspicious Activity",
-          "statement": "Automatically disable or otherwise secure accounts with privileged access in response to suspicious activity.",
+          "statement": "Accounts with privileged access are disabled or otherwise secured in response to suspicious activity.",
           "controls": [
             "ac-2",
             "ac-2.1",
@@ -5843,9 +5749,7 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Vulnerability Response"
-          ]
+          "terms": ["Vulnerability Response"]
         }
       }
     },
@@ -5854,31 +5758,22 @@
       "name": "Incident Response",
       "web_name": "incident-response",
       "short_name": "INR",
-      "theme": "A secure cloud service offering will document, report, and analyze security incidents to ensure regulatory compliance and continuous security improvement.",
       "indicators": {
         "KSI-INR-AAR": {
           "name": "Generating After Action Reports",
-          "statement": "Generate incident after action reports and persistently incorporate lessons learned.",
-          "controls": [
-            "ir-3",
-            "ir-4",
-            "ir-4.1",
-            "ir-8"
-          ],
+          "statement": "Incident after action reports are generated and lessons learned are persistently incorporated.",
+          "controls": ["ir-3", "ir-4", "ir-4.1", "ir-8"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Incident",
-            "Persistently"
-          ]
+          "terms": ["Incident", "Persistently"]
         },
         "KSI-INR-RIR": {
           "name": "Reviewing Incident Response Procedures",
-          "statement": "Persistently review the effectiveness of documented incident response procedures.",
+          "statement": "The effectiveness of documented incident response procedures is persistently reviewed.",
           "controls": [
             "ir-4",
             "ir-4.1",
@@ -5897,33 +5792,19 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Incident",
-            "Persistently",
-            "Vulnerability Response"
-          ]
+          "terms": ["Incident", "Persistently", "Vulnerability Response"]
         },
         "KSI-INR-RPI": {
           "name": "Reviewing Past Incidents",
-          "statement": "Persistently review past incidents for patterns or vulnerabilities.",
-          "controls": [
-            "ir-3",
-            "ir-4",
-            "ir-4.1",
-            "ir-5",
-            "ir-8"
-          ],
+          "statement": "Past incidents are persistently reviewed for patterns or vulnerabilities that were not previously apparent or identified.",
+          "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5", "ir-8"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Incident",
-            "Persistently",
-            "Vulnerability"
-          ]
+          "terms": ["Incident", "Persistently", "Vulnerability"]
         }
       }
     },
@@ -5932,13 +5813,10 @@
       "name": "Monitoring, Logging, and Auditing",
       "web_name": "monitoring-logging-and-auditing",
       "short_name": "MLA",
-      "theme": "A secure cloud service offering will monitor, log, and audit all important events, activity, and changes.",
       "indicators": {
         "KSI-MLA-ALA": {
           "name": "Authorizing Log Access",
-          "controls": [
-            "si-11"
-          ],
+          "controls": ["si-11"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5947,22 +5825,17 @@
           ],
           "varies_by_class": {
             "b": {
-              "statement": "**Optional:** Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity."
+              "statement": "**Optional:** A least-privileged, role and attribute-based, and just-in-time access authorization model is used and persistently reviewed for access to log data based on organizationally defined data sensitivity."
             },
             "c": {
-              "statement": "Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity."
+              "statement": "A least-privileged, role and attribute-based, and just-in-time access authorization model is used and persistently reviewed for access to log data based on organizationally defined data sensitivity."
             }
           }
         },
         "KSI-MLA-EVC": {
           "name": "Evaluating Configurations",
-          "statement": "Persistently evaluate and test the configuration of machine-based information resources, especially infrastructure as code.",
-          "controls": [
-            "ca-7",
-            "cm-2",
-            "cm-6",
-            "si-7.7"
-          ],
+          "statement": "The configuration of machine-based information resources, especially infrastructure as code, is persistently evaluated and tested.",
+          "controls": ["ca-7", "cm-2", "cm-6", "si-7.7"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -5977,7 +5850,7 @@
         },
         "KSI-MLA-LET": {
           "name": "Logging Event Types",
-          "statement": "Maintain a list of information resources and event types that will be logged, monitored, and audited, then do so.",
+          "statement": "A list of information resources and event types that will be logged, monitored, and audited is maintained and persistently reviewed to ensure these activities occur.",
           "controls": [
             "ac-2.4",
             "ac-6.9",
@@ -5996,13 +5869,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Information Resource"
-          ]
+          "terms": ["Information Resource"]
         },
         "KSI-MLA-OSM": {
           "name": "Operating SIEM Capability",
-          "statement": "Operate a Security Information and Event Management (SIEM) or similar system(s) for centralized, tamper-resistent logging of events, activities, and changes.",
+          "statement": "A Security Information and Event Management (SIEM) or similar system(s) is used and persistently reviewed for centralized, tamper-resistant logging of events, activities, and changes.",
           "controls": [
             "ac-17.1",
             "ac-20.1",
@@ -6032,7 +5903,7 @@
         },
         "KSI-MLA-RVL": {
           "name": "Reviewing Logs",
-          "statement": "Persistently review and audit logs.",
+          "statement": "Logs are persistently reviewed and audited.",
           "controls": [
             "ac-2.4",
             "ac-6.9",
@@ -6048,9 +5919,7 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         }
       }
     },
@@ -6059,11 +5928,10 @@
       "name": "Policy and Inventory",
       "web_name": "policy-and-inventory",
       "short_name": "PIY",
-      "theme": "A secure cloud service offering will have intentional, organized, universal guidance for how every information resource, including personnel, is secured.",
       "indicators": {
         "KSI-PIY-GIV": {
           "name": "Generating Inventories",
-          "statement": "Use authoritative sources to automatically generate real-time inventories of all information resources when needed.",
+          "statement": "Authoritative sources are used to automatically generate real-time inventories of all information resources when needed.",
           "controls": [
             "cm-2.2",
             "cm-7.5",
@@ -6079,13 +5947,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Information Resource"
-          ]
+          "terms": ["Information Resource"]
         },
         "KSI-PIY-RES": {
           "name": "Reviewing Executive Support",
-          "statement": "Persistently review executive support for achieving the organization's security goals.",
+          "statement": "Executive support for achieving the provider's security goals is persistently reviewed and demonstrated.",
           "controls": [],
           "updated": [
             {
@@ -6093,13 +5959,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-PIY-RIS": {
           "name": "Reviewing Investments in Security",
-          "statement": "Persistently review the effectiveness of the organization's investments in achieving security goals.",
+          "statement": "The effectiveness of the provider's investments in achieving security goals is persistently reviewed.",
           "controls": [
             "ac-5",
             "ca-2",
@@ -6117,13 +5981,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-PIY-RSD": {
           "name": "Reviewing Security in the SDLC",
-          "statement": "Persistently review the effectiveness of building security and privacy considerations into the Software Development Lifecycle and aligning with CISA Secure By Design principles.",
+          "statement": "The effectiveness of building security and privacy considerations into the Software Development Lifecycle and aligning with CISA Secure By Design principles is persistently reviewed.",
           "controls": [
             "ac-5",
             "au-3.3",
@@ -6144,26 +6006,19 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-PIY-RVD": {
           "name": "Reviewing Vulnerability Disclosures",
-          "statement": "Persistently review the effectiveness of the provider's vulnerability disclosure program.",
-          "controls": [
-            "ra-5.11"
-          ],
+          "statement": "The effectiveness of the provider's vulnerability disclosure program is persistently reviewed.",
+          "controls": ["ra-5.11"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently",
-            "Vulnerability"
-          ]
+          "terms": ["Persistently", "Vulnerability"]
         }
       }
     },
@@ -6172,19 +6027,11 @@
       "name": "Recovery Planning",
       "web_name": "recovery-planning",
       "short_name": "RPL",
-      "theme": "A secure cloud service offering will define, maintain, and test incident response plan(s) and recovery capabilities to ensure minimal service disruption and data loss during incidents and contingencies.",
       "indicators": {
         "KSI-RPL-ABO": {
           "name": "Aligning Backups with Objectives",
-          "statement": "Persistently review the alignment of machine-based information resource backups with defined recovery objectives.",
-          "controls": [
-            "cm-2.3",
-            "cp-6",
-            "cp-9",
-            "cp-10",
-            "cp-10.2",
-            "si-12"
-          ],
+          "statement": "The alignment of machine-based information resource backups with defined recovery objectives is persistently reviewed.",
+          "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2", "si-12"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -6199,7 +6046,7 @@
         },
         "KSI-RPL-ARP": {
           "name": "Aligning Recovery Plan",
-          "statement": "Persistently review the alignment of recovery plans with defined recovery objectives.",
+          "statement": "The alignment of recovery plans with defined recovery objectives is persistently reviewed.",
           "controls": [
             "cp-2",
             "cp-2.1",
@@ -6224,30 +6071,23 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-RPL-RRO": {
           "name": "Reviewing Recovery Objectives",
-          "statement": "Persistently review desired Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).",
-          "controls": [
-            "cp-2.3",
-            "cp-10"
-          ],
+          "statement": "The desired Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) are persistently reviewed for alignment with the provider's business needs and capabilities.",
+          "controls": ["cp-2.3", "cp-10"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-RPL-TRC": {
           "name": "Testing Recovery Capabilities",
-          "statement": "Persistently test the capability to recover from incidents and contingencies, including alignment with defined recovery objectives.",
+          "statement": "The capability to recover from incidents and contingencies aligned with defined recovery objectives is persistently tested.",
           "controls": [
             "cp-2.1",
             "cp-2.3",
@@ -6266,10 +6106,7 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Incident",
-            "Persistently"
-          ]
+          "terms": ["Incident", "Persistently"]
         }
       }
     },
@@ -6278,11 +6115,10 @@
       "name": "Service Configuration",
       "web_name": "service-configuration",
       "short_name": "SVC",
-      "theme": "A secure cloud service offering will follow FedRAMP encryption policies, continuously verify information resource integrity, and restrict access to third-party information resources.",
       "indicators": {
         "KSI-SVC-ACM": {
           "name": "Automating Configuration Management",
-          "statement": "Manage configuration of machine-based information resources using automation.",
+          "statement": "The configuration of machine-based information resources is managed using automation and persistently reviewed for drift.",
           "controls": [
             "ac-2.4",
             "cm-2",
@@ -6309,23 +6145,15 @@
         },
         "KSI-SVC-ASM": {
           "name": "Automating Secret Management",
-          "statement": "Automate management, protection, and regular rotation of digital keys, certificates, and other secrets.",
-          "controls": [
-            "ac-17.2",
-            "ia-5.2",
-            "ia-5.6",
-            "sc-12",
-            "sc-17"
-          ],
+          "statement": "Management, protection, and regular rotation of digital keys, certificates, and other secrets is automated and persistently reviewed.",
+          "controls": ["ac-17.2", "ia-5.2", "ia-5.6", "sc-12", "sc-17"],
           "updated": [
             {
               "date": "2026-06-01",
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Regularly"
-          ]
+          "terms": ["Regularly"]
         },
         "KSI-SVC-EIS": {
           "name": "Evaluating and Improving Security",
@@ -6347,16 +6175,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Information Resource",
-            "Persistently"
-          ]
+          "terms": ["Information Resource", "Persistently"]
         },
         "KSI-SVC-PRR": {
           "name": "Preventing Residual Risk",
-          "controls": [
-            "sc-4"
-          ],
+          "controls": ["sc-4"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -6365,10 +6188,10 @@
           ],
           "varies_by_class": {
             "b": {
-              "statement": "**Optional:** Persistently review plans, procedures, and the state of information resources after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
+              "statement": "**Optional:** Plans, procedures, and the state of information resources are persistently reviewed after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
             },
             "c": {
-              "statement": "Persistently review plans, procedures, and the state of information resources after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
+              "statement": "Plans, procedures, and the state of information resources are persistently reviewed after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
             }
           },
           "terms": [
@@ -6380,10 +6203,7 @@
         },
         "KSI-SVC-RUD": {
           "name": "Removing Unwanted Data",
-          "controls": [
-            "si-12.3",
-            "si-18.4"
-          ],
+          "controls": ["si-12.3", "si-18.4"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -6392,17 +6212,13 @@
           ],
           "varies_by_class": {
             "b": {
-              "statement": "**Optional:** Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
+              "statement": "**Optional:** Unwanted federal customer data is removed promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
             },
             "c": {
-              "statement": "Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
+              "statement": "Unwanted federal customer data is removed promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
             }
           },
-          "terms": [
-            "Agency",
-            "Federal Customer Data",
-            "Promptly"
-          ]
+          "terms": ["Agency", "Federal Customer Data", "Promptly"]
         },
         "KSI-SVC-SNT": {
           "name": "Securing Network Traffic",
@@ -6428,10 +6244,7 @@
         },
         "KSI-SVC-VCM": {
           "name": "Validating Communications",
-          "controls": [
-            "sc-23",
-            "si-7.1"
-          ],
+          "controls": ["sc-23", "si-7.1"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -6440,10 +6253,10 @@
           ],
           "varies_by_class": {
             "b": {
-              "statement": "**Optional:** Persistently validate the authenticity and integrity of communications between machine-based information resources using automation."
+              "statement": "**Optional:** The authenticity and integrity of communications between machine-based information resources is persistently validated using automation."
             },
             "c": {
-              "statement": "Persistently validate the authenticity and integrity of communications between machine-based information resources using automation."
+              "statement": "The authenticity and integrity of communications between machine-based information resources is persistently validated using automation."
             }
           },
           "terms": [
@@ -6484,7 +6297,6 @@
       "name": "Supply Chain Risk",
       "web_name": "supply-chain-risk",
       "short_name": "SCR",
-      "theme": "A secure cloud service offering will understand, monitor, and manage supply chain risks from third-party information resources.",
       "indicators": {
         "KSI-SCR-MIT": {
           "name": "Mitigating Supply Chain Risk",
@@ -6509,13 +6321,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Persistently"
-          ]
+          "terms": ["Persistently"]
         },
         "KSI-SCR-MON": {
           "name": "Monitoring Supply Chain Risk",
-          "statement": "Automatically monitor third party software information resources for upstream vulnerabilities using mechanisms that may include contractual notification requirements or active monitoring services.",
+          "statement": "Third party software information resources are automatically monitored for upstream vulnerabilities using mechanisms that may include contractual notification requirements or active monitoring services.",
           "controls": [
             "ac-20",
             "ca-3",
@@ -6534,10 +6344,7 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": [
-            "Information Resource",
-            "Vulnerability"
-          ]
+          "terms": ["Information Resource", "Vulnerability"]
         }
       }
     }
