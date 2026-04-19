@@ -1,0 +1,30 @@
+{
+  "name": "tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "fix": "bun run fix.ts",
+    "summary": "bun run summary.ts",
+    "test:schema": "bun test tests/schema.test.ts",
+    "test:ids": "bun test tests/id-alignment.test.ts",
+    "test:keywords": "bun test tests/primary-keywords.test.ts",
+    "test:terms": "bun test tests/terms.test.ts",
+    "test:order": "bun test tests/property-order.test.ts",
+    "fix:terms": "bun run fix -- --scope terms",
+    "fix:ids": "bun run fix -- --scope ids",
+    "fix:order": "bun run fix -- --scope order",
+    "summary:rules": "bun run summary -- --scope rules",
+    "hooks:install": "sh ./install-git-hooks.sh"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
