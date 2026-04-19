@@ -21,6 +21,16 @@ From `/Users/pwx/github/pete-gov/rules/tools`:
 bun install
 ```
 
+Enable the tracked Git hooks for this repository:
+
+```bash
+bun run hooks:install
+```
+
+This configures the local repository to use [`.githooks/pre-commit`](/Users/pwx/github/pete-gov/rules/.githooks/pre-commit:1),
+which runs `bun test` from `tools` and rejects the commit if the Bun test suite
+fails.
+
 ## Commands
 
 Run the complete validation suite:

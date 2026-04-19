@@ -82,15 +82,81 @@ function getItemsSchema(schema: JsonSchema | null): JsonSchema | null {
   return schema.items;
 }
 
-function getPreferredOrder(schema: JsonSchema | null, value: JsonObject): string[] {
+function getPropertyNamesSchema(schema: JsonSchema | null): JsonSchema | null {
+  if (!schema || !isRecord(schema.propertyNames)) {
+    return null;
+  }
+
+  return schema.propertyNames;
+}
+
+function getOrderedNamesFromSchema(rootSchema: JsonSchema, schema: unknown): string[] | null {
+  const resolvedSchema = dereferenceSchema(rootSchema, schema);
+  if (!resolvedSchema) {
+    return null;
+  }
+
+  if (Array.isArray(resolvedSchema.enum)) {
+    const enumValues = resolvedSchema.enum.filter((value): value is string => typeof value === "string");
+    if (enumValues.length > 0) {
+      return enumValues;
+    }
+  }
+
+  if (typeof resolvedSchema.const === "string") {
+    return [resolvedSchema.const];
+  }
+
+  for (const keyword of ["anyOf", "oneOf", "allOf"] as const) {
+    const entries = resolvedSchema[keyword];
+    if (!Array.isArray(entries)) {
+      continue;
+    }
+
+    const orderedNames: string[] = [];
+    for (const entry of entries) {
+      const childNames = getOrderedNamesFromSchema(rootSchema, entry);
+      if (!childNames) {
+        continue;
+      }
+
+      for (const name of childNames) {
+        if (!orderedNames.includes(name)) {
+          orderedNames.push(name);
+        }
+      }
+    }
+
+    if (orderedNames.length > 0) {
+      return orderedNames;
+    }
+  }
+
+  return null;
+}
+
+function getPreferredOrder(rootSchema: JsonSchema, schema: JsonSchema | null, value: JsonObject): string[] {
   const properties = getPropertiesSchema(schema);
-  if (!properties) {
+  const propertyNameSchema = getPropertyNamesSchema(schema);
+  const propertyNameOrder = propertyNameSchema
+    ? getOrderedNamesFromSchema(rootSchema, propertyNameSchema) ?? []
+    : [];
+
+  const preferredKeys = properties ? Object.keys(properties) : [];
+  const orderedKeys = [...preferredKeys];
+
+  for (const key of propertyNameOrder) {
+    if (!orderedKeys.includes(key)) {
+      orderedKeys.push(key);
+    }
+  }
+
+  if (orderedKeys.length === 0) {
     return Object.keys(value);
   }
 
-  const preferredKeys = Object.keys(properties);
-  const presentPreferredKeys = preferredKeys.filter((key) => key in value);
-  const remainingKeys = Object.keys(value).filter((key) => !preferredKeys.includes(key));
+  const presentPreferredKeys = orderedKeys.filter((key) => key in value);
+  const remainingKeys = Object.keys(value).filter((key) => !orderedKeys.includes(key));
 
   return [...presentPreferredKeys, ...remainingKeys];
 }
@@ -144,7 +210,7 @@ function collectIssuesForValue(
   }
 
   const actualOrder = Object.keys(value);
-  const expectedOrder = getPreferredOrder(resolvedSchema, value);
+  const expectedOrder = getPreferredOrder(rootSchema, resolvedSchema, value);
 
   if (actualOrder.length > 1 && actualOrder.some((key, index) => key !== expectedOrder[index])) {
     issues.push({
@@ -199,7 +265,7 @@ function reorderValue(
   }
 
   const actualOrder = Object.keys(withReorderedChildren);
-  const expectedOrder = getPreferredOrder(resolvedSchema, withReorderedChildren);
+  const expectedOrder = getPreferredOrder(rootSchema, resolvedSchema, withReorderedChildren);
 
   if (actualOrder.length > 1 && actualOrder.some((key, index) => key !== expectedOrder[index])) {
     issues.push({

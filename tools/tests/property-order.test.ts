@@ -81,3 +81,115 @@ test("property order fixes use schema property order as the source of truth", ()
     "updated",
   ]);
 });
+
+test("property order fixes use schema propertyNames enum order for FRR labels and label groups", () => {
+  const schema = {
+    type: "object",
+    properties: {
+      FRR: {
+        type: "object",
+        properties: {
+          ABC: {
+            type: "object",
+            properties: {
+              info: {
+                type: "object",
+                properties: {
+                  labels: {
+                    type: "object",
+                    propertyNames: { $ref: "#/$defs/frr_info_label_name" },
+                    additionalProperties: { $ref: "#/$defs/frr_label_definition" },
+                  },
+                },
+              },
+              data: {
+                type: "object",
+                properties: {
+                  both: { $ref: "#/$defs/frr_requirements_map" },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    $defs: {
+      frr_data_label_name: {
+        enum: ["FRP", "CSO", "CSX", "UTC"],
+      },
+      frr_info_label_name: {
+        anyOf: [{ $ref: "#/$defs/frr_data_label_name" }, { const: "IAL" }],
+      },
+      frr_label_definition: {
+        type: "object",
+        properties: {
+          name: { type: "string" },
+          description: { type: "string" },
+        },
+      },
+      frr_requirements_map: {
+        type: "object",
+        propertyNames: { $ref: "#/$defs/frr_data_label_name" },
+        additionalProperties: { $ref: "#/$defs/frr_requirements_label_group" },
+      },
+      frr_requirements_label_group: {
+        type: "object",
+        patternProperties: {
+          "^[A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3}$": {
+            type: "object",
+            properties: {
+              name: { type: "string" },
+            },
+          },
+        },
+      },
+    },
+  };
+
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          labels: {
+            IAL: { name: "IAL", description: "Identity assurance level" },
+            CSX: { name: "CSX", description: "Customer experience" },
+            FRP: { name: "FRP", description: "FedRAMP prioritization" },
+            UTC: { name: "UTC", description: "Timing" },
+          },
+        },
+        data: {
+          both: {
+            UTC: {
+              "ABC-UTC-001": { name: "UTC rule" },
+            },
+            FRP: {
+              "ABC-FRP-001": { name: "FRP rule" },
+            },
+            CSX: {
+              "ABC-CSX-001": { name: "CSX rule" },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  const checkIssues = collectPropertyOrderIssues(document, schema);
+  expect(checkIssues).toEqual([
+    {
+      path: "FRR.ABC.info.labels",
+      actualOrder: ["IAL", "CSX", "FRP", "UTC"],
+      expectedOrder: ["FRP", "CSX", "UTC", "IAL"],
+    },
+    {
+      path: "FRR.ABC.data.both",
+      actualOrder: ["UTC", "FRP", "CSX"],
+      expectedOrder: ["FRP", "CSX", "UTC"],
+    },
+  ]);
+
+  const fixed = fixPropertyOrder(document, schema);
+  expect(fixed.fixedCount).toBe(2);
+  expect(Object.keys(fixed.document.FRR.ABC.info.labels)).toEqual(["FRP", "CSX", "UTC", "IAL"]);
+  expect(Object.keys(fixed.document.FRR.ABC.data.both)).toEqual(["FRP", "CSX", "UTC"]);
+});
