@@ -101,3 +101,9 @@ export interface IdAlignmentIssue {
   newKey: string;
   status: "fixed" | "skipped_collision";
 }
+
+export interface PropertyOrderIssue {
+  path: string;
+  actualOrder: string[];
+  expectedOrder: string[];
+}

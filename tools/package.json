@@ -8,10 +8,12 @@
     "test:ids": "bun run validate-item-ids.ts",
     "test:keywords": "bun run validate-primary-key-word.ts",
     "test:terms": "bun run validate-terms.ts",
+    "test:order": "bun run validate-property-order.ts",
     "summary:rules": "bun run summary-rules.ts",
     "validate": "bun run validate.ts",
     "terms:update": "bun run validate-terms.ts --write",
-    "ids:fix": "bun run validate-item-ids.ts --in-place"
+    "ids:fix": "bun run validate-item-ids.ts --in-place",
+    "order:fix": "bun run validate-property-order.ts --write"
   },
   "dependencies": {
     "ajv": "^8.17.1",

@@ -44,6 +44,9 @@ when they all pass:
 - `bun run test:terms`
   Checks that each FRD `term` uses the default title casing and that each
   `terms` array matches the current structured term extraction logic.
+- `bun run test:order`
+  Checks that object properties in the consolidated rules JSON follow the
+  preferred order defined by the schema's `properties` blocks.
 
 ### Summary Commands
 
@@ -104,6 +107,23 @@ bun run ids:fix
 This updates mismatched IDs in the configured rules JSON and preserves rename
 history using `fka` or `fkas` metadata in the affected objects.
 
+Fix property ordering in place using the schema as the source of truth:
+
+```bash
+bun run order:fix
+```
+
+This rewrites object keys in the configured rules JSON to match the order of the
+corresponding `properties` definitions in
+[schemas/fedramp-consolidated-rules.schema.json](/Users/pwx/github/pete-gov/rules/schemas/fedramp-consolidated-rules.schema.json:1).
+It only updates key order; it does not modify the schema.
+
+Use this after either of the following:
+
+- you changed the property order in the schema and want the rules JSON to match
+- you edited the rules JSON and want to normalize object key order before
+  committing
+
 Check ID alignment without modifying the file:
 
 ```bash
@@ -147,6 +167,23 @@ Check primary keyword alignment without modifying the file:
 bun run validate-primary-key-word.ts
 ```
 
+Check property ordering without modifying the file:
+
+```bash
+bun run validate-property-order.ts
+```
+
+This is the read-only version of `bun run order:fix`. It fails if any object in
+the configured rules JSON has keys in a different order than the matching
+schema-defined `properties` order.
+
+Write reordered output to a separate file instead of updating the configured
+rules file in place:
+
+```bash
+bun run validate-property-order.ts --write --output ./fedramp-consolidated-rules.ordered.json
+```
+
 Validate the configured rules file against the schema directly:
 
 ```bash
@@ -166,6 +203,9 @@ bun run validate-schema.ts
 - [tools/validate-primary-key-word.ts](/Users/pwx/github/pete-gov/rules/tools/validate-primary-key-word.ts:1)
   Checks that each `primary_key_word` matches the first normative keyword in the
   associated statement.
+- [tools/validate-property-order.ts](/Users/pwx/github/pete-gov/rules/tools/validate-property-order.ts:1)
+  Checks and optionally fixes schema-driven object property ordering in the
+  configured rules JSON.
 - [tools/validate-terms.ts](/Users/pwx/github/pete-gov/rules/tools/validate-terms.ts:1)
   Checks FRD term title casing and FRR/KSI term synchronization, and can write
   fixes back to the configured rules JSON.
@@ -179,6 +219,8 @@ bun run validate-schema.ts
   Provides ID validation and fixing logic.
 - [tools/src/keywords.ts](/Users/pwx/github/pete-gov/rules/tools/src/keywords.ts:1)
   Provides `primary_key_word` validation logic.
+- [tools/src/property-order.ts](/Users/pwx/github/pete-gov/rules/tools/src/property-order.ts:1)
+  Provides schema-driven object property order validation and fixing logic.
 - [tools/src/terms.ts](/Users/pwx/github/pete-gov/rules/tools/src/terms.ts:1)
   Provides term extraction and synchronization logic.
 - [tools/tests](/Users/pwx/github/pete-gov/rules/tools/tests)
@@ -191,4 +233,6 @@ bun run validate-schema.ts
 2. Run `bun run validate`.
 3. If terms need normalization, run `bun run terms:update`.
 4. If IDs need normalization, run `bun run ids:fix`.
-5. Run `bun run validate` again before committing.
+5. If you changed schema property order or want to normalize JSON object key
+   order, run `bun run order:fix`.
+6. Run `bun run validate` again before committing.

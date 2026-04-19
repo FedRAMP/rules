@@ -75,6 +75,7 @@
       "additionalProperties": false
     }
   },
+  "additionalProperties": false,
   "$defs": {
     "document_info": {
       "type": "object",
@@ -85,6 +86,7 @@
         "web_name": { "type": "string" },
         "effective": {
           "type": "object",
+          "required": ["rev5", "20x"],
           "properties": {
             "rev5": { "$ref": "#/$defs/effective_entry" },
             "20x": { "$ref": "#/$defs/effective_entry" }
@@ -115,18 +117,17 @@
       "required": ["is"],
       "properties": {
         "is": { "type": "string", "enum": ["required", "optional", "no"] },
-        "signup_url": { "type": "string" },
         "current_status": { "type": "string" },
         "date": { "$ref": "#/$defs/effective_dates" },
-        "start_date": { "type": "string", "format": "date" },
-        "end_date": { "type": "string", "format": "date" },
         "comments": { "type": "array", "items": { "type": "string" } },
-        "warnings": { "type": "array", "items": { "type": "string" } }
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "signup_url": { "type": "string" }
       },
       "additionalProperties": false
     },
     "effective_dates": {
       "type": "object",
+      "required": ["obtain", "maintain", "grace_ends"],
       "properties": {
         "obtain": { "type": "string", "format": "date" },
         "maintain": { "type": "string", "format": "date" },
@@ -136,6 +137,7 @@
     },
     "front_matter": {
       "type": "object",
+      "required": ["purpose"],
       "properties": {
         "authority": {
           "type": "array",
@@ -143,9 +145,9 @@
             "type": "object",
             "required": ["reference", "reference_url", "description"],
             "properties": {
+              "description": { "type": "string" },
               "reference": { "type": "string" },
               "reference_url": { "type": "string", "format": "uri" },
-              "description": { "type": "string" },
               "delegation": { "type": "string" },
               "delegation_url": { "type": "string", "format": "uri" }
             },
@@ -158,6 +160,7 @@
     },
     "data_container_frd": {
       "type": "object",
+      "required": ["both"],
       "properties": {
         "20x": { "$ref": "#/$defs/frd_definitions_map" },
         "rev5": { "$ref": "#/$defs/frd_definitions_map" },
@@ -174,13 +177,13 @@
     },
     "frd_definition": {
       "type": "object",
-      "required": ["term", "definition"],
+      "required": ["term", "definition", "alts", "updated"],
       "properties": {
         "term": { "type": "string" },
-        "alts": { "type": "array", "items": { "type": "string" } },
         "definition": { "type": "string" },
         "note": { "type": "string" },
         "notes": { "type": "array", "items": { "type": "string" } },
+        "alts": { "type": "array", "items": { "type": "string" } },
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "referenceurl": { "type": "string", "format": "uri" },
@@ -229,20 +232,18 @@
         }
       ],
       "properties": {
-        "statement": { "type": "string" },
-        "danger": { "type": "string" },
-        "terms": { "type": "array", "items": { "type": "string" } },
-        "affects": { "type": "array", "items": { "type": "string" } },
         "name": { "type": "string" },
-        "reference": { "type": "string" },
-        "reference_url": { "type": "string", "format": "uri" },
-        "reference_url_web_name": { "type": "string" },
-        "primary_key_word": {
-          "$ref": "#/$defs/primary_key_word_enum"
-        },
-        "controls": {
-          "type": "array",
-          "items": { "type": "string" }
+        "statement": { "type": "string" },
+        "varies_by_class": {
+          "type": "object",
+          "required": ["b", "c"],
+          "properties": {
+            "a": { "$ref": "#/$defs/frr_requirement_level" },
+            "b": { "$ref": "#/$defs/frr_requirement_level" },
+            "c": { "$ref": "#/$defs/frr_requirement_level" },
+            "d": { "$ref": "#/$defs/frr_requirement_level" }
+          },
+          "additionalProperties": false
         },
         "following_information": {
           "type": "array",
@@ -252,13 +253,20 @@
           "type": "array",
           "items": { "type": "string" }
         },
-        "updated": { "$ref": "#/$defs/updated_list" },
+        "danger": { "type": "string" },
         "note": { "type": "string" },
         "notes": { "type": "array", "items": { "type": "string" } },
+        "reference": { "type": "string" },
+        "reference_url": { "type": "string", "format": "uri" },
+        "reference_url_web_name": { "type": "string" },
         "corrective_actions": {
           "type": "array",
           "items": { "type": "string" }
         },
+        "primary_key_word": {
+          "$ref": "#/$defs/primary_key_word_enum"
+        },
+        "affects": { "type": "array", "items": { "type": "string" } },
         "examples": {
           "type": "array",
           "items": {
@@ -268,35 +276,6 @@
               "id": { "type": "string" },
               "key_tests": { "type": "array", "items": { "type": "string" } },
               "examples": { "type": "array", "items": { "type": "string" } }
-            },
-            "additionalProperties": false
-          }
-        },
-        "varies_by_class": {
-          "type": "object",
-          "properties": {
-            "a": { "$ref": "#/$defs/frr_requirement_level" },
-            "b": { "$ref": "#/$defs/frr_requirement_level" },
-            "c": { "$ref": "#/$defs/frr_requirement_level" },
-            "d": { "$ref": "#/$defs/frr_requirement_level" }
-          },
-          "additionalProperties": false
-        },
-        "pain_timeframes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "pain",
-              "max_days_irv_lev",
-              "max_days_nirv_lev",
-              "max_days_nlev"
-            ],
-            "properties": {
-              "pain": { "type": "integer" },
-              "max_days_irv_lev": { "type": "number" },
-              "max_days_nirv_lev": { "type": "number" },
-              "max_days_nlev": { "type": "number" }
             },
             "additionalProperties": false
           }
@@ -316,14 +295,18 @@
             "additionalProperties": false
           }
         },
-        "reference": { "type": "string" },
-        "reference_url": { "type": "string", "format": "uri" }
+        "controls": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "terms": { "type": "array", "items": { "type": "string" } },
+        "updated": { "$ref": "#/$defs/updated_list" }
       },
       "additionalProperties": false
     },
     "frr_requirement_level": {
       "type": "object",
-      "required": ["primary_key_word"],
+      "required": ["primary_key_word", "statement"],
       "properties": {
         "statement": { "type": "string" },
         "primary_key_word": { "$ref": "#/$defs/primary_key_word_enum" },
@@ -353,7 +336,7 @@
     },
     "ksi_indicator": {
       "type": "object",
-      "required": ["name"],
+      "required": ["name", "controls", "updated"],
       "oneOf": [
         {
           "properties": { "statement": {} },
@@ -373,6 +356,7 @@
         "updated": { "$ref": "#/$defs/updated_list" },
         "varies_by_class": {
           "type": "object",
+          "required": ["b", "c"],
           "properties": {
             "a": { "$ref": "#/$defs/ksi_indicator_level" },
             "b": { "$ref": "#/$defs/ksi_indicator_level" },
