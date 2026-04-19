@@ -92,10 +92,10 @@
         "web_name": { "type": "string" },
         "effective": {
           "type": "object",
-          "required": ["rev5", "20x"],
+          "required": ["20x", "rev5"],
           "properties": {
-            "rev5": { "$ref": "#/$defs/effective_entry" },
-            "20x": { "$ref": "#/$defs/effective_entry" }
+            "20x": { "$ref": "#/$defs/effective_entry" },
+            "rev5": { "$ref": "#/$defs/effective_entry" }
           },
           "additionalProperties": false
         },
@@ -196,9 +196,9 @@
       "type": "object",
       "required": ["both"],
       "properties": {
+        "both": { "$ref": "#/$defs/frd_definitions_map" },
         "20x": { "$ref": "#/$defs/frd_definitions_map" },
-        "rev5": { "$ref": "#/$defs/frd_definitions_map" },
-        "both": { "$ref": "#/$defs/frd_definitions_map" }
+        "rev5": { "$ref": "#/$defs/frd_definitions_map" }
       },
       "additionalProperties": false
     },
@@ -228,9 +228,9 @@
     "data_container_frr": {
       "type": "object",
       "properties": {
+        "both": { "$ref": "#/$defs/frr_requirements_map" },
         "20x": { "$ref": "#/$defs/frr_requirements_map" },
-        "rev5": { "$ref": "#/$defs/frr_requirements_map" },
-        "both": { "$ref": "#/$defs/frr_requirements_map" }
+        "rev5": { "$ref": "#/$defs/frr_requirements_map" }
       },
       "additionalProperties": false
     },

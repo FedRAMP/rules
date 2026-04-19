@@ -193,3 +193,84 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
   expect(Object.keys(fixed.document.FRR.ABC.info.labels)).toEqual(["FRP", "CSX", "UTC", "IAL"]);
   expect(Object.keys(fixed.document.FRR.ABC.data.both)).toEqual(["FRP", "CSX", "UTC"]);
 });
+
+test("property order fixes follow schema order for referenced data containers", () => {
+  const schema = {
+    type: "object",
+    properties: {
+      FRR: {
+        type: "object",
+        patternProperties: {
+          "^[A-Z]{3}$": {
+            type: "object",
+            properties: {
+              info: {
+                type: "object",
+                properties: {
+                  effective: {
+                    type: "object",
+                    properties: {
+                      rev5: { type: "string" },
+                      "20x": { type: "string" },
+                    },
+                  },
+                },
+              },
+              data: { $ref: "#/$defs/data_container_frr" },
+            },
+          },
+        },
+      },
+    },
+    $defs: {
+      data_container_frd: {
+        type: "object",
+        properties: {
+          both: { type: "object" },
+          "20x": { type: "object" },
+          rev5: { type: "object" },
+        },
+      },
+      data_container_frr: {
+        type: "object",
+        properties: {
+          both: { type: "object" },
+          "20x": { type: "object" },
+          rev5: { type: "object" },
+        },
+      },
+    },
+  };
+
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          effective: {
+            rev5: "2024-01-01",
+            "20x": "2025-01-01",
+          },
+        },
+        data: {
+          rev5: {},
+          both: {},
+          "20x": {},
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  const checkIssues = collectPropertyOrderIssues(document, schema);
+  expect(checkIssues).toEqual([
+    {
+      path: "FRR.ABC.data",
+      actualOrder: ["rev5", "both", "20x"],
+      expectedOrder: ["both", "20x", "rev5"],
+    },
+  ]);
+
+  const fixed = fixPropertyOrder(document, schema);
+  expect(fixed.fixedCount).toBe(1);
+  expect(Object.keys(fixed.document.FRR.ABC.data)).toEqual(["both", "20x", "rev5"]);
+  expect(Object.keys(fixed.document.FRR.ABC.info.effective)).toEqual(["rev5", "20x"]);
+});
