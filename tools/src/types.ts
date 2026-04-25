@@ -27,10 +27,18 @@ export interface RequirementLevel {
   primary_key_word?: string;
   timeframe_type?: string;
   timeframe_num?: number;
-  pain_timeframes?: unknown[];
+  pain_timeframes?: PainTimeframes;
 }
 
 export type ClassKey = "a" | "b" | "c" | "d";
+
+export interface PainTimeframeEntry {
+  timeframe_type: string;
+  timeframe_num: number;
+  description: string;
+}
+
+export type PainTimeframes = Record<string, Record<string, PainTimeframeEntry>>;
 
 export type RequirementByClass = Partial<Record<ClassKey, RequirementLevel>>;
 
