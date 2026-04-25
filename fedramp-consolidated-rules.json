@@ -6688,18 +6688,24 @@
           }
         },
         "rev5": {
+          "FRP": {
+            "CDS-FRP-RIF": {
+              "name": "Required Information and Formats",
+              "statement": "FedRAMP MUST publish and maintain required Rev5 FedRAMP Certification data elements and approved standardized formats for machine-readable or semi-structured submission.",
+              "primary_key_word": "MUST",
+              "affects": ["FedRAMP"],
+              "terms": ["Certification Data", "Machine-Readable"],
+              "updated": []
+            }
+          },
           "CSL": {
             "FRC-CSL-CDE": {
               "name": "Class D Program Certification Exclusion",
               "statement": "Providers seeking a FedRAMP Rev5 Class D Certification MUST use the FedRAMP Agency Certification path.",
               "note": "FedRAMP will not perform FedRAMP Rev5 Class D Program Certifications.",
               "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Agency"
-              ],
+              "affects": ["Providers"],
+              "terms": ["Agency"],
               "updated": []
             }
           }
