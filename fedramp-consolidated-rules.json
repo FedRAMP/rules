@@ -45,26 +45,11 @@
     },
     "data": {
       "both": {
-        "FRD-AAP": {
-          "term": "All Affected Parties",
-          "definition": "All federal entities whose interests are affected directly or are likely to be affected directly in the event of a vulnerability or incident related to federal customer data. This always includes FedRAMP and the directly impacted federal customer agency.",
-          "alts": [
-            "all affected parties"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
         "FRD-ACV": {
           "term": "Accepted Vulnerability",
-          "definition": "A vulnerability that the provider does not intend to fully mitigate or remediate, OR that has not or will not be fully mitigated or remediated within the maximum overdue period recommended or required by FedRAMP.",
-          "alts": [
-            "accepted vulnerability",
-            "accepted vulnerabilities"
-          ],
+          "definition": "A vulnerability that the provider does not intend to fully mitigate or remediate, OR that has not or will not be fully mitigated or remediated within the maximum overdue period in FedRAMP Vulnerability Detection and Response rules.",
+          "tag": "Vulnerabilities",
+          "alts": ["accepted vulnerability", "accepted vulnerabilities"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -74,13 +59,22 @@
         },
         "FRD-ADP": {
           "term": "Adaptive Change",
-          "definition": "The type of significant change that does not routinely recur but does not introduce substantive potential security risks that need to be assessed in depth.",
+          "definition": "A type of significant change that does not routinely recur and does not introduce substantive potential security risks that need to be assessed in depth.",
           "note": "Adaptive changes typically require careful planning that focuses on engineering execution instead of customer adoption, can be verified with minor changes to existing automated validation procedures, and do not require large changes to operational procedures, deployment plans, or documentation.",
-          "alts": [
-            "adaptive",
-            "adaptive change",
-            "adaptive changes"
-          ],
+          "tag": "Significant Changes",
+          "alts": ["adaptive", "adaptive change", "adaptive changes"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-ADV": {
+          "term": "Advisor",
+          "definition": "An entity that helps a provider understand, prepare for, or maintain FedRAMP Certification without replacing the provider's responsibility or the assessor's independence.",
+          "tag": "Stakeholders",
+          "alts": ["advisor", "advisors"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -91,10 +85,8 @@
         "FRD-AGY": {
           "term": "Agency",
           "definition": "Has the meaning given in 44 U.S. Code § 3502 (1), which is \"any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include—(A) the Government Accountability Office; (B) Federal Election Commission; (C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or (D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.\"",
-          "alts": [
-            "agency",
-            "agencies"
-          ],
+          "tag": "Stakeholders",
+          "alts": ["agency", "agencies"],
           "reference": "44 U.S. Code § 3502 (1)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -104,12 +96,23 @@
             }
           ]
         },
+        "FRD-AAP": {
+          "term": "All Affected Parties",
+          "definition": "All federal entities whose interests are affected directly or are likely to be affected directly in the event of a vulnerability or incident related to federal customer data. This always includes FedRAMP and directly impacted federal customer agencies.",
+          "tag": "Stakeholders",
+          "alts": ["all affected parties"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-ANA": {
           "term": "All Necessary Assessors",
-          "definition": "All entities who participate in the FedRAMP assessment of a cloud service offering in the context of a FedRAMP Certification. This always includes FedRAMP and any FedRAMP Recognized independent assessor contracted by the provider to perform a FedRAMP assessment.",
-          "alts": [
-            "all necessary assessors"
-          ],
+          "definition": "All entities who participate in the FedRAMP assessment of a cloud service offering in the context of a FedRAMP Certification. This always includes FedRAMP and any FedRAMP Recognized independent assessor contracted by a provider to perform a FedRAMP assessment.",
+          "tag": "Stakeholders",
+          "alts": ["all necessary assessors"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -119,10 +122,9 @@
         },
         "FRD-ANP": {
           "term": "All Necessary Parties",
-          "definition": "All entities whose interests are affected directly by activity related to a specific cloud service offering in the context of FedRAMP Certifications. This always includes FedRAMP and any agency customer who is using the cloud service offering, but may include additional parties depending on agreements made by the cloud service provider (such as consultants or third-party assessors). Potential agency customers or third-party cloud service providers should also be included in most cases but this is not a mandatory requirement under FedRAMP as ultimately the cloud service provider may choose who they wish to do business with.",
-          "alts": [
-            "all necessary parties"
-          ],
+          "definition": "All entities whose interests are affected directly by activity related to a specific cloud service offering in the context of FedRAMP Certifications. This always includes FedRAMP and any agency customer who is using the cloud service offering, but may include additional parties depending on agreements made by the cloud service provider (such as consultants or independent assessors). Potential agency customers or third-party cloud service providers should also be included in most cases but this is not a mandatory requirement under FedRAMP because the cloud service provider may choose who they wish to do business with.",
+          "tag": "Stakeholders",
+          "alts": ["all necessary parties"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -130,28 +132,12 @@
             }
           ]
         },
-        "FRD-AUP": {
-          "term": "Certification Package",
-          "definition": "Has meaning from 44 USC § 3607 (b)(8) given to \"authorization package\", which is \"the essential information that can be used by an agency to determine whether to authorize the operation of an information system or the use of a designated set of common controls for all cloud computing products and services [certified] by FedRAMP.\"",
-          "note": "In FedRAMP documentation, certification package always refers to a FedRAMP Certification package unless otherwise specified.",
-          "alts": [
-            "certification package",
-            "certification packages"
-          ],
-          "reference": "44 USC § 3607 (b)(8)",
-          "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
-        "FRD-AUD": {
-          "term": "Certification Data",
-          "definition": "The collective information required by FedRAMP for initial and ongoing assessment and FedRAMP Certification of a cloud service offering, including the certification package.",
-          "note": "In FedRAMP documentation, certification data always refers to FedRAMP Certification Data unless otherwise specified.",
-          "alts": ["certification data"],
+        "FRD-ASR": {
+          "term": "Assessor",
+          "definition": "An assessor that performs assessment, verification, or validation activities for a cloud service offering in the context of FedRAMP Certification; FedRAMP is the final assessor for FedRAMP Certification, but FedRAMP Recognized independent assessment services are typically also utilized.",
+          "note": "FedRAMP has transitioned from using the historical term \"Third-Party Assessment Organization (3PAO)\" to align with the explicit terminology used in the FedRAMP Authorization Act and to avoid the confusion caused when the same organizations provide both assessment and advisory services while being referred to as a 3PAO.",
+          "tag": "Stakeholders",
+          "alts": ["assessor", "assessors"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -162,6 +148,7 @@
         "FRD-CAE": {
           "term": "Catastrophic Adverse Effect",
           "definition": "A severe negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in a severe degradation in the availability or performance of services within the cloud service offering for 24+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a majority of the federal customer data stored within the cloud service offering.",
+          "tag": "Adverse Effects",
           "alts": [
             "catastrophic adverse effect",
             "catastrophic adverse effects"
@@ -173,13 +160,11 @@
             }
           ]
         },
-        "FRD-CSO": {
-          "term": "Cloud Service Offering",
-          "definition": "A specific, packaged cloud computing product or service provided by a cloud service provider that can be used by a customer. FedRAMP Certification of the cloud computing product or service is based on the Minimum Assessment Scope.",
-          "alts": [
-            "cloud service offering",
-            "cloud service offerings"
-          ],
+        "FRD-CCC": {
+          "term": "Certification Class Change",
+          "definition": "A type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
+          "tag": "Significant Changes",
+          "alts": ["certification class change", "certification class changes"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -187,14 +172,37 @@
             }
           ]
         },
-        "FRD-DFT": {
-          "term": "Drift",
-          "definition": "Changes to information resources that cause deviations from the intended and assessed state; common forms of drift include changes to configurations, deployed software, privileges, running processes, and availability.",
-          "alts": [
-            "drift",
-            "drifts",
-            "drifting"
-          ],
+        "FRD-CRD": {
+          "term": "Certification Data",
+          "definition": "The collective information required by FedRAMP for initial and ongoing FedRAMP Certification of a cloud service offering, including the FedRAMP Certification Package.",
+          "note": "In FedRAMP documentation, certification data always refers to FedRAMP Certification Data unless otherwise specified.",
+          "alts": ["certification data"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-CRP": {
+          "term": "Certification Package",
+          "definition": "Has meaning from 44 USC § 3607 (b)(8) given to \"authorization package\", which is \"the essential information that can be used by an agency to determine whether to authorize the operation of an information system or the use of a designated set of common controls for all cloud computing products and services [certified] by FedRAMP.\"",
+          "note": "In FedRAMP documentation, certification package always refers to a FedRAMP Certification Package unless otherwise specified.",
+          "alts": ["certification package", "certification packages"],
+          "reference": "44 USC § 3607 (b)(8)",
+          "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-CSO": {
+          "term": "Cloud Service Offering",
+          "definition": "A specific, packaged cloud computing product or service supplied by a cloud service provider for use by customers, that is the subject of a FedRAMP Certification.",
+          "note": "The FedRAMP Minimum Assessment Scope defines the full scope of the cloud service offering from the perspective of a FedRAMP Certification.",
+          "alts": ["cloud service offering", "cloud service offerings"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -206,9 +214,75 @@
           "term": "Deterministic Telemetry",
           "definition": "Verifiable data collected directly from an authoritative source that represents a factual and reproducible observation of the attributes of a system such as the system's state, configuration, or behavior.",
           "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as “Generative AI”) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
-          "alts": [
-            "deterministic telemetry"
+          "alts": ["deterministic telemetry"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-DFT": {
+          "term": "Drift",
+          "definition": "Changes to information resources that cause deviations from the intended and assessed state; common forms of drift include changes to configurations, deployed software, privileges, running processes, and availability.",
+          "alts": ["drift", "drifts", "drifting"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-FPV": {
+          "term": "False Positive Vulnerability",
+          "definition": "A detected vulnerability that is not actually present in an exploitable state in the information resource",
+          "notes": [
+            "This includes situations where vulnerable software or code exist on a machine-based information resource but are not loaded, running, or otherwise in an operating state required for exploitation.",
+            "This only applies if the vulnerability is not and was not present; a remediated vulnerability or a fully mitigated vulnerability cannot also be a false positive vulnerability."
           ],
+          "tag": "Vulnerabilities",
+          "alts": [
+            "false positive vulnerability",
+            "false positive vulnerabilities"
+          ],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-FCD": {
+          "term": "Federal Customer Data",
+          "definition": "All electronic information, content, and materials that an agency or its authorized users upload, store, or otherwise supply to a cloud service for processing or storage. This does NOT include account information, service metadata, analytics, telemetry, or other similar metadata generated by the cloud service provider.",
+          "note": "In the context of FedRAMP Certification, \"federal customer data\" ONLY ever refers to data owned by federal agency customers. Agreements and contracts with specific agencies may require providers to protect additional data or even transfer ownership of telemetry or usage data to the agency; always consult a lawyer that is familiar with company agreements and contracts when determining the scope of federal customer data.",
+          "alts": ["federal customer data"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-FRI": {
+          "term": "Federal Reportable Incident",
+          "definition": "An incident that affects the confidentiality or integrity of federal customer data or is likely to affect the confidentiality or integrity of federal customer data.",
+          "tag": "Incidents",
+          "alts": [
+            "federal reportable incident",
+            "federal reportable incidents"
+          ],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-FSI": {
+          "term": "FedRAMP Security Inbox",
+          "definition": "An email address that follows the FedRAMP Security Inbox rules.",
+          "alts": ["security inbox", "security inboxes", "FSI"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -218,7 +292,8 @@
         },
         "FRD-FIR": {
           "term": "Final Incident Report (FIR)",
-          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
+          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Communications Procedures.",
+          "tag": "Incident Reports",
           "alts": [
             "final incident report",
             "final incident reports",
@@ -232,53 +307,10 @@
             }
           ]
         },
-        "FRD-FPV": {
-          "term": "False Positive Vulnerability",
-          "definition": "A detected vulnerability that is not actually present in an exploitable state in the information resource; this includes situations where vulnerable software or code exist on a machine-based information resource but are not loaded, running, or otherwise in an operating state required for exploitation.",
-          "note": "This only applies if the vulnerability is not and was not present; a remediated vulnerability or a fully mitigated vulnerability cannot also be a false positive vulnerability.",
-          "alts": [
-            "false positive vulnerability",
-            "false positive vulnerabilities"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
-        "FRD-FSI": {
-          "term": "FedRAMP Security Inbox",
-          "definition": "An email address that follows the FedRAMP Security Inbox rules.",
-          "alts": [
-            "security inbox",
-            "security inboxes",
-            "FSI"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
-        "FRD-FCD": {
-          "term": "Federal Customer Data",
-          "definition": "All electronic information, content, and materials that an agency or its authorized users upload, store, or otherwise provide to a cloud service for processing or storage. This does NOT include account information, service metadata, analytics, telemetry, or other similar metadata generated by the cloud service provider.",
-          "note": "In the context of FedRAMP Certification, \"federal customer data\" ONLY ever refers to data owned by federal agency customers. Agreements and contracts with specific agencies may require providers to protect additional data or even transfer ownership of telemetry or usage data to the agency; always consult a lawyer that is familiar with company agreements and contracts when determining the scope of federal customer data.",
-          "alts": [
-            "federal customer data"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
         "FRD-FMV": {
           "term": "Fully Mitigated Vulnerability",
           "definition": "A vulnerability where the likelihood of exploitation or Potential Adverse Impact N-rating has been reduced from the original evaluation until either are negligible, but the vulnerability is still detected.",
+          "tag": "Vulnerabilities",
           "alts": [
             "fully mitigated vulnerability",
             "fully mitigated vulnerabilities"
@@ -293,42 +325,7 @@
         "FRD-HAN": {
           "term": "Handle",
           "definition": "Has the plain language meaning inclusive of any possible action taken with information, such as access, collect, control, create, display, disclose, disseminate, dispose, maintain, manipulate, process, receive, review, store, transmit, use... etc.",
-          "alts": [
-            "handle",
-            "handles",
-            "handled",
-            "handling"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
-        "FRD-IIR": {
-          "term": "Initial Incident Report (IIR)",
-          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
-          "alts": [
-            "initial incident report",
-            "initial incident reports",
-            "IIR",
-            "IIRs"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
-        "FRD-IPC": {
-          "term": "Certification Class Change",
-          "definition": "The type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
-          "alts": [
-            "certification class change",
-            "certification class changes"
-          ],
+          "alts": ["handle", "handles", "handled", "handling"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -339,10 +336,8 @@
         "FRD-INT": {
           "term": "Incident",
           "definition": "Has the meaning given in 44 USC § 3552 (b)(2) applied to federal customer data, which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of [federal customer data]; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies [related to federal customer data].\"",
-          "alts": [
-            "incident",
-            "incidents"
-          ],
+          "tag": "Incidents",
+          "alts": ["incident", "incidents"],
           "reference": "44 USC § 3552 (b)(2)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapII-sec3552",
           "updated": [
@@ -356,12 +351,21 @@
           "term": "Information Resource",
           "definition": "Has the meaning from 44 USC § 3502 (6): \"information and related resources, such as personnel, equipment, funds, and information technology.\" This includes any aspect of the cloud service offering, both technical and managerial, including everything that makes up the business of the offering from non-machine-based information resources like organizational policies, procedures, employees, etc. to machine-based information resources like hardware, software, cloud services, code, etc.",
           "note": "Information resources are either machine-based or non-machine-based; any requirement or recommendation that references information resources without specifying a type is inclusive of all information resources.",
-          "alts": [
-            "information resource",
-            "information resources"
-          ],
+          "tag": "Information Resources",
+          "alts": ["information resource", "information resources"],
           "reference": "44 USC § 3502 (6)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-INC": {
+          "term": "Initial Certification",
+          "definition": "The first FedRAMP Certification of a cloud service offering based on the applicable initial assessment, validation, certification package, and certification data.",
+          "alts": ["initial certification", "initial certifications"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -372,9 +376,24 @@
         "FRD-IFA": {
           "term": "Initial FedRAMP Assessment",
           "definition": "The first full assessment of a cloud service offering obtaining FedRAMP Certification, coordinated by the provider with all necessary assessors, that results in a FedRAMP Certification.",
+          "tag": "Assessments",
+          "alts": ["initial FedRAMP assessment", "IFRA"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-IIR": {
+          "term": "Initial Incident Report (IIR)",
+          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Communications Procedures.",
+          "tag": "Incident Reports",
           "alts": [
-            "initial FedRAMP assessment",
-            "IFRA"
+            "initial incident report",
+            "initial incident reports",
+            "IIR",
+            "IIRs"
           ],
           "updated": [
             {
@@ -385,11 +404,13 @@
         },
         "FRD-IRV": {
           "term": "Internet-Reachable Vulnerability (IRV)",
-          "definition": "A vulnerability in a machine-based information resource that might be exploited or otherwise triggered by a payload originating from a source on the public internet; this includes machine-based information resources that have no direct route to/from the internet but receive payloads or otherwise take action triggered by internet activity.",
+          "definition": "A vulnerability in a machine-based information resource that might be exploited or otherwise triggered by a payload originating from a source on the public internet.",
           "notes": [
-            "The opposite of this is a \"Not Internet-reachable Vulnerability\" (NIRV).",
-            "Internet-reachability applies only to the specific vulnerable machine-based information resources processing the payload; please review the relevant FedRAMP technical assistance on internet-reachable vulnerabilities for examples."
+            "This includes machine-based information resources that have no direct route to/from the internet but receive payloads or otherwise take action triggered by internet activity.",
+            "Internet-reachability applies only to the specific vulnerable machine-based information resources processing the payload.",
+            "The opposite of this is a Not Internet-reachable Vulnerability (NIRV)."
           ],
+          "tag": "Vulnerabilities",
           "alts": [
             "internet-reachable vulnerability",
             "internet-reachable vulnerabilities",
@@ -408,6 +429,7 @@
         "FRD-KEV": {
           "term": "Known Exploited Vulnerability (KEV)",
           "definition": "Has the meaning given in CISA Binding Operational Directive 22-01, which is any vulnerability identified in CISA's Known Exploited Vulnerabilities catalog.",
+          "tag": "Vulnerabilities",
           "alts": [
             "known exploited vulnerability",
             "known exploited vulnerabilities",
@@ -426,10 +448,7 @@
         "FRD-LKY": {
           "term": "Likely",
           "definition": "A reasonable degree of probability based on context.",
-          "alts": [
-            "likely",
-            "likelihood"
-          ],
+          "alts": ["likely", "likelihood"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -439,11 +458,12 @@
         },
         "FRD-LEV": {
           "term": "Likely Exploitable Vulnerability (LEV)",
-          "definition": "A vulnerability that is not fully mitigated, AND is reachable by a likely threat actor, AND a likely threat actor with knowledge of the vulnerability would likely be able to gain unauthorized access, cause harm, disrupt operations, or otherwise have an undesired adverse impact within the cloud service offering by exploiting the vulnerability.",
+          "definition": "A vulnerability that is not fully mitigated AND is reachable by a likely threat actor; AND a likely threat actor with knowledge of the vulnerability would likely gain unauthorized access, cause harm, disrupt operations, or otherwise have an undesired adverse impact within the cloud service offering by exploiting the vulnerability.",
           "notes": [
-            "The opposite of this is a \"Not Likely Exploitable Vulnerability\" (NLEV).",
-            "At the absolute minimum, any vulnerability that an automated unauthenticated system can exploit over the internet is a likely exploitable vulnerability."
+            "At the absolute minimum, any vulnerability that an automated unauthenticated system can exploit over the internet is a likely exploitable vulnerability.",
+            "The opposite of this is a Not Likely Exploitable Vulnerability (NLEV)."
           ],
+          "tag": "Vulnerabilities",
           "alts": [
             "likely exploitable vulnerability",
             "likely exploitable vulnerabilities",
@@ -462,10 +482,8 @@
         "FRD-LAE": {
           "term": "Limited Adverse Effect",
           "definition": "A minor negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in degradation of the availability or performance of services within the cloud service offering for a minority of relevant users; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a small amount of the federal customer data stored within the cloud service offering by only a few relevant users.",
-          "alts": [
-            "limited adverse effect",
-            "limited adverse effects"
-          ],
+          "tag": "Adverse Effects",
+          "alts": ["limited adverse effect", "limited adverse effects"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -477,10 +495,8 @@
           "term": "Machine-Based (Information Resources)",
           "definition": "Any information technology information resource—including systems, processes, software, hardware, services, cloud-native capabilities, and any other such capability, component, or resource—that relies primarily on mechanical or electronic devices (i.e. computers) for operation.",
           "note": "All other information resources that do not rely on computers are non-machine-based information resources.",
-          "alts": [
-            "machine-based",
-            "machine based"
-          ],
+          "tag": "Information Resources",
+          "alts": ["machine-based", "machine based"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -491,9 +507,7 @@
         "FRD-MGN": {
           "term": "Machine-Generated",
           "definition": "Automatically produced by a computer process, application, or other mechanism without the intervention or manipulation of a human during production.",
-          "alts": [
-            "machine-generated"
-          ],
+          "alts": ["machine-generated"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -504,9 +518,7 @@
         "FRD-MRD": {
           "term": "Machine-Readable",
           "definition": "Has the meaning from 44 U.S. Code § 3502 (18) which is \"the term \"machine-readable\", when used with respect to data, means data in a format that can be easily processed by a computer without human intervention while ensuring no semantic meaning is lost\"",
-          "alts": [
-            "machine-readable"
-          ],
+          "alts": ["machine-readable"],
           "reference": "44 U.S. Code § 3502 (18)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -519,10 +531,19 @@
         "FRD-NAE": {
           "term": "Negligible Adverse Effect",
           "definition": "A small negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in minor inconvenience when accessing or using services within the cloud service offering; OR (ii) result in degradation of the availability or performance of services within the cloud service offering for only a few relevant users.",
-          "alts": [
-            "negligible adverse effect",
-            "negligible adverse effects"
-          ],
+          "tag": "Adverse Effects",
+          "alts": ["negligible adverse effect", "negligible adverse effects"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-ONC": {
+          "term": "Ongoing Certification",
+          "definition": "The continued FedRAMP Certification of a cloud service offering based on the applicable ongoing assessment, validation, monitoring, reporting, and certification data.",
+          "alts": ["ongoing certification", "ongoing certifications"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -533,11 +554,7 @@
         "FRD-OCR": {
           "term": "Ongoing Certification Report (OCR)",
           "definition": "A regular report that is supplied by FedRAMP Certified cloud service providers to agency customers, following FedRAMP Collaborative Continuous Monitoring rules.",
-          "alts": [
-            "ongoing certification report",
-            "OCR",
-            "OCRs"
-          ],
+          "alts": ["ongoing certification report", "OCR", "OCRs"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -548,6 +565,7 @@
         "FRD-OIR": {
           "term": "Ongoing Incident Report (OIR)",
           "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
+          "tag": "Incident Reports",
           "alts": [
             "ongoing incident report",
             "ongoing incident reports",
@@ -564,10 +582,8 @@
         "FRD-ODV": {
           "term": "Overdue Vulnerability",
           "definition": "A vulnerability that the provider intends to fully mitigate or remediate but has not or will not do so within the time frames recommended or required by FedRAMP.",
-          "alts": [
-            "overdue vulnerability",
-            "overdue vulnerabilities"
-          ],
+          "tag": "Vulnerabilities",
+          "alts": ["overdue vulnerability", "overdue vulnerabilities"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -578,6 +594,7 @@
         "FRD-PMV": {
           "term": "Partially Mitigated Vulnerability",
           "definition": "A vulnerability where the likelihood or Potential Adverse Impact N-rating has been reduced from the original evaluation but the risk of exploitation still exists and the vulnerability is still detected.",
+          "tag": "Vulnerabilities",
           "alts": [
             "partially mitigated vulnerability",
             "partially mitigated vulnerabilities"
@@ -592,10 +609,8 @@
         "FRD-PFA": {
           "term": "Persistent FedRAMP Assessment",
           "definition": "Follow-on assessments of a cloud service offering focused on Key Security Indicators, coordinated by the provider with all necessary assessors, to maintain FedRAMP Certification or change its FedRAMP Certification class.",
-          "alts": [
-            "persistent FedRAMP assessment",
-            "PFRA"
-          ],
+          "tag": "Assessments",
+          "alts": ["persistent FedRAMP assessment", "PFRA"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -625,10 +640,7 @@
           "term": "Persistently",
           "definition": "Occurring in a firm, steady way that is repeated over a long period of time in spite of obstacles or difficulties. Persistent activities may vary between actors, may occur irregularly, and may include interruptions or waiting periods between cycles. These attributes of persistent activities should be intentional, understood, and documented; the status of persistent activities will always be known. ",
           "note": "The use of persistently indicates a process that may not always occur continuously (without interruption or gaps) or regularly (on a consistent, predictable basis) but will repeat frequently in cycles. It aligns generally with historical misuse of \"continuous\" in federal information security policies.",
-          "alts": [
-            "persistently",
-            "persistent"
-          ],
+          "alts": ["persistently", "persistent"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -637,8 +649,8 @@
           ]
         },
         "FRD-PAI": {
-          "term": "Potential Adverse Impact (Of Vulnerability Exploitation)",
-          "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impact to agencies that likely could result if a threat actor exploits a vulnerability in the cloud service offering; as estimated following FedRAMP rules to calculate the Potential Adverse Impact N-rating (PAIN).",
+          "term": "Potential Adverse Impact",
+          "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impact to the United States federal government that is likely to result from either a security incident or the exploitation of a vulnerability in the cloud service offering; as estimated following appropriate FedRAMP rules to calculate the Potential Adverse Impact N-rating (PAIN).",
           "alts": [
             "potential adverse impact",
             "potential adverse impacts",
@@ -656,10 +668,8 @@
           "term": "Privileged Account",
           "definition": "An account with elevated privileges that enables administrative functions over some aspect of the cloud service offering that may affect the confidentiality, integrity, or availability of information beyond those given to normal users; levels of privilege may vary wildly.",
           "note": "Any references to privileged accounts in FedRAMP materials should be presumed to apply to privileged roles or other similar capabilities that are used to assign privileges to privileged accounts.",
-          "alts": [
-            "privileged account",
-            "privileged accounts"
-          ],
+          "tag": "Accounts",
+          "alts": ["privileged account", "privileged accounts"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -671,10 +681,7 @@
           "term": "Promptly",
           "definition": "Without unnecessary delay.",
           "note": "The use of promptly in FedRAMP materials frames conveys a need for urgent action where the expected time frame will vary by circumstance but earlier action is more likely to improve security outcomes and increase the security posture of a cloud service offering.",
-          "alts": [
-            "promptly",
-            "prompt"
-          ],
+          "alts": ["promptly", "prompt"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -682,15 +689,17 @@
             }
           ]
         },
-        "FRD-CAT": {
-          "term": "Security Category",
-          "definition": "Has the meaning from NIST FIPS 199, which is \"The characterization of information or an information system based on an assessment of the potential impact that a loss of confidentiality, integrity, or availability of such information or information system would have on organizational operations, organizational assets, or individuals.\"",
+        "FRD-PRV": {
+          "term": "Provider",
+          "definition": "The cloud service provider responsible for a cloud service offering in the context of FedRAMP Certification.",
+          "note": "FedRAMP Consolidated Rules frequently refer to providers without using the full term \"cloud service provider\" or acronym \"CSP\".",
+          "tag": "Stakeholders",
           "alts": [
-            "security category",
-            "security categories"
+            "provider",
+            "providers",
+            "cloud service provider",
+            "cloud service providers"
           ],
-          "reference": "NIST FIPS 199 Standards for Security Categorization of Federal Information and Information Systems",
-          "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
           "updated": [
             {
               "date": "2026-06-01",
@@ -701,10 +710,7 @@
         "FRD-QTR": {
           "term": "Quarterly Review",
           "definition": "A regular synchronous meeting hosted by a FedRAMP Certified cloud service provider for agency customers, following FedRAMP Collaborative Continuous Monitoring rules.",
-          "alts": [
-            "quarterly review",
-            "quarterly reviews"
-          ],
+          "alts": ["quarterly review", "quarterly reviews"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -715,10 +721,7 @@
         "FRD-RGL": {
           "term": "Regularly",
           "definition": "Performing the activity on a consistent, predictable, and repeated basis, at set intervals, automatically if possible, following a documented plan. These intervals may vary as appropriate between different activities.",
-          "alts": [
-            "regularly",
-            "regular"
-          ],
+          "alts": ["regularly", "regular"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -729,10 +732,8 @@
         "FRD-RMV": {
           "term": "Remediated Vulnerability",
           "definition": "A vulnerability that has been neutralized or eliminated and is no longer detected.",
-          "alts": [
-            "remediated vulnerability",
-            "remediated vulnerabilities"
-          ],
+          "tag": "Vulnerabilities",
+          "alts": ["remediated vulnerability", "remediated vulnerabilities"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -744,9 +745,7 @@
           "term": "Responsibly",
           "definition": "In a way that shows that you have good judgment and the ability to act correctly and make decisions on your own.",
           "note": "Refrain from broadcasting any details that might assist adversaries in their endeavors, disclosing vulnerabilities prior to full remediation, or providing overly specific technical information that could potentially facilitate further compromise.",
-          "alts": [
-            "responsibly"
-          ],
+          "alts": ["responsibly"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -757,6 +756,7 @@
         "FRD-RTR": {
           "term": "Routine Recurring Change",
           "definition": "The type of significant change that regularly and routinely recurs as part of ongoing operations, vulnerability mitigation, or vulnerability remediation.",
+          "tag": "Significant Changes",
           "alts": [
             "routine recurring",
             "routine recurring change",
@@ -769,13 +769,24 @@
             }
           ]
         },
+        "FRD-SCT": {
+          "term": "Security Category",
+          "definition": "Has the meaning from NIST FIPS 199, which is \"The characterization of information or an information system based on an assessment of the potential impact that a loss of confidentiality, integrity, or availability of such information or information system would have on organizational operations, organizational assets, or individuals.\"",
+          "alts": ["security category", "security categories"],
+          "reference": "NIST FIPS 199 Standards for Security Categorization of Federal Information and Information Systems",
+          "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-SAE": {
           "term": "Serious Adverse Effect",
           "definition": "A significant negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in intermittent or ongoing degradation in the availability or performance of services within the cloud service offering, causing unpredictable interruptions to operations for 12+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a minority of the federal customer data stored within the cloud service offering.",
-          "alts": [
-            "serious adverse effect",
-            "serious adverse effects"
-          ],
+          "tag": "Adverse Effects",
+          "alts": ["serious adverse effect", "serious adverse effects"],
           "updated": [
             {
               "date": "2026-06-01",
@@ -786,10 +797,8 @@
         "FRD-SGC": {
           "term": "Significant Change",
           "definition": "Has the meaning given in NIST SP 800-37 Rev. 2 which is \"a change that is likely to substantively affect the security or privacy posture of a system.\"",
-          "alts": [
-            "significant change",
-            "significant changes"
-          ],
+          "tag": "Significant Changes",
+          "alts": ["significant change", "significant changes"],
           "reference": "NIST SP 800-37 Rev. 2",
           "reference_url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
           "updated": [
@@ -802,6 +811,7 @@
         "FRD-TPR": {
           "term": "Third-Party Information Resource",
           "definition": "Any information resource that is not entirely included in the Minimum Assessment Scope for the cloud service offering obtaining FedRAMP Certification.",
+          "tag": "Information Resources",
           "alts": [
             "third-party information resource",
             "third-party information resources"
@@ -817,6 +827,7 @@
           "term": "Top-Level Administrative Account",
           "definition": "The most privileged account with the highest level of access within a cloud service offering for a customer organization, typically with complete control over all aspects of the cloud service offering, including managing resources, users, access, privileges, and the account itself.",
           "note": "Any references to top-level administrative accounts in FedRAMP materials should be presumed to apply to top-level administrative roles or other similar capabilities that are used to assign top-level administrative account privileges.",
+          "tag": "Accounts",
           "alts": [
             "top-level administrative account",
             "top-level administrative accounts"
@@ -832,6 +843,7 @@
           "term": "Transformative Change",
           "definition": "The type of significant change that introduces substantive potential security risks that are likely to affect existing risk determinations and must be assessed in depth.",
           "note": "Transformative changes typically introduce major features or capabilities that may change how a customer uses the service (in whole or in part) and require extensive updates to security assessments, operational procedures, deployment plans, and documentation.",
+          "tag": "Significant Changes",
           "alts": [
             "transformative",
             "transformative change",
@@ -856,13 +868,39 @@
             }
           ]
         },
+        "FRD-VLN": {
+          "term": "Validation",
+          "definition": "Confirmation through objective evidence that implemented security capabilities and related certification data are suitable for their intended FedRAMP Certification use and support the expected security outcomes for a cloud service offering.",
+          "note": "This adapts the ISO conformity assessment concept of validation to the FedRAMP Certification context.",
+          "alts": ["validation", "validate", "validated"],
+          "reference": "ISO/IEC 27001:2022",
+          "reference_url": "https://www.iso.org/standard/27001",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
+        "FRD-VRF": {
+          "term": "Verification",
+          "definition": "Confirmation through objective evidence that specified FedRAMP rules, controls, indicators, or certification data requirements have been fulfilled for a cloud service offering.",
+          "note": "This adapts the ISO conformity assessment concept of verification to the FedRAMP Certification context.",
+          "alts": ["verification", "verify", "verified"],
+          "reference": "ISO/IEC 27001:2022",
+          "reference_url": "https://www.iso.org/standard/27001",
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-VUL": {
           "term": "Vulnerability",
           "definition": "Has the meaning given to \"security vulnerability\" in 6 USC § 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
-          "alts": [
-            "vulnerability",
-            "vulnerabilities"
-          ],
+          "tag": "Vulnerabilities",
+          "alts": ["vulnerability", "vulnerabilities"],
           "reference": "6 USC § 650 (25)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title6/USCODE-2024-title6-chap1-subchapXVIII-sec650",
           "updated": [
@@ -876,6 +914,7 @@
           "term": "Vulnerability Detection",
           "definition": "The systematic process of discovering and identifying security vulnerabilities in information resources through assessment, scanning, threat intelligence, vulnerability disclosure mechanisms, bug bounties, supply chain monitoring, and other capabilities. This process includes the initial discovery of a vulnerability's existence and the determination of affected information resources within a cloud service offering.",
           "note": "This definition applies to other forms such as \"detect vulnerabilities\" or simply \"detection\" / \"detected\" used in FedRAMP materials.",
+          "tag": "Vulnerabilities",
           "alts": [
             "vulnerability detection",
             "detect vulnerabilities",
@@ -894,6 +933,7 @@
           "term": "Vulnerability Response",
           "definition": "The systematic process of tracking, evaluating, mitigating, monitoring, remediating, assessing exploitation, reporting, and otherwise managing detected vulnerabilities.",
           "note": "This definition applies to other forms such as \"respond to vulnerabilities\" or simply \"response\" / \"responded\" used in FedRAMP materials.",
+          "tag": "Vulnerabilities",
           "alts": [
             "vulnerability response",
             "respond to vulnerabilities",
@@ -908,12 +948,16 @@
             }
           ]
         },
-        "FRD-FRI": {
-          "term": "Federal Reportable Incident",
-          "definition": "An incident that affects the confidentiality or integrity of federal customer data or is likely to affect the confidentiality or integrity of federal customer data.",
+        "FRD-FRA": {
+          "term": "FedRAMP Recognized Assessor",
+          "definition": "An independent assessor recognized by FedRAMP to perform assessment or validation activities for cloud service offerings in the context of FedRAMP Certification.",
           "alts": [
-            "federal reportable incident",
-            "federal reportable incidents"
+            "FedRAMP Recognized Assessor",
+            "FedRAMP Recognized Assessors",
+            "FedRAMP recognized assessor",
+            "FedRAMP recognized assessors",
+            "recognized assessor",
+            "recognized assessors"
           ],
           "updated": [
             {
@@ -921,6 +965,22 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ]
+        },
+        "FRD-FCT": {
+          "term": "FedRAMP Certified",
+          "definition": "The status of a cloud service offering that has received FedRAMP Certification and meets the legal requirement to be FedRAMP authorized.",
+          "note": "FedRAMP uses \"FedRAMP Certified\" as the current program term for cloud service offerings that satisfy the statutory concept of FedRAMP authorization.",
+          "alts": [
+            "FedRAMP Certified",
+            "FedRAMP certified",
+            "certified",
+            "FedRAMP authorized",
+            "FedRAMP Authorized",
+            "authorized"
+          ],
+          "reference": "FedRAMP Certification Act (44 USC § 3608)",
+          "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
+          "updated": []
         }
       }
     }
