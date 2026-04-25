@@ -912,6 +912,15 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ]
+        },
+        "FRD-FRI": {
+          "term": "Federal Reportable Incident",
+          "definition": "An incident that affects the confidentiality or integrity of federal customer data or is likely to affect the confidentiality or integrity of federal customer data.",
+          "alts": [
+            "federal reportable incident",
+            "federal reportable incidents"
+          ],
+          "updated": []
         }
       }
     }
@@ -927,7 +936,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             },
@@ -959,7 +968,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
-              "grace_ends": "2028-03-01"
+              "grace_ends": "2028-02-01"
             },
             "class": {
               "a": {
@@ -1084,6 +1093,28 @@
                 }
               ]
             },
+            "CDS-CSO-UTC": {
+              "name": "Use Trust Centers",
+              "statement": "Providers MUST use a FedRAMP-compatible trust center to store and share FedRAMP Certification data with all necessary parties.",
+              "notes": [
+                "Requirements and recommendations for FedRAMP-compatible trust centers are explained in CDS-TRC."
+              ],
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "All Necessary Parties",
+                "Certification Data",
+                "Trust Center"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
             "CDS-CSO-CBF": {
               "name": "Consistency Between Formats",
               "statement": "Providers MUST use automation to ensure information remains consistent between human-readable and machine-readable formats when FedRAMP Certification data is provided in both formats.",
@@ -1144,6 +1175,11 @@
             "CDS-CSO-HAD": {
               "name": "Historical FedRAMP Certification data",
               "statement": "Providers MUST make historical versions of FedRAMP Certification data available for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP requirements; deltas between versions MAY be consolidated quarterly.",
+              "effective_date": {
+                "obtain": "2027-05-04",
+                "maintain": "2027-05-04",
+                "grace_by_assessment_months": 2
+              },
               "primary_key_word": "MUST",
               "affects": [
                 "Providers"
@@ -1158,6 +1194,43 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
+            },
+            "CDS-CSO-PSM": {
+              "name": "Per-Service Certification Materials",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of Class A offerings MAY supply per-service FedRAMP Certification materials.",
+                  "primary_key_word": "MAY"
+                },
+                "b": {
+                  "statement": "Providers of Class B offerings MAY supply per-service FedRAMP Certification materials.",
+                  "primary_key_word": "MAY"
+                },
+                "c": {
+                  "statement": "Providers of Class C offerings MAY supply per-service FedRAMP Certification materials.",
+                  "primary_key_word": "MAY"
+                },
+                "d": {
+                  "statement": "Providers of Class D offerings MUST supply per-service FedRAMP Certification materials.",
+                  "primary_key_word": "MUST",
+                  "effective_date": {
+                    "obtain": "2027-05-04",
+                    "maintain": "2027-05-04",
+                    "grace_by_assessment_months": 2
+                  }
+                }
+              },
+              "notes": [
+                "Providers determine what they consider to be separate services, based on maximizing the customer experience for agencies who may only adopt some services and not others.",
+                "Providers are encouraged to provide a single comprehensive set of materials for all shared aspects of the service offering and only provide separate materials for unique aspects of each service to minimize the burden on providers and agencies."
+              ],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency"
+              ],
+              "updated": []
             }
           },
           "TRC": {
@@ -1360,70 +1433,10 @@
           }
         },
         "20x": {
-          "CSX": {
-            "CDS-CSX-UTC": {
-              "name": "Use Trust Centers",
-              "statement": "Providers MUST use a FedRAMP-compatible trust center to store and share FedRAMP Certification data with all necessary parties.",
-              "notes": [
-                "Requirements and recommendations for FedRAMP-compatible trust centers are explained in CDS-TRC.",
-                "This requirement only applies to FedRAMP 20x."
-              ],
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "All Necessary Parties",
-                "Certification Data",
-                "Trust Center"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            }
-          }
+          "CSX": {}
         },
         "rev5": {
           "CSL": {
-            "CDS-CSL-LRE": {
-              "name": "Legacy Repository Exception",
-              "statement": "Providers of FedRAMP Rev5 Certified cloud service offerings at FedRAMP High using a legacy self-managed repository for FedRAMP Certification data MAY ignore the FedRAMP Certification data Sharing process until future notice.",
-              "primary_key_word": "MAY",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Certification Data",
-                "Cloud Service Offering"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "CDS-CSL-UCP": {
-              "name": "USDA Connect",
-              "statement": "Providers MUST share FedRAMP Certification data via the USDA Connect Community Portal UNLESS they use a FedRAMP-compatible trust center.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Certification Data",
-                "Trust Center"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
             "CDS-CSL-TCM": {
               "name": "Trust Center Migration",
               "statement": "Providers MUST notify all necessary parties when migrating to a trust center and MUST provide information in their existing USDA Connect Community Portal secure folders explaining how to use the trust center to obtain FedRAMP Certification data.",
@@ -1450,28 +1463,34 @@
                 }
               ]
             },
-            "CDS-CSL-UTC": {
-              "name": "Use Trust Centers",
-              "statement": "Providers SHOULD use a FedRAMP-compatible trust center to store and share FedRAMP Certification data with all necessary parties.",
-              "notes": [
-                "Requirements and recommendations for FedRAMP-compatible trust centers are explained in CDS-TRC.",
-                "This recommendation only applies to FedRAMP Rev5 (it is required for FedRAMP 20x)."
-              ],
-              "primary_key_word": "SHOULD",
+            "CDS-CSL-SCD": {
+              "name": "Structured Certification Data",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of Class A offerings MUST supply semi-structured text-based FedRAMP Certification data before or during the next annual assessment after January 1, 2027.",
+                  "primary_key_word": "MUST"
+                },
+                "b": {
+                  "statement": "Providers of Class B offerings MUST supply semi-structured text-based FedRAMP Certification data before or during the next annual assessment after January 1, 2027.",
+                  "primary_key_word": "MUST"
+                },
+                "c": {
+                  "statement": "Providers of Class C offerings MUST supply semi-structured text-based FedRAMP Certification data before or during the next annual assessment after January 1, 2027.",
+                  "primary_key_word": "MUST"
+                },
+                "d": {
+                  "statement": "Providers of Class A offerings MUST supply comprehensive machine-readable FedRAMP Certification data before or during the next annual assessment after May 1, 2027.",
+                  "primary_key_word": "MUST"
+                }
+              },
               "affects": [
                 "Providers"
               ],
               "terms": [
-                "All Necessary Parties",
                 "Certification Data",
-                "Trust Center"
+                "Machine-Readable"
               ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
+              "updated": []
             }
           }
         }
@@ -1487,7 +1506,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             },
@@ -1882,25 +1901,25 @@
               "name": "Quarterly Review Meeting",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers for Class A offerings MAY host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers of Class A offerings MAY host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MAY",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "b": {
-                  "statement": "Providers for Class B offerings SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers of Class B offerings SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "c": {
-                  "statement": "Providers for Class C offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers of Class C offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "d": {
-                  "statement": "Providers for Class D offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers of Class D offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
@@ -2483,7 +2502,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -2500,230 +2519,610 @@
           }
         },
         "front_matter": {
-          "authority": [
-            {
-              "description": "",
-              "reference": "FedRAMP Incident Communications Procedures",
-              "reference_url": "https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/incident-communication/"
-            }
-          ],
-          "purpose": "This set of requirements and recommendations converts the existing FedRAMP Incident Communications Procedures to the simpler FedRAMP 20x style and clarifies the expectations for FedRAMP 20x.\n\nThe only notable change from the default Incident Communications Procedures for 20x is the addition of a recommendation that incident information be made available in both human-readable and machine-readable formats."
+          "authority": [],
+          "purpose": "New vibes."
         },
         "labels": {
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These requirements and recommendations apply to all cloud service offerings following the 20x path."
+          "FRP": {
+            "name": "FedRAMP Responsibilities",
+            "description": "These proposed requirements and recommendations apply to FedRAMP."
+          },
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These proposed requirements and recommendations apply to cloud service offerings following the FedRAMP Incident Communications Procedures."
           }
         }
       },
       "data": {
-        "20x": {
-          "CSX": {
-            "ICP-CSX-IRF": {
-              "name": "Incident Reporting to FedRAMP",
-              "statement": "Providers MUST responsibly report incidents to FedRAMP within 1 hour of identification by sending an email to fedramp_security@fedramp.gov or fedramp_security@gsa.gov.",
+        "both": {
+          "FRP": {
+            "ICP-FRP-ORV": {
+              "name": "Ongoing Review",
+              "statement": "FedRAMP MUST periodically review Incident Communications Procedures implementation with providers based on lack of reporting or other information.",
+              "corrective_actions": [
+                "FedRAMP will request a Corrective Action Plan when a provider is unaware of the rules or has failed to implement proper procedures.",
+                "FedRAMP will grant a 3 month grace period to implement proper procedures pending remediation and possible revocation of FedRAMP Certification."
+              ],
               "primary_key_word": "MUST",
               "affects": [
-                "Providers"
-              ],
-              "timeframe_type": "hours",
-              "timeframe_num": 1,
-              "notification": [
-                {
-                  "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
-                }
+                "FedRAMP"
               ],
               "terms": [
-                "Incident",
-                "Responsibly"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-IRA": {
-              "name": "Incident Reporting to Agencies",
-              "statement": "Providers MUST responsibly report incidents to all agency customers within 1 hour of identification using the incident communications points of contact provided by each agency customer.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "timeframe_type": "hours",
-              "timeframe_num": 1,
-              "notification": [
-                {
-                  "party": "Agencies",
-                  "method": "various",
-                  "target": "various"
-                }
-              ],
-              "terms": [
-                "Agency",
-                "Incident",
-                "Responsibly"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-IRC": {
-              "name": "Incident Reporting to CISA",
-              "statement": "Providers MUST responsibly report incidents to CISA within 1 hour of identification if the incident is confirmed or suspected to be the result of an attack vector listed at https://www.cisa.gov/federal-incident-notification-guidelines#attack-vectors-taxonomy, following the CISA Federal Incident Notification Guidelines at https://www.cisa.gov/federal-incident-notification-guidelines, by using the CISA Incident Reporting System at https://myservices.cisa.gov/irf. ",
-              "reference": "CISA IRF Incident Reporting System",
-              "reference_url": "https://myservices.cisa.gov/irf",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "timeframe_type": "hours",
-              "timeframe_num": 1,
-              "notification": [
-                {
-                  "party": "CISA",
-                  "method": "web",
-                  "target": "https://myservices.cisa.gov/irf"
-                }
-              ],
-              "terms": [
-                "Incident",
-                "Responsibly"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-ICU": {
-              "name": "Incident Updates",
-              "statement": "Providers MUST update all necessary parties, including at least FedRAMP, CISA (if applicable), and all agency customers, at least once per calendar day until the incident is resolved and recovery is complete.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "notification": [
-                {
-                  "party": "all necessary parties",
-                  "method": "various",
-                  "target": "various"
-                }
-              ],
-              "terms": [
-                "Agency",
-                "All Necessary Parties",
                 "Incident"
               ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "updated": []
+            }
+          },
+          "CSO": {
+            "ICP-CSO-PAR": {
+              "name": "Public Availability Reporting",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of Class A offerings SHOULD maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "primary_key_word": "SHOULD"
+                },
+                "b": {
+                  "statement": "Providers of Class B offerings SHOULD maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "primary_key_word": "SHOULD"
+                },
+                "c": {
+                  "statement": "Providers of Class C offerings MUST maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "primary_key_word": "MUST"
+                },
+                "d": {
+                  "statement": "Providers of Class D offerings MUST maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "primary_key_word": "MUST"
                 }
-              ]
-            },
-            "ICP-CSX-RPT": {
-              "name": "Incident Report Availability",
-              "statement": "Providers MUST make incident report information available in their secure FedRAMP repository (such as USDA Connect) or trust center.",
-              "primary_key_word": "MUST",
+              },
               "affects": [
                 "Providers"
               ],
               "terms": [
-                "Incident",
-                "Trust Center"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-FIR": {
-              "name": "Final Incident Report",
-              "statement": "Providers MUST provide a final report once the incident is resolved and recovery is complete that describes at least:",
-              "following_information": [
-                "What occurred",
-                "Root cause",
-                "Response",
-                "Lessons learned",
-                "Changes needed"
-              ],
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Incident",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-RSD": {
-              "name": "Responsible Disclosure",
-              "statement": "Providers MUST NOT irresponsibly disclose specific sensitive information about incidents that would likely increase the impact of the incident, but MUST disclose sufficient information for informed risk-based decision-making to all necessary parties.",
-              "primary_key_word": "MUST NOT",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "All Necessary Parties",
-                "Incident",
-                "Likely"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-AUR": {
-              "name": "Automated Reporting",
-              "statement": "Providers SHOULD use automated mechanisms for reporting incidents and providing updates to all necessary parties (including CISA).",
-              "primary_key_word": "SHOULD",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "All Necessary Parties",
-                "Incident"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "ICP-CSX-HRM": {
-              "name": "Human and Machine-Readable",
-              "statement": "Providers SHOULD make incident report information available in consistent human-readable and machine-readable formats.",
-              "primary_key_word": "SHOULD",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
+                "Cloud Service Offering",
                 "Incident",
                 "Machine-Readable"
               ],
+              "updated": []
+            },
+            "ICP-CSO-EFR": {
+              "name": "Evaluate Federal Reportability",
+              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data.",
+              "note": "An incident that meets this test is a federal reportable incident.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Federal Customer Data",
+                "Federal Reportable Incident",
+                "Incident",
+                "Likely",
+                "Promptly"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-EFI": {
+              "name": "Estimate Federal Impact",
+              "statement": "Providers MUST evaluate federal reportable incidents to estimate adverse impact on government customers and assign a Potential Adverse Impact N-rating.",
+              "following_information": [
+                "N1 means negligible adverse effect on 1 or more agencies.",
+                "N2 means limited adverse effect on 1 or more agencies.",
+                "N3 means serious adverse effect on 1 agency.",
+                "N4 means catastrophic adverse effect on 1 agency or serious adverse effect on more than 1 agency.",
+                "N5 means catastrophic adverse effect on more than 1 agency."
+              ],
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Catastrophic Adverse Effect",
+                "Federal Reportable Incident",
+                "Incident",
+                "Limited Adverse Effect",
+                "Negligible Adverse Effect",
+                "Potential Adverse Impact (Of Vulnerability Exploitation)",
+                "Serious Adverse Effect"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-AAP": {
+              "name": "Notify All Affected Parties",
+              "statement": "Providers MUST responsibly notify all affected parties after identifying federal reportable incidents using email, push notification, form submission, secure portal upload, or another method specified by FedRAMP rules or written agency agreement.",
+              "following_information": [
+                "Notify FedRAMP via fedramp_security@gsa.gov or fedramp_security@fedramp.gov.",
+                "Follow contact arrangements provided by each agency customer's security contact.",
+                "Upload notification information to the cloud service offering's secure portal or FedRAMP-compatible trust center."
+              ],
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "All Affected Parties",
+                "Cloud Service Offering",
+                "Federal Reportable Incident",
+                "Incident",
+                "Responsibly",
+                "Trust Center"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-CSA": {
+              "name": "Notify Cybersecurity and Infrastructure Security Agency",
+              "statement": "Providers MUST responsibly notify the Cybersecurity and Infrastructure Security Agency if an incident affects or is likely to affect the confidentiality or integrity of federal customer data, following the Cybersecurity and Infrastructure Security Agency Federal Incident Notification Guidelines.",
+              "reference": "Cybersecurity and Infrastructure Security Agency Federal Incident Notification Guidelines",
+              "reference_url": "https://www.cisa.gov/federal-incident-notification-guidelines",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Federal Customer Data",
+                "Incident",
+                "Likely",
+                "Responsibly"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-IIR": {
+              "name": "Initial Incident Report",
+              "statement": "Providers MUST responsibly notify all affected parties after identifying federal reportable incidents by providing an Initial Incident Report with all available required information.",
+              "following_information": [
+                "Contact information for the federal incident response coordinator.",
+                "Provider tracking identifier.",
+                "Description of the incident.",
+                "Incident timeline.",
+                "Historical and current Potential Adverse Impact estimates.",
+                "Functional impact to federal agency customers.",
+                "Estimated recovery plan, milestones, and timelines."
+              ],
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "All Affected Parties",
+                "Federal Reportable Incident",
+                "Incident",
+                "Initial Incident Report (IIR)",
+                "Potential Adverse Impact (Of Vulnerability Exploitation)",
+                "Responsibly",
+                "Vulnerability Response"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-OIR": {
+              "name": "Ongoing Incident Reports",
+              "statement": "Providers MUST responsibly notify all affected parties of ongoing activity by providing Ongoing Incident Reports as new information becomes available during incident response for federal reportable incidents.",
+              "following_information": [
+                "Updates or lack of updates to previously reported information.",
+                "Attack vector, if identified.",
+                "Observed incident activity.",
+                "Indicators of compromise.",
+                "Relevant Cybersecurity and Infrastructure Security Agency identifier, if available.",
+                "Related Common Vulnerabilities and Exposures identifier, if applicable.",
+                "Root cause.",
+                "Response and recovery activities."
+              ],
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "All Affected Parties",
+                "Federal Reportable Incident",
+                "Incident",
+                "Ongoing Incident Report (OIR)",
+                "Responsibly",
+                "Vulnerability",
+                "Vulnerability Response"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-FIR": {
+              "name": "Final Incident Report",
+              "statement": "Providers MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "All Affected Parties",
+                "Final Incident Report (FIR)",
+                "Incident",
+                "Responsibly"
+              ],
+              "updated": []
+            },
+            "ICP-CSO-IRT": {
+              "name": "Incident Report Timeframes",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of Class A offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 12,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                },
+                "b": {
+                  "statement": "Providers of Class B offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 12,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                },
+                "c": {
+                  "statement": "Providers of Class C offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                },
+                "d": {
+                  "statement": "Providers of Class D offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 0.5,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 0.25,
+                        "description": "Initial Incident Report"
+                      },
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Ongoing Incident Report"
+                      },
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                }
+              },
+              "reference": "RFC-0031",
+              "reference_url": "https://www.fedramp.gov/rfcs/0031",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "All Affected Parties",
+                "Federal Reportable Incident",
+                "Incident",
+                "Potential Adverse Impact (Of Vulnerability Exploitation)"
+              ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-04-25",
+                  "comment": "Drafted for human review from PROPOSED-RULES.md."
                 }
               ]
             }
@@ -2741,7 +3140,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -2752,7 +3151,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "grace_by_assessment_months": 2
             },
             "signup_url": "ADDME"
           }
@@ -2919,7 +3318,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -3229,7 +3628,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -3611,7 +4010,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -3828,7 +4227,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -4387,7 +4786,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -4490,7 +4889,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -5427,94 +5826,229 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below (in days), factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class B offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
-                  "pain_timeframes": [
-                    {
-                      "pain": 5,
-                      "max_days_irv_lev": 4,
-                      "max_days_nirv_lev": 8,
-                      "max_days_nlev": 32
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 96,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 160,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 4,
-                      "max_days_irv_lev": 8,
-                      "max_days_nirv_lev": 32,
-                      "max_days_nlev": 64
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 3,
-                      "max_days_irv_lev": 32,
-                      "max_days_nirv_lev": 64,
-                      "max_days_nlev": 192
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 2,
-                      "max_days_irv_lev": 96,
-                      "max_days_nirv_lev": 160,
-                      "max_days_nlev": 192
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     }
-                  ]
+                  }
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact N-rating within the timeframes from evaluation shown below (in days), factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class C offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
-                  "pain_timeframes": [
-                    {
-                      "pain": 5,
-                      "max_days_irv_lev": 2,
-                      "max_days_nirv_lev": 4,
-                      "max_days_nlev": 16
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 48,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 128,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 4,
-                      "max_days_irv_lev": 4,
-                      "max_days_nirv_lev": 8,
-                      "max_days_nlev": 64
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 16,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 128,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 3,
-                      "max_days_irv_lev": 16,
-                      "max_days_nirv_lev": 32,
-                      "max_days_nlev": 128
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 2,
-                      "max_days_irv_lev": 48,
-                      "max_days_nirv_lev": 128,
-                      "max_days_nlev": 192
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 2,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 16,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     }
-                  ]
+                  }
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD partially mitigate vulnerabilities to a lower Potential Adverse Impact N-rating within the maximum time-frames from evaluation shown below (in days), factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class D offerings SHOULD partially mitigate vulnerabilities to a lower Potential Adverse Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
-                  "pain_timeframes": [
-                    {
-                      "pain": 5,
-                      "max_days_irv_lev": 0.5,
-                      "max_days_nirv_lev": 1,
-                      "max_days_nlev": 8
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 24,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 96,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 4,
-                      "max_days_irv_lev": 2,
-                      "max_days_nirv_lev": 8,
-                      "max_days_nlev": 32
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 16,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 3,
-                      "max_days_irv_lev": 8,
-                      "max_days_nirv_lev": 16,
-                      "max_days_nlev": 64
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 2,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     },
-                    {
-                      "pain": 2,
-                      "max_days_irv_lev": 24,
-                      "max_days_nirv_lev": 96,
-                      "max_days_nlev": 192
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 12,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 1,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
                     }
-                  ]
+                  }
                 }
               },
               "affects": [
@@ -5608,7 +6142,7 @@
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2027-05-04",
+              "obtain": "2026-05-04",
               "maintain": "2027-05-04",
               "grace_ends": "2027-05-04"
             }
@@ -5943,6 +6477,22 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
+            },
+            "FRC-CSO-POP": {
+              "name": "Pick One Program Certification Type",
+              "statement": "Providers MUST NOT seek both FedRAMP Rev5 Program Certification and FedRAMP 20x Program Certification for the same cloud service offering; pick one type.",
+              "note": "This rule does not prevent a provider from seeking and maintaining a FedRAMP Rev5 Agency Certification and a FedRAMP 20x Program Certification for the same cloud service offering, however, doing so is strongly discouraged due to the increased complexity and risk of confusion for all parties.",
+              "reference": "RFC-0021 Initial Outcome",
+              "reference_url": "https://www.fedramp.gov/notices/0005",
+              "primary_key_word": "MUST NOT",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering"
+              ],
+              "updated": []
             }
           }
         },
@@ -6010,6 +6560,23 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
+            }
+          }
+        },
+        "rev5": {
+          "CSL": {
+            "FRC-CSL-CDE": {
+              "name": "Class D Program Certification Exclusion",
+              "statement": "Providers seeking a FedRAMP Rev5 Class D Certification MUST use the FedRAMP Agency Certification path.",
+              "note": "FedRAMP will not perform FedRAMP Rev5 Class D Program Certifications.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency"
+              ],
+              "updated": []
             }
           }
         }

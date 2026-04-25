@@ -154,12 +154,27 @@
     },
     "effective_dates": {
       "type": "object",
-      "required": ["obtain", "maintain", "grace_ends"],
+      "required": ["obtain", "maintain"],
       "properties": {
         "obtain": { "type": "string", "format": "date" },
         "maintain": { "type": "string", "format": "date" },
-        "grace_ends": { "type": "string", "format": "date" }
+        "grace_ends": { "type": "string", "format": "date" },
+        "grace_by_assessment_months": { "type": "number" }
       },
+      "oneOf": [
+        {
+          "required": ["grace_ends"],
+          "properties": {
+            "grace_ends": {}
+          }
+        },
+        {
+          "required": ["grace_by_assessment_months"],
+          "properties": {
+            "grace_by_assessment_months": {}
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "effective_classes": {
@@ -328,6 +343,7 @@
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "reference_url_web_name": { "type": "string" },
+        "effective_date": { "$ref": "#/$defs/effective_dates" },
         "corrective_actions": {
           "type": "array",
           "items": { "type": "string" }
@@ -379,27 +395,37 @@
       "properties": {
         "statement": { "type": "string" },
         "primary_key_word": { "$ref": "#/$defs/primary_key_word_enum" },
+        "effective_date": { "$ref": "#/$defs/effective_dates" },
         "timeframe_type": { "type": "string" },
         "timeframe_num": { "type": "number" },
-        "pain_timeframes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "pain",
-              "max_days_irv_lev",
-              "max_days_nirv_lev",
-              "max_days_nlev"
-            ],
-            "properties": {
-              "pain": { "type": "integer" },
-              "max_days_irv_lev": { "type": "number" },
-              "max_days_nirv_lev": { "type": "number" },
-              "max_days_nlev": { "type": "number" }
-            },
-            "additionalProperties": false
-          }
-        }
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" }
+      },
+      "additionalProperties": false
+    },
+    "pain_timeframes": {
+      "type": "object",
+      "required": ["1", "2", "3", "4", "5"],
+      "properties": {
+        "1": { "$ref": "#/$defs/pain_timeframe_group" },
+        "2": { "$ref": "#/$defs/pain_timeframe_group" },
+        "3": { "$ref": "#/$defs/pain_timeframe_group" },
+        "4": { "$ref": "#/$defs/pain_timeframe_group" },
+        "5": { "$ref": "#/$defs/pain_timeframe_group" }
+      },
+      "propertyNames": { "pattern": "^[1-5]$" },
+      "additionalProperties": { "$ref": "#/$defs/pain_timeframe_group" }
+    },
+    "pain_timeframe_group": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/pain_timeframe_entry" }
+    },
+    "pain_timeframe_entry": {
+      "type": "object",
+      "required": ["timeframe_type", "timeframe_num", "description"],
+      "properties": {
+        "timeframe_type": { "type": "string" },
+        "timeframe_num": { "type": "number" },
+        "description": { "type": "string" }
       },
       "additionalProperties": false
     },
