@@ -535,7 +535,11 @@
         "FRD-OCR": {
           "term": "Ongoing Certification Report (OCR)",
           "definition": "A regular report that is supplied by FedRAMP Certified cloud service providers to agency customers, following FedRAMP Collaborative Continuous Monitoring rules.",
-          "alts": ["ongoing certification report", "OCR", "OCRs"],
+          "alts": [
+            "ongoing certification report",
+            "OCR",
+            "OCRs"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -699,7 +703,10 @@
         "FRD-QTR": {
           "term": "Quarterly Review",
           "definition": "A regular synchronous meeting hosted by a FedRAMP Certified cloud service provider for agency customers, following FedRAMP Collaborative Continuous Monitoring rules.",
-          "alts": ["quarterly review", "quarterly reviews"],
+          "alts": [
+            "quarterly review",
+            "quarterly reviews"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -739,7 +746,9 @@
           "term": "Responsibly",
           "definition": "In a way that shows that you have good judgment and the ability to act correctly and make decisions on your own.",
           "note": "Refrain from broadcasting any details that might assist adversaries in their endeavors, disclosing vulnerabilities prior to full remediation, or providing overly specific technical information that could potentially facilitate further compromise.",
-          "alts": ["responsibly"],
+          "alts": [
+            "responsibly"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -841,7 +850,10 @@
           "term": "Trust Center",
           "definition": "A secure repository or service used by cloud service providers to store and share certification data. Trust centers are the complete and definitive source for certification data and must follow the FedRAMP Certification Data Sharing rules to be FedRAMP-compatible.",
           "note": "In FedRAMP documentation, all references to trust centers indicate FedRAMP-compatible trust centers unless otherwise specified.",
-          "alts": ["trust center", "trust centers"],
+          "alts": [
+            "trust center",
+            "trust centers"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -1749,7 +1761,9 @@
                 "A list of all agencies that are directly using the product"
               ],
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -1771,7 +1785,9 @@
               "name": "Next Report Date",
               "statement": "Providers MUST supply the target date for their next Ongoing Certification Report with other public FedRAMP Certification Data.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Certification Data",
                 "Ongoing Certification Report (OCR)"
@@ -1788,7 +1804,9 @@
               "statement": "Providers MUST supply an asynchronous mechanism for all necessary parties to provide feedback or ask questions about each Ongoing Certification Report.",
               "note": "This could be email by default but providers are encouraged to consider something more interactive as appropriate.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Ongoing Certification Report (OCR)"
@@ -1805,8 +1823,13 @@
               "statement": "Providers MUST supply an anonymized and desensitized summary of the feedback, questions, and answers about each Ongoing Certification Report as an addendum to the Ongoing Certification Report.",
               "note": "This is intended to encourage sharing of information and decrease the burden on the cloud service provider - providing this summary will reduce duplicate questions from agencies and ensure FedRAMP has access to this information. It is generally in the provider's interest to update this addendum frequently throughout the quarter.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Agency", "Ongoing Certification Report (OCR)"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Ongoing Certification Report (OCR)"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1856,7 +1879,9 @@
               "name": "Responsible Public Sharing",
               "statement": "Providers MAY responsibly supply some or all of the information an Ongoing Certification Report to the public or other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "primary_key_word": "MAY",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Cloud Service Offering",
                 "Likely",
@@ -1919,10 +1944,11 @@
               "name": "Meeting Registration Info",
               "statement": "Providers MUST supply either a registration link or a downloadable calendar file with meeting information for Quarterly Reviews to all necessary parties.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
-                "Certification Data",
                 "Quarterly Review"
               ],
               "updated": [
@@ -1936,8 +1962,13 @@
               "name": "Next Review Date",
               "statement": "Providers MUST publicly supply the target date for their next Quarterly Review with other public FedRAMP Certification Data.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Quarterly Review"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Certification Data",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1987,8 +2018,13 @@
               "name": "Additional Content",
               "statement": "Providers SHOULD supply additional information in Quarterly Reviews that the provider determines is of interest, use, or otherwise relevant to agencies.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
-              "terms": ["Agency", "Quarterly Review"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2000,10 +2036,11 @@
               "name": "Record/Transcribe Reviews",
               "statement": "Providers SHOULD record or transcribe Quarterly Reviews and supply them to all necessary parties.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
-                "Certification Data",
                 "Quarterly Review"
               ],
               "updated": [
@@ -2037,7 +2074,9 @@
               "name": "Share Recordings Responsibly",
               "statement": "Providers MAY responsibly supply recordings or transcriptions of Quarterly Reviews to the public or other parties ONLY if the provider removes all agency information (comments, questions, names, etc.) AND determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "primary_key_word": "MAY",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Agency",
                 "Cloud Service Offering",
@@ -2056,7 +2095,9 @@
               "name": "Share Content Responsibly",
               "statement": "Providers MAY responsibly supply content prepared for a Quarterly Review to the public or other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "primary_key_word": "MAY",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Cloud Service Offering",
                 "Likely",
@@ -2259,8 +2300,12 @@
               ],
               "note": "FedRAMP Class D Certified cloud service providers are expected to address Emergency messages (including tests) from FedRAMP with a reaction time appropriate to operating a service where failure to react rapidly might have a severe or catastrophic adverse effect on the U.S. Government; some Emergency messages may require faster reaction and all such messages should be addressed as quickly as possible.",
               "primary_key_word": "MUST",
-              "affects": ["FedRAMP"],
-              "terms": ["Catastrophic Adverse Effect"],
+              "affects": [
+                "FedRAMP"
+              ],
+              "terms": [
+                "Catastrophic Adverse Effect"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3428,8 +3473,12 @@
                 "Optional: Positive attestations from customers or customer references"
               ],
               "primary_key_word": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Machine-Readable"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Machine-Readable"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4297,7 +4346,8 @@
               ],
               "terms": [
                 "Persistent Validation",
-                "Significant Change"
+                "Significant Change",
+                "Vulnerability"
               ],
               "updated": [
                 {
@@ -4479,7 +4529,8 @@
                 "Adaptive Change",
                 "All Necessary Parties",
                 "Regularly",
-                "Significant Change"
+                "Significant Change",
+                "Vulnerability"
               ],
               "updated": [
                 {
@@ -4654,7 +4705,8 @@
               "terms": [
                 "All Necessary Parties",
                 "Persistent Validation",
-                "Transformative Change"
+                "Transformative Change",
+                "Vulnerability"
               ],
               "updated": [
                 {
@@ -4928,8 +4980,14 @@
               "name": "Sensitive Details",
               "statement": "FedRAMP MAY require providers to share additional information or details about vulnerabilities, including sensitive information that would likely lead to exploitation, as part of review, response or investigation by necessary parties.",
               "primary_key_word": "MAY",
-              "affects": ["FedRAMP"],
-              "terms": ["Likely", "Vulnerability", "Vulnerability Response"],
+              "affects": [
+                "FedRAMP"
+              ],
+              "terms": [
+                "Likely",
+                "Vulnerability",
+                "Vulnerability Response"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5370,7 +5428,9 @@
               "name": "Persistent Reporting",
               "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification Data and are subject to FedRAMP FedRAMP Certification Data Sharing (CDS) rules.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
