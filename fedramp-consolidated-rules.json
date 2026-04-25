@@ -3107,11 +3107,7 @@
                   }
                 }
               },
-              "reference": "RFC-0031",
-              "reference_url": "https://www.fedramp.gov/rfcs/0031",
-              "affects": [
-                "Providers"
-              ],
+              "affects": ["Providers"],
               "terms": [
                 "All Affected Parties",
                 "Federal Reportable Incident",
@@ -6484,16 +6480,9 @@
               "name": "Pick One Program Certification Type",
               "statement": "Providers MUST NOT seek both FedRAMP Rev5 Program Certification and FedRAMP 20x Program Certification for the same cloud service offering; pick one type.",
               "note": "This rule does not prevent a provider from seeking and maintaining a FedRAMP Rev5 Agency Certification and a FedRAMP 20x Program Certification for the same cloud service offering, however, doing so is strongly discouraged due to the increased complexity and risk of confusion for all parties.",
-              "reference": "RFC-0021 Initial Outcome",
-              "reference_url": "https://www.fedramp.gov/notices/0005",
               "primary_key_word": "MUST NOT",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering"
-              ],
+              "affects": ["Providers"],
+              "terms": ["Agency", "Cloud Service Offering"],
               "updated": []
             }
           }
