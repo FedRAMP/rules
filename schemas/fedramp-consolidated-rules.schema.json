@@ -20,7 +20,7 @@
       "type": "object",
       "required": ["info", "data"],
       "properties": {
-        "info": { "$ref": "#/$defs/document_info" },
+        "info": { "$ref": "#/$defs/frd_document_info" },
         "data": { "$ref": "#/$defs/data_container_frd" }
       },
       "additionalProperties": false
@@ -32,7 +32,7 @@
           "type": "object",
           "required": ["info", "data"],
           "properties": {
-            "info": { "$ref": "#/$defs/document_info" },
+            "info": { "$ref": "#/$defs/frr_document_info" },
             "data": { "$ref": "#/$defs/data_container_frr" }
           },
           "additionalProperties": false
@@ -69,15 +69,28 @@
   },
   "additionalProperties": false,
   "$defs": {
-    "document_info": {
+    "frd_document_info": {
       "type": "object",
-      "required": [
-        "name",
-        "short_name",
-        "web_name",
-        "effective",
-        "front_matter"
-      ],
+      "required": ["name", "short_name", "web_name", "effective"],
+      "properties": {
+        "name": { "type": "string" },
+        "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "web_name": { "type": "string" },
+        "effective": {
+          "type": "object",
+          "required": ["20x", "rev5"],
+          "properties": {
+            "20x": { "$ref": "#/$defs/effective_entry" },
+            "rev5": { "$ref": "#/$defs/effective_entry" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "frr_document_info": {
+      "type": "object",
+      "required": ["name", "short_name", "web_name", "effective", "labels"],
       "properties": {
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
@@ -91,7 +104,6 @@
           },
           "additionalProperties": false
         },
-        "front_matter": { "$ref": "#/$defs/front_matter" },
         "labels": {
           "type": "object",
           "propertyNames": { "$ref": "#/$defs/frr_info_label_name" },
@@ -218,29 +230,6 @@
           }
         }
       ],
-      "additionalProperties": false
-    },
-    "front_matter": {
-      "type": "object",
-      "required": ["purpose"],
-      "properties": {
-        "authority": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["reference", "reference_url", "description"],
-            "properties": {
-              "description": { "type": "string" },
-              "reference": { "type": "string" },
-              "reference_url": { "type": "string", "format": "uri" },
-              "delegation": { "type": "string" },
-              "delegation_url": { "type": "string", "format": "uri" }
-            },
-            "additionalProperties": false
-          }
-        },
-        "purpose": { "type": "string" }
-      },
       "additionalProperties": false
     },
     "data_container_frd": {
