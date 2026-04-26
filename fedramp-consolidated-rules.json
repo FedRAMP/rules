@@ -11,16 +11,7 @@
       "short_name": "FRD",
       "web_name": "definitions",
       "effective": {
-        "20x": {
-          "is": "required",
-          "current_status": "Consolidated Rules for 2026",
-          "date": {
-            "obtain": "2026-05-04",
-            "maintain": "2026-05-04",
-            "grace_ends": "2026-05-04"
-          }
-        },
-        "rev5": {
+        "both": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
@@ -2120,30 +2111,7 @@
         "short_name": "FSI",
         "web_name": "fedramp-security-inbox",
         "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-01-05",
-              "maintain": "2026-01-05",
-              "grace_ends": "2026-07-01"
-            },
-            "class": {
-              "a": {
-                "applies_in_full": true
-              },
-              "b": {
-                "applies_in_full": true
-              },
-              "c": {
-                "applies_in_full": true
-              },
-              "d": {
-                "applies_in_full": true
-              }
-            }
-          },
-          "rev5": {
+          "both": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -3968,16 +3936,7 @@
         "short_name": "SCG",
         "web_name": "secure-configuration-guide",
         "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-05-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
+          "both": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {

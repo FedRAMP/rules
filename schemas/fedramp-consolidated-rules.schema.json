@@ -76,15 +76,7 @@
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
-        "effective": {
-          "type": "object",
-          "required": ["20x", "rev5"],
-          "properties": {
-            "20x": { "$ref": "#/$defs/effective_entry" },
-            "rev5": { "$ref": "#/$defs/effective_entry" }
-          },
-          "additionalProperties": false
-        }
+        "effective": { "$ref": "#/$defs/effective_map" }
       },
       "additionalProperties": false
     },
@@ -95,15 +87,7 @@
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
-        "effective": {
-          "type": "object",
-          "required": ["20x", "rev5"],
-          "properties": {
-            "20x": { "$ref": "#/$defs/effective_entry" },
-            "rev5": { "$ref": "#/$defs/effective_entry" }
-          },
-          "additionalProperties": false
-        },
+        "effective": { "$ref": "#/$defs/effective_map" },
         "labels": {
           "type": "object",
           "propertyNames": { "$ref": "#/$defs/frr_info_label_name" },
@@ -148,6 +132,32 @@
         "name": { "type": "string" },
         "description": { "type": "string" }
       },
+      "additionalProperties": false
+    },
+    "effective_map": {
+      "type": "object",
+      "properties": {
+        "both": { "$ref": "#/$defs/effective_entry" },
+        "20x": { "$ref": "#/$defs/effective_entry" },
+        "rev5": { "$ref": "#/$defs/effective_entry" }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "both": { "$ref": "#/$defs/effective_entry" }
+          },
+          "required": ["both"],
+          "maxProperties": 1
+        },
+        {
+          "properties": {
+            "20x": { "$ref": "#/$defs/effective_entry" },
+            "rev5": { "$ref": "#/$defs/effective_entry" }
+          },
+          "required": ["20x", "rev5"],
+          "maxProperties": 2
+        }
+      ],
       "additionalProperties": false
     },
     "effective_entry": {
