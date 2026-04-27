@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules WIP PREVIEW",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.0.1.1-wip-preview",
+    "version": "2026.0.2.1-wip",
     "last_updated": "2026-06-01"
   },
   "FRD": {
@@ -28,7 +28,10 @@
           "term": "Accepted Vulnerability",
           "definition": "A vulnerability that the provider does not intend to fully mitigate or remediate, OR that has not or will not be fully mitigated or remediated within the maximum overdue period in FedRAMP Vulnerability Detection and Response rules.",
           "tag": "Vulnerabilities",
-          "alts": ["accepted vulnerability", "accepted vulnerabilities"],
+          "alts": [
+            "accepted vulnerability",
+            "accepted vulnerabilities"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -41,7 +44,11 @@
           "definition": "A type of significant change that does not routinely recur and does not introduce substantive potential security risks that need to be assessed in depth.",
           "note": "Adaptive changes typically require careful planning that focuses on engineering execution instead of customer adoption, can be verified with minor changes to existing automated validation procedures, and do not require large changes to operational procedures, deployment plans, or documentation.",
           "tag": "Significant Changes",
-          "alts": ["adaptive", "adaptive change", "adaptive changes"],
+          "alts": [
+            "adaptive",
+            "adaptive change",
+            "adaptive changes"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -53,7 +60,10 @@
           "term": "Advisor",
           "definition": "An entity that helps a provider understand, prepare for, or maintain FedRAMP Certification without replacing the provider's responsibility or the assessor's independence.",
           "tag": "Stakeholders",
-          "alts": ["advisor", "advisors"],
+          "alts": [
+            "advisor",
+            "advisors"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -65,7 +75,10 @@
           "term": "Agency",
           "definition": "Has the meaning given in 44 U.S. Code § 3502 (1), which is \"any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include—(A) the Government Accountability Office; (B) Federal Election Commission; (C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or (D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.\"",
           "tag": "Stakeholders",
-          "alts": ["agency", "agencies"],
+          "alts": [
+            "agency",
+            "agencies"
+          ],
           "reference": "44 U.S. Code § 3502 (1)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -79,7 +92,9 @@
           "term": "All Affected Parties",
           "definition": "All federal entities whose interests are affected directly or are likely to be affected directly in the event of a vulnerability or incident related to federal customer data. This always includes FedRAMP and directly impacted federal customer agencies.",
           "tag": "Stakeholders",
-          "alts": ["all affected parties"],
+          "alts": [
+            "all affected parties"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -91,7 +106,9 @@
           "term": "All Necessary Assessors",
           "definition": "All entities who participate in the FedRAMP assessment of a cloud service offering in the context of a FedRAMP Certification. This always includes FedRAMP and any FedRAMP Recognized independent assessor contracted by a provider to perform a FedRAMP assessment.",
           "tag": "Stakeholders",
-          "alts": ["all necessary assessors"],
+          "alts": [
+            "all necessary assessors"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -103,7 +120,9 @@
           "term": "All Necessary Parties",
           "definition": "All entities whose interests are affected directly by activity related to a specific cloud service offering in the context of FedRAMP Certifications. This always includes FedRAMP and any agency customer who is using the cloud service offering, but may include additional parties depending on agreements made by the cloud service provider (such as consultants or independent assessors). Potential agency customers or third-party cloud service providers should also be included in most cases but this is not a mandatory requirement under FedRAMP because the cloud service provider may choose who they wish to do business with.",
           "tag": "Stakeholders",
-          "alts": ["all necessary parties"],
+          "alts": [
+            "all necessary parties"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -116,7 +135,10 @@
           "definition": "An assessor that performs assessment, verification, or validation activities for a cloud service offering in the context of FedRAMP Certification; FedRAMP is the final assessor for FedRAMP Certification, but FedRAMP Recognized independent assessment services are typically also utilized.",
           "note": "FedRAMP has transitioned from using the historical term \"Third-Party Assessment Organization (3PAO)\" to align with the explicit terminology used in the FedRAMP Authorization Act and to avoid the confusion caused when the same organizations provide both assessment and advisory services while being referred to as a 3PAO.",
           "tag": "Stakeholders",
-          "alts": ["assessor", "assessors"],
+          "alts": [
+            "assessor",
+            "assessors"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -143,7 +165,10 @@
           "term": "Certification Class Change",
           "definition": "A type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
           "tag": "Significant Changes",
-          "alts": ["certification class change", "certification class changes"],
+          "alts": [
+            "certification class change",
+            "certification class changes"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -155,7 +180,9 @@
           "term": "Certification Data",
           "definition": "The collective information required by FedRAMP for initial and ongoing FedRAMP Certification of a cloud service offering, including the FedRAMP Certification Package.",
           "note": "In FedRAMP documentation, certification data always refers to FedRAMP Certification Data unless otherwise specified.",
-          "alts": ["certification data"],
+          "alts": [
+            "certification data"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -167,7 +194,10 @@
           "term": "Certification Package",
           "definition": "Has meaning from 44 USC § 3607 (b)(8) given to \"authorization package\", which is \"the essential information that can be used by an agency to determine whether to authorize the operation of an information system or the use of a designated set of common controls for all cloud computing products and services [certified] by FedRAMP.\"",
           "note": "In FedRAMP documentation, certification package always refers to a FedRAMP Certification Package unless otherwise specified.",
-          "alts": ["certification package", "certification packages"],
+          "alts": [
+            "certification package",
+            "certification packages"
+          ],
           "reference": "44 USC § 3607 (b)(8)",
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
           "updated": [
@@ -181,7 +211,10 @@
           "term": "Cloud Service Offering",
           "definition": "A specific, packaged cloud computing product or service supplied by a cloud service provider for use by customers, that is the subject of a FedRAMP Certification.",
           "note": "The FedRAMP Minimum Assessment Scope defines the full scope of the cloud service offering from the perspective of a FedRAMP Certification.",
-          "alts": ["cloud service offering", "cloud service offerings"],
+          "alts": [
+            "cloud service offering",
+            "cloud service offerings"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -193,7 +226,9 @@
           "term": "Deterministic Telemetry",
           "definition": "Verifiable data collected directly from an authoritative source that represents a factual and reproducible observation of the attributes of a system such as the system's state, configuration, or behavior.",
           "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as “Generative AI”) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
-          "alts": ["deterministic telemetry"],
+          "alts": [
+            "deterministic telemetry"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -204,7 +239,11 @@
         "FRD-DFT": {
           "term": "Drift",
           "definition": "Changes to information resources that cause deviations from the intended and assessed state; common forms of drift include changes to configurations, deployed software, privileges, running processes, and availability.",
-          "alts": ["drift", "drifts", "drifting"],
+          "alts": [
+            "drift",
+            "drifts",
+            "drifting"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -235,7 +274,9 @@
           "term": "Federal Customer Data",
           "definition": "All electronic information, content, and materials that an agency or its authorized users upload, store, or otherwise supply to a cloud service for processing or storage. This does NOT include account information, service metadata, analytics, telemetry, or other similar metadata generated by the cloud service provider.",
           "note": "In the context of FedRAMP Certification, \"federal customer data\" ONLY ever refers to data owned by federal agency customers. Agreements and contracts with specific agencies may require providers to protect additional data or even transfer ownership of telemetry or usage data to the agency; always consult a lawyer that is familiar with company agreements and contracts when determining the scope of federal customer data.",
-          "alts": ["federal customer data"],
+          "alts": [
+            "federal customer data"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -295,7 +336,11 @@
         "FRD-FSI": {
           "term": "FedRAMP Security Inbox",
           "definition": "An email address that follows the FedRAMP Security Inbox rules.",
-          "alts": ["security inbox", "security inboxes", "FSI"],
+          "alts": [
+            "security inbox",
+            "security inboxes",
+            "FSI"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -338,7 +383,12 @@
         "FRD-HAN": {
           "term": "Handle",
           "definition": "Has the plain language meaning inclusive of any possible action taken with information, such as access, collect, control, create, display, disclose, disseminate, dispose, maintain, manipulate, process, receive, review, store, transmit, use... etc.",
-          "alts": ["handle", "handles", "handled", "handling"],
+          "alts": [
+            "handle",
+            "handles",
+            "handled",
+            "handling"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -350,7 +400,10 @@
           "term": "Incident",
           "definition": "Has the meaning given in 44 USC § 3552 (b)(2) applied to federal customer data, which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of [federal customer data]; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies [related to federal customer data].\"",
           "tag": "Incidents",
-          "alts": ["incident", "incidents"],
+          "alts": [
+            "incident",
+            "incidents"
+          ],
           "reference": "44 USC § 3552 (b)(2)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapII-sec3552",
           "updated": [
@@ -365,7 +418,10 @@
           "definition": "Has the meaning from 44 USC § 3502 (6): \"information and related resources, such as personnel, equipment, funds, and information technology.\" This includes any aspect of the cloud service offering, both technical and managerial, including everything that makes up the business of the offering from non-machine-based information resources like organizational policies, procedures, employees, etc. to machine-based information resources like hardware, software, cloud services, code, etc.",
           "note": "Information resources are either machine-based or non-machine-based; any requirement or recommendation that references information resources without specifying a type is inclusive of all information resources.",
           "tag": "Information Resources",
-          "alts": ["information resource", "information resources"],
+          "alts": [
+            "information resource",
+            "information resources"
+          ],
           "reference": "44 USC § 3502 (6)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -378,7 +434,10 @@
         "FRD-INC": {
           "term": "Initial Certification",
           "definition": "The first FedRAMP Certification of a cloud service offering based on the applicable initial assessment, validation, certification package, and certification data.",
-          "alts": ["initial certification", "initial certifications"],
+          "alts": [
+            "initial certification",
+            "initial certifications"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -390,7 +449,10 @@
           "term": "Initial FedRAMP Assessment",
           "definition": "The first full assessment of a cloud service offering obtaining FedRAMP Certification, coordinated by the provider with all necessary assessors, that results in a FedRAMP Certification.",
           "tag": "Assessments",
-          "alts": ["initial FedRAMP assessment", "IFRA"],
+          "alts": [
+            "initial FedRAMP assessment",
+            "IFRA"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -461,7 +523,10 @@
         "FRD-LKY": {
           "term": "Likely",
           "definition": "A reasonable degree of probability based on context.",
-          "alts": ["likely", "likelihood"],
+          "alts": [
+            "likely",
+            "likelihood"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -496,7 +561,10 @@
           "term": "Limited Adverse Effect",
           "definition": "A minor negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in degradation of the availability or performance of services within the cloud service offering for a minority of relevant users; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a small amount of the federal customer data stored within the cloud service offering by only a few relevant users.",
           "tag": "Adverse Effects",
-          "alts": ["limited adverse effect", "limited adverse effects"],
+          "alts": [
+            "limited adverse effect",
+            "limited adverse effects"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -509,7 +577,10 @@
           "definition": "Any information technology information resource—including systems, processes, software, hardware, services, cloud-native capabilities, and any other such capability, component, or resource—that relies primarily on mechanical or electronic devices (i.e. computers) for operation.",
           "note": "All other information resources that do not rely on computers are non-machine-based information resources.",
           "tag": "Information Resources",
-          "alts": ["machine-based", "machine based"],
+          "alts": [
+            "machine-based",
+            "machine based"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -520,7 +591,9 @@
         "FRD-MGN": {
           "term": "Machine-Generated",
           "definition": "Automatically produced by a computer process, application, or other mechanism without the intervention or manipulation of a human during production.",
-          "alts": ["machine-generated"],
+          "alts": [
+            "machine-generated"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -531,7 +604,9 @@
         "FRD-MRD": {
           "term": "Machine-Readable",
           "definition": "Has the meaning from 44 U.S. Code § 3502 (18) which is \"the term \"machine-readable\", when used with respect to data, means data in a format that can be easily processed by a computer without human intervention while ensuring no semantic meaning is lost\"",
-          "alts": ["machine-readable"],
+          "alts": [
+            "machine-readable"
+          ],
           "reference": "44 U.S. Code § 3502 (18)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
@@ -545,7 +620,10 @@
           "term": "Negligible Adverse Effect",
           "definition": "A small negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in minor inconvenience when accessing or using services within the cloud service offering; OR (ii) result in degradation of the availability or performance of services within the cloud service offering for only a few relevant users.",
           "tag": "Adverse Effects",
-          "alts": ["negligible adverse effect", "negligible adverse effects"],
+          "alts": [
+            "negligible adverse effect",
+            "negligible adverse effects"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -556,7 +634,10 @@
         "FRD-ONC": {
           "term": "Ongoing Certification",
           "definition": "The continued FedRAMP Certification of a cloud service offering based on the applicable ongoing assessment, validation, monitoring, reporting, and certification data.",
-          "alts": ["ongoing certification", "ongoing certifications"],
+          "alts": [
+            "ongoing certification",
+            "ongoing certifications"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -567,7 +648,11 @@
         "FRD-OCR": {
           "term": "Ongoing Certification Report (OCR)",
           "definition": "A regular report that is supplied by FedRAMP Certified cloud service providers to agency customers, following FedRAMP Collaborative Continuous Monitoring rules.",
-          "alts": ["ongoing certification report", "OCR", "OCRs"],
+          "alts": [
+            "ongoing certification report",
+            "OCR",
+            "OCRs"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -596,7 +681,10 @@
           "term": "Overdue Vulnerability",
           "definition": "A vulnerability that the provider intends to fully mitigate or remediate but has not or will not do so within the time frames recommended or required by FedRAMP.",
           "tag": "Vulnerabilities",
-          "alts": ["overdue vulnerability", "overdue vulnerabilities"],
+          "alts": [
+            "overdue vulnerability",
+            "overdue vulnerabilities"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -623,7 +711,10 @@
           "term": "Persistent FedRAMP Assessment",
           "definition": "Follow-on assessments of a cloud service offering focused on Key Security Indicators, coordinated by the provider with all necessary assessors, to maintain FedRAMP Certification or change its FedRAMP Certification class.",
           "tag": "Assessments",
-          "alts": ["persistent FedRAMP assessment", "PFRA"],
+          "alts": [
+            "persistent FedRAMP assessment",
+            "PFRA"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -653,7 +744,10 @@
           "term": "Persistently",
           "definition": "Occurring in a firm, steady way that is repeated over a long period of time in spite of obstacles or difficulties. Persistent activities may vary between actors, may occur irregularly, and may include interruptions or waiting periods between cycles. These attributes of persistent activities should be intentional, understood, and documented; the status of persistent activities will always be known. ",
           "note": "The use of persistently indicates a process that may not always occur continuously (without interruption or gaps) or regularly (on a consistent, predictable basis) but will repeat frequently in cycles. It aligns generally with historical misuse of \"continuous\" in federal information security policies.",
-          "alts": ["persistently", "persistent"],
+          "alts": [
+            "persistently",
+            "persistent"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -682,7 +776,10 @@
           "definition": "An account with elevated privileges that enables administrative functions over some aspect of the cloud service offering that may affect the confidentiality, integrity, or availability of information beyond those given to normal users; levels of privilege may vary wildly.",
           "note": "Any references to privileged accounts in FedRAMP materials should be presumed to apply to privileged roles or other similar capabilities that are used to assign privileges to privileged accounts.",
           "tag": "Accounts",
-          "alts": ["privileged account", "privileged accounts"],
+          "alts": [
+            "privileged account",
+            "privileged accounts"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -694,7 +791,10 @@
           "term": "Promptly",
           "definition": "Without unnecessary delay.",
           "note": "The use of promptly in FedRAMP materials frames conveys a need for urgent action where the expected time frame will vary by circumstance but earlier action is more likely to improve security outcomes and increase the security posture of a cloud service offering.",
-          "alts": ["promptly", "prompt"],
+          "alts": [
+            "promptly",
+            "prompt"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -723,7 +823,10 @@
         "FRD-QTR": {
           "term": "Quarterly Review",
           "definition": "A regular synchronous meeting hosted by a FedRAMP Certified cloud service provider for agency customers, following FedRAMP Collaborative Continuous Monitoring rules.",
-          "alts": ["quarterly review", "quarterly reviews"],
+          "alts": [
+            "quarterly review",
+            "quarterly reviews"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -734,7 +837,10 @@
         "FRD-RGL": {
           "term": "Regularly",
           "definition": "Performing the activity on a consistent, predictable, and repeated basis, at set intervals, automatically if possible, following a documented plan. These intervals may vary as appropriate between different activities.",
-          "alts": ["regularly", "regular"],
+          "alts": [
+            "regularly",
+            "regular"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -746,7 +852,10 @@
           "term": "Remediated Vulnerability",
           "definition": "A vulnerability that has been neutralized or eliminated and is no longer detected.",
           "tag": "Vulnerabilities",
-          "alts": ["remediated vulnerability", "remediated vulnerabilities"],
+          "alts": [
+            "remediated vulnerability",
+            "remediated vulnerabilities"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -758,7 +867,9 @@
           "term": "Responsibly",
           "definition": "In a way that shows that you have good judgment and the ability to act correctly and make decisions on your own.",
           "note": "Refrain from broadcasting any details that might assist adversaries in their endeavors, disclosing vulnerabilities prior to full remediation, or providing overly specific technical information that could potentially facilitate further compromise.",
-          "alts": ["responsibly"],
+          "alts": [
+            "responsibly"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -785,7 +896,10 @@
         "FRD-SCT": {
           "term": "Security Category",
           "definition": "Has the meaning from NIST FIPS 199, which is \"The characterization of information or an information system based on an assessment of the potential impact that a loss of confidentiality, integrity, or availability of such information or information system would have on organizational operations, organizational assets, or individuals.\"",
-          "alts": ["security category", "security categories"],
+          "alts": [
+            "security category",
+            "security categories"
+          ],
           "reference": "NIST FIPS 199 Standards for Security Categorization of Federal Information and Information Systems",
           "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
           "updated": [
@@ -799,7 +913,10 @@
           "term": "Serious Adverse Effect",
           "definition": "A significant negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in intermittent or ongoing degradation in the availability or performance of services within the cloud service offering, causing unpredictable interruptions to operations for 12+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a minority of the federal customer data stored within the cloud service offering.",
           "tag": "Adverse Effects",
-          "alts": ["serious adverse effect", "serious adverse effects"],
+          "alts": [
+            "serious adverse effect",
+            "serious adverse effects"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -811,7 +928,10 @@
           "term": "Significant Change",
           "definition": "Has the meaning given in NIST SP 800-37 Rev. 2 which is \"a change that is likely to substantively affect the security or privacy posture of a system.\"",
           "tag": "Significant Changes",
-          "alts": ["significant change", "significant changes"],
+          "alts": [
+            "significant change",
+            "significant changes"
+          ],
           "reference": "NIST SP 800-37 Rev. 2",
           "reference_url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
           "updated": [
@@ -873,7 +993,10 @@
           "term": "Trust Center",
           "definition": "A secure repository or service used by cloud service providers to store and share FedRAMP Certification Data. Trust centers are the complete and definitive source for FedRAMP Certification Data and must follow the FedRAMP Certification Data Sharing rules to be FedRAMP-compatible.",
           "note": "In FedRAMP documentation, all references to trust centers indicate FedRAMP-compatible trust centers unless otherwise specified.",
-          "alts": ["trust center", "trust centers"],
+          "alts": [
+            "trust center",
+            "trust centers"
+          ],
           "updated": [
             {
               "date": "2026-06-01",
@@ -885,7 +1008,11 @@
           "term": "Validation",
           "definition": "Confirmation through objective evidence that implemented security capabilities and related certification data are suitable for their intended FedRAMP Certification use and support the expected security outcomes for a cloud service offering.",
           "note": "This adapts the ISO conformity assessment concept of validation to the FedRAMP Certification context.",
-          "alts": ["validation", "validate", "validated"],
+          "alts": [
+            "validation",
+            "validate",
+            "validated"
+          ],
           "reference": "ISO/IEC 27001:2022",
           "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
@@ -899,7 +1026,11 @@
           "term": "Verification",
           "definition": "Confirmation through objective evidence that specified FedRAMP rules, controls, indicators, or certification data requirements have been fulfilled for a cloud service offering.",
           "note": "This adapts the ISO conformity assessment concept of verification to the FedRAMP Certification context.",
-          "alts": ["verification", "verify", "verified"],
+          "alts": [
+            "verification",
+            "verify",
+            "verified"
+          ],
           "reference": "ISO/IEC 27001:2022",
           "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
@@ -913,7 +1044,10 @@
           "term": "Vulnerability",
           "definition": "Has the meaning given to \"security vulnerability\" in 6 USC § 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
           "tag": "Vulnerabilities",
-          "alts": ["vulnerability", "vulnerabilities"],
+          "alts": [
+            "vulnerability",
+            "vulnerabilities"
+          ],
           "reference": "6 USC § 650 (25)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title6/USCODE-2024-title6-chap1-subchapXVIII-sec650",
           "updated": [
@@ -1102,7 +1236,9 @@
               "name": "Service List",
               "statement": "Providers MUST publicly share a detailed list of specific services and their security categories that are included in the cloud service offering using clear feature or service names that align with standard public marketing materials; this list MUST be complete enough for a potential customer to determine which services are and are not included in the FedRAMP Minimum Assessment Scope without requesting access to underlying FedRAMP Certification Data.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Certification Data",
                 "Cloud Service Offering",
@@ -1123,7 +1259,9 @@
                 "Rules for FedRAMP-compatible trust centers are explained in CDS-TRC."
               ],
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -1141,8 +1279,14 @@
               "name": "Consistency Between Formats",
               "statement": "Providers MUST use automation to ensure information remains consistent between human-readable and machine-readable formats when FedRAMP Certification Data is provided in both formats.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Machine-Readable", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Certification Data",
+                "Machine-Readable",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1155,7 +1299,9 @@
               "statement": "Providers MUST provide sufficient information in FedRAMP Certification Data to support agency authorization decisions but SHOULD NOT include sensitive information that would likely enable a threat actor to gain unauthorized access, cause harm, disrupt operations, or otherwise have a negative adverse impact on the cloud service offering.",
               "note": "This is not a license to exclude accurate risk information, but specifics that would likely lead to compromise should be abstracted. A breach of confidentiality with FedRAMP Certification Data should be anticipated by a secure cloud service provider.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "examples": [
                 {
                   "id": "Tips on sensitive information in FedRAMP Certification Data",
@@ -1197,7 +1343,9 @@
                 "grace_by_assessment_months": 2
               },
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -1242,7 +1390,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Provider"],
+              "terms": [
+                "Agency",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1257,7 +1408,9 @@
               "statement": "Trust centers MUST share FedRAMP Certification Data with all necessary parties without interruption.",
               "note": "\"Without interruption\" means that parties should not have to request manual approval each time they need to access FedRAMP Certification Data or go through a complicated process. The preferred way of ensuring access without interruption is to use on-demand just-in-time access provisioning.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -1274,8 +1427,13 @@
               "name": "Programmatic Access",
               "statement": "Trust centers MUST provide documented programmatic access to all FedRAMP Certification Data, including programmatic access to human-readable materials.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Trust Center"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Certification Data",
+                "Trust Center"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1287,8 +1445,14 @@
               "name": "Agency Access Inventory",
               "statement": "Trust centers MUST maintain an inventory and history of federal agency users or systems with access to FedRAMP Certification Data and MUST make this information available to FedRAMP without interruption.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Agency", "Certification Data", "Trust Center"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Certification Data",
+                "Trust Center"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1300,8 +1464,13 @@
               "name": "Access Logging",
               "statement": "Trust centers MUST log access to FedRAMP Certification Data and store summaries of access for at least six months; such information, as it pertains to specific parties, SHOULD be made available upon request by those parties.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Trust Center"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Certification Data",
+                "Trust Center"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1313,7 +1482,9 @@
               "name": "Human and Machine-Readable",
               "statement": "Trust centers SHOULD make FedRAMP Certification Data available to view and download in both human-readable and machine-readable formats.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Certification Data",
                 "Machine-Readable",
@@ -1330,7 +1501,9 @@
               "name": "Self-Service Access Management",
               "statement": "Trust centers SHOULD include features that encourage all necessary parties to provision and manage access to FedRAMP Certification Data for their users and services directly.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -1366,7 +1539,9 @@
               "name": "Public Guidance",
               "statement": "Providers MUST publicly provide plain-language policies and guidance for all necessary parties that explains how they can obtain and manage access to FedRAMP Certification Data stored in the trust center.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -1387,7 +1562,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Certification Package", "Provider"],
+              "terms": [
+                "Agency",
+                "Certification Package",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1399,7 +1578,9 @@
               "name": "Agency Access Denial",
               "statement": "Providers MUST notify FedRAMP by email to info@fedramp.gov within 5 business days of denying an agency access request for FedRAMP Certification Data.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "timeframe_type": "bizdays",
               "timeframe_num": 5,
               "notification": [
@@ -1409,7 +1590,11 @@
                   "target": "info@fedramp.gov"
                 }
               ],
-              "terms": ["Agency", "Certification Data", "Provider"],
+              "terms": [
+                "Agency",
+                "Certification Data",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1428,7 +1613,9 @@
               "name": "Trust Center Migration",
               "statement": "Providers MUST notify all necessary parties when migrating to a trust center and MUST provide information in their existing USDA Connect Community Portal secure folders explaining how to use the trust center to obtain FedRAMP Certification Data.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "notification": [
                 {
                   "party": "all necessary parties",
@@ -1492,7 +1679,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Certification Data", "Machine-Readable", "Provider"],
+              "terms": [
+                "Certification Data",
+                "Machine-Readable",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1624,7 +1815,9 @@
               "statement": "Agencies MUST notify FedRAMP by sending an email to info@fedramp.gov if the information presented in an Ongoing Certification Report, Quarterly Review, or other ongoing FedRAMP Certification Data causes significant concerns that may lead the agency to stop operation of the cloud service offering.",
               "note": "Agencies are required to notify FedRAMP by OMB Memorandum M-24-15 section IV (a).",
               "primary_key_word": "MUST",
-              "affects": ["Agencies"],
+              "affects": [
+                "Agencies"
+              ],
               "notification": [
                 {
                   "party": "FedRAMP",
@@ -1662,7 +1855,10 @@
                   "target": "info@fedramp.gov"
                 }
               ],
-              "terms": ["Agency", "Provider"],
+              "terms": [
+                "Agency",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1675,7 +1871,9 @@
               "statement": "Agencies MUST NOT place additional security requirements on cloud service providers beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate makes a determination that there is a demonstrable need for such; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
               "note": "This is a statutory requirement in 44 USC § 3613 (e) related to the Presumption of Adequacy for a FedRAMP Certification.",
               "primary_key_word": "MUST NOT",
-              "affects": ["Agencies"],
+              "affects": [
+                "Agencies"
+              ],
               "terms": [
                 "Agency",
                 "Certification Data",
@@ -1693,7 +1891,9 @@
               "name": "Consider Security Category",
               "statement": "Agencies SHOULD consider the Security Category noted in their Authorization to Operate of the federal information system that includes the cloud service offering in its boundary and assign appropriate information security resources for reviewing Ongoing Certification Reports, attending Quarterly Reviews, and other ongoing FedRAMP Certification Data.",
               "primary_key_word": "SHOULD",
-              "affects": ["Agencies"],
+              "affects": [
+                "Agencies"
+              ],
               "terms": [
                 "Agency",
                 "Certification Data",
@@ -1713,7 +1913,9 @@
               "name": "Notify Provider of Concerns",
               "statement": "Agencies SHOULD formally notify the provider if the information presented in an Ongoing Certification Report, Quarterly Review, or other ongoing FedRAMP Certification Data causes significant concerns that may lead the agency to remove the cloud service offering from operation.",
               "primary_key_word": "SHOULD",
-              "affects": ["Agencies"],
+              "affects": [
+                "Agencies"
+              ],
               "notification": [
                 {
                   "party": "provider",
@@ -1864,7 +2066,12 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Ongoing Certification", "Provider", "Regularly"],
+              "terms": [
+                "Agency",
+                "Ongoing Certification",
+                "Provider",
+                "Regularly"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1948,7 +2155,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["All Necessary Parties", "Provider", "Quarterly Review"],
+              "terms": [
+                "All Necessary Parties",
+                "Provider",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -1963,7 +2174,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Certification Data", "Provider", "Quarterly Review"],
+              "terms": [
+                "Certification Data",
+                "Provider",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2019,7 +2234,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Provider", "Quarterly Review"],
+              "terms": [
+                "Agency",
+                "Provider",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2034,7 +2253,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["All Necessary Parties", "Provider", "Quarterly Review"],
+              "terms": [
+                "All Necessary Parties",
+                "Provider",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2050,7 +2273,13 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Assessor", "Likely", "Provider", "Quarterly Review"],
+              "terms": [
+                "Agency",
+                "Assessor",
+                "Likely",
+                "Provider",
+                "Quarterly Review"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2154,8 +2383,12 @@
               "statement": "FedRAMP MUST send messages to cloud service providers using an official @fedramp.gov or @gsa.gov email address with properly configured Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM), and Domain-based Message Authentication Reporting and Conformance (DMARC) email authentication.",
               "note": "Anyone at GSA can send email from @fedramp.gov or @gsa.gov - FedRAMP team members will typically have \"FedRAMP\" or \"Q20B\" in their name but this is not universal or enforceable. The nature of government enterprise IT services makes it difficult for FedRAMP to isolate FedRAMP-specific team members with enforceable identifiers.",
               "primary_key_word": "MUST",
-              "affects": ["FedRAMP"],
-              "terms": ["Provider"],
+              "affects": [
+                "FedRAMP"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2176,7 +2409,11 @@
               "affects": [
                 "FedRAMP"
               ],
-              "terms": ["FedRAMP Security Inbox", "Incident", "Provider"],
+              "terms": [
+                "FedRAMP Security Inbox",
+                "Incident",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2256,7 +2493,11 @@
               "affects": [
                 "FedRAMP"
               ],
-              "terms": ["Catastrophic Adverse Effect", "FedRAMP Certified", "Provider"],
+              "terms": [
+                "Catastrophic Adverse Effect",
+                "FedRAMP Certified",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2282,8 +2523,12 @@
               "name": "Reaction Metrics",
               "statement": "FedRAMP MAY track and publicly share the time required by cloud service providers to take the actions specified in messages that require an elevated reaction.",
               "primary_key_word": "MAY",
-              "affects": ["FedRAMP"],
-              "terms": ["Provider"],
+              "affects": [
+                "FedRAMP"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2305,7 +2550,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["FedRAMP Security Inbox", "Provider"],
+              "terms": [
+                "FedRAMP Security Inbox",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2327,7 +2575,11 @@
                   "target": "info@fedramp.gov"
                 }
               ],
-              "terms": ["Cloud Service Offering", "FedRAMP Security Inbox", "Provider"],
+              "terms": [
+                "Cloud Service Offering",
+                "FedRAMP Security Inbox",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2342,7 +2594,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["FedRAMP Security Inbox", "Provider"],
+              "terms": [
+                "FedRAMP Security Inbox",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2355,8 +2610,12 @@
               "statement": "Providers MUST receive and react to email messages from FedRAMP without disruption and without requiring additional actions from FedRAMP.",
               "note": "This requirement is intended to prevent cloud service providers from requiring FedRAMP to complete a CAPTCHA, log into a customer portal, or otherwise take service-specific actions that might prevent the security team from receiving the message.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2369,8 +2628,12 @@
               "statement": "Providers MUST complete the required actions in Emergency or Emergency Test designated messages sent by FedRAMP within the timeframe included in the message.",
               "note": "Timeframes may vary by FedRAMP Certification class.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2383,8 +2646,12 @@
               "statement": "Providers MUST route Emergency designated messages sent by FedRAMP to a senior security official for their awareness.",
               "note": "Senior security officials are determined by the provider.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2397,8 +2664,12 @@
               "statement": "Providers SHOULD complete the required actions in Important designated messages sent by FedRAMP within the timeframe specified in the message.",
               "note": "Timeframes may vary by FedRAMP Certification class.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2413,7 +2684,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["FedRAMP Security Inbox", "Promptly", "Provider"],
+              "terms": [
+                "FedRAMP Security Inbox",
+                "Promptly",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2476,7 +2751,10 @@
               "affects": [
                 "FedRAMP"
               ],
-              "terms": ["Incident", "Provider"],
+              "terms": [
+                "Incident",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3390,8 +3668,12 @@
               "name": "Listing Requests for Providers",
               "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ to request listing in the FedRAMP Marketplace.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3405,8 +3687,12 @@
               "name": "Only FedRAMP Recognized Assessors",
               "statement": "Assessors MUST obtain and maintain FedRAMP Recognition to be listed in the FedRAMP Marketplace.",
               "primary_key_word": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3427,7 +3713,10 @@
               "affects": [
                 "Assessors"
               ],
-              "terms": ["Assessor", "Machine-Readable"],
+              "terms": [
+                "Assessor",
+                "Machine-Readable"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3439,8 +3728,12 @@
               "name": "Listing Requests for Assessors",
               "statement": "Assessors MUST complete the Assessor Listing Request Form at https://fedramp.gov/forms/assessor-listing-request/ to request listing in the FedRAMP Marketplace.",
               "primary_key_word": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3463,7 +3756,10 @@
               "affects": [
                 "Advisors"
               ],
-              "terms": ["Advisor", "Machine-Readable"],
+              "terms": [
+                "Advisor",
+                "Machine-Readable"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3475,8 +3771,12 @@
               "name": "Listing Requests for Advisors",
               "statement": "Advisors MUST complete the Advisor Listing Request Form at https://fedramp.gov/forms/advisor-listing-request/ to request listing in the FedRAMP Marketplace.",
               "primary_key_word": "MUST",
-              "affects": ["Advisors"],
-              "terms": ["Advisor"],
+              "affects": [
+                "Advisors"
+              ],
+              "terms": [
+                "Advisor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3493,8 +3793,12 @@
                 "Advisors removed from the Marketplace for failure to respond to FedRAMP will not be eligible for listing for at least 6 months unless there are extenuating circumstances."
               ],
               "primary_key_word": "MUST",
-              "affects": ["Advisors"],
-              "terms": ["Advisor"],
+              "affects": [
+                "Advisors"
+              ],
+              "terms": [
+                "Advisor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3507,10 +3811,17 @@
             "MKT-PRE-REQ": {
               "name": "Preparation Phase Requirements",
               "statement": "Providers MUST implement a minimum set of rules to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
-              "following_information": ["CDS: rules", "CCM: rules"],
+              "following_information": [
+                "CDS: rules",
+                "CCM: rules"
+              ],
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3523,8 +3834,13 @@
               "statement": "Providers MUST demonstrate continuous progress towards FedRAMP Certification, documented in their quarterly Ongoing Certification Reports; progress is measured by the provider against documented goals and milestones.",
               "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Ongoing Certification", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Ongoing Certification",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3539,8 +3855,12 @@
                 "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Preparation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
               ],
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3584,188 +3904,7 @@
       },
       "data": {
         "20x": {
-          "CSX": {
-            "PVA-CSX-VAL": {
-              "name": "Persistent Validation",
-              "statement": "Providers MUST persistently perform validation of their Key Security Indicators; this process is called persistent validation and is part of vulnerability detection.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Persistent Validation",
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-FAV": {
-              "name": "Issues As Vulnerabilities",
-              "statement": "Providers MUST treat issues detected during persistent validation and failures of the persistent validation process as vulnerabilities, then follow the FedRAMP Vulnerability Detection and Response rules for such findings.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Persistent Validation",
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-RPV": {
-              "name": "Report Persistent Validation",
-              "statement": "Providers MUST include persistent validation activity in the reports on vulnerability detection and response activity required by the FedRAMP Vulnerability Detection and Response rules.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Persistent Validation",
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-IVV": {
-              "name": "Independent Verification and Validation",
-              "statement": "Providers MUST have the implementation of their goals and validation processes assessed by a FedRAMP Recognized independent assessor OR by FedRAMP directly AND MUST include the results of this assessment in their FedRAMP Certification Data without modification.",
-              "notes": [
-                "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council. During 20x Phase Two this includes AI services that meet certain criteria as shown at https://fedramp.gov/ai.",
-                "FedRAMP recognized assessors are listed on the FedRAMP Marketplace."
-              ],
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Assessor",
-                "Certification Data",
-                "FedRAMP Recognized Assessor",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-NMV": {
-              "name": "Non-Machine Validation",
-              "statement": "Providers MUST complete the validation processes for Key Security Indicators of non-machine-based information resources at least once every 3 months.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-PMV": {
-              "name": "Persistent Machine Validation",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of Class A offerings SHOULD complete the validation processes for Key Security Indicators of machine-based information resources at least once every 30 days.",
-                  "primary_key_word": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 30
-                },
-                "b": {
-                  "statement": "Providers of Class B offerings MUST complete the validation processes for Key Security Indicators of machine-based information resources at least once every 7 days.",
-                  "primary_key_word": "MUST",
-                  "timeframe_type": "days",
-                  "timeframe_num": 7
-                },
-                "c": {
-                  "statement": "Providers of Class C offerings MUST complete the validation processes for Key Security Indicators of machine-based information resources at least once every 3 days.",
-                  "primary_key_word": "MUST",
-                  "timeframe_type": "days",
-                  "timeframe_num": 3
-                }
-              },
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-PTE": {
-              "name": "Provide Technical Evidence",
-              "statement": "Providers SHOULD provide technical explanations, demonstrations, and other relevant supporting information to all necessary assessors for the technical capabilities they employ to meet Key Security Indicators and to provide validation.",
-              "primary_key_word": "SHOULD",
-              "affects": [
-                "Providers"
-              ],
-              "terms": ["All Necessary Assessors", "Assessor", "Provider", "Validation"],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-CSX-RAD": {
-              "name": "Receiving Advice",
-              "statement": "Providers MAY ask for and accept advice from their assessor during assessment regarding techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their validation and reporting procedures for Key Security Indicators, UNLESS doing so might compromise the objectivity and integrity of the assessment (see also PVA-IAS-SHA).",
-              "note": "The related A2LA requirements are waived for FedRAMP 20x Phase Two assessments.",
-              "primary_key_word": "MAY",
-              "affects": [
-                "Providers"
-              ],
-              "terms": ["Assessor", "Provider", "Validation"],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            }
-          },
+          "CSX": {},
           "IAS": {
             "PVA-IAS-UNP": {
               "name": "Underlying Processes",
@@ -3802,7 +3941,12 @@
               "affects": [
                 "Assessors"
               ],
-              "terms": ["Assessor", "Provider", "Validation", "Verification"],
+              "terms": [
+                "Assessor",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3817,7 +3961,12 @@
               "affects": [
                 "Assessors"
               ],
-              "terms": ["Assessor", "Provider", "Validation", "Verification"],
+              "terms": [
+                "Assessor",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3829,8 +3978,12 @@
               "name": "Mixed Methods Evaluation",
               "statement": "Assessors MUST perform evaluation using a combination of quantitative and expert qualitative assessment as appropriate AND document which is applied to which aspect of the assessment.",
               "primary_key_word": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3843,8 +3996,12 @@
               "statement": "Assessors MUST assess whether or not procedures are consistently followed, including the processes in place to ensure this occurs, without relying solely on the existence of a procedure document for assessing if appropriate processes and procedures are in place.",
               "note": "This includes evaluating tests or plans for activities that may occur in the future but have not yet occurred.",
               "primary_key_word": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3856,7 +4013,9 @@
               "name": "Assessment Summary",
               "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each Key Security Indicator; this summary will be included in the FedRAMP Certification Data for the cloud service offering.",
               "primary_key_word": "MUST",
-              "affects": ["Assessors"],
+              "affects": [
+                "Assessors"
+              ],
               "terms": [
                 "Assessor",
                 "Certification Data",
@@ -3873,8 +4032,12 @@
               "name": "Static Evidence",
               "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
               "primary_key_word": "MUST NOT",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3890,7 +4053,10 @@
               "affects": [
                 "Assessors"
               ],
-              "terms": ["Assessor", "Cloud Service Offering"],
+              "terms": [
+                "Assessor",
+                "Cloud Service Offering"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3902,8 +4068,13 @@
               "name": "Provider Experts",
               "statement": "Assessors SHOULD engage provider experts in discussion to understand the decisions made by the provider and inform expert qualitative assessment, and SHOULD perform independent research to test such information as part of the expert qualitative assessment process.",
               "primary_key_word": "SHOULD",
-              "affects": ["Assessors"],
-              "terms": ["Assessor", "Provider"],
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3918,7 +4089,11 @@
               "affects": [
                 "Assessors"
               ],
-              "terms": ["Assessor", "Provider", "Validation"],
+              "terms": [
+                "Assessor",
+                "Provider",
+                "Validation"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3997,7 +4172,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Certification Package", "Provider"],
+              "terms": [
+                "Certification Package",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4009,8 +4187,12 @@
               "name": "Public Guidance",
               "statement": "Providers SHOULD make the Secure Configuration Guide available publicly.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4065,7 +4247,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Machine-Readable", "Provider"],
+              "terms": [
+                "Machine-Readable",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4077,8 +4262,12 @@
               "name": "API Capability",
               "statement": "Providers SHOULD offer the capability to view and adjust security settings via an API or similar capability.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4093,7 +4282,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Machine-Readable", "Provider"],
+              "terms": [
+                "Machine-Readable",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4184,7 +4376,10 @@
               "affects": [
                 "FedRAMP"
               ],
-              "terms": ["Provider", "Significant Change"],
+              "terms": [
+                "Provider",
+                "Significant Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4202,7 +4397,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Certification Package", "Provider", "Significant Change"],
+              "terms": [
+                "Certification Package",
+                "Provider",
+                "Significant Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4249,8 +4448,14 @@
               "name": "Historical Notifications",
               "statement": "Providers MUST keep 12 months of historical Significant Change Notifications available with their FedRAMP Certification Data.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Provider", "Significant Change"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Certification Data",
+                "Provider",
+                "Significant Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4266,7 +4471,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Machine-Readable", "Provider", "Significant Change"],
+              "terms": [
+                "Machine-Readable",
+                "Provider",
+                "Significant Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4282,7 +4491,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Provider", "Significant Change"],
+              "terms": [
+                "Provider",
+                "Significant Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4301,7 +4513,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Certification Package", "Provider"],
+              "terms": [
+                "Agency",
+                "Certification Package",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4524,7 +4740,11 @@
                   "target": "FedRAMP Certification Data"
                 }
               ],
-              "terms": ["All Necessary Parties", "Provider", "Transformative Change"],
+              "terms": [
+                "All Necessary Parties",
+                "Provider",
+                "Transformative Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4548,7 +4768,11 @@
                   "target": "FedRAMP Certification Data"
                 }
               ],
-              "terms": ["All Necessary Parties", "Provider", "Transformative Change"],
+              "terms": [
+                "All Necessary Parties",
+                "Provider",
+                "Transformative Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4602,7 +4826,11 @@
               ],
               "timeframe_type": "bizdays",
               "timeframe_num": 30,
-              "terms": ["Certification Package", "Provider", "Transformative Change"],
+              "terms": [
+                "Certification Package",
+                "Provider",
+                "Transformative Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4696,7 +4924,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Federal Customer Data", "Provider", "Validation"],
+              "terms": [
+                "Federal Customer Data",
+                "Provider",
+                "Validation"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4727,7 +4959,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Federal Customer Data", "Provider", "Validation"],
+              "terms": [
+                "Federal Customer Data",
+                "Provider",
+                "Validation"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4742,7 +4978,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Agency", "Provider", "Validation"],
+              "terms": [
+                "Agency",
+                "Provider",
+                "Validation"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4821,7 +5061,11 @@
               "affects": [
                 "FedRAMP"
               ],
-              "terms": ["Agency", "Provider", "Vulnerability"],
+              "terms": [
+                "Agency",
+                "Provider",
+                "Vulnerability"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4836,7 +5080,12 @@
               "affects": [
                 "FedRAMP"
               ],
-              "terms": ["Likely", "Provider", "Vulnerability", "Vulnerability Response"],
+              "terms": [
+                "Likely",
+                "Provider",
+                "Vulnerability",
+                "Vulnerability Response"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4920,7 +5169,9 @@
               "name": "Maintain Agency Plans of Action and Milestones",
               "statement": "Agencies SHOULD use vulnerability information reported by the Provider to maintain Plans of Action and Milestones for agency security programs when relevant according to agency security policies (such as if the agency takes action to mitigate the risk of exploitation or authorized the continued use of a cloud service with accepted vulnerabilities that put agency information systems at risk).",
               "primary_key_word": "SHOULD",
-              "affects": ["Agencies"],
+              "affects": [
+                "Agencies"
+              ],
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -4973,7 +5224,11 @@
                   "target": "info@fedramp.gov"
                 }
               ],
-              "terms": ["Agency", "Provider", "Vulnerability"],
+              "terms": [
+                "Agency",
+                "Provider",
+                "Vulnerability"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5275,14 +5530,18 @@
           "RPT": {
             "VDR-RPT-PER": {
               "name": "Persistent Reporting",
-              "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification Data and are subject to FedRAMP Certification Data Sharing rules.",
+              "statement": "Providers MUST report vulnerability detection and response activity (including persistent verification and validation) to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification Data and are subject to FedRAMP Certification Data Sharing rules.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
                 "Persistently",
                 "Provider",
+                "Validation",
+                "Verification",
                 "Vulnerability",
                 "Vulnerability Detection",
                 "Vulnerability Response"
@@ -5302,7 +5561,12 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["All Necessary Parties", "Likely", "Provider", "Vulnerability"],
+              "terms": [
+                "All Necessary Parties",
+                "Likely",
+                "Provider",
+                "Vulnerability"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5420,7 +5684,12 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Likely", "Provider", "Responsibly", "Vulnerability"],
+              "terms": [
+                "Likely",
+                "Provider",
+                "Responsibly",
+                "Vulnerability"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5462,7 +5731,11 @@
               ],
               "timeframe_type": "days",
               "timeframe_num": 192,
-              "terms": ["Accepted Vulnerability", "Provider", "Vulnerability"],
+              "terms": [
+                "Accepted Vulnerability",
+                "Provider",
+                "Vulnerability"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5709,7 +5982,11 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Provider", "Vulnerability", "Vulnerability Detection"],
+              "terms": [
+                "Provider",
+                "Vulnerability",
+                "Vulnerability Detection"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6044,7 +6321,10 @@
               "affects": [
                 "Providers"
               ],
-              "terms": ["Provider", "Vulnerability"],
+              "terms": [
+                "Provider",
+                "Vulnerability"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6197,7 +6477,9 @@
               "reference": "FedRAMP Certification Data Sharing",
               "reference_url_web_name": "certification-data-sharing",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "controls": [
                 "ac-3",
                 "ac-4",
@@ -6209,7 +6491,11 @@
                 "ra-5",
                 "sc-8"
               ],
-              "terms": ["Certification Data", "Persistently", "Provider"],
+              "terms": [
+                "Certification Data",
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6223,8 +6509,13 @@
               "reference": "Collaborative Continuous Monitoring",
               "reference_url_web_name": "collaborative-continuous-monitoring",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Persistently", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6238,8 +6529,14 @@
               "reference": "FedRAMP Security Inbox",
               "reference_url_web_name": "fedramp-security-inbox",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["FedRAMP Security Inbox", "Persistently", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "FedRAMP Security Inbox",
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6253,8 +6550,14 @@
               "reference": "Incident Communications Procedures",
               "reference_url_web_name": "incident-communications-procedures",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Incident", "Persistently", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Incident",
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6268,7 +6571,9 @@
               "reference": "Minimum Assessment Scope",
               "reference_url_web_name": "minimum-assessment-scope",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "controls": [
                 "ac-1",
                 "ac-21",
@@ -6300,7 +6605,10 @@
                 "sr-3",
                 "sr-11"
               ],
-              "terms": ["Persistently", "Provider"],
+              "terms": [
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6314,8 +6622,13 @@
               "reference": "Secure Configuration Guide",
               "reference_url_web_name": "secure-configuration-guide",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Persistently", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6329,7 +6642,9 @@
               "reference": "Significant Change Notifications",
               "reference_url_web_name": "significant-change-notifications",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "controls": [
                 "ca-7.4",
                 "cm-3.4",
@@ -6349,7 +6664,11 @@
                 "si-10",
                 "si-11"
               ],
-              "terms": ["Persistently", "Provider", "Significant Change"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Significant Change"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6363,8 +6682,13 @@
               "reference": "Using Cryptographic Modules",
               "reference_url_web_name": "using-cryptographic-modules",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Persistently", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Persistently",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6378,7 +6702,9 @@
               "reference": "Vulnerability Detection and Response",
               "reference_url_web_name": "vulnerability-detection-and-response",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "controls": [
                 "ca-2",
                 "ca-7",
@@ -6442,8 +6768,166 @@
               "statement": "Providers MUST NOT seek both FedRAMP Rev5 Program Certification and FedRAMP 20x Program Certification for the same cloud service offering; pick one type.",
               "note": "This rule does not prevent a provider from seeking and maintaining a FedRAMP Rev5 Agency Certification and a FedRAMP 20x Program Certification for the same cloud service offering, however, doing so is strongly discouraged due to the increased complexity and risk of confusion for all parties.",
               "primary_key_word": "MUST NOT",
-              "affects": ["Providers"],
-              "terms": ["Agency", "Cloud Service Offering", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSO-PVV": {
+              "name": "Persistent Verification and Validation",
+              "statement": "Providers MUST persistently verify and validate that their information resources are operating as intended; this process is called Persistent Verification and Validation (PVV) and is part of vulnerability detection.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Information Resource",
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification",
+                "Vulnerability",
+                "Vulnerability Detection"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSO-FAV": {
+              "name": "Verification and Validation Failures Are Vulnerabilities",
+              "statement": "Providers MUST treat problems detected during persistent verification and validation as vulnerabilities, including failures of the verification and validation process it; FedRAMP Vulnerability Detection and Response rules MUST be followed for such findings.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSO-NMV": {
+              "name": "Non-Machine Verification and Validation",
+              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSO-IVV": {
+              "name": "Independent Verification and Validation",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of Class A offerings MAY persistently complete a full independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "primary_key_word": "MAY"
+                },
+                "b": {
+                  "statement": "Providers of Class B offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "primary_key_word": "MUST"
+                },
+                "c": {
+                  "statement": "Providers of Class C offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "primary_key_word": "MUST"
+                },
+                "d": {
+                  "statement": "Providers of Class D offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "primary_key_word": "MUST"
+                }
+              },
+              "notes": [
+                "This yearly independent verification and validation assessment is often referred to as an \"annual assessment.\"",
+                "The specific requirements for independent verification and validation assessments are documented by the FedRAMP Certification Class and Type.",
+                "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council.",
+                "FedRAMP Recognized independent assessors are listed on the FedRAMP Marketplace."
+              ],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Assessor",
+                "Certification Data",
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSO-STE": {
+              "name": "Supply Technical Evidence",
+              "statement": "Providers SHOULD supply all necessary accessors with technical explanations, demonstrations, and other relevant supporting information about the technical capabilities they employ to address FedRAMP rules; this SHOULD be supplied as necessary to ensure the assessor can effectively complete verification and validation.",
+              "primary_key_word": "SHOULD",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Assessor",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "PVA-CSO-RAA": {
+              "name": "Receiving Assessor Advice",
+              "statement": "Providers MAY ask for and accept advice from their assessor during assessment regarding techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their verification, validation and reporting procedures, UNLESS doing so is likely to compromise the objectivity and integrity of the assessment.",
+              "primary_key_word": "MAY",
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Assessor",
+                "Likely",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6455,26 +6939,6 @@
         },
         "20x": {
           "CSX": {
-            "FRC-CSX-PVA": {
-              "name": "Persistent Validation and Assessment",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Persistent Validation and Assessment (PVA) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Persistent Validation and Assessment",
-              "reference_url_web_name": "persistent-validation-and-assessment",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Persistent Validation",
-                "Persistently",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
             "FRC-CSX-SUM": {
               "name": "Implementation Summaries",
               "statement": "Providers MUST maintain simple high-level summaries of at least the following for each Key Security Indicator:",
@@ -6487,7 +6951,9 @@
                 "Any clarifications or responses to the assessment summary"
               ],
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
+              "affects": [
+                "Providers"
+              ],
               "terms": [
                 "Machine-Based (Information Resources)",
                 "Provider",
@@ -6504,12 +6970,60 @@
               "name": "Application within MAS",
               "statement": "Providers SHOULD apply ALL Key Security Indicators to ALL aspects of their cloud service offering that are within the FedRAMP Minimum Assessment Scope.",
               "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
-              "terms": ["Cloud Service Offering", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Cloud Service Offering",
+                "Provider"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSX-PMV": {
+              "name": "Persistent Machine Verification and Validation",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of FedRAMP 20x Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers of FedRAMP 20x Class B offerings MUST verify and validate the status of machine-based information resources at least once every 7 days.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "days",
+                  "timeframe_num": 7
+                },
+                "c": {
+                  "statement": "Providers of FedRAMP 20x Class C offerings MUST verify and validate the status of machine-based information resources at least once every 3 days.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "days",
+                  "timeframe_num": 3
+                }
+              },
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                },
+                {
+                  "date": "2026-06-01",
+                  "comment": "Auto-fix: key \"FRC-CSO-PMV\" middle segment did not match parent \"20x\". Renamed to \"FRC-20x-PMV\"."
                 }
               ]
             }
@@ -6522,8 +7036,58 @@
               "statement": "Providers seeking a FedRAMP Rev5 Class D Certification MUST use the FedRAMP Agency Certification path.",
               "note": "FedRAMP will not perform FedRAMP Rev5 Class D Program Certifications.",
               "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Agency", "Provider"],
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Agency",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CSL-PMV": {
+              "name": "Persistent Machine Verification and Validation",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers of FedRAMP Rev5 Class B offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                }
+              },
+              "affects": [
+                "Providers"
+              ],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6624,7 +7188,10 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": ["Persistently", "Validation"]
+          "terms": [
+            "Persistently",
+            "Validation"
+          ]
         }
       }
     },
@@ -7299,7 +7866,10 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": ["Persistently", "Provider"]
+          "terms": [
+            "Persistently",
+            "Provider"
+          ]
         },
         "KSI-PIY-RIS": {
           "name": "Reviewing Investments in Security",
@@ -7321,7 +7891,10 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": ["Persistently", "Provider"]
+          "terms": [
+            "Persistently",
+            "Provider"
+          ]
         },
         "KSI-PIY-RSD": {
           "name": "Reviewing Security in the SDLC",
@@ -7362,7 +7935,11 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": ["Persistently", "Provider", "Vulnerability"]
+          "terms": [
+            "Persistently",
+            "Provider",
+            "Vulnerability"
+          ]
         }
       }
     },
@@ -7439,7 +8016,10 @@
               "comment": "Revisited and baselined against the Consolidated Rules for 2026."
             }
           ],
-          "terms": ["Persistently", "Provider"]
+          "terms": [
+            "Persistently",
+            "Provider"
+          ]
         },
         "KSI-RPL-TRC": {
           "name": "Testing Recovery Capabilities",
