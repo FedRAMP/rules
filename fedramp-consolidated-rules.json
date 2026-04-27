@@ -3872,239 +3872,6 @@
         }
       }
     },
-    "PVA": {
-      "info": {
-        "name": "Persistent Validation and Assessment",
-        "short_name": "PVA",
-        "web_name": "persistent-validation-and-assessment",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-05-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "no"
-          }
-        },
-        "labels": {
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
-          },
-          "IAS": {
-            "name": "20x-Specific Assessor Responsibilities",
-            "description": "These rules apply to assessors for FedRAMP 20x Certifications."
-          }
-        }
-      },
-      "data": {
-        "20x": {
-          "CSX": {},
-          "IAS": {
-            "PVA-IAS-UNP": {
-              "name": "Underlying Processes",
-              "statement": "Assessors MUST verify and validate the underlying processes (both machine-based and non-machine-based) that providers use to validate Key Security Indicators; this should include at least:",
-              "following_information": [
-                "The effectiveness, completeness, and integrity of the automated processes that perform validation of the cloud service offering's security posture.",
-                "The effectiveness, completeness, and integrity of the human processes that perform validation of the cloud service offering's security posture",
-                "The coverage of these processes within the cloud service offering, including if all of the consolidated information resources listed are being validated."
-              ],
-              "primary_key_word": "MUST",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Cloud Service Offering",
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-PDK": {
-              "name": "Processes Derived from Key Security Indicators",
-              "statement": "Assessors MUST verify and validate the implementation of processes derived from Key Security Indicators to determine whether or not the provider has accurately documented their process and goals.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-OUC": {
-              "name": "Outcome Consistency",
-              "statement": "Assessors MUST verify and validate whether or not the underlying processes are consistently creating the desired security outcome documented by the provider.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-MME": {
-              "name": "Mixed Methods Evaluation",
-              "statement": "Assessors MUST perform evaluation using a combination of quantitative and expert qualitative assessment as appropriate AND document which is applied to which aspect of the assessment.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-PAD": {
-              "name": "Procedure Adherence",
-              "statement": "Assessors MUST assess whether or not procedures are consistently followed, including the processes in place to ensure this occurs, without relying solely on the existence of a procedure document for assessing if appropriate processes and procedures are in place.",
-              "note": "This includes evaluating tests or plans for activities that may occur in the future but have not yet occurred.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-SUM": {
-              "name": "Assessment Summary",
-              "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each Key Security Indicator; this summary will be included in the FedRAMP Certification Data for the cloud service offering.",
-              "primary_key_word": "MUST",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Certification Data",
-                "Cloud Service Offering"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-STE": {
-              "name": "Static Evidence",
-              "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
-              "primary_key_word": "MUST NOT",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-NOR": {
-              "name": "No Overall Recommendation",
-              "statement": "Assessors MUST NOT deliver an overall recommendation on whether or not the cloud service offering meets the requirements for FedRAMP Certification.",
-              "note": "FedRAMP will make the final FedRAMP Certification decision based on the assessor's findings and other relevant information.",
-              "primary_key_word": "MUST NOT",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Cloud Service Offering"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-PEX": {
-              "name": "Provider Experts",
-              "statement": "Assessors SHOULD engage provider experts in discussion to understand the decisions made by the provider and inform expert qualitative assessment, and SHOULD perform independent research to test such information as part of the expert qualitative assessment process.",
-              "primary_key_word": "SHOULD",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Provider"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "PVA-IAS-SHA": {
-              "name": "Sharing Advice",
-              "statement": "Assessors MAY share advice with providers they are assessing about techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their validation and reporting procedures for Key Security Indicators, UNLESS doing so might compromise the objectivity and integrity of the assessment (see also PVA-CSX-RAD).",
-              "primary_key_word": "MAY",
-              "affects": [
-                "Assessors"
-              ],
-              "terms": [
-                "Assessor",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
     "SCG": {
       "info": {
         "name": "Secure Configuration Guide",
@@ -6914,12 +6681,172 @@
                 }
               ]
             },
-            "PVA-CSO-RAA": {
+            "FRC-CSO-RAA": {
               "name": "Receiving Assessor Advice",
               "statement": "Providers MAY ask for and accept advice from their assessor during assessment regarding techniques and procedures that will improve their security posture or the effectiveness, clarity, and accuracy of their verification, validation and reporting procedures, UNLESS doing so is likely to compromise the objectivity and integrity of the assessment.",
               "primary_key_word": "MAY",
               "affects": [
                 "Providers"
+              ],
+              "terms": [
+                "Assessor",
+                "Likely",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            }
+          },
+          "IAS": {
+            "FRC-IAS-VVP": {
+              "name": "Verify and Validate Processes",
+              "statement": "Assessors MUST verify and validate the implementation of processes derived from FedRAMP requirements, including rules, controls and Key Security Indicators, to determine whether or not the provider has accurately documented their process and security goals for the cloud service offering.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Cloud Service Offering",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-OUC": {
+              "name": "Outcome Consistency",
+              "statement": "Assessors MUST verify and validate whether or not the underlying processes are consistently creating the desired security outcome documented by the provider.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-PAD": {
+              "name": "Procedure Adherence",
+              "statement": "Assessors MUST assess whether or not procedures are consistently followed, including evaluating the processes in place to ensure this occurs, without relying solely on the existence of procedure documents.",
+              "note": "This includes evaluating tests or plans for activities that may occur in the future but have not yet occurred.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-MME": {
+              "name": "Mixed Methods Evaluation",
+              "statement": "Assessors MUST perform verification and validation using a combination of quantitative and expert qualitative assessment as appropriate AND document which is applied to which aspect of the assessment.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-SUM": {
+              "name": "Assessment Summary",
+              "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each FedRAMP requirement, including rules, controls, and Key Security Indicators; this summary will be included in the FedRAMP Certification Data for the cloud service offering.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Certification Data",
+                "Cloud Service Offering"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-OSA": {
+              "name": "Overall Summary of Assessment",
+              "statement": "Assessors MUST supply an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute, to the provider and all necessary assessors.",
+              "note": "FedRAMP will make the final FedRAMP Certification decision based on the assessor's findings and other relevant information.",
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "All Necessary Assessors",
+                "Assessor",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-EPX": {
+              "name": "Engage Provider Experts",
+              "statement": "Assessors SHOULD engage provider experts in discussion to understand the decisions made by the provider and inform expert qualitative assessment, and SHOULD perform independent research to test such information as part of the expert qualitative assessment process.",
+              "primary_key_word": "SHOULD",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAS-SHA": {
+              "name": "Sharing Advice",
+              "statement": "Assessors MAY share advice with providers they are assessing about techniques and procedures that will improve the provider's security posture or the effectiveness, clarity, and accuracy of their verification, validation and reporting procedures, UNLESS doing so is likely to compromise the objectivity and integrity of the assessment.",
+              "primary_key_word": "MAY",
+              "affects": [
+                "Assessors"
               ],
               "terms": [
                 "Assessor",
@@ -7024,6 +6951,53 @@
                 {
                   "date": "2026-06-01",
                   "comment": "Auto-fix: key \"FRC-CSO-PMV\" middle segment did not match parent \"20x\". Renamed to \"FRC-20x-PMV\"."
+                }
+              ]
+            }
+          },
+          "IAX": {
+            "FRC-IAX-STE": {
+              "name": "Static Evidence",
+              "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
+              "primary_key_word": "MUST NOT",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-IAX-UNP": {
+              "name": "Underlying Processes",
+              "statement": "Assessors MUST verify and validate the underlying processes (both machine-based and non-machine-based) that providers use to validate Key Security Indicators; this should include at least:",
+              "following_information": [
+                "The effectiveness, completeness, and integrity of the automated processes that perform validation of the cloud service offering's security posture.",
+                "The effectiveness, completeness, and integrity of the human processes that perform validation of the cloud service offering's security posture",
+                "The coverage of these processes within the cloud service offering, including if all of the consolidated information resources listed are being validated."
+              ],
+              "primary_key_word": "MUST",
+              "affects": [
+                "Assessors"
+              ],
+              "terms": [
+                "Assessor",
+                "Cloud Service Offering",
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
             }
