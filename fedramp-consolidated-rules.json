@@ -6222,15 +6222,15 @@
             "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
           },
           "IAS": {
-            "name": "Independent Assessor Responsibilities",
+            "name": "General Independent Assessor Responsibilities",
             "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types."
           },
           "IAX": {
-            "name": "Independent Assessor Responsibilities",
+            "name": "20x-Specific Independent Assessor Responsibilities",
             "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
           },
           "IAL": {
-            "name": "Independent Assessor Responsibilities",
+            "name": "Rev5-Specific Independent Assessor Responsibilities",
             "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
           }
         }
@@ -6622,19 +6622,27 @@
               "varies_by_class": {
                 "a": {
                   "statement": "Providers of Class A offerings MAY persistently complete a full independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
-                  "primary_key_word": "MAY"
+                  "primary_key_word": "MAY",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
                 },
                 "b": {
                   "statement": "Providers of Class B offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
-                  "primary_key_word": "MUST"
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
                 },
                 "c": {
                   "statement": "Providers of Class C offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
-                  "primary_key_word": "MUST"
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
                 },
                 "d": {
                   "statement": "Providers of Class D offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
-                  "primary_key_word": "MUST"
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
                 }
               },
               "notes": [
