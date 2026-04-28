@@ -1255,13 +1255,9 @@
             "CDS-CSO-UTC": {
               "name": "Use Trust Centers",
               "statement": "Providers MUST use a FedRAMP-compatible trust center to store and share FedRAMP Certification Data with all necessary parties.",
-              "notes": [
-                "Rules for FedRAMP-compatible trust centers are explained in CDS-TRC."
-              ],
+              "note": "Rules for FedRAMP-Compatible Trust Centers are explained in the Certification Data Sharing Rules under the FedRAMP-Compatible Trust Centers section (id: CDS-TRC).",
               "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
+              "affects": ["Providers"],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",

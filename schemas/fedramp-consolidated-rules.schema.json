@@ -266,7 +266,11 @@
         "term": { "type": "string" },
         "definition": { "type": "string" },
         "note": { "type": "string" },
-        "notes": { "type": "array", "items": { "type": "string" } },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
         "tag": { "type": "string" },
         "alts": { "type": "array", "items": { "type": "string" } },
         "reference": { "type": "string" },
@@ -339,7 +343,11 @@
         },
         "danger": { "type": "string" },
         "note": { "type": "string" },
-        "notes": { "type": "array", "items": { "type": "string" } },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "reference_url_web_name": { "type": "string" },

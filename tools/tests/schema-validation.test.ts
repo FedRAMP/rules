@@ -34,3 +34,35 @@ test("root schema errors still identify the full document", () => {
     "Document is missing required property FRR.",
   ]);
 });
+
+test("notes array with fewer than 2 entries in FRD definition fails validation", () => {
+  const errors: ErrorObject[] = [
+    {
+      instancePath: "/FRD/data/both/FRD-ACV/notes",
+      schemaPath: "#/$defs/frd_definition/properties/notes/minItems",
+      keyword: "minItems",
+      params: { limit: 2 },
+      message: "must have at least 2 items",
+    },
+  ];
+
+  expect(formatSchemaErrors(errors, {})).toEqual([
+    "FRD.data.both.FRD-ACV.notes must have at least 2 items.",
+  ]);
+});
+
+test("notes array with fewer than 2 entries in FRR requirement fails validation", () => {
+  const errors: ErrorObject[] = [
+    {
+      instancePath: "/FRR/MAS/data/both/MAS-CSO-CNT-010/notes",
+      schemaPath: "#/$defs/frr_requirement/properties/notes/minItems",
+      keyword: "minItems",
+      params: { limit: 2 },
+      message: "must have at least 2 items",
+    },
+  ];
+
+  expect(formatSchemaErrors(errors, {})).toEqual([
+    "FRR.MAS.data.both.MAS-CSO-CNT-010.notes must have at least 2 items.",
+  ]);
+});
