@@ -3298,7 +3298,9 @@
             },
             "MKT-CSO-LRQ": {
               "name": "Listing Requests for Providers",
-              "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ in full to request listing in the FedRAMP Marketplace.",
+              "reference": "FedRAMP Marketplace Provider Listing Request Form",
+              "reference_url": "https://fedramp.gov/forms",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -5621,6 +5623,14 @@
           "CLA": {
             "name": "FedRAMP Class A Certification Rules",
             "description": "These rules apply to providers seeking FedRAMP Class A Certifications."
+          },
+          "APP": {
+            "name": "Applying for FedRAMP Certification",
+            "description": "These rules apply to cloud service providers who have met all other relevant rules and are ready to apply for any FedRAMP Certification."
+          },
+          "APS": {
+            "name": "Applying for FedRAMP Certification with an Agency Sponsor",
+            "description": "These rules apply to cloud service providers with an Agency Sponsor who have met all other relevant rules and are ready to apply for any FedRAMP Certification."
           }
         }
       },
@@ -5631,6 +5641,24 @@
               "name": "Minimum Continuous Monitoring",
               "statement": "FedRAMP MUST perform a minimum level of continuous monitoring for cloud service offerings with FedRAMP Program Certification, including at least reviewing Ongoing Certification Reports.",
               "primary_key_word": "MUST",
+              "affects": ["FedRAMP"],
+              "terms": ["Ongoing Certification Report (OCR)"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-FRP-ECR": {
+              "name": "Exemptions from Certification Rules",
+              "statement": "FedRAMP MAY approve exemptions from some FedRAMP Certification rules in rare circumstances by supplying an explicit waiver, based on a prioritization and risk assessment completed by FedRAMP.",
+              "notes": [
+                "FedRAMP will determine when such exemptions are appropriate.",
+                "Exemptions will typically be part of a public prioritization process and criteria will be published publicly.",
+                "Do not ask FedRAMP for an exemption unless the publicly published criteria is met."
+              ],
+              "primary_key_word": "MAY",
               "affects": ["FedRAMP"],
               "terms": ["Ongoing Certification Report (OCR)"],
               "updated": [
@@ -5924,7 +5952,7 @@
               ]
             },
             "FRC-CSO-FAV": {
-              "name": "Verification and Validation Failures Are Vulnerabilities",
+              "name": "Failures Are Vulnerabilities",
               "statement": "Providers MUST treat problems detected during persistent verification and validation as vulnerabilities, including failures of the verification and validation process it; FedRAMP Vulnerability Detection and Response rules MUST be followed for such findings.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
@@ -5967,32 +5995,32 @@
               "name": "Independent Verification and Validation",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY persistently complete a full independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers of Class A offerings MAY persistently complete an independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MAY",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers of Class B offerings MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers of Class C offerings MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST persistently complete a full independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers of Class D offerings MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 }
               },
               "notes": [
-                "This yearly independent verification and validation assessment is often referred to as an \"annual assessment.\"",
+                "The first such completed assessment is typically called an \"initial assessment\" while following assessments are called \"annual assessments.\"",
                 "The specific requirements for independent verification and validation assessments are documented by the FedRAMP Certification Class and Type.",
                 "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council.",
                 "FedRAMP Recognized independent assessors are listed on the FedRAMP Marketplace."
@@ -6240,6 +6268,96 @@
                 "Provider",
                 "Validation",
                 "Verification"
+              ]
+            }
+          },
+          "APP": {
+            "FRC-APP-MLF": {
+              "name": "Marketplace Listing First",
+              "statement": "Providers MUST be listed in the FedRAMP Marketplace before applying for FedRAMP Certification.",
+              "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Preparation Phase prior to receiving a formal FedRAMP Certification.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-APP-AFC": {
+              "name": "Applying for FedRAMP Certification",
+              "statement": "Providers MUST complete the FedRAMP Certification Application Form at https://fedramp.gov/forms/provider-listing-request/ in full to request an initial assessment by FedRAMP.",
+              "reference": "FedRAMP Certification Application Form",
+              "reference_url": "https://fedramp.gov/forms",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-APP-FCP": {
+              "name": "Fresh FedRAMP Certification Package",
+              "statement": "Providers MUST supply a fresh initial FedRAMP Certification Package that shows the current status of the cloud service offering as verified and validated by the provider within the previous 7 days.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-APP-FIA": {
+              "name": "Fresh Independent Assessment",
+              "statement": "Providers MUST supply a fresh initial independent verification and validation assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            }
+          },
+          "APS": {
+            "FRC-APS-ATO": {
+              "name": "Agency Authorization to Operate",
+              "statement": "Providers seeking a FedRAMP Rev5 Agency Certification MUST have completed the Authorization to Operate (ATO) process with their agency sponsor for the cloud service offering, concluding with a formal signed ATO letter that the agency has sent over official government channels to FedRAMP.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
               ]
             }
           }
