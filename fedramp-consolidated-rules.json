@@ -6467,7 +6467,23 @@
               ]
             }
           },
-          "CLA": {}
+          "CLA": {
+            "FRC-CLA-CAC": {
+              "name": "Rev5 Class A Certification",
+              "statement": "Providers seeking a FedRAMP Rev5 Class A Certification by leveraging an alternative security framework that is based on the SP 800-53 Revision 5 MUST supply all Security Decision Record materials required for FedRAMP Rev5 Class B Certification.",
+              "notes": [
+                "The only approved alternative security frameworks based on the SP 800-53 Revision 5 are FedRAMP Ready and GovRAMP.",
+                "An independent assessment is not required for FedRAMP Rev5 Class A Certification."
+              ],
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Key Security Indicator",
+                "Machine-Readable",
+                "Provider"
+              ]
+            }
+          }
         }
       }
     },
