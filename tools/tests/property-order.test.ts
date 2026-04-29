@@ -82,6 +82,49 @@ test("property order fixes use schema property order as the source of truth", ()
   ]);
 });
 
+test("property order fixes sort FRD shared definitions by term instead of ID", () => {
+  const document = {
+    FRD: {
+      data: {
+        both: {
+          "FRD-AAA": {
+            term: "Zeta Term",
+            definition: "Zeta definition",
+            alts: [],
+            updated: [],
+          },
+          "FRD-MMM": {
+            term: "Middle Term",
+            definition: "Middle definition",
+            alts: [],
+            updated: [],
+          },
+          "FRD-ZZZ": {
+            term: "Alpha Term",
+            definition: "Alpha definition",
+            alts: [],
+            updated: [],
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  const schema = loadSchemaDocument();
+  const checkIssues = collectPropertyOrderIssues(document, schema);
+  expect(checkIssues).toEqual([
+    {
+      path: "FRD.data.both",
+      actualOrder: ["FRD-AAA", "FRD-MMM", "FRD-ZZZ"],
+      expectedOrder: ["FRD-ZZZ", "FRD-MMM", "FRD-AAA"],
+    },
+  ]);
+
+  const fixed = fixPropertyOrder(document, schema);
+  expect(fixed.fixedCount).toBe(1);
+  expect(Object.keys(fixed.document.FRD.data.both)).toEqual(["FRD-ZZZ", "FRD-MMM", "FRD-AAA"]);
+});
+
 test("property order fixes use schema propertyNames enum order for FRR labels and label groups", () => {
   const schema = {
     type: "object",

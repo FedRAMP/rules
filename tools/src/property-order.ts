@@ -135,7 +135,37 @@ function getOrderedNamesFromSchema(rootSchema: JsonSchema, schema: unknown): str
   return null;
 }
 
-function getPreferredOrder(rootSchema: JsonSchema, schema: JsonSchema | null, value: JsonObject): string[] {
+function getFrdDefinitionTerm(value: unknown): string | null {
+  if (!isRecord(value) || typeof value.term !== "string") {
+    return null;
+  }
+
+  return value.term;
+}
+
+function compareFrdDefinitionEntries(
+  left: [string, unknown],
+  right: [string, unknown],
+): number {
+  const leftTerm = getFrdDefinitionTerm(left[1]) ?? left[0];
+  const rightTerm = getFrdDefinitionTerm(right[1]) ?? right[0];
+  const termComparison = leftTerm.localeCompare(rightTerm);
+
+  return termComparison === 0 ? left[0].localeCompare(right[0]) : termComparison;
+}
+
+function getPreferredOrder(
+  rootSchema: JsonSchema,
+  schema: JsonSchema | null,
+  value: JsonObject,
+  path: string,
+): string[] {
+  if (path === "FRD.data.both") {
+    return Object.entries(value)
+      .sort(compareFrdDefinitionEntries)
+      .map(([key]) => key);
+  }
+
   const properties = getPropertiesSchema(schema);
   const propertyNameSchema = getPropertyNamesSchema(schema);
   const propertyNameOrder = propertyNameSchema
@@ -210,7 +240,7 @@ function collectIssuesForValue(
   }
 
   const actualOrder = Object.keys(value);
-  const expectedOrder = getPreferredOrder(rootSchema, resolvedSchema, value);
+  const expectedOrder = getPreferredOrder(rootSchema, resolvedSchema, value, path);
 
   if (actualOrder.length > 1 && actualOrder.some((key, index) => key !== expectedOrder[index])) {
     issues.push({
@@ -265,7 +295,7 @@ function reorderValue(
   }
 
   const actualOrder = Object.keys(withReorderedChildren);
-  const expectedOrder = getPreferredOrder(rootSchema, resolvedSchema, withReorderedChildren);
+  const expectedOrder = getPreferredOrder(rootSchema, resolvedSchema, withReorderedChildren, path);
 
   if (actualOrder.length > 1 && actualOrder.some((key, index) => key !== expectedOrder[index])) {
     issues.push({
