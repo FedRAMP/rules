@@ -2444,6 +2444,7 @@
                 "FedRAMP Security Inbox",
                 "Provider"
               ],
+              "deliverables": "Email address to receive messages from FedRAMP",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2470,6 +2471,7 @@
                 "FedRAMP Security Inbox",
                 "Provider"
               ],
+              "deliverables": "Process, manual or automated, to notify FedRAMP of changes in the FedRAMP Security Inbox",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2488,6 +2490,7 @@
                 "FedRAMP Security Inbox",
                 "Provider"
               ],
+              "deliverables": ["Configuration settings for FSI mailbox", "Automated validation to check FSI mailbox configuration"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2542,6 +2545,7 @@
               "terms": [
                 "Provider"
               ],
+              "deliverables": ["Configuration settings for FSI mailbox", "Automated validation to check FSI mailbox configuration"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2683,6 +2687,7 @@
                 "Machine-Readable",
                 "Provider"
               ],
+              "deliverables": "Publicly accessible status service URI",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2706,6 +2711,7 @@
                 "Promptly",
                 "Provider"
               ],
+              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2738,6 +2744,7 @@
                 "Provider",
                 "Serious Adverse Effect"
               ],
+              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2767,6 +2774,7 @@
                 "Responsibly",
                 "Trust Center"
               ],
+              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2791,6 +2799,7 @@
                 "Provider",
                 "Responsibly"
               ],
+              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2825,6 +2834,7 @@
                 "Responsibly",
                 "Vulnerability Response"
               ],
+              "deliverables": "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2860,6 +2870,7 @@
                 "Vulnerability",
                 "Vulnerability Response"
               ],
+              "deliverables": "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2881,6 +2892,7 @@
                 "Provider",
                 "Responsibly"
               ],
+              "deliverables": "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3266,6 +3278,7 @@
                 "Potential Adverse Impact",
                 "Provider"
               ],
+              "deliverables": "A machine readable log of incidents that have occurred, including the time of the incident, the nature of the incident, the impact of the incident (PAIN), and the elapsed time between incident identification and notification of the incident to agencies.",
               "updated": [
                 {
                   "date": "2026-04-25",
