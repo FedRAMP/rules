@@ -125,6 +125,17 @@
             }
           ]
         },
+        "FRD-ART": {
+          "term": "Artifacts",
+          "definition": "Security-related materials that supply information regarding or evidence of functions, policies, decisions, procedures, operations, or other such activities, for the purposes of obtaining and maintaining a FedRAMP Certification. All such artifacts are considered FedRAMP Certification Data and are included in the FedRAMP Certification Package.",
+          "alts": ["artifact", "artifacts"],
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
+        },
         "FRD-ASR": {
           "term": "Assessor",
           "definition": "An assessor that performs assessment, verification, or validation activities for a cloud service offering in the context of FedRAMP Certification; FedRAMP is the final assessor for FedRAMP Certification, but FedRAMP Recognized independent assessment services are typically also utilized.",
@@ -6191,7 +6202,7 @@
             },
             "FRC-CLA-AFR": {
               "name": "Address FedRAMP Rules",
-              "statement": "Providers seeking a FedRAMP Certification Class A by leveraging an alternative security framework MUST address the following FedRAMP rules and supply the appropriate artifacts:",
+              "statement": "Providers seeking a FedRAMP Certification Class A by leveraging an alternative security framework MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
               "following_information": [
                 "FRC-CSO-POP",
                 "MAS-CSO-IIR",
@@ -6209,10 +6220,7 @@
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD"
               ],
-              "notes": [
-                "The mapping must be available in both machine-readable and human-readable formats.",
-                "If a mapping is not clear, the provider should supply new information indicating that the Key Security Indicator has not been independently audited."
-              ],
+              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -6443,8 +6451,23 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
+            },
+            "FRC-CSL-RDY": {
+              "name": "FedRAMP Ready Conversion",
+              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
+              "note": "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready.",
+              "primary_key_word": "MAY",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
             }
-          }
+          },
+          "CLA": {}
         }
       }
     },
