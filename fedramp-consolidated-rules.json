@@ -1112,27 +1112,6 @@
               "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
-            },
-            "class": {
-              "a": {
-                "applies_in_full": false,
-                "applies": [
-                  "CDS-CSO-PUB",
-                  "CDS-CSO-SVC",
-                  "CDS-UTC-PGD",
-                  "CDS-UTC-AGA",
-                  "CDS-CSO-UTC"
-                ]
-              },
-              "b": {
-                "applies_in_full": true
-              },
-              "c": {
-                "applies_in_full": true
-              },
-              "d": {
-                "applies_in_full": true
-              }
             }
           },
           "rev5": {
@@ -1142,27 +1121,6 @@
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
               "grace_ends": "2028-02-01"
-            },
-            "class": {
-              "a": {
-                "applies_in_full": false,
-                "applies": [
-                  "CDS-CSO-PUB",
-                  "CDS-CSO-SVC",
-                  "CDS-UTC-PGD",
-                  "CDS-UTC-AGA",
-                  "CDS-CSO-UTC"
-                ]
-              },
-              "b": {
-                "applies_in_full": true
-              },
-              "c": {
-                "applies_in_full": true
-              },
-              "d": {
-                "applies_in_full": true
-              }
             },
             "signup_url": "ADDME"
           }
@@ -1704,31 +1662,6 @@
               "obtain": "2026-05-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
-            },
-            "class": {
-              "a": {
-                "applies_in_full": false,
-                "applies": [
-                  "CCM-OCR-AVL",
-                  "CCM-OCR-NRD",
-                  "CCM-OCR-FBM",
-                  "CCM-OCR-LSI",
-                  "CCM-OCR-SOR",
-                  "CCM-OCR-RPS",
-                  "CCM-QTR-MTG",
-                  "CCM-QTR-NID",
-                  "CCM-QTR-SRR"
-                ]
-              },
-              "b": {
-                "applies_in_full": true
-              },
-              "c": {
-                "applies_in_full": true
-              },
-              "d": {
-                "applies_in_full": true
-              }
             }
           },
           "rev5": {
@@ -1738,31 +1671,6 @@
               "obtain": "2027-01-01",
               "maintain": "2027-04-02",
               "grace_ends": "2027-10-01"
-            },
-            "class": {
-              "a": {
-                "applies_in_full": false,
-                "applies": [
-                  "CCM-OCR-AVL",
-                  "CCM-OCR-NRD",
-                  "CCM-OCR-FBM",
-                  "CCM-OCR-LSI",
-                  "CCM-OCR-SOR",
-                  "CCM-OCR-RPS",
-                  "CCM-QTR-MTG",
-                  "CCM-QTR-NID",
-                  "CCM-QTR-SRR"
-                ]
-              },
-              "b": {
-                "applies_in_full": true
-              },
-              "c": {
-                "applies_in_full": true
-              },
-              "d": {
-                "applies_in_full": true
-              }
             },
             "signup_url": "ADDME"
           }
@@ -2343,20 +2251,6 @@
               "obtain": "2026-01-05",
               "maintain": "2026-01-05",
               "grace_ends": "2026-07-01"
-            },
-            "class": {
-              "a": {
-                "applies_in_full": true
-              },
-              "b": {
-                "applies_in_full": true
-              },
-              "c": {
-                "applies_in_full": true
-              },
-              "d": {
-                "applies_in_full": true
-              }
             }
           }
         },
