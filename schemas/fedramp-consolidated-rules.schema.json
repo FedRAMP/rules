@@ -120,7 +120,10 @@
         "TFR",
         "TRC",
         "TRF",
-        "UTC"
+        "UTC",
+        "CLA",
+        "APP",
+        "APS"
       ]
     },
     "frr_info_label_name": {

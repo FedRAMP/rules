@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules WIP PREVIEW",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.0.2.1-wip",
+    "version": "2026.0.3.1-wip",
     "last_updated": "2026-06-01",
     "default_artifacts": {
       "FRR": [
@@ -1204,7 +1204,8 @@
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
-                "Provider"
+                "Provider",
+                "Quarterly Review"
               ],
               "updated": [
                 {
@@ -3259,7 +3260,7 @@
               "reference_url": "https://github.com/FedRAMP/schemas",
               "primary_key_word": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Machine-Readable"],
+              "terms": ["Advisor", "Assessor", "Machine-Readable"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4368,7 +4369,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
-                "Cloud Service Ofering",
+                "Cloud Service Offering",
                 "Persistently",
                 "Promptly",
                 "Provider",
@@ -5642,7 +5643,7 @@
               "statement": "FedRAMP MUST perform a minimum level of continuous monitoring for cloud service offerings with FedRAMP Program Certification, including at least reviewing Ongoing Certification Reports.",
               "primary_key_word": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Ongoing Certification Report (OCR)"],
+              "terms": ["Cloud Service Offering", "Ongoing Certification"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5660,7 +5661,7 @@
               ],
               "primary_key_word": "MAY",
               "affects": ["FedRAMP"],
-              "terms": ["Ongoing Certification Report (OCR)"],
+              "terms": [],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6252,12 +6253,15 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
-                "Key Security Indicator",
-                "Machine-Readable",
+                "Artifacts",
+                "Certification Package",
+                "FedRAMP Security Inbox",
+                "Initial Incident Report (IIR)",
+                "Ongoing Certification Report (OCR)",
                 "Provider"
               ]
             },
-            "FRC-CSX-IVV": {
+            "FRC-CLA-IVV": {
               "name": "Optional Independent Verification and Validation",
               "statement": "Providers seeking a FedRAMP Class A Certification MAY have the FedRAMP Certification Package independently verified and validated by a FedRAMP Recognized assessor before submission to FedRAMP.",
               "primary_key_word": "MAY",
@@ -6265,9 +6269,16 @@
               "terms": [
                 "Assessor",
                 "Certification Package",
+                "FedRAMP Recognized Assessor",
                 "Provider",
                 "Validation",
                 "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Auto-fix: key \"FRC-CSX-IVV\" middle segment did not match parent \"CLA\". Renamed to \"FRC-CLA-IVV\"."
+                }
               ]
             }
           },
@@ -6278,13 +6289,7 @@
               "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Preparation Phase prior to receiving a formal FedRAMP Certification.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6313,8 +6318,8 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
+                "Certification Package",
+                "Cloud Service Offering",
                 "Provider",
                 "Validation",
                 "Verification"
@@ -6331,13 +6336,7 @@
               "statement": "Providers MUST supply a fresh initial independent verification and validation assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Provider", "Validation", "Verification"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6352,7 +6351,7 @@
               "statement": "Providers seeking a FedRAMP Rev5 Agency Certification MUST have completed the Authorization to Operate (ATO) process with their agency sponsor for the cloud service offering, concluding with a formal signed ATO letter that the agency has sent over official government channels to FedRAMP.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6450,7 +6449,7 @@
               "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
               "primary_key_word": "MUST NOT",
               "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "terms": ["Artifacts", "Assessor"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6503,11 +6502,7 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Key Security Indicator",
-                "Machine-Readable",
-                "Provider"
-              ]
+              "terms": ["Machine-Readable", "Provider"]
             }
           }
         },
@@ -6574,7 +6569,7 @@
               "name": "FedRAMP Ready Conversion",
               "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
               "note": "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready.",
-              "primary_key_word": "MAY",
+              "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
               "updated": [
@@ -6595,11 +6590,7 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Key Security Indicator",
-                "Machine-Readable",
-                "Provider"
-              ]
+              "terms": ["Provider"]
             }
           }
         }
