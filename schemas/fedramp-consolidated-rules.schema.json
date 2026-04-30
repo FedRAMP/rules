@@ -477,7 +477,11 @@
     "artifacts_by_class": {
       "type": "object",
       "properties": {
-        "all_classes": { "$ref": "#/$defs/artifact_list" }
+        "all_classes": { "$ref": "#/$defs/artifact_list" },
+        "a": { "$ref": "#/$defs/artifact_list" },
+        "b": { "$ref": "#/$defs/artifact_list" },
+        "c": { "$ref": "#/$defs/artifact_list" },
+        "d": { "$ref": "#/$defs/artifact_list" }
       },
       "required": ["all_classes"],
       "additionalProperties": false
