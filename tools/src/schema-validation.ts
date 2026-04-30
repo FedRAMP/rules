@@ -32,35 +32,35 @@ export function formatSchemaErrors(
 
   for (const [instancePath, pathErrors] of errorsByPath) {
     const value = getValueAtJsonPointer(document, instancePath);
-    const id = getIdFromJsonPointer(instancePath);
+    const location = formatJsonPointerLocation(instancePath);
 
     if (hasOwn(value, "varies_by_class") && hasOwn(value, "primary_key_word")) {
       messages.push(
-        `${id} has both varies_by_class and top-level primary_key_word, and that's not allowed. Put primary_key_word inside each varies_by_class entry instead.`,
+        `${location} has both varies_by_class and top-level primary_key_word, and that's not allowed. Put primary_key_word inside each varies_by_class entry instead.`,
       );
       continue;
     }
 
     for (const error of pathErrors) {
-      messages.push(formatSchemaError(error, id));
+      messages.push(formatSchemaError(error, location));
     }
   }
 
   return messages;
 }
 
-function formatSchemaError(error: ErrorObject, id: string): string {
+function formatSchemaError(error: ErrorObject, location: string): string {
   if (error.keyword === "required") {
     const missingProperty = String(error.params.missingProperty);
-    return `${id} is missing required property ${missingProperty}.`;
+    return `${location} is missing required property ${missingProperty}.`;
   }
 
   if (error.keyword === "additionalProperties") {
     const additionalProperty = String(error.params.additionalProperty);
-    return `${id} has unexpected property ${additionalProperty}.`;
+    return `${location} has unexpected property ${additionalProperty}.`;
   }
 
-  return `${id} ${error.message ?? "does not match the schema"}.`;
+  return `${location} ${error.message ?? "does not match the schema"}.`;
 }
 
 function getValueAtJsonPointer(document: unknown, pointer: string): unknown {
@@ -81,9 +81,25 @@ function getValueAtJsonPointer(document: unknown, pointer: string): unknown {
     }, document);
 }
 
-function getIdFromJsonPointer(pointer: string): string {
-  const id = pointer.split("/").at(-1);
-  return id ? unescapeJsonPointerSegment(id) : "Document";
+function formatJsonPointerLocation(pointer: string): string {
+  if (pointer === "") {
+    return "Document";
+  }
+
+  return pointer
+    .slice(1)
+    .split("/")
+    .map(unescapeJsonPointerSegment)
+    .map(formatLocationSegment)
+    .join("");
+}
+
+function formatLocationSegment(segment: string, index: number): string {
+  if (/^(0|[1-9]\d*)$/.test(segment)) {
+    return `[${segment}]`;
+  }
+
+  return index === 0 ? segment : `.${segment}`;
 }
 
 function unescapeJsonPointerSegment(segment: string): string {

@@ -13,6 +13,7 @@ export interface DefinitionEntry {
   fkas?: string[];
   term: string;
   alts?: string[];
+  tag?: string;
   definition: string;
   note?: string;
   notes?: string[];
