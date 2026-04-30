@@ -4,6 +4,11 @@ set -eu
 
 repo_root="$(git rev-parse --show-toplevel)"
 
+echo "Running prettier on JSON files"
+cd "$repo_root"
+bunx prettier --write fedramp-consolidated-rules.json schemas/fedramp-consolidated-rules.schema.json
+git add fedramp-consolidated-rules.json schemas/fedramp-consolidated-rules.schema.json
+
 echo "Running bun test from $repo_root/tools"
 cd "$repo_root/tools"
 bun test

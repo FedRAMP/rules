@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules WIP PREVIEW",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.0.2.1-wip",
+    "version": "2026.0.3.1-wip",
     "last_updated": "2026-06-01",
     "default_artifacts": {
       "FRR": [
@@ -1204,7 +1204,8 @@
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
-                "Provider"
+                "Provider",
+                "Quarterly Review"
               ],
               "updated": [
                 {
@@ -2239,14 +2240,15 @@
                 "If a provider establishes a new inbox in reaction to this guidance that is different from the Security Email then they must follow the FSI-CSO-NOC rules to notify FedRAMP."
               ],
               "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "FedRAMP Security Inbox",
-                "Provider"
-              ],
-              "deliverables": "Email address to receive messages from FedRAMP",
+              "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "Email address to receive messages from FedRAMP"
+                  ]
+                }
+              },
+              "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2259,6 +2261,13 @@
               "statement": "Providers MUST immediately notify FedRAMP of any changes in addressing for their FedRAMP Security Inbox by emailing info@fedramp.gov with the name and FedRAMP ID of the cloud service offering and the updated email address.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "Process, manual or automated, to notify FedRAMP of changes in the FedRAMP Security Inbox"
+                  ]
+                }
+              },
               "notification": [
                 {
                   "party": "FedRAMP",
@@ -2271,7 +2280,6 @@
                 "FedRAMP Security Inbox",
                 "Provider"
               ],
-              "deliverables": "Process, manual or automated, to notify FedRAMP of changes in the FedRAMP Security Inbox",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2283,14 +2291,16 @@
               "name": "Trust @fedramp.gov and @gsa.gov",
               "statement": "Providers MUST treat any email originating from an @fedramp.gov or @gsa.gov email address as if it was sent from FedRAMP by default; if such a message is confirmed to originate from someone other than FedRAMP then the FedRAMP Security Inbox rules no longer apply.",
               "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "FedRAMP Security Inbox",
-                "Provider"
-              ],
-              "deliverables": ["Configuration settings for FSI mailbox", "Automated validation to check FSI mailbox configuration"],
+              "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "Configuration settings for FSI mailbox",
+                    "Automated validation to check FSI mailbox configuration"
+                  ]
+                }
+              },
+              "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2331,13 +2341,16 @@
               "statement": "Providers MUST route Emergency designated messages sent by FedRAMP to a senior security official for their awareness.",
               "note": "Senior security officials are determined by the provider.",
               "primary_key_word": "MUST",
-              "affects": [
-                "Providers"
-              ],
-              "terms": [
-                "Provider"
-              ],
-              "deliverables": ["Configuration settings for FSI mailbox", "Automated validation to check FSI mailbox configuration"],
+              "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "Configuration settings for FSI mailbox",
+                    "Automated validation to check FSI mailbox configuration"
+                  ]
+                }
+              },
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2456,13 +2469,17 @@
                 }
               },
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": ["Publicly accessible status service URI"]
+                }
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Incident",
                 "Machine-Readable",
                 "Provider"
               ],
-              "deliverables": "Publicly accessible status service URI",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2476,6 +2493,13 @@
               "note": "An incident that meets this test is a federal reportable incident.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                }
+              },
               "terms": [
                 "Federal Customer Data",
                 "Federal Reportable Incident",
@@ -2484,7 +2508,6 @@
                 "Promptly",
                 "Provider"
               ],
-              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2504,6 +2527,13 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                }
+              },
               "terms": [
                 "Agency",
                 "Catastrophic Adverse Effect",
@@ -2515,7 +2545,6 @@
                 "Provider",
                 "Serious Adverse Effect"
               ],
-              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2533,6 +2562,13 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                }
+              },
               "terms": [
                 "Agency",
                 "All Affected Parties",
@@ -2543,7 +2579,6 @@
                 "Responsibly",
                 "Trust Center"
               ],
-              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2558,6 +2593,13 @@
               "reference_url": "https://www.cisa.gov/federal-incident-notification-guidelines",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                }
+              },
               "terms": [
                 "Agency",
                 "Federal Customer Data",
@@ -2566,7 +2608,6 @@
                 "Provider",
                 "Responsibly"
               ],
-              "deliverables": "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2588,6 +2629,16 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                },
+                "rev5": {
+                  "all_classes": []
+                }
+              },
               "terms": [
                 "Agency",
                 "All Affected Parties",
@@ -2599,7 +2650,6 @@
                 "Responsibly",
                 "Vulnerability Response"
               ],
-              "deliverables": "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2622,6 +2672,13 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                }
+              },
               "terms": [
                 "Agency",
                 "All Affected Parties",
@@ -2633,7 +2690,6 @@
                 "Vulnerability",
                 "Vulnerability Response"
               ],
-              "deliverables": "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -2646,6 +2702,13 @@
               "statement": "Providers MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                  ]
+                }
+              },
               "terms": [
                 "All Affected Parties",
                 "Final Incident Report (FIR)",
@@ -2653,7 +2716,6 @@
                 "Provider",
                 "Responsibly"
               ],
-              "deliverables": "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources.",
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3030,6 +3092,13 @@
                 }
               },
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "A machine readable log of incidents that have occurred, including the time of the incident, the nature of the incident, the impact of the incident (PAIN), and the elapsed time between incident identification and notification of the incident to agencies."
+                  ]
+                }
+              },
               "terms": [
                 "All Affected Parties",
                 "Federal Reportable Incident",
@@ -3037,7 +3106,6 @@
                 "Potential Adverse Impact",
                 "Provider"
               ],
-              "deliverables": "A machine readable log of incidents that have occurred, including the time of the incident, the nature of the incident, the impact of the incident (PAIN), and the elapsed time between incident identification and notification of the incident to agencies.",
               "updated": [
                 {
                   "date": "2026-04-25",
@@ -3095,6 +3163,15 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "A machine readable output containing all required data of the components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                    "A human readable explanation of how the machine readable output is derived.",
+                    "The code for the automated process used to generate the machine readable output."
+                  ]
+                }
+              },
               "terms": [
                 "Agency",
                 "Certification Package",
@@ -3105,7 +3182,6 @@
                 "Likely",
                 "Provider"
               ],
-              "deliverables": ["A machine readable output containing all required data of the components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.", "A human readable explanation of how the machine readable output is derived.", "The code for the automated process used to generate the machine readable output."],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3119,6 +3195,15 @@
               "note": "Information resources (including third-party information resources) MAY vary by security category as appropriate to the type of information handled by or impacted by the information resource.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "A machine readable output containing all required data of the permitted connections between components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                    "A human readable explanation of how the machine readable output is derived.",
+                    "The code for the automated process used to generate the machine readable output."
+                  ]
+                }
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Handle",
@@ -3127,7 +3212,6 @@
                 "Security Category",
                 "Third-Party Information Resource"
               ],
-              "deliverables": ["A machine readable output containing all required data of the permitted connections between components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.", "A human readable explanation of how the machine readable output is derived.", "The code for the automated process used to generate the machine readable output."],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3146,6 +3230,15 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "A machine readable output containing all required data of the third-party information resources of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                    "A human readable explanation of how the machine readable output is derived.",
+                    "The code for the automated process used to generate the machine readable output."
+                  ]
+                }
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Federal Customer Data",
@@ -3154,7 +3247,6 @@
                 "Provider",
                 "Third-Party Information Resource"
               ],
-              "deliverables": ["A machine readable output containing all required data of the third-party information resources of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.", "A human readable explanation of how the machine readable output is derived.", "The code for the automated process used to generate the machine readable output."],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3167,12 +3259,20 @@
               "statement": "Providers MUST include metadata (including metadata about federal customer data) in the Minimum Assessment Scope ONLY IF MAS-CSO-IIR APPLIES.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "A machine readable output containing all required data of the metadata collected or maintained by the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                    "A human readable explanation of how the machine readable output is derived.",
+                    "The code for the automated process used to generate the machine readable output."
+                  ]
+                }
+              },
               "terms": [
                 "Federal Customer Data",
                 "Initial Incident Report (IIR)",
                 "Provider"
               ],
-              "deliverables": ["A machine readable output containing all required data of the metadata collected or maintained by the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.", "A human readable explanation of how the machine readable output is derived.", "The code for the automated process used to generate the machine readable output."],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -3290,7 +3390,7 @@
               "reference_url": "https://github.com/FedRAMP/schemas",
               "primary_key_word": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Machine-Readable"],
+              "terms": ["Advisor", "Assessor", "Machine-Readable"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -4399,7 +4499,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
-                "Cloud Service Ofering",
+                "Cloud Service Offering",
                 "Persistently",
                 "Promptly",
                 "Provider",
@@ -5673,7 +5773,7 @@
               "statement": "FedRAMP MUST perform a minimum level of continuous monitoring for cloud service offerings with FedRAMP Program Certification, including at least reviewing Ongoing Certification Reports.",
               "primary_key_word": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Ongoing Certification Report (OCR)"],
+              "terms": ["Cloud Service Offering", "Ongoing Certification"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -5691,7 +5791,7 @@
               ],
               "primary_key_word": "MAY",
               "affects": ["FedRAMP"],
-              "terms": ["Ongoing Certification Report (OCR)"],
+              "terms": [],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6283,12 +6383,15 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
-                "Key Security Indicator",
-                "Machine-Readable",
+                "Artifacts",
+                "Certification Package",
+                "FedRAMP Security Inbox",
+                "Initial Incident Report (IIR)",
+                "Ongoing Certification Report (OCR)",
                 "Provider"
               ]
             },
-            "FRC-CSX-IVV": {
+            "FRC-CLA-IVV": {
               "name": "Optional Independent Verification and Validation",
               "statement": "Providers seeking a FedRAMP Class A Certification MAY have the FedRAMP Certification Package independently verified and validated by a FedRAMP Recognized assessor before submission to FedRAMP.",
               "primary_key_word": "MAY",
@@ -6296,10 +6399,18 @@
               "terms": [
                 "Assessor",
                 "Certification Package",
+                "FedRAMP Recognized Assessor",
                 "Provider",
                 "Validation",
                 "Verification"
-              ]
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Auto-fix: key \"FRC-CSX-IVV\" middle segment did not match parent \"CLA\". Renamed to \"FRC-CLA-IVV\"."
+                }
+              ],
+              "fka": "FRC-CSX-IVV"
             }
           },
           "APP": {
@@ -6309,13 +6420,7 @@
               "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Preparation Phase prior to receiving a formal FedRAMP Certification.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6344,8 +6449,8 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
+                "Certification Package",
+                "Cloud Service Offering",
                 "Provider",
                 "Validation",
                 "Verification"
@@ -6362,13 +6467,7 @@
               "statement": "Providers MUST supply a fresh initial independent verification and validation assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Provider", "Validation", "Verification"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6383,7 +6482,7 @@
               "statement": "Providers seeking a FedRAMP Rev5 Agency Certification MUST have completed the Authorization to Operate (ATO) process with their agency sponsor for the cloud service offering, concluding with a formal signed ATO letter that the agency has sent over official government channels to FedRAMP.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6481,7 +6580,7 @@
               "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
               "primary_key_word": "MUST NOT",
               "affects": ["Assessors"],
-              "terms": ["Assessor"],
+              "terms": ["Artifacts", "Assessor"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6534,11 +6633,7 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Key Security Indicator",
-                "Machine-Readable",
-                "Provider"
-              ]
+              "terms": ["Machine-Readable", "Provider"]
             }
           }
         },
@@ -6626,11 +6721,7 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Key Security Indicator",
-                "Machine-Readable",
-                "Provider"
-              ]
+              "terms": ["Provider"]
             }
           }
         }
