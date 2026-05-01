@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules WIP PREVIEW",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.0.3.1-wip",
+    "version": "2026.0.4.1-wip",
     "last_updated": "2026-06-01",
     "default_artifacts": {
       "FRR": [
@@ -6277,7 +6277,7 @@
               "updated": [
                 {
                   "date": "2026-06-01",
-                  "comment": "Auto-fix: key \"FRC-CSX-IVV\" middle segment did not match parent \"CLA\". Renamed to \"FRC-CLA-IVV\"."
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
             }
@@ -6435,10 +6435,6 @@
                 {
                   "date": "2026-06-01",
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                },
-                {
-                  "date": "2026-06-01",
-                  "comment": "Auto-fix: key \"FRC-CSO-PMV\" middle segment did not match parent \"20x\". Renamed to \"FRC-20x-PMV\"."
                 }
               ]
             }
@@ -6782,21 +6778,13 @@
             "name": "General Agency Responsibilities",
             "description": "These rules apply to agencies based on the FedRAMP Authorization Act, OMB M-24-15, and related FedRAMP policies."
           },
-          "AGS": {
-            "name": "Agency Sponsored Certifications",
-            "description": "These rules apply when an agency sponsors a FedRAMP Rev5 Certification after completing an agency authorization."
-          },
           "USE": {
             "name": "Use of FedRAMP Certifications",
-            "description": "These rules apply when agencies use an existing FedRAMP Certification to make agency authorization decisions."
+            "description": "These rules apply when agencies use FedRAMP Certifications to make agency authorization decisions."
           },
-          "OAA": {
-            "name": "Ongoing Agency Authorization",
-            "description": "These rules apply to agencies who are operating FedRAMP Certified cloud services."
-          },
-          "INT": {
-            "name": "Working with FedRAMP and the Interagency",
-            "description": "These rules apply to agency coordination with FedRAMP and the interagency community."
+          "SPN": {
+            "name": "Agency Sponsored Certifications",
+            "description": "These rules apply when an agency sponsors a FedRAMP Rev5 Certification after completing an agency authorization."
           }
         }
       },
@@ -6828,7 +6816,7 @@
                   "target": "ato-letter@fedramp.gov"
                 }
               ],
-              "terms": ["Agency", "Provider"],
+              "terms": ["Agency"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6845,7 +6833,7 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Agencies"],
-              "terms": ["Agency", "Machine-Readable"],
+              "terms": ["Agency", "Artifacts", "Machine-Readable"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6872,7 +6860,12 @@
               "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification.",
               "primary_key_word": "MUST NOT",
               "affects": ["Agencies"],
-              "terms": ["Agency", "Certification Data", "Provider"],
+              "terms": [
+                "Agency",
+                "Certification Data",
+                "Cloud Service Offering",
+                "FedRAMP Certified"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6893,7 +6886,11 @@
                   "target": "info@fedramp.gov"
                 }
               ],
-              "terms": ["Agency", "Provider"],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "FedRAMP Certified"
+              ],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -6901,7 +6898,7 @@
                 }
               ]
             },
-            "AGU-INT-LLR": {
+            "AGU-AGC-LLR": {
               "name": "Lessons Learned Reporting",
               "statement": "Agencies SHOULD contribute to FedRAMP lessons-learned reporting, including sharing risk acceptance rationales, to improve government-wide reuse and transparency.",
               "primary_key_word": "SHOULD",
@@ -6914,7 +6911,7 @@
                 }
               ]
             },
-            "AGU-INT-WKG": {
+            "AGU-AGC-WKG": {
               "name": "FedRAMP Working Groups",
               "statement": "Agencies SHOULD participate in FedRAMP working groups, communities of practice, and stakeholder engagements to supply feedback and align practices across government.",
               "primary_key_word": "SHOULD",
@@ -6927,7 +6924,7 @@
                 }
               ]
             },
-            "AGU-INT-LIA": {
+            "AGU-AGC-LIA": {
               "name": "Agency Liaison Program",
               "statement": "Agencies SHOULD assign at least 1 federal employee to be an active participant in the FedRAMP agency liaison program.",
               "primary_key_word": "SHOULD",
@@ -6940,7 +6937,7 @@
                 }
               ]
             },
-            "AGU-INT-SIN": {
+            "AGU-AGC-SIN": {
               "name": "Shared FedRAMP Inbox",
               "statement": "Agencies SHOULD establish and maintain a dedicated shared FedRAMP agency inbox to serve as the official point of contact for communications between FedRAMP and the agency.",
               "note": "A shared FedRAMP agency inbox may follow an agency-specific format such as agency-fedramp@agency.gov.",
@@ -6955,36 +6952,8 @@
               ]
             }
           },
-          "AGS": {
-            "AGU-AGS-MRC": {
-              "name": "Most Recent Consolidated Rules",
-              "statement": "Agencies MUST follow the most recent FedRAMP Consolidated Rules when initiating agency-sponsored FedRAMP Certification of in-scope cloud services.",
-              "primary_key_word": "MUST",
-              "affects": ["Agencies"],
-              "terms": ["Agency", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "AGU-AGS-OAR": {
-              "name": "Follow Ongoing Authorization Rules",
-              "statement": "Agencies MUST follow the ongoing agency authorization rules after FedRAMP issues a FedRAMP Certification they sponsored.",
-              "primary_key_word": "MUST",
-              "affects": ["Agencies"],
-              "terms": ["Agency"],
-              "updated": [
-                {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-                }
-              ]
-            }
-          },
-          "REU": {
-            "AGU-REU-ABU": {
+          "USE": {
+            "AGU-USE-ABU": {
               "name": "Authorization Before Use",
               "statement": "Agencies MUST complete an agency authorization before using a cloud service inside a federal information system.",
               "primary_key_word": "MUST",
@@ -6997,7 +6966,7 @@
                 }
               ]
             },
-            "AGU-REU-ERP": {
+            "AGU-USE-ERP": {
               "name": "Existing Certification Package",
               "statement": "Agencies MUST use the existing FedRAMP Certification package to make agency authorization decisions for FedRAMP Certified cloud services.",
               "primary_key_word": "MUST",
@@ -7010,7 +6979,7 @@
                 }
               ]
             },
-            "AGU-REU-CRC": {
+            "AGU-USE-CRC": {
               "name": "Compensating Controls and Risk Acceptance",
               "statement": "Agencies MAY accept compensating controls or risk-acceptance decisions in cases of control misalignment between federal and external frameworks.",
               "primary_key_word": "MAY",
@@ -7023,7 +6992,7 @@
                 }
               ]
             },
-            "AGU-REU-RCF": {
+            "AGU-USE-RCF": {
               "name": "Resolve Certification Package Conflicts",
               "statement": "Agencies MUST collaborate with FedRAMP when discrepancies or conflicts arise between agency-specific security determinations and the baseline FedRAMP Certification package.",
               "primary_key_word": "MUST",
@@ -7036,7 +7005,7 @@
                 }
               ]
             },
-            "AGU-REU-RSG": {
+            "AGU-USE-RSG": {
               "name": "Review Secure Configuration Guides",
               "statement": "Agencies MUST review the Secure Configuration Guides supplied by Providers and configure relevant security settings.",
               "primary_key_word": "MUST",
@@ -7048,10 +7017,8 @@
                   "comment": "Revisited and baselined against the Consolidated Rules for 2026."
                 }
               ]
-            }
-          },
-          "OAA": {
-            "AGU-OAA-CCP": {
+            },
+            "AGU-USE-CCP": {
               "name": "Collaborative Continuous Monitoring Plan",
               "statement": "Agencies MUST develop a plan with the Provider to follow Collaborative Continuous Monitoring rules and complete ongoing authorization activities.",
               "primary_key_word": "MUST",
@@ -7064,17 +7031,13 @@
                 }
               ]
             },
-            "AGU-OAA-ROR": {
+            "AGU-USE-ROR": {
               "name": "Review Ongoing Authorization Reports",
               "statement": "Agencies MUST review each Ongoing Authorization Report to understand how changes to the cloud service offering may impact the risk tolerance documented in the agency Authorization to Operate for the federal information system that includes the cloud service offering in its boundary.",
               "note": "This agency review supports agency responsibilities under 44 USC § 35, OMB Circular A-130, FIPS-200, and OMB Memorandum M-24-15.",
               "primary_key_word": "MUST",
               "affects": ["Agencies"],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering",
-                "Ongoing Authorization Report"
-              ],
+              "terms": ["Agency", "Cloud Service Offering"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -7082,7 +7045,7 @@
                 }
               ]
             },
-            "AGU-OAA-NFC": {
+            "AGU-USE-NFC": {
               "name": "Notify FedRAMP of Concerns",
               "statement": "Agencies MUST notify FedRAMP by sending an email to info@fedramp.gov if information presented in an Ongoing Authorization Report, Quarterly Review, or other ongoing authorization data causes significant concerns that may lead the agency to stop operation of the cloud service offering.",
               "note": "Agencies are expected to notify FedRAMP under OMB Memorandum M-24-15 section IV (a).",
@@ -7095,12 +7058,7 @@
                   "target": "info@fedramp.gov"
                 }
               ],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering",
-                "Ongoing Authorization Report",
-                "Quarterly Review"
-              ],
+              "terms": ["Agency", "Cloud Service Offering", "Quarterly Review"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -7108,17 +7066,12 @@
                 }
               ]
             },
-            "AGU-OAA-ASC": {
+            "AGU-USE-ASC": {
               "name": "Assign Security Category Resources",
               "statement": "Agencies SHOULD consider the Security Category noted in the agency Authorization to Operate and assign appropriate information security resources for reviewing Ongoing Authorization Reports, attending Quarterly Reviews, and reviewing other ongoing authorization data.",
               "primary_key_word": "SHOULD",
               "affects": ["Agencies"],
-              "terms": [
-                "Agency",
-                "Ongoing Authorization Report",
-                "Quarterly Review",
-                "Security Category"
-              ],
+              "terms": ["Agency", "Quarterly Review", "Security Category"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -7126,17 +7079,12 @@
                 }
               ]
             },
-            "AGU-OAA-DSO": {
+            "AGU-USE-DSO": {
               "name": "Designate Senior Official",
               "statement": "Agencies SHOULD designate a senior information security official to review Ongoing Authorization Reports and represent the agency at Quarterly Reviews for cloud service offerings included in agency information systems.",
               "primary_key_word": "SHOULD",
               "affects": ["Agencies"],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering",
-                "Ongoing Authorization Report",
-                "Quarterly Review"
-              ],
+              "terms": ["Agency", "Cloud Service Offering", "Quarterly Review"],
               "updated": [
                 {
                   "date": "2026-06-01",
@@ -7144,7 +7092,7 @@
                 }
               ]
             },
-            "AGU-OAA-NPC": {
+            "AGU-USE-NPC": {
               "name": "Notify Provider of Concerns",
               "statement": "Agencies SHOULD formally notify the Provider if information presented in an Ongoing Authorization Report, Quarterly Review, or other ongoing authorization data causes significant concerns that may lead the agency to remove the cloud service offering from operation.",
               "primary_key_word": "SHOULD",
@@ -7159,7 +7107,6 @@
               "terms": [
                 "Agency",
                 "Cloud Service Offering",
-                "Ongoing Authorization Report",
                 "Provider",
                 "Quarterly Review"
               ],
@@ -7170,12 +7117,45 @@
                 }
               ]
             },
-            "AGU-OAA-INH": {
+            "AGU-USE-INH": {
               "name": "Review Inherited Services",
               "statement": "Agencies SHOULD review the certification packages and continuous monitoring information for third-party independent information resources, such as other cloud services, that are used by a FedRAMP Certified cloud service when available.",
               "primary_key_word": "SHOULD",
               "affects": ["Agencies"],
-              "terms": ["Agency", "Certification Package", "FedRAMP Certified"],
+              "terms": [
+                "Agency",
+                "Certification Package",
+                "FedRAMP Certified",
+                "Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            }
+          },
+          "SPN": {
+            "AGU-SPN-MRC": {
+              "name": "Most Recent Consolidated Rules",
+              "statement": "Agencies MUST follow the most recent FedRAMP Consolidated Rules when initiating agency-sponsored FedRAMP Certification of in-scope cloud services.",
+              "primary_key_word": "MUST",
+              "affects": ["Agencies"],
+              "terms": ["Agency"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "AGU-SPN-OAR": {
+              "name": "Follow Ongoing Authorization Rules",
+              "statement": "Agencies MUST follow the ongoing agency authorization rules after FedRAMP issues a FedRAMP Certification they sponsored.",
+              "primary_key_word": "MUST",
+              "affects": ["Agencies"],
+              "terms": ["Agency"],
               "updated": [
                 {
                   "date": "2026-06-01",
