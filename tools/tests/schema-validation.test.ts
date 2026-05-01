@@ -35,6 +35,50 @@ test("root schema errors still identify the full document", () => {
   ]);
 });
 
+test("property name errors identify the invalid keys and allowed names", () => {
+  const errors: ErrorObject[] = [
+    {
+      instancePath: "/FRR/FRC/info/labels",
+      schemaPath: "#/$defs/frr_data_label_name/enum",
+      keyword: "enum",
+      params: { allowedValues: ["FRP", "CSO", "TRF"] },
+      message: "must be equal to one of the allowed values",
+    },
+    {
+      instancePath: "/FRR/FRC/info/labels",
+      schemaPath: "#/anyOf",
+      keyword: "anyOf",
+      params: {},
+      message: "must match a schema in anyOf",
+    },
+    {
+      instancePath: "/FRR/FRC/info/labels",
+      schemaPath: "#/properties/labels/propertyNames",
+      keyword: "propertyNames",
+      params: { propertyName: "CLA" },
+      message: "property name must be valid",
+    },
+    {
+      instancePath: "/FRR/FRC/info/labels",
+      schemaPath: "#/$defs/frr_data_label_name/enum",
+      keyword: "enum",
+      params: { allowedValues: ["FRP", "CSO", "TRF"] },
+      message: "must be equal to one of the allowed values",
+    },
+    {
+      instancePath: "/FRR/FRC/info/labels",
+      schemaPath: "#/properties/labels/propertyNames",
+      keyword: "propertyNames",
+      params: { propertyName: "APP" },
+      message: "property name must be valid",
+    },
+  ];
+
+  expect(formatSchemaErrors(errors, {})).toEqual([
+    "FRR.FRC.info.labels has invalid property names: CLA, APP. Allowed names are: FRP, CSO, TRF.",
+  ]);
+});
+
 test("notes array with fewer than 2 entries in FRD definition fails validation", () => {
   const errors: ErrorObject[] = [
     {

@@ -100,6 +100,7 @@
     "frr_data_label_name": {
       "enum": [
         "FRP",
+        "AGC",
         "CSO",
         "CSX",
         "CSL",
@@ -120,7 +121,12 @@
         "TFR",
         "TRC",
         "TRF",
-        "UTC"
+        "UTC",
+        "CLA",
+        "APP",
+        "APS",
+        "USE",
+        "SPN"
       ]
     },
     "frr_info_label_name": {
