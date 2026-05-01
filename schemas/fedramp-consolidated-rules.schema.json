@@ -272,13 +272,26 @@
       "oneOf": [
         {
           "properties": { "statement": {}, "primary_key_word": {} },
-          "required": ["statement", "primary_key_word"]
+          "required": ["statement", "primary_key_word"],
+          "not": {
+            "properties": { "varies_by_class": {} },
+            "required": ["varies_by_class"]
+          }
         },
         {
           "properties": { "varies_by_class": {} },
           "required": ["varies_by_class"],
           "not": {
-            "required": ["primary_key_word"]
+            "anyOf": [
+              {
+                "properties": { "statement": {} },
+                "required": ["statement"]
+              },
+              {
+                "properties": { "primary_key_word": {} },
+                "required": ["primary_key_word"]
+              }
+            ]
           }
         }
       ],
@@ -407,11 +420,19 @@
       "oneOf": [
         {
           "properties": { "statement": {} },
-          "required": ["statement"]
+          "required": ["statement"],
+          "not": {
+            "properties": { "varies_by_class": {} },
+            "required": ["varies_by_class"]
+          }
         },
         {
           "properties": { "varies_by_class": {} },
-          "required": ["varies_by_class"]
+          "required": ["varies_by_class"],
+          "not": {
+            "properties": { "statement": {} },
+            "required": ["statement"]
+          }
         }
       ],
       "properties": {

@@ -4,15 +4,17 @@ import type { AnySchema, ErrorObject } from "ajv";
 
 import { loadRulesDocument, loadSchemaDocument } from "./rules";
 
-export function validateSchema() {
+export function validateSchema(
+  document = loadRulesDocument(),
+  schemaDocument = loadSchemaDocument(),
+) {
   const ajv = new Ajv2020({
     strict: true,
     allErrors: true,
   });
   addFormats(ajv);
 
-  const schema = loadSchemaDocument() as AnySchema;
-  const document = loadRulesDocument();
+  const schema = schemaDocument as AnySchema;
   const validate = ajv.compile(schema);
   const valid = validate(document);
 

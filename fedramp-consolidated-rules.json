@@ -297,7 +297,12 @@
           ],
           "reference": "FedRAMP Certification Act (44 USC § 3608)",
           "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
-          "updated": []
+          "updated": [
+            {
+              "date": "2026-06-01",
+              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+            }
+          ]
         },
         "FRD-FRA": {
           "term": "FedRAMP Recognized Assessor",
@@ -656,27 +661,9 @@
             }
           ]
         },
-        "FRD-PVL": {
-          "term": "Persistent Validation",
-          "definition": "The systematic and persistent process of validating that information resources within a cloud service offering are operating in a secure manner as expected by the goals and objectives outlined by the provider against FedRAMP Key Security Indicators.",
-          "alts": [
-            "persistent validation",
-            "persistently validate",
-            "persistently validated",
-            "validate",
-            "validated",
-            "validation"
-          ],
-          "updated": [
-            {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
-            }
-          ]
-        },
         "FRD-PER": {
           "term": "Persistently",
-          "definition": "Occurring in a firm, steady way that is repeated over a long period of time in spite of obstacles or difficulties. Persistent activities may vary between actors, may occur irregularly, and may include interruptions or waiting periods between cycles. These attributes of persistent activities should be intentional, understood, and documented; the status of persistent activities will always be known. ",
+          "definition": "Occurring in a firm, steady way that is repeated over a long period of time in spite of obstacles or difficulties. Persistent activities may vary between actors, may occur irregularly, and may include interruptions or waiting periods between cycles. These attributes of persistent activities should be intentional, understood, and documented; the status of persistent activities will always be known.",
           "note": "The use of persistently indicates a process that may not always occur continuously (without interruption or gaps) or regularly (on a consistent, predictable basis) but will repeat frequently in cycles. It aligns generally with historical misuse of \"continuous\" in federal information security policies.",
           "alts": ["persistently", "persistent"],
           "updated": [
@@ -1693,7 +1680,7 @@
               "affects": ["Agencies"],
               "notification": [
                 {
-                  "party": "provider",
+                  "party": "Provider",
                   "method": "email",
                   "target": "security-email"
                 }
@@ -3279,7 +3266,7 @@
               ],
               "notes": [
                 "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF Scope of FedRAMP.",
-                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP. "
+                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
@@ -4181,9 +4168,9 @@
           }
         },
         "labels": {
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
+          "CSO": {
+            "name": "Cloud Service Provider Responsibilities",
+            "description": "These rules apply to providers for FedRAMP Certifications."
           }
         }
       },
@@ -6216,7 +6203,13 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"]
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
             },
             "FRC-CLA-EAM": {
               "name": "External Assessment Materials",
@@ -6227,6 +6220,12 @@
                 "All Necessary Parties",
                 "Certification Package",
                 "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
               ]
             },
             "FRC-CLA-AFR": {
@@ -6259,6 +6258,12 @@
                 "Initial Incident Report (IIR)",
                 "Ongoing Certification Report (OCR)",
                 "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
               ]
             },
             "FRC-CLA-IVV": {
@@ -6498,7 +6503,13 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": ["Machine-Readable", "Provider"]
+              "terms": ["Machine-Readable", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
             }
           }
         },
@@ -6534,7 +6545,7 @@
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "statement": "Providers of FedRAMP Rev5 Class C offerings MUST verify and validate the status of machine-based information resources at least once every month.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 1
@@ -6586,7 +6597,13 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"]
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-01",
+                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                }
+              ]
             }
           }
         }
@@ -7422,8 +7439,6 @@
             "at-3.5",
             "at-4",
             "ir-2.3",
-            "at-2",
-            "at-2.3",
             "at-3",
             "sr-11.1"
           ],
@@ -7468,11 +7483,7 @@
           "name": "Adopting Passwordless Methods",
           "statement": "Secure passwordless methods are used for user authentication and authorization when feasible, otherwise strong passwords with phishing-resistant MFA is used.",
           "controls": [
-            "ac-2",
             "ac-3",
-            "ia-2.1",
-            "ia-2.2",
-            "ia-2.8",
             "ia-5.1",
             "ia-5.2",
             "ia-5.6",
@@ -8146,7 +8157,6 @@
           "terms": [
             "Information Resource",
             "Machine-Based (Information Resources)",
-            "Persistent Validation",
             "Persistently",
             "Validation"
           ]

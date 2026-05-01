@@ -6,4 +6,4 @@ repo_root="$(git rev-parse --show-toplevel)"
 
 echo "Running bun test from $repo_root/tools"
 cd "$repo_root/tools"
-bun test
+bun run test

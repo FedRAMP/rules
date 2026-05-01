@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "bun test",
+    "test": "bun run test.ts",
     "fix": "bun run fix.ts",
     "summary": "bun run summary.ts",
     "test:schema": "bun test tests/schema.test.ts",
