@@ -1,9 +1,9 @@
 {
   "info": {
-    "title": "FedRAMP Consolidated Rules WIP PREVIEW",
+    "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.0.4.1-wip",
-    "last_updated": "2026-06-01",
+    "version": "2026.05.04.01-preview",
+    "last_updated": "2026-05-04",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -24,13 +24,14 @@
       "name": "FedRAMP Definitions",
       "short_name": "FRD",
       "web_name": "definitions",
+      "status": "stable",
       "effective": {
         "both": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
-            "obtain": "2026-05-04",
-            "maintain": "2026-05-04",
+            "obtain": "2026-07-04",
+            "maintain": "2026-07-04",
             "grace_ends": "2026-05-04"
           }
         }
@@ -45,8 +46,8 @@
           "alts": ["accepted vulnerability", "accepted vulnerabilities"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -58,8 +59,8 @@
           "alts": ["adaptive", "adaptive change", "adaptive changes"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -70,8 +71,8 @@
           "alts": ["advisor", "advisors"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -84,8 +85,8 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -96,8 +97,8 @@
           "alts": ["all affected parties"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -108,8 +109,8 @@
           "alts": ["all necessary assessors"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -120,8 +121,8 @@
           "alts": ["all necessary parties"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -131,8 +132,8 @@
           "alts": ["artifact", "artifacts"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -144,8 +145,8 @@
           "alts": ["assessor", "assessors"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -159,8 +160,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -171,8 +172,8 @@
           "alts": ["certification class change", "certification class changes"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -183,8 +184,8 @@
           "alts": ["certification data"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -197,8 +198,8 @@
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -209,8 +210,8 @@
           "alts": ["cloud service offering", "cloud service offerings"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -221,8 +222,8 @@
           "alts": ["deterministic telemetry"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -232,8 +233,8 @@
           "alts": ["drift", "drifts", "drifting"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -251,8 +252,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -263,8 +264,8 @@
           "alts": ["federal customer data"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -278,8 +279,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -299,8 +300,8 @@
           "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -317,8 +318,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -328,8 +329,8 @@
           "alts": ["security inbox", "security inboxes", "FSI"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -345,8 +346,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -360,8 +361,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -371,8 +372,8 @@
           "alts": ["handle", "handles", "handled", "handling"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -385,8 +386,8 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapII-sec3552",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -400,8 +401,8 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -411,8 +412,8 @@
           "alts": ["initial certification", "initial certifications"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -423,8 +424,8 @@
           "alts": ["initial FedRAMP assessment", "IFRA"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -440,8 +441,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -464,8 +465,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -483,8 +484,8 @@
           "reference_url": "https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -494,8 +495,8 @@
           "alts": ["likely", "likelihood"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -517,8 +518,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -529,8 +530,8 @@
           "alts": ["limited adverse effect", "limited adverse effects"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -542,8 +543,8 @@
           "alts": ["machine-based", "machine based"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -553,8 +554,8 @@
           "alts": ["machine-generated"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -566,8 +567,8 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -578,8 +579,8 @@
           "alts": ["negligible adverse effect", "negligible adverse effects"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -589,8 +590,8 @@
           "alts": ["ongoing certification", "ongoing certifications"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -600,8 +601,8 @@
           "alts": ["ongoing certification report", "OCR", "OCRs"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -617,8 +618,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -629,8 +630,8 @@
           "alts": ["overdue vulnerability", "overdue vulnerabilities"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -644,8 +645,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -656,8 +657,8 @@
           "alts": ["persistent FedRAMP assessment", "PFRA"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -668,8 +669,8 @@
           "alts": ["persistently", "persistent"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -684,8 +685,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -697,8 +698,8 @@
           "alts": ["privileged account", "privileged accounts"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -709,8 +710,8 @@
           "alts": ["promptly", "prompt"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -727,8 +728,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -738,8 +739,8 @@
           "alts": ["quarterly review", "quarterly reviews"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -749,8 +750,8 @@
           "alts": ["regularly", "regular"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -761,8 +762,8 @@
           "alts": ["remediated vulnerability", "remediated vulnerabilities"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -773,8 +774,8 @@
           "alts": ["responsibly"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -789,8 +790,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -802,8 +803,8 @@
           "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -814,8 +815,8 @@
           "alts": ["serious adverse effect", "serious adverse effects"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -828,8 +829,8 @@
           "reference_url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -843,8 +844,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -859,8 +860,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -876,8 +877,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -888,8 +889,8 @@
           "alts": ["trust center", "trust centers"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -902,8 +903,8 @@
           "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -916,8 +917,8 @@
           "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -930,8 +931,8 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title6/USCODE-2024-title6-chap1-subchapXVIII-sec650",
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -949,8 +950,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -968,8 +969,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         }
@@ -982,12 +983,13 @@
         "name": "Certification Data Sharing",
         "short_name": "CDS",
         "web_name": "certification-data-sharing",
+        "status": "stable",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -1069,8 +1071,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1095,8 +1097,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1114,8 +1116,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1127,8 +1129,8 @@
               "terms": ["Certification Data", "Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1165,8 +1167,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1196,8 +1198,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1241,8 +1243,8 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -1261,8 +1263,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1281,8 +1283,8 @@
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1301,8 +1303,8 @@
               "terms": ["Agency", "Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1321,8 +1323,8 @@
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1338,8 +1340,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1362,8 +1364,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -1389,8 +1391,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1410,8 +1412,8 @@
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1432,8 +1434,8 @@
               "terms": ["Agency", "Certification Data", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -1464,8 +1466,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1513,8 +1515,8 @@
               "terms": ["Certification Data", "Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -1527,12 +1529,13 @@
         "name": "Collaborative Continuous Monitoring",
         "short_name": "CCM",
         "web_name": "collaborative-continuous-monitoring",
+        "status": "stable",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -1580,8 +1583,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1608,8 +1611,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1629,8 +1632,8 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1648,8 +1651,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1668,8 +1671,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1696,8 +1699,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -1730,8 +1733,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1748,8 +1751,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1767,8 +1770,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1786,8 +1789,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1805,8 +1808,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1824,8 +1827,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1844,8 +1847,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -1889,8 +1892,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1906,8 +1909,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1919,8 +1922,8 @@
               "terms": ["Certification Data", "Provider", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1937,8 +1940,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1956,8 +1959,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1969,8 +1972,8 @@
               "terms": ["Agency", "Provider", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -1986,8 +1989,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2006,8 +2009,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2026,8 +2029,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2045,8 +2048,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -2059,6 +2062,7 @@
         "name": "FedRAMP Security Inbox",
         "short_name": "FSI",
         "web_name": "fedramp-security-inbox",
+        "status": "stable",
         "effective": {
           "both": {
             "is": "required",
@@ -2093,8 +2097,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2112,8 +2116,8 @@
               "terms": ["FedRAMP Security Inbox", "Incident", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2124,8 +2128,8 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2150,8 +2154,8 @@
               "terms": ["Likely"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2162,8 +2166,8 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2186,8 +2190,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2198,8 +2202,8 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2211,8 +2215,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -2231,8 +2235,8 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2255,8 +2259,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2268,8 +2272,8 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2282,8 +2286,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2296,8 +2300,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2310,8 +2314,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2324,8 +2328,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2337,8 +2341,8 @@
               "terms": ["FedRAMP Security Inbox", "Promptly", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -2351,12 +2355,13 @@
         "name": "Incident Communications Procedures",
         "short_name": "ICP",
         "web_name": "incident-communications-procedures",
+        "status": "placeholder",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -2398,8 +2403,8 @@
               "terms": ["Incident", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -2434,8 +2439,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2455,8 +2460,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2485,8 +2490,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2512,8 +2517,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2534,8 +2539,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2566,8 +2571,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2599,8 +2604,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -2618,8 +2623,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3015,12 +3020,13 @@
         "name": "Minimum Assessment Scope",
         "short_name": "MAS",
         "web_name": "minimum-assessment-scope",
+        "status": "stable",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -3068,8 +3074,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3089,8 +3095,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3115,8 +3121,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3132,8 +3138,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3153,8 +3159,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3167,12 +3173,13 @@
         "name": "Marketplace Listing",
         "short_name": "MKT",
         "web_name": "marketplace-listing",
+        "status": "placeholder",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -3220,8 +3227,8 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3235,8 +3242,8 @@
               "terms": ["Cloud Service Offering"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3250,8 +3257,8 @@
               "terms": ["Advisor", "Assessor", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3279,8 +3286,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3294,8 +3301,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3309,8 +3316,8 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3328,8 +3335,8 @@
               "terms": ["Assessor", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3341,8 +3348,8 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3362,8 +3369,8 @@
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3375,8 +3382,8 @@
               "terms": ["Advisor"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3393,8 +3400,8 @@
               "terms": ["Advisor"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3409,8 +3416,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3423,8 +3430,8 @@
               "terms": ["Ongoing Certification", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3439,8 +3446,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3453,6 +3460,7 @@
         "name": "Secure Configuration Guide",
         "short_name": "SCG",
         "web_name": "secure-configuration-guide",
+        "status": "stable",
         "effective": {
           "both": {
             "is": "required",
@@ -3500,8 +3508,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3514,8 +3522,8 @@
               "terms": ["Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3527,8 +3535,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3544,8 +3552,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3563,8 +3571,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3576,8 +3584,8 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3589,8 +3597,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3602,8 +3610,8 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3619,8 +3627,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3633,12 +3641,13 @@
         "name": "Significant Change Notifications",
         "short_name": "SCN",
         "web_name": "significant-change-notifications",
+        "status": "stable",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -3689,8 +3698,8 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3709,8 +3718,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3742,8 +3751,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3755,8 +3764,8 @@
               "terms": ["Certification Data", "Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3769,8 +3778,8 @@
               "terms": ["Machine-Readable", "Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3783,8 +3792,8 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3800,8 +3809,8 @@
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3821,8 +3830,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -3848,8 +3857,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3903,8 +3912,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3960,8 +3969,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -3989,8 +3998,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4015,8 +4024,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4041,8 +4050,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4075,8 +4084,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4095,8 +4104,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4133,8 +4142,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4147,12 +4156,13 @@
         "name": "Using Cryptographic Modules",
         "short_name": "UCM",
         "web_name": "using-cryptographic-modules",
+        "status": "placeholder",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -4185,8 +4195,8 @@
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4214,8 +4224,8 @@
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4227,8 +4237,8 @@
               "terms": ["Agency", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4241,12 +4251,13 @@
         "name": "Vulnerability Detection and Response",
         "short_name": "VDR",
         "web_name": "vulnerability-detection-and-response",
+        "status": "stable",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -4304,8 +4315,8 @@
               "terms": ["Agency", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4322,8 +4333,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4344,8 +4355,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4366,8 +4377,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4388,8 +4399,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4407,8 +4418,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4428,8 +4439,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4449,8 +4460,8 @@
               "terms": ["Agency", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4470,8 +4481,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4488,8 +4499,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4506,8 +4517,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4524,8 +4535,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4543,8 +4554,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4562,8 +4573,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4589,8 +4600,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4615,8 +4626,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4646,8 +4657,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4666,8 +4677,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4685,8 +4696,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4715,8 +4726,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4740,8 +4751,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4759,8 +4770,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4800,8 +4811,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4837,8 +4848,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4856,8 +4867,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4869,8 +4880,8 @@
               "terms": ["Likely", "Provider", "Responsibly", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -4892,8 +4903,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4907,8 +4918,8 @@
               "terms": ["Accepted Vulnerability", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4926,8 +4937,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -4971,8 +4982,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5015,8 +5026,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5060,8 +5071,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5105,8 +5116,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5142,8 +5153,8 @@
               "terms": ["Provider", "Vulnerability", "Vulnerability Detection"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5460,8 +5471,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5473,8 +5484,8 @@
               "terms": ["Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5509,8 +5520,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5545,8 +5556,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -5559,12 +5570,13 @@
         "name": "FedRAMP Certification",
         "short_name": "FRC",
         "web_name": "fedramp-certification",
+        "status": "placeholder",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-05-04",
               "grace_ends": "2027-05-04"
             }
@@ -5633,8 +5645,8 @@
               "terms": ["Cloud Service Offering", "Ongoing Certification"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5651,8 +5663,8 @@
               "terms": [],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -5679,8 +5691,8 @@
               "terms": ["Certification Data", "Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5694,8 +5706,8 @@
               "terms": ["Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5709,8 +5721,8 @@
               "terms": ["FedRAMP Security Inbox", "Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5724,8 +5736,8 @@
               "terms": ["Incident", "Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5770,8 +5782,8 @@
               "terms": ["Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5785,8 +5797,8 @@
               "terms": ["Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5819,8 +5831,8 @@
               "terms": ["Persistently", "Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5834,8 +5846,8 @@
               "terms": ["Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5899,8 +5911,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5913,8 +5925,8 @@
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5934,8 +5946,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5955,8 +5967,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -5974,8 +5986,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6024,8 +6036,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6037,8 +6049,8 @@
               "terms": ["Assessor", "Provider", "Validation", "Verification"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6056,8 +6068,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6077,8 +6089,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6090,8 +6102,8 @@
               "terms": ["Assessor", "Provider", "Validation", "Verification"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6104,8 +6116,8 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6117,8 +6129,8 @@
               "terms": ["Assessor", "Validation", "Verification"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6134,8 +6146,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6154,8 +6166,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6167,8 +6179,8 @@
               "terms": ["Assessor", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6186,8 +6198,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6206,8 +6218,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6223,8 +6235,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6261,8 +6273,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6281,8 +6293,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6297,8 +6309,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6312,8 +6324,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6331,8 +6343,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6344,8 +6356,8 @@
               "terms": ["Provider", "Validation", "Verification"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6359,8 +6371,8 @@
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6388,8 +6400,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6401,8 +6413,8 @@
               "terms": ["Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6438,8 +6450,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6453,8 +6465,8 @@
               "terms": ["Artifacts", "Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6479,8 +6491,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6506,8 +6518,8 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6524,8 +6536,8 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6567,8 +6579,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6581,8 +6593,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6600,8 +6612,8 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6614,12 +6626,13 @@
         "name": "Security Decision Record",
         "short_name": "SDR",
         "web_name": "security-decision-record",
+        "status": "empty",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -6661,12 +6674,13 @@
         "name": "Independent Assessment Plan",
         "short_name": "IAP",
         "web_name": "independent-assessment-plan",
+        "status": "empty",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -6720,12 +6734,13 @@
         "name": "Independent Assessment Report",
         "short_name": "IAR",
         "web_name": "independent-assessment-report",
+        "status": "empty",
         "effective": {
           "20x": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-05-04",
+              "obtain": "2026-07-04",
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
@@ -6776,17 +6791,18 @@
     },
     "AGU": {
       "info": {
-        "name": "Agency Use of FedRAMP Certified Cloud Services THESE HAVE NOT BEEN REVIEWED AFTER IMPORTANT FROM GOOGLE DOCS",
+        "name": "Agency Use of FedRAMP Certified Cloud Services (Needs Review)",
         "short_name": "AGU",
         "web_name": "agency-use",
+        "status": "placeholder",
         "effective": {
           "both": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
-              "obtain": "2026-06-01",
-              "maintain": "2026-06-01",
-              "grace_ends": "2026-06-01"
+              "obtain": "2026-07-04",
+              "maintain": "2026-07-04",
+              "grace_ends": "2026-07-04"
             }
           }
         },
@@ -6816,8 +6832,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6836,8 +6852,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6853,8 +6869,8 @@
               "terms": ["Agency", "Artifacts", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6866,8 +6882,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6885,8 +6901,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6910,8 +6926,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6923,8 +6939,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6936,8 +6952,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6949,8 +6965,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6963,8 +6979,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -6978,8 +6994,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -6991,8 +7007,8 @@
               "terms": ["Agency", "Certification Package", "FedRAMP Certified"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7004,8 +7020,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7017,8 +7033,8 @@
               "terms": ["Agency", "Certification Package"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7030,8 +7046,8 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7043,8 +7059,8 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7057,8 +7073,8 @@
               "terms": ["Agency", "Cloud Service Offering"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7078,8 +7094,8 @@
               "terms": ["Agency", "Cloud Service Offering", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7091,8 +7107,8 @@
               "terms": ["Agency", "Quarterly Review", "Security Category"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7104,8 +7120,8 @@
               "terms": ["Agency", "Cloud Service Offering", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7129,8 +7145,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7147,8 +7163,8 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -7162,8 +7178,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
@@ -7175,8 +7191,8 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-01",
-                  "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
@@ -7191,6 +7207,7 @@
       "name": "Change Management",
       "web_name": "change-management",
       "short_name": "CMT",
+      "status": "stable",
       "indicators": {
         "KSI-CMT-LMC": {
           "name": "Logging Changes",
@@ -7206,8 +7223,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Cloud Service Offering"]
@@ -7226,8 +7243,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7241,8 +7258,8 @@
           "controls": ["cm-3", "cm-3.2", "cm-3.4", "cm-5", "cm-7.1", "cm-9"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7253,8 +7270,8 @@
           "controls": ["cm-3", "cm-3.2", "cm-4.2", "si-2"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently", "Validation"]
@@ -7266,6 +7283,7 @@
       "name": "Cloud Native Architecture",
       "web_name": "cloud-native-architecture",
       "short_name": "CNA",
+      "status": "stable",
       "indicators": {
         "KSI-CNA-DFP": {
           "name": "Defining Functionality and Privileges",
@@ -7273,8 +7291,8 @@
           "controls": ["cm-2", "si-3"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -7283,8 +7301,8 @@
           "controls": ["ca-2.1", "ca-7.1"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "varies_by_class": {
@@ -7307,8 +7325,8 @@
           "controls": ["ac-17.3", "cm-2", "pl-10"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7339,8 +7357,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7355,8 +7373,8 @@
           "controls": [],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7371,8 +7389,8 @@
           "controls": ["ac-17.3", "ca-9", "cm-7.1", "sc-7.5", "si-8"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7387,8 +7405,8 @@
           "controls": ["sc-5", "si-8", "si-8.2"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7412,8 +7430,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7425,6 +7443,7 @@
       "name": "Cybersecurity Education",
       "web_name": "cybersecurity-education",
       "short_name": "CED",
+      "status": "stable",
       "indicators": {
         "KSI-CED-RAT": {
           "name": "Reviewing All Training",
@@ -7444,8 +7463,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Incident", "Persistently", "Vulnerability Response"]
@@ -7457,6 +7476,7 @@
       "name": "Identity and Access Management",
       "web_name": "identity-and-access-management",
       "short_name": "IAM",
+      "status": "stable",
       "indicators": {
         "KSI-IAM-AAM": {
           "name": "Automating Account Management",
@@ -7474,8 +7494,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -7499,8 +7519,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -7545,8 +7565,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7596,8 +7616,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7616,8 +7636,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7636,8 +7656,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Vulnerability Response"]
@@ -7649,6 +7669,7 @@
       "name": "Incident Response",
       "web_name": "incident-response",
       "short_name": "INR",
+      "status": "stable",
       "indicators": {
         "KSI-INR-AAR": {
           "name": "Generating After Action Reports",
@@ -7656,8 +7677,8 @@
           "controls": ["ir-3", "ir-4", "ir-4.1", "ir-8"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Incident", "Persistently"]
@@ -7679,8 +7700,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Incident", "Persistently", "Vulnerability Response"]
@@ -7691,8 +7712,8 @@
           "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5", "ir-8"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Incident", "Persistently", "Vulnerability"]
@@ -7704,14 +7725,15 @@
       "name": "Monitoring, Logging, and Auditing",
       "web_name": "monitoring-logging-and-auditing",
       "short_name": "MLA",
+      "status": "stable",
       "indicators": {
         "KSI-MLA-ALA": {
           "name": "Authorizing Log Access",
           "controls": ["si-11"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "varies_by_class": {
@@ -7730,8 +7752,8 @@
           "controls": ["ca-7", "cm-2", "cm-6", "si-7.7"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7757,8 +7779,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Information Resource", "Persistently"]
@@ -7788,8 +7810,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7808,8 +7830,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7821,6 +7843,7 @@
       "name": "Policy and Inventory",
       "web_name": "policy-and-inventory",
       "short_name": "PIY",
+      "status": "stable",
       "indicators": {
         "KSI-PIY-GIV": {
           "name": "Generating Inventories",
@@ -7836,8 +7859,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Information Resource"]
@@ -7848,8 +7871,8 @@
           "controls": [],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently", "Provider"]
@@ -7870,8 +7893,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently", "Provider"]
@@ -7895,8 +7918,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7907,8 +7930,8 @@
           "controls": ["ra-5.11"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently", "Provider", "Vulnerability"]
@@ -7920,6 +7943,7 @@
       "name": "Recovery Planning",
       "web_name": "recovery-planning",
       "short_name": "RPL",
+      "status": "stable",
       "indicators": {
         "KSI-RPL-ABO": {
           "name": "Aligning Backups with Objectives",
@@ -7927,8 +7951,8 @@
           "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2", "si-12"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -7960,8 +7984,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -7972,8 +7996,8 @@
           "controls": ["cp-2.3", "cp-10"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently", "Provider"]
@@ -7995,8 +8019,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Incident", "Persistently"]
@@ -8008,6 +8032,7 @@
       "name": "Service Configuration",
       "web_name": "service-configuration",
       "short_name": "SVC",
+      "status": "stable",
       "indicators": {
         "KSI-SVC-ACM": {
           "name": "Automating Configuration Management",
@@ -8027,8 +8052,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -8044,8 +8069,8 @@
           "controls": ["ac-17.2", "ia-5.2", "ia-5.6", "sc-12", "sc-17"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently", "Regularly"]
@@ -8066,8 +8091,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Information Resource", "Persistently"]
@@ -8077,8 +8102,8 @@
           "controls": ["sc-4"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "varies_by_class": {
@@ -8101,8 +8126,8 @@
           "controls": ["si-12.3", "si-18.4"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "varies_by_class": {
@@ -8132,8 +8157,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ]
         },
@@ -8142,8 +8167,8 @@
           "controls": ["sc-23", "si-7.1"],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "varies_by_class": {
@@ -8175,8 +8200,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": [
@@ -8192,6 +8217,7 @@
       "name": "Supply Chain Risk",
       "web_name": "supply-chain-risk",
       "short_name": "SCR",
+      "status": "stable",
       "indicators": {
         "KSI-SCR-MIT": {
           "name": "Mitigating Supply Chain Risk",
@@ -8212,8 +8238,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Persistently"]
@@ -8235,8 +8261,8 @@
           ],
           "updated": [
             {
-              "date": "2026-06-01",
-              "comment": "Revisited and baselined against the Consolidated Rules for 2026."
+              "date": "2026-05-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
             }
           ],
           "terms": ["Information Resource", "Vulnerability"]

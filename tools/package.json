@@ -9,6 +9,7 @@
     "fix": "bun run fix.ts",
     "summary": "bun run summary.ts",
     "test:fix": "bun test tests/fix.test.ts",
+    "test:formatting": "bun test tests/formatting.test.ts",
     "test:schema": "bun test tests/schema.test.ts",
     "test:schema-validation": "bun test tests/schema-validation.test.ts",
     "test:ids": "bun test tests/id-alignment.test.ts",
@@ -28,7 +29,8 @@
     "ajv-formats": "^3.0.1"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prettier": "^3.8.3"
   },
   "peerDependencies": {
     "typescript": "^5"

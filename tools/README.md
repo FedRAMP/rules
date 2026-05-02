@@ -74,6 +74,7 @@ human-readable summary after the regular Bun output.
 This is the main repo verification command. It covers:
 
 - schema correctness
+- Prettier formatting for the consolidated rules JSON and schema JSON files
 - ID alignment
 - full ID/container alignment across FRD, FRR, and KSI
 - FRR label declaration consistency
@@ -146,6 +147,9 @@ aliases when you want to narrow the scope.
 
 - `bun run test:fix`
   Runs only the auto-fix planning and application tests.
+- `bun run test:formatting`
+  Runs only the Prettier formatting checks for the consolidated rules JSON and
+  schema JSON files.
 - `bun run test:schema`
   Runs only the schema test file.
 - `bun run test:schema-validation`

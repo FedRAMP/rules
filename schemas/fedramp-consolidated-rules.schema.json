@@ -46,12 +46,20 @@
       "patternProperties": {
         "^[A-Z]{3}$": {
           "type": "object",
-          "required": ["id", "name", "web_name", "short_name", "indicators"],
+          "required": [
+            "id",
+            "name",
+            "web_name",
+            "short_name",
+            "status",
+            "indicators"
+          ],
           "properties": {
             "id": { "type": "string", "pattern": "^KSI-[A-Z]{3}$" },
             "name": { "type": "string" },
             "web_name": { "type": "string" },
             "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
+            "status": { "$ref": "#/$defs/document_status" },
             "indicators": {
               "type": "object",
               "patternProperties": {
@@ -72,22 +80,31 @@
   "$defs": {
     "frd_document_info": {
       "type": "object",
-      "required": ["name", "short_name", "web_name", "effective"],
+      "required": ["name", "short_name", "web_name", "status", "effective"],
       "properties": {
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
+        "status": { "$ref": "#/$defs/document_status" },
         "effective": { "$ref": "#/$defs/effective_map" }
       },
       "additionalProperties": false
     },
     "frr_document_info": {
       "type": "object",
-      "required": ["name", "short_name", "web_name", "effective", "labels"],
+      "required": [
+        "name",
+        "short_name",
+        "web_name",
+        "status",
+        "effective",
+        "labels"
+      ],
       "properties": {
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
+        "status": { "$ref": "#/$defs/document_status" },
         "effective": { "$ref": "#/$defs/effective_map" },
         "labels": {
           "type": "object",
@@ -96,6 +113,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "document_status": {
+      "type": "string",
+      "enum": ["stable", "placeholder", "empty"]
     },
     "frr_data_label_name": {
       "enum": [
