@@ -5,13 +5,16 @@ consolidated rules repository.
 
 The tooling now follows a simpler shape:
 
+- `bun run check` runs the full pre-commit verification suite
 - `bun run test` checks the dataset and the tooling behavior
+- `bun run typecheck` checks the TypeScript project configuration
 - `bun run fix` applies the fixable normalizations
 - `bun run summary` regenerates derived output files
 
 All shared implementation lives under
-[tools/src](/Users/pwx/github/pete-gov/rules/tools/src), and the only primary
+[tools/src](/Users/pwx/github/pete-gov/rules/tools/src), and the primary
 TypeScript entrypoints at the top of `tools` are
+[test.ts](/Users/pwx/github/pete-gov/rules/tools/test.ts:1),
 [fix.ts](/Users/pwx/github/pete-gov/rules/tools/fix.ts:1) and
 [summary.ts](/Users/pwx/github/pete-gov/rules/tools/summary.ts:1).
 
@@ -31,7 +34,7 @@ bun run hooks:install
 
 This configures
 [`.githooks/pre-commit`](/Users/pwx/github/pete-gov/rules/.githooks/pre-commit:1)
-to run `bun test` from `tools`.
+to run `bun run check` from `tools`.
 
 ## Configuration
 
@@ -48,24 +51,50 @@ truth for checking, fixing, and summary generation.
 
 ## Core Workflow
 
-Most day-to-day work should use these three commands:
+Most day-to-day work should use these commands:
+
+### `bun run check`
+
+Runs the full pre-commit verification suite:
+
+1. `bun run typecheck`
+2. `bun run test`
+
+This is the command used by the repository pre-commit hook. Use it before
+committing changes to rules, schema, tests, or tooling.
 
 ### `bun run test`
 
-Runs the Bun test suite in
-[tools/tests](/Users/pwx/github/pete-gov/rules/tools/tests).
+Runs the test runner in
+[test.ts](/Users/pwx/github/pete-gov/rules/tools/test.ts:1), which runs the
+Bun test suite in [tools/tests](/Users/pwx/github/pete-gov/rules/tools/tests).
+When consistency validation fails, the runner also prints a final
+human-readable summary after the regular Bun output.
 
 This is the main repo verification command. It covers:
 
 - schema correctness
 - ID alignment
+- full ID/container alignment across FRD, FRR, and KSI
+- FRR label declaration consistency
 - primary keyword correctness
 - term title casing and term synchronization
 - schema-driven property order
+- non-empty and ordered audit history
+- text hygiene
+- class-variant statement sanity
+- controlled vocabulary consistency
+- deterministic FRD term lookup
+- internal cross-reference integrity
 - auto-fix behavior
 - summary rendering behavior
 
 Use this before and after editing the rules, schema, or tooling.
+
+### `bun run typecheck`
+
+Runs `tsc --noEmit` against the TypeScript project configuration. This catches
+type and configuration errors that may not surface during Bun's runtime tests.
 
 ### `bun run fix`
 
@@ -103,9 +132,9 @@ through the current `rules` summary scope.
 ## Common Developer Flow
 
 1. Edit the rules JSON, schema, or tooling.
-2. Run `bun run test`.
+2. Run `bun run check`.
 3. If the failure is fixable, run `bun run fix`.
-4. Run `bun run test` again.
+4. Run `bun run check` again.
 5. If your change affects generated output, run `bun run summary`.
 
 ## Focused Commands
@@ -115,8 +144,12 @@ aliases when you want to narrow the scope.
 
 ### Focused Tests
 
+- `bun run test:fix`
+  Runs only the auto-fix planning and application tests.
 - `bun run test:schema`
   Runs only the schema test file.
+- `bun run test:schema-validation`
+  Runs only the schema error-formatting tests.
 - `bun run test:ids`
   Runs only the ID-alignment test file.
 - `bun run test:keywords`
@@ -125,6 +158,10 @@ aliases when you want to narrow the scope.
   Runs only the term-related test file.
 - `bun run test:order`
   Runs only the property-order test file.
+- `bun run test:summary`
+  Runs only the summary-rendering test file.
+- `bun run test:consistency`
+  Runs only the consolidated consistency validation report test.
 
 These are all thin aliases around Bun test files. They do not rely on separate
 validation entrypoint scripts.
@@ -156,6 +193,8 @@ bun run fix:order -- --output ./fedramp-consolidated-rules.ordered.json
 
 ### Primary Entrypoints
 
+- [test.ts](/Users/pwx/github/pete-gov/rules/tools/test.ts:1)
+  Test runner used by `bun run test`, including final consistency summaries.
 - [fix.ts](/Users/pwx/github/pete-gov/rules/tools/fix.ts:1)
   Single CLI entrypoint for all fix flows.
 - [summary.ts](/Users/pwx/github/pete-gov/rules/tools/summary.ts:1)
@@ -169,6 +208,8 @@ bun run fix:order -- --output ./fedramp-consolidated-rules.ordered.json
   Loads, clones, and writes the configured rules and schema documents.
 - [src/fix.ts](/Users/pwx/github/pete-gov/rules/tools/src/fix.ts:1)
   Shared fix planning and fix application logic.
+- [src/consistency.ts](/Users/pwx/github/pete-gov/rules/tools/src/consistency.ts:1)
+  Read-only consistency validation checks and human-readable reporting.
 - [src/schema-validation.ts](/Users/pwx/github/pete-gov/rules/tools/src/schema-validation.ts:1)
   Schema test logic.
 - [src/id-alignment.ts](/Users/pwx/github/pete-gov/rules/tools/src/id-alignment.ts:1)

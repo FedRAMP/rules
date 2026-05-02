@@ -74,7 +74,7 @@ function titleCaseWord(word: string): string {
     return word;
   }
 
-  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+  return word[0]!.toUpperCase() + word.slice(1).toLowerCase();
 }
 
 export function toDefaultTitleCase(term: string): string {

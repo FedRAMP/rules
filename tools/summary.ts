@@ -7,10 +7,11 @@ if (scopeValue && !isSummaryScope(scopeValue)) {
   process.exit(1);
 }
 
-const completedScopes = runSummaries(scopeValue);
+const scope = scopeValue && isSummaryScope(scopeValue) ? scopeValue : undefined;
+const completedScopes = runSummaries(scope);
 
 if (completedScopes.length === 1) {
-  console.log(green(`Completed ${completedScopes[0]} summary successfully.`));
+  console.log(green(`Completed ${completedScopes[0]!} summary successfully.`));
   process.exit(0);
 }
 

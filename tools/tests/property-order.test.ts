@@ -73,7 +73,7 @@ test("property order fixes use schema property order as the source of truth", ()
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(1);
-  expect(Object.keys(fixed.document.FRD.data.both["FRD-TST"])).toEqual([
+  expect(Object.keys(fixed.document.FRD.data.both!["FRD-TST"]!)).toEqual([
     "term",
     "alts",
     "definition",
@@ -122,7 +122,7 @@ test("property order fixes sort FRD shared definitions by term instead of ID", (
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(1);
-  expect(Object.keys(fixed.document.FRD.data.both)).toEqual(["FRD-ZZZ", "FRD-MMM", "FRD-AAA"]);
+  expect(Object.keys(fixed.document.FRD.data.both!)).toEqual(["FRD-ZZZ", "FRD-MMM", "FRD-AAA"]);
 });
 
 test("property order fixes use schema propertyNames enum order for FRR labels and label groups", () => {
@@ -233,8 +233,8 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(2);
-  expect(Object.keys(fixed.document.FRR.ABC.info.labels)).toEqual(["FRP", "CSX", "UTC", "IAL"]);
-  expect(Object.keys(fixed.document.FRR.ABC.data.both)).toEqual(["FRP", "CSX", "UTC"]);
+  expect(Object.keys(fixed.document.FRR.ABC!.info.labels as object)).toEqual(["FRP", "CSX", "UTC", "IAL"]);
+  expect(Object.keys(fixed.document.FRR.ABC!.data.both!)).toEqual(["FRP", "CSX", "UTC"]);
 });
 
 test("property order fixes follow schema order for referenced data containers", () => {
@@ -314,6 +314,6 @@ test("property order fixes follow schema order for referenced data containers", 
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(1);
-  expect(Object.keys(fixed.document.FRR.ABC.data)).toEqual(["both", "20x", "rev5"]);
-  expect(Object.keys(fixed.document.FRR.ABC.info.effective)).toEqual(["rev5", "20x"]);
+  expect(Object.keys(fixed.document.FRR.ABC!.data)).toEqual(["both", "20x", "rev5"]);
+  expect(Object.keys(fixed.document.FRR.ABC!.info.effective as object)).toEqual(["rev5", "20x"]);
 });

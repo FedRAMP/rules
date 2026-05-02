@@ -4,6 +4,6 @@ set -eu
 
 repo_root="$(git rev-parse --show-toplevel)"
 
-echo "Running bun test from $repo_root/tools"
+echo "Running bun check from $repo_root/tools"
 cd "$repo_root/tools"
-bun run test
+bun run check
