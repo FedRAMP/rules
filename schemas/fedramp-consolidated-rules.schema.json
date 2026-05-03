@@ -80,11 +80,19 @@
   "$defs": {
     "frd_document_info": {
       "type": "object",
-      "required": ["name", "short_name", "web_name", "status", "effective"],
+      "required": [
+        "name",
+        "short_name",
+        "web_name",
+        "purpose",
+        "status",
+        "effective"
+      ],
       "properties": {
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
+        "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
         "effective": { "$ref": "#/$defs/effective_map" }
       },
@@ -96,6 +104,7 @@
         "name",
         "short_name",
         "web_name",
+        "purpose",
         "status",
         "effective",
         "labels"
@@ -104,6 +113,7 @@
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
+        "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
         "effective": { "$ref": "#/$defs/effective_map" },
         "labels": {
