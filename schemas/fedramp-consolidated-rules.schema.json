@@ -257,6 +257,7 @@
         },
         "tag": { "type": "string" },
         "alts": { "type": "array", "items": { "type": "string" } },
+        "do_not_link": { "type": "boolean" },
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "referenceurl": { "type": "string", "format": "uri" },
