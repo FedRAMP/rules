@@ -1264,6 +1264,32 @@
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
+            },
+            "CDS-CSO-RPS": {
+              "name": "Responsible Public Sharing",
+              "statement": "Providers MAY responsibly share some or all of the information in a FedRAMP Certification Package publicly or with other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
+              "primary_key_word": "MAY",
+              "affects": ["Providers"],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                    "Explanation of if and how this information is shared with other parties."
+                  ]
+                }
+              },
+              "terms": [
+                "Certification Package",
+                "Cloud Service Offering",
+                "Likely",
+                "Provider",
+                "Responsibly"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
             }
           },
           "TRC": {
