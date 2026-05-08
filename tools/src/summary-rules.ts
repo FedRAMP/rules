@@ -10,6 +10,8 @@ const DEFAULT_KEYWORD_ORDER = ["MUST", "MUST NOT", "SHOULD", "SHOULD NOT", "MAY"
 interface ProcessSummary {
   shortName: string;
   name: string;
+  documentStatus: string;
+  requirementCount: number;
   rev5Status: string;
   rev5ObtainDate: string;
   rev5MaintainDate: string;
@@ -88,10 +90,12 @@ function getEffectiveDate(
 function summarizeProcess(shortName: string, process: RulesDocument["FRR"][string]): ProcessSummary {
   const keywordCounts = new Map<string, number>();
   let latestUpdated: string | null = null;
+  let requirementCount = 0;
 
   for (const labelGroups of Object.values(process.data)) {
     for (const rulesById of Object.values(labelGroups)) {
       for (const requirement of Object.values(rulesById as Record<string, Requirement>)) {
+        requirementCount += 1;
         incrementKeywordCount(keywordCounts, requirement.primary_key_word);
 
         for (const classVariant of Object.values(requirement.varies_by_class ?? {})) {
@@ -109,6 +113,8 @@ function summarizeProcess(shortName: string, process: RulesDocument["FRR"][strin
   return {
     shortName,
     name: getInfoString(process.info, ["name"]),
+    documentStatus: getInfoString(process.info, ["status"]),
+    requirementCount,
     rev5Status: getInfoString(process.info, ["effective", "rev5", "current_status"]),
     rev5ObtainDate: getEffectiveDate(process.info, "rev5", "obtain"),
     rev5MaintainDate: getEffectiveDate(process.info, "rev5", "maintain"),
@@ -147,6 +153,8 @@ function renderTable(summaries: ProcessSummary[], keywordColumns: string[]): str
   const header = [
     "Short Name",
     "Name",
+    "Document Status",
+    "Requirements",
     "Rev5 Status",
     "Rev5 Obtain",
     "Rev5 Maintain",
@@ -168,6 +176,8 @@ function renderTable(summaries: ProcessSummary[], keywordColumns: string[]): str
     return [
       escapeTableCell(summary.shortName),
       escapeTableCell(summary.name),
+      escapeTableCell(summary.documentStatus),
+      String(summary.requirementCount),
       escapeTableCell(summary.rev5Status),
       summary.rev5ObtainDate,
       summary.rev5MaintainDate,
@@ -184,17 +194,49 @@ function renderTable(summaries: ProcessSummary[], keywordColumns: string[]): str
   return [header, divider, ...rows].map((row) => `| ${row.join(" | ")} |`).join("\n");
 }
 
+function countFrdDefinitions(document: RulesDocument): number {
+  return Object.values(document.FRD.data).reduce(
+    (count, definitions) => count + Object.keys(definitions).length,
+    0,
+  );
+}
+
+function countKsiIndicators(document: RulesDocument): number {
+  return Object.values(document.KSI).reduce(
+    (count, theme) => count + Object.keys(theme.indicators).length,
+    0,
+  );
+}
+
 export function buildRulesSummaryMarkdown(document: RulesDocument): string {
   const summaries = Object.entries(document.FRR)
     .map(([shortName, process]) => summarizeProcess(shortName, process))
     .sort((left, right) => left.shortName.localeCompare(right.shortName));
   const keywordColumns = getKeywordColumns(summaries);
   const table = renderTable(summaries, keywordColumns);
+  const requirementCount = summaries.reduce(
+    (count, summary) => count + summary.requirementCount,
+    0,
+  );
 
   return [
     "# FedRAMP Rules Summary",
     "",
     `Generated from \`fedramp-consolidated-rules.json\` (version ${document.info.version}, last updated ${document.info.last_updated}).`,
+    "",
+    "`fedramp-consolidated-rules.json` is the source of truth for the Consolidated Rules for 2026 Public Preview. This file is generated for quick review; update the JSON and run `bun run summary` from `tools` to refresh it.",
+    "",
+    "## Dataset Overview",
+    "",
+    `- ${countFrdDefinitions(document)} FRD definitions`,
+    `- ${summaries.length} FRR process documents`,
+    `- ${requirementCount} FRR requirement records`,
+    `- ${Object.keys(document.KSI).length} KSI themes`,
+    `- ${countKsiIndicators(document)} KSI indicators`,
+    "",
+    "## FRR Process Summary",
+    "",
+    "Requirement counts are the leaf records under each `FRR.*.data` tree. Keyword counts include top-level requirements and class-specific variants when a requirement uses `varies_by_class`.",
     "",
     table,
     "",

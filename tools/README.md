@@ -1,144 +1,147 @@
-# Tools
+# FedRAMP Rules Tooling
 
-This directory contains the Bun and TypeScript tooling for the FedRAMP
-consolidated rules repository.
+This directory contains the Bun and TypeScript tooling used to maintain the
+FedRAMP Consolidated Rules dataset.
 
-The tooling now follows a simpler shape:
+The tools validate, normalize, test, and summarize the canonical files:
 
-- `bun run test` checks the dataset and the tooling behavior
-- `bun run fix` applies the fixable normalizations
-- `bun run summary` regenerates derived output files
+- [../fedramp-consolidated-rules.json](../fedramp-consolidated-rules.json)
+- [../schemas/fedramp-consolidated-rules.schema.json](../schemas/fedramp-consolidated-rules.schema.json)
 
-All shared implementation lives under
-[tools/src](/Users/pwx/github/pete-gov/rules/tools/src), and the only primary
-TypeScript entrypoints at the top of `tools` are
-[fix.ts](/Users/pwx/github/pete-gov/rules/tools/fix.ts:1) and
-[summary.ts](/Users/pwx/github/pete-gov/rules/tools/summary.ts:1).
+The tooling is support infrastructure. It does not define the rules; the JSON
+dataset and schema do.
 
 ## Setup
 
-From [tools](/Users/pwx/github/pete-gov/rules/tools):
+From this directory:
 
 ```bash
 bun install
 ```
 
-Install the repo Git hooks:
+Install the repository Git hooks:
 
 ```bash
 bun run hooks:install
 ```
 
-This configures
-[`.githooks/pre-commit`](/Users/pwx/github/pete-gov/rules/.githooks/pre-commit:1)
-to run `bun test` from `tools`.
+The hook runs `bun run check` before commits.
 
 ## Configuration
 
-All commands read the canonical file locations from
-[fedramp-rules.config.json](/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json:1).
+All commands read canonical file locations from
+[fedramp-rules.config.json](fedramp-rules.config.json).
 
-That config points to:
+Current configuration:
 
-- the consolidated rules JSON file
-- the consolidated rules schema file
+- rules file: `../fedramp-consolidated-rules.json`
+- schema file: `../schemas/fedramp-consolidated-rules.schema.json`
 
-Because every command uses the same config, there is one consistent source of
-truth for checking, fixing, and summary generation.
+Keeping these paths centralized ensures that tests, fixes, and generated output
+operate on the same dataset.
 
-## Core Workflow
+## Primary Commands
 
-Most day-to-day work should use these three commands:
+### `bun run check`
+
+Runs the full local verification suite:
+
+1. `bun run typecheck`
+2. `bun run test`
+
+Use this before committing changes to the rules JSON, schema, tests, or
+tooling.
 
 ### `bun run test`
 
-Runs the Bun test suite in
-[tools/tests](/Users/pwx/github/pete-gov/rules/tools/tests).
+Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 
-This is the main repo verification command. It covers:
-
-- schema correctness
+- schema validity
+- JSON formatting
 - ID alignment
-- primary keyword correctness
-- term title casing and term synchronization
-- schema-driven property order
-- auto-fix behavior
+- FRD, FRR, and KSI container alignment
+- FRR label declaration consistency
+- primary keyword consistency
+- term casing and synchronization
+- schema-driven property ordering
+- update history checks
+- text hygiene
+- class-variant sanity checks
+- controlled vocabulary consistency
+- internal cross-reference integrity
+- fix planning and application behavior
 - summary rendering behavior
 
-Use this before and after editing the rules, schema, or tooling.
+When consistency validation fails, the runner prints a human-readable summary
+after the regular Bun output.
+
+### `bun run typecheck`
+
+Runs `tsc --noEmit` against the TypeScript project.
 
 ### `bun run fix`
 
-Runs the combined fixer in
-[fix.ts](/Users/pwx/github/pete-gov/rules/tools/fix.ts:1).
-
-By default it checks the current rules file for the fixable categories and then
-applies only the fixes that are needed:
+Runs [fix.ts](fix.ts), which plans and applies fixable normalizations:
 
 - term title casing and `terms` synchronization
 - ID alignment
-- property ordering
+- schema-driven property ordering
 
 Useful variants:
 
 ```bash
 bun run fix -- -comment
-bun run fix -- --date 2026-04-19
+bun run fix -- --date 2026-05-04
 ```
 
-`-comment` adds the standard term-sync history comment when term updates are
-written. `--date` overrides the date used for fix metadata.
+`-comment` adds the standard term-sync update comment when term changes are
+written. `--date` overrides the date used in generated fix metadata.
 
 ### `bun run summary`
 
-Runs the combined summary runner in
-[summary.ts](/Users/pwx/github/pete-gov/rules/tools/summary.ts:1).
+Runs [summary.ts](summary.ts) and regenerates derived summary output.
 
-Today this regenerates:
+Current generated output:
 
-- [RULES.md](/Users/pwx/github/pete-gov/rules/RULES.md:1)
+- [../RULES.md](../RULES.md)
 
-through the current `rules` summary scope.
+Do not edit generated summaries by hand. Update the canonical JSON and rerun the
+summary command.
 
-## Common Developer Flow
+## Common Workflow
 
 1. Edit the rules JSON, schema, or tooling.
-2. Run `bun run test`.
-3. If the failure is fixable, run `bun run fix`.
-4. Run `bun run test` again.
-5. If your change affects generated output, run `bun run summary`.
+2. Run `bun run check`.
+3. Run `bun run fix` if the check reports fixable normalization issues.
+4. Run `bun run check` again.
+5. Run `bun run summary` when the change affects generated summaries.
 
 ## Focused Commands
 
-The top-level commands are the normal workflow, but there are a few targeted
-aliases when you want to narrow the scope.
+Focused test aliases:
 
-### Focused Tests
-
+- `bun run test:fix`
+- `bun run test:formatting`
 - `bun run test:schema`
-  Runs only the schema test file.
+- `bun run test:schema-validation`
 - `bun run test:ids`
-  Runs only the ID-alignment test file.
 - `bun run test:keywords`
-  Runs only the primary-keyword test file.
 - `bun run test:terms`
-  Runs only the term-related test file.
 - `bun run test:order`
-  Runs only the property-order test file.
+- `bun run test:summary`
+- `bun run test:consistency`
 
-These are all thin aliases around Bun test files. They do not rely on separate
-validation entrypoint scripts.
-
-### Focused Fixes
+Focused fix aliases:
 
 - `bun run fix:terms`
-  Alias for `bun run fix -- --scope terms`
 - `bun run fix:ids`
-  Alias for `bun run fix -- --scope ids`
 - `bun run fix:order`
-  Alias for `bun run fix -- --scope order`
 
-Useful variants:
+Focused summary aliases:
+
+- `bun run summary:rules`
+
+Examples:
 
 ```bash
 bun run fix:terms -- -comment
@@ -147,54 +150,47 @@ bun run fix:ids -- --output ./fedramp-consolidated-rules.fixed.json
 bun run fix:order -- --output ./fedramp-consolidated-rules.ordered.json
 ```
 
-### Focused Summaries
-
-- `bun run summary:rules`
-  Alias for `bun run summary -- --scope rules`
-
 ## File Structure
 
-### Primary Entrypoints
+Primary entrypoints:
 
-- [fix.ts](/Users/pwx/github/pete-gov/rules/tools/fix.ts:1)
-  Single CLI entrypoint for all fix flows.
-- [summary.ts](/Users/pwx/github/pete-gov/rules/tools/summary.ts:1)
-  Single CLI entrypoint for all summary flows.
+- [test.ts](test.ts)
+  Test runner used by `bun run test`.
+- [fix.ts](fix.ts)
+  CLI entrypoint for all fix flows.
+- [summary.ts](summary.ts)
+  CLI entrypoint for generated summaries.
 
-### Shared Implementation
+Shared implementation:
 
-- [src/config.ts](/Users/pwx/github/pete-gov/rules/tools/src/config.ts:1)
-  Resolves repository paths and shared config.
-- [src/rules.ts](/Users/pwx/github/pete-gov/rules/tools/src/rules.ts:1)
-  Loads, clones, and writes the configured rules and schema documents.
-- [src/fix.ts](/Users/pwx/github/pete-gov/rules/tools/src/fix.ts:1)
-  Shared fix planning and fix application logic.
-- [src/schema-validation.ts](/Users/pwx/github/pete-gov/rules/tools/src/schema-validation.ts:1)
-  Schema test logic.
-- [src/id-alignment.ts](/Users/pwx/github/pete-gov/rules/tools/src/id-alignment.ts:1)
-  ID-alignment detection and rewrite logic.
-- [src/keywords.ts](/Users/pwx/github/pete-gov/rules/tools/src/keywords.ts:1)
+- [src/config.ts](src/config.ts)
+  Resolves repository paths and shared configuration.
+- [src/rules.ts](src/rules.ts)
+  Loads, clones, and writes configured rules and schema documents.
+- [src/fix.ts](src/fix.ts)
+  Shared fix planning and application logic.
+- [src/consistency.ts](src/consistency.ts)
+  Read-only consistency validation checks and reporting.
+- [src/schema-validation.ts](src/schema-validation.ts)
+  Schema validation logic and error formatting.
+- [src/id-alignment.ts](src/id-alignment.ts)
+  ID alignment detection and rewrite logic.
+- [src/keywords.ts](src/keywords.ts)
   Primary-keyword detection logic.
-- [src/terms.ts](/Users/pwx/github/pete-gov/rules/tools/src/terms.ts:1)
+- [src/terms.ts](src/terms.ts)
   Term extraction, casing, and synchronization logic.
-- [src/property-order.ts](/Users/pwx/github/pete-gov/rules/tools/src/property-order.ts:1)
+- [src/property-order.ts](src/property-order.ts)
   Schema-driven property-order logic.
-- [src/summary.ts](/Users/pwx/github/pete-gov/rules/tools/src/summary.ts:1)
+- [src/summary.ts](src/summary.ts)
   Summary scope registry and orchestration.
-- [src/summary-rules.ts](/Users/pwx/github/pete-gov/rules/tools/src/summary-rules.ts:1)
-  `RULES.md` generation logic.
-- [src/traversal.ts](/Users/pwx/github/pete-gov/rules/tools/src/traversal.ts:1)
+- [src/summary-rules.ts](src/summary-rules.ts)
+  `RULES.md` rendering logic.
+- [src/traversal.ts](src/traversal.ts)
   Shared FRD, FRR, and KSI traversal helpers.
-- [src/types.ts](/Users/pwx/github/pete-gov/rules/tools/src/types.ts:1)
-  Shared tooling types.
-- [src/cli.ts](/Users/pwx/github/pete-gov/rules/tools/src/cli.ts:1)
-  Small CLI helpers for flags, colors, and JSON output.
+- [src/types.ts](src/types.ts)
+  Shared TypeScript types.
+- [src/cli.ts](src/cli.ts)
+  CLI helpers for flags, colors, and JSON output.
 
-### Tests and Package Surface
-
-- [tests](/Users/pwx/github/pete-gov/rules/tools/tests)
-  Bun tests for both the configured dataset and the tooling behavior.
-- [package.json](/Users/pwx/github/pete-gov/rules/tools/package.json:1)
-  Bun command surface for testing, fixing, summaries, and hook setup.
-- [fedramp-rules.config.json](/Users/pwx/github/pete-gov/rules/tools/fedramp-rules.config.json:1)
-  Shared file-location config used by all commands.
+Tests live in [tests](tests). Command definitions live in
+[package.json](package.json).

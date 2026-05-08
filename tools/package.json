@@ -3,14 +3,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "bun test",
+    "check": "bun run typecheck && bun run test",
+    "test": "bun run test.ts",
+    "typecheck": "tsc --noEmit",
     "fix": "bun run fix.ts",
     "summary": "bun run summary.ts",
+    "test:fix": "bun test tests/fix.test.ts",
+    "test:formatting": "bun test tests/formatting.test.ts",
     "test:schema": "bun test tests/schema.test.ts",
+    "test:schema-validation": "bun test tests/schema-validation.test.ts",
     "test:ids": "bun test tests/id-alignment.test.ts",
     "test:keywords": "bun test tests/primary-keywords.test.ts",
     "test:terms": "bun test tests/terms.test.ts",
     "test:order": "bun test tests/property-order.test.ts",
+    "test:summary": "bun test tests/summary.test.ts",
+    "test:consistency": "bun test tests/zz-consistency-report.test.ts",
     "fix:terms": "bun run fix -- --scope terms",
     "fix:ids": "bun run fix -- --scope ids",
     "fix:order": "bun run fix -- --scope order",
@@ -22,7 +29,8 @@
     "ajv-formats": "^3.0.1"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prettier": "^3.8.3"
   },
   "peerDependencies": {
     "typescript": "^5"

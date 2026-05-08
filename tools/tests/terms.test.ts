@@ -65,8 +65,8 @@ test("definition title fixes update the term without appending to updated histor
       nextTerm: "Top-Level Administrative Account",
     },
   ]);
-  expect(document.FRD.data.both["FRD-TLA"].term).toBe("Top-Level Administrative Account");
-  expect(document.FRD.data.both["FRD-TLA"].updated).toEqual([
+  expect(document.FRD.data.both!["FRD-TLA"]!.term).toBe("Top-Level Administrative Account");
+  expect(document.FRD.data.both!["FRD-TLA"]!.updated).toEqual([
     {
       date: "2026-02-04",
       comment: "Existing note.",
@@ -124,8 +124,8 @@ test("term sync updates terms without appending to updated history by default", 
   const changes = applyTermSync(document, { entryDate: "2026-04-12" });
 
   expect(changes).toHaveLength(1);
-  expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].terms).toEqual(["Agency"]);
-  expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].updated).toEqual([
+  expect(document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!.terms).toEqual(["Agency"]);
+  expect(document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!.updated).toEqual([
     {
       date: "2026-02-04",
       comment: "Existing note.",
@@ -183,7 +183,7 @@ test("term sync prepends an updated entry when comment mode is enabled", () => {
   const changes = applyTermSync(document, { addComment: true, entryDate: "2026-04-12" });
 
   expect(changes).toHaveLength(1);
-  expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].updated).toEqual([
+  expect(document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!.updated).toEqual([
     {
       date: "2026-04-12",
       comment: TERM_UPDATE_COMMENT,
@@ -245,7 +245,7 @@ test("term sync appends to an existing comment when comment mode is enabled and 
   const changes = applyTermSync(document, { addComment: true, entryDate: "2026-04-12" });
 
   expect(changes).toHaveLength(1);
-  expect(document.FRR.MAS.data.both.CSO["MAS-CSO-TST"].updated).toEqual([
+  expect(document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!.updated).toEqual([
     {
       date: "2026-04-12",
       comment: `Reviewed wording. ${TERM_UPDATE_COMMENT}`,

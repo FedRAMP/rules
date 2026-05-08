@@ -25,7 +25,7 @@ function ensureUpdatedEntry(target: Record<string, unknown>, comment: string, en
 
 export function incrementVersion(version: string): string {
   const [mainVersion, suffix] = version.split("-", 2);
-  const parts = mainVersion.split(".");
+  const parts = (mainVersion ?? "").split(".");
 
   if (parts.length < 3) {
     return version;
