@@ -2158,6 +2158,16 @@
               "affects": [
                 "Providers"
               ],
+              "artifacts": {
+                "both": {
+                  "all_classes": [
+                  ],
+                  "a": ["selected ordinal recurrence for the synchronous Quarterly Review cycle if applicable."],
+                  "b": ["selected ordinal recurrence for the Ongoing Certification Report cycle if applicable OR explanation for why Ongoing Certification Reports are not being delivered."],
+                  "c": ["selected ordinal recurrence for the Ongoing Certification Report cycle."],
+                  "d": ["selected ordinal recurrence for the Ongoing Certification Report cycle."]
+                }
+              },
               "terms": [
                 "Agency",
                 "All Necessary Parties",
@@ -2179,6 +2189,12 @@
               "affects": [
                 "Providers"
               ],
+              "artifacts": {
+                "both": {
+                  "all_classes": ["URL to the registration page or calendar file."
+                  ]
+                }
+              },
               "terms": [
                 "All Necessary Parties",
                 "Provider",
