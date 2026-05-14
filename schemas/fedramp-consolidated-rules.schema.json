@@ -545,6 +545,57 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "default_artifacts": {
+      "type": "object",
+      "required": ["FRR", "KSI"],
+      "properties": {
+        "FRR": { "$ref": "#/$defs/artifact_list" },
+        "KSI": { "$ref": "#/$defs/artifact_list" }
+      },
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "both": { "$ref": "#/$defs/artifacts_by_class" },
+        "20x": { "$ref": "#/$defs/artifacts_by_class" },
+        "rev5": { "$ref": "#/$defs/artifacts_by_class" }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "both": { "$ref": "#/$defs/artifacts_by_class" }
+          },
+          "required": ["both"],
+          "maxProperties": 1
+        },
+        {
+          "properties": {
+            "20x": { "$ref": "#/$defs/artifacts_by_class" },
+            "rev5": { "$ref": "#/$defs/artifacts_by_class" }
+          },
+          "required": ["20x", "rev5"],
+          "maxProperties": 2
+        }
+      ],
+      "additionalProperties": false
+    },
+    "artifacts_by_class": {
+      "type": "object",
+      "properties": {
+        "all_classes": { "$ref": "#/$defs/artifact_list" },
+        "a": { "$ref": "#/$defs/artifact_list" },
+        "b": { "$ref": "#/$defs/artifact_list" },
+        "c": { "$ref": "#/$defs/artifact_list" },
+        "d": { "$ref": "#/$defs/artifact_list" }
+      },
+      "required": ["all_classes"],
+      "additionalProperties": false
+    },
+    "artifact_list": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "primary_key_word_enum": {
       "type": "string",
       "description": "Defines the primary keyword for a requirement or indicator, indicating its strength.",
