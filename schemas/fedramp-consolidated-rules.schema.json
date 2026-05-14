@@ -322,6 +322,10 @@
               {
                 "properties": { "primary_key_word": {} },
                 "required": ["primary_key_word"]
+              },
+              {
+                "properties": { "artifacts": {} },
+                "required": ["artifacts"]
               }
             ]
           }
@@ -415,7 +419,8 @@
         "effective_date": { "$ref": "#/$defs/effective_dates" },
         "timeframe_type": { "type": "string" },
         "timeframe_num": { "type": "number" },
-        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" }
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
+        "artifacts": { "$ref": "#/$defs/artifacts" }
       },
       "additionalProperties": false
     },
@@ -462,8 +467,16 @@
           "properties": { "varies_by_class": {} },
           "required": ["varies_by_class"],
           "not": {
-            "properties": { "statement": {} },
-            "required": ["statement"]
+            "anyOf": [
+              {
+                "properties": { "statement": {} },
+                "required": ["statement"]
+              },
+              {
+                "properties": { "artifacts": {} },
+                "required": ["artifacts"]
+              }
+            ]
           }
         }
       ],
@@ -494,56 +507,10 @@
       "type": "object",
       "required": ["statement"],
       "properties": {
-        "statement": { "type": "string" }
+        "statement": { "type": "string" },
+        "artifacts": { "$ref": "#/$defs/artifacts" }
       },
       "additionalProperties": false
-    },
-    "default_artifacts": {
-      "type": "object",
-      "required": ["FRR", "KSI"],
-      "properties": {
-        "FRR": { "$ref": "#/$defs/artifact_list" },
-        "KSI": { "$ref": "#/$defs/artifact_list" }
-      },
-      "additionalProperties": false
-    },
-    "artifacts": {
-      "type": "object",
-      "properties": {
-        "both": { "$ref": "#/$defs/artifacts_by_class" },
-        "20x": { "$ref": "#/$defs/artifacts_by_class" },
-        "rev5": { "$ref": "#/$defs/artifacts_by_class" }
-      },
-      "oneOf": [
-        {
-          "properties": {
-            "both": { "$ref": "#/$defs/artifacts_by_class" }
-          },
-          "required": ["both"],
-          "maxProperties": 1
-        },
-        {
-          "properties": {
-            "20x": { "$ref": "#/$defs/artifacts_by_class" },
-            "rev5": { "$ref": "#/$defs/artifacts_by_class" }
-          },
-          "required": ["20x", "rev5"],
-          "maxProperties": 2
-        }
-      ],
-      "additionalProperties": false
-    },
-    "artifacts_by_class": {
-      "type": "object",
-      "properties": {
-        "all_classes": { "$ref": "#/$defs/artifact_list" }
-      },
-      "required": ["all_classes"],
-      "additionalProperties": false
-    },
-    "artifact_list": {
-      "type": "array",
-      "items": { "type": "string" }
     },
     "default_artifacts": {
       "type": "object",

@@ -1225,15 +1225,36 @@
               "varies_by_class": {
                 "a": {
                   "statement": "Providers of Class A offerings MAY supply per-service FedRAMP Certification materials.",
-                  "primary_key_word": "MAY"
+                  "primary_key_word": "MAY",
+                  "artifacts": {
+                    "both": {
+                      "all_classes": [
+                        "Explanation of the supplied materials, including how to access and use them."
+                      ]
+                    }
+                  }
                 },
                 "b": {
                   "statement": "Providers of Class B offerings MAY supply per-service FedRAMP Certification materials.",
-                  "primary_key_word": "MAY"
+                  "primary_key_word": "MAY",
+                  "artifacts": {
+                    "both": {
+                      "all_classes": [
+                        "Explanation of the supplied materials, including how to access and use them."
+                      ]
+                    }
+                  }
                 },
                 "c": {
                   "statement": "Providers of Class C offerings MAY supply per-service FedRAMP Certification materials.",
-                  "primary_key_word": "MAY"
+                  "primary_key_word": "MAY",
+                  "artifacts": {
+                    "both": {
+                      "all_classes": [
+                        "Explanation of the supplied materials, including how to access and use them."
+                      ]
+                    }
+                  }
                 },
                 "d": {
                   "statement": "Providers of Class D offerings MUST supply per-service FedRAMP Certification materials.",
@@ -1242,6 +1263,13 @@
                     "obtain": "2027-05-04",
                     "maintain": "2027-05-04",
                     "grace_by_assessment_months": 2
+                  },
+                  "artifacts": {
+                    "both": {
+                      "all_classes": [
+                        "Explanation of the supplied materials, including how to access and use them."
+                      ]
+                    }
                   }
                 }
               },
@@ -1250,13 +1278,6 @@
                 "Providers are encouraged to provide a single comprehensive set of materials for all shared aspects of the service offering and only provide separate materials for unique aspects of each service to minimize the burden on providers and agencies."
               ],
               "affects": ["Providers"],
-              "artifacts": {
-                "both": {
-                  "all_classes": [
-                    "Explanation of the supplied materials, including how to access and use them."
-                  ]
-                }
-              },
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
