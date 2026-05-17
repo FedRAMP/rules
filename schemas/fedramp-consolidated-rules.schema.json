@@ -322,6 +322,10 @@
               {
                 "properties": { "primary_key_word": {} },
                 "required": ["primary_key_word"]
+              },
+              {
+                "properties": { "artifacts": {} },
+                "required": ["artifacts"]
               }
             ]
           }
@@ -415,7 +419,8 @@
         "effective_date": { "$ref": "#/$defs/effective_dates" },
         "timeframe_type": { "type": "string" },
         "timeframe_num": { "type": "number" },
-        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" }
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
+        "artifacts": { "$ref": "#/$defs/artifacts" }
       },
       "additionalProperties": false
     },
@@ -462,8 +467,16 @@
           "properties": { "varies_by_class": {} },
           "required": ["varies_by_class"],
           "not": {
-            "properties": { "statement": {} },
-            "required": ["statement"]
+            "anyOf": [
+              {
+                "properties": { "statement": {} },
+                "required": ["statement"]
+              },
+              {
+                "properties": { "artifacts": {} },
+                "required": ["artifacts"]
+              }
+            ]
           }
         }
       ],
@@ -494,7 +507,8 @@
       "type": "object",
       "required": ["statement"],
       "properties": {
-        "statement": { "type": "string" }
+        "statement": { "type": "string" },
+        "artifacts": { "$ref": "#/$defs/artifacts" }
       },
       "additionalProperties": false
     },
@@ -536,7 +550,11 @@
     "artifacts_by_class": {
       "type": "object",
       "properties": {
-        "all_classes": { "$ref": "#/$defs/artifact_list" }
+        "all_classes": { "$ref": "#/$defs/artifact_list" },
+        "a": { "$ref": "#/$defs/artifact_list" },
+        "b": { "$ref": "#/$defs/artifact_list" },
+        "c": { "$ref": "#/$defs/artifact_list" },
+        "d": { "$ref": "#/$defs/artifact_list" }
       },
       "required": ["all_classes"],
       "additionalProperties": false
