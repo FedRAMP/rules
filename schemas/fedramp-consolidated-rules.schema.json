@@ -322,10 +322,6 @@
               {
                 "properties": { "primary_key_word": {} },
                 "required": ["primary_key_word"]
-              },
-              {
-                "properties": { "artifacts": {} },
-                "required": ["artifacts"]
               }
             ]
           }
@@ -471,10 +467,6 @@
               {
                 "properties": { "statement": {} },
                 "required": ["statement"]
-              },
-              {
-                "properties": { "artifacts": {} },
-                "required": ["artifacts"]
               }
             ]
           }
@@ -524,39 +516,11 @@
     "artifacts": {
       "type": "object",
       "properties": {
-        "both": { "$ref": "#/$defs/artifacts_by_class" },
-        "20x": { "$ref": "#/$defs/artifacts_by_class" },
-        "rev5": { "$ref": "#/$defs/artifacts_by_class" }
+        "both": { "$ref": "#/$defs/artifact_list" },
+        "20x": { "$ref": "#/$defs/artifact_list" },
+        "rev5": { "$ref": "#/$defs/artifact_list" }
       },
-      "oneOf": [
-        {
-          "properties": {
-            "both": { "$ref": "#/$defs/artifacts_by_class" }
-          },
-          "required": ["both"],
-          "maxProperties": 1
-        },
-        {
-          "properties": {
-            "20x": { "$ref": "#/$defs/artifacts_by_class" },
-            "rev5": { "$ref": "#/$defs/artifacts_by_class" }
-          },
-          "required": ["20x", "rev5"],
-          "maxProperties": 2
-        }
-      ],
-      "additionalProperties": false
-    },
-    "artifacts_by_class": {
-      "type": "object",
-      "properties": {
-        "all_classes": { "$ref": "#/$defs/artifact_list" },
-        "a": { "$ref": "#/$defs/artifact_list" },
-        "b": { "$ref": "#/$defs/artifact_list" },
-        "c": { "$ref": "#/$defs/artifact_list" },
-        "d": { "$ref": "#/$defs/artifact_list" }
-      },
-      "required": ["all_classes"],
+      "minProperties": 1,
       "additionalProperties": false
     },
     "artifact_list": {

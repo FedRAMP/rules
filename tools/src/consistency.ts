@@ -23,11 +23,21 @@ type JsonPathSegment = string | number;
 type JsonRecord = Record<string, unknown>;
 
 const CLASS_KEYS = ["a", "b", "c", "d"] as const;
+const APPLICABILITY_KEYS = ["both", "20x", "rev5"] as const;
+type ApplicabilityKey = (typeof APPLICABILITY_KEYS)[number];
 const CLASS_NAMES: Record<ClassKey, string> = {
   a: "Class A",
   b: "Class B",
   c: "Class C",
   d: "Class D",
+};
+const ALLOWED_ARTIFACT_KEYS_BY_PARENT: Record<
+  ApplicabilityKey,
+  readonly ApplicabilityKey[]
+> = {
+  both: APPLICABILITY_KEYS,
+  "20x": ["20x"],
+  rev5: ["rev5"],
 };
 const FRR_ID_REGEX = /^([A-Z]{3})-([A-Z]{3})-([A-Z0-9]{3})$/;
 const KSI_ID_REGEX = /^KSI-([A-Z]{3})-([A-Z0-9]{3})$/;
@@ -111,6 +121,10 @@ export function collectConsistencyChecks(document: RulesDocument): ConsistencyCh
       issues: collectClassVariantStatementIssues(document),
     },
     {
+      title: "Artifact applicability",
+      issues: collectArtifactApplicabilityIssues(document),
+    },
+    {
       title: "Controlled vocabularies",
       issues: collectControlledVocabularyIssues(document),
     },
@@ -147,6 +161,13 @@ function formatPath(path: JsonPathSegment[]): string {
 
 function joinAllowed(values: readonly string[]): string {
   return values.join(", ");
+}
+
+function isApplicabilityKey(value: unknown): value is ApplicabilityKey {
+  return (
+    typeof value === "string" &&
+    (APPLICABILITY_KEYS as readonly string[]).includes(value)
+  );
 }
 
 function sortedUnique(values: string[]): string[] {
@@ -516,6 +537,57 @@ export function collectClassVariantStatementIssues(document: RulesDocument): Con
         );
       }
     }
+  });
+
+  return issues;
+}
+
+function getContainingDataApplicability(
+  path: JsonPathSegment[],
+): ApplicabilityKey | null {
+  for (let index = 0; index < path.length - 1; index += 1) {
+    if (path[index] !== "data") {
+      continue;
+    }
+
+    const candidate = path[index + 1];
+    if (isApplicabilityKey(candidate)) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
+
+export function collectArtifactApplicabilityIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  walkJson(document, [], (value, path) => {
+    if (!isRecord(value) || !isRecord(value.artifacts)) {
+      return;
+    }
+
+    const parentApplicability = getContainingDataApplicability(path);
+    if (!parentApplicability) {
+      return;
+    }
+
+    const allowedKeys = ALLOWED_ARTIFACT_KEYS_BY_PARENT[parentApplicability];
+    const disallowedKeys = Object.keys(value.artifacts).filter(
+      (key) => !allowedKeys.includes(key as ApplicabilityKey),
+    );
+    if (disallowedKeys.length === 0) {
+      return;
+    }
+
+    issues.push(
+      issue(
+        `${formatPath(path)}.artifacts`,
+        `artifacts is inside data.${parentApplicability}, so it may only use applicability keys: ${joinAllowed(allowedKeys)}. Found disallowed keys: ${disallowedKeys.join(", ")}.`,
+      ),
+    );
   });
 
   return issues;

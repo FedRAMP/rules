@@ -23,17 +23,6 @@ Everything else in this repository supports those two files.
 - [tools](tools)
   Validation, normalization, tests, and generated summary tooling.
 
-## Current Dataset
-
-The current dataset identifies itself as:
-
-- Title: `FedRAMP Consolidated Rules for 2026 Public Preview`
-- Version: `2026.05.04.01-preview`
-- Last updated: `2026-05-04`
-
-It currently includes FedRAMP Definitions (`FRD`), FedRAMP Rules (`FRR`) process
-documents, and Key Security Indicators (`KSI`).
-
 ## Working With The Repository
 
 Use the JSON file and schema for analysis. Use generated documentation only for
