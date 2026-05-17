@@ -392,7 +392,8 @@
             "properties": {
               "party": { "type": "string" },
               "method": { "type": "string" },
-              "target": { "type": "string" }
+              "target": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
             },
             "additionalProperties": false
           }
