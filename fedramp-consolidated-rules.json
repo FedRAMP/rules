@@ -2429,7 +2429,7 @@
         "name": "Incident Communications Procedures",
         "short_name": "ICP",
         "web_name": "incident-communications-procedures",
-        "purpose": "The Incident Communications Procedures rules explain how providers must communicate incident information to FedRAMP, CISA, and government customers.",
+        "purpose": "The Incident Communications Procedures rules explain how providers must communicate incident information to FedRAMP and government customers.",
         "status": "placeholder",
         "labels": {
           "FRP": {
@@ -2584,48 +2584,18 @@
                 }
               ]
             },
-            "ICP-CSO-EFI": {
-              "name": "Estimate Federal Impact",
-              "statement": "Providers SHOULD promptly estimate the likely adverse impact of an incident on agency customers to assign a Potential Agency Impact N-rating; this step is called Incident Rating.",
-              "following_information": [
-                "N1 means minimal customer effect on 1 or more agencies.",
-                "N2 means narrow customer effect on 1 or more agencies.",
-                "N3 means disruptive customer effect on 1 agency.",
-                "N4 means debilitating customer effect on 1 agency or disruptive customer effect on more than 1 agency.",
-                "N5 means debilitating customer effect on more than 1 agency."
-              ],
-              "primary_key_word": "SHOULD",
-              "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "Debilitating Customer Effect",
-                "Disruptive Customer Effect",
-                "Incident",
-                "Likely",
-                "Minimal Customer Effect",
-                "Narrow Customer Effect",
-                "Potential Agency Impact",
-                "Promptly",
-                "Provider"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "ICP-CSO-IIR": {
               "name": "Initial Incident Report",
-              "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with all available required information.",
+              "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
               "following_information": [
                 "Contact information for the federal incident response coordinator.",
-                "Provider tracking identifier.",
-                "Description of the incident.",
-                "Incident timeline.",
-                "Historical and current Potential Adverse Impact estimates.",
-                "Functional impact to federal agency customers.",
-                "Estimated recovery plan, milestones, and timelines."
+                "Provider's internally assigned tracking identifier",
+                "Description of the incident",
+                "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
+                "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
+                "Estimated recovery plan, milestones, and timelines",
+                "List of likely affected customer agencies"
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
@@ -2665,16 +2635,13 @@
             },
             "ICP-CSO-OIR": {
               "name": "Ongoing Incident Reports",
-              "statement": "Providers MUST responsibly notify all affected parties of ongoing activity by providing Ongoing Incident Reports as new information becomes available during incident response for FedRAMP Reportable Incidents.",
+              "statement": "Providers MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
               "following_information": [
-                "Updates or lack of updates to previously reported information.",
-                "Attack vector, if identified.",
-                "Observed incident activity.",
-                "Indicators of compromise.",
-                "Relevant Cybersecurity and Infrastructure Security Agency identifier, if available.",
-                "Related Common Vulnerabilities and Exposures identifier, if applicable.",
-                "Root cause.",
-                "Response and recovery activities."
+                "Observed incident activity",
+                "Indicators of compromise",
+                "Related Common Vulnerabilities and Exposures (CVE) identifier, if applicable",
+                "Root cause",
+                "Response and recovery activities"
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
@@ -3130,6 +3097,56 @@
                 {
                   "date": "2026-04-25",
                   "comment": "Drafted for human review from PROPOSED-RULES.md."
+                }
+              ]
+            },
+            "ICP-CSO-EFI": {
+              "name": "Estimate Federal Impact",
+              "statement": "Providers SHOULD promptly estimate the likely adverse impact of an incident on agency customers to assign a Potential Agency Impact N-rating; this step is called Incident Rating.",
+              "following_information": [
+                "N1 means minimal customer effect on 1 or more agencies.",
+                "N2 means narrow customer effect on 1 or more agencies.",
+                "N3 means disruptive customer effect on 1 agency.",
+                "N4 means debilitating customer effect on 1 agency or disruptive customer effect on more than 1 agency.",
+                "N5 means debilitating customer effect on more than 1 agency."
+              ],
+              "primary_key_word": "SHOULD",
+              "affects": ["Providers"],
+              "terms": [
+                "Agency",
+                "Debilitating Customer Effect",
+                "Disruptive Customer Effect",
+                "Incident",
+                "Likely",
+                "Minimal Customer Effect",
+                "Narrow Customer Effect",
+                "Potential Agency Impact",
+                "Promptly",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "ICP-CSO-AIR": {
+              "name": "Automated Incident Reporting",
+              "statement": "Providers SHOULD use automation to minimize human intervention in the process of reporting FedRAMP Reportable Incidents to all affected parties.",
+              "danger": "Modern cloud services should not be reporting incidents by hand-crafting emails!",
+              "primary_key_word": "SHOULD",
+              "affects": ["Providers"],
+              "terms": [
+                "All Affected Parties",
+                "FedRAMP Reportable Incident",
+                "Incident",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
