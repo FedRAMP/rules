@@ -80,50 +80,51 @@
   "$defs": {
     "frd_document_info": {
       "type": "object",
-      "required": [
-        "name",
-        "short_name",
-        "web_name",
-        "purpose",
-        "status",
-        "effective"
-      ],
+      "required": ["name", "short_name", "web_name", "purpose", "status"],
       "properties": {
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
         "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
-        "effective": { "$ref": "#/$defs/effective_map" }
+        "effective": { "$ref": "#/$defs/effective_entry" },
+        "20x": { "$ref": "#/$defs/frd_document_info_certification" },
+        "rev5": { "$ref": "#/$defs/frd_document_info_certification" }
+      },
+      "allOf": [{ "$ref": "#/$defs/document_info_effective_rules" }],
+      "additionalProperties": false
+    },
+    "frd_document_info_certification": {
+      "type": "object",
+      "properties": {
+        "effective": { "$ref": "#/$defs/effective_entry" }
       },
       "additionalProperties": false
     },
     "frr_document_info": {
       "type": "object",
-      "required": [
-        "name",
-        "short_name",
-        "web_name",
-        "purpose",
-        "status",
-        "effective",
-        "labels"
-      ],
+      "required": ["name", "short_name", "web_name", "purpose", "status"],
       "properties": {
         "name": { "type": "string" },
         "short_name": { "type": "string", "pattern": "^[A-Z]{3}$" },
         "web_name": { "type": "string" },
         "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
-        "effective": { "$ref": "#/$defs/effective_map" },
-        "labels": {
-          "type": "object",
-          "propertyNames": { "$ref": "#/$defs/frr_info_label_name" },
-          "additionalProperties": { "$ref": "#/$defs/frr_label_definition" }
-        },
-        "flows": {
-          "type": "array"
-        }
+        "effective": { "$ref": "#/$defs/effective_entry" },
+        "labels": { "$ref": "#/$defs/frr_info_labels" },
+        "flows": { "$ref": "#/$defs/info_flows" },
+        "20x": { "$ref": "#/$defs/frr_document_info_certification" },
+        "rev5": { "$ref": "#/$defs/frr_document_info_certification" }
+      },
+      "allOf": [{ "$ref": "#/$defs/document_info_effective_rules" }],
+      "additionalProperties": false
+    },
+    "frr_document_info_certification": {
+      "type": "object",
+      "properties": {
+        "effective": { "$ref": "#/$defs/effective_entry" },
+        "labels": { "$ref": "#/$defs/frr_info_labels" },
+        "flows": { "$ref": "#/$defs/info_flows" }
       },
       "additionalProperties": false
     },
@@ -136,8 +137,10 @@
         "FRP",
         "AGC",
         "CSO",
+        "CSF",
         "CSX",
         "CSL",
+        "IAF",
         "IAS",
         "IAX",
         "IAL",
@@ -175,31 +178,127 @@
       },
       "additionalProperties": false
     },
-    "effective_map": {
+    "frr_info_labels": {
       "type": "object",
-      "properties": {
-        "all": { "$ref": "#/$defs/effective_entry" },
-        "20x": { "$ref": "#/$defs/effective_entry" },
-        "rev5": { "$ref": "#/$defs/effective_entry" }
-      },
-      "oneOf": [
+      "propertyNames": { "$ref": "#/$defs/frr_info_label_name" },
+      "additionalProperties": { "$ref": "#/$defs/frr_label_definition" }
+    },
+    "info_flows": {
+      "type": "array"
+    },
+    "document_info_effective_rules": {
+      "type": "object",
+      "anyOf": [
         {
           "properties": {
-            "all": { "$ref": "#/$defs/effective_entry" }
+            "effective": true
           },
-          "required": ["all"],
-          "maxProperties": 1
+          "required": ["effective"]
         },
         {
           "properties": {
-            "20x": { "$ref": "#/$defs/effective_entry" },
-            "rev5": { "$ref": "#/$defs/effective_entry" }
+            "20x": {
+              "type": "object",
+              "properties": {
+                "effective": true
+              },
+              "required": ["effective"]
+            },
+            "rev5": {
+              "type": "object",
+              "properties": {
+                "effective": true
+              },
+              "required": ["effective"]
+            }
           },
-          "required": ["20x", "rev5"],
-          "maxProperties": 2
+          "required": ["20x", "rev5"]
         }
       ],
-      "additionalProperties": false
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "effective": true
+            },
+            "required": ["effective"]
+          },
+          "then": {
+            "properties": {
+              "20x": {
+                "not": {
+                  "type": "object",
+                  "properties": {
+                    "effective": true
+                  },
+                  "required": ["effective"]
+                }
+              },
+              "rev5": {
+                "not": {
+                  "type": "object",
+                  "properties": {
+                    "effective": true
+                  },
+                  "required": ["effective"]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "20x": {
+                "type": "object",
+                "properties": {
+                  "effective": true
+                },
+                "required": ["effective"]
+              }
+            },
+            "required": ["20x"]
+          },
+          "then": {
+            "properties": {
+              "rev5": {
+                "type": "object",
+                "properties": {
+                  "effective": true
+                },
+                "required": ["effective"]
+              }
+            },
+            "required": ["rev5"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rev5": {
+                "type": "object",
+                "properties": {
+                  "effective": true
+                },
+                "required": ["effective"]
+              }
+            },
+            "required": ["rev5"]
+          },
+          "then": {
+            "properties": {
+              "20x": {
+                "type": "object",
+                "properties": {
+                  "effective": true
+                },
+                "required": ["effective"]
+              }
+            },
+            "required": ["20x"]
+          }
+        }
+      ]
     },
     "effective_entry": {
       "type": "object",

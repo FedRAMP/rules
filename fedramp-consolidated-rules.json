@@ -27,14 +27,12 @@
       "purpose": "FedRAMP Definitions establish a shared understanding for terms when the plain-language meaning is not precise enough to support consistent use across the rules. When a defined term appears in a rule, the definition is a critical part of that rule and must be followed precisely, even if the term is commonly used differently elsewhere; when no definition exists, the plain-language meaning is expected.",
       "status": "stable",
       "effective": {
-        "all": {
-          "is": "required",
-          "current_status": "Consolidated Rules for 2026",
-          "date": {
-            "obtain": "2026-07-04",
-            "maintain": "2026-07-04",
-            "grace_ends": "2026-05-04"
-          }
+        "is": "required",
+        "current_status": "Consolidated Rules for 2026",
+        "date": {
+          "obtain": "2026-07-04",
+          "maintain": "2026-07-04",
+          "grace_ends": "2026-05-04"
         }
       }
     },
@@ -994,39 +992,10 @@
         "web_name": "certification-data-sharing",
         "purpose": "The Certification Data Sharing rules allow providers to store and share FedRAMP certification information through the platform they choose as long as it follows FedRAMP rules for access, accuracy, and transparency. This helps customers and the public review consistent, current security and compliance information while recognizing that the information usually remains the provider's intellectual property and is not federal information.",
         "status": "stable",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
-            },
-            "signup_url": "ADDME"
-          }
-        },
         "labels": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers for FedRAMP Certifications of any type."
-          },
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
-          },
-          "CSL": {
-            "name": "Rev5-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
           },
           "TRC": {
             "name": "FedRAMP-Compatible Trust Centers",
@@ -1035,6 +1004,41 @@
           "UTC": {
             "name": "Using a Trust Center",
             "description": "These rules apply to providers that are using a FedRAMP-compatible trust center instead of USDA Connect; they DO NOT apply to providers using USDA Connect."
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          },
+          "labels": {
+            "CSX": {
+              "name": "20x-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP 20x Certifications."
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-08-01",
+              "grace_ends": "2028-02-01"
+            },
+            "signup_url": "ADDME"
+          },
+          "labels": {
+            "CSF": {
+              "name": "Rev5-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
+            }
           }
         }
       },
@@ -1470,8 +1474,8 @@
           "CSX": {}
         },
         "rev5": {
-          "CSL": {
-            "CDS-CSL-TCM": {
+          "CSF": {
+            "CDS-CSF-TCM": {
               "name": "Trust Center Migration",
               "statement": "Providers MUST notify all necessary parties when migrating to a trust center and MUST provide information in their existing USDA Connect Community Portal secure folders explaining how to use the trust center to obtain FedRAMP Certification Data.",
               "primary_key_word": "MUST",
@@ -1496,7 +1500,7 @@
                 }
               ]
             },
-            "CDS-CSL-SCD": {
+            "CDS-CSF-SCD": {
               "name": "Structured Certification Data",
               "varies_by_class": {
                 "a": {
@@ -1556,27 +1560,6 @@
         "web_name": "collaborative-continuous-monitoring",
         "purpose": "The Collaborative Continuous Monitoring rules help agencies use shared, current authorization information from providers as part of each agency's own Information Security Continuous Monitoring strategy. These rules reduce unnecessary manual burden by encouraging automated monitoring and review while allowing each agency to make its own risk-based decisions about ongoing authorization.",
         "status": "stable",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-04-02",
-              "grace_ends": "2027-10-01"
-            },
-            "signup_url": "ADDME"
-          }
-        },
         "labels": {
           "AGM": {
             "name": "Agency Guidance",
@@ -1589,6 +1572,29 @@
           "QTR": {
             "name": "Quarterly Reviews",
             "description": "These rules for Quarterly Reviews apply to providers with any type of FedRAMP Certification."
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-04-02",
+              "grace_ends": "2027-10-01"
+            },
+            "signup_url": "ADDME"
           }
         }
       },
@@ -2095,14 +2101,12 @@
         "purpose": "The FedRAMP Security Inbox rules ensure FedRAMP can reliably contact the security and compliance staff responsible for every FedRAMP-authorized cloud service offering. These rules also set expectations for urgent communications, response time testing, and routing important messages separately from general support or customer service channels.",
         "status": "stable",
         "effective": {
-          "all": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-01-05",
-              "maintain": "2026-01-05",
-              "grace_ends": "2026-07-01"
-            }
+          "is": "required",
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-01-05",
+            "maintain": "2026-01-05",
+            "grace_ends": "2026-07-01"
           }
         },
         "labels": {
@@ -2388,27 +2392,6 @@
         "web_name": "incident-communications-procedures",
         "purpose": "The Incident Communications Procedures rules explain how providers must communicate incident information to FedRAMP, CISA, and government customers.",
         "status": "placeholder",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
-            },
-            "signup_url": "ADDME"
-          }
-        },
         "labels": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -2456,20 +2439,49 @@
                 "to": "ICP-CSO-IIR",
                 "description": "Follow the estimated PAIN timeframes."
               },
-              { "from": "ICP-CSO-IIR", "to": "ICP-CSO-OIR" },
+              {
+                "from": "ICP-CSO-IIR",
+                "to": "ICP-CSO-OIR"
+              },
               {
                 "from": "ICP-CSO-OIR",
                 "to": "ICP-CSO-OIR",
                 "description": "Ongoing reporting until incident is resolved, following PAIN timeframes."
               },
-              { "from": "ICP-CSO-OIR", "to": "ICP-CSO-FIR" },
+              {
+                "from": "ICP-CSO-OIR",
+                "to": "ICP-CSO-FIR"
+              },
               {
                 "from": "ICP-CSO-FIR",
                 "to": "Incident Communication Procedures are complete."
               }
             ]
           }
-        ]
+        ],
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-06-01"
+            },
+            "signup_url": "ADDME"
+          }
+        }
       },
       "data": {
         "all": {
@@ -3128,8 +3140,14 @@
         "web_name": "minimum-assessment-scope",
         "purpose": "The Minimum Assessment Scope rules help providers define assessment boundaries narrowly enough to avoid unnecessary review of components that do not affect the offering’s security. These rules still ensure the assessment includes the resources and connections needed to understand the offering’s confidentiality, integrity, and availability.",
         "status": "stable",
-        "effective": {
-          "20x": {
+        "labels": {
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These rules apply to providers for any type of FedRAMP Certification."
+          }
+        },
+        "20x": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -3137,8 +3155,10 @@
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
-          },
-          "rev5": {
+          }
+        },
+        "rev5": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -3147,12 +3167,6 @@
               "grace_by_assessment_months": 2
             },
             "signup_url": "ADDME"
-          }
-        },
-        "labels": {
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers for any type of FedRAMP Certification."
           }
         }
       },
@@ -3282,26 +3296,6 @@
         "web_name": "marketplace-listing",
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
         "status": "placeholder",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
-            }
-          }
-        },
         "labels": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -3322,6 +3316,28 @@
           "PRE": {
             "name": "Provider Responsibilities for Preparation Phase Listings",
             "description": "These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace."
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-06-01"
+            }
           }
         }
       },
@@ -3571,14 +3587,12 @@
         "purpose": "The Secure Configuration Guide rules help agencies and other customers understand how to configure a cloud service offering securely. These rules require providers to clearly explain the security impact of common settings so customers can make informed configuration choices.",
         "status": "stable",
         "effective": {
-          "all": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-03-01",
-              "maintain": "2026-03-01",
-              "grace_ends": "2026-07-01"
-            }
+          "is": "required",
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-03-01",
+            "maintain": "2026-03-01",
+            "grace_ends": "2026-07-01"
           }
         },
         "labels": {
@@ -3752,27 +3766,6 @@
         "web_name": "significant-change-notifications",
         "purpose": "The Significant Change Notifications rules supply a simple framework allowing providers to make significant changes to their own products while keeping agency customers in the loop. These rules organize significant changes into clear categories so agencies can understand the expected risk and make authorization decisions accordingly.",
         "status": "stable",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
-            },
-            "signup_url": "ADDME"
-          }
-        },
         "labels": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -3793,6 +3786,29 @@
           "TRF": {
             "name": "Transformative Changes",
             "description": "These rules apply to all transformative significant changes."
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-06-01"
+            },
+            "signup_url": "ADDME"
           }
         }
       },
@@ -4268,8 +4284,14 @@
         "web_name": "using-cryptographic-modules",
         "purpose": "The Using Cryptographic Modules rules clarify how providers should select and use cryptographic modules. These rules allow risk-based decisions for some services while still encouraging validated cryptographic modules whenever they are technically feasible and reasonable.",
         "status": "placeholder",
-        "effective": {
-          "20x": {
+        "labels": {
+          "CSO": {
+            "name": "Cloud Service Provider Responsibilities",
+            "description": "These rules apply to providers for FedRAMP Certifications."
+          }
+        },
+        "20x": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -4277,8 +4299,10 @@
               "maintain": "2027-01-01",
               "grace_ends": "2027-05-04"
             }
-          },
-          "rev5": {
+          }
+        },
+        "rev5": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -4286,12 +4310,6 @@
               "maintain": "2027-01-01",
               "grace_ends": "2027-06-01"
             }
-          }
-        },
-        "labels": {
-          "CSO": {
-            "name": "Cloud Service Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Certifications."
           }
         }
       },
@@ -4364,27 +4382,6 @@
         "web_name": "vulnerability-detection-and-response",
         "purpose": "The Vulnerability Detection and Response rules require providers to continuously identify, analyze, prioritize, mitigate, and remediate vulnerabilities and related exposures through automated systems. These rules give providers flexibility in implementation while ensuring agencies receive the information needed to support ongoing authorization decisions.",
         "status": "stable",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-06-01",
-              "grace_ends": "2028-01-01"
-            },
-            "signup_url": "ADDME"
-          }
-        },
         "labels": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -4413,6 +4410,29 @@
           "TFR": {
             "name": "Timeframes",
             "description": "These rules apply to timeframes for vulnerability detection and response."
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-06-01",
+              "grace_ends": "2028-01-01"
+            },
+            "signup_url": "ADDME"
           }
         }
       },
@@ -5689,26 +5709,6 @@
         "web_name": "fedramp-certification",
         "purpose": "The FedRAMP Certification rules define how cloud service offerings obtain and maintain FedRAMP Certification across certification classes and paths. They give providers, assessors, agencies, and FedRAMP a common set of expectations for required rule sets, current evidence, independent verification and validation, and ongoing certification decisions.",
         "status": "placeholder",
-        "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
-            }
-          }
-        },
         "labels": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -5718,25 +5718,9 @@
             "name": "General Provider Responsibilities",
             "description": "These rules apply to cloud service providers obtaining and maintaining any FedRAMP Certification."
           },
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
-          },
-          "CSL": {
-            "name": "Rev5-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
-          },
           "IAS": {
             "name": "General Independent Assessor Responsibilities",
             "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types."
-          },
-          "IAX": {
-            "name": "20x-Specific Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
-          },
-          "IAL": {
-            "name": "Rev5-Specific Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
           },
           "CLA": {
             "name": "FedRAMP Class A Certification Rules",
@@ -5749,6 +5733,48 @@
           "APS": {
             "name": "Applying for FedRAMP Certification with an Agency Sponsor",
             "description": "These rules apply to cloud service providers with an Agency Sponsor who have met all other relevant rules and are ready to apply for any FedRAMP Certification."
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-05-04",
+              "grace_ends": "2027-05-04"
+            }
+          },
+          "labels": {
+            "CSX": {
+              "name": "20x-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP 20x Certifications."
+            },
+            "IAX": {
+              "name": "20x-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-01-01"
+            }
+          },
+          "labels": {
+            "CSF": {
+              "name": "Rev5-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
+            },
+            "IAF": {
+              "name": "Rev5-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
+            }
           }
         }
       },
@@ -6649,8 +6675,8 @@
           }
         },
         "rev5": {
-          "CSL": {
-            "FRC-CSL-CDE": {
+          "CSF": {
+            "FRC-CSF-CDE": {
               "name": "Class D Program Certification Exclusion",
               "statement": "Providers seeking a FedRAMP Rev5 Class D Certification MUST use the FedRAMP Agency Certification path.",
               "note": "FedRAMP will not perform FedRAMP Rev5 Class D Program Certifications.",
@@ -6664,7 +6690,7 @@
                 }
               ]
             },
-            "FRC-CSL-PMV": {
+            "FRC-CSF-PMV": {
               "name": "Persistent Machine Verification and Validation",
               "varies_by_class": {
                 "a": {
@@ -6707,7 +6733,7 @@
                 }
               ]
             },
-            "FRC-CSL-RDY": {
+            "FRC-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
               "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
               "note": "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready.",
@@ -6751,8 +6777,14 @@
         "web_name": "security-decision-record",
         "purpose": "The Security Decision Record replaced a traditional System Security Plan with a persistently maintained, verified, and validated record of the security decisions made by the cloud service provider over the lifecycle of their cloud service offering.",
         "status": "empty",
-        "effective": {
-          "20x": {
+        "labels": {
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These rules apply to providers for FedRAMP Certifications of any type."
+          }
+        },
+        "20x": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6761,7 +6793,15 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "rev5": {
+          "labels": {
+            "CSX": {
+              "name": "20x-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP 20x Certifications."
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6770,20 +6810,12 @@
               "grace_ends": "2028-02-01"
             },
             "signup_url": "ADDME"
-          }
-        },
-        "labels": {
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Certifications of any type."
           },
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
-          },
-          "CSL": {
-            "name": "Rev5-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
+          "labels": {
+            "CSF": {
+              "name": "Rev5-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
+            }
           }
         }
       },
@@ -6800,8 +6832,18 @@
         "web_name": "independent-assessment-plan",
         "purpose": "The Independent Assessment Plan rules explain how independent assessment services should approach the verification, validation, and attestation of a cloud service provider's own Security Decision Record on behalf of FedRAMP.",
         "status": "empty",
-        "effective": {
-          "20x": {
+        "labels": {
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These rules apply to providers for FedRAMP Certifications of any type."
+          },
+          "IAS": {
+            "name": "General Independent Assessor Responsibilities",
+            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types."
+          }
+        },
+        "20x": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6810,7 +6852,19 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "rev5": {
+          "labels": {
+            "CSX": {
+              "name": "20x-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP 20x Certifications."
+            },
+            "IAX": {
+              "name": "20x-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6819,32 +6873,16 @@
               "grace_ends": "2028-02-01"
             },
             "signup_url": "ADDME"
-          }
-        },
-        "labels": {
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Certifications of any type."
           },
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
-          },
-          "CSL": {
-            "name": "Rev5-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types."
-          },
-          "IAX": {
-            "name": "20x-Specific Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
-          },
-          "IAL": {
-            "name": "Rev5-Specific Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
+          "labels": {
+            "CSF": {
+              "name": "Rev5-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
+            },
+            "IAF": {
+              "name": "Rev5-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
+            }
           }
         }
       },
@@ -6861,8 +6899,18 @@
         "web_name": "independent-assessment-report",
         "purpose": "The Independent Assessment Report rules explain the minimum expectations for independent assessor attestations after the completion of an independent assessment for FedRAMP Certification.",
         "status": "empty",
-        "effective": {
-          "20x": {
+        "labels": {
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These rules apply to providers for FedRAMP Certifications of any type."
+          },
+          "IAS": {
+            "name": "General Independent Assessor Responsibilities",
+            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types."
+          }
+        },
+        "20x": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6871,7 +6919,19 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "rev5": {
+          "labels": {
+            "CSX": {
+              "name": "20x-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP 20x Certifications."
+            },
+            "IAX": {
+              "name": "20x-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6880,32 +6940,16 @@
               "grace_ends": "2028-02-01"
             },
             "signup_url": "ADDME"
-          }
-        },
-        "labels": {
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Certifications of any type."
           },
-          "CSX": {
-            "name": "20x-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP 20x Certifications."
-          },
-          "CSL": {
-            "name": "Rev5-Specific Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types."
-          },
-          "IAX": {
-            "name": "20x-Specific Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications."
-          },
-          "IAL": {
-            "name": "Rev5-Specific Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
+          "labels": {
+            "CSF": {
+              "name": "Rev5-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
+            },
+            "IAF": {
+              "name": "Rev5-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications."
+            }
           }
         }
       },
@@ -6923,14 +6967,12 @@
         "purpose": "The Agency Use rules summarize the many demands made on agencies by the FedRAMP Authorization Act and OMB Memorandum M-24-15 in a simple, clear, easy-to-follow set of FedRAMP-style rules. These rules align agency policies, authorization letters, machine-readable tools, secure configuration review, continuous monitoring, and communication with FedRAMP so certifications can be reused consistently across government.",
         "status": "placeholder",
         "effective": {
-          "all": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2026-07-04",
-              "grace_ends": "2026-07-04"
-            }
+          "is": "required",
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-07-04",
+            "maintain": "2026-07-04",
+            "grace_ends": "2026-07-04"
           }
         },
         "labels": {
@@ -7280,23 +7322,12 @@
         "purpose": "The FedRAMP Recognition of Independent Assessment Services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
         "status": "placeholder",
         "effective": {
-          "20x": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "rev5": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
-            }
+          "is": "required",
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-07-04",
+            "maintain": "2026-07-04",
+            "grace_ends": "2026-07-04"
           }
         },
         "labels": {

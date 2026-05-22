@@ -99,7 +99,9 @@ export function formatConsistencyReport(checks: ConsistencyCheck[]): string {
   ].join("\n");
 }
 
-export function collectConsistencyChecks(document: RulesDocument): ConsistencyCheck[] {
+export function collectConsistencyChecks(
+  document: RulesDocument,
+): ConsistencyCheck[] {
   return [
     {
       title: "Full ID alignment",
@@ -242,7 +244,10 @@ function collectIndicatorEntries(document: RulesDocument): Array<{
   for (const [themeKey, theme] of Object.entries(document.KSI ?? {})) {
     const indicators = Array.isArray(theme.indicators)
       ? Object.fromEntries(
-          theme.indicators.map((indicator, index) => [`${theme.id}-${index}`, indicator]),
+          theme.indicators.map((indicator, index) => [
+            `${theme.id}-${index}`,
+            indicator,
+          ]),
         )
       : theme.indicators;
 
@@ -272,7 +277,9 @@ function collectDefinitionEntries(document: RulesDocument): Array<{
     location: string;
   }> = [];
 
-  for (const [scopeKey, definitions] of Object.entries(document.FRD.data ?? {})) {
+  for (const [scopeKey, definitions] of Object.entries(
+    document.FRD.data ?? {},
+  )) {
     for (const [id, definition] of Object.entries(definitions ?? {})) {
       entries.push({
         scopeKey,
@@ -307,7 +314,9 @@ function walkJson(
   }
 }
 
-export function collectFullIdAlignmentIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectFullIdAlignmentIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   if (document.FRD.info.short_name !== "FRD") {
@@ -322,7 +331,10 @@ export function collectFullIdAlignmentIssues(document: RulesDocument): Consisten
   for (const entry of collectDefinitionEntries(document)) {
     if (!entry.id.startsWith("FRD-")) {
       issues.push(
-        issue(entry.location, `definition ID must start with FRD-, but found ${entry.id}.`),
+        issue(
+          entry.location,
+          `definition ID must start with FRD-, but found ${entry.id}.`,
+        ),
       );
     }
   }
@@ -342,7 +354,10 @@ export function collectFullIdAlignmentIssues(document: RulesDocument): Consisten
     const match = entry.id.match(FRR_ID_REGEX);
     if (!match) {
       issues.push(
-        issue(entry.location, `requirement ID ${entry.id} does not match ABC-LBL-XYZ format.`),
+        issue(
+          entry.location,
+          `requirement ID ${entry.id} does not match ABC-LBL-XYZ format.`,
+        ),
       );
       continue;
     }
@@ -390,7 +405,10 @@ export function collectFullIdAlignmentIssues(document: RulesDocument): Consisten
     const match = entry.id.match(KSI_ID_REGEX);
     if (!match) {
       issues.push(
-        issue(entry.location, `indicator ID ${entry.id} does not match KSI-ABC-XYZ format.`),
+        issue(
+          entry.location,
+          `indicator ID ${entry.id} does not match KSI-ABC-XYZ format.`,
+        ),
       );
       continue;
     }
@@ -409,19 +427,21 @@ export function collectFullIdAlignmentIssues(document: RulesDocument): Consisten
   return issues;
 }
 
-export function collectFrrLabelDeclarationIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectFrrLabelDeclarationIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
-    const declaredLabels = new Set(Object.keys(section.info.labels ?? {}));
-
     for (const [scopeKey, scope] of Object.entries(section.data ?? {})) {
+      const declaredLabels = collectDeclaredFrrLabels(section.info, scopeKey);
+
       for (const labelKey of Object.keys(scope ?? {})) {
         if (!declaredLabels.has(labelKey)) {
           issues.push(
             issue(
               `FRR.${sectionKey}.data.${scopeKey}.${labelKey}`,
-              `label bucket ${labelKey} is used in data but is not declared in FRR.${sectionKey}.info.labels.`,
+              `label bucket ${labelKey} is used in data but is not declared in FRR.${sectionKey}.info labels for the ${scopeKey} applicability scope.`,
             ),
           );
         }
@@ -430,6 +450,36 @@ export function collectFrrLabelDeclarationIssues(document: RulesDocument): Consi
   }
 
   return issues;
+}
+
+function collectDeclaredFrrLabels(
+  info: Record<string, unknown>,
+  scopeKey: string,
+): Set<string> {
+  const labels = new Set(Object.keys(getRecordProperty(info, "labels") ?? {}));
+
+  if (scopeKey === "20x" || scopeKey === "rev5") {
+    const certificationInfo = getRecordProperty(info, scopeKey);
+    for (const label of Object.keys(
+      getRecordProperty(certificationInfo, "labels") ?? {},
+    )) {
+      labels.add(label);
+    }
+  }
+
+  return labels;
+}
+
+function getRecordProperty(
+  value: Record<string, unknown> | undefined,
+  key: string,
+): Record<string, unknown> | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  const property = value[key];
+  return isRecord(property) ? property : undefined;
 }
 
 function collectUpdatedHistoryIssues(
@@ -454,7 +504,9 @@ function collectUpdatedHistoryIssues(
     );
   }
 
-  const expectedOrder = [...dates].sort((left, right) => right.localeCompare(left));
+  const expectedOrder = [...dates].sort((left, right) =>
+    right.localeCompare(left),
+  );
   if (dates.some((date, index) => date !== expectedOrder[index])) {
     issues.push(
       issue(
@@ -467,7 +519,9 @@ function collectUpdatedHistoryIssues(
   return issues;
 }
 
-export function collectAuditHistoryIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectAuditHistoryIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   return [
     ...collectDefinitionEntries(document).flatMap((entry) =>
       collectUpdatedHistoryIssues(entry.location, entry.definition.updated),
@@ -481,7 +535,9 @@ export function collectAuditHistoryIssues(document: RulesDocument): ConsistencyI
   ];
 }
 
-export function collectTextHygieneIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectTextHygieneIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   walkJson(document, [], (value, path) => {
@@ -494,7 +550,9 @@ export function collectTextHygieneIssues(document: RulesDocument): ConsistencyIs
       issues.push(issue(location, "text value must not be empty."));
     }
     if (value !== value.trim()) {
-      issues.push(issue(location, "text value has leading or trailing whitespace."));
+      issues.push(
+        issue(location, "text value has leading or trailing whitespace."),
+      );
     }
     if (TEXT_CONTROL_CHARACTER_REGEX.test(value)) {
       issues.push(issue(location, "text value contains a control character."));
@@ -504,7 +562,9 @@ export function collectTextHygieneIssues(document: RulesDocument): ConsistencyIs
   return issues;
 }
 
-export function collectClassVariantStatementIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectClassVariantStatementIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   walkJson(document, [], (value, path) => {
@@ -528,7 +588,9 @@ export function collectClassVariantStatementIssues(document: RulesDocument): Con
       }
 
       const expectedClass = CLASS_NAMES[classKey];
-      const unexpectedClasses = mentionedClasses.filter((className) => className !== expectedClass);
+      const unexpectedClasses = mentionedClasses.filter(
+        (className) => className !== expectedClass,
+      );
       if (unexpectedClasses.length > 0) {
         issues.push(
           issue(
@@ -594,19 +656,27 @@ export function collectArtifactApplicabilityIssues(
   return issues;
 }
 
-function collectAffectsIssues(location: string, requirement: Requirement): ConsistencyIssue[] {
+function collectAffectsIssues(
+  location: string,
+  requirement: Requirement,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
   const affects = requirement.affects ?? [];
 
   if (affects.length === 0) {
-    issues.push(issue(`${location}.affects`, "affects must list at least one party."));
+    issues.push(
+      issue(`${location}.affects`, "affects must list at least one party."),
+    );
     return issues;
   }
 
   const duplicateAffects = collectDuplicateValues(affects);
   if (duplicateAffects.length > 0) {
     issues.push(
-      issue(`${location}.affects`, `affects contains duplicate values: ${duplicateAffects.join(", ")}.`),
+      issue(
+        `${location}.affects`,
+        `affects contains duplicate values: ${duplicateAffects.join(", ")}.`,
+      ),
     );
   }
 
@@ -624,16 +694,25 @@ function collectAffectsIssues(location: string, requirement: Requirement): Consi
   return issues;
 }
 
-function collectControlIssues(location: string, entity: RequirementLike): ConsistencyIssue[] {
+function collectControlIssues(
+  location: string,
+  entity: RequirementLike,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
-  const controls = isRecord(entity) && Array.isArray(entity.controls)
-    ? entity.controls.filter((control): control is string => typeof control === "string")
-    : [];
+  const controls =
+    isRecord(entity) && Array.isArray(entity.controls)
+      ? entity.controls.filter(
+          (control): control is string => typeof control === "string",
+        )
+      : [];
 
   const duplicateControls = collectDuplicateValues(controls);
   if (duplicateControls.length > 0) {
     issues.push(
-      issue(`${location}.controls`, `controls contains duplicate IDs: ${duplicateControls.join(", ")}.`),
+      issue(
+        `${location}.controls`,
+        `controls contains duplicate IDs: ${duplicateControls.join(", ")}.`,
+      ),
     );
   }
 
@@ -651,7 +730,10 @@ function collectControlIssues(location: string, entity: RequirementLike): Consis
   return issues;
 }
 
-function collectTimeframeIssues(value: unknown, path: JsonPathSegment[]): ConsistencyIssue[] {
+function collectTimeframeIssues(
+  value: unknown,
+  path: JsonPathSegment[],
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   walkJson(value, path, (node, nodePath) => {
@@ -676,7 +758,11 @@ function collectTimeframeIssues(value: unknown, path: JsonPathSegment[]): Consis
     }
 
     if (hasType && typeof node.timeframe_type === "string") {
-      if (!(ALLOWED_TIMEFRAME_TYPES as readonly string[]).includes(node.timeframe_type)) {
+      if (
+        !(ALLOWED_TIMEFRAME_TYPES as readonly string[]).includes(
+          node.timeframe_type,
+        )
+      ) {
         issues.push(
           issue(
             `${location}.timeframe_type`,
@@ -686,9 +772,16 @@ function collectTimeframeIssues(value: unknown, path: JsonPathSegment[]): Consis
       }
     }
 
-    if (hasNum && typeof node.timeframe_num === "number" && node.timeframe_num <= 0) {
+    if (
+      hasNum &&
+      typeof node.timeframe_num === "number" &&
+      node.timeframe_num <= 0
+    ) {
       issues.push(
-        issue(`${location}.timeframe_num`, "timeframe_num must be greater than zero."),
+        issue(
+          `${location}.timeframe_num`,
+          "timeframe_num must be greater than zero.",
+        ),
       );
     }
   });
@@ -696,7 +789,10 @@ function collectTimeframeIssues(value: unknown, path: JsonPathSegment[]): Consis
   return issues;
 }
 
-function collectNotificationIssues(value: unknown, path: JsonPathSegment[]): ConsistencyIssue[] {
+function collectNotificationIssues(
+  value: unknown,
+  path: JsonPathSegment[],
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   walkJson(value, path, (node, nodePath) => {
@@ -712,7 +808,9 @@ function collectNotificationIssues(value: unknown, path: JsonPathSegment[]): Con
       const location = `${formatPath(nodePath)}.notification[${index}]`;
       if (
         typeof notification.method === "string" &&
-        !(ALLOWED_NOTIFICATION_METHODS as readonly string[]).includes(notification.method)
+        !(ALLOWED_NOTIFICATION_METHODS as readonly string[]).includes(
+          notification.method,
+        )
       ) {
         issues.push(
           issue(
@@ -724,7 +822,9 @@ function collectNotificationIssues(value: unknown, path: JsonPathSegment[]): Con
 
       if (
         typeof notification.party === "string" &&
-        !(ALLOWED_NOTIFICATION_PARTIES as readonly string[]).includes(notification.party)
+        !(ALLOWED_NOTIFICATION_PARTIES as readonly string[]).includes(
+          notification.party,
+        )
       ) {
         issues.push(
           issue(
@@ -739,7 +839,9 @@ function collectNotificationIssues(value: unknown, path: JsonPathSegment[]): Con
   return issues;
 }
 
-export function collectControlledVocabularyIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectControlledVocabularyIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   visitRequirements(document, ({ location, requirement }) => {
@@ -761,14 +863,19 @@ function normalizeTermCandidate(candidate: string): string {
   return candidate.trim().toLowerCase();
 }
 
-export function collectFrdTermLookupIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectFrdTermLookupIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const candidateMap = new Map<
     string,
     Map<string, { id: string; term: string; location: string }>
   >();
 
   for (const entry of collectDefinitionEntries(document)) {
-    const candidates = [entry.definition.term, ...(entry.definition.alts ?? [])];
+    const candidates = [
+      entry.definition.term,
+      ...(entry.definition.alts ?? []),
+    ];
     for (const candidate of candidates) {
       const normalized = normalizeTermCandidate(candidate);
       const definitions = candidateMap.get(normalized) ?? new Map();
@@ -798,7 +905,9 @@ export function collectFrdTermLookupIssues(document: RulesDocument): Consistency
     );
   }
 
-  return issues.sort((left, right) => left.message.localeCompare(right.message));
+  return issues.sort((left, right) =>
+    left.message.localeCompare(right.message),
+  );
 }
 
 function collectReferenceIds(document: RulesDocument): {
@@ -806,8 +915,12 @@ function collectReferenceIds(document: RulesDocument): {
   indicatorIds: Set<string>;
   webNames: Set<string>;
 } {
-  const requirementIds = new Set(collectRequirementEntries(document).map((entry) => entry.id));
-  const indicatorIds = new Set(collectIndicatorEntries(document).map((entry) => entry.id));
+  const requirementIds = new Set(
+    collectRequirementEntries(document).map((entry) => entry.id),
+  );
+  const indicatorIds = new Set(
+    collectIndicatorEntries(document).map((entry) => entry.id),
+  );
   const webNames = new Set<string>();
 
   for (const section of Object.values(document.FRR ?? {})) {
@@ -824,9 +937,12 @@ function collectReferenceIds(document: RulesDocument): {
   return { requirementIds, indicatorIds, webNames };
 }
 
-export function collectCrossReferenceIssues(document: RulesDocument): ConsistencyIssue[] {
+export function collectCrossReferenceIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
-  const { requirementIds, indicatorIds, webNames } = collectReferenceIds(document);
+  const { requirementIds, indicatorIds, webNames } =
+    collectReferenceIds(document);
 
   walkJson(document, [], (value, path) => {
     const location = formatPath(path);
@@ -852,7 +968,9 @@ export function collectCrossReferenceIssues(document: RulesDocument): Consistenc
         continue;
       }
       if (!indicatorIds.has(id)) {
-        issues.push(issue(location, `referenced KSI indicator ID ${id} does not exist.`));
+        issues.push(
+          issue(location, `referenced KSI indicator ID ${id} does not exist.`),
+        );
       }
     }
 
@@ -862,7 +980,12 @@ export function collectCrossReferenceIssues(document: RulesDocument): Consistenc
         continue;
       }
       if (!requirementIds.has(id)) {
-        issues.push(issue(location, `referenced FRR requirement ID ${id} does not exist.`));
+        issues.push(
+          issue(
+            location,
+            `referenced FRR requirement ID ${id} does not exist.`,
+          ),
+        );
       }
     }
   });

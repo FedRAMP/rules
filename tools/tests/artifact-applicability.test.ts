@@ -27,7 +27,7 @@ test("artifact applicability permits all keys under all and matching keys under 
   (document as any).FRR.FRC.data["20x"].CSX["FRC-CSX-MAS"].artifacts = {
     "20x": ["20x-only evidence."],
   };
-  (document as any).FRR.CDS.data.rev5.CSL["CDS-CSL-SCD"].artifacts = {
+  (document as any).FRR.CDS.data.rev5.CSF["CDS-CSF-SCD"].artifacts = {
     rev5: ["Rev5-only evidence."],
   };
 
@@ -49,12 +49,12 @@ test("artifact applicability reports human-readable errors for mismatched keys",
   ].varies_by_class.b.artifacts = {
     rev5: ["Wrong class-level evidence."],
   };
-  (document as any).FRR.CDS.data.rev5.CSL["CDS-CSL-SCD"].artifacts = {
+  (document as any).FRR.CDS.data.rev5.CSF["CDS-CSF-SCD"].artifacts = {
     "20x": ["Wrong parent evidence."],
     rev5: ["Allowed evidence."],
   };
-  (document as any).FRR.CDS.data.rev5.CSL[
-    "CDS-CSL-SCD"
+  (document as any).FRR.CDS.data.rev5.CSF[
+    "CDS-CSF-SCD"
   ].varies_by_class.a.artifacts = {
     all: ["Wrong class-level evidence."],
   };
@@ -63,13 +63,12 @@ test("artifact applicability reports human-readable errors for mismatched keys",
 
   expect(issues).toEqual([
     {
-      location: "FRR.CDS.data.rev5.CSL.CDS-CSL-SCD.artifacts",
+      location: "FRR.CDS.data.rev5.CSF.CDS-CSF-SCD.artifacts",
       message:
         "artifacts is inside data.rev5, so it may only use applicability keys: rev5. Found disallowed keys: 20x.",
     },
     {
-      location:
-        "FRR.CDS.data.rev5.CSL.CDS-CSL-SCD.varies_by_class.a.artifacts",
+      location: "FRR.CDS.data.rev5.CSF.CDS-CSF-SCD.varies_by_class.a.artifacts",
       message:
         "artifacts is inside data.rev5, so it may only use applicability keys: rev5. Found disallowed keys: all.",
     },
@@ -79,8 +78,7 @@ test("artifact applicability reports human-readable errors for mismatched keys",
         "artifacts is inside data.20x, so it may only use applicability keys: 20x. Found disallowed keys: all, rev5.",
     },
     {
-      location:
-        "FRR.FRC.data.20x.CSX.FRC-CSX-PMV.varies_by_class.b.artifacts",
+      location: "FRR.FRC.data.20x.CSX.FRC-CSX-PMV.varies_by_class.b.artifacts",
       message:
         "artifacts is inside data.20x, so it may only use applicability keys: 20x. Found disallowed keys: rev5.",
     },
