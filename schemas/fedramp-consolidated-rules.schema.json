@@ -519,7 +519,13 @@
         "timeframe_type": { "type": "string" },
         "timeframe_num": { "type": "number" },
         "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
-        "artifacts": { "$ref": "#/$defs/artifacts" }
+        "artifacts": { "$ref": "#/$defs/artifacts" },
+        "note": { "type": "string" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        }
       },
       "additionalProperties": false
     },

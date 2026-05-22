@@ -1,3 +1,8 @@
+import { readFile, writeFile } from "node:fs/promises";
+import { relative } from "node:path";
+
+import { format } from "prettier";
+
 import { green, getOptionValue, hasFlag, writeJsonFile } from "./src/cli";
 import { getResolvedPaths } from "./src/config";
 import {
@@ -60,6 +65,18 @@ const source = loadRulesDocument();
 const schema = loadSchemaDocument();
 const entryDate = dateOverride ?? source.info.last_updated;
 
+async function formatRulesFile(): Promise<void> {
+  const source = await readFile(rulesPath, "utf-8");
+  const formatted = await format(source, { filepath: rulesPath });
+  await writeFile(rulesPath, formatted, "utf-8");
+  console.log(green(`Formatted ${relative(process.cwd(), rulesPath)} with Prettier.`));
+}
+
+async function exitAfterFormatting(exitCode = 0): Promise<never> {
+  await formatRulesFile();
+  process.exit(exitCode);
+}
+
 console.log(`Using config: ${configPath}`);
 console.log(`Rules file: ${rulesPath}`);
 console.log(`Schema file: ${schemaPath}`);
@@ -79,7 +96,7 @@ if (scope === "auto") {
 
   if (!plan.needsTermsFix && !plan.needsIdsFix && !plan.needsOrderFix) {
     console.log(green("No automatic fixes were needed."));
-    process.exit(0);
+    await exitAfterFormatting();
   }
 
   const result = applyAutoFixes(cloneDocument(source), schema, {
@@ -113,18 +130,18 @@ if (scope === "auto") {
   const remaining = collectAutoFixPlan(result.document, schema);
   if (remaining.needsTermsFix || remaining.needsIdsFix || remaining.needsOrderFix) {
     console.error("Automatic fixes completed, but some fixable issues still remain.");
-    process.exit(1);
+    await exitAfterFormatting(1);
   }
 
   console.log(green("Applied all needed automatic fixes."));
-  process.exit(0);
+  await exitAfterFormatting();
 }
 
 if (scope === "terms") {
   const plan = collectTermsFixPlan(source);
   if (!plan.needsFix) {
     console.log(green("Terms are already synchronized."));
-    process.exit(0);
+    await exitAfterFormatting();
   }
 
   const result = applyTermsFix(cloneDocument(source), {
@@ -137,14 +154,14 @@ if (scope === "terms") {
       `Applied ${result.definitionTermFixedCount} definition fixes and synchronized ${result.termSyncFixedCount} entries.`,
     ),
   );
-  process.exit(0);
+  await exitAfterFormatting();
 }
 
 if (scope === "ids") {
   const plan = collectIdsFixPlan(source);
   if (!plan.needsFix) {
     console.log(green("All IDs are aligned with their parent keys."));
-    process.exit(0);
+    await exitAfterFormatting();
   }
 
   const result = applyIdsFix(cloneDocument(source), { entryDate });
@@ -161,15 +178,16 @@ if (scope === "ids") {
 
   writeDocument(result.document, outputPath);
   console.log(green(`Applied ${result.fixedCount} ID fixes.`));
-  process.exit(0);
+  await exitAfterFormatting();
 }
 
 const plan = collectOrderFixPlan(source, schema);
 if (!plan.needsFix) {
   console.log(green("All object properties follow the schema-defined order."));
-  process.exit(0);
+  await exitAfterFormatting();
 }
 
 const result = applyOrderFix(cloneDocument(source), schema);
 writeDocument(result.document, outputPath);
 console.log(green(`Applied ${result.fixedCount} property order fixes.`));
+await exitAfterFormatting();

@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "bun run typecheck && bun run test",
-    "test": "bun run test.ts",
+    "check": "bun run --silent typecheck && bun run --silent test",
+    "test": "bun run --silent test.ts",
     "typecheck": "tsc --noEmit",
     "fix": "bun run fix.ts",
     "summary": "bun run summary.ts",

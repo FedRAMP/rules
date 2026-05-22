@@ -6,7 +6,14 @@ import {
   loadRulesDocument,
   loadSchemaDocument,
 } from "../src/rules";
+import { visitIndicators, visitRequirements } from "../src/traversal";
 import type { RulesDocument } from "../src/types";
+
+type MutableRuleEntity = Record<string, unknown> & {
+  statement?: string;
+  primary_key_word?: string;
+  varies_by_class?: Record<string, unknown>;
+};
 
 function effectiveEntry() {
   return {
@@ -56,6 +63,72 @@ function minimalRulesDocument(): RulesDocument {
     },
     KSI: {},
   } as RulesDocument;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function hasSingleRequirementStatement(entity: MutableRuleEntity): boolean {
+  return (
+    typeof entity.statement === "string" &&
+    typeof entity.primary_key_word === "string" &&
+    !isRecord(entity.varies_by_class)
+  );
+}
+
+function hasSingleIndicatorStatement(entity: MutableRuleEntity): boolean {
+  return (
+    typeof entity.statement === "string" && !isRecord(entity.varies_by_class)
+  );
+}
+
+function hasClassSpecificStatement(entity: MutableRuleEntity): boolean {
+  return (
+    isRecord(entity.varies_by_class) && typeof entity.statement !== "string"
+  );
+}
+
+function findFrrRequirement(
+  document: RulesDocument,
+  predicate: (entity: MutableRuleEntity) => boolean,
+  description: string,
+): MutableRuleEntity {
+  let match: MutableRuleEntity | undefined;
+
+  visitRequirements(document, ({ requirement }) => {
+    const entity = requirement as unknown as MutableRuleEntity;
+    if (!match && predicate(entity)) {
+      match = entity;
+    }
+  });
+
+  if (!match) {
+    throw new Error(`Expected the rules document to contain ${description}.`);
+  }
+
+  return match;
+}
+
+function findKsiIndicator(
+  document: RulesDocument,
+  predicate: (entity: MutableRuleEntity) => boolean,
+  description: string,
+): MutableRuleEntity {
+  let match: MutableRuleEntity | undefined;
+
+  visitIndicators(document, ({ indicator }) => {
+    const entity = indicator as unknown as MutableRuleEntity;
+    if (!match && predicate(entity)) {
+      match = entity;
+    }
+  });
+
+  if (!match) {
+    throw new Error(`Expected the rules document to contain ${description}.`);
+  }
+
+  return match;
 }
 
 test("the consolidated rules document matches the configured schema", () => {
@@ -169,8 +242,11 @@ test("the schema keeps common-only info properties out of certification blocks",
 
 test("the schema rejects FRR requirements that mix top-level and class-specific statements", () => {
   const singleStatementDocument = cloneDocument(loadRulesDocument());
-  const singleStatementRequirement = (singleStatementDocument as any).FRR.MAS
-    .data.all.CSO["MAS-CSO-FLO"];
+  const singleStatementRequirement = findFrrRequirement(
+    singleStatementDocument,
+    hasSingleRequirementStatement,
+    "an FRR requirement with a top-level statement",
+  );
   singleStatementRequirement.varies_by_class = {
     b: {
       statement: singleStatementRequirement.statement,
@@ -188,9 +264,11 @@ test("the schema rejects FRR requirements that mix top-level and class-specific 
   );
 
   const classSpecificDocument = cloneDocument(loadRulesDocument());
-  (classSpecificDocument as any).FRR.FRC.data["20x"].CSX[
-    "FRC-CSX-PMV"
-  ].statement =
+  findFrrRequirement(
+    classSpecificDocument,
+    hasClassSpecificStatement,
+    "an FRR requirement with class-specific statements",
+  ).statement =
     "This invalid top-level statement should not be allowed next to varies_by_class.";
 
   expectSchemaRejects(
@@ -201,9 +279,11 @@ test("the schema rejects FRR requirements that mix top-level and class-specific 
 
 test("the schema rejects KSI indicators that mix top-level and class-specific statements", () => {
   const singleStatementDocument = cloneDocument(loadRulesDocument());
-  (singleStatementDocument as any).KSI.CMT.indicators[
-    "KSI-CMT-LMC"
-  ].varies_by_class = {
+  findKsiIndicator(
+    singleStatementDocument,
+    hasSingleIndicatorStatement,
+    "a KSI indicator with a top-level statement",
+  ).varies_by_class = {
     b: {
       statement:
         "This invalid class-specific statement should not be allowed next to a top-level statement.",
@@ -220,7 +300,11 @@ test("the schema rejects KSI indicators that mix top-level and class-specific st
   );
 
   const classSpecificDocument = cloneDocument(loadRulesDocument());
-  (classSpecificDocument as any).KSI.CNA.indicators["KSI-CNA-EIS"].statement =
+  findKsiIndicator(
+    classSpecificDocument,
+    hasClassSpecificStatement,
+    "a KSI indicator with class-specific statements",
+  ).statement =
     "This invalid top-level statement should not be allowed next to varies_by_class.";
 
   expectSchemaRejects(

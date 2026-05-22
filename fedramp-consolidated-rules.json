@@ -1112,6 +1112,45 @@
                 }
               ]
             },
+            "CDS-CSO-PAR": {
+              "name": "Public Availability Reporting",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of Class A offerings SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service SHOULD be available even if the primary cloud service offering is unavailable.",
+                  "primary_key_word": "SHOULD",
+                  "note": "This service may be separate from the trust center."
+                },
+                "b": {
+                  "statement": "Providers of Class B offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
+                  "primary_key_word": "MUST",
+                  "note": "This service may be separate from the trust center."
+                },
+                "c": {
+                  "statement": "Providers of Class C offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
+                  "primary_key_word": "MUST",
+                  "note": "This service may be separate from the trust center."
+                },
+                "d": {
+                  "statement": "Providers of Class D offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
+                  "primary_key_word": "MUST",
+                  "note": "This service may be separate from the trust center."
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "All Necessary Parties",
+                "Cloud Service Offering",
+                "Incident",
+                "Machine-Readable",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "CDS-CSO-UTC": {
               "name": "Use Trust Centers",
               "statement": "Providers MUST use a FedRAMP-compatible trust center to store and share FedRAMP Certification Data with all necessary parties.",
@@ -2505,41 +2544,6 @@
             }
           },
           "CSO": {
-            "ICP-CSO-PAR": {
-              "name": "Public Availability Reporting",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of Class A offerings SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
-                  "primary_key_word": "SHOULD"
-                },
-                "b": {
-                  "statement": "Providers of Class B offerings SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
-                  "primary_key_word": "SHOULD"
-                },
-                "c": {
-                  "statement": "Providers of Class C offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
-                  "primary_key_word": "MUST"
-                },
-                "d": {
-                  "statement": "Providers of Class D offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
-                  "primary_key_word": "MUST"
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "All Necessary Parties",
-                "Cloud Service Offering",
-                "Incident",
-                "Machine-Readable",
-                "Provider"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "ICP-CSO-EFR": {
               "name": "Evaluate Federal Reportability",
               "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Communications Procedures.",
@@ -6398,7 +6402,6 @@
                 "FSI-CSO-INB",
                 "FSI-CSO-RCV",
                 "FSI-CSO-CRA",
-                "ICP-CSO-PAR",
                 "ICP-CSO-EFR",
                 "VDR-CSO-DET",
                 "CCM-OCR-AVL",

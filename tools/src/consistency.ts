@@ -88,15 +88,20 @@ export function formatConsistencyReport(checks: ConsistencyCheck[]): string {
     0,
   );
   const issueLabel = issueCount === 1 ? "issue" : "issues";
-
-  return [
-    `Consistency validation failed with ${issueCount} ${issueLabel}.`,
-    "",
-    ...failedChecks.flatMap((check) => [
-      formatConsistencyIssues(check.title, check.issues),
-      "",
-    ]),
+  const summaryIssues = failedChecks.flatMap((check) =>
+    check.issues.map(
+      (issue) => `- ${check.title}: ${issue.location}: ${issue.message}`,
+    ),
+  );
+  const summary = [
+    `Consistency validation failed with ${issueCount} ${issueLabel}:`,
+    ...summaryIssues,
   ].join("\n");
+  const checkReports = failedChecks.map((check) =>
+    formatConsistencyIssues(check.title, check.issues),
+  );
+
+  return [summary, ...checkReports].join("\n\n");
 }
 
 export function collectConsistencyChecks(
