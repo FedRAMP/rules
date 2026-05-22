@@ -46,6 +46,14 @@ The JSON file has four top-level sections:
 Important fields include `term`, `definition`, `alts`, references, notes, and
 `updated` history.
 
+The FRD data container uses applicability buckets. Shared definitions live under
+`FRD.data.all`; framework-specific definitions, if present, live under
+`FRD.data.20x` or `FRD.data.rev5`.
+
+FRD effective metadata may be common (`FRD.info.effective`) or split into
+paired framework-specific blocks (`FRD.info.20x.effective` and
+`FRD.info.rev5.effective`).
+
 When a defined term appears in an FRR rule or KSI indicator, use the FRD
 definition instead of assuming the plain-language meaning.
 
@@ -55,7 +63,11 @@ definition instead of assuming the plain-language meaning.
 Each process contains:
 
 - `info`
-  Rule metadata, purpose, status, effective metadata, and label definitions.
+  Rule metadata, purpose, status, effective metadata, label definitions, and
+  optional flow descriptions. Effective metadata may be common
+  (`info.effective`) or split into paired framework-specific blocks
+  (`info.20x.effective` and `info.rev5.effective`). Labels and flows may also
+  be common or framework-specific.
 - `data`
   The rule tree.
 
@@ -65,7 +77,7 @@ The rule tree is organized as:
 FRR -> process -> data -> applicability -> label -> requirement ID
 ```
 
-Applicability keys are `both`, `20x`, and `rev5`. Labels identify actors,
+Applicability keys are `all`, `20x`, and `rev5`. Labels identify actors,
 scopes, or process buckets. Requirement IDs follow the
 `PROCESS-LABEL-KEY` pattern, such as `VDR-CSO-123`.
 
@@ -74,9 +86,13 @@ Each requirement contains either:
 - a single `statement` and `primary_key_word`, or
 - a `varies_by_class` object with class-specific statements and keywords.
 
-Other useful fields include `affects`, `controls`, `artifacts`,
-`following_information`, `examples`, `notification`, timeframes, terms,
-references, and `updated` history.
+Class-specific variants may also include `following_information`, `artifacts`,
+notes, effective dates, simple timeframes, and `pain_timeframes`.
+
+Other useful top-level fields include `affects`, `controls`, `artifacts`,
+`following_information`, `following_information_bullets`, `examples`,
+`notification`, simple timeframes, terms, references, corrective actions,
+effective dates, and `updated` history.
 
 ### KSI
 
@@ -93,19 +109,26 @@ terms, references, and update history.
   matching when structured access is practical.
 - Validate the rules file against the schema before relying on automated
   analysis.
-- Select the correct applicability path: `both`, `20x`, or `rev5`.
-- Check `info.effective` before deciding whether a rule applies to a framework
-  or timeline.
+- Select the correct applicability path: `all`, `20x`, or `rev5`; `all`
+  means shared across frameworks.
+- Check common `info.effective` or the framework-specific
+  `info.20x.effective` / `info.rev5.effective` before deciding whether a rule
+  applies to a framework or timeline.
 - Check each document `status`; `placeholder` and `empty` content should be
   treated differently from `stable` content.
 - Resolve relevant terms through `FRD`.
-- Respect `varies_by_class` before applying a rule to a specific service class.
+- Resolve FRR label definitions from common `info.labels` plus any matching
+  framework-specific `info.20x.labels` or `info.rev5.labels`.
+- Respect `varies_by_class` before applying a rule to a specific service class,
+  including class-specific following information, artifacts, notes, and
+  timeframes.
 - Treat `MUST` and `MUST NOT` as hard requirements, `SHOULD` and `SHOULD NOT`
   as expected practices with possible justified exceptions, and `MAY` as
   optional or permitted behavior.
 - Cite stable IDs for every finding, mapping, or recommendation.
-- Use `affects`, `controls`, `artifacts`, and `default_artifacts` as mapping
-  signals. They are aids for analysis, not replacements for the rule statement.
+- Use `affects`, `controls`, `artifacts`, `default_artifacts`, notifications,
+  and timeframes as mapping signals. They are aids for analysis, not
+  replacements for the rule statement.
 - Distinguish evidence found, evidence missing, and conclusions inferred from
   evidence. Do not claim compliance from silence.
 
@@ -135,6 +158,66 @@ the rules as a structured mapping source:
 - Prefer narrowly scoped findings with exact citations over broad claims about
   FedRAMP readiness.
 
+## Changelog Generation
+
+When asked to generate a changelog for the active branch, produce a screen-only
+summary of the branch delta against `main`; do not create a changelog file
+unless the user explicitly asks for one.
+
+- Output the changelog as copy/pasteable Markdown. When responding in chat,
+  place the changelog itself inside a fenced `markdown` code block; keep any
+  explanatory notes outside the block.
+- Use plain repository paths inside the changelog instead of clickable Markdown
+  file links so the copied text remains portable.
+- Use the branch merge base with `main` as the starting point and the current
+  branch tip as the ending point. Prefer `git diff main...HEAD`,
+  `git diff --name-status main...HEAD`, and
+  `git log --reverse --format='%h %s' main..HEAD`.
+- If `main` is missing or stale and network access is available, fetch it first;
+  otherwise state which local ref was used.
+- Treat committed branch changes as the changelog scope by default. Mention
+  uncommitted workspace changes separately only when they affect the requested
+  analysis or the user asks to include them.
+- Validate the rules file against the schema before relying on automated JSON
+  analysis. If validation cannot be run, say so and continue carefully.
+- Parse JSON with a real JSON parser when comparing
+  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) and
+  [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json);
+  avoid text-only diff analysis for rule content whenever structured access is
+  practical.
+- Compare the initial branch state to the final branch state, not commit by
+  commit, unless a commit-level explanation is specifically requested.
+- Use stable IDs in every rule-content bullet: `FRD-XXX`, `FRR` requirement IDs
+  such as `VDR-CSO-123`, and `KSI-THEME-KEY`.
+- For each substantively changed rule, definition, or indicator, write one
+  sentence describing the user-visible change. Include additions, removals,
+  renamed terms, wording changes, actor/scope changes, applicability moves,
+  artifact changes, control mappings, examples, notifications, references,
+  timeframes, and class-specific variants.
+- Group purely mechanical metadata churn, such as mass `updated` date resets or
+  property ordering changes, instead of listing every affected rule separately.
+- Separate evidence from inference. When a conclusion comes from schema shape,
+  property names, or structural movement rather than explicit wording, label it
+  as structural.
+- Use exactly these changelog sections, in this order:
+  1. `Rules Content Changes`
+     Summarize changes inside `fedramp-consolidated-rules.json` itself. Focus
+     on rule, definition, indicator, FRR document, and metadata meaning changes.
+  2. `Schema And Structure Changes`
+     Summarize changes to
+     `schemas/fedramp-consolidated-rules.schema.json` and corresponding
+     structural changes in the rules JSON, such as top-level `info` changes,
+     property additions, renamed applicability buckets, required fields,
+     controlled vocabularies, and object shapes.
+  3. `Tooling And Test Changes`
+     Summarize support-code changes, CLI behavior, validators, fixers,
+     generated-summary behavior, package scripts, test harnesses, and test
+     coverage.
+- Keep bullets simple and high signal. Prefer a single line per bullet unless
+  the change is complex enough that a short second sentence prevents ambiguity.
+- End with a brief validation note naming the commands run, such as
+  `bun run check`, or explain why validation was not run.
+
 ## Editing Guidance
 
 If asked to edit the rules:
@@ -143,7 +226,8 @@ If asked to edit the rules:
   only when necessary, the schema.
 - Keep IDs stable unless the requested change requires a new or corrected ID.
 - Preserve schema-driven property order.
-- Update `updated` history when changing rule or definition meaning.
+- Update `updated` history when changing rule, definition, or indicator
+  meaning.
 - Regenerate [RULES.md](RULES.md) through the tooling rather than editing it by
   hand.
 - Run the tooling checks when available.
