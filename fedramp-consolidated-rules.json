@@ -155,21 +155,6 @@
             }
           ]
         },
-        "FRD-CAE": {
-          "term": "Catastrophic Adverse Effect",
-          "definition": "A severe negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in a severe degradation in the availability or performance of services within the cloud service offering for 24+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a majority of the federal customer data stored within the cloud service offering.",
-          "tag": "Adverse Effect",
-          "alts": [
-            "catastrophic adverse effect",
-            "catastrophic adverse effects"
-          ],
-          "updated": [
-            {
-              "date": "2026-07-04",
-              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-            }
-          ]
-        },
         "FRD-CCC": {
           "term": "Certification Class Change",
           "definition": "A type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
@@ -222,11 +207,38 @@
             }
           ]
         },
+        "FRD-DCE": {
+          "term": "Debilitating Customer Effect",
+          "definition": "An unwanted customer effect that interrupts use of the cloud service for most users or compromises the integrity or confidentiality of most federal customer data. If the adverse customer effect is unknown then it should be treated as if it is debilitating until proven otherwise.",
+          "tag": "Customer Effect",
+          "alts": [
+            "debilitating customer effect",
+            "debilitating customer effects"
+          ],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-DTM": {
           "term": "Deterministic Telemetry",
           "definition": "Verifiable data collected directly from an authoritative source that represents a factual and reproducible observation of the attributes of a system such as the system's state, configuration, or behavior.",
           "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as “Generative AI”) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
           "alts": ["deterministic telemetry"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-DCF": {
+          "term": "Disruptive Customer Effect",
+          "definition": "A significant negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in intermittent or ongoing degradation in the availability or performance of services within the cloud service offering, causing unpredictable interruptions to operations for 12+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a minority of the federal customer data stored within the cloud service offering.",
+          "tag": "Customer Effect",
+          "alts": ["disruptive customer effect", "disruptive customer effects"],
           "updated": [
             {
               "date": "2026-07-04",
@@ -276,21 +288,6 @@
             }
           ]
         },
-        "FRD-FRI": {
-          "term": "Federal Reportable Incident",
-          "definition": "An incident that affects the confidentiality or integrity of federal customer data or is likely to affect the confidentiality or integrity of federal customer data.",
-          "tag": "Incident",
-          "alts": [
-            "federal reportable incident",
-            "federal reportable incidents"
-          ],
-          "updated": [
-            {
-              "date": "2026-07-04",
-              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-            }
-          ]
-        },
         "FRD-FCT": {
           "term": "FedRAMP Certified",
           "definition": "The status of a cloud service offering that has received FedRAMP Certification and meets the legal requirement to be FedRAMP authorized.",
@@ -317,6 +314,21 @@
           "term": "FedRAMP Recognized",
           "definition": "The status of independent assessment services that are recognized by FedRAMP to perform assessment activities on behalf of FedRAMP for cloud service offerings seeking to obtain or maintain FedRAMP Certification.",
           "alts": ["FedRAMP Recognized", "FedRAMP Recognition"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-FRI": {
+          "term": "FedRAMP Reportable Incident",
+          "definition": "An incident that affects the confidentiality or integrity of federal customer data or is likely to affect the confidentiality or integrity of federal customer data.",
+          "tag": "Incident",
+          "alts": [
+            "FedRAMP Reportable Incident",
+            "FedRAMP Reportable Incidents"
+          ],
           "updated": [
             {
               "date": "2026-07-04",
@@ -354,7 +366,7 @@
         },
         "FRD-FMV": {
           "term": "Fully Mitigated Vulnerability",
-          "definition": "A vulnerability where the likelihood of exploitation or Potential Adverse Impact N-rating has been reduced from the original evaluation until either are negligible, but the vulnerability is still detected.",
+          "definition": "A vulnerability where the likelihood of exploitation or Potential Agency Impact N-rating has been reduced from the original evaluation until either are negligible, but the vulnerability is still detected.",
           "tag": "Vulnerability",
           "alts": [
             "fully mitigated vulnerability",
@@ -525,18 +537,6 @@
             }
           ]
         },
-        "FRD-LAE": {
-          "term": "Limited Adverse Effect",
-          "definition": "A minor negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in degradation of the availability or performance of services within the cloud service offering for a minority of relevant users; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a small amount of the federal customer data stored within the cloud service offering by only a few relevant users.",
-          "tag": "Adverse Effect",
-          "alts": ["limited adverse effect", "limited adverse effects"],
-          "updated": [
-            {
-              "date": "2026-07-04",
-              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-            }
-          ]
-        },
         "FRD-MBI": {
           "term": "Machine-Based (Information Resources)",
           "definition": "Any information technology information resource—including systems, processes, software, hardware, services, cloud-native capabilities, and any other such capability, component, or resource—that relies primarily on mechanical or electronic devices (i.e. computers) for operation.",
@@ -574,11 +574,23 @@
             }
           ]
         },
-        "FRD-NAE": {
-          "term": "Negligible Adverse Effect",
-          "definition": "A small negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in minor inconvenience when accessing or using services within the cloud service offering; OR (ii) result in degradation of the availability or performance of services within the cloud service offering for only a few relevant users.",
-          "tag": "Adverse Effect",
-          "alts": ["negligible adverse effect", "negligible adverse effects"],
+        "FRD-MCE": {
+          "term": "Minimal Customer Effect",
+          "definition": "An unwanted customer effect that is only noticeable by some users. This includes minor inconveniences such as reduced performance.",
+          "tag": "Customer Effect",
+          "alts": ["minimal customer effect", "minimal customer effects"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-NCE": {
+          "term": "Narrow Customer Effect",
+          "definition": "An unwanted customer effect that interrupts use of the cloud service for some users for less than 12 hours, or that compromises the integrity or confidentiality of an extremely limited amount and type of federal customer data.",
+          "tag": "Customer Effect",
+          "alts": ["narrow customer effect", "narrow customer effects"],
           "updated": [
             {
               "date": "2026-07-04",
@@ -639,7 +651,7 @@
         },
         "FRD-PMV": {
           "term": "Partially Mitigated Vulnerability",
-          "definition": "A vulnerability where the likelihood or Potential Adverse Impact N-rating has been reduced from the original evaluation but the risk of exploitation still exists and the vulnerability is still detected.",
+          "definition": "A vulnerability where the likelihood or Potential Agency Impact N-rating has been reduced from the original evaluation but the risk of exploitation still exists and the vulnerability is still detected.",
           "tag": "Vulnerability",
           "alts": [
             "partially mitigated vulnerability",
@@ -677,13 +689,13 @@
           ]
         },
         "FRD-PAI": {
-          "term": "Potential Adverse Impact",
-          "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impact to the United States federal government that is likely to result from either a security incident or the exploitation of a vulnerability in the cloud service offering; as estimated following appropriate FedRAMP rules to calculate the Potential Adverse Impact N-rating (PAIN).",
+          "term": "Potential Agency Impact",
+          "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impacts to all agencies using the cloud service that are likely to result from security incidents or the exploitation of vulnerabilities in the cloud service offering; as estimated following appropriate FedRAMP rules to calculate the Potential Agency Impact N-rating (PAIN).",
           "alts": [
-            "potential adverse impact",
-            "potential adverse impacts",
+            "potential agency impact",
+            "potential agency impacts",
             "PAIN",
-            "Potential Adverse Impact N-rating"
+            "Potential Agency Impact N-rating"
           ],
           "updated": [
             {
@@ -810,18 +822,6 @@
           ],
           "reference": "NIST FIPS 199 Standards for Security Categorization of Federal Information and Information Systems",
           "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
-          "updated": [
-            {
-              "date": "2026-07-04",
-              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-            }
-          ]
-        },
-        "FRD-SAE": {
-          "term": "Serious Adverse Effect",
-          "definition": "A significant negative impact on an organization caused by the loss of confidentiality, integrity, or availability of its information. At a minimum, this includes effects that would likely: (i) result in intermittent or ongoing degradation in the availability or performance of services within the cloud service offering, causing unpredictable interruptions to operations for 12+ hours; OR (ii) directly or indirectly result in unauthorized access, disclosure, or modification of a minority of the federal customer data stored within the cloud service offering.",
-          "tag": "Adverse Effect",
-          "alts": ["serious adverse effect", "serious adverse effects"],
           "updated": [
             {
               "date": "2026-07-04",
@@ -1741,7 +1741,9 @@
                 "Accepted vulnerabilities",
                 "Transformative changes",
                 "Updated recommendations or best practices for security, configuration, usage, or similar aspects of the cloud service offering",
-                "A list of all agencies that are directly using the product"
+                "A list of all agencies that are directly using the product",
+                "FedRAMP Reportable Incidents or an attestation that no such incidents occurred",
+                "Lessons learned and changes planned or made as a result of FedRAMP Reportable Incidents (if such occurred)"
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
@@ -1751,6 +1753,8 @@
                 "All Necessary Parties",
                 "Certification Data",
                 "Cloud Service Offering",
+                "FedRAMP Reportable Incident",
+                "Incident",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
@@ -2207,11 +2211,11 @@
                 "**Class B:** by 3:00 p.m. Eastern Time on the 3rd business day",
                 "**Class A:** by 3:00 p.m. Eastern Time on the 5th business day"
               ],
-              "note": "FedRAMP Class D Certified cloud service providers are expected to address Emergency messages (including tests) from FedRAMP with a reaction time appropriate to operating a service where failure to react rapidly might have a severe or catastrophic adverse effect on the U.S. Government; some Emergency messages may require faster reaction and all such messages should be addressed as quickly as possible.",
+              "note": "FedRAMP Class D Certified cloud service providers are expected to address Emergency messages (including tests) from FedRAMP with a reaction time appropriate to operating a service where failure to react rapidly might have a severe or debilitating customer effect on the U.S. Government; some Emergency messages may require faster reaction and all such messages should be addressed as quickly as possible.",
               "primary_key_word": "MUST",
               "affects": ["FedRAMP"],
               "terms": [
-                "Catastrophic Adverse Effect",
+                "Debilitating Customer Effect",
                 "FedRAMP Certified",
                 "Provider"
               ],
@@ -2442,24 +2446,25 @@
               "name": "Public Availability Reporting",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "statement": "Providers of Class A offerings SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
                   "primary_key_word": "SHOULD"
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "statement": "Providers of Class B offerings SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
                   "primary_key_word": "SHOULD"
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "statement": "Providers of Class C offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
                   "primary_key_word": "MUST"
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST maintain a publicly accessible status service that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
+                  "statement": "Providers of Class D offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats.",
                   "primary_key_word": "MUST"
                 }
               },
               "affects": ["Providers"],
               "terms": [
+                "All Necessary Parties",
                 "Cloud Service Offering",
                 "Incident",
                 "Machine-Readable",
@@ -2474,13 +2479,12 @@
             },
             "ICP-CSO-EFR": {
               "name": "Evaluate Federal Reportability",
-              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data.",
-              "note": "An incident that meets this test is a federal reportable incident.",
+              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Communications Procedures.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Reportable Incident",
                 "Federal Customer Data",
-                "Federal Reportable Incident",
                 "Incident",
                 "Likely",
                 "Promptly",
@@ -2493,28 +2497,49 @@
                 }
               ]
             },
-            "ICP-CSO-EFI": {
-              "name": "Estimate Federal Impact",
-              "statement": "Providers MUST evaluate federal reportable incidents to estimate adverse impact on government customers and assign a Potential Adverse Impact N-rating.",
-              "following_information": [
-                "N1 means negligible adverse effect on 1 or more agencies.",
-                "N2 means limited adverse effect on 1 or more agencies.",
-                "N3 means serious adverse effect on 1 agency.",
-                "N4 means catastrophic adverse effect on 1 agency or serious adverse effect on more than 1 agency.",
-                "N5 means catastrophic adverse effect on more than 1 agency."
-              ],
+            "ICP-CSO-DPR": {
+              "name": "Default PAIN Rating",
+              "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI Estimate Federal Impact.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Agency",
-                "Catastrophic Adverse Effect",
-                "Federal Reportable Incident",
+                "FedRAMP Reportable Incident",
                 "Incident",
-                "Limited Adverse Effect",
-                "Negligible Adverse Effect",
-                "Potential Adverse Impact",
-                "Provider",
-                "Serious Adverse Effect"
+                "Potential Agency Impact",
+                "Promptly",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "ICP-CSO-EFI": {
+              "name": "Estimate Federal Impact",
+              "statement": "Providers SHOULD promptly estimate the likely adverse impact of an incident on agency customers to assign a Potential Agency Impact N-rating; this step is called Incident Rating.",
+              "following_information": [
+                "N1 means minimal customer effect on 1 or more agencies.",
+                "N2 means narrow customer effect on 1 or more agencies.",
+                "N3 means disruptive customer effect on 1 agency.",
+                "N4 means debilitating customer effect on 1 agency or disruptive customer effect on more than 1 agency.",
+                "N5 means debilitating customer effect on more than 1 agency."
+              ],
+              "primary_key_word": "SHOULD",
+              "affects": ["Providers"],
+              "terms": [
+                "Agency",
+                "Debilitating Customer Effect",
+                "Disruptive Customer Effect",
+                "Incident",
+                "Likely",
+                "Minimal Customer Effect",
+                "Narrow Customer Effect",
+                "Potential Agency Impact",
+                "Promptly",
+                "Provider"
               ],
               "updated": [
                 {
@@ -2525,7 +2550,7 @@
             },
             "ICP-CSO-AAP": {
               "name": "Notify All Affected Parties",
-              "statement": "Providers MUST responsibly notify all affected parties after identifying federal reportable incidents using email, push notification, form submission, secure portal upload, or another method specified by FedRAMP rules or written agency agreement.",
+              "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents using email, push notification, form submission, secure portal upload, or another method specified by FedRAMP rules or written agency agreement.",
               "following_information": [
                 "Notify FedRAMP via fedramp_security@gsa.gov or fedramp_security@fedramp.gov.",
                 "Follow contact arrangements provided by each agency customer's security contact.",
@@ -2537,7 +2562,7 @@
                 "Agency",
                 "All Affected Parties",
                 "Cloud Service Offering",
-                "Federal Reportable Incident",
+                "FedRAMP Reportable Incident",
                 "Incident",
                 "Provider",
                 "Responsibly",
@@ -2574,7 +2599,7 @@
             },
             "ICP-CSO-IIR": {
               "name": "Initial Incident Report",
-              "statement": "Providers MUST responsibly notify all affected parties after identifying federal reportable incidents by providing an Initial Incident Report with all available required information.",
+              "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with all available required information.",
               "following_information": [
                 "Contact information for the federal incident response coordinator.",
                 "Provider tracking identifier.",
@@ -2589,10 +2614,9 @@
               "terms": [
                 "Agency",
                 "All Affected Parties",
-                "Federal Reportable Incident",
+                "FedRAMP Reportable Incident",
                 "Incident",
                 "Initial Incident Report (IIR)",
-                "Potential Adverse Impact",
                 "Provider",
                 "Responsibly",
                 "Vulnerability Response"
@@ -2606,7 +2630,7 @@
             },
             "ICP-CSO-OIR": {
               "name": "Ongoing Incident Reports",
-              "statement": "Providers MUST responsibly notify all affected parties of ongoing activity by providing Ongoing Incident Reports as new information becomes available during incident response for federal reportable incidents.",
+              "statement": "Providers MUST responsibly notify all affected parties of ongoing activity by providing Ongoing Incident Reports as new information becomes available during incident response for FedRAMP Reportable Incidents.",
               "following_information": [
                 "Updates or lack of updates to previously reported information.",
                 "Attack vector, if identified.",
@@ -2622,7 +2646,7 @@
               "terms": [
                 "Agency",
                 "All Affected Parties",
-                "Federal Reportable Incident",
+                "FedRAMP Reportable Incident",
                 "Incident",
                 "Ongoing Incident Report (OIR)",
                 "Provider",
@@ -2660,7 +2684,7 @@
               "name": "Incident Report Timeframes",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "statement": "Providers of Class A offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
                   "primary_key_word": "MUST",
                   "pain_timeframes": {
                     "1": {
@@ -2751,7 +2775,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "statement": "Providers of Class B offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
                   "primary_key_word": "MUST",
                   "pain_timeframes": {
                     "1": {
@@ -2842,7 +2866,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "statement": "Providers of Class C offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
                   "primary_key_word": "MUST",
                   "pain_timeframes": {
                     "1": {
@@ -2933,7 +2957,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST notify all affected parties of federal reportable incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Adverse Impact N-rating.",
+                  "statement": "Providers of Class D offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
                   "primary_key_word": "MUST",
                   "pain_timeframes": {
                     "1": {
@@ -3026,10 +3050,11 @@
               },
               "affects": ["Providers"],
               "terms": [
+                "Agency",
                 "All Affected Parties",
-                "Federal Reportable Incident",
+                "FedRAMP Reportable Incident",
                 "Incident",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider"
               ],
               "updated": [
@@ -4421,13 +4446,13 @@
             "VDR-AGM-RVR": {
               "name": "Review Vulnerability Reports",
               "statement": "Agencies SHOULD review the information provided in vulnerability reports at appropriate and reasonable intervals commensurate with the expectations and risk posture indicated by their Authorization to Operate, and SHOULD use automated processing and filtering of machine readable information from cloud service providers.",
-              "note": "FedRAMP recommends that agencies only review overdue and accepted vulnerabilities Potential Adverse Impact N-rating > 2 unless the cloud service provider recommends mitigations or the service is included in a higher risk federal information system. Furthermore, accepted vulnerabilities generally only need to be reviewed when they are added or during an updated risk assessment due to changes in the agency's use or authorization.",
+              "note": "FedRAMP recommends that agencies only review overdue and accepted vulnerabilities Potential Agency Impact N-rating > 2 unless the cloud service provider recommends mitigations or the service is included in a higher risk federal information system. Furthermore, accepted vulnerabilities generally only need to be reviewed when they are added or during an updated risk assessment due to changes in the agency's use or authorization.",
               "primary_key_word": "SHOULD",
               "affects": ["Agencies"],
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider",
                 "Vulnerability"
               ],
@@ -4667,25 +4692,25 @@
             },
             "VDR-EVA-EPA": {
               "name": "Estimate Potential Adverse Impact",
-              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential adverse impact of exploitation on government customers AND assign one of the following Potential Adverse Impact N-ratings (PAIN):",
+              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential adverse impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
               "following_information_bullets": [
-                "**N1**: Exploitation could be expected to have negligible adverse effects on one or more agencies that use the cloud service offering.",
-                "**N2**: Exploitation could be expected to have limited adverse effects on one or more agencies that use the cloud service offering.",
-                "**N3**: Exploitation could be expected to have a serious adverse effect on one agency that uses the cloud service offering.",
-                "**N4**: Exploitation could be expected to have a catastrophic adverse effect on one agency that uses the cloud service offering OR a serious adverse effect on more than one federal agency that uses the cloud service offering.",
-                "**N5**: Exploitation could be expected to have a catastrophic adverse effect on more than one agency that uses the cloud service offering."
+                "**N1**: Exploitation could be expected to have minimal customer effects on one or more agencies that use the cloud service offering.",
+                "**N2**: Exploitation could be expected to have narrow customer effects on one or more agencies that use the cloud service offering.",
+                "**N3**: Exploitation could be expected to have a disruptive customer effect on one agency that uses the cloud service offering.",
+                "**N4**: Exploitation could be expected to have a debilitating customer effect on one agency that uses the cloud service offering OR a disruptive customer effect on more than one federal agency that uses the cloud service offering.",
+                "**N5**: Exploitation could be expected to have a debilitating customer effect on more than one agency that uses the cloud service offering."
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Agency",
-                "Catastrophic Adverse Effect",
                 "Cloud Service Offering",
-                "Limited Adverse Effect",
-                "Negligible Adverse Effect",
-                "Potential Adverse Impact",
+                "Debilitating Customer Effect",
+                "Disruptive Customer Effect",
+                "Minimal Customer Effect",
+                "Narrow Customer Effect",
+                "Potential Agency Impact",
                 "Provider",
-                "Serious Adverse Effect",
                 "Vulnerability",
                 "Vulnerability Detection"
               ],
@@ -4818,9 +4843,9 @@
                 "Time of completed evaluation",
                 "Is it an internet-reachable vulnerability or not?",
                 "Is it a likely exploitable vulnerability or not?",
-                "Historically and currently estimated Potential Adverse Impact N-rating of exploitation",
-                "Time and Potential Adverse Impact N-rating of each completed and evaluated reduction in Potential Adverse Impact N-rating",
-                "Estimated time and target Potential Adverse Impact N-rating of next reduction in Potential Adverse Impact N-rating",
+                "Historically and currently estimated Potential Agency Impact N-rating of exploitation",
+                "Time and Potential Agency Impact N-rating of each completed and evaluated reduction in Potential Agency Impact N-rating",
+                "Estimated time and target Potential Agency Impact N-rating of next reduction in Potential Agency Impact N-rating",
                 "Is it currently or is it likely to become an overdue vulnerability or not? If so, explain.",
                 "Any supplementary information the provider responsibly determines will help federal agencies assess or mitigate the risk to their federal customer data within the cloud service offering resulting from the vulnerability",
                 "Final disposition of the vulnerability"
@@ -4836,7 +4861,7 @@
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
                 "Overdue Vulnerability",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider",
                 "Responsibly",
                 "Vulnerability",
@@ -4859,7 +4884,7 @@
                 "Time of completed evaluation",
                 "Is it an internet-reachable vulnerability or not?",
                 "Is it a likely exploitable vulnerability or not?",
-                "Currently estimated Potential Adverse Impact N-rating",
+                "Currently estimated Potential Agency Impact N-rating",
                 "Explanation of why this is an accepted vulnerability",
                 "Any supplementary information the provider determines will responsibly help federal agencies assess or mitigate the risk to their federal customer data within the cloud service offering resulting from the accepted vulnerability"
               ],
@@ -4873,7 +4898,7 @@
                 "Internet-Reachable Vulnerability (IRV)",
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider",
                 "Responsibly",
                 "Vulnerability",
@@ -5196,7 +5221,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class A offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5271,7 +5296,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class B offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5346,7 +5371,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class C offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5421,7 +5446,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Adverse Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Adverse Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers of Class D offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5498,8 +5523,9 @@
               },
               "affects": ["Providers"],
               "terms": [
+                "Agency",
                 "Likely",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider",
                 "Vulnerability"
               ],
@@ -5527,28 +5553,30 @@
               "name": "Internet-Reachable Incidents",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers of Class A offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers of Class B offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers of Class C offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "SHOULD"
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Adverse Impact N-rating > 3 as a security incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers of Class D offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
               "affects": ["Providers"],
               "terms": [
+                "Agency",
+                "FedRAMP Reportable Incident",
                 "Incident",
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider",
                 "Vulnerability"
               ],
@@ -5563,28 +5591,30 @@
               "name": "Non-Internet-Reachable Incidents",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers of Class A offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers of Class B offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers of Class C offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Adverse Impact N-rating = 5 as a security incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers of Class D offerings SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
               "affects": ["Providers"],
               "terms": [
+                "Agency",
+                "FedRAMP Reportable Incident",
                 "Incident",
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
-                "Potential Adverse Impact",
+                "Potential Agency Impact",
                 "Provider",
                 "Vulnerability"
               ],
