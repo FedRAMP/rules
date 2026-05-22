@@ -2548,55 +2548,6 @@
                 }
               ]
             },
-            "ICP-CSO-AAP": {
-              "name": "Notify All Affected Parties",
-              "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents using email, push notification, form submission, secure portal upload, or another method specified by FedRAMP rules or written agency agreement.",
-              "following_information": [
-                "Notify FedRAMP via fedramp_security@gsa.gov or fedramp_security@fedramp.gov.",
-                "Follow contact arrangements provided by each agency customer's security contact.",
-                "Upload notification information to the cloud service offering's secure portal or FedRAMP-compatible trust center."
-              ],
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "All Affected Parties",
-                "Cloud Service Offering",
-                "FedRAMP Reportable Incident",
-                "Incident",
-                "Provider",
-                "Responsibly",
-                "Trust Center"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "ICP-CSO-CSA": {
-              "name": "Notify Cybersecurity and Infrastructure Security Agency",
-              "statement": "Providers MUST responsibly notify the Cybersecurity and Infrastructure Security Agency if an incident affects or is likely to affect the confidentiality or integrity of federal customer data, following the Cybersecurity and Infrastructure Security Agency Federal Incident Notification Guidelines.",
-              "reference": "Cybersecurity and Infrastructure Security Agency Federal Incident Notification Guidelines",
-              "reference_url": "https://www.cisa.gov/federal-incident-notification-guidelines",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "Federal Customer Data",
-                "Incident",
-                "Likely",
-                "Provider",
-                "Responsibly"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "ICP-CSO-IIR": {
               "name": "Initial Incident Report",
               "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with all available required information.",
@@ -2611,6 +2562,22 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "fedramp_security@fedramp.gov"
+                },
+                {
+                  "party": "Agency Customers",
+                  "method": "following agreement"
+                },
+                {
+                  "party": "all necessary parties",
+                  "method": "whatever",
+                  "target": "trust center"
+                }
+              ],
               "terms": [
                 "Agency",
                 "All Affected Parties",
@@ -2643,6 +2610,22 @@
               ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "fedramp_security@fedramp.gov"
+                },
+                {
+                  "party": "Agency Customers",
+                  "method": "following agreement"
+                },
+                {
+                  "party": "all necessary parties",
+                  "method": "whatever",
+                  "target": "trust center"
+                }
+              ],
               "terms": [
                 "Agency",
                 "All Affected Parties",
@@ -2666,6 +2649,22 @@
               "statement": "Providers MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "fedramp_security@fedramp.gov"
+                },
+                {
+                  "party": "Agency Customers",
+                  "method": "following agreement"
+                },
+                {
+                  "party": "all necessary parties",
+                  "method": "whatever",
+                  "target": "trust center"
+                }
+              ],
               "terms": [
                 "All Affected Parties",
                 "Final Incident Report (FIR)",
