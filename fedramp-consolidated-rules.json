@@ -1116,22 +1116,22 @@
               "name": "Public Availability Reporting",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service SHOULD be available even if the primary cloud service offering is unavailable.",
+                  "statement": "Providers with Class A Certifications SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service SHOULD be available even if the primary cloud service offering is unavailable.",
                   "primary_key_word": "SHOULD",
                   "note": "This service may be separate from the trust center."
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
+                  "statement": "Providers with Class B Certifications MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
                   "primary_key_word": "MUST",
                   "note": "This service may be separate from the trust center."
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
+                  "statement": "Providers with Class C Certifications MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
                   "primary_key_word": "MUST",
                   "note": "This service may be separate from the trust center."
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
+                  "statement": "Providers with Class D Certifications MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
                   "primary_key_word": "MUST",
                   "note": "This service may be separate from the trust center."
                 }
@@ -1252,7 +1252,7 @@
               "name": "Per-Service Certification Materials",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY supply per-service FedRAMP Certification materials.",
+                  "statement": "Providers with Class A Certifications MAY supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MAY",
                   "artifacts": {
                     "all": [
@@ -1261,7 +1261,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MAY supply per-service FedRAMP Certification materials.",
+                  "statement": "Providers with Class B Certifications MAY supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MAY",
                   "artifacts": {
                     "all": [
@@ -1270,7 +1270,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MAY supply per-service FedRAMP Certification materials.",
+                  "statement": "Providers with Class C Certifications MAY supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MAY",
                   "artifacts": {
                     "all": [
@@ -1279,7 +1279,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST supply per-service FedRAMP Certification materials.",
+                  "statement": "Providers with Class D Certifications MUST supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MUST",
                   "effective_date": {
                     "obtain": "2027-05-04",
@@ -1543,7 +1543,7 @@
               "name": "Structured Certification Data",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MUST supply semi-structured text-based FedRAMP Certification Data.",
+                  "statement": "Providers with Class A Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
                   "primary_key_word": "MUST",
                   "effective_date": {
                     "obtain": "2027-01-01",
@@ -1552,7 +1552,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MUST supply semi-structured text-based FedRAMP Certification Data.",
+                  "statement": "Providers with Class B Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
                   "primary_key_word": "MUST",
                   "effective_date": {
                     "obtain": "2027-01-01",
@@ -1561,7 +1561,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST supply semi-structured text-based FedRAMP Certification Data.",
+                  "statement": "Providers with Class C Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
                   "primary_key_word": "MUST",
                   "effective_date": {
                     "obtain": "2027-01-01",
@@ -1570,7 +1570,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST supply comprehensive machine-readable FedRAMP Certification Data.",
+                  "statement": "Providers with Class D Certifications MUST supply comprehensive machine-readable FedRAMP Certification Data.",
                   "primary_key_word": "MUST",
                   "effective_date": {
                     "obtain": "2027-05-04",
@@ -1933,25 +1933,25 @@
               "name": "Quarterly Review Meeting",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers with Class A Certifications MAY host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MAY",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers with Class B Certifications SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers with Class C Certifications MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
+                  "statement": "Providers with Class D Certifications MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
@@ -2586,18 +2586,212 @@
             },
             "ICP-CSO-IIR": {
               "name": "Initial Incident Report",
-              "statement": "Providers MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
-              "following_information": [
-                "Contact information for the federal incident response coordinator.",
-                "Provider's internally assigned tracking identifier",
-                "Description of the incident",
-                "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
-                "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
-                "Estimated recovery plan, milestones, and timelines",
-                "List of likely affected customer agencies"
-              ],
-              "primary_key_word": "MUST",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "following_information": [
+                    "Contact information for the federal incident response coordinator.",
+                    "Provider's internally assigned tracking identifier",
+                    "Description of the incident",
+                    "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
+                    "Estimated recovery plan, milestones, and timelines",
+                    "List of likely affected customer agencies"
+                  ],
+                  "primary_key_word": "SHOULD",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      }
+                    }
+                  }
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "following_information": [
+                    "Contact information for the federal incident response coordinator.",
+                    "Provider's internally assigned tracking identifier",
+                    "Description of the incident",
+                    "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
+                    "Estimated recovery plan, milestones, and timelines",
+                    "List of likely affected customer agencies"
+                  ],
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Initial Incident Report"
+                      }
+                    }
+                  }
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "following_information": [
+                    "Contact information for the federal incident response coordinator.",
+                    "Provider's internally assigned tracking identifier",
+                    "Description of the incident",
+                    "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
+                    "Estimated recovery plan, milestones, and timelines",
+                    "List of likely affected customer agencies"
+                  ],
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    }
+                  }
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "following_information": [
+                    "Contact information for the federal incident response coordinator.",
+                    "Provider's internally assigned tracking identifier",
+                    "Description of the incident",
+                    "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
+                    "Estimated recovery plan, milestones, and timelines",
+                    "List of likely affected customer agencies"
+                  ],
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "2": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 1,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "3": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 0.25,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "4": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 0.25,
+                        "description": "Initial Incident Report"
+                      }
+                    },
+                    "5": {
+                      "iir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 0.25,
+                        "description": "Initial Incident Report"
+                      }
+                    }
+                  }
+                }
+              },
               "affects": ["Providers"],
               "notification": [
                 {
@@ -2617,14 +2811,12 @@
                 }
               ],
               "terms": [
-                "Agency",
                 "All Affected Parties",
                 "FedRAMP Reportable Incident",
                 "Incident",
                 "Initial Incident Report (IIR)",
                 "Provider",
-                "Responsibly",
-                "Vulnerability Response"
+                "Responsibly"
               ],
               "updated": [
                 {
@@ -2635,15 +2827,200 @@
             },
             "ICP-CSO-OIR": {
               "name": "Ongoing Incident Reports",
-              "statement": "Providers MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
-              "following_information": [
-                "Observed incident activity",
-                "Indicators of compromise",
-                "Related Common Vulnerabilities and Exposures (CVE) identifier, if applicable",
-                "Root cause",
-                "Response and recovery activities"
-              ],
-              "primary_key_word": "MUST",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "following_information": [
+                    "Observed incident activity",
+                    "Indicators of compromise",
+                    "Related Common Vulnerabilities and Exposures (CVE) identifier (if applicable)",
+                    "Root cause",
+                    "Response and recovery activities"
+                  ],
+                  "primary_key_word": "SHOULD",
+                  "pain_timeframes": {
+                    "1": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "2": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "3": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "4": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "5": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    }
+                  }
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "following_information": [
+                    "Observed incident activity",
+                    "Indicators of compromise",
+                    "Related Common Vulnerabilities and Exposures (CVE) identifier, if applicable",
+                    "Root cause",
+                    "Response and recovery activities"
+                  ],
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "2": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "3": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "4": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "5": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    }
+                  }
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "following_information": [
+                    "Observed incident activity",
+                    "Indicators of compromise",
+                    "Related Common Vulnerabilities and Exposures (CVE) identifier, if applicable",
+                    "Root cause",
+                    "Response and recovery activities"
+                  ],
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "oir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "2": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "3": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "4": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "5": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      }
+                    }
+                  }
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "following_information": [
+                    "Observed incident activity",
+                    "Indicators of compromise",
+                    "Related Common Vulnerabilities and Exposures (CVE) identifier, if applicable",
+                    "Root cause",
+                    "Response and recovery activities"
+                  ],
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "2": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "3": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "4": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Ongoing Incident Report"
+                      }
+                    },
+                    "5": {
+                      "oir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Ongoing Incident Report"
+                      }
+                    }
+                  }
+                }
+              },
               "affects": ["Providers"],
               "notification": [
                 {
@@ -2663,14 +3040,11 @@
                 }
               ],
               "terms": [
-                "Agency",
                 "All Affected Parties",
                 "FedRAMP Reportable Incident",
                 "Incident",
-                "Ongoing Incident Report (OIR)",
                 "Provider",
                 "Responsibly",
-                "Vulnerability",
                 "Vulnerability Response"
               ],
               "updated": [
@@ -2682,8 +3056,172 @@
             },
             "ICP-CSO-FIR": {
               "name": "Final Incident Report",
-              "statement": "Providers MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
-              "primary_key_word": "MUST",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "fir": {
+                        "timeframe_type": "bizdays",
+                        "timeframe_num": 1,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties by providing a Final Incident Report once the incident has been resolved and recovery is complete, including final updates to all previously reported information.",
+                  "primary_key_word": "MUST",
+                  "pain_timeframes": {
+                    "1": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 24,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "2": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 6,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "3": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "4": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    },
+                    "5": {
+                      "fir": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 3,
+                        "description": "Final Incident Report"
+                      }
+                    }
+                  }
+                }
+              },
               "affects": ["Providers"],
               "notification": [
                 {
@@ -2713,390 +3251,6 @@
                 {
                   "date": "2026-05-04",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "ICP-CSO-IRT": {
-              "name": "Incident Report Timeframes",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of Class A offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
-                  "primary_key_word": "MUST",
-                  "pain_timeframes": {
-                    "1": {
-                      "iir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "2": {
-                      "iir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "3": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 12,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "4": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "5": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    }
-                  }
-                },
-                "b": {
-                  "statement": "Providers of Class B offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
-                  "primary_key_word": "MUST",
-                  "pain_timeframes": {
-                    "1": {
-                      "iir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "2": {
-                      "iir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "3": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 12,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "4": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "5": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    }
-                  }
-                },
-                "c": {
-                  "statement": "Providers of Class C offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
-                  "primary_key_word": "MUST",
-                  "pain_timeframes": {
-                    "1": {
-                      "iir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "2": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 24,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 24,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "3": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 24,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "bizdays",
-                        "timeframe_num": 1,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "4": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "5": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Final Incident Report"
-                      }
-                    }
-                  }
-                },
-                "d": {
-                  "statement": "Providers of Class D offerings MUST notify all affected parties of FedRAMP Reportable Incidents within the maximum timeframes from evaluation or recovery shown below, based on the Potential Agency Impact N-rating.",
-                  "primary_key_word": "MUST",
-                  "pain_timeframes": {
-                    "1": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 24,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 24,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "2": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "3": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 1,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "4": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 0.5,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 6,
-                        "description": "Final Incident Report"
-                      }
-                    },
-                    "5": {
-                      "iir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 0.25,
-                        "description": "Initial Incident Report"
-                      },
-                      "oir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 3,
-                        "description": "Ongoing Incident Report"
-                      },
-                      "fir": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 3,
-                        "description": "Final Incident Report"
-                      }
-                    }
-                  }
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "All Affected Parties",
-                "FedRAMP Reportable Incident",
-                "Incident",
-                "Potential Agency Impact",
-                "Provider"
-              ],
-              "updated": [
-                {
-                  "date": "2026-04-25",
-                  "comment": "Drafted for human review from PROPOSED-RULES.md."
                 }
               ]
             },
@@ -4354,19 +4508,19 @@
               "name": "Using Validated Cryptographic Modules",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+                  "statement": "Providers with Class A Certifications MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+                  "statement": "Providers with Class B Certifications MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+                  "statement": "Providers with Class C Certifications SHOULD use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "SHOULD"
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
+                  "statement": "Providers with Class D Certifications MUST use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
                   "primary_key_word": "MUST"
                 }
               },
@@ -5099,25 +5253,25 @@
               "name": "Historical Activity",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
+                  "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
                   "primary_key_word": "MAY",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
+                  "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
+                  "statement": "Providers with Class C Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
+                  "statement": "Providers with Class D Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
@@ -5144,25 +5298,25 @@
               "name": "Persistent Sample Detection",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 14 days.",
+                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 14 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 7 days.",
+                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 7 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 3 days.",
+                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 3 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 3
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once per day.",
+                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once per day.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 1
@@ -5188,25 +5342,25 @@
               "name": "Persistent Drift Detection",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 3 months.",
+                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 3 months.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 3
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
+                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 14 days.",
+                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 14 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 7 days.",
+                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 7 days.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
@@ -5233,25 +5387,25 @@
               "name": "Persistently Complete Detection",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
+                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 6
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
+                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 6
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
+                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
+                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "month",
                   "timeframe_num": 1
@@ -5278,25 +5432,25 @@
               "name": "Evaluate Vulnerabilities Quickly",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 14 days of detection.",
+                  "statement": "Providers with Class A Certifications SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 14 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 7 days of detection.",
+                  "statement": "Providers with Class B Certifications SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 7 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 5 days of detection.",
+                  "statement": "Providers with Class C Certifications SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 5 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 5
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 2 days of detection.",
+                  "statement": "Providers with Class D Certifications SHOULD evaluate ALL vulnerabilities as required by VDR-EVA (Evaluation) within 2 days of detection.",
                   "primary_key_word": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 2
@@ -5315,7 +5469,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5390,7 +5544,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class B Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5465,7 +5619,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class C Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5540,7 +5694,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class D Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5647,19 +5801,19 @@
               "name": "Internet-Reachable Incidents",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class A Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class B Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class C Certifications SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "SHOULD"
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class D Certifications SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
@@ -5685,19 +5839,19 @@
               "name": "Non-Internet-Reachable Incidents",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class A Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class B Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class C Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class D Certifications SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
@@ -6160,25 +6314,25 @@
               "name": "Independent Verification and Validation",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers of Class A offerings MAY persistently complete an independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MAY",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers of Class B offerings MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers of Class C offerings MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers of Class D offerings MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
                   "primary_key_word": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1

@@ -514,6 +514,10 @@
       "required": ["primary_key_word", "statement"],
       "properties": {
         "statement": { "type": "string" },
+        "following_information": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "primary_key_word": { "$ref": "#/$defs/primary_key_word_enum" },
         "effective_date": { "$ref": "#/$defs/effective_dates" },
         "timeframe_type": { "type": "string" },
