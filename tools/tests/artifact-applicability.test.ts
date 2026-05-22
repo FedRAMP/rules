@@ -1,88 +1,188 @@
 import { expect, test } from "bun:test";
 
-import { collectArtifactApplicabilityIssues } from "../src/consistency";
+import {
+  collectArtifactApplicabilityIssues,
+  type ConsistencyIssue,
+} from "../src/consistency";
 import { cloneDocument, loadRulesDocument } from "../src/rules";
+import type { RulesDocument } from "../src/types";
+
+const APPLICABILITY_KEYS = ["all", "20x", "rev5"] as const;
+type ApplicabilityKey = (typeof APPLICABILITY_KEYS)[number];
+
+const ALLOWED_ARTIFACT_KEYS_BY_PARENT: Record<
+  ApplicabilityKey,
+  readonly ApplicabilityKey[]
+> = {
+  all: APPLICABILITY_KEYS,
+  "20x": ["20x"],
+  rev5: ["rev5"],
+};
+
+type ArtifactHolder = Record<string, unknown> & {
+  artifacts?: Record<string, string[]>;
+  varies_by_class?: Record<string, unknown>;
+};
+
+interface ArtifactHolderTarget {
+  location: string;
+  parentApplicability: ApplicabilityKey;
+  holder: ArtifactHolder;
+}
+
+function isApplicabilityKey(value: string): value is ApplicabilityKey {
+  return (APPLICABILITY_KEYS as readonly string[]).includes(value);
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function collectArtifactHolderTargets(
+  document: RulesDocument,
+): ArtifactHolderTarget[] {
+  const targets: ArtifactHolderTarget[] = [];
+
+  for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
+    for (const [scopeKey, scope] of Object.entries(section.data ?? {})) {
+      if (!isApplicabilityKey(scopeKey)) {
+        continue;
+      }
+
+      for (const [labelKey, requirements] of Object.entries(scope ?? {})) {
+        for (const [id, requirement] of Object.entries(requirements ?? {})) {
+          const requirementHolder = requirement as unknown as ArtifactHolder;
+          const requirementLocation = `FRR.${sectionKey}.data.${scopeKey}.${labelKey}.${id}`;
+
+          targets.push({
+            location: requirementLocation,
+            parentApplicability: scopeKey,
+            holder: requirementHolder,
+          });
+
+          if (!isRecord(requirementHolder.varies_by_class)) {
+            continue;
+          }
+
+          for (const [classKey, classEntry] of Object.entries(
+            requirementHolder.varies_by_class,
+          )) {
+            if (!isRecord(classEntry)) {
+              continue;
+            }
+
+            targets.push({
+              location: `${requirementLocation}.varies_by_class.${classKey}`,
+              parentApplicability: scopeKey,
+              holder: classEntry as ArtifactHolder,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return targets;
+}
+
+function artifactListFor(key: string): string[] {
+  return [`${key} evidence.`];
+}
+
+function setArtifacts(
+  target: ArtifactHolderTarget,
+  keys: readonly ApplicabilityKey[],
+): void {
+  target.holder.artifacts = Object.fromEntries(
+    keys.map((key) => [key, artifactListFor(key)]),
+  );
+}
+
+function expectedIssueForTarget(
+  target: ArtifactHolderTarget,
+): ConsistencyIssue | null {
+  if (!isRecord(target.holder.artifacts)) {
+    return null;
+  }
+
+  const allowedKeys =
+    ALLOWED_ARTIFACT_KEYS_BY_PARENT[target.parentApplicability];
+  const disallowedKeys = Object.keys(target.holder.artifacts).filter(
+    (key) => !allowedKeys.includes(key as ApplicabilityKey),
+  );
+
+  if (disallowedKeys.length === 0) {
+    return null;
+  }
+
+  return {
+    location: `${target.location}.artifacts`,
+    message:
+      `artifacts is inside data.${target.parentApplicability}, ` +
+      `so it may only use applicability keys: ${allowedKeys.join(", ")}. ` +
+      `Found disallowed keys: ${disallowedKeys.join(", ")}.`,
+  };
+}
+
+function collectExpectedArtifactApplicabilityIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  return collectArtifactHolderTargets(document).flatMap((target) => {
+    const issue = expectedIssueForTarget(target);
+    return issue ? [issue] : [];
+  });
+}
+
+function sortIssues(issues: ConsistencyIssue[]): ConsistencyIssue[] {
+  return [...issues].sort(
+    (left, right) =>
+      left.location.localeCompare(right.location) ||
+      left.message.localeCompare(right.message),
+  );
+}
 
 test("current artifact applicability keys match their containing data scope", () => {
-  const issues = collectArtifactApplicabilityIssues(loadRulesDocument());
+  const document = loadRulesDocument();
+  const issues = collectArtifactApplicabilityIssues(document);
+  const expectedIssues = collectExpectedArtifactApplicabilityIssues(document);
 
+  expect(sortIssues(issues)).toEqual(sortIssues(expectedIssues));
   expect(issues).toEqual([]);
 });
 
-test("artifact applicability permits all keys under both and matching keys under 20x or rev5", () => {
+test("artifact applicability permits keys based on every FRR data scope in the rules", () => {
   const document = cloneDocument(loadRulesDocument());
+  const targets = collectArtifactHolderTargets(document);
 
-  (document as any).FRR.CDS.data.both.CSO["CDS-CSO-PUB"].artifacts = {
-    both: ["Both evidence."],
-    "20x": ["20x evidence."],
-    rev5: ["Rev5 evidence."],
-  };
-  (document as any).FRR.CDS.data.both.CSO[
-    "CDS-CSO-PSM"
-  ].varies_by_class.a.artifacts = {
-    both: ["Both class evidence."],
-    "20x": ["20x class evidence."],
-    rev5: ["Rev5 class evidence."],
-  };
-  (document as any).FRR.FRC.data["20x"].CSX["FRC-CSX-MAS"].artifacts = {
-    "20x": ["20x-only evidence."],
-  };
-  (document as any).FRR.CDS.data.rev5.CSL["CDS-CSL-SCD"].artifacts = {
-    rev5: ["Rev5-only evidence."],
-  };
+  expect(targets.length).toBeGreaterThan(0);
+
+  for (const target of targets) {
+    setArtifacts(
+      target,
+      ALLOWED_ARTIFACT_KEYS_BY_PARENT[target.parentApplicability],
+    );
+  }
 
   const issues = collectArtifactApplicabilityIssues(document);
 
   expect(issues).toEqual([]);
 });
 
-test("artifact applicability reports human-readable errors for mismatched keys", () => {
+test("artifact applicability reports mismatches based on every restricted FRR data scope", () => {
   const document = cloneDocument(loadRulesDocument());
+  const restrictedTargets = collectArtifactHolderTargets(document).filter(
+    (target) => target.parentApplicability !== "all",
+  );
 
-  (document as any).FRR.FRC.data["20x"].CSX["FRC-CSX-MAS"].artifacts = {
-    both: ["Wrong parent evidence."],
-    "20x": ["Allowed evidence."],
-    rev5: ["Wrong parent evidence."],
-  };
-  (document as any).FRR.FRC.data["20x"].CSX[
-    "FRC-CSX-PMV"
-  ].varies_by_class.b.artifacts = {
-    rev5: ["Wrong class-level evidence."],
-  };
-  (document as any).FRR.CDS.data.rev5.CSL["CDS-CSL-SCD"].artifacts = {
-    "20x": ["Wrong parent evidence."],
-    rev5: ["Allowed evidence."],
-  };
-  (document as any).FRR.CDS.data.rev5.CSL[
-    "CDS-CSL-SCD"
-  ].varies_by_class.a.artifacts = {
-    both: ["Wrong class-level evidence."],
-  };
+  expect(restrictedTargets.length).toBeGreaterThan(0);
+
+  for (const target of restrictedTargets) {
+    setArtifacts(target, APPLICABILITY_KEYS);
+  }
 
   const issues = collectArtifactApplicabilityIssues(document);
+  const expectedIssues = collectExpectedArtifactApplicabilityIssues(document);
 
-  expect(issues).toEqual([
-    {
-      location: "FRR.CDS.data.rev5.CSL.CDS-CSL-SCD.artifacts",
-      message:
-        "artifacts is inside data.rev5, so it may only use applicability keys: rev5. Found disallowed keys: 20x.",
-    },
-    {
-      location:
-        "FRR.CDS.data.rev5.CSL.CDS-CSL-SCD.varies_by_class.a.artifacts",
-      message:
-        "artifacts is inside data.rev5, so it may only use applicability keys: rev5. Found disallowed keys: both.",
-    },
-    {
-      location: "FRR.FRC.data.20x.CSX.FRC-CSX-MAS.artifacts",
-      message:
-        "artifacts is inside data.20x, so it may only use applicability keys: 20x. Found disallowed keys: both, rev5.",
-    },
-    {
-      location:
-        "FRR.FRC.data.20x.CSX.FRC-CSX-PMV.varies_by_class.b.artifacts",
-      message:
-        "artifacts is inside data.20x, so it may only use applicability keys: 20x. Found disallowed keys: rev5.",
-    },
-  ]);
+  expect(issues.length).toBe(restrictedTargets.length);
+  expect(sortIssues(issues)).toEqual(sortIssues(expectedIssues));
 });

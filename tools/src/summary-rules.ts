@@ -5,7 +5,13 @@ import { getRepoRoot } from "./config";
 import { loadRulesDocument } from "./rules";
 import type { Requirement, RulesDocument, UpdatedEntry } from "./types";
 
-const DEFAULT_KEYWORD_ORDER = ["MUST", "MUST NOT", "SHOULD", "SHOULD NOT", "MAY"];
+const DEFAULT_KEYWORD_ORDER = [
+  "MUST",
+  "MUST NOT",
+  "SHOULD",
+  "SHOULD NOT",
+  "MAY",
+];
 
 interface ProcessSummary {
   shortName: string;
@@ -42,7 +48,10 @@ function getInfoString(
   return typeof current === "string" && current.length > 0 ? current : fallback;
 }
 
-function incrementKeywordCount(keywordCounts: Map<string, number>, keyword?: string): void {
+function incrementKeywordCount(
+  keywordCounts: Map<string, number>,
+  keyword?: string,
+): void {
   if (!keyword) {
     return;
   }
@@ -62,7 +71,10 @@ function getLatestUpdatedDate(updated?: UpdatedEntry[]): string | null {
   return latest;
 }
 
-function updateLatestDate(currentLatest: string | null, candidate: string | null): string | null {
+function updateLatestDate(
+  currentLatest: string | null,
+  candidate: string | null,
+): string | null {
   if (!candidate) {
     return currentLatest;
   }
@@ -74,31 +86,72 @@ function updateLatestDate(currentLatest: string | null, candidate: string | null
   return currentLatest;
 }
 
+function getInfoRecord(
+  value: Record<string, unknown>,
+  path: string[],
+): Record<string, unknown> | null {
+  let current: unknown = value;
+
+  for (const segment of path) {
+    if (!current || typeof current !== "object" || Array.isArray(current)) {
+      return null;
+    }
+
+    current = (current as Record<string, unknown>)[segment];
+  }
+
+  return current && typeof current === "object" && !Array.isArray(current)
+    ? (current as Record<string, unknown>)
+    : null;
+}
+
+function getEffectiveInfo(
+  value: Record<string, unknown>,
+  framework: "rev5" | "20x",
+): Record<string, unknown> | null {
+  return (
+    getInfoRecord(value, [framework, "effective"]) ??
+    getInfoRecord(value, ["effective"])
+  );
+}
+
 function getEffectiveDate(
   value: Record<string, unknown>,
   framework: "rev5" | "20x",
   dateKey: "obtain" | "maintain" | "grace_ends",
 ): string {
-  const applicability = getInfoString(value, ["effective", framework, "is"], "");
+  const effective = getEffectiveInfo(value, framework);
+  if (!effective) {
+    return "N/A";
+  }
+
+  const applicability = getInfoString(effective, ["is"], "");
   if (applicability === "no") {
     return "N/A";
   }
 
-  return getInfoString(value, ["effective", framework, "date", dateKey], "N/A");
+  return getInfoString(effective, ["date", dateKey], "N/A");
 }
 
-function summarizeProcess(shortName: string, process: RulesDocument["FRR"][string]): ProcessSummary {
+function summarizeProcess(
+  shortName: string,
+  process: RulesDocument["FRR"][string],
+): ProcessSummary {
   const keywordCounts = new Map<string, number>();
   let latestUpdated: string | null = null;
   let requirementCount = 0;
 
   for (const labelGroups of Object.values(process.data)) {
     for (const rulesById of Object.values(labelGroups)) {
-      for (const requirement of Object.values(rulesById as Record<string, Requirement>)) {
+      for (const requirement of Object.values(
+        rulesById as Record<string, Requirement>,
+      )) {
         requirementCount += 1;
         incrementKeywordCount(keywordCounts, requirement.primary_key_word);
 
-        for (const classVariant of Object.values(requirement.varies_by_class ?? {})) {
+        for (const classVariant of Object.values(
+          requirement.varies_by_class ?? {},
+        )) {
           incrementKeywordCount(keywordCounts, classVariant?.primary_key_word);
         }
 
@@ -115,11 +168,15 @@ function summarizeProcess(shortName: string, process: RulesDocument["FRR"][strin
     name: getInfoString(process.info, ["name"]),
     documentStatus: getInfoString(process.info, ["status"]),
     requirementCount,
-    rev5Status: getInfoString(process.info, ["effective", "rev5", "current_status"]),
+    rev5Status: getInfoString(getEffectiveInfo(process.info, "rev5") ?? {}, [
+      "current_status",
+    ]),
     rev5ObtainDate: getEffectiveDate(process.info, "rev5", "obtain"),
     rev5MaintainDate: getEffectiveDate(process.info, "rev5", "maintain"),
     rev5GraceEndsDate: getEffectiveDate(process.info, "rev5", "grace_ends"),
-    twentyXStatus: getInfoString(process.info, ["effective", "20x", "current_status"]),
+    twentyXStatus: getInfoString(getEffectiveInfo(process.info, "20x") ?? {}, [
+      "current_status",
+    ]),
     twentyXObtainDate: getEffectiveDate(process.info, "20x", "obtain"),
     twentyXMaintainDate: getEffectiveDate(process.info, "20x", "maintain"),
     twentyXGraceEndsDate: getEffectiveDate(process.info, "20x", "grace_ends"),
@@ -137,7 +194,9 @@ function getKeywordColumns(summaries: ProcessSummary[]): string[] {
     }
   }
 
-  const ordered = DEFAULT_KEYWORD_ORDER.filter((keyword) => discovered.has(keyword));
+  const ordered = DEFAULT_KEYWORD_ORDER.filter((keyword) =>
+    discovered.has(keyword),
+  );
   const additional = [...discovered]
     .filter((keyword) => !DEFAULT_KEYWORD_ORDER.includes(keyword))
     .sort((left, right) => left.localeCompare(right));
@@ -149,7 +208,10 @@ function escapeTableCell(value: string): string {
   return value.replaceAll("|", "\\|");
 }
 
-function renderTable(summaries: ProcessSummary[], keywordColumns: string[]): string {
+function renderTable(
+  summaries: ProcessSummary[],
+  keywordColumns: string[],
+): string {
   const header = [
     "Short Name",
     "Name",
@@ -191,7 +253,9 @@ function renderTable(summaries: ProcessSummary[], keywordColumns: string[]): str
     ];
   });
 
-  return [header, divider, ...rows].map((row) => `| ${row.join(" | ")} |`).join("\n");
+  return [header, divider, ...rows]
+    .map((row) => `| ${row.join(" | ")} |`)
+    .join("\n");
 }
 
 function countFrdDefinitions(document: RulesDocument): number {

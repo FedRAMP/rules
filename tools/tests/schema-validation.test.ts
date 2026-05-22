@@ -82,7 +82,7 @@ test("property name errors identify the invalid keys and allowed names", () => {
 test("notes array with fewer than 2 entries in FRD definition fails validation", () => {
   const errors: ErrorObject[] = [
     {
-      instancePath: "/FRD/data/both/FRD-ACV/notes",
+      instancePath: "/FRD/data/all/FRD-ACV/notes",
       schemaPath: "#/$defs/frd_definition/properties/notes/minItems",
       keyword: "minItems",
       params: { limit: 2 },
@@ -91,14 +91,14 @@ test("notes array with fewer than 2 entries in FRD definition fails validation",
   ];
 
   expect(formatSchemaErrors(errors, {})).toEqual([
-    "FRD.data.both.FRD-ACV.notes must have at least 2 items.",
+    "FRD.data.all.FRD-ACV.notes must have at least 2 items.",
   ]);
 });
 
 test("notes array with fewer than 2 entries in FRR requirement fails validation", () => {
   const errors: ErrorObject[] = [
     {
-      instancePath: "/FRR/MAS/data/both/MAS-CSO-CNT-010/notes",
+      instancePath: "/FRR/MAS/data/all/MAS-CSO-CNT-010/notes",
       schemaPath: "#/$defs/frr_requirement/properties/notes/minItems",
       keyword: "minItems",
       params: { limit: 2 },
@@ -107,6 +107,6 @@ test("notes array with fewer than 2 entries in FRR requirement fails validation"
   ];
 
   expect(formatSchemaErrors(errors, {})).toEqual([
-    "FRR.MAS.data.both.MAS-CSO-CNT-010.notes must have at least 2 items.",
+    "FRR.MAS.data.all.MAS-CSO-CNT-010.notes must have at least 2 items.",
   ]);
 });
