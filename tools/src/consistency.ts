@@ -59,6 +59,7 @@ const ALLOWED_NOTIFICATION_PARTIES = [
   "Provider",
   "all necessary parties",
   "public",
+  "Agency Customers",
 ] as const;
 const ALLOWED_TIMEFRAME_TYPES = [
   "bizdays",

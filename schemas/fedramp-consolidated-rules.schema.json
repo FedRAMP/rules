@@ -120,6 +120,9 @@
           "type": "object",
           "propertyNames": { "$ref": "#/$defs/frr_info_label_name" },
           "additionalProperties": { "$ref": "#/$defs/frr_label_definition" }
+        },
+        "flows": {
+          "type": "array"
         }
       },
       "additionalProperties": false

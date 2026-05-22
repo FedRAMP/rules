@@ -2418,7 +2418,58 @@
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers with FedRAMP Certifications of any type."
           }
-        }
+        },
+        "flows": [
+          {
+            "activity": "Incident Communications",
+            "description": "Evaluating and notifying affected parties about FedRAMP Reportable Incidents.",
+            "steps": [
+              {
+                "from": "Incident",
+                "to": "ICP-CSO-EFR",
+                "description": "Is it a FedRAMP Reportable Incident?"
+              },
+              {
+                "from": "ICP-CSO-EFR",
+                "to": "Incident Communication Procedures are complete.",
+                "if": "No"
+              },
+              {
+                "from": "ICP-CSO-EFR",
+                "to": "ICP-CSO-DPR",
+                "if": "Yes",
+                "description": "Yes, but the PAIN will not be estimated."
+              },
+              {
+                "from": "ICP-CSO-EFR",
+                "to": "ICP-CSO-EFI",
+                "if": "Yes",
+                "description": "Yes, and the PAIN will be estimated."
+              },
+              {
+                "from": "ICP-CSO-DPR",
+                "to": "ICP-CSO-IIR",
+                "description": "Following default PAIN-5 timeframes."
+              },
+              {
+                "from": "ICP-CSO-EFI",
+                "to": "ICP-CSO-IIR",
+                "description": "Follow the estimated PAIN timeframes."
+              },
+              { "from": "ICP-CSO-IIR", "to": "ICP-CSO-OIR" },
+              {
+                "from": "ICP-CSO-OIR",
+                "to": "ICP-CSO-OIR",
+                "description": "Ongoing reporting until incident is resolved, following PAIN timeframes."
+              },
+              { "from": "ICP-CSO-OIR", "to": "ICP-CSO-FIR" },
+              {
+                "from": "ICP-CSO-FIR",
+                "to": "Incident Communication Procedures are complete."
+              }
+            ]
+          }
+        ]
       },
       "data": {
         "both": {
@@ -2570,11 +2621,12 @@
                 },
                 {
                   "party": "Agency Customers",
-                  "method": "following agreement"
+                  "method": "update",
+                  "target": "contract agreements"
                 },
                 {
                   "party": "all necessary parties",
-                  "method": "whatever",
+                  "method": "update",
                   "target": "trust center"
                 }
               ],
@@ -2618,11 +2670,12 @@
                 },
                 {
                   "party": "Agency Customers",
-                  "method": "following agreement"
+                  "method": "update",
+                  "target": "contract agreements"
                 },
                 {
                   "party": "all necessary parties",
-                  "method": "whatever",
+                  "method": "update",
                   "target": "trust center"
                 }
               ],
@@ -2657,11 +2710,12 @@
                 },
                 {
                   "party": "Agency Customers",
-                  "method": "following agreement"
+                  "method": "update",
+                  "target": "contract agreements"
                 },
                 {
                   "party": "all necessary parties",
-                  "method": "whatever",
+                  "method": "update",
                   "target": "trust center"
                 }
               ],
@@ -6320,7 +6374,6 @@
                 "FSI-CSO-CRA",
                 "ICP-CSO-PAR",
                 "ICP-CSO-EFR",
-                "ICP-CSO-AAP",
                 "VDR-CSO-DET",
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD"
