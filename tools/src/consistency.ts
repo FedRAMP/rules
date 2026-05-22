@@ -23,7 +23,7 @@ type JsonPathSegment = string | number;
 type JsonRecord = Record<string, unknown>;
 
 const CLASS_KEYS = ["a", "b", "c", "d"] as const;
-const APPLICABILITY_KEYS = ["both", "20x", "rev5"] as const;
+const APPLICABILITY_KEYS = ["all", "20x", "rev5"] as const;
 type ApplicabilityKey = (typeof APPLICABILITY_KEYS)[number];
 const CLASS_NAMES: Record<ClassKey, string> = {
   a: "Class A",
@@ -35,7 +35,7 @@ const ALLOWED_ARTIFACT_KEYS_BY_PARENT: Record<
   ApplicabilityKey,
   readonly ApplicabilityKey[]
 > = {
-  both: APPLICABILITY_KEYS,
+  all: APPLICABILITY_KEYS,
   "20x": ["20x"],
   rev5: ["rev5"],
 };

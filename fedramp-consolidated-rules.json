@@ -27,7 +27,7 @@
       "purpose": "FedRAMP Definitions establish a shared understanding for terms when the plain-language meaning is not precise enough to support consistent use across the rules. When a defined term appears in a rule, the definition is a critical part of that rule and must be followed precisely, even if the term is commonly used differently elsewhere; when no definition exists, the plain-language meaning is expected.",
       "status": "stable",
       "effective": {
-        "both": {
+        "all": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
@@ -39,7 +39,7 @@
       }
     },
     "data": {
-      "both": {
+      "all": {
         "FRD-ACV": {
           "term": "Accepted Vulnerability",
           "definition": "A vulnerability that the provider does not intend to fully mitigate or remediate, OR that has not or will not be fully mitigated or remediated within the maximum overdue period in FedRAMP Vulnerability Detection and Response rules.",
@@ -1039,7 +1039,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "CSO": {
             "CDS-CSO-PUB": {
               "name": "Public Information",
@@ -1063,7 +1063,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "URL to the human-readable data.",
                   "URL to the machine-readable data."
                 ]
@@ -1090,7 +1090,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "URL to the human-readable data.",
                   "URL to the machine-readable data (if applicable)."
                 ]
@@ -1190,7 +1190,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": ["Explanation of how to access this information."]
+                "all": ["Explanation of how to access this information."]
               },
               "terms": [
                 "All Necessary Parties",
@@ -1212,7 +1212,7 @@
                   "statement": "Providers of Class A offerings MAY supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MAY",
                   "artifacts": {
-                    "both": [
+                    "all": [
                       "Explanation of the supplied materials, including how to access and use them."
                     ]
                   }
@@ -1221,7 +1221,7 @@
                   "statement": "Providers of Class B offerings MAY supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MAY",
                   "artifacts": {
-                    "both": [
+                    "all": [
                       "Explanation of the supplied materials, including how to access and use them."
                     ]
                   }
@@ -1230,7 +1230,7 @@
                   "statement": "Providers of Class C offerings MAY supply per-service FedRAMP Certification materials.",
                   "primary_key_word": "MAY",
                   "artifacts": {
-                    "both": [
+                    "all": [
                       "Explanation of the supplied materials, including how to access and use them."
                     ]
                   }
@@ -1244,7 +1244,7 @@
                     "grace_by_assessment_months": 2
                   },
                   "artifacts": {
-                    "both": [
+                    "all": [
                       "Explanation of the supplied materials, including how to access and use them."
                     ]
                   }
@@ -1269,7 +1269,7 @@
               "primary_key_word": "MAY",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "Explanation of if and how this information is shared with other parties."
                 ]
               },
@@ -1313,7 +1313,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": ["URL to the documentation for programmatic access."]
+                "all": ["URL to the documentation for programmatic access."]
               },
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
@@ -1329,7 +1329,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "Explanation of how FedRAMP can obtain this information."
                 ]
               },
@@ -1347,7 +1347,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "Explanation of how the appropriate parties can obtain this log information."
                 ]
               },
@@ -1382,7 +1382,7 @@
               "primary_key_word": "SHOULD",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "URL or explanation how to access documentation of these features and capabilities."
                 ]
               },
@@ -1406,7 +1406,7 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "URL or explanation of the supplied materials, including how to access and use them."
                 ]
               },
@@ -1429,7 +1429,7 @@
               "primary_key_word": "SHOULD",
               "affects": ["Providers"],
               "artifacts": {
-                "both": [
+                "all": [
                   "URL or explanation of how to request these materials.",
                   "Explanation of how the provider decides whether or not to share these materials or other related policies."
                 ]
@@ -1593,7 +1593,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "AGM": {
             "CCM-AGM-ROR": {
               "name": "Review Ongoing Reports",
@@ -2095,7 +2095,7 @@
         "purpose": "The FedRAMP Security Inbox rules ensure FedRAMP can reliably contact the security and compliance staff responsible for every FedRAMP-authorized cloud service offering. These rules also set expectations for urgent communications, response time testing, and routing important messages separately from general support or customer service channels.",
         "status": "stable",
         "effective": {
-          "both": {
+          "all": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -2117,7 +2117,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "FSI-FRP-VRE": {
               "name": "Verified Emails",
@@ -2472,7 +2472,7 @@
         ]
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "ICP-FRP-ORV": {
               "name": "Ongoing Review",
@@ -3157,7 +3157,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "CSO": {
             "MAS-CSO-IIR": {
               "name": "Identify Information Resources",
@@ -3326,7 +3326,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "MKT-FRP-DSM": {
               "name": "Decision Summaries",
@@ -3571,7 +3571,7 @@
         "purpose": "The Secure Configuration Guide rules help agencies and other customers understand how to configure a cloud service offering securely. These rules require providers to clearly explain the security impact of common settings so customers can make informed configuration choices.",
         "status": "stable",
         "effective": {
-          "both": {
+          "all": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -3593,7 +3593,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "CSO": {
             "SCG-CSO-RSC": {
               "name": "Recommended Secure Configuration",
@@ -3797,7 +3797,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "SCN-FRP-CAP": {
               "name": "Corrective Action Plan Conditions",
@@ -4296,7 +4296,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "CSO": {
             "UCM-CSO-CMD": {
               "name": "Cryptographic Module Documentation",
@@ -4417,7 +4417,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "VDR-FRP-ARP": {
               "name": "Additional Requirements",
@@ -5753,7 +5753,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "FRC-FRP-MCM": {
               "name": "Minimum Continuous Monitoring",
@@ -6788,7 +6788,7 @@
         }
       },
       "data": {
-        "both": {},
+        "all": {},
         "20x": {},
         "rev5": {}
       }
@@ -6849,7 +6849,7 @@
         }
       },
       "data": {
-        "both": {},
+        "all": {},
         "20x": {},
         "rev5": {}
       }
@@ -6910,7 +6910,7 @@
         }
       },
       "data": {
-        "both": {},
+        "all": {},
         "20x": {},
         "rev5": {}
       }
@@ -6923,7 +6923,7 @@
         "purpose": "The Agency Use rules summarize the many demands made on agencies by the FedRAMP Authorization Act and OMB Memorandum M-24-15 in a simple, clear, easy-to-follow set of FedRAMP-style rules. These rules align agency policies, authorization letters, machine-readable tools, secure configuration review, continuous monitoring, and communication with FedRAMP so certifications can be reused consistently across government.",
         "status": "placeholder",
         "effective": {
-          "both": {
+          "all": {
             "is": "required",
             "current_status": "Consolidated Rules for 2026",
             "date": {
@@ -6949,7 +6949,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "AGC": {
             "AGU-AGC-AIP": {
               "name": "Agency Internal Policies",
@@ -7311,7 +7311,7 @@
         }
       },
       "data": {
-        "both": {
+        "all": {
           "FRP": {
             "REC-FRP-RAO": {
               "name": "Recognized Assessors Only",

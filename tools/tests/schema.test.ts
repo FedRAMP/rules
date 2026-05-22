@@ -34,7 +34,7 @@ function expectSchemaRejects(title: string, document: RulesDocument): void {
 test("the schema rejects FRR requirements that mix top-level and class-specific statements", () => {
   const singleStatementDocument = cloneDocument(loadRulesDocument());
   const singleStatementRequirement =
-    (singleStatementDocument as any).FRR.MAS.data.both.CSO["MAS-CSO-FLO"];
+    (singleStatementDocument as any).FRR.MAS.data.all.CSO["MAS-CSO-FLO"];
   singleStatementRequirement.varies_by_class = {
     b: {
       statement: singleStatementRequirement.statement,

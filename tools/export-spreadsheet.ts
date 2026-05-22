@@ -10,7 +10,7 @@ function joinList(values: unknown): string {
   return values.filter((v): v is string => typeof v === "string").join("; ");
 }
 
-// artifacts: { "both"|"20x"|"rev5": { "all_classes"?: string[], "a"?: string[], ... } }
+// artifacts: { "all"|"20x"|"rev5": { "all_classes"?: string[], "a"?: string[], ... } }
 type ArtifactsByClass = Partial<Record<"all_classes" | "a" | "b" | "c" | "d", string[]>>;
 type ArtifactsField = Record<string, ArtifactsByClass>;
 

@@ -38,7 +38,7 @@ test("auto-fix applies ID, term, and property-order fixes in one pass", () => {
           data: {
             type: "object",
             properties: {
-              both: {
+              all: {
                 type: "object",
                 patternProperties: {
                   "^FRD-[A-Z]{3}$": {
@@ -60,7 +60,7 @@ test("auto-fix applies ID, term, and property-order fixes in one pass", () => {
               data: {
                 type: "object",
                 properties: {
-                  both: {
+                  all: {
                     $ref: "#/$defs/frr_requirements_map",
                   },
                 },
@@ -121,7 +121,7 @@ test("auto-fix applies ID, term, and property-order fixes in one pass", () => {
     FRD: {
       info: {},
       data: {
-        both: {
+        all: {
           "FRD-AGY": {
             term: "agency",
             alts: ["agency"],
@@ -135,7 +135,7 @@ test("auto-fix applies ID, term, and property-order fixes in one pass", () => {
       MAS: {
         info: {},
         data: {
-          both: {
+          all: {
             CSO: {
               "MAS-CSX-TST": {
                 primary_key_word: "MUST",
@@ -173,10 +173,10 @@ test("auto-fix applies ID, term, and property-order fixes in one pass", () => {
   expect(result.propertyOrderFixedCount).toBe(1);
   expect(result.document.info.version).toBe("1.0.1");
   expect(result.document.info.last_updated).toBe("2026-04-19");
-  expect(result.document.FRD.data.both!["FRD-AGY"]!.term).toBe("Agency");
-  expect(result.document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!.terms).toEqual(["Agency"]);
-  expect(result.document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!.fka).toBe("MAS-CSX-TST");
-  expect(Object.keys(result.document.FRR.MAS!.data.both!.CSO!["MAS-CSO-TST"]!)).toEqual([
+  expect(result.document.FRD.data.all!["FRD-AGY"]!.term).toBe("Agency");
+  expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.terms).toEqual(["Agency"]);
+  expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.fka).toBe("MAS-CSX-TST");
+  expect(Object.keys(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!)).toEqual([
     "name",
     "statement",
     "primary_key_word",

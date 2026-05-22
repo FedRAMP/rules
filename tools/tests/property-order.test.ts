@@ -49,7 +49,7 @@ test("property order fixes use schema property order as the source of truth", ()
   const document = {
     FRD: {
       data: {
-        both: {
+        all: {
           "FRD-TST": {
             definition: "Test definition",
             term: "Test Term",
@@ -65,7 +65,7 @@ test("property order fixes use schema property order as the source of truth", ()
   const checkIssues = collectPropertyOrderIssues(document, schema);
   expect(checkIssues).toEqual([
     {
-      path: "FRD.data.both.FRD-TST",
+      path: "FRD.data.all.FRD-TST",
       actualOrder: ["definition", "term", "updated", "note", "alts"],
       expectedOrder: ["term", "alts", "definition", "note", "updated"],
     },
@@ -73,7 +73,7 @@ test("property order fixes use schema property order as the source of truth", ()
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(1);
-  expect(Object.keys(fixed.document.FRD.data.both!["FRD-TST"]!)).toEqual([
+  expect(Object.keys(fixed.document.FRD.data.all!["FRD-TST"]!)).toEqual([
     "term",
     "alts",
     "definition",
@@ -86,7 +86,7 @@ test("property order fixes sort FRD shared definitions by term instead of ID", (
   const document = {
     FRD: {
       data: {
-        both: {
+        all: {
           "FRD-AAA": {
             term: "Zeta Term",
             definition: "Zeta definition",
@@ -114,7 +114,7 @@ test("property order fixes sort FRD shared definitions by term instead of ID", (
   const checkIssues = collectPropertyOrderIssues(document, schema);
   expect(checkIssues).toEqual([
     {
-      path: "FRD.data.both",
+      path: "FRD.data.all",
       actualOrder: ["FRD-AAA", "FRD-MMM", "FRD-ZZZ"],
       expectedOrder: ["FRD-ZZZ", "FRD-MMM", "FRD-AAA"],
     },
@@ -122,7 +122,7 @@ test("property order fixes sort FRD shared definitions by term instead of ID", (
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(1);
-  expect(Object.keys(fixed.document.FRD.data.both!)).toEqual(["FRD-ZZZ", "FRD-MMM", "FRD-AAA"]);
+  expect(Object.keys(fixed.document.FRD.data.all!)).toEqual(["FRD-ZZZ", "FRD-MMM", "FRD-AAA"]);
 });
 
 test("property order fixes use schema propertyNames enum order for FRR labels and label groups", () => {
@@ -148,7 +148,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
               data: {
                 type: "object",
                 properties: {
-                  both: { $ref: "#/$defs/frr_requirements_map" },
+                  all: { $ref: "#/$defs/frr_requirements_map" },
                 },
               },
             },
@@ -201,7 +201,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
           },
         },
         data: {
-          both: {
+          all: {
             UTC: {
               "ABC-UTC-001": { name: "UTC rule" },
             },
@@ -225,7 +225,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
       expectedOrder: ["FRP", "CSX", "UTC", "IAL"],
     },
     {
-      path: "FRR.ABC.data.both",
+      path: "FRR.ABC.data.all",
       actualOrder: ["UTC", "FRP", "CSX"],
       expectedOrder: ["FRP", "CSX", "UTC"],
     },
@@ -234,7 +234,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(2);
   expect(Object.keys(fixed.document.FRR.ABC!.info.labels as object)).toEqual(["FRP", "CSX", "UTC", "IAL"]);
-  expect(Object.keys(fixed.document.FRR.ABC!.data.both!)).toEqual(["FRP", "CSX", "UTC"]);
+  expect(Object.keys(fixed.document.FRR.ABC!.data.all!)).toEqual(["FRP", "CSX", "UTC"]);
 });
 
 test("property order fixes follow schema order for referenced data containers", () => {
@@ -269,7 +269,7 @@ test("property order fixes follow schema order for referenced data containers", 
       data_container_frd: {
         type: "object",
         properties: {
-          both: { type: "object" },
+          all: { type: "object" },
           "20x": { type: "object" },
           rev5: { type: "object" },
         },
@@ -277,7 +277,7 @@ test("property order fixes follow schema order for referenced data containers", 
       data_container_frr: {
         type: "object",
         properties: {
-          both: { type: "object" },
+          all: { type: "object" },
           "20x": { type: "object" },
           rev5: { type: "object" },
         },
@@ -296,7 +296,7 @@ test("property order fixes follow schema order for referenced data containers", 
         },
         data: {
           rev5: {},
-          both: {},
+          all: {},
           "20x": {},
         },
       },
@@ -307,13 +307,13 @@ test("property order fixes follow schema order for referenced data containers", 
   expect(checkIssues).toEqual([
     {
       path: "FRR.ABC.data",
-      actualOrder: ["rev5", "both", "20x"],
-      expectedOrder: ["both", "20x", "rev5"],
+      actualOrder: ["rev5", "all", "20x"],
+      expectedOrder: ["all", "20x", "rev5"],
     },
   ]);
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(1);
-  expect(Object.keys(fixed.document.FRR.ABC!.data)).toEqual(["both", "20x", "rev5"]);
+  expect(Object.keys(fixed.document.FRR.ABC!.data)).toEqual(["all", "20x", "rev5"]);
   expect(Object.keys(fixed.document.FRR.ABC!.info.effective as object)).toEqual(["rev5", "20x"]);
 });

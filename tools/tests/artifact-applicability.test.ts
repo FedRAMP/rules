@@ -9,18 +9,18 @@ test("current artifact applicability keys match their containing data scope", ()
   expect(issues).toEqual([]);
 });
 
-test("artifact applicability permits all keys under both and matching keys under 20x or rev5", () => {
+test("artifact applicability permits all keys under all and matching keys under 20x or rev5", () => {
   const document = cloneDocument(loadRulesDocument());
 
-  (document as any).FRR.CDS.data.both.CSO["CDS-CSO-PUB"].artifacts = {
-    both: ["Both evidence."],
+  (document as any).FRR.CDS.data.all.CSO["CDS-CSO-PUB"].artifacts = {
+    all: ["all evidence."],
     "20x": ["20x evidence."],
     rev5: ["Rev5 evidence."],
   };
-  (document as any).FRR.CDS.data.both.CSO[
+  (document as any).FRR.CDS.data.all.CSO[
     "CDS-CSO-PSM"
   ].varies_by_class.a.artifacts = {
-    both: ["Both class evidence."],
+    all: ["Both class evidence."],
     "20x": ["20x class evidence."],
     rev5: ["Rev5 class evidence."],
   };
@@ -40,7 +40,7 @@ test("artifact applicability reports human-readable errors for mismatched keys",
   const document = cloneDocument(loadRulesDocument());
 
   (document as any).FRR.FRC.data["20x"].CSX["FRC-CSX-MAS"].artifacts = {
-    both: ["Wrong parent evidence."],
+    all: ["Wrong parent evidence."],
     "20x": ["Allowed evidence."],
     rev5: ["Wrong parent evidence."],
   };
@@ -56,7 +56,7 @@ test("artifact applicability reports human-readable errors for mismatched keys",
   (document as any).FRR.CDS.data.rev5.CSL[
     "CDS-CSL-SCD"
   ].varies_by_class.a.artifacts = {
-    both: ["Wrong class-level evidence."],
+    all: ["Wrong class-level evidence."],
   };
 
   const issues = collectArtifactApplicabilityIssues(document);
@@ -71,12 +71,12 @@ test("artifact applicability reports human-readable errors for mismatched keys",
       location:
         "FRR.CDS.data.rev5.CSL.CDS-CSL-SCD.varies_by_class.a.artifacts",
       message:
-        "artifacts is inside data.rev5, so it may only use applicability keys: rev5. Found disallowed keys: both.",
+        "artifacts is inside data.rev5, so it may only use applicability keys: rev5. Found disallowed keys: all.",
     },
     {
       location: "FRR.FRC.data.20x.CSX.FRC-CSX-MAS.artifacts",
       message:
-        "artifacts is inside data.20x, so it may only use applicability keys: 20x. Found disallowed keys: both, rev5.",
+        "artifacts is inside data.20x, so it may only use applicability keys: 20x. Found disallowed keys: all, rev5.",
     },
     {
       location:

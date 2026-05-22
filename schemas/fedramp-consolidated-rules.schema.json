@@ -178,16 +178,16 @@
     "effective_map": {
       "type": "object",
       "properties": {
-        "both": { "$ref": "#/$defs/effective_entry" },
+        "all": { "$ref": "#/$defs/effective_entry" },
         "20x": { "$ref": "#/$defs/effective_entry" },
         "rev5": { "$ref": "#/$defs/effective_entry" }
       },
       "oneOf": [
         {
           "properties": {
-            "both": { "$ref": "#/$defs/effective_entry" }
+            "all": { "$ref": "#/$defs/effective_entry" }
           },
-          "required": ["both"],
+          "required": ["all"],
           "maxProperties": 1
         },
         {
@@ -241,9 +241,9 @@
     },
     "data_container_frd": {
       "type": "object",
-      "required": ["both"],
+      "required": ["all"],
       "properties": {
-        "both": { "$ref": "#/$defs/frd_definitions_map" },
+        "all": { "$ref": "#/$defs/frd_definitions_map" },
         "20x": { "$ref": "#/$defs/frd_definitions_map" },
         "rev5": { "$ref": "#/$defs/frd_definitions_map" }
       },
@@ -281,7 +281,7 @@
     "data_container_frr": {
       "type": "object",
       "properties": {
-        "both": { "$ref": "#/$defs/frr_requirements_map" },
+        "all": { "$ref": "#/$defs/frr_requirements_map" },
         "20x": { "$ref": "#/$defs/frr_requirements_map" },
         "rev5": { "$ref": "#/$defs/frr_requirements_map" }
       },
@@ -520,7 +520,7 @@
     "artifacts": {
       "type": "object",
       "properties": {
-        "both": { "$ref": "#/$defs/artifact_list" },
+        "all": { "$ref": "#/$defs/artifact_list" },
         "20x": { "$ref": "#/$defs/artifact_list" },
         "rev5": { "$ref": "#/$defs/artifact_list" }
       },

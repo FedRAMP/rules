@@ -160,7 +160,7 @@ function getPreferredOrder(
   value: JsonObject,
   path: string,
 ): string[] {
-  if (path === "FRD.data.both") {
+  if (path === "FRD.data.all") {
     return Object.entries(value)
       .sort(compareFrdDefinitionEntries)
       .map(([key]) => key);
