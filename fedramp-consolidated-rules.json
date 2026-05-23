@@ -2473,7 +2473,7 @@
               {
                 "from": "ICP-CSO-EFI",
                 "to": "ICP-CSO-IIR",
-                "description": "Reporting clock starts, using default PAIN-5 timeframes for reporting."
+                "description": "Reporting clock starts, using estimated PAIN timeframes for reporting."
               },
               {
                 "from": "ICP-CSO-IIR",
