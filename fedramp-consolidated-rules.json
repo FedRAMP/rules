@@ -2490,7 +2490,17 @@
                 "from": "ICP-CSO-FIR",
                 "to": "Incident Communication Procedures are complete."
               }
-            ]
+            ],
+            "nodes": {
+              "An incident is identified": "start",
+              "ICP-CSO-EFR": "decision",
+              "ICP-CSO-EFI": "decision",
+              "ICP-CSO-DPR": "process",
+              "ICP-CSO-IIR": "process",
+              "ICP-CSO-OIR": "process",
+              "ICP-CSO-FIR": "process",
+              "Incident Communication Procedures are complete.": "end"
+            }
           }
         ],
         "20x": {
