@@ -458,6 +458,10 @@
           "items": { "type": "string" },
           "minItems": 2
         },
+        "related": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "reference_url_web_name": { "type": "string" },

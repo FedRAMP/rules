@@ -57,9 +57,10 @@ const ALLOWED_NOTIFICATION_METHODS = ["email", "update", "web"] as const;
 const ALLOWED_NOTIFICATION_PARTIES = [
   "FedRAMP",
   "Provider",
-  "all necessary parties",
-  "public",
+  "All Necessary Parties",
+  "publicly",
   "Agency Customers",
+  "All Affected Parties",
 ] as const;
 const ALLOWED_TIMEFRAME_TYPES = [
   "bizdays",

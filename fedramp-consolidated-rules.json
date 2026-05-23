@@ -1521,7 +1521,7 @@
               "affects": ["Providers"],
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -2220,7 +2220,7 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "public",
+                  "party": "publicly",
                   "method": "web",
                   "target": "fedramp.gov"
                 }
@@ -2571,8 +2571,8 @@
             "ICP-CSO-DPR": {
               "name": "Default PAIN Rating",
               "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI Estimate Federal Impact.",
-              "primary_key_word": "MUST",
               "related": ["ICP-CSO-DPR"],
+              "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Agency",
@@ -3269,10 +3269,10 @@
                 "**N4** for a likely debilitating customer effect on 1 agency or a likely disruptive customer effect on more than 1 agency.",
                 "**N5** for a likely debilitating customer effect on more than 1 agency."
               ],
-              "primary_key_word": "SHOULD",
               "note": "All incidents must be assigned a default PAIN-5 if providers do not complete this step.",
-              "affects": ["Providers"],
               "related": ["ICP-CSO-DPR"],
+              "primary_key_word": "SHOULD",
+              "affects": ["Providers"],
               "terms": [
                 "Agency",
                 "Debilitating Customer Effect",
@@ -4205,7 +4205,7 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4293,7 +4293,7 @@
               "timeframe_num": 30,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4320,7 +4320,7 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4346,7 +4346,7 @@
               "timeframe_num": 5,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4377,7 +4377,7 @@
               "timeframe_num": 5,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
