@@ -5476,7 +5476,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
