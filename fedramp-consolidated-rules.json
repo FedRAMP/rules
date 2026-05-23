@@ -2444,52 +2444,47 @@
         "flows": [
           {
             "activity": "Incident Communications",
-            "description": "Evaluating and notifying affected parties about FedRAMP Reportable Incidents.",
+            "description": "This workflow illustrates the process for evaluating incidents and persistently notifying all affected parties during the incident if it is a FedRAMP Reportable Incident.",
             "steps": [
               {
-                "from": "Incident",
+                "from": "An incident is identified.",
                 "to": "ICP-CSO-EFR",
-                "description": "Is it a FedRAMP Reportable Incident?"
+                "description": "Determine if it is a FedRAMP Reportable Incident."
               },
               {
                 "from": "ICP-CSO-EFR",
                 "to": "Incident Communication Procedures are complete.",
-                "if": "No"
-              },
-              {
-                "from": "ICP-CSO-EFR",
-                "to": "ICP-CSO-DPR",
-                "if": "Yes",
-                "description": "Yes, but the PAIN will not be estimated."
+                "description": "No"
               },
               {
                 "from": "ICP-CSO-EFR",
                 "to": "ICP-CSO-EFI",
-                "if": "Yes",
                 "description": "Yes, and the PAIN will be estimated."
+              },
+              {
+                "from": "ICP-CSO-EFR",
+                "to": "ICP-CSO-DPR",
+                "description": "Yes, but the PAIN will not be estimated."
               },
               {
                 "from": "ICP-CSO-DPR",
                 "to": "ICP-CSO-IIR",
-                "description": "Following default PAIN-5 timeframes."
+                "description": "Use default PAIN-5 timeframes for reporting."
               },
               {
                 "from": "ICP-CSO-EFI",
                 "to": "ICP-CSO-IIR",
-                "description": "Follow the estimated PAIN timeframes."
+                "description": "Use estimated PAIN timeframes for reporting."
               },
               {
                 "from": "ICP-CSO-IIR",
-                "to": "ICP-CSO-OIR"
-              },
-              {
-                "from": "ICP-CSO-OIR",
                 "to": "ICP-CSO-OIR",
-                "description": "Ongoing reporting until incident is resolved, following PAIN timeframes."
+                "description": "Ongoing persistent reporting until incident is resolved."
               },
               {
                 "from": "ICP-CSO-OIR",
-                "to": "ICP-CSO-FIR"
+                "to": "ICP-CSO-FIR",
+                "description": "Incident is resolved."
               },
               {
                 "from": "ICP-CSO-FIR",
