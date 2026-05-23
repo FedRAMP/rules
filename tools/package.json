@@ -21,6 +21,8 @@
     "fix:terms": "bun run fix -- --scope terms",
     "fix:ids": "bun run fix -- --scope ids",
     "fix:order": "bun run fix -- --scope order",
+    "fix:related": "bun run fix -- --scope related",
+    "fix:display-names": "bun run fix -- --scope display-names",
     "summary:rules": "bun run summary -- --scope rules",
     "hooks:install": "sh ./install-git-hooks.sh",
     "export": "bun run export-spreadsheet.ts"

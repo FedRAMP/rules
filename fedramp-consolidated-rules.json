@@ -1056,14 +1056,15 @@
                 "UEI Number",
                 "Contact Information",
                 "Overall Service Description",
-                "Detailed list of specific services and their security categories (see CDS-CSO-SVC)",
+                "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
                 "Summary of customer responsibilities and secure configuration guidance (if applicable, see the FedRAMP Secure Configuration Guide process)",
                 "Process for accessing information in the trust center (if applicable)",
                 "Availability status and recent disruptions for the trust center (if applicable)",
                 "Customer support information for the trust center (if applicable)",
-                "Next Ongoing Certification Report date (see CCM-OCR-NRD)"
+                "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))"
               ],
               "note": "Generally, this information should be available on a public webpage.",
+              "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -2302,8 +2303,9 @@
               "danger": "Be careful using a personal email tied to an individual for this inbox due to the significant risk to future communications after a change in personnel!",
               "notes": [
                 "Unless otherwise notified, FedRAMP will use the listed Security Email on the Marketplace for these notifications.",
-                "If a provider establishes a new inbox in reaction to this guidance that is different from the Security Email then they must follow the FSI-CSO-NOC rules to notify FedRAMP."
+                "If a provider establishes a new inbox in reaction to this guidance that is different from the Security Email then they must follow the FSI-CSO-NOC (Notification of Changes) rules to notify FedRAMP."
               ],
+              "related": ["FSI-CSO-NOC"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": ["FedRAMP Security Inbox", "Provider"],
@@ -2570,8 +2572,8 @@
             },
             "ICP-CSO-DPR": {
               "name": "Default PAIN Rating",
-              "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI Estimate Federal Impact.",
-              "related": ["ICP-CSO-DPR"],
+              "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI (Estimate Federal Impact).",
+              "related": ["ICP-CSO-EFI"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -2599,7 +2601,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2650,7 +2652,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2701,7 +2703,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2752,7 +2754,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2797,6 +2799,7 @@
                   }
                 }
               },
+              "related": ["ICP-CSO-EFI"],
               "affects": ["Providers"],
               "notification": [
                 {
@@ -3269,7 +3272,7 @@
                 "**N4** for a likely debilitating customer effect on 1 agency or a likely disruptive customer effect on more than 1 agency.",
                 "**N5** for a likely debilitating customer effect on more than 1 agency."
               ],
-              "note": "All incidents must be assigned a default PAIN-5 if providers do not complete this step.",
+              "note": "All incidents must be assigned a default PAIN-5 as required by ICP-CSO-DPR (Default PAIN Rating) if this step is not completed.",
               "related": ["ICP-CSO-DPR"],
               "primary_key_word": "SHOULD",
               "affects": ["Providers"],
@@ -3405,13 +3408,14 @@
             },
             "MAS-CSO-TPR": {
               "name": "Third-Party Information Resources",
-              "statement": "Providers MUST address the potential impact to federal customer data from third-party information resources used by the cloud service offering, ONLY IF MAS-CSO-IIR APPLIES, by documenting the following information about each applicable third-party information resource:",
+              "statement": "Providers MUST address the potential impact to federal customer data from third-party information resources used by the cloud service offering, ONLY IF MAS-CSO-IIR (Identify Information Resources) APPLIES, by documenting the following information about each applicable third-party information resource:",
               "following_information": [
                 "General usage and configuration",
                 "Explanation or justification for use",
                 "Mitigation measures in place to reduce the potential impact to federal customer data",
                 "Compensating controls in place to reduce the potential impact to federal customer data"
               ],
+              "related": ["MAS-CSO-IIR"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -3431,11 +3435,13 @@
             },
             "MAS-CSO-MDI": {
               "name": "Metadata Inclusion",
-              "statement": "Providers MUST include metadata (including metadata about federal customer data) in the Minimum Assessment Scope ONLY IF MAS-CSO-IIR APPLIES.",
+              "statement": "Providers MUST include metadata (including metadata about federal customer data) in the Minimum Assessment Scope ONLY IF MAS-CSO-IIR (Identify Information Resources) APPLIES.",
+              "related": ["MAS-CSO-IIR"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Federal Customer Data",
+                "Information Resource",
                 "Initial Incident Report (IIR)",
                 "Provider"
               ],
@@ -3578,9 +3584,10 @@
                 "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
               ],
               "notes": [
-                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF Scope of FedRAMP.",
+                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
                 "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
               ],
+              "related": ["MKT-FRP-SOF"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -4017,6 +4024,7 @@
               "name": "Maintain Audit Records",
               "statement": "Providers MUST maintain auditable records of the significant change evaluation activities required by SCN-CSO-EVA (Evaluate Changes) and make them available to FedRAMP.",
               "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification package by default.",
+              "related": ["SCN-CSO-EVA"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -6571,6 +6579,22 @@
               "name": "Address FedRAMP Rules",
               "statement": "Providers seeking a FedRAMP Certification Class A by leveraging an alternative security framework MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
               "following_information": [
+                "FRC-CSO-POP (Pick One Program Certification Type)",
+                "MAS-CSO-IIR (Identify Information Resources)",
+                "CDS-CSO-PUB (Public Information)",
+                "CDS-CSO-UTC (Use Trust Centers)",
+                "CDS-UTC-PGD (Public Guidance)",
+                "CDS-UTC-AAD (Agency Access Denial)",
+                "FSI-CSO-INB (Maintain a FedRAMP Security Inbox)",
+                "FSI-CSO-RCV (Receive Email Without Disruption)",
+                "FSI-CSO-CRA (Complete Required Actions)",
+                "ICP-CSO-EFR (Evaluate FedRAMP Reportability)",
+                "VDR-CSO-DET (Vulnerability Detection)",
+                "CCM-OCR-AVL (Report Availability)",
+                "CCM-OCR-NRD (Next Report Date)"
+              ],
+              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
+              "related": [
                 "FRC-CSO-POP",
                 "MAS-CSO-IIR",
                 "CDS-CSO-PUB",
@@ -6585,16 +6609,20 @@
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD"
               ],
-              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "Agency",
                 "Artifacts",
                 "Certification Package",
                 "FedRAMP Security Inbox",
+                "Information Resource",
                 "Initial Incident Report (IIR)",
                 "Ongoing Certification Report (OCR)",
-                "Provider"
+                "Provider",
+                "Trust Center",
+                "Vulnerability",
+                "Vulnerability Detection"
               ],
               "updated": [
                 {

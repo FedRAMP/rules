@@ -1,5 +1,17 @@
-import type { IdAlignmentIssue, PropertyOrderIssue, RulesDocument } from "./types";
+import type {
+  IdAlignmentIssue,
+  PropertyOrderIssue,
+  RulesDocument,
+} from "./types";
 
+import {
+  applyInlineRuleDisplayNameFixes,
+  applyRelatedRuleReferenceFixes,
+  collectInlineRuleDisplayNameFixes,
+  collectRelatedRuleReferenceFixes,
+  type InlineRuleDisplayNameFix,
+  type RelatedRuleReferenceFix,
+} from "./consistency";
 import { collectIdAlignmentIssues, fixIdAlignment } from "./id-alignment";
 import { collectPropertyOrderIssues, fixPropertyOrder } from "./property-order";
 import {
@@ -9,7 +21,14 @@ import {
   collectTermSyncChanges,
 } from "./terms";
 
-export const FIX_SCOPES = ["auto", "terms", "ids", "order"] as const;
+export const FIX_SCOPES = [
+  "auto",
+  "terms",
+  "ids",
+  "order",
+  "related",
+  "display-names",
+] as const;
 export type FixScope = (typeof FIX_SCOPES)[number];
 
 export function isFixScope(value: string): value is FixScope {
@@ -51,8 +70,31 @@ export interface OrderFixResult {
   fixedCount: number;
 }
 
+export interface RelatedFixPlan {
+  issueCount: number;
+  needsFix: boolean;
+}
+
+export interface RelatedFixResult {
+  document: RulesDocument;
+  fixes: RelatedRuleReferenceFix[];
+  fixedCount: number;
+}
+
+export interface DisplayNamesFixPlan {
+  issueCount: number;
+  needsFix: boolean;
+}
+
+export interface DisplayNamesFixResult {
+  document: RulesDocument;
+  fixes: InlineRuleDisplayNameFix[];
+  fixedCount: number;
+}
+
 export function collectTermsFixPlan(document: RulesDocument): TermsFixPlan {
-  const definitionTermIssueCount = collectDefinitionTermTitleChanges(document).length;
+  const definitionTermIssueCount =
+    collectDefinitionTermTitleChanges(document).length;
   const termSyncIssueCount = collectTermSyncChanges(document).length;
 
   return {
@@ -69,7 +111,8 @@ export function applyTermsFix(
     entryDate?: string;
   },
 ): TermsFixResult {
-  const definitionTermFixedCount = applyDefinitionTermTitleChanges(document).length;
+  const definitionTermFixedCount =
+    applyDefinitionTermTitleChanges(document).length;
   const termSyncFixedCount = applyTermSync(document, {
     addComment: options?.addComment,
     entryDate: options?.entryDate,
@@ -110,8 +153,14 @@ export function applyIdsFix(
   };
 }
 
-export function collectOrderFixPlan(document: RulesDocument, schemaDocument: unknown): OrderFixPlan {
-  const issueCount = collectPropertyOrderIssues(document, schemaDocument).length;
+export function collectOrderFixPlan(
+  document: RulesDocument,
+  schemaDocument: unknown,
+): OrderFixPlan {
+  const issueCount = collectPropertyOrderIssues(
+    document,
+    schemaDocument,
+  ).length;
 
   return {
     issueCount,
@@ -119,17 +168,60 @@ export function collectOrderFixPlan(document: RulesDocument, schemaDocument: unk
   };
 }
 
-export function applyOrderFix(document: RulesDocument, schemaDocument: unknown): OrderFixResult {
+export function applyOrderFix(
+  document: RulesDocument,
+  schemaDocument: unknown,
+): OrderFixResult {
   return fixPropertyOrder(document, schemaDocument);
+}
+
+export function collectRelatedFixPlan(document: RulesDocument): RelatedFixPlan {
+  const issueCount = collectRelatedRuleReferenceFixes(document).reduce(
+    (total, fix) => total + fix.added.length,
+    0,
+  );
+
+  return {
+    issueCount,
+    needsFix: issueCount > 0,
+  };
+}
+
+export function applyRelatedFix(document: RulesDocument): RelatedFixResult {
+  return applyRelatedRuleReferenceFixes(document);
+}
+
+export function collectDisplayNamesFixPlan(
+  document: RulesDocument,
+): DisplayNamesFixPlan {
+  const issueCount = collectInlineRuleDisplayNameFixes(document).reduce(
+    (total, fix) => total + fix.fixedIds.length,
+    0,
+  );
+
+  return {
+    issueCount,
+    needsFix: issueCount > 0,
+  };
+}
+
+export function applyDisplayNamesFix(
+  document: RulesDocument,
+): DisplayNamesFixResult {
+  return applyInlineRuleDisplayNameFixes(document);
 }
 
 export interface AutoFixPlan {
   definitionTermIssueCount: number;
   termSyncIssueCount: number;
   idIssueCount: number;
+  inlineRuleDisplayNameIssueCount: number;
+  relatedRuleIssueCount: number;
   propertyOrderIssueCount: number;
   needsTermsFix: boolean;
   needsIdsFix: boolean;
+  needsDisplayNamesFix: boolean;
+  needsRelatedFix: boolean;
   needsOrderFix: boolean;
 }
 
@@ -140,21 +232,32 @@ export interface AutoFixResult {
   termSyncFixedCount: number;
   idFixedCount: number;
   idSkippedCount: number;
+  inlineRuleDisplayNameFixedCount: number;
+  relatedRuleFixedCount: number;
   propertyOrderFixedCount: number;
 }
 
-export function collectAutoFixPlan(document: RulesDocument, schemaDocument: unknown): AutoFixPlan {
+export function collectAutoFixPlan(
+  document: RulesDocument,
+  schemaDocument: unknown,
+): AutoFixPlan {
   const termsPlan = collectTermsFixPlan(document);
   const idsPlan = collectIdsFixPlan(document);
+  const displayNamesPlan = collectDisplayNamesFixPlan(document);
+  const relatedPlan = collectRelatedFixPlan(document);
   const orderPlan = collectOrderFixPlan(document, schemaDocument);
 
   return {
     definitionTermIssueCount: termsPlan.definitionTermIssueCount,
     termSyncIssueCount: termsPlan.termSyncIssueCount,
     idIssueCount: idsPlan.issueCount,
+    inlineRuleDisplayNameIssueCount: displayNamesPlan.issueCount,
+    relatedRuleIssueCount: relatedPlan.issueCount,
     propertyOrderIssueCount: orderPlan.issueCount,
     needsTermsFix: termsPlan.needsFix,
     needsIdsFix: idsPlan.needsFix,
+    needsDisplayNamesFix: displayNamesPlan.needsFix,
+    needsRelatedFix: relatedPlan.needsFix,
     needsOrderFix: orderPlan.needsFix,
   };
 }
@@ -176,6 +279,8 @@ export function applyAutoFixes(
   let termSyncFixedCount = 0;
   let idFixedCount = 0;
   let idSkippedCount = 0;
+  let inlineRuleDisplayNameFixedCount = 0;
+  let relatedRuleFixedCount = 0;
   let propertyOrderFixedCount = 0;
 
   if (plan.needsIdsFix) {
@@ -195,7 +300,18 @@ export function applyAutoFixes(
     termSyncFixedCount = termsResult.termSyncFixedCount;
   }
 
-  if (plan.needsOrderFix) {
+  if (plan.needsDisplayNamesFix) {
+    const displayNamesResult = applyDisplayNamesFix(working);
+    inlineRuleDisplayNameFixedCount = displayNamesResult.fixedCount;
+  }
+
+  if (plan.needsRelatedFix) {
+    const relatedResult = applyRelatedFix(working);
+    relatedRuleFixedCount = relatedResult.fixedCount;
+  }
+
+  const orderPlan = collectOrderFixPlan(working, schemaDocument);
+  if (orderPlan.needsFix) {
     const propertyOrderResult = applyOrderFix(working, schemaDocument);
     working = propertyOrderResult.document;
     propertyOrderFixedCount = propertyOrderResult.fixedCount;
@@ -208,6 +324,8 @@ export function applyAutoFixes(
     termSyncFixedCount,
     idFixedCount,
     idSkippedCount,
+    inlineRuleDisplayNameFixedCount,
+    relatedRuleFixedCount,
     propertyOrderFixedCount,
   };
 }
