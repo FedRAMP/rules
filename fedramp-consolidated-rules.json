@@ -2572,6 +2572,7 @@
               "name": "Default PAIN Rating",
               "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI Estimate Federal Impact.",
               "primary_key_word": "MUST",
+              "related": ["ICP-CSO-DPR"],
               "affects": ["Providers"],
               "terms": [
                 "Agency",
@@ -2806,10 +2807,10 @@
                 {
                   "party": "Agency Customers",
                   "method": "update",
-                  "target": "contract agreements"
+                  "target": "incident contact procedures documented in contract agreement"
                 },
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center"
                 }
@@ -3035,10 +3036,10 @@
                 {
                   "party": "Agency Customers",
                   "method": "update",
-                  "target": "contract agreements"
+                  "target": "incident contact procedures documented in contract agreement"
                 },
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center"
                 }
@@ -3236,10 +3237,10 @@
                 {
                   "party": "Agency Customers",
                   "method": "update",
-                  "target": "contract agreements"
+                  "target": "incident contact procedures documented in contract agreement"
                 },
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center"
                 }
@@ -3261,15 +3262,17 @@
             "ICP-CSO-EFI": {
               "name": "Estimate Federal Impact",
               "statement": "Providers SHOULD promptly estimate the likely adverse impact of an incident on agency customers to assign a Potential Agency Impact N-rating; this step is called Incident Rating.",
-              "following_information": [
-                "N1 means minimal customer effect on 1 or more agencies.",
-                "N2 means narrow customer effect on 1 or more agencies.",
-                "N3 means disruptive customer effect on 1 agency.",
-                "N4 means debilitating customer effect on 1 agency or disruptive customer effect on more than 1 agency.",
-                "N5 means debilitating customer effect on more than 1 agency."
+              "following_information_bullets": [
+                "**N1** for a likely minimal customer effect on 1 or more agencies.",
+                "**N2** for a likely narrow customer effect on 1 or more agencies.",
+                "**N3** for a likely disruptive customer effect on 1 agency.",
+                "**N4** for a likely debilitating customer effect on 1 agency or a likely disruptive customer effect on more than 1 agency.",
+                "**N5** for a likely debilitating customer effect on more than 1 agency."
               ],
               "primary_key_word": "SHOULD",
+              "note": "All incidents must be assigned a default PAIN-5 if providers do not complete this step.",
               "affects": ["Providers"],
+              "related": ["ICP-CSO-DPR"],
               "terms": [
                 "Agency",
                 "Debilitating Customer Effect",
