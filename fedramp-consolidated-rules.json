@@ -2549,7 +2549,7 @@
           },
           "CSO": {
             "ICP-CSO-EFR": {
-              "name": "Evaluate Federal Reportability",
+              "name": "Evaluate FedRAMP Reportability",
               "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Communications Procedures.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
