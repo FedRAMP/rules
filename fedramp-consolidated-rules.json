@@ -2468,12 +2468,12 @@
               {
                 "from": "ICP-CSO-DPR",
                 "to": "ICP-CSO-IIR",
-                "description": "Use default PAIN-5 timeframes for reporting."
+                "description": "Reporting clock starts, using default PAIN-5 timeframes for reporting."
               },
               {
                 "from": "ICP-CSO-EFI",
                 "to": "ICP-CSO-IIR",
-                "description": "Use estimated PAIN timeframes for reporting."
+                "description": "Reporting clock starts, using default PAIN-5 timeframes for reporting."
               },
               {
                 "from": "ICP-CSO-IIR",
