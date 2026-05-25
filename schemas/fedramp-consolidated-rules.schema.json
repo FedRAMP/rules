@@ -111,7 +111,7 @@
         "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
         "effective": { "$ref": "#/$defs/effective_entry" },
-        "labels": { "$ref": "#/$defs/frr_info_labels" },
+        "subsets": { "$ref": "#/$defs/frr_info_labels" },
         "flows": { "$ref": "#/$defs/info_flows" },
         "20x": { "$ref": "#/$defs/frr_document_info_certification" },
         "rev5": { "$ref": "#/$defs/frr_document_info_certification" }
@@ -123,7 +123,7 @@
       "type": "object",
       "properties": {
         "effective": { "$ref": "#/$defs/effective_entry" },
-        "labels": { "$ref": "#/$defs/frr_info_labels" },
+        "subsets": { "$ref": "#/$defs/frr_info_labels" },
         "flows": { "$ref": "#/$defs/info_flows" }
       },
       "additionalProperties": false
