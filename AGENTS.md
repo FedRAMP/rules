@@ -87,8 +87,8 @@ notes, effective dates, simple timeframes, and `pain_timeframes`.
 
 Other useful top-level fields include `affects`, `controls`, `artifacts`,
 `following_information`, `following_information_bullets`, `examples`,
-`notification`, simple timeframes, terms, references, corrective actions,
-effective dates, and `updated` history.
+`notification`, simple timeframes, terms, related rule references, references,
+corrective actions, effective dates, and `updated` history.
 
 ### KSI
 
@@ -123,8 +123,8 @@ terms, references, and update history.
   optional or permitted behavior.
 - Cite stable IDs for every finding, mapping, or recommendation.
 - Use `affects`, `controls`, `artifacts`, `default_artifacts`, notifications,
-  and timeframes as mapping signals. They are aids for analysis, not
-  replacements for the rule statement.
+  related rule references, and timeframes as mapping signals. They are aids for
+  analysis, not replacements for the rule statement.
 - Distinguish evidence found, evidence missing, and conclusions inferred from
   evidence. Do not claim compliance from silence.
 
@@ -188,8 +188,8 @@ unless the user explicitly asks for one.
 - For each substantively changed rule, definition, or indicator, write one
   sentence describing the user-visible change. Include additions, removals,
   renamed terms, wording changes, actor/scope changes, applicability moves,
-  artifact changes, control mappings, examples, notifications, references,
-  timeframes, and class-specific variants.
+  artifact changes, control mappings, examples, notifications, related rule
+  references, external references, timeframes, and class-specific variants.
 - Group purely mechanical metadata churn, such as mass `updated` date resets or
   property ordering changes, instead of listing every affected rule separately.
 - Separate evidence from inference. When a conclusion comes from schema shape,

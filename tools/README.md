@@ -84,6 +84,8 @@ Runs [fix.ts](fix.ts), which plans and applies fixable normalizations:
 
 - term title casing and `terms` synchronization
 - ID alignment
+- inline rule display names
+- related rule references
 - schema-driven property ordering
 
 Useful variants:
@@ -122,6 +124,8 @@ Focused fix aliases:
 - `bun run fix:terms`
 - `bun run fix:ids`
 - `bun run fix:order`
+- `bun run fix:related`
+- `bun run fix:display-names`
 
 Examples:
 
@@ -130,6 +134,8 @@ bun run fix:terms -- -comment
 bun run fix:ids -- --report ./id-report.json
 bun run fix:ids -- --output ./fedramp-consolidated-rules.fixed.json
 bun run fix:order -- --output ./fedramp-consolidated-rules.ordered.json
+bun run fix:related
+bun run fix:display-names
 ```
 
 ## File Structure
