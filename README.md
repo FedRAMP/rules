@@ -33,7 +33,7 @@ From [tools](tools), the primary maintenance commands are:
 ```bash
 bun run check
 bun run fix
-bun run summary
+bun run build
 ```
 
 See [tools/README.md](tools/README.md) for the tooling workflow and

@@ -79,6 +79,10 @@ after the regular Bun output.
 
 Runs `tsc --noEmit` against the TypeScript project.
 
+### `bun run build`
+
+Regenerates generated repository output, including [../RULES.md](../RULES.md).
+
 ### `bun run fix`
 
 Runs [fix.ts](fix.ts), which plans and applies fixable normalizations:
@@ -114,7 +118,7 @@ summary command.
 2. Run `bun run check`.
 3. Run `bun run fix` if the check reports fixable normalization issues.
 4. Run `bun run check` again.
-5. Run `bun run summary` when the change affects generated summaries.
+5. Run `bun run build` when the change affects generated output.
 
 ## Focused Commands
 

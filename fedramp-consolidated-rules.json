@@ -6614,15 +6614,18 @@
               "terms": [
                 "Agency",
                 "Artifacts",
+                "Certification Data",
                 "Certification Package",
                 "FedRAMP Security Inbox",
+                "Incident",
                 "Information Resource",
                 "Initial Incident Report (IIR)",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
                 "Trust Center",
                 "Vulnerability",
-                "Vulnerability Detection"
+                "Vulnerability Detection",
+                "Vulnerability Response"
               ],
               "updated": [
                 {

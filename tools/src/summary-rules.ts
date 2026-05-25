@@ -18,11 +18,9 @@ interface ProcessSummary {
   name: string;
   documentStatus: string;
   requirementCount: number;
-  rev5Status: string;
   rev5ObtainDate: string;
   rev5MaintainDate: string;
   rev5GraceEndsDate: string;
-  twentyXStatus: string;
   twentyXObtainDate: string;
   twentyXMaintainDate: string;
   twentyXGraceEndsDate: string;
@@ -168,15 +166,9 @@ function summarizeProcess(
     name: getInfoString(process.info, ["name"]),
     documentStatus: getInfoString(process.info, ["status"]),
     requirementCount,
-    rev5Status: getInfoString(getEffectiveInfo(process.info, "rev5") ?? {}, [
-      "current_status",
-    ]),
     rev5ObtainDate: getEffectiveDate(process.info, "rev5", "obtain"),
     rev5MaintainDate: getEffectiveDate(process.info, "rev5", "maintain"),
     rev5GraceEndsDate: getEffectiveDate(process.info, "rev5", "grace_ends"),
-    twentyXStatus: getInfoString(getEffectiveInfo(process.info, "20x") ?? {}, [
-      "current_status",
-    ]),
     twentyXObtainDate: getEffectiveDate(process.info, "20x", "obtain"),
     twentyXMaintainDate: getEffectiveDate(process.info, "20x", "maintain"),
     twentyXGraceEndsDate: getEffectiveDate(process.info, "20x", "grace_ends"),
@@ -217,11 +209,9 @@ function renderTable(
     "Name",
     "Document Status",
     "Requirements",
-    "Rev5 Status",
     "Rev5 Obtain",
     "Rev5 Maintain",
     "Rev5 Grace Ends",
-    "20x Status",
     "20x Obtain",
     "20x Maintain",
     "20x Grace Ends",
@@ -240,11 +230,9 @@ function renderTable(
       escapeTableCell(summary.name),
       escapeTableCell(summary.documentStatus),
       String(summary.requirementCount),
-      escapeTableCell(summary.rev5Status),
       summary.rev5ObtainDate,
       summary.rev5MaintainDate,
       summary.rev5GraceEndsDate,
-      escapeTableCell(summary.twentyXStatus),
       summary.twentyXObtainDate,
       summary.twentyXMaintainDate,
       summary.twentyXGraceEndsDate,
@@ -288,7 +276,7 @@ export function buildRulesSummaryMarkdown(document: RulesDocument): string {
     "",
     `Generated from \`fedramp-consolidated-rules.json\` (version ${document.info.version}, last updated ${document.info.last_updated}).`,
     "",
-    "`fedramp-consolidated-rules.json` is the source of truth for the Consolidated Rules for 2026 Public Preview. This file is generated for quick review; update the JSON and run `bun run summary` from `tools` to refresh it.",
+    "`fedramp-consolidated-rules.json` is the source of truth for the Consolidated Rules for 2026 Public Preview. This file is generated for quick review; update the JSON and run `bun run build` from `tools` to refresh it.",
     "",
     "## Dataset Overview",
     "",
