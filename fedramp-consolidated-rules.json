@@ -390,11 +390,11 @@
         },
         "FRD-INT": {
           "term": "Incident",
-          "definition": "Has the meaning given in 44 USC § 3552 (b)(2) applied to federal customer data, which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of [federal customer data]; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies [related to federal customer data].\"",
+          "definition": "Has the meaning given in 44 USC § 3552 (b)(2) which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of information or an information system; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies.\"",
           "tag": "Incident",
           "alts": ["incident", "incidents"],
           "reference": "44 USC § 3552 (b)(2)",
-          "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapII-sec3552",
+          "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title44/USCODE-2024-title44-chap35-subchapII-sec3552",
           "updated": [
             {
               "date": "2026-07-04",
