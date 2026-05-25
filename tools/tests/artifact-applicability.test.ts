@@ -49,10 +49,10 @@ function collectArtifactHolderTargets(
         continue;
       }
 
-      for (const [labelKey, requirements] of Object.entries(scope ?? {})) {
+      for (const [subsetKey, requirements] of Object.entries(scope ?? {})) {
         for (const [id, requirement] of Object.entries(requirements ?? {})) {
           const requirementHolder = requirement as unknown as ArtifactHolder;
-          const requirementLocation = `FRR.${sectionKey}.data.${scopeKey}.${labelKey}.${id}`;
+          const requirementLocation = `FRR.${sectionKey}.data.${scopeKey}.${subsetKey}.${id}`;
 
           targets.push({
             location: requirementLocation,

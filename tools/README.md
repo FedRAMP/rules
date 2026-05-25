@@ -60,7 +60,7 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 - JSON formatting
 - ID alignment
 - FRD, FRR, and KSI container alignment
-- FRR label declaration consistency
+- FRR subset declaration consistency
 - primary keyword consistency
 - term casing and synchronization
 - schema-driven property ordering

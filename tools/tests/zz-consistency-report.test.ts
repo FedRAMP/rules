@@ -1,8 +1,8 @@
 import { expect, test } from "bun:test";
 
 import {
-  collectFrrLabelDeclarationIssues,
   collectConsistencyChecks,
+  collectFrrSubsetDeclarationIssues,
   collectInlineRuleDisplayNameIssues,
   collectRelatedRuleReferenceIssues,
   formatConsistencyReport,
@@ -18,22 +18,22 @@ test("consistency validation report", () => {
   }
 });
 
-test("FRR label declarations include certification-specific info labels", () => {
+test("FRR subset declarations include certification-specific info subsets", () => {
   const document = {
     FRR: {
       ABC: {
         info: {
-          labels: {
-            CSO: { name: "Common", description: "Common label." },
+          subsets: {
+            CSO: { name: "Common", description: "Common subset." },
           },
           "20x": {
-            labels: {
-              CSX: { name: "20x", description: "20x label." },
+            subsets: {
+              CSX: { name: "20x", description: "20x subset." },
             },
           },
           rev5: {
-            labels: {
-              CSF: { name: "Rev5", description: "Rev5 label." },
+            subsets: {
+              CSF: { name: "Rev5", description: "Rev5 subset." },
             },
           },
         },
@@ -54,7 +54,7 @@ test("FRR label declarations include certification-specific info labels", () => 
     },
   } as unknown as RulesDocument;
 
-  expect(collectFrrLabelDeclarationIssues(document)).toEqual([]);
+  expect(collectFrrSubsetDeclarationIssues(document)).toEqual([]);
 });
 
 test("related rule references cover inline FRR IDs in requirement text fields", () => {

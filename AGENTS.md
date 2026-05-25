@@ -59,10 +59,10 @@ definition instead of assuming the plain-language meaning.
 Each process contains:
 
 - `info`
-  Rule metadata, purpose, status, effective metadata, label definitions, and
+  Rule metadata, purpose, status, effective metadata, subset definitions, and
   optional flow descriptions. Effective metadata may be common
   (`info.effective`) or split into paired framework-specific blocks
-  (`info.20x.effective` and `info.rev5.effective`). Labels and flows may also
+  (`info.20x.effective` and `info.rev5.effective`). Subsets and flows may also
   be common or framework-specific.
 - `data`
   The rule tree.
@@ -70,12 +70,12 @@ Each process contains:
 The rule tree is organized as:
 
 ```text
-FRR -> process -> data -> applicability -> label -> requirement ID
+FRR -> process -> data -> applicability -> subset -> requirement ID
 ```
 
-Applicability keys are `all`, `20x`, and `rev5`. Labels identify actors,
+Applicability keys are `all`, `20x`, and `rev5`. Subsets identify actors,
 scopes, or process buckets. Requirement IDs follow the
-`PROCESS-LABEL-KEY` pattern, such as `VDR-CSO-123`.
+`PROCESS-SUBSET-KEY` pattern, such as `VDR-CSO-123`.
 
 Each requirement contains either:
 
@@ -113,8 +113,8 @@ terms, references, and update history.
 - Check each document `status`; `placeholder` and `empty` content should be
   treated differently from `stable` content.
 - Resolve relevant terms through `FRD`.
-- Resolve FRR label definitions from common `info.labels` plus any matching
-  framework-specific `info.20x.labels` or `info.rev5.labels`.
+- Resolve FRR subset definitions from common `info.subsets` plus any matching
+  framework-specific `info.20x.subsets` or `info.rev5.subsets`.
 - Respect `varies_by_class` before applying a rule to a specific service class,
   including class-specific following information, artifacts, notes, and
   timeframes.
@@ -183,6 +183,22 @@ unless the user explicitly asks for one.
   practical.
 - Compare the initial branch state to the final branch state, not commit by
   commit, unless a commit-level explanation is specifically requested.
+- Detect and highlight breaking changes when summarizing underlying changes to
+  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json). Treat a
+  change as breaking when existing consumers, validators, exporters, queries, or
+  downstream mappings that understand the previous dataset shape or vocabulary
+  would likely fail, silently miss data, or need code changes. Examples include
+  renamed or removed properties, moved containers, changed required fields,
+  renamed applicability or subset buckets, ID format changes, controlled
+  vocabulary changes that invalidate existing values, statement shape changes,
+  array/object type changes, and changes that move rule content to a different
+  path.
+- Mark every breaking change bullet with `**Breaking:**` at the start of the
+  bullet in the relevant changelog section. Include the old shape and the new
+  shape when known, and briefly state the practical impact. For example,
+  changing FRR metadata from `info.labels` to `info.subsets` is breaking
+  because tools or consumers that still look for `labels` will fail to find the
+  declarations and may reject or misread the FRR data until updated.
 - Use stable IDs in every rule-content bullet: `FRD-XXX`, `FRR` requirement IDs
   such as `VDR-CSO-123`, and `KSI-THEME-KEY`.
 - For each substantively changed rule, definition, or indicator, write one

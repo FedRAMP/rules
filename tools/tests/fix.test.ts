@@ -97,15 +97,15 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
           updated: { type: "array" },
         },
       },
-      frr_data_label_name: {
+      frr_data_subset_name: {
         enum: ["CSO"],
       },
       frr_requirements_map: {
         type: "object",
-        propertyNames: { $ref: "#/$defs/frr_data_label_name" },
-        additionalProperties: { $ref: "#/$defs/frr_requirements_label_group" },
+        propertyNames: { $ref: "#/$defs/frr_data_subset_name" },
+        additionalProperties: { $ref: "#/$defs/frr_requirements_subset_group" },
       },
-      frr_requirements_label_group: {
+      frr_requirements_subset_group: {
         type: "object",
         patternProperties: {
           "^[A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3}$": {

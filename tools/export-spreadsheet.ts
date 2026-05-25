@@ -95,7 +95,7 @@ function buildFrrRows(document: RulesDocument) {
 
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
     for (const [applicability, scope] of Object.entries(section.data ?? {})) {
-      for (const [labelKey, requirements] of Object.entries(scope ?? {})) {
+      for (const [subsetKey, requirements] of Object.entries(scope ?? {})) {
         for (const [id, req] of Object.entries(requirements)) {
           const hasVariants = Boolean(req.varies_by_class);
 
@@ -103,7 +103,7 @@ function buildFrrRows(document: RulesDocument) {
             ID: id,
             Process: sectionKey,
             Applicability: applicability,
-            Label: labelKey,
+            Subset: subsetKey,
             Name: req.name,
             Statement: req.statement ?? "",
             "Primary Keyword": req.primary_key_word ?? "",

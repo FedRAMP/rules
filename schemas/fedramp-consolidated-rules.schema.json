@@ -111,7 +111,7 @@
         "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
         "effective": { "$ref": "#/$defs/effective_entry" },
-        "subsets": { "$ref": "#/$defs/frr_info_labels" },
+        "subsets": { "$ref": "#/$defs/frr_info_subsets" },
         "flows": { "$ref": "#/$defs/info_flows" },
         "20x": { "$ref": "#/$defs/frr_document_info_certification" },
         "rev5": { "$ref": "#/$defs/frr_document_info_certification" }
@@ -123,7 +123,7 @@
       "type": "object",
       "properties": {
         "effective": { "$ref": "#/$defs/effective_entry" },
-        "subsets": { "$ref": "#/$defs/frr_info_labels" },
+        "subsets": { "$ref": "#/$defs/frr_info_subsets" },
         "flows": { "$ref": "#/$defs/info_flows" }
       },
       "additionalProperties": false
@@ -132,7 +132,7 @@
       "type": "string",
       "enum": ["stable", "placeholder", "empty"]
     },
-    "frr_data_label_name": {
+    "frr_data_subset_name": {
       "enum": [
         "FRP",
         "AGC",
@@ -166,10 +166,10 @@
         "SPN"
       ]
     },
-    "frr_info_label_name": {
-      "anyOf": [{ "$ref": "#/$defs/frr_data_label_name" }]
+    "frr_info_subset_name": {
+      "anyOf": [{ "$ref": "#/$defs/frr_data_subset_name" }]
     },
-    "frr_label_definition": {
+    "frr_subset_definition": {
       "type": "object",
       "required": ["name", "description"],
       "properties": {
@@ -178,10 +178,10 @@
       },
       "additionalProperties": false
     },
-    "frr_info_labels": {
+    "frr_info_subsets": {
       "type": "object",
-      "propertyNames": { "$ref": "#/$defs/frr_info_label_name" },
-      "additionalProperties": { "$ref": "#/$defs/frr_label_definition" }
+      "propertyNames": { "$ref": "#/$defs/frr_info_subset_name" },
+      "additionalProperties": { "$ref": "#/$defs/frr_subset_definition" }
     },
     "info_flows": {
       "type": "array"
@@ -388,10 +388,12 @@
     },
     "frr_requirements_map": {
       "type": "object",
-      "propertyNames": { "$ref": "#/$defs/frr_data_label_name" },
-      "additionalProperties": { "$ref": "#/$defs/frr_requirements_label_group" }
+      "propertyNames": { "$ref": "#/$defs/frr_data_subset_name" },
+      "additionalProperties": {
+        "$ref": "#/$defs/frr_requirements_subset_group"
+      }
     },
-    "frr_requirements_label_group": {
+    "frr_requirements_subset_group": {
       "type": "object",
       "patternProperties": {
         "^[A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3}$": {

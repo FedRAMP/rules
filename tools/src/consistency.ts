@@ -114,8 +114,8 @@ export function collectConsistencyChecks(
       issues: collectFullIdAlignmentIssues(document),
     },
     {
-      title: "FRR label declarations",
-      issues: collectFrrLabelDeclarationIssues(document),
+      title: "FRR subset declarations",
+      issues: collectFrrSubsetDeclarationIssues(document),
     },
     {
       title: "Non-empty audit history",
@@ -208,7 +208,7 @@ function collectDuplicateValues(values: string[]): string[] {
 function collectRequirementEntries(document: RulesDocument): Array<{
   sectionKey: string;
   scopeKey: string;
-  labelKey: string;
+  subsetKey: string;
   id: string;
   requirement: Requirement;
   location: string;
@@ -216,7 +216,7 @@ function collectRequirementEntries(document: RulesDocument): Array<{
   const entries: Array<{
     sectionKey: string;
     scopeKey: string;
-    labelKey: string;
+    subsetKey: string;
     id: string;
     requirement: Requirement;
     location: string;
@@ -224,15 +224,15 @@ function collectRequirementEntries(document: RulesDocument): Array<{
 
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
     for (const [scopeKey, scope] of Object.entries(section.data ?? {})) {
-      for (const [labelKey, requirements] of Object.entries(scope ?? {})) {
+      for (const [subsetKey, requirements] of Object.entries(scope ?? {})) {
         for (const [id, requirement] of Object.entries(requirements ?? {})) {
           entries.push({
             sectionKey,
             scopeKey,
-            labelKey,
+            subsetKey,
             id,
             requirement,
-            location: `FRR.${sectionKey}.data.${scopeKey}.${labelKey}.${id}`,
+            location: `FRR.${sectionKey}.data.${scopeKey}.${subsetKey}.${id}`,
           });
         }
       }
@@ -376,7 +376,7 @@ export function collectFullIdAlignmentIssues(
       continue;
     }
 
-    const [, idSection, idLabel] = match;
+    const [, idSection, idSubset] = match;
     if (idSection !== entry.sectionKey) {
       issues.push(
         issue(
@@ -385,11 +385,11 @@ export function collectFullIdAlignmentIssues(
         ),
       );
     }
-    if (idLabel !== entry.labelKey) {
+    if (idSubset !== entry.subsetKey) {
       issues.push(
         issue(
           entry.location,
-          `requirement ID middle segment is ${idLabel}, but the containing label bucket is ${entry.labelKey}.`,
+          `requirement ID middle segment is ${idSubset}, but the containing subset bucket is ${entry.subsetKey}.`,
         ),
       );
     }
@@ -441,21 +441,21 @@ export function collectFullIdAlignmentIssues(
   return issues;
 }
 
-export function collectFrrLabelDeclarationIssues(
+export function collectFrrSubsetDeclarationIssues(
   document: RulesDocument,
 ): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
     for (const [scopeKey, scope] of Object.entries(section.data ?? {})) {
-      const declaredLabels = collectDeclaredFrrLabels(section.info, scopeKey);
+      const declaredSubsets = collectDeclaredFrrSubsets(section.info, scopeKey);
 
-      for (const labelKey of Object.keys(scope ?? {})) {
-        if (!declaredLabels.has(labelKey)) {
+      for (const subsetKey of Object.keys(scope ?? {})) {
+        if (!declaredSubsets.has(subsetKey)) {
           issues.push(
             issue(
-              `FRR.${sectionKey}.data.${scopeKey}.${labelKey}`,
-              `label bucket ${labelKey} is used in data but is not declared in FRR.${sectionKey}.info labels for the ${scopeKey} applicability scope.`,
+              `FRR.${sectionKey}.data.${scopeKey}.${subsetKey}`,
+              `subset bucket ${subsetKey} is used in data but is not declared in FRR.${sectionKey}.info subsets for the ${scopeKey} applicability scope.`,
             ),
           );
         }
@@ -466,22 +466,22 @@ export function collectFrrLabelDeclarationIssues(
   return issues;
 }
 
-function collectDeclaredFrrLabels(
+function collectDeclaredFrrSubsets(
   info: Record<string, unknown>,
   scopeKey: string,
 ): Set<string> {
-  const labels = new Set(Object.keys(getRecordProperty(info, "labels") ?? {}));
+  const subsets = new Set(Object.keys(getRecordProperty(info, "subsets") ?? {}));
 
   if (scopeKey === "20x" || scopeKey === "rev5") {
     const certificationInfo = getRecordProperty(info, scopeKey);
-    for (const label of Object.keys(
-      getRecordProperty(certificationInfo, "labels") ?? {},
+    for (const subset of Object.keys(
+      getRecordProperty(certificationInfo, "subsets") ?? {},
     )) {
-      labels.add(label);
+      subsets.add(subset);
     }
   }
 
-  return labels;
+  return subsets;
 }
 
 function getRecordProperty(

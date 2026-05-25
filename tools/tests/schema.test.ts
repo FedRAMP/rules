@@ -175,27 +175,27 @@ function expectSchemaRejects(
   expect(result.valid).toBe(false);
 }
 
-test("the schema accepts common FRR info with certification-specific labels and flows", () => {
+test("the schema accepts common FRR info with certification-specific subsets and flows", () => {
   const document = minimalRulesDocument();
-  (document as any).FRR.ABC.info.labels = {
-    CSO: { name: "Common", description: "Common label." },
+  (document as any).FRR.ABC.info.subsets = {
+    CSO: { name: "Common", description: "Common subset." },
   };
   (document as any).FRR.ABC.info.flows = ["Common flow"];
   (document as any).FRR.ABC.info["20x"] = {
-    labels: {
-      CSX: { name: "20x", description: "20x label." },
+    subsets: {
+      CSX: { name: "20x", description: "20x subset." },
     },
     flows: ["20x flow"],
   };
   (document as any).FRR.ABC.info.rev5 = {
-    labels: {
-      CSF: { name: "Rev5", description: "Rev5 label." },
+    subsets: {
+      CSF: { name: "Rev5", description: "Rev5 subset." },
     },
     flows: ["Rev5 flow"],
   };
 
   expectSchemaAccepts(
-    "FRR certification-specific labels and flows overlay common info",
+    "FRR certification-specific subsets and flows overlay common info",
     document,
   );
 });
