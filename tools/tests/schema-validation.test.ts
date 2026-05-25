@@ -9,13 +9,13 @@ test("schema errors include the full document location", () => {
       instancePath: "/FRR/MAS/info",
       schemaPath: "#/$defs/frr_document_info/required",
       keyword: "required",
-      params: { missingProperty: "labels" },
-      message: "must have required property 'labels'",
+      params: { missingProperty: "subsets" },
+      message: "must have required property 'subsets'",
     },
   ];
 
   expect(formatSchemaErrors(errors, {})).toEqual([
-    "FRR.MAS.info is missing required property labels.",
+    "FRR.MAS.info is missing required property subsets.",
   ]);
 });
 
@@ -38,36 +38,36 @@ test("root schema errors still identify the full document", () => {
 test("property name errors identify the invalid keys and allowed names", () => {
   const errors: ErrorObject[] = [
     {
-      instancePath: "/FRR/FRC/info/labels",
-      schemaPath: "#/$defs/frr_data_label_name/enum",
+      instancePath: "/FRR/FRC/info/subsets",
+      schemaPath: "#/$defs/frr_data_subset_name/enum",
       keyword: "enum",
       params: { allowedValues: ["FRP", "CSO", "TRF"] },
       message: "must be equal to one of the allowed values",
     },
     {
-      instancePath: "/FRR/FRC/info/labels",
+      instancePath: "/FRR/FRC/info/subsets",
       schemaPath: "#/anyOf",
       keyword: "anyOf",
       params: {},
       message: "must match a schema in anyOf",
     },
     {
-      instancePath: "/FRR/FRC/info/labels",
-      schemaPath: "#/properties/labels/propertyNames",
+      instancePath: "/FRR/FRC/info/subsets",
+      schemaPath: "#/properties/subsets/propertyNames",
       keyword: "propertyNames",
       params: { propertyName: "CLA" },
       message: "property name must be valid",
     },
     {
-      instancePath: "/FRR/FRC/info/labels",
-      schemaPath: "#/$defs/frr_data_label_name/enum",
+      instancePath: "/FRR/FRC/info/subsets",
+      schemaPath: "#/$defs/frr_data_subset_name/enum",
       keyword: "enum",
       params: { allowedValues: ["FRP", "CSO", "TRF"] },
       message: "must be equal to one of the allowed values",
     },
     {
-      instancePath: "/FRR/FRC/info/labels",
-      schemaPath: "#/properties/labels/propertyNames",
+      instancePath: "/FRR/FRC/info/subsets",
+      schemaPath: "#/properties/subsets/propertyNames",
       keyword: "propertyNames",
       params: { propertyName: "APP" },
       message: "property name must be valid",
@@ -75,7 +75,7 @@ test("property name errors identify the invalid keys and allowed names", () => {
   ];
 
   expect(formatSchemaErrors(errors, {})).toEqual([
-    "FRR.FRC.info.labels has invalid property names: CLA, APP. Allowed names are: FRP, CSO, TRF.",
+    "FRR.FRC.info.subsets has invalid property names: CLA, APP. Allowed names are: FRP, CSO, TRF.",
   ]);
 });
 

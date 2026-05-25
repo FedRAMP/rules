@@ -7,25 +7,40 @@ import { green, getOptionValue, hasFlag, writeJsonFile } from "./src/cli";
 import { getResolvedPaths } from "./src/config";
 import {
   applyAutoFixes,
+  applyDisplayNamesFix,
   applyIdsFix,
   applyOrderFix,
+  applyRelatedFix,
   applyTermsFix,
   collectAutoFixPlan,
+  collectDisplayNamesFixPlan,
   collectIdsFixPlan,
   collectOrderFixPlan,
+  collectRelatedFixPlan,
   collectTermsFixPlan,
   isFixScope,
 } from "./src/fix";
-import { cloneDocument, loadRulesDocument, loadSchemaDocument, writeRulesDocument } from "./src/rules";
+import {
+  cloneDocument,
+  loadRulesDocument,
+  loadSchemaDocument,
+  writeRulesDocument,
+} from "./src/rules";
 import type { RulesDocument } from "./src/types";
 
-function printAutoCheck(label: string, count: number, fixCommand: string): void {
+function printAutoCheck(
+  label: string,
+  count: number,
+  fixCommand: string,
+): void {
   if (count === 0) {
     console.log(`[CHECK] ${label}: clean`);
     return;
   }
 
-  console.log(`[CHECK] ${label}: ${count} issue${count === 1 ? "" : "s"} -> ${fixCommand}`);
+  console.log(
+    `[CHECK] ${label}: ${count} issue${count === 1 ? "" : "s"} -> ${fixCommand}`,
+  );
 }
 
 function writeDocument(document: RulesDocument, outputPath?: string): void {
@@ -40,7 +55,9 @@ function writeDocument(document: RulesDocument, outputPath?: string): void {
 
 const scopeValue = getOptionValue("--scope") ?? "auto";
 if (!isFixScope(scopeValue)) {
-  console.error(`Unsupported fix scope "${scopeValue}". Expected one of: auto, terms, ids, order.`);
+  console.error(
+    `Unsupported fix scope "${scopeValue}". Expected one of: auto, terms, ids, order, related, display-names.`,
+  );
   process.exit(1);
 }
 
@@ -56,7 +73,9 @@ if (reportPath && scope !== "ids") {
 }
 
 if (commentMode && scope !== "auto" && scope !== "terms") {
-  console.error("-comment/--comment is only supported with --scope auto or --scope terms.");
+  console.error(
+    "-comment/--comment is only supported with --scope auto or --scope terms.",
+  );
   process.exit(1);
 }
 
@@ -69,7 +88,9 @@ async function formatRulesFile(): Promise<void> {
   const source = await readFile(rulesPath, "utf-8");
   const formatted = await format(source, { filepath: rulesPath });
   await writeFile(rulesPath, formatted, "utf-8");
-  console.log(green(`Formatted ${relative(process.cwd(), rulesPath)} with Prettier.`));
+  console.log(
+    green(`Formatted ${relative(process.cwd(), rulesPath)} with Prettier.`),
+  );
 }
 
 async function exitAfterFormatting(exitCode = 0): Promise<never> {
@@ -89,12 +110,36 @@ if (commentMode) {
 if (scope === "auto") {
   const plan = collectAutoFixPlan(source, schema);
 
-  printAutoCheck("test:terms (definition title casing)", plan.definitionTermIssueCount, "fix:terms");
-  printAutoCheck("test:terms (terms sync)", plan.termSyncIssueCount, "fix:terms");
+  printAutoCheck(
+    "test:terms (definition title casing)",
+    plan.definitionTermIssueCount,
+    "fix:terms",
+  );
+  printAutoCheck(
+    "test:terms (terms sync)",
+    plan.termSyncIssueCount,
+    "fix:terms",
+  );
   printAutoCheck("test:ids", plan.idIssueCount, "fix:ids");
+  printAutoCheck(
+    "test:consistency (related rule references)",
+    plan.relatedRuleIssueCount,
+    "fix:related",
+  );
+  printAutoCheck(
+    "test:consistency (inline rule display names)",
+    plan.inlineRuleDisplayNameIssueCount,
+    "fix:display-names",
+  );
   printAutoCheck("test:order", plan.propertyOrderIssueCount, "fix:order");
 
-  if (!plan.needsTermsFix && !plan.needsIdsFix && !plan.needsOrderFix) {
+  if (
+    !plan.needsTermsFix &&
+    !plan.needsIdsFix &&
+    !plan.needsDisplayNamesFix &&
+    !plan.needsRelatedFix &&
+    !plan.needsOrderFix
+  ) {
     console.log(green("No automatic fixes were needed."));
     await exitAfterFormatting();
   }
@@ -108,8 +153,8 @@ if (scope === "auto") {
 
   if (result.idFixedCount > 0 || result.idSkippedCount > 0) {
     console.log(
-      `[FIX] fix:ids applied ${result.idFixedCount} fix${result.idFixedCount === 1 ? "" : "es"}`
-        + ` and skipped ${result.idSkippedCount} collision${result.idSkippedCount === 1 ? "" : "s"}.`,
+      `[FIX] fix:ids applied ${result.idFixedCount} fix${result.idFixedCount === 1 ? "" : "es"}` +
+        ` and skipped ${result.idSkippedCount} collision${result.idSkippedCount === 1 ? "" : "s"}.`,
     );
   }
   if (result.definitionTermFixedCount > 0 || result.termSyncFixedCount > 0) {
@@ -126,10 +171,32 @@ if (scope === "auto") {
       }.`,
     );
   }
+  if (result.relatedRuleFixedCount > 0) {
+    console.log(
+      `[FIX] fix:related added ${result.relatedRuleFixedCount} related rule reference${
+        result.relatedRuleFixedCount === 1 ? "" : "s"
+      }.`,
+    );
+  }
+  if (result.inlineRuleDisplayNameFixedCount > 0) {
+    console.log(
+      `[FIX] fix:display-names repaired ${result.inlineRuleDisplayNameFixedCount} inline rule display name${
+        result.inlineRuleDisplayNameFixedCount === 1 ? "" : "s"
+      }.`,
+    );
+  }
 
   const remaining = collectAutoFixPlan(result.document, schema);
-  if (remaining.needsTermsFix || remaining.needsIdsFix || remaining.needsOrderFix) {
-    console.error("Automatic fixes completed, but some fixable issues still remain.");
+  if (
+    remaining.needsTermsFix ||
+    remaining.needsIdsFix ||
+    remaining.needsDisplayNamesFix ||
+    remaining.needsRelatedFix ||
+    remaining.needsOrderFix
+  ) {
+    console.error(
+      "Automatic fixes completed, but some fixable issues still remain.",
+    );
     await exitAfterFormatting(1);
   }
 
@@ -178,6 +245,42 @@ if (scope === "ids") {
 
   writeDocument(result.document, outputPath);
   console.log(green(`Applied ${result.fixedCount} ID fixes.`));
+  await exitAfterFormatting();
+}
+
+if (scope === "display-names") {
+  const plan = collectDisplayNamesFixPlan(source);
+  if (!plan.needsFix) {
+    console.log(green("All inline rule IDs include parenthesized rule names."));
+    await exitAfterFormatting();
+  }
+
+  const result = applyDisplayNamesFix(cloneDocument(source));
+  writeDocument(result.document, outputPath);
+  console.log(
+    green(
+      `Repaired ${result.fixedCount} inline rule display name${result.fixedCount === 1 ? "" : "s"}.`,
+    ),
+  );
+  await exitAfterFormatting();
+}
+
+if (scope === "related") {
+  const plan = collectRelatedFixPlan(source);
+  if (!plan.needsFix) {
+    console.log(
+      green("All mentioned rule IDs are already included in related arrays."),
+    );
+    await exitAfterFormatting();
+  }
+
+  const result = applyRelatedFix(cloneDocument(source));
+  writeDocument(result.document, outputPath);
+  console.log(
+    green(
+      `Added ${result.fixedCount} related rule reference${result.fixedCount === 1 ? "" : "s"}.`,
+    ),
+  );
   await exitAfterFormatting();
 }
 

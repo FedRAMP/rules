@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.05.22.01-preview",
-    "last_updated": "2026-05-22",
+    "version": "2026.05.25.01-preview",
+    "last_updated": "2026-05-25",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -992,7 +992,7 @@
         "web_name": "certification-data-sharing",
         "purpose": "The Certification Data Sharing rules allow providers to store and share FedRAMP certification information through the platform they choose as long as it follows FedRAMP rules for access, accuracy, and transparency. This helps customers and the public review consistent, current security and compliance information while recognizing that the information usually remains the provider's intellectual property and is not federal information.",
         "status": "stable",
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers for FedRAMP Certifications of any type."
@@ -1016,7 +1016,7 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "labels": {
+          "subsets": {
             "CSX": {
               "name": "20x-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP 20x Certifications."
@@ -1034,7 +1034,7 @@
             },
             "signup_url": "ADDME"
           },
-          "labels": {
+          "subsets": {
             "CSF": {
               "name": "Rev5-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
@@ -1056,14 +1056,15 @@
                 "UEI Number",
                 "Contact Information",
                 "Overall Service Description",
-                "Detailed list of specific services and their security categories (see CDS-CSO-SVC)",
+                "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
                 "Summary of customer responsibilities and secure configuration guidance (if applicable, see the FedRAMP Secure Configuration Guide process)",
                 "Process for accessing information in the trust center (if applicable)",
                 "Availability status and recent disruptions for the trust center (if applicable)",
                 "Customer support information for the trust center (if applicable)",
-                "Next Ongoing Certification Report date (see CCM-OCR-NRD)"
+                "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))"
               ],
               "note": "Generally, this information should be available on a public webpage.",
+              "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -1521,7 +1522,7 @@
               "affects": ["Providers"],
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -1599,7 +1600,7 @@
         "web_name": "collaborative-continuous-monitoring",
         "purpose": "The Collaborative Continuous Monitoring rules help agencies use shared, current authorization information from providers as part of each agency's own Information Security Continuous Monitoring strategy. These rules reduce unnecessary manual burden by encouraging automated monitoring and review while allowing each agency to make its own risk-based decisions about ongoing authorization.",
         "status": "stable",
-        "labels": {
+        "subsets": {
           "AGM": {
             "name": "Agency Guidance",
             "description": "These rules for agencies apply to all agencies using a FedRAMP Certification."
@@ -2148,7 +2149,7 @@
             "grace_ends": "2026-07-01"
           }
         },
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP when communicating with cloud service providers."
@@ -2220,7 +2221,7 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "public",
+                  "party": "publicly",
                   "method": "web",
                   "target": "fedramp.gov"
                 }
@@ -2302,8 +2303,9 @@
               "danger": "Be careful using a personal email tied to an individual for this inbox due to the significant risk to future communications after a change in personnel!",
               "notes": [
                 "Unless otherwise notified, FedRAMP will use the listed Security Email on the Marketplace for these notifications.",
-                "If a provider establishes a new inbox in reaction to this guidance that is different from the Security Email then they must follow the FSI-CSO-NOC rules to notify FedRAMP."
+                "If a provider establishes a new inbox in reaction to this guidance that is different from the Security Email then they must follow the FSI-CSO-NOC (Notification of Changes) rules to notify FedRAMP."
               ],
+              "related": ["FSI-CSO-NOC"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": ["FedRAMP Security Inbox", "Provider"],
@@ -2431,7 +2433,7 @@
         "web_name": "incident-communications-procedures",
         "purpose": "The Incident Communications Procedures rules explain how providers must communicate incident information to FedRAMP and government customers.",
         "status": "placeholder",
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP."
@@ -2570,7 +2572,8 @@
             },
             "ICP-CSO-DPR": {
               "name": "Default PAIN Rating",
-              "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI Estimate Federal Impact.",
+              "statement": "Providers MUST treat FedRAMP Reportable Incidents as if they have a Potential Agency Impact N-rating (PAIN) of 5 UNLESS they promptly estimate the PAIN rating following the rule in ICP-CSO-EFI (Estimate Federal Impact).",
+              "related": ["ICP-CSO-EFI"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -2598,7 +2601,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2649,7 +2652,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2700,7 +2703,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2751,7 +2754,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI Estimate Federal Impact (if applicable)",
+                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in ICP-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -2796,6 +2799,7 @@
                   }
                 }
               },
+              "related": ["ICP-CSO-EFI"],
               "affects": ["Providers"],
               "notification": [
                 {
@@ -2806,10 +2810,10 @@
                 {
                   "party": "Agency Customers",
                   "method": "update",
-                  "target": "contract agreements"
+                  "target": "incident contact procedures documented in contract agreement"
                 },
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center"
                 }
@@ -3035,10 +3039,10 @@
                 {
                   "party": "Agency Customers",
                   "method": "update",
-                  "target": "contract agreements"
+                  "target": "incident contact procedures documented in contract agreement"
                 },
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center"
                 }
@@ -3236,10 +3240,10 @@
                 {
                   "party": "Agency Customers",
                   "method": "update",
-                  "target": "contract agreements"
+                  "target": "incident contact procedures documented in contract agreement"
                 },
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center"
                 }
@@ -3261,13 +3265,15 @@
             "ICP-CSO-EFI": {
               "name": "Estimate Federal Impact",
               "statement": "Providers SHOULD promptly estimate the likely adverse impact of an incident on agency customers to assign a Potential Agency Impact N-rating; this step is called Incident Rating.",
-              "following_information": [
-                "N1 means minimal customer effect on 1 or more agencies.",
-                "N2 means narrow customer effect on 1 or more agencies.",
-                "N3 means disruptive customer effect on 1 agency.",
-                "N4 means debilitating customer effect on 1 agency or disruptive customer effect on more than 1 agency.",
-                "N5 means debilitating customer effect on more than 1 agency."
+              "following_information_bullets": [
+                "**N1** for a likely minimal customer effect on 1 or more agencies.",
+                "**N2** for a likely narrow customer effect on 1 or more agencies.",
+                "**N3** for a likely disruptive customer effect on 1 agency.",
+                "**N4** for a likely debilitating customer effect on 1 agency or a likely disruptive customer effect on more than 1 agency.",
+                "**N5** for a likely debilitating customer effect on more than 1 agency."
               ],
+              "note": "All incidents must be assigned a default PAIN-5 as required by ICP-CSO-DPR (Default PAIN Rating) if this step is not completed.",
+              "related": ["ICP-CSO-DPR"],
               "primary_key_word": "SHOULD",
               "affects": ["Providers"],
               "terms": [
@@ -3319,7 +3325,7 @@
         "web_name": "minimum-assessment-scope",
         "purpose": "The Minimum Assessment Scope rules help providers define assessment boundaries narrowly enough to avoid unnecessary review of components that do not affect the offering’s security. These rules still ensure the assessment includes the resources and connections needed to understand the offering’s confidentiality, integrity, and availability.",
         "status": "stable",
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers for any type of FedRAMP Certification."
@@ -3402,13 +3408,14 @@
             },
             "MAS-CSO-TPR": {
               "name": "Third-Party Information Resources",
-              "statement": "Providers MUST address the potential impact to federal customer data from third-party information resources used by the cloud service offering, ONLY IF MAS-CSO-IIR APPLIES, by documenting the following information about each applicable third-party information resource:",
+              "statement": "Providers MUST address the potential impact to federal customer data from third-party information resources used by the cloud service offering, ONLY IF MAS-CSO-IIR (Identify Information Resources) APPLIES, by documenting the following information about each applicable third-party information resource:",
               "following_information": [
                 "General usage and configuration",
                 "Explanation or justification for use",
                 "Mitigation measures in place to reduce the potential impact to federal customer data",
                 "Compensating controls in place to reduce the potential impact to federal customer data"
               ],
+              "related": ["MAS-CSO-IIR"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -3428,11 +3435,13 @@
             },
             "MAS-CSO-MDI": {
               "name": "Metadata Inclusion",
-              "statement": "Providers MUST include metadata (including metadata about federal customer data) in the Minimum Assessment Scope ONLY IF MAS-CSO-IIR APPLIES.",
+              "statement": "Providers MUST include metadata (including metadata about federal customer data) in the Minimum Assessment Scope ONLY IF MAS-CSO-IIR (Identify Information Resources) APPLIES.",
+              "related": ["MAS-CSO-IIR"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Federal Customer Data",
+                "Information Resource",
                 "Initial Incident Report (IIR)",
                 "Provider"
               ],
@@ -3475,7 +3484,7 @@
         "web_name": "marketplace-listing",
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
         "status": "placeholder",
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP activities related to the FedRAMP Marketplace."
@@ -3575,9 +3584,10 @@
                 "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
               ],
               "notes": [
-                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF Scope of FedRAMP.",
+                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
                 "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
               ],
+              "related": ["MKT-FRP-SOF"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -3774,7 +3784,7 @@
             "grace_ends": "2026-07-01"
           }
         },
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers with FedRAMP Certifications of any type."
@@ -3945,7 +3955,7 @@
         "web_name": "significant-change-notifications",
         "purpose": "The Significant Change Notifications rules supply a simple framework allowing providers to make significant changes to their own products while keeping agency customers in the loop. These rules organize significant changes into clear categories so agencies can understand the expected risk and make authorization decisions accordingly.",
         "status": "stable",
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP."
@@ -4014,6 +4024,7 @@
               "name": "Maintain Audit Records",
               "statement": "Providers MUST maintain auditable records of the significant change evaluation activities required by SCN-CSO-EVA (Evaluate Changes) and make them available to FedRAMP.",
               "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification package by default.",
+              "related": ["SCN-CSO-EVA"],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -4202,7 +4213,7 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4290,7 +4301,7 @@
               "timeframe_num": 30,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4317,7 +4328,7 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4343,7 +4354,7 @@
               "timeframe_num": 5,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4374,7 +4385,7 @@
               "timeframe_num": 5,
               "notification": [
                 {
-                  "party": "all necessary parties",
+                  "party": "All Necessary Parties",
                   "method": "update",
                   "target": "FedRAMP Certification Data"
                 }
@@ -4463,7 +4474,7 @@
         "web_name": "using-cryptographic-modules",
         "purpose": "The Using Cryptographic Modules rules clarify how providers should select and use cryptographic modules. These rules allow risk-based decisions for some services while still encouraging validated cryptographic modules whenever they are technically feasible and reasonable.",
         "status": "placeholder",
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "Cloud Service Provider Responsibilities",
             "description": "These rules apply to providers for FedRAMP Certifications."
@@ -4561,7 +4572,7 @@
         "web_name": "vulnerability-detection-and-response",
         "purpose": "The Vulnerability Detection and Response rules require providers to continuously identify, analyze, prioritize, mitigate, and remediate vulnerabilities and related exposures through automated systems. These rules give providers flexibility in implementation while ensuring agencies receive the information needed to support ongoing authorization decisions.",
         "status": "stable",
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP when setting expectations for specific cloud service providers."
@@ -5473,7 +5484,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -5888,7 +5899,7 @@
         "web_name": "fedramp-certification",
         "purpose": "The FedRAMP Certification rules define how cloud service offerings obtain and maintain FedRAMP Certification across certification classes and paths. They give providers, assessors, agencies, and FedRAMP a common set of expectations for required rule sets, current evidence, independent verification and validation, and ongoing certification decisions.",
         "status": "placeholder",
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP."
@@ -5924,7 +5935,7 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "labels": {
+          "subsets": {
             "CSX": {
               "name": "20x-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP 20x Certifications."
@@ -5945,7 +5956,7 @@
               "grace_ends": "2027-01-01"
             }
           },
-          "labels": {
+          "subsets": {
             "CSF": {
               "name": "Rev5-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
@@ -6566,8 +6577,24 @@
             },
             "FRC-CLA-AFR": {
               "name": "Address FedRAMP Rules",
-              "statement": "Providers seeking a FedRAMP Certification Class A by leveraging an alternative security framework MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
+              "statement": "Providers seeking a Class A FedRAMP Certification MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
               "following_information": [
+                "FedRAMP Certification: FRC-CSO-POP (Pick One Program Certification Type)",
+                "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
+                "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
+                "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
+                "Certification Data Sharing: CDS-UTC-PGD (Public Guidance)",
+                "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
+                "FedRAMP Security Inbox: FSI-CSO-INB (Maintain a FedRAMP Security Inbox)",
+                "FedRAMP Security Inbox: FSI-CSO-RCV (Receive Email Without Disruption)",
+                "FedRAMP Security Inbox: FSI-CSO-CRA (Complete Required Actions)",
+                "Incident Communications Procedures: ICP-CSO-EFR (Evaluate FedRAMP Reportability)",
+                "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
+                "Continuous Collaborative Monitoring: CCM-OCR-AVL (Report Availability)",
+                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)"
+              ],
+              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
+              "related": [
                 "FRC-CSO-POP",
                 "MAS-CSO-IIR",
                 "CDS-CSO-PUB",
@@ -6582,16 +6609,23 @@
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD"
               ],
-              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "Agency",
                 "Artifacts",
+                "Certification Data",
                 "Certification Package",
                 "FedRAMP Security Inbox",
+                "Incident",
+                "Information Resource",
                 "Initial Incident Report (IIR)",
                 "Ongoing Certification Report (OCR)",
-                "Provider"
+                "Provider",
+                "Trust Center",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
               ],
               "updated": [
                 {
@@ -6955,7 +6989,7 @@
         "web_name": "security-decision-record",
         "purpose": "The Security Decision Record replaced a traditional System Security Plan with a persistently maintained, verified, and validated record of the security decisions made by the cloud service provider over the lifecycle of their cloud service offering.",
         "status": "empty",
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers for FedRAMP Certifications of any type."
@@ -6971,7 +7005,7 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "labels": {
+          "subsets": {
             "CSX": {
               "name": "20x-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP 20x Certifications."
@@ -6989,7 +7023,7 @@
             },
             "signup_url": "ADDME"
           },
-          "labels": {
+          "subsets": {
             "CSF": {
               "name": "Rev5-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
@@ -7010,7 +7044,7 @@
         "web_name": "independent-assessment-plan",
         "purpose": "The Independent Assessment Plan rules explain how independent assessment services should approach the verification, validation, and attestation of a cloud service provider's own Security Decision Record on behalf of FedRAMP.",
         "status": "empty",
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers for FedRAMP Certifications of any type."
@@ -7030,7 +7064,7 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "labels": {
+          "subsets": {
             "CSX": {
               "name": "20x-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP 20x Certifications."
@@ -7052,7 +7086,7 @@
             },
             "signup_url": "ADDME"
           },
-          "labels": {
+          "subsets": {
             "CSF": {
               "name": "Rev5-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
@@ -7077,7 +7111,7 @@
         "web_name": "independent-assessment-report",
         "purpose": "The Independent Assessment Report rules explain the minimum expectations for independent assessor attestations after the completion of an independent assessment for FedRAMP Certification.",
         "status": "empty",
-        "labels": {
+        "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to providers for FedRAMP Certifications of any type."
@@ -7097,7 +7131,7 @@
               "grace_ends": "2027-05-04"
             }
           },
-          "labels": {
+          "subsets": {
             "CSX": {
               "name": "20x-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP 20x Certifications."
@@ -7119,7 +7153,7 @@
             },
             "signup_url": "ADDME"
           },
-          "labels": {
+          "subsets": {
             "CSF": {
               "name": "Rev5-Specific Provider Responsibilities",
               "description": "These rules apply to providers for FedRAMP Rev5 Certifications."
@@ -7153,7 +7187,7 @@
             "grace_ends": "2026-07-04"
           }
         },
-        "labels": {
+        "subsets": {
           "AGC": {
             "name": "General Agency Responsibilities",
             "description": "These rules apply to agencies based on the FedRAMP Authorization Act, OMB M-24-15, and related FedRAMP policies."
@@ -7508,7 +7542,7 @@
             "grace_ends": "2026-07-04"
           }
         },
-        "labels": {
+        "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
             "description": "These rules apply to FedRAMP when evaluating independent assessment services for initial or ongoing FedRAMP Recognition."

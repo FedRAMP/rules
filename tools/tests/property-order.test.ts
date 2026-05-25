@@ -141,7 +141,7 @@ test("property order fixes sort FRD shared definitions by term instead of ID", (
   ]);
 });
 
-test("property order fixes use schema propertyNames enum order for FRR labels and label groups", () => {
+test("property order fixes use schema propertyNames enum order for FRR subsets and subset groups", () => {
   const schema = {
     type: "object",
     properties: {
@@ -154,11 +154,11 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
               info: {
                 type: "object",
                 properties: {
-                  labels: {
+                  subsets: {
                     type: "object",
-                    propertyNames: { $ref: "#/$defs/frr_info_label_name" },
+                    propertyNames: { $ref: "#/$defs/frr_info_subset_name" },
                     additionalProperties: {
-                      $ref: "#/$defs/frr_label_definition",
+                      $ref: "#/$defs/frr_subset_definition",
                     },
                   },
                 },
@@ -175,13 +175,13 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
       },
     },
     $defs: {
-      frr_data_label_name: {
+      frr_data_subset_name: {
         enum: ["FRP", "CSO", "CSX", "UTC"],
       },
-      frr_info_label_name: {
-        anyOf: [{ $ref: "#/$defs/frr_data_label_name" }, { const: "IAL" }],
+      frr_info_subset_name: {
+        anyOf: [{ $ref: "#/$defs/frr_data_subset_name" }, { const: "IAL" }],
       },
-      frr_label_definition: {
+      frr_subset_definition: {
         type: "object",
         properties: {
           name: { type: "string" },
@@ -190,10 +190,10 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
       },
       frr_requirements_map: {
         type: "object",
-        propertyNames: { $ref: "#/$defs/frr_data_label_name" },
-        additionalProperties: { $ref: "#/$defs/frr_requirements_label_group" },
+        propertyNames: { $ref: "#/$defs/frr_data_subset_name" },
+        additionalProperties: { $ref: "#/$defs/frr_requirements_subset_group" },
       },
-      frr_requirements_label_group: {
+      frr_requirements_subset_group: {
         type: "object",
         patternProperties: {
           "^[A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3}$": {
@@ -211,7 +211,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
     FRR: {
       ABC: {
         info: {
-          labels: {
+          subsets: {
             IAL: { name: "IAL", description: "Identity assurance level" },
             CSX: { name: "CSX", description: "Customer experience" },
             FRP: { name: "FRP", description: "FedRAMP prioritization" },
@@ -238,7 +238,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
   const checkIssues = collectPropertyOrderIssues(document, schema);
   expect(checkIssues).toEqual([
     {
-      path: "FRR.ABC.info.labels",
+      path: "FRR.ABC.info.subsets",
       actualOrder: ["IAL", "CSX", "FRP", "UTC"],
       expectedOrder: ["FRP", "CSX", "UTC", "IAL"],
     },
@@ -251,7 +251,7 @@ test("property order fixes use schema propertyNames enum order for FRR labels an
 
   const fixed = fixPropertyOrder(document, schema);
   expect(fixed.fixedCount).toBe(2);
-  expect(Object.keys(fixed.document.FRR.ABC!.info.labels as object)).toEqual([
+  expect(Object.keys(fixed.document.FRR.ABC!.info.subsets as object)).toEqual([
     "FRP",
     "CSX",
     "UTC",

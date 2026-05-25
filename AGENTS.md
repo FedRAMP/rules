@@ -8,9 +8,8 @@ When analyzing this repository, focus on only these files:
 - [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
 
 The rest of the repository is supporting infrastructure. The `tools` directory,
-tests, generated summaries, and READMEs can help with validation and
-orientation, but they are not the rules and should not be treated as
-authoritative rule content.
+tests, and READMEs can help with validation and orientation, but they are not
+the rules and should not be treated as authoritative rule content.
 
 ## Source Of Truth
 
@@ -19,9 +18,6 @@ source of truth for the FedRAMP Consolidated Rules for 2026 Public Preview.
 
 [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
 is the source of truth for the expected data shape.
-
-[RULES.md](RULES.md) is generated from the JSON file. Use it only as a quick
-summary, never as the primary source for analysis.
 
 ## Dataset Structure
 
@@ -63,10 +59,10 @@ definition instead of assuming the plain-language meaning.
 Each process contains:
 
 - `info`
-  Rule metadata, purpose, status, effective metadata, label definitions, and
+  Rule metadata, purpose, status, effective metadata, subset definitions, and
   optional flow descriptions. Effective metadata may be common
   (`info.effective`) or split into paired framework-specific blocks
-  (`info.20x.effective` and `info.rev5.effective`). Labels and flows may also
+  (`info.20x.effective` and `info.rev5.effective`). Subsets and flows may also
   be common or framework-specific.
 - `data`
   The rule tree.
@@ -74,12 +70,12 @@ Each process contains:
 The rule tree is organized as:
 
 ```text
-FRR -> process -> data -> applicability -> label -> requirement ID
+FRR -> process -> data -> applicability -> subset -> requirement ID
 ```
 
-Applicability keys are `all`, `20x`, and `rev5`. Labels identify actors,
+Applicability keys are `all`, `20x`, and `rev5`. Subsets identify actors,
 scopes, or process buckets. Requirement IDs follow the
-`PROCESS-LABEL-KEY` pattern, such as `VDR-CSO-123`.
+`PROCESS-SUBSET-KEY` pattern, such as `VDR-CSO-123`.
 
 Each requirement contains either:
 
@@ -91,8 +87,8 @@ notes, effective dates, simple timeframes, and `pain_timeframes`.
 
 Other useful top-level fields include `affects`, `controls`, `artifacts`,
 `following_information`, `following_information_bullets`, `examples`,
-`notification`, simple timeframes, terms, references, corrective actions,
-effective dates, and `updated` history.
+`notification`, simple timeframes, terms, related rule references, references,
+corrective actions, effective dates, and `updated` history.
 
 ### KSI
 
@@ -117,8 +113,8 @@ terms, references, and update history.
 - Check each document `status`; `placeholder` and `empty` content should be
   treated differently from `stable` content.
 - Resolve relevant terms through `FRD`.
-- Resolve FRR label definitions from common `info.labels` plus any matching
-  framework-specific `info.20x.labels` or `info.rev5.labels`.
+- Resolve FRR subset definitions from common `info.subsets` plus any matching
+  framework-specific `info.20x.subsets` or `info.rev5.subsets`.
 - Respect `varies_by_class` before applying a rule to a specific service class,
   including class-specific following information, artifacts, notes, and
   timeframes.
@@ -127,8 +123,8 @@ terms, references, and update history.
   optional or permitted behavior.
 - Cite stable IDs for every finding, mapping, or recommendation.
 - Use `affects`, `controls`, `artifacts`, `default_artifacts`, notifications,
-  and timeframes as mapping signals. They are aids for analysis, not
-  replacements for the rule statement.
+  related rule references, and timeframes as mapping signals. They are aids for
+  analysis, not replacements for the rule statement.
 - Distinguish evidence found, evidence missing, and conclusions inferred from
   evidence. Do not claim compliance from silence.
 
@@ -187,13 +183,29 @@ unless the user explicitly asks for one.
   practical.
 - Compare the initial branch state to the final branch state, not commit by
   commit, unless a commit-level explanation is specifically requested.
+- Detect and highlight breaking changes when summarizing underlying changes to
+  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json). Treat a
+  change as breaking when existing consumers, validators, exporters, queries, or
+  downstream mappings that understand the previous dataset shape or vocabulary
+  would likely fail, silently miss data, or need code changes. Examples include
+  renamed or removed properties, moved containers, changed required fields,
+  renamed applicability or subset buckets, ID format changes, controlled
+  vocabulary changes that invalidate existing values, statement shape changes,
+  array/object type changes, and changes that move rule content to a different
+  path.
+- Mark every breaking change bullet with `**Breaking:**` at the start of the
+  bullet in the relevant changelog section. Include the old shape and the new
+  shape when known, and briefly state the practical impact. For example,
+  changing FRR metadata from `info.labels` to `info.subsets` is breaking
+  because tools or consumers that still look for `labels` will fail to find the
+  declarations and may reject or misread the FRR data until updated.
 - Use stable IDs in every rule-content bullet: `FRD-XXX`, `FRR` requirement IDs
   such as `VDR-CSO-123`, and `KSI-THEME-KEY`.
 - For each substantively changed rule, definition, or indicator, write one
   sentence describing the user-visible change. Include additions, removals,
   renamed terms, wording changes, actor/scope changes, applicability moves,
-  artifact changes, control mappings, examples, notifications, references,
-  timeframes, and class-specific variants.
+  artifact changes, control mappings, examples, notifications, related rule
+  references, external references, timeframes, and class-specific variants.
 - Group purely mechanical metadata churn, such as mass `updated` date resets or
   property ordering changes, instead of listing every affected rule separately.
 - Separate evidence from inference. When a conclusion comes from schema shape,
@@ -211,8 +223,7 @@ unless the user explicitly asks for one.
      controlled vocabularies, and object shapes.
   3. `Tooling And Test Changes`
      Summarize support-code changes, CLI behavior, validators, fixers,
-     generated-summary behavior, package scripts, test harnesses, and test
-     coverage.
+     package scripts, test harnesses, and test coverage.
 - Keep bullets simple and high signal. Prefer a single line per bullet unless
   the change is complex enough that a short second sentence prevents ambiguity.
 - End with a brief validation note naming the commands run, such as
@@ -228,6 +239,4 @@ If asked to edit the rules:
 - Preserve schema-driven property order.
 - Update `updated` history when changing rule, definition, or indicator
   meaning.
-- Regenerate [RULES.md](RULES.md) through the tooling rather than editing it by
-  hand.
 - Run the tooling checks when available.

@@ -25,10 +25,13 @@ export interface DefinitionEntry {
 
 export interface RequirementLevel {
   statement?: string;
+  following_information?: string[];
   primary_key_word?: string;
   timeframe_type?: string;
   timeframe_num?: number;
   pain_timeframes?: PainTimeframes;
+  note?: string;
+  notes?: string[];
 }
 
 export type ClassKey = "a" | "b" | "c" | "d";
@@ -60,6 +63,7 @@ export interface RequirementLike {
 export interface Requirement extends RequirementLike {
   affects: string[];
   name: string;
+  related?: string[];
 }
 
 export interface KsiIndicator extends RequirementLike {

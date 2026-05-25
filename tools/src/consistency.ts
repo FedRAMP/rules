@@ -57,9 +57,10 @@ const ALLOWED_NOTIFICATION_METHODS = ["email", "update", "web"] as const;
 const ALLOWED_NOTIFICATION_PARTIES = [
   "FedRAMP",
   "Provider",
-  "all necessary parties",
-  "public",
+  "All Necessary Parties",
+  "publicly",
   "Agency Customers",
+  "All Affected Parties",
 ] as const;
 const ALLOWED_TIMEFRAME_TYPES = [
   "bizdays",
@@ -113,8 +114,8 @@ export function collectConsistencyChecks(
       issues: collectFullIdAlignmentIssues(document),
     },
     {
-      title: "FRR label declarations",
-      issues: collectFrrLabelDeclarationIssues(document),
+      title: "FRR subset declarations",
+      issues: collectFrrSubsetDeclarationIssues(document),
     },
     {
       title: "Non-empty audit history",
@@ -143,6 +144,14 @@ export function collectConsistencyChecks(
     {
       title: "Cross-reference integrity",
       issues: collectCrossReferenceIssues(document),
+    },
+    {
+      title: "Inline rule display names",
+      issues: collectInlineRuleDisplayNameIssues(document),
+    },
+    {
+      title: "Related rule references",
+      issues: collectRelatedRuleReferenceIssues(document),
     },
   ];
 }
@@ -199,7 +208,7 @@ function collectDuplicateValues(values: string[]): string[] {
 function collectRequirementEntries(document: RulesDocument): Array<{
   sectionKey: string;
   scopeKey: string;
-  labelKey: string;
+  subsetKey: string;
   id: string;
   requirement: Requirement;
   location: string;
@@ -207,7 +216,7 @@ function collectRequirementEntries(document: RulesDocument): Array<{
   const entries: Array<{
     sectionKey: string;
     scopeKey: string;
-    labelKey: string;
+    subsetKey: string;
     id: string;
     requirement: Requirement;
     location: string;
@@ -215,15 +224,15 @@ function collectRequirementEntries(document: RulesDocument): Array<{
 
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
     for (const [scopeKey, scope] of Object.entries(section.data ?? {})) {
-      for (const [labelKey, requirements] of Object.entries(scope ?? {})) {
+      for (const [subsetKey, requirements] of Object.entries(scope ?? {})) {
         for (const [id, requirement] of Object.entries(requirements ?? {})) {
           entries.push({
             sectionKey,
             scopeKey,
-            labelKey,
+            subsetKey,
             id,
             requirement,
-            location: `FRR.${sectionKey}.data.${scopeKey}.${labelKey}.${id}`,
+            location: `FRR.${sectionKey}.data.${scopeKey}.${subsetKey}.${id}`,
           });
         }
       }
@@ -367,7 +376,7 @@ export function collectFullIdAlignmentIssues(
       continue;
     }
 
-    const [, idSection, idLabel] = match;
+    const [, idSection, idSubset] = match;
     if (idSection !== entry.sectionKey) {
       issues.push(
         issue(
@@ -376,11 +385,11 @@ export function collectFullIdAlignmentIssues(
         ),
       );
     }
-    if (idLabel !== entry.labelKey) {
+    if (idSubset !== entry.subsetKey) {
       issues.push(
         issue(
           entry.location,
-          `requirement ID middle segment is ${idLabel}, but the containing label bucket is ${entry.labelKey}.`,
+          `requirement ID middle segment is ${idSubset}, but the containing subset bucket is ${entry.subsetKey}.`,
         ),
       );
     }
@@ -432,21 +441,21 @@ export function collectFullIdAlignmentIssues(
   return issues;
 }
 
-export function collectFrrLabelDeclarationIssues(
+export function collectFrrSubsetDeclarationIssues(
   document: RulesDocument,
 ): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
 
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
     for (const [scopeKey, scope] of Object.entries(section.data ?? {})) {
-      const declaredLabels = collectDeclaredFrrLabels(section.info, scopeKey);
+      const declaredSubsets = collectDeclaredFrrSubsets(section.info, scopeKey);
 
-      for (const labelKey of Object.keys(scope ?? {})) {
-        if (!declaredLabels.has(labelKey)) {
+      for (const subsetKey of Object.keys(scope ?? {})) {
+        if (!declaredSubsets.has(subsetKey)) {
           issues.push(
             issue(
-              `FRR.${sectionKey}.data.${scopeKey}.${labelKey}`,
-              `label bucket ${labelKey} is used in data but is not declared in FRR.${sectionKey}.info labels for the ${scopeKey} applicability scope.`,
+              `FRR.${sectionKey}.data.${scopeKey}.${subsetKey}`,
+              `subset bucket ${subsetKey} is used in data but is not declared in FRR.${sectionKey}.info subsets for the ${scopeKey} applicability scope.`,
             ),
           );
         }
@@ -457,22 +466,22 @@ export function collectFrrLabelDeclarationIssues(
   return issues;
 }
 
-function collectDeclaredFrrLabels(
+function collectDeclaredFrrSubsets(
   info: Record<string, unknown>,
   scopeKey: string,
 ): Set<string> {
-  const labels = new Set(Object.keys(getRecordProperty(info, "labels") ?? {}));
+  const subsets = new Set(Object.keys(getRecordProperty(info, "subsets") ?? {}));
 
   if (scopeKey === "20x" || scopeKey === "rev5") {
     const certificationInfo = getRecordProperty(info, scopeKey);
-    for (const label of Object.keys(
-      getRecordProperty(certificationInfo, "labels") ?? {},
+    for (const subset of Object.keys(
+      getRecordProperty(certificationInfo, "subsets") ?? {},
     )) {
-      labels.add(label);
+      subsets.add(subset);
     }
   }
 
-  return labels;
+  return subsets;
 }
 
 function getRecordProperty(
@@ -994,6 +1003,480 @@ export function collectCrossReferenceIssues(
       }
     }
   });
+
+  return issues;
+}
+
+interface RuleTextPart {
+  location: string;
+  text: string;
+  setText: (value: string) => void;
+}
+
+function collectRequirementRuleTextParts(
+  location: string,
+  requirement: Requirement,
+): RuleTextPart[] {
+  const parts: RuleTextPart[] = [];
+  const addText = (
+    textLocation: string,
+    text: string | undefined,
+    setText: (value: string) => void,
+  ): void => {
+    if (typeof text === "string") {
+      parts.push({ location: textLocation, text, setText });
+    }
+  };
+  const addTextList = (
+    textLocation: string,
+    values: string[] | undefined,
+  ): void => {
+    values?.forEach((value, index) =>
+      addText(`${textLocation}[${index}]`, value, (nextValue) => {
+        values[index] = nextValue;
+      }),
+    );
+  };
+
+  addText(`${location}.statement`, requirement.statement, (value) => {
+    requirement.statement = value;
+  });
+  addText(`${location}.note`, requirement.note, (value) => {
+    requirement.note = value;
+  });
+  addTextList(`${location}.notes`, requirement.notes);
+  addTextList(
+    `${location}.following_information`,
+    requirement.following_information,
+  );
+  addTextList(
+    `${location}.following_information_bullets`,
+    requirement.following_information_bullets,
+  );
+
+  if (requirement.varies_by_class) {
+    for (const classKey of CLASS_KEYS) {
+      const classEntry = requirement.varies_by_class[classKey];
+      const classLocation = `${location}.varies_by_class.${classKey}`;
+
+      addText(`${classLocation}.statement`, classEntry?.statement, (value) => {
+        if (classEntry) {
+          classEntry.statement = value;
+        }
+      });
+      addText(`${classLocation}.note`, classEntry?.note, (value) => {
+        if (classEntry) {
+          classEntry.note = value;
+        }
+      });
+      addTextList(`${classLocation}.notes`, classEntry?.notes);
+      addTextList(
+        `${classLocation}.following_information`,
+        classEntry?.following_information,
+      );
+    }
+  }
+
+  return parts;
+}
+
+function collectRequirementRuleMentionSources(
+  location: string,
+  requirement: Requirement,
+): Map<string, string[]> {
+  const mentions = new Map<string, string[]>();
+
+  for (const part of collectRequirementRuleTextParts(location, requirement)) {
+    for (const match of part.text.matchAll(INLINE_FRR_ID_REGEX)) {
+      const id = match[1];
+      if (!id) {
+        continue;
+      }
+
+      const locations = mentions.get(id) ?? [];
+      locations.push(part.location);
+      mentions.set(id, locations);
+    }
+  }
+
+  return mentions;
+}
+
+function collectRequirementNameMap(
+  entries: ReturnType<typeof collectRequirementEntries>,
+): Map<string, string> {
+  return new Map(
+    entries
+      .filter((entry) => typeof entry.requirement.name === "string")
+      .map((entry) => [entry.id, entry.requirement.name]),
+  );
+}
+
+export function collectInlineRuleDisplayNameIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+  const entries = collectRequirementEntries(document);
+  const requirementNames = collectRequirementNameMap(entries);
+
+  for (const { location, requirement } of entries) {
+    for (const part of collectRequirementRuleTextParts(location, requirement)) {
+      for (const match of part.text.matchAll(INLINE_FRR_ID_REGEX)) {
+        const id = match[1];
+        const index = match.index;
+        if (!id || index === undefined) {
+          continue;
+        }
+
+        const name = requirementNames.get(id);
+        if (!name) {
+          continue;
+        }
+
+        const expectedDisplay = `${id} (${name})`;
+        const suffix = part.text.slice(index + id.length);
+        if (suffix.startsWith(` (${name})`)) {
+          continue;
+        }
+
+        if (suffix.trimStart().startsWith(name)) {
+          issues.push(
+            issue(
+              part.location,
+              `referenced FRR requirement ID ${id} is followed by "${name}" without parentheses; use ${expectedDisplay}.`,
+            ),
+          );
+          continue;
+        }
+
+        issues.push(
+          issue(
+            part.location,
+            `referenced FRR requirement ID ${id} must be followed by its rule name in parentheses: ${expectedDisplay}.`,
+          ),
+        );
+      }
+    }
+  }
+
+  return issues;
+}
+
+export interface InlineRuleDisplayNameFix {
+  location: string;
+  fixedIds: string[];
+}
+
+function fixInlineRuleDisplayText(
+  text: string,
+  requirementNames: Map<string, string>,
+): { text: string; fixedIds: string[] } {
+  let nextText = "";
+  let cursor = 0;
+  const fixedIds: string[] = [];
+
+  for (const match of text.matchAll(INLINE_FRR_ID_REGEX)) {
+    const id = match[1];
+    const index = match.index;
+    if (!id || index === undefined || index < cursor) {
+      continue;
+    }
+
+    const name = requirementNames.get(id);
+    if (!name) {
+      continue;
+    }
+
+    const idEnd = index + id.length;
+    const suffix = text.slice(idEnd);
+    const expectedSuffix = ` (${name})`;
+    if (suffix.startsWith(expectedSuffix)) {
+      continue;
+    }
+
+    nextText += text.slice(cursor, idEnd);
+    nextText += expectedSuffix;
+    fixedIds.push(id);
+
+    const unparenthesizedNameStart =
+      idEnd + suffix.length - suffix.trimStart().length;
+    if (
+      text
+        .slice(unparenthesizedNameStart, unparenthesizedNameStart + name.length)
+        .startsWith(name)
+    ) {
+      cursor = unparenthesizedNameStart + name.length;
+    } else {
+      cursor = idEnd;
+    }
+  }
+
+  if (fixedIds.length === 0) {
+    return { text, fixedIds };
+  }
+
+  return {
+    text: nextText + text.slice(cursor),
+    fixedIds,
+  };
+}
+
+function collectInlineRuleDisplayNameFixTargets(
+  document: RulesDocument,
+): Array<{
+  part: RuleTextPart;
+  nextText: string;
+  fixedIds: string[];
+}> {
+  const entries = collectRequirementEntries(document);
+  const requirementNames = collectRequirementNameMap(entries);
+  const targets: Array<{
+    part: RuleTextPart;
+    nextText: string;
+    fixedIds: string[];
+  }> = [];
+
+  for (const { location, requirement } of entries) {
+    for (const part of collectRequirementRuleTextParts(location, requirement)) {
+      const result = fixInlineRuleDisplayText(part.text, requirementNames);
+      if (result.fixedIds.length > 0) {
+        targets.push({
+          part,
+          nextText: result.text,
+          fixedIds: result.fixedIds,
+        });
+      }
+    }
+  }
+
+  return targets;
+}
+
+export function collectInlineRuleDisplayNameFixes(
+  document: RulesDocument,
+): InlineRuleDisplayNameFix[] {
+  return collectInlineRuleDisplayNameFixTargets(document).map((target) => ({
+    location: target.part.location,
+    fixedIds: target.fixedIds,
+  }));
+}
+
+export function applyInlineRuleDisplayNameFixes(document: RulesDocument): {
+  document: RulesDocument;
+  fixes: InlineRuleDisplayNameFix[];
+  fixedCount: number;
+} {
+  const targets = collectInlineRuleDisplayNameFixTargets(document);
+  const fixes = targets.map((target) => ({
+    location: target.part.location,
+    fixedIds: target.fixedIds,
+  }));
+
+  for (const target of targets) {
+    target.part.setText(target.nextText);
+  }
+
+  return {
+    document,
+    fixes,
+    fixedCount: fixes.reduce((total, fix) => total + fix.fixedIds.length, 0),
+  };
+}
+
+export interface RelatedRuleReferenceFix {
+  location: string;
+  added: string[];
+}
+
+function collectRelatedRuleReferenceFixTargets(document: RulesDocument): Array<{
+  location: string;
+  requirement: Requirement;
+  missingIds: string[];
+}> {
+  const targets: Array<{
+    location: string;
+    requirement: Requirement;
+    missingIds: string[];
+  }> = [];
+
+  for (const { id, location, requirement } of collectRequirementEntries(
+    document,
+  )) {
+    const mentions = collectRequirementRuleMentionSources(
+      location,
+      requirement,
+    );
+    mentions.delete(id);
+
+    if (mentions.size === 0) {
+      continue;
+    }
+
+    const related = Array.isArray(requirement.related)
+      ? requirement.related.filter(
+          (relatedId): relatedId is string => typeof relatedId === "string",
+        )
+      : [];
+    const missingIds = [...mentions.keys()].filter(
+      (mentionedId) => !related.includes(mentionedId),
+    );
+
+    if (missingIds.length > 0) {
+      targets.push({ location, requirement, missingIds });
+    }
+  }
+
+  return targets;
+}
+
+export function collectRelatedRuleReferenceFixes(
+  document: RulesDocument,
+): RelatedRuleReferenceFix[] {
+  return collectRelatedRuleReferenceFixTargets(document).map((target) => ({
+    location: `${target.location}.related`,
+    added: target.missingIds,
+  }));
+}
+
+const RELATED_PRECEDING_KEYS = new Set([
+  "name",
+  "statement",
+  "varies_by_class",
+  "following_information",
+  "following_information_bullets",
+  "danger",
+  "note",
+  "notes",
+]);
+
+function assignRelatedInSchemaOrder(
+  requirement: Requirement,
+  related: string[],
+): void {
+  if (Array.isArray(requirement.related)) {
+    requirement.related = related;
+    return;
+  }
+
+  const reordered: Record<string, unknown> = {};
+  let inserted = false;
+
+  for (const [key, value] of Object.entries(requirement)) {
+    if (!inserted && !RELATED_PRECEDING_KEYS.has(key)) {
+      reordered.related = related;
+      inserted = true;
+    }
+
+    reordered[key] = value;
+  }
+
+  if (!inserted) {
+    reordered.related = related;
+  }
+
+  for (const key of Object.keys(requirement)) {
+    delete (requirement as unknown as Record<string, unknown>)[key];
+  }
+  Object.assign(requirement, reordered);
+}
+
+export function applyRelatedRuleReferenceFixes(document: RulesDocument): {
+  document: RulesDocument;
+  fixes: RelatedRuleReferenceFix[];
+  fixedCount: number;
+} {
+  const targets = collectRelatedRuleReferenceFixTargets(document);
+  const fixes = targets.map((target) => ({
+    location: `${target.location}.related`,
+    added: target.missingIds,
+  }));
+
+  for (const target of targets) {
+    const related = Array.isArray(target.requirement.related)
+      ? [...target.requirement.related]
+      : [];
+
+    for (const missingId of target.missingIds) {
+      if (!related.includes(missingId)) {
+        related.push(missingId);
+      }
+    }
+
+    assignRelatedInSchemaOrder(target.requirement, related);
+  }
+
+  return {
+    document,
+    fixes,
+    fixedCount: fixes.reduce((total, fix) => total + fix.added.length, 0),
+  };
+}
+
+export function collectRelatedRuleReferenceIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  for (const { id, location, requirement } of collectRequirementEntries(
+    document,
+  )) {
+    const mentions = collectRequirementRuleMentionSources(
+      location,
+      requirement,
+    );
+    mentions.delete(id);
+
+    const related = Array.isArray(requirement.related)
+      ? requirement.related.filter(
+          (relatedId): relatedId is string => typeof relatedId === "string",
+        )
+      : null;
+    const missingIds = [...mentions.keys()].filter(
+      (mentionedId) => !related?.includes(mentionedId),
+    );
+
+    if (missingIds.length > 0) {
+      const sourceSummary = missingIds
+        .map(
+          (mentionedId) =>
+            `${mentionedId} in ${mentions.get(mentionedId)?.join(", ")}`,
+        )
+        .join("; ");
+
+      if (!related) {
+        issues.push(
+          issue(
+            `${location}.related`,
+            `related must be an array containing mentioned FRR requirement IDs: ${sourceSummary}.`,
+          ),
+        );
+      } else {
+        issues.push(
+          issue(
+            `${location}.related`,
+            `related is missing mentioned FRR requirement IDs: ${sourceSummary}.`,
+          ),
+        );
+      }
+    }
+
+    if (!related) {
+      continue;
+    }
+
+    for (const [index, relatedId] of related.entries()) {
+      if (mentions.has(relatedId)) {
+        continue;
+      }
+
+      issues.push(
+        issue(
+          `${location}.related[${index}]`,
+          `related ID ${relatedId} is not mentioned in statement, note, notes, following_information, following_information_bullets, or varies_by_class text.`,
+        ),
+      );
+    }
+  }
 
   return issues;
 }
