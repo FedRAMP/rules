@@ -16,24 +16,20 @@ Everything else in this repository supports those two files.
   The canonical rules dataset.
 - [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
   The schema for the dataset.
-- [RULES.md](RULES.md)
-  A generated summary of the current FRR process documents.
 - [AGENTS.md](AGENTS.md)
   Guidance for AI agents analyzing the dataset.
 - [tools](tools)
-  Validation, normalization, tests, and generated summary tooling.
+  Validation, normalization, tests, and export tooling.
 
 ## Working With The Repository
 
-Use the JSON file and schema for analysis. Use generated documentation only for
-orientation.
+Use the JSON file and schema for analysis.
 
 From [tools](tools), the primary maintenance commands are:
 
 ```bash
 bun run check
 bun run fix
-bun run build
 ```
 
 See [tools/README.md](tools/README.md) for the tooling workflow and

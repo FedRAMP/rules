@@ -8,9 +8,8 @@ When analyzing this repository, focus on only these files:
 - [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
 
 The rest of the repository is supporting infrastructure. The `tools` directory,
-tests, generated summaries, and READMEs can help with validation and
-orientation, but they are not the rules and should not be treated as
-authoritative rule content.
+tests, and READMEs can help with validation and orientation, but they are not
+the rules and should not be treated as authoritative rule content.
 
 ## Source Of Truth
 
@@ -19,9 +18,6 @@ source of truth for the FedRAMP Consolidated Rules for 2026 Public Preview.
 
 [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
 is the source of truth for the expected data shape.
-
-[RULES.md](RULES.md) is generated from the JSON file. Use it only as a quick
-summary, never as the primary source for analysis.
 
 ## Dataset Structure
 
@@ -211,8 +207,7 @@ unless the user explicitly asks for one.
      controlled vocabularies, and object shapes.
   3. `Tooling And Test Changes`
      Summarize support-code changes, CLI behavior, validators, fixers,
-     generated-summary behavior, package scripts, test harnesses, and test
-     coverage.
+     package scripts, test harnesses, and test coverage.
 - Keep bullets simple and high signal. Prefer a single line per bullet unless
   the change is complex enough that a short second sentence prevents ambiguity.
 - End with a brief validation note naming the commands run, such as
@@ -228,6 +223,4 @@ If asked to edit the rules:
 - Preserve schema-driven property order.
 - Update `updated` history when changing rule, definition, or indicator
   meaning.
-- Regenerate [RULES.md](RULES.md) through the tooling rather than editing it by
-  hand.
 - Run the tooling checks when available.

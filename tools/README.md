@@ -3,7 +3,7 @@
 This directory contains the Bun and TypeScript tooling used to maintain the
 FedRAMP Consolidated Rules dataset.
 
-The tools validate, normalize, test, and summarize the canonical files:
+The tools validate, normalize, test, and export the canonical files:
 
 - [../fedramp-consolidated-rules.json](../fedramp-consolidated-rules.json)
 - [../schemas/fedramp-consolidated-rules.schema.json](../schemas/fedramp-consolidated-rules.schema.json)
@@ -37,8 +37,8 @@ Current configuration:
 - rules file: `../fedramp-consolidated-rules.json`
 - schema file: `../schemas/fedramp-consolidated-rules.schema.json`
 
-Keeping these paths centralized ensures that tests, fixes, and generated output
-operate on the same dataset.
+Keeping these paths centralized ensures that tests and fixes operate on the
+same dataset.
 
 ## Primary Commands
 
@@ -70,7 +70,6 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 - controlled vocabulary consistency
 - internal cross-reference integrity
 - fix planning and application behavior
-- summary rendering behavior
 
 When consistency validation fails, the runner prints a human-readable summary
 after the regular Bun output.
@@ -78,10 +77,6 @@ after the regular Bun output.
 ### `bun run typecheck`
 
 Runs `tsc --noEmit` against the TypeScript project.
-
-### `bun run build`
-
-Regenerates generated repository output, including [../RULES.md](../RULES.md).
 
 ### `bun run fix`
 
@@ -101,24 +96,12 @@ bun run fix -- --date 2026-05-04
 `-comment` adds the standard term-sync update comment when term changes are
 written. `--date` overrides the date used in generated fix metadata.
 
-### `bun run summary`
-
-Runs [summary.ts](summary.ts) and regenerates derived summary output.
-
-Current generated output:
-
-- [../RULES.md](../RULES.md)
-
-Do not edit generated summaries by hand. Update the canonical JSON and rerun the
-summary command.
-
 ## Common Workflow
 
 1. Edit the rules JSON, schema, or tooling.
 2. Run `bun run check`.
 3. Run `bun run fix` if the check reports fixable normalization issues.
 4. Run `bun run check` again.
-5. Run `bun run build` when the change affects generated output.
 
 ## Focused Commands
 
@@ -132,7 +115,6 @@ Focused test aliases:
 - `bun run test:keywords`
 - `bun run test:terms`
 - `bun run test:order`
-- `bun run test:summary`
 - `bun run test:consistency`
 
 Focused fix aliases:
@@ -140,10 +122,6 @@ Focused fix aliases:
 - `bun run fix:terms`
 - `bun run fix:ids`
 - `bun run fix:order`
-
-Focused summary aliases:
-
-- `bun run summary:rules`
 
 Examples:
 
@@ -162,8 +140,6 @@ Primary entrypoints:
   Test runner used by `bun run test`.
 - [fix.ts](fix.ts)
   CLI entrypoint for all fix flows.
-- [summary.ts](summary.ts)
-  CLI entrypoint for generated summaries.
 
 Shared implementation:
 
@@ -185,10 +161,6 @@ Shared implementation:
   Term extraction, casing, and synchronization logic.
 - [src/property-order.ts](src/property-order.ts)
   Schema-driven property-order logic.
-- [src/summary.ts](src/summary.ts)
-  Summary scope registry and orchestration.
-- [src/summary-rules.ts](src/summary-rules.ts)
-  `RULES.md` rendering logic.
 - [src/traversal.ts](src/traversal.ts)
   Shared FRD, FRR, and KSI traversal helpers.
 - [src/types.ts](src/types.ts)
