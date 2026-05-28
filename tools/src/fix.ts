@@ -5,10 +5,13 @@ import type {
 } from "./types";
 
 import {
+  applyFrrSubsetApplicabilityAffectsFixes,
   applyInlineRuleDisplayNameFixes,
   applyRelatedRuleReferenceFixes,
+  collectFrrSubsetApplicabilityAffectsFixes,
   collectInlineRuleDisplayNameFixes,
   collectRelatedRuleReferenceFixes,
+  type FrrSubsetApplicabilityAffectsFix,
   type InlineRuleDisplayNameFix,
   type RelatedRuleReferenceFix,
 } from "./consistency";
@@ -28,6 +31,7 @@ export const FIX_SCOPES = [
   "order",
   "related",
   "display-names",
+  "subset-affects",
 ] as const;
 export type FixScope = (typeof FIX_SCOPES)[number];
 
@@ -89,6 +93,17 @@ export interface DisplayNamesFixPlan {
 export interface DisplayNamesFixResult {
   document: RulesDocument;
   fixes: InlineRuleDisplayNameFix[];
+  fixedCount: number;
+}
+
+export interface SubsetAffectsFixPlan {
+  issueCount: number;
+  needsFix: boolean;
+}
+
+export interface SubsetAffectsFixResult {
+  document: RulesDocument;
+  fixes: FrrSubsetApplicabilityAffectsFix[];
   fixedCount: number;
 }
 
@@ -211,17 +226,36 @@ export function applyDisplayNamesFix(
   return applyInlineRuleDisplayNameFixes(document);
 }
 
+export function collectSubsetAffectsFixPlan(
+  document: RulesDocument,
+): SubsetAffectsFixPlan {
+  const issueCount = collectFrrSubsetApplicabilityAffectsFixes(document).length;
+
+  return {
+    issueCount,
+    needsFix: issueCount > 0,
+  };
+}
+
+export function applySubsetAffectsFix(
+  document: RulesDocument,
+): SubsetAffectsFixResult {
+  return applyFrrSubsetApplicabilityAffectsFixes(document);
+}
+
 export interface AutoFixPlan {
   definitionTermIssueCount: number;
   termSyncIssueCount: number;
   idIssueCount: number;
   inlineRuleDisplayNameIssueCount: number;
   relatedRuleIssueCount: number;
+  subsetApplicabilityAffectsIssueCount: number;
   propertyOrderIssueCount: number;
   needsTermsFix: boolean;
   needsIdsFix: boolean;
   needsDisplayNamesFix: boolean;
   needsRelatedFix: boolean;
+  needsSubsetAffectsFix: boolean;
   needsOrderFix: boolean;
 }
 
@@ -234,6 +268,7 @@ export interface AutoFixResult {
   idSkippedCount: number;
   inlineRuleDisplayNameFixedCount: number;
   relatedRuleFixedCount: number;
+  subsetApplicabilityAffectsFixedCount: number;
   propertyOrderFixedCount: number;
 }
 
@@ -245,6 +280,7 @@ export function collectAutoFixPlan(
   const idsPlan = collectIdsFixPlan(document);
   const displayNamesPlan = collectDisplayNamesFixPlan(document);
   const relatedPlan = collectRelatedFixPlan(document);
+  const subsetAffectsPlan = collectSubsetAffectsFixPlan(document);
   const orderPlan = collectOrderFixPlan(document, schemaDocument);
 
   return {
@@ -253,11 +289,13 @@ export function collectAutoFixPlan(
     idIssueCount: idsPlan.issueCount,
     inlineRuleDisplayNameIssueCount: displayNamesPlan.issueCount,
     relatedRuleIssueCount: relatedPlan.issueCount,
+    subsetApplicabilityAffectsIssueCount: subsetAffectsPlan.issueCount,
     propertyOrderIssueCount: orderPlan.issueCount,
     needsTermsFix: termsPlan.needsFix,
     needsIdsFix: idsPlan.needsFix,
     needsDisplayNamesFix: displayNamesPlan.needsFix,
     needsRelatedFix: relatedPlan.needsFix,
+    needsSubsetAffectsFix: subsetAffectsPlan.needsFix,
     needsOrderFix: orderPlan.needsFix,
   };
 }
@@ -281,6 +319,7 @@ export function applyAutoFixes(
   let idSkippedCount = 0;
   let inlineRuleDisplayNameFixedCount = 0;
   let relatedRuleFixedCount = 0;
+  let subsetApplicabilityAffectsFixedCount = 0;
   let propertyOrderFixedCount = 0;
 
   if (plan.needsIdsFix) {
@@ -310,6 +349,11 @@ export function applyAutoFixes(
     relatedRuleFixedCount = relatedResult.fixedCount;
   }
 
+  if (plan.needsSubsetAffectsFix) {
+    const subsetAffectsResult = applySubsetAffectsFix(working);
+    subsetApplicabilityAffectsFixedCount = subsetAffectsResult.fixedCount;
+  }
+
   const orderPlan = collectOrderFixPlan(working, schemaDocument);
   if (orderPlan.needsFix) {
     const propertyOrderResult = applyOrderFix(working, schemaDocument);
@@ -326,6 +370,7 @@ export function applyAutoFixes(
     idSkippedCount,
     inlineRuleDisplayNameFixedCount,
     relatedRuleFixedCount,
+    subsetApplicabilityAffectsFixedCount,
     propertyOrderFixedCount,
   };
 }

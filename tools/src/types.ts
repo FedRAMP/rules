@@ -70,6 +70,19 @@ export interface KsiIndicator extends RequirementLike {
   name: string;
 }
 
+export interface FrrSubsetApplicability {
+  types: string[];
+  paths: string[];
+  classes: string[];
+  affects: string[];
+}
+
+export interface FrrSubsetDefinition {
+  name: string;
+  description: string;
+  applicability?: FrrSubsetApplicability;
+}
+
 export interface RulesDocument {
   info: {
     title: string;

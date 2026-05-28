@@ -4,9 +4,11 @@ import {
   applyAutoFixes,
   applyDisplayNamesFix,
   applyRelatedFix,
+  applySubsetAffectsFix,
   collectAutoFixPlan,
   collectDisplayNamesFixPlan,
   collectRelatedFixPlan,
+  collectSubsetAffectsFixPlan,
 } from "../src/fix";
 import { loadRulesDocument, loadSchemaDocument } from "../src/rules";
 import type { RulesDocument } from "../src/types";
@@ -16,6 +18,7 @@ test("the auto-fix planner reflects the current configured dataset", () => {
   const plan = collectAutoFixPlan(document, loadSchemaDocument());
   const displayNamesPlan = collectDisplayNamesFixPlan(document);
   const relatedPlan = collectRelatedFixPlan(document);
+  const subsetAffectsPlan = collectSubsetAffectsFixPlan(document);
 
   expect(plan.definitionTermIssueCount).toBe(0);
   expect(plan.termSyncIssueCount).toBe(0);
@@ -30,9 +33,13 @@ test("the auto-fix planner reflects the current configured dataset", () => {
   expect(plan.needsDisplayNamesFix).toBe(displayNamesPlan.needsFix);
   expect(plan.relatedRuleIssueCount).toBe(relatedPlan.issueCount);
   expect(plan.needsRelatedFix).toBe(relatedPlan.needsFix);
+  expect(plan.subsetApplicabilityAffectsIssueCount).toBe(
+    subsetAffectsPlan.issueCount,
+  );
+  expect(plan.needsSubsetAffectsFix).toBe(subsetAffectsPlan.needsFix);
 });
 
-test("auto-fix applies ID, term, related, and property-order fixes in one pass", () => {
+test("auto-fix applies ID, term, related, subset-affects, and property-order fixes in one pass", () => {
   const schema = {
     type: "object",
     properties: {
@@ -148,7 +155,20 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
     },
     FRR: {
       MAS: {
-        info: {},
+        info: {
+          subsets: {
+            CSO: {
+              name: "Provider",
+              description: "Provider subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: ["Agencies"],
+              },
+            },
+          },
+        },
         data: {
           all: {
             CSO: {
@@ -193,11 +213,13 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
     idIssueCount: 1,
     inlineRuleDisplayNameIssueCount: 1,
     relatedRuleIssueCount: 1,
+    subsetApplicabilityAffectsIssueCount: 1,
     propertyOrderIssueCount: 1,
     needsTermsFix: true,
     needsIdsFix: true,
     needsDisplayNamesFix: true,
     needsRelatedFix: true,
+    needsSubsetAffectsFix: true,
     needsOrderFix: true,
   });
 
@@ -209,6 +231,7 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
   expect(result.idSkippedCount).toBe(0);
   expect(result.inlineRuleDisplayNameFixedCount).toBe(1);
   expect(result.relatedRuleFixedCount).toBe(1);
+  expect(result.subsetApplicabilityAffectsFixedCount).toBe(1);
   expect(result.propertyOrderFixedCount).toBe(1);
   expect(result.document.info.version).toBe("1.0.1");
   expect(result.document.info.last_updated).toBe("2026-04-19");
@@ -224,6 +247,9 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
   expect(
     result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.related,
   ).toEqual(["MAS-CSO-OLD", "MAS-CSO-REF"]);
+  expect(
+    (result.document.FRR.MAS!.info as any).subsets.CSO.applicability.affects,
+  ).toEqual(["Providers"]);
   expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.fka).toBe(
     "MAS-CSX-TST",
   );
@@ -239,6 +265,71 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
     "updated",
     "fka",
   ]);
+});
+
+test("subset-affects fix synchronizes FRR subset applicability affects", () => {
+  const document = {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-04-12",
+    },
+    FRD: { info: {}, data: { all: {} } },
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            FRP: {
+              name: "FedRAMP",
+              description: "FedRAMP subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+        data: {
+          all: {
+            FRP: {
+              "ABC-FRP-AAA": {
+                name: "FedRAMP Rule",
+                statement: "FedRAMP MUST do the thing.",
+                primary_key_word: "MUST",
+                affects: ["FedRAMP"],
+              },
+            },
+          },
+          "20x": {
+            FRP: {
+              "ABC-FRP-BBB": {
+                name: "Agency Rule",
+                statement: "Agencies MUST do the thing.",
+                primary_key_word: "MUST",
+                affects: ["Agencies"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectSubsetAffectsFixPlan(document)).toEqual({
+    issueCount: 1,
+    needsFix: true,
+  });
+
+  const result = applySubsetAffectsFix(document);
+
+  expect(result.fixedCount).toBe(1);
+  expect(
+    (result.document.FRR.ABC!.info as any).subsets.FRP.applicability.affects,
+  ).toEqual(["Agencies", "FedRAMP"]);
 });
 
 test("related fix adds detected rules without deleting existing related entries", () => {

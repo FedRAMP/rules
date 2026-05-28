@@ -21,6 +21,7 @@
     "fix:order": "bun run fix -- --scope order",
     "fix:related": "bun run fix -- --scope related",
     "fix:display-names": "bun run fix -- --scope display-names",
+    "fix:subset-affects": "bun run fix -- --scope subset-affects",
     "hooks:install": "sh ./install-git-hooks.sh",
     "export": "bun run export-spreadsheet.ts"
   },

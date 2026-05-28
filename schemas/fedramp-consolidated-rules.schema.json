@@ -171,10 +171,48 @@
     },
     "frr_subset_definition": {
       "type": "object",
-      "required": ["name", "description"],
+      "required": ["name", "description", "applicability"],
       "properties": {
         "name": { "type": "string" },
-        "description": { "type": "string" }
+        "description": { "type": "string" },
+        "applicability": { "$ref": "#/$defs/frr_subset_applicability" }
+      },
+      "additionalProperties": false
+    },
+    "frr_subset_applicability": {
+      "type": "object",
+      "required": ["types", "paths", "classes", "affects"],
+      "properties": {
+        "types": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["20x", "Rev5"] },
+          "uniqueItems": true
+        },
+        "paths": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["Program", "Agency"] },
+          "uniqueItems": true
+        },
+        "classes": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["A", "B", "C", "D"] },
+          "uniqueItems": true
+        },
+        "affects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Advisors",
+              "Agencies",
+              "Assessors",
+              "FedRAMP",
+              "Providers"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
       },
       "additionalProperties": false
     },
