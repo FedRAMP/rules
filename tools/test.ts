@@ -2,6 +2,11 @@ import {
   collectConsistencyChecks,
   type ConsistencyCheck,
 } from "./src/consistency";
+import {
+  collectMetadataFreshnessWarnings,
+  latestCommitMetadata,
+  type MetadataFreshnessWarning,
+} from "./src/metadata-freshness";
 import { collectPropertyOrderIssues } from "./src/property-order";
 import { loadRulesDocument, loadSchemaDocument } from "./src/rules";
 import type { PropertyOrderIssue } from "./src/types";
@@ -94,6 +99,18 @@ function formatPropertyOrderFailureSummary(
   return lines.join("\n");
 }
 
+function formatMetadataFreshnessWarningSummary(
+  warnings: MetadataFreshnessWarning[],
+): string {
+  return [
+    color("Metadata freshness warning", `${BOLD}${YELLOW}`),
+    ...warnings.map(
+      (warning) => `  - ${formatPath(warning.field)}: ${warning.message}`,
+    ),
+    "    Update fedramp-consolidated-rules.json metadata before publishing this branch.",
+  ].join("\n");
+}
+
 const testResult = Bun.spawnSync({
   cmd: ["bun", "test"],
   stdout: "inherit",
@@ -102,6 +119,10 @@ const testResult = Bun.spawnSync({
 
 const rulesDocument = loadRulesDocument();
 const schemaDocument = loadSchemaDocument();
+const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
+  rulesDocument,
+  latestCommitMetadata(),
+);
 const consistencyChecks = collectConsistencyChecks(rulesDocument);
 const consistencyFailed = consistencyChecks.some(
   (check) => check.issues.length > 0,
@@ -112,6 +133,14 @@ const propertyOrderIssues = collectPropertyOrderIssues(
 );
 const propertyOrderFailed = propertyOrderIssues.length > 0;
 const finalReports: string[] = [];
+
+if (metadataFreshnessWarnings.length > 0) {
+  console.warn(
+    `\n${color("-----", DIM)}\n\n${formatMetadataFreshnessWarningSummary(
+      metadataFreshnessWarnings,
+    )}\n`,
+  );
+}
 
 if (consistencyFailed) {
   finalReports.push(formatConsistencyFailureSummary(consistencyChecks));

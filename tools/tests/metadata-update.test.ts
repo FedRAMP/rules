@@ -1,77 +1,54 @@
-import { test } from "bun:test";
+import { expect, test } from "bun:test";
 
-import { getRepoRoot } from "../src/config";
-import { loadRulesDocument } from "../src/rules";
+import {
+  collectMetadataFreshnessWarnings,
+  versionDatePrefix,
+} from "../src/metadata-freshness";
+import type { RulesDocument } from "../src/types";
 
-function latestCommitMetadata():
-  | { date: string; shortHash: string }
-  | { warning: string } {
-  const result = Bun.spawnSync({
-    cmd: ["git", "log", "-1", "--format=%cs%n%h"],
-    cwd: getRepoRoot(),
-  });
-
-  if (result.exitCode !== 0) {
-    return {
-      warning:
-        "Could not determine the most recent git commit date for metadata freshness.",
-    };
-  }
-
-  const [date, shortHash] = result.stdout.toString().trim().split("\n");
-
-  if (!date || !shortHash) {
-    return {
-      warning:
-        "Could not parse the most recent git commit date for metadata freshness.",
-    };
-  }
-
-  return { date, shortHash };
+function testDocument(version: string, lastUpdated: string): RulesDocument {
+  return {
+    info: {
+      title: "Test",
+      description: "Test",
+      version,
+      last_updated: lastUpdated,
+    },
+    FRD: { info: {}, data: { all: {} } },
+    FRR: {},
+    KSI: {},
+  } as RulesDocument;
 }
 
-function versionDatePrefix(version: string): string | undefined {
-  return version.match(/^\d{4}\.\d{2}\.\d{2}/)?.[0];
-}
+test("metadata freshness warnings detect stale info.last_updated and info.version dates", () => {
+  const warnings = collectMetadataFreshnessWarnings(
+    testDocument("2026.05.28.01-preview", "2026-05-28"),
+    { date: "2026-05-29", shortHash: "abc1234" },
+  );
 
-test("info.last_updated and info.version reflect the most recent git commit date", () => {
-  const document = loadRulesDocument();
+  expect(warnings).toEqual([
+    {
+      field: "info.last_updated",
+      message:
+        'info.last_updated is "2026-05-28"; expected "2026-05-29" from commit abc1234.',
+    },
+    {
+      field: "info.version",
+      message:
+        'info.version is "2026.05.28.01-preview"; expected a "2026.05.29" date prefix from commit abc1234.',
+    },
+  ]);
+});
 
-  const commit = latestCommitMetadata();
-  if ("warning" in commit) {
-    console.warn(`Metadata freshness warning: ${commit.warning}`);
-    return;
-  }
+test("metadata freshness warnings accept matching date metadata", () => {
+  expect(
+    collectMetadataFreshnessWarnings(
+      testDocument("2026.05.29.01-preview", "2026-05-29"),
+      { date: "2026-05-29", shortHash: "abc1234" },
+    ),
+  ).toEqual([]);
+});
 
-  const commitVersionDate = commit.date.replaceAll("-", ".");
-  const lastUpdated = document.info.last_updated;
-  const version = document.info.version;
-  const versionDate = versionDatePrefix(version);
-  const warnings: string[] = [];
-
-  if (lastUpdated !== commit.date) {
-    warnings.push(
-      `info.last_updated is ${JSON.stringify(
-        lastUpdated,
-      )}; expected ${JSON.stringify(commit.date)} from commit ${commit.shortHash}.`,
-    );
-  }
-
-  if (versionDate !== commitVersionDate) {
-    warnings.push(
-      `info.version is ${JSON.stringify(
-        version,
-      )}; expected a ${JSON.stringify(commitVersionDate)} date prefix from commit ${commit.shortHash}.`,
-    );
-  }
-
-  if (warnings.length > 0) {
-    console.warn(
-      [
-        "Metadata freshness warning:",
-        ...warnings.map((warning) => `- ${warning}`),
-        "Update fedramp-consolidated-rules.json metadata before publishing this branch.",
-      ].join("\n"),
-    );
-  }
+test("versionDatePrefix reads the leading date from preview versions", () => {
+  expect(versionDatePrefix("2026.05.29.01-preview")).toBe("2026.05.29");
 });
