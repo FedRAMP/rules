@@ -168,6 +168,10 @@ function compareFrdDefinitionEntries(
     : termComparison;
 }
 
+function compareKeysAlphabetically(left: string, right: string): number {
+  return left.localeCompare(right);
+}
+
 function formatPropertyList(values: string[]): string {
   return values.join(", ");
 }
@@ -178,7 +182,7 @@ export function formatPropertyOrderReport(
   const issueLabel = issues.length === 1 ? "issue" : "issues";
 
   return [
-    `Schema-defined property order failed with ${issues.length} ${issueLabel}:`,
+    `Property order failed with ${issues.length} ${issueLabel}:`,
     ...issues.map(
       (issue) =>
         `- ${issue.path}: expected order ${formatPropertyList(
@@ -194,6 +198,10 @@ function getPreferredOrder(
   value: JsonObject,
   path: string,
 ): string[] {
+  if (path === "FRR" || path === "KSI") {
+    return Object.keys(value).sort(compareKeysAlphabetically);
+  }
+
   if (path === "FRD.data.all") {
     return Object.entries(value)
       .sort(compareFrdDefinitionEntries)

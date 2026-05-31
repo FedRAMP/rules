@@ -7,6 +7,7 @@ import {
   applySubsetAffectsFix,
   collectAutoFixPlan,
   collectDisplayNamesFixPlan,
+  collectOrderFixPlan,
   collectRelatedFixPlan,
   collectSubsetAffectsFixPlan,
 } from "../src/fix";
@@ -15,18 +16,20 @@ import type { RulesDocument } from "../src/types";
 
 test("the auto-fix planner reflects the current configured dataset", () => {
   const document = loadRulesDocument();
-  const plan = collectAutoFixPlan(document, loadSchemaDocument());
+  const schema = loadSchemaDocument();
+  const plan = collectAutoFixPlan(document, schema);
   const displayNamesPlan = collectDisplayNamesFixPlan(document);
+  const orderPlan = collectOrderFixPlan(document, schema);
   const relatedPlan = collectRelatedFixPlan(document);
   const subsetAffectsPlan = collectSubsetAffectsFixPlan(document);
 
   expect(plan.definitionTermIssueCount).toBe(0);
   expect(plan.termSyncIssueCount).toBe(0);
   expect(plan.idIssueCount).toBe(0);
-  expect(plan.propertyOrderIssueCount).toBe(0);
   expect(plan.needsTermsFix).toBe(false);
   expect(plan.needsIdsFix).toBe(false);
-  expect(plan.needsOrderFix).toBe(false);
+  expect(plan.propertyOrderIssueCount).toBe(orderPlan.issueCount);
+  expect(plan.needsOrderFix).toBe(orderPlan.needsFix);
   expect(plan.inlineRuleDisplayNameIssueCount).toBe(
     displayNamesPlan.issueCount,
   );

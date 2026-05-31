@@ -73,6 +73,19 @@ const ALLOWED_TIMEFRAME_TYPES = [
   "months",
   "years",
 ] as const;
+const PRIMARY_KEYWORD_ORDER = [
+  "MUST",
+  "MUST NOT",
+  "SHOULD",
+  "SHOULD NOT",
+  "MAY",
+] as const;
+const PRIMARY_KEYWORD_ORDER_INDEX = new Map<string, number>(
+  PRIMARY_KEYWORD_ORDER.map((keyword, index): [string, number] => [
+    keyword,
+    index,
+  ]),
+);
 
 export function formatConsistencyIssues(
   title: string,
@@ -658,6 +671,113 @@ function formatValues(values: string[] | null): string {
   }
 
   return values.join(", ");
+}
+
+function getPrimaryKeywordOrderIndex(keyword: string): number | null {
+  return PRIMARY_KEYWORD_ORDER_INDEX.get(keyword) ?? null;
+}
+
+function comparePrimaryKeywords(left: string, right: string): number {
+  const leftIndex = getPrimaryKeywordOrderIndex(left);
+  const rightIndex = getPrimaryKeywordOrderIndex(right);
+
+  if (leftIndex === null && rightIndex === null) {
+    return left.localeCompare(right);
+  }
+  if (leftIndex === null) {
+    return 1;
+  }
+  if (rightIndex === null) {
+    return -1;
+  }
+
+  return leftIndex === rightIndex
+    ? left.localeCompare(right)
+    : leftIndex - rightIndex;
+}
+
+function getRequirementOrderingKeyword(
+  requirement: Requirement,
+): string | null {
+  if (typeof requirement.primary_key_word === "string") {
+    return requirement.primary_key_word;
+  }
+
+  const classKeywords = CLASS_KEYS.map(
+    (classKey) => requirement.varies_by_class?.[classKey]?.primary_key_word,
+  ).filter((keyword): keyword is string => typeof keyword === "string");
+
+  return classKeywords.sort(comparePrimaryKeywords)[0] ?? null;
+}
+
+function getKeywordRuns(keywords: string[]): string[] {
+  const runs: string[] = [];
+
+  for (const keyword of keywords) {
+    if (runs[runs.length - 1] !== keyword) {
+      runs.push(keyword);
+    }
+  }
+
+  return runs;
+}
+
+function isPrimaryKeywordOrderOutOfOrder(keywords: string[]): boolean {
+  let highestSeenIndex = -1;
+
+  for (const keyword of keywords) {
+    const index = getPrimaryKeywordOrderIndex(keyword);
+    if (index === null) {
+      continue;
+    }
+
+    if (index < highestSeenIndex) {
+      return true;
+    }
+
+    highestSeenIndex = Math.max(highestSeenIndex, index);
+  }
+
+  return false;
+}
+
+export function collectFrrSubsetPrimaryKeywordOrderWarnings(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+  const checkedLocations = new Set<string>();
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    for (const scopeKey of entry.dataScopeKeys) {
+      const subsetRequirements =
+        entry.section.data?.[scopeKey]?.[entry.subsetKey];
+      if (!subsetRequirements) {
+        continue;
+      }
+
+      const location = `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}`;
+      if (checkedLocations.has(location)) {
+        continue;
+      }
+      checkedLocations.add(location);
+
+      const keywords = Object.values(subsetRequirements)
+        .map(getRequirementOrderingKeyword)
+        .filter((keyword): keyword is string => typeof keyword === "string");
+      if (keywords.length < 2 || !isPrimaryKeywordOrderOutOfOrder(keywords)) {
+        continue;
+      }
+
+      issues.push(
+        issue(
+          location,
+          `expected keyword groups ${joinAllowed(PRIMARY_KEYWORD_ORDER)}; found ${formatValues(getKeywordRuns(keywords))}.`,
+        ),
+      );
+    }
+  }
+
+  return issues;
 }
 
 function collectFrrSubsetApplicabilityAffectsFixTargets(

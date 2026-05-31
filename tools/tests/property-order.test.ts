@@ -8,7 +8,7 @@ import {
 import { loadRulesDocument, loadSchemaDocument } from "../src/rules";
 import type { RulesDocument } from "../src/types";
 
-test("the consolidated rules document follows the schema-defined property order", () => {
+test("the consolidated rules document follows the configured property order", () => {
   const issues = collectPropertyOrderIssues(
     loadRulesDocument(),
     loadSchemaDocument(),
@@ -139,6 +139,62 @@ test("property order fixes sort FRD shared definitions by term instead of ID", (
     "FRD-MMM",
     "FRD-AAA",
   ]);
+});
+
+test("property order fixes alphabetize FRR and KSI primary objects", () => {
+  const document = {
+    FRR: {
+      VDR: { info: {}, data: {} },
+      CDS: { info: {}, data: {} },
+      CMT: { info: {}, data: {} },
+    },
+    KSI: {
+      MLA: {
+        id: "KSI-MLA",
+        name: "Monitoring, Logging, and Auditing",
+        web_name: "Monitoring, Logging, and Auditing",
+        short_name: "MLA",
+        status: "stable",
+        indicators: {},
+      },
+      CNA: {
+        id: "KSI-CNA",
+        name: "Cloud Native Architecture",
+        web_name: "Cloud Native Architecture",
+        short_name: "CNA",
+        status: "stable",
+        indicators: {},
+      },
+      CMT: {
+        id: "KSI-CMT",
+        name: "Configuration Management",
+        web_name: "Configuration Management",
+        short_name: "CMT",
+        status: "stable",
+        indicators: {},
+      },
+    },
+  } as unknown as RulesDocument;
+
+  const schema = loadSchemaDocument();
+  const checkIssues = collectPropertyOrderIssues(document, schema);
+  expect(checkIssues).toEqual([
+    {
+      path: "FRR",
+      actualOrder: ["VDR", "CDS", "CMT"],
+      expectedOrder: ["CDS", "CMT", "VDR"],
+    },
+    {
+      path: "KSI",
+      actualOrder: ["MLA", "CNA", "CMT"],
+      expectedOrder: ["CMT", "CNA", "MLA"],
+    },
+  ]);
+
+  const fixed = fixPropertyOrder(document, schema);
+  expect(fixed.fixedCount).toBe(2);
+  expect(Object.keys(fixed.document.FRR)).toEqual(["CDS", "CMT", "VDR"]);
+  expect(Object.keys(fixed.document.KSI)).toEqual(["CMT", "CNA", "MLA"]);
 });
 
 test("property order fixes use schema propertyNames enum order for FRR subsets and subset groups", () => {

@@ -1,6 +1,8 @@
 import {
   collectConsistencyChecks,
+  collectFrrSubsetPrimaryKeywordOrderWarnings,
   type ConsistencyCheck,
+  type ConsistencyIssue,
 } from "./src/consistency";
 import {
   collectMetadataFreshnessWarnings,
@@ -86,7 +88,7 @@ function formatPropertyOrderFailureSummary(
 ): string {
   const lines = [
     `${formatProblem(
-      "Schema-defined property order failed",
+      "Property order failed",
     )} with ${formatProblem(`${issues.length} ${plural(issues.length, "issue")}`)}:`,
   ];
 
@@ -111,6 +113,18 @@ function formatMetadataFreshnessWarningSummary(
   ].join("\n");
 }
 
+function formatFrrSubsetPrimaryKeywordOrderWarningSummary(
+  warnings: ConsistencyIssue[],
+): string {
+  return [
+    color("FRR subset primary keyword order warning", `${BOLD}${YELLOW}`),
+    ...warnings.map(
+      (warning) => `  - ${formatPath(warning.location)}: ${warning.message}`,
+    ),
+    "    Reorder these rule groups manually; no automatic fix is provided.",
+  ].join("\n");
+}
+
 const testResult = Bun.spawnSync({
   cmd: ["bun", "test"],
   stdout: "inherit",
@@ -123,6 +137,8 @@ const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
   rulesDocument,
   latestCommitMetadata(),
 );
+const frrSubsetPrimaryKeywordOrderWarnings =
+  collectFrrSubsetPrimaryKeywordOrderWarnings(rulesDocument);
 const consistencyChecks = collectConsistencyChecks(rulesDocument);
 const consistencyFailed = consistencyChecks.some(
   (check) => check.issues.length > 0,
@@ -138,6 +154,14 @@ if (metadataFreshnessWarnings.length > 0) {
   console.warn(
     `\n${color("-----", DIM)}\n\n${formatMetadataFreshnessWarningSummary(
       metadataFreshnessWarnings,
+    )}\n`,
+  );
+}
+
+if (frrSubsetPrimaryKeywordOrderWarnings.length > 0) {
+  console.warn(
+    `\n${color("-----", DIM)}\n\n${formatFrrSubsetPrimaryKeywordOrderWarningSummary(
+      frrSubsetPrimaryKeywordOrderWarnings,
     )}\n`,
   );
 }

@@ -64,9 +64,11 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 - primary keyword consistency
 - term casing and synchronization
 - schema-driven property ordering
+- alphabetical FRR and KSI primary object ordering
 - update history checks
 - text hygiene
 - class-variant sanity checks
+- FRR subset primary-keyword ordering warnings
 - controlled vocabulary consistency
 - internal cross-reference integrity
 - fix planning and application behavior
@@ -86,7 +88,7 @@ Runs [fix.ts](fix.ts), which plans and applies fixable normalizations:
 - ID alignment
 - inline rule display names
 - related rule references
-- schema-driven property ordering
+- schema-driven property ordering and alphabetical FRR/KSI primary object ordering
 
 Useful variants:
 
@@ -166,7 +168,7 @@ Shared implementation:
 - [src/terms.ts](src/terms.ts)
   Term extraction, casing, and synchronization logic.
 - [src/property-order.ts](src/property-order.ts)
-  Schema-driven property-order logic.
+  Schema-driven property-order and FRR/KSI primary object ordering logic.
 - [src/traversal.ts](src/traversal.ts)
   Shared FRD, FRR, and KSI traversal helpers.
 - [src/types.ts](src/types.ts)

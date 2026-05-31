@@ -3,6 +3,7 @@ import { expect, test } from "bun:test";
 import {
   collectConsistencyChecks,
   collectFrr20xSubsetApplicabilityWarnings,
+  collectFrrSubsetPrimaryKeywordOrderWarnings,
   collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
   collectInlineRuleDisplayNameIssues,
@@ -204,6 +205,107 @@ test("X-suffix FRR subsets warn unless they are 20x Program only", () => {
   (document.FRR.ABC!.info as any).subsets.CSX.applicability.paths = ["Program"];
 
   expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([]);
+});
+
+test("FRR subset primary keyword order warnings detect out-of-order groups", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSO: { name: "Provider", description: "Provider subset." },
+          },
+        },
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Must Rule",
+                statement: "Providers MUST do the first thing.",
+                primary_key_word: "MUST",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-002": {
+                name: "Should Rule",
+                statement: "Providers SHOULD do the second thing.",
+                primary_key_word: "SHOULD",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-003": {
+                name: "Must Not Rule",
+                statement: "Providers MUST NOT do the third thing.",
+                primary_key_word: "MUST NOT",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrSubsetPrimaryKeywordOrderWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO",
+      message:
+        "expected keyword groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found MUST, SHOULD, MUST NOT.",
+    },
+  ]);
+
+  const orderedRequirements = document.FRR.ABC!.data.all!.CSO!;
+  const shouldRequirement = orderedRequirements["ABC-CSO-002"]!;
+  delete orderedRequirements["ABC-CSO-002"];
+  orderedRequirements["ABC-CSO-002"] = shouldRequirement;
+
+  expect(collectFrrSubsetPrimaryKeywordOrderWarnings(document)).toEqual([]);
+});
+
+test("FRR subset primary keyword order warnings use class-specific keywords", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSO: { name: "Provider", description: "Provider subset." },
+          },
+        },
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Class Should Rule",
+                varies_by_class: {
+                  a: {
+                    statement: "Class A providers SHOULD do the first thing.",
+                    primary_key_word: "SHOULD",
+                  },
+                },
+                affects: ["Providers"],
+              },
+              "ABC-CSO-002": {
+                name: "Class Must Rule",
+                varies_by_class: {
+                  a: {
+                    statement: "Class A providers MUST do the second thing.",
+                    primary_key_word: "MUST",
+                  },
+                },
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrSubsetPrimaryKeywordOrderWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO",
+      message:
+        "expected keyword groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found SHOULD, MUST.",
+    },
+  ]);
 });
 
 test("related rule references cover inline FRR IDs in requirement text fields", () => {
