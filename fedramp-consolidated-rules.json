@@ -4880,6 +4880,48 @@
                 }
               ]
             },
+            "VDR-CSO-PVV": {
+              "name": "Persistent Verification and Validation",
+              "statement": "Providers MUST persistently verify and validate that their information resources are operating as intended; this process is called Persistent Verification and Validation (PVV) and is part of vulnerability detection.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification",
+                "Vulnerability",
+                "Vulnerability Detection"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-CSO-FAV": {
+              "name": "Failures Are Vulnerabilities",
+              "statement": "Providers MUST treat problems detected during persistent verification and validation as vulnerabilities, including failures of the verification and validation process it; FedRAMP Vulnerability Detection and Response rules MUST be followed for such findings.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "VDR-CSO-RES": {
               "name": "Vulnerability Response",
               "statement": "Providers MUST systematically, persistently, and promptly track, evaluate, monitor, mitigate, remediate, assess exploitation of, report, and otherwise manage all detected vulnerabilities within their cloud service offering; this process is called vulnerability response.",
@@ -5436,6 +5478,25 @@
               "timeframe_type": "days",
               "timeframe_num": 192,
               "terms": ["Accepted Vulnerability", "Provider", "Vulnerability"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-TFR-NMV": {
+              "name": "Non-Machine Verification and Validation",
+              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -6087,6 +6148,94 @@
               ]
             }
           }
+        },
+        "20x": {
+          "TFR": {
+            "VDR-TFR-PMV": {
+              "name": "Persistent Machine Verification and Validation",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of FedRAMP 20x Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers of FedRAMP 20x Class B offerings MUST verify and validate the status of machine-based information resources at least once every 7 days.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "days",
+                  "timeframe_num": 7
+                },
+                "c": {
+                  "statement": "Providers of FedRAMP 20x Class C offerings MUST verify and validate the status of machine-based information resources at least once every 3 days.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "days",
+                  "timeframe_num": 3
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
+        "rev5": {
+          "TFR": {
+            "VDR-TFR-PMV": {
+              "name": "Persistent Machine Verification and Validation",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers of FedRAMP Rev5 Class B offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers of FedRAMP Rev5 Class C offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "primary_key_word": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
         }
       }
     },
@@ -6515,67 +6664,6 @@
               "primary_key_word": "MUST NOT",
               "affects": ["Providers"],
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-PVV": {
-              "name": "Persistent Verification and Validation",
-              "statement": "Providers MUST persistently verify and validate that their information resources are operating as intended; this process is called Persistent Verification and Validation (PVV) and is part of vulnerability detection.",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-FAV": {
-              "name": "Failures Are Vulnerabilities",
-              "statement": "Providers MUST treat problems detected during persistent verification and validation as vulnerabilities, including failures of the verification and validation process it; FedRAMP Vulnerability Detection and Response rules MUST be followed for such findings.",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-NMV": {
-              "name": "Non-Machine Verification and Validation",
-              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -7036,43 +7124,6 @@
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
-            },
-            "FRC-CSX-PMV": {
-              "name": "Persistent Machine Verification and Validation",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of FedRAMP 20x Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "primary_key_word": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "b": {
-                  "statement": "Providers of FedRAMP 20x Class B offerings MUST verify and validate the status of machine-based information resources at least once every 7 days.",
-                  "primary_key_word": "MUST",
-                  "timeframe_type": "days",
-                  "timeframe_num": 7
-                },
-                "c": {
-                  "statement": "Providers of FedRAMP 20x Class C offerings MUST verify and validate the status of machine-based information resources at least once every 3 days.",
-                  "primary_key_word": "MUST",
-                  "timeframe_type": "days",
-                  "timeframe_num": 3
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
             }
           },
           "IAX": {
@@ -7153,49 +7204,6 @@
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": ["Agency", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSF-PMV": {
-              "name": "Persistent Machine Verification and Validation",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "primary_key_word": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "b": {
-                  "statement": "Providers of FedRAMP Rev5 Class B offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "primary_key_word": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "c": {
-                  "statement": "Providers of FedRAMP Rev5 Class C offerings MUST verify and validate the status of machine-based information resources at least once every month.",
-                  "primary_key_word": "MUST",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "d": {
-                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
-                  "primary_key_word": "MUST",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
               "updated": [
                 {
                   "date": "2026-05-04",
