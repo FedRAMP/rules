@@ -368,7 +368,8 @@
           "tag": "Vulnerability",
           "alts": [
             "fully mitigated vulnerability",
-            "fully mitigated vulnerabilities"
+            "fully mitigated vulnerabilities",
+            "fully mitigate vulnerabilities"
           ],
           "updated": [
             {
@@ -653,7 +654,8 @@
           "tag": "Vulnerability",
           "alts": [
             "partially mitigated vulnerability",
-            "partially mitigated vulnerabilities"
+            "partially mitigated vulnerabilities",
+            "partially mitigate vulnerabilities"
           ],
           "updated": [
             {
@@ -773,7 +775,11 @@
           "term": "Remediated Vulnerability",
           "definition": "A vulnerability that has been neutralized or eliminated and is no longer detected.",
           "tag": "Vulnerability",
-          "alts": ["remediated vulnerability", "remediated vulnerabilities"],
+          "alts": [
+            "remediated vulnerability",
+            "remediated vulnerabilities",
+            "remediate vulnerabilities"
+          ],
           "updated": [
             {
               "date": "2026-07-04",
@@ -6852,55 +6858,21 @@
           "CSO": {
             "VDR-CSO-DET": {
               "name": "Vulnerability Detection",
-              "statement": "Providers MUST systematically, persistently, and promptly discover and identify vulnerabilities within their cloud service offering using appropriate techniques such as assessment, scanning, threat intelligence, vulnerability disclosure mechanisms, bug bounties, supply chain monitoring, and other relevant capabilities; this process is called vulnerability detection.",
+              "statement": "Providers MUST systematically, persistently, and promptly discover and identify vulnerabilities within their cloud service offering using appropriate techniques such as assessment, scanning, threat intelligence, vulnerability disclosure mechanisms, bug bounties, penetration testing, incident response, automated control testing, supply chain monitoring, and other relevant capabilities; this process is called vulnerability detection. Vulnerability detection includes persistently verifying and validating that information resources and processes are operating as intended and documented for controls, Key Security Indicators, and FedRAMP Rules.",
+              "danger": "Vulnerability Detection and Response includes all efforts to identify weaknesses in a system and is NOT limited to traditional vulnerability scanning or testing. An out-of-date control statement in the Security Decision Record is a vulnerability that must be detected and remediated just like any other vulnerability.",
+              "notes": [
+                "FedRAMP's vulnerability detection (and response) rules are intended to set modern expectations for maintaining the security of a cloud service. Historical FedRAMP guidance on vulnerability scanning or continuous monitoring generally focused only on CVE-type vulnerabilities while leaving other types of vulnerabilities and exposures unaddressed.",
+                "Providers are encouraged to leverage their existing holistic security review, architecture review, and similar processes to meet these requirements. FedRAMP strongly discourages providers from implementing separate vulnerability detection and response processes for FedRAMP reporting that are operated by independent compliance branches unless these processes are consuming data directly from the areas of the cloud service that actively maintain it."
+              ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Cloud Service Offering",
+                "Incident",
+                "Information Resource",
                 "Persistently",
                 "Promptly",
                 "Provider",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VDR-CSO-PVV": {
-              "name": "Persistent Verification and Validation",
-              "statement": "Providers MUST persistently verify and validate that their information resources are operating as intended; this process is called Persistent Verification and Validation (PVV) and is part of vulnerability detection.",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VDR-CSO-FAV": {
-              "name": "Failures Are Vulnerabilities",
-              "statement": "Providers MUST treat problems detected during persistent verification and validation as vulnerabilities, including failures of the verification and validation process it; FedRAMP Vulnerability Detection and Response rules MUST be followed for such findings.",
-              "primary_key_word": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification",
                 "Vulnerability",
                 "Vulnerability Detection",
                 "Vulnerability Response"
@@ -6915,13 +6887,38 @@
             "VDR-CSO-RES": {
               "name": "Vulnerability Response",
               "statement": "Providers MUST systematically, persistently, and promptly track, evaluate, monitor, mitigate, remediate, assess exploitation of, report, and otherwise manage all detected vulnerabilities within their cloud service offering; this process is called vulnerability response.",
-              "note": "If it is not possible to fully mitigate or remediate detected vulnerabilities, providers SHOULD instead partially mitigate vulnerabilities promptly, progressively, and persistently.",
+              "notes": [
+                "If it is not possible to fully mitigate vulnerabilities or remediate vulnerabilities, providers SHOULD instead partially mitigate vulnerabilities promptly, progressively, and persistently.",
+                "FedRAMP does not use the terms \"mitigation\" and \"remediation\" interchangeably. Mitigation is the process of reducing the risk and impact of a vulnerability through partial mitigation and even full mitigation; remediation is the process of entirely eliminating the vulnerability. A fully mitigated vulnerability will still exist (with negligible risk) until it has been remediated. This separation is based on the plain language definitions of these words.",
+                "Please refer to FedRAMP Definitions for strict interpretation in the FedRAMP context."
+              ],
               "primary_key_word": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Cloud Service Offering",
+                "Fully Mitigated Vulnerability",
+                "Partially Mitigated Vulnerability",
                 "Persistently",
                 "Promptly",
+                "Provider",
+                "Remediated Vulnerability",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-CSO-FAV": {
+              "name": "Failures Are Vulnerabilities",
+              "statement": "Providers MUST treat problems or failures with their vulnerability detection and response processes as vulnerabilities.",
+              "primary_key_word": "MUST",
+              "affects": ["Providers"],
+              "terms": [
                 "Provider",
                 "Vulnerability",
                 "Vulnerability Detection",
@@ -7733,7 +7730,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -7808,7 +7805,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -7883,7 +7880,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -7958,7 +7955,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD partially mitigate, fully mitigate, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "primary_key_word": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -8036,9 +8033,12 @@
               "affects": ["Providers"],
               "terms": [
                 "Agency",
+                "Fully Mitigated Vulnerability",
                 "Likely",
+                "Partially Mitigated Vulnerability",
                 "Potential Agency Impact",
                 "Provider",
+                "Remediated Vulnerability",
                 "Vulnerability"
               ],
               "updated": [
@@ -8065,19 +8065,19 @@
               "name": "Internet-Reachable Incidents",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class A Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N3 or below.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class B Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N3 or below.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class C Certifications SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N3 or below.",
                   "primary_key_word": "SHOULD"
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated to N3 or below.",
+                  "statement": "Providers with Class D Certifications SHOULD treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N3 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
@@ -8088,6 +8088,7 @@
                 "Incident",
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
+                "Partially Mitigated Vulnerability",
                 "Potential Agency Impact",
                 "Provider",
                 "Vulnerability"
@@ -8103,19 +8104,19 @@
               "name": "Non-Internet-Reachable Incidents",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class A Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class B Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class C Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N4 or below.",
                   "primary_key_word": "MAY"
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated to N4 or below.",
+                  "statement": "Providers with Class D Certifications SHOULD treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N4 or below.",
                   "primary_key_word": "SHOULD"
                 }
               },
@@ -8126,6 +8127,7 @@
                 "Incident",
                 "Likely",
                 "Likely Exploitable Vulnerability (LEV)",
+                "Partially Mitigated Vulnerability",
                 "Potential Agency Impact",
                 "Provider",
                 "Vulnerability"
