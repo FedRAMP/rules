@@ -124,7 +124,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
               name: { type: "string" },
               statement: { type: "string" },
               related: { type: "array" },
-              primary_key_word: { type: "string" },
+              force: { type: "string" },
               affects: { type: "array" },
               terms: { type: "array" },
               updated: { type: "array" },
@@ -176,7 +176,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
           all: {
             CSO: {
               "MAS-CSX-TST": {
-                primary_key_word: "MUST",
+                force: "MUST",
                 statement:
                   "Providers MUST notify an agency and follow MAS-CSO-REF.",
                 related: ["MAS-CSO-OLD"],
@@ -188,7 +188,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
               "MAS-CSO-REF": {
                 name: "Referenced requirement",
                 statement: "Providers MUST retain the reference.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
                 terms: [],
                 updated: [],
@@ -196,7 +196,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
               "MAS-CSO-OLD": {
                 name: "Existing related requirement",
                 statement: "Providers MUST retain existing related entries.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
                 terms: [],
                 updated: [],
@@ -262,7 +262,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
     "name",
     "statement",
     "related",
-    "primary_key_word",
+    "force",
     "affects",
     "terms",
     "updated",
@@ -301,7 +301,7 @@ test("subset-affects fix synchronizes FRR subset applicability affects", () => {
               "ABC-FRP-AAA": {
                 name: "FedRAMP Rule",
                 statement: "FedRAMP MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["FedRAMP"],
               },
             },
@@ -311,7 +311,7 @@ test("subset-affects fix synchronizes FRR subset applicability affects", () => {
               "ABC-FRP-BBB": {
                 name: "Agency Rule",
                 statement: "Agencies MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Agencies"],
               },
             },
@@ -354,19 +354,19 @@ test("related fix adds detected rules without deleting existing related entries"
                 name: "Source Rule",
                 statement: "Providers MUST follow ABC-CSO-BBB.",
                 related: ["ABC-CSO-OLD"],
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Detected Rule",
                 statement: "Providers MUST do the detected thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-OLD": {
                 name: "Existing Rule",
                 statement: "Providers MUST do the existing thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -410,25 +410,25 @@ test("display names fix adds parenthesized rule names and repairs unparenthesize
                 statement:
                   "Providers MUST follow ABC-CSO-BBB and ABC-CSO-CCC Target Rule C.",
                 note: "ABC-CSO-DDD (Target Rule D) is already formatted.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the detected thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST do the repaired thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-DDD": {
                 name: "Target Rule D",
                 statement: "Providers MUST do the formatted thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },

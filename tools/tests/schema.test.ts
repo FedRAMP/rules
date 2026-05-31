@@ -11,7 +11,7 @@ import type { RulesDocument } from "../src/types";
 
 type MutableRuleEntity = Record<string, unknown> & {
   statement?: string;
-  primary_key_word?: string;
+  force?: string;
   varies_by_class?: Record<string, unknown>;
 };
 
@@ -86,7 +86,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function hasSingleRequirementStatement(entity: MutableRuleEntity): boolean {
   return (
     typeof entity.statement === "string" &&
-    typeof entity.primary_key_word === "string" &&
+    typeof entity.force === "string" &&
     !isRecord(entity.varies_by_class)
   );
 }
@@ -363,11 +363,11 @@ test("the schema rejects FRR requirements that mix top-level and class-specific 
   singleStatementRequirement.varies_by_class = {
     b: {
       statement: singleStatementRequirement.statement,
-      primary_key_word: singleStatementRequirement.primary_key_word,
+      force: singleStatementRequirement.force,
     },
     c: {
       statement: singleStatementRequirement.statement,
-      primary_key_word: singleStatementRequirement.primary_key_word,
+      force: singleStatementRequirement.force,
     },
   };
 

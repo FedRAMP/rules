@@ -26,7 +26,7 @@ export interface DefinitionEntry {
 export interface RequirementLevel {
   statement?: string;
   following_information?: string[];
-  primary_key_word?: string;
+  force?: string;
   timeframe_type?: string;
   timeframe_num?: number;
   pain_timeframes?: PainTimeframes;
@@ -50,7 +50,7 @@ export interface RequirementLike {
   fka?: string;
   fkas?: string[];
   statement?: string;
-  primary_key_word?: string;
+  force?: string;
   note?: string;
   notes?: string[];
   following_information?: string[];

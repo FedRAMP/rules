@@ -1,6 +1,6 @@
 import {
   collectConsistencyChecks,
-  collectFrrSubsetPrimaryKeywordOrderWarnings,
+  collectFrrSubsetForceOrderWarnings,
   type ConsistencyCheck,
   type ConsistencyIssue,
 } from "./src/consistency";
@@ -113,11 +113,11 @@ function formatMetadataFreshnessWarningSummary(
   ].join("\n");
 }
 
-function formatFrrSubsetPrimaryKeywordOrderWarningSummary(
+function formatFrrSubsetForceOrderWarningSummary(
   warnings: ConsistencyIssue[],
 ): string {
   return [
-    color("FRR subset primary keyword order warning", `${BOLD}${YELLOW}`),
+    color("FRR subset force order warning", `${BOLD}${YELLOW}`),
     ...warnings.map(
       (warning) => `  - ${formatPath(warning.location)}: ${warning.message}`,
     ),
@@ -137,8 +137,8 @@ const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
   rulesDocument,
   latestCommitMetadata(),
 );
-const frrSubsetPrimaryKeywordOrderWarnings =
-  collectFrrSubsetPrimaryKeywordOrderWarnings(rulesDocument);
+const frrSubsetForceOrderWarnings =
+  collectFrrSubsetForceOrderWarnings(rulesDocument);
 const consistencyChecks = collectConsistencyChecks(rulesDocument);
 const consistencyFailed = consistencyChecks.some(
   (check) => check.issues.length > 0,
@@ -158,10 +158,10 @@ if (metadataFreshnessWarnings.length > 0) {
   );
 }
 
-if (frrSubsetPrimaryKeywordOrderWarnings.length > 0) {
+if (frrSubsetForceOrderWarnings.length > 0) {
   console.warn(
-    `\n${color("-----", DIM)}\n\n${formatFrrSubsetPrimaryKeywordOrderWarningSummary(
-      frrSubsetPrimaryKeywordOrderWarnings,
+    `\n${color("-----", DIM)}\n\n${formatFrrSubsetForceOrderWarningSummary(
+      frrSubsetForceOrderWarnings,
     )}\n`,
   );
 }

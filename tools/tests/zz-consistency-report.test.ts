@@ -3,7 +3,7 @@ import { expect, test } from "bun:test";
 import {
   collectConsistencyChecks,
   collectFrr20xSubsetApplicabilityWarnings,
-  collectFrrSubsetPrimaryKeywordOrderWarnings,
+  collectFrrSubsetForceOrderWarnings,
   collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
   collectInlineRuleDisplayNameIssues,
@@ -84,7 +84,7 @@ test("FRR subset applicability affects match corresponding requirement affects",
               "ABC-FRP-AAA": {
                 name: "FedRAMP Rule",
                 statement: "FedRAMP MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["FedRAMP"],
               },
             },
@@ -94,7 +94,7 @@ test("FRR subset applicability affects match corresponding requirement affects",
               "ABC-FRP-BBB": {
                 name: "Agency Rule",
                 statement: "Agencies MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Agencies"],
               },
             },
@@ -145,7 +145,7 @@ test("FRR subset applicability affects require a populated affects array when ru
               "ABC-FRP-AAA": {
                 name: "FedRAMP Rule",
                 statement: "FedRAMP MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["FedRAMP"],
               },
             },
@@ -207,7 +207,7 @@ test("X-suffix FRR subsets warn unless they are 20x Program only", () => {
   expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([]);
 });
 
-test("FRR subset primary keyword order warnings detect out-of-order groups", () => {
+test("FRR subset force order warnings detect out-of-order groups", () => {
   const document = {
     FRR: {
       ABC: {
@@ -222,19 +222,19 @@ test("FRR subset primary keyword order warnings detect out-of-order groups", () 
               "ABC-CSO-001": {
                 name: "Must Rule",
                 statement: "Providers MUST do the first thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-002": {
                 name: "Should Rule",
                 statement: "Providers SHOULD do the second thing.",
-                primary_key_word: "SHOULD",
+                force: "SHOULD",
                 affects: ["Providers"],
               },
               "ABC-CSO-003": {
                 name: "Must Not Rule",
                 statement: "Providers MUST NOT do the third thing.",
-                primary_key_word: "MUST NOT",
+                force: "MUST NOT",
                 affects: ["Providers"],
               },
             },
@@ -244,11 +244,11 @@ test("FRR subset primary keyword order warnings detect out-of-order groups", () 
     },
   } as unknown as RulesDocument;
 
-  expect(collectFrrSubsetPrimaryKeywordOrderWarnings(document)).toEqual([
+  expect(collectFrrSubsetForceOrderWarnings(document)).toEqual([
     {
       location: "FRR.ABC.data.all.CSO",
       message:
-        "expected keyword groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found MUST, SHOULD, MUST NOT.",
+        "expected force groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found MUST, SHOULD, MUST NOT.",
     },
   ]);
 
@@ -257,10 +257,10 @@ test("FRR subset primary keyword order warnings detect out-of-order groups", () 
   delete orderedRequirements["ABC-CSO-002"];
   orderedRequirements["ABC-CSO-002"] = shouldRequirement;
 
-  expect(collectFrrSubsetPrimaryKeywordOrderWarnings(document)).toEqual([]);
+  expect(collectFrrSubsetForceOrderWarnings(document)).toEqual([]);
 });
 
-test("FRR subset primary keyword order warnings use class-specific keywords", () => {
+test("FRR subset force order warnings use class-specific force values", () => {
   const document = {
     FRR: {
       ABC: {
@@ -277,7 +277,7 @@ test("FRR subset primary keyword order warnings use class-specific keywords", ()
                 varies_by_class: {
                   a: {
                     statement: "Class A providers SHOULD do the first thing.",
-                    primary_key_word: "SHOULD",
+                    force: "SHOULD",
                   },
                 },
                 affects: ["Providers"],
@@ -287,7 +287,7 @@ test("FRR subset primary keyword order warnings use class-specific keywords", ()
                 varies_by_class: {
                   a: {
                     statement: "Class A providers MUST do the second thing.",
-                    primary_key_word: "MUST",
+                    force: "MUST",
                   },
                 },
                 affects: ["Providers"],
@@ -299,11 +299,11 @@ test("FRR subset primary keyword order warnings use class-specific keywords", ()
     },
   } as unknown as RulesDocument;
 
-  expect(collectFrrSubsetPrimaryKeywordOrderWarnings(document)).toEqual([
+  expect(collectFrrSubsetForceOrderWarnings(document)).toEqual([
     {
       location: "FRR.ABC.data.all.CSO",
       message:
-        "expected keyword groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found SHOULD, MUST.",
+        "expected force groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found SHOULD, MUST.",
     },
   ]);
 });
@@ -327,43 +327,43 @@ test("related rule references cover inline FRR IDs in requirement text fields", 
                 following_information_bullets: [
                   "Escalate when ABC-CSO-FFF applies.",
                 ],
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST do the other thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-DDD": {
                 name: "Target Rule D",
                 statement: "Providers MUST do the final thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-EEE": {
                 name: "Target Rule E",
                 statement: "Providers MUST document the outcome.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-FFF": {
                 name: "Target Rule F",
                 statement: "Providers MUST escalate the outcome.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-GGG": {
                 name: "Target Rule G",
                 statement: "Providers MUST preserve the outcome.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -444,11 +444,11 @@ test("related rule references cover class-specific statements and following info
                     statement:
                       "Providers with Class B MUST follow ABC-CSO-BBB.",
                     following_information: ["Document ABC-CSO-CCC evidence."],
-                    primary_key_word: "MUST",
+                    force: "MUST",
                   },
                   c: {
                     statement: "Providers with Class C MUST do the thing.",
-                    primary_key_word: "MUST",
+                    force: "MUST",
                   },
                 },
                 related: ["ABC-CSO-BBB"],
@@ -457,13 +457,13 @@ test("related rule references cover class-specific statements and following info
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST document the evidence.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -494,13 +494,13 @@ test("related rule references reject IDs that are not mentioned anywhere", () =>
                 name: "Source Rule",
                 statement: "Providers MUST do the source thing.",
                 related: ["ABC-CSO-BBB"],
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Unmentioned Rule",
                 statement: "Providers MUST do the unmentioned thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -532,25 +532,25 @@ test("inline rule IDs are followed by their rule names in parentheses", () => {
                 statement:
                   "Providers MUST use ABC-CSO-BBB and ABC-CSO-CCC Target Rule C.",
                 note: "ABC-CSO-DDD (Target Rule D) is already formatted.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the missing-name thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST do the unparenthesized-name thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-DDD": {
                 name: "Target Rule D",
                 statement: "Providers MUST do the correctly formatted thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },

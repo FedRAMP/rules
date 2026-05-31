@@ -73,16 +73,16 @@ const ALLOWED_TIMEFRAME_TYPES = [
   "months",
   "years",
 ] as const;
-const PRIMARY_KEYWORD_ORDER = [
+const FORCE_ORDER = [
   "MUST",
   "MUST NOT",
   "SHOULD",
   "SHOULD NOT",
   "MAY",
 ] as const;
-const PRIMARY_KEYWORD_ORDER_INDEX = new Map<string, number>(
-  PRIMARY_KEYWORD_ORDER.map((keyword, index): [string, number] => [
-    keyword,
+const FORCE_ORDER_INDEX = new Map<string, number>(
+  FORCE_ORDER.map((force, index): [string, number] => [
+    force,
     index,
   ]),
 );
@@ -673,13 +673,13 @@ function formatValues(values: string[] | null): string {
   return values.join(", ");
 }
 
-function getPrimaryKeywordOrderIndex(keyword: string): number | null {
-  return PRIMARY_KEYWORD_ORDER_INDEX.get(keyword) ?? null;
+function getForceOrderIndex(force: string): number | null {
+  return FORCE_ORDER_INDEX.get(force) ?? null;
 }
 
-function comparePrimaryKeywords(left: string, right: string): number {
-  const leftIndex = getPrimaryKeywordOrderIndex(left);
-  const rightIndex = getPrimaryKeywordOrderIndex(right);
+function compareForces(left: string, right: string): number {
+  const leftIndex = getForceOrderIndex(left);
+  const rightIndex = getForceOrderIndex(right);
 
   if (leftIndex === null && rightIndex === null) {
     return left.localeCompare(right);
@@ -696,37 +696,37 @@ function comparePrimaryKeywords(left: string, right: string): number {
     : leftIndex - rightIndex;
 }
 
-function getRequirementOrderingKeyword(
+function getRequirementOrderingForce(
   requirement: Requirement,
 ): string | null {
-  if (typeof requirement.primary_key_word === "string") {
-    return requirement.primary_key_word;
+  if (typeof requirement.force === "string") {
+    return requirement.force;
   }
 
-  const classKeywords = CLASS_KEYS.map(
-    (classKey) => requirement.varies_by_class?.[classKey]?.primary_key_word,
-  ).filter((keyword): keyword is string => typeof keyword === "string");
+  const classForces = CLASS_KEYS.map(
+    (classKey) => requirement.varies_by_class?.[classKey]?.force,
+  ).filter((force): force is string => typeof force === "string");
 
-  return classKeywords.sort(comparePrimaryKeywords)[0] ?? null;
+  return classForces.sort(compareForces)[0] ?? null;
 }
 
-function getKeywordRuns(keywords: string[]): string[] {
+function getForceRuns(forces: string[]): string[] {
   const runs: string[] = [];
 
-  for (const keyword of keywords) {
-    if (runs[runs.length - 1] !== keyword) {
-      runs.push(keyword);
+  for (const force of forces) {
+    if (runs[runs.length - 1] !== force) {
+      runs.push(force);
     }
   }
 
   return runs;
 }
 
-function isPrimaryKeywordOrderOutOfOrder(keywords: string[]): boolean {
+function isForceOrderOutOfOrder(forces: string[]): boolean {
   let highestSeenIndex = -1;
 
-  for (const keyword of keywords) {
-    const index = getPrimaryKeywordOrderIndex(keyword);
+  for (const force of forces) {
+    const index = getForceOrderIndex(force);
     if (index === null) {
       continue;
     }
@@ -741,7 +741,7 @@ function isPrimaryKeywordOrderOutOfOrder(keywords: string[]): boolean {
   return false;
 }
 
-export function collectFrrSubsetPrimaryKeywordOrderWarnings(
+export function collectFrrSubsetForceOrderWarnings(
   document: RulesDocument,
 ): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
@@ -761,17 +761,17 @@ export function collectFrrSubsetPrimaryKeywordOrderWarnings(
       }
       checkedLocations.add(location);
 
-      const keywords = Object.values(subsetRequirements)
-        .map(getRequirementOrderingKeyword)
-        .filter((keyword): keyword is string => typeof keyword === "string");
-      if (keywords.length < 2 || !isPrimaryKeywordOrderOutOfOrder(keywords)) {
+      const forces = Object.values(subsetRequirements)
+        .map(getRequirementOrderingForce)
+        .filter((force): force is string => typeof force === "string");
+      if (forces.length < 2 || !isForceOrderOutOfOrder(forces)) {
         continue;
       }
 
       issues.push(
         issue(
           location,
-          `expected keyword groups ${joinAllowed(PRIMARY_KEYWORD_ORDER)}; found ${formatValues(getKeywordRuns(keywords))}.`,
+          `expected force groups ${joinAllowed(FORCE_ORDER)}; found ${formatValues(getForceRuns(forces))}.`,
         ),
       );
     }

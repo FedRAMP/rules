@@ -6,18 +6,18 @@ const KEYWORD_REGEX = new RegExp(`\\b(${KEYWORDS.join("|")})\\b`);
 const CLASS_KEYS = ["a", "b", "c", "d"] as const;
 
 function validateRequirementObject(
-  obj: { statement?: string; primary_key_word?: string } | undefined,
+  obj: { statement?: string; force?: string } | undefined,
   id: string,
   location: string,
 ): ValidationIssue[] {
-  if (!obj?.statement || !obj.primary_key_word) {
+  if (!obj?.statement || !obj.force) {
     return [];
   }
 
   const match = obj.statement.match(KEYWORD_REGEX);
   const extracted = match?.[0] ?? "NO KEYWORD FOUND";
 
-  if (extracted === obj.primary_key_word) {
+  if (extracted === obj.force) {
     return [];
   }
 
@@ -25,12 +25,12 @@ function validateRequirementObject(
     {
       id,
       location,
-      message: `statement keyword is "${extracted}" but primary_key_word is "${obj.primary_key_word}"`,
+      message: `statement keyword is "${extracted}" but force is "${obj.force}"`,
     },
   ];
 }
 
-export function findPrimaryKeywordIssues(document: RulesDocument): ValidationIssue[] {
+export function findForceIssues(document: RulesDocument): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
 
   visitRequirements(document, ({ id, location, requirement }) => {

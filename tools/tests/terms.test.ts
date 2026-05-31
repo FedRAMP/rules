@@ -104,7 +104,7 @@ test("term sync updates terms without appending to updated history by default", 
                 name: "Test requirement",
                 affects: ["Providers"],
                 statement: "Providers MUST notify an agency.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 terms: [],
                 updated: [
                   {
@@ -163,7 +163,7 @@ test("term sync prepends an updated entry when comment mode is enabled", () => {
                 name: "Test requirement",
                 affects: ["Providers"],
                 statement: "Providers MUST notify an agency.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 terms: [],
                 updated: [
                   {
@@ -225,7 +225,7 @@ test("term sync appends to an existing comment when comment mode is enabled and 
                 name: "Test requirement",
                 affects: ["Providers"],
                 statement: "Providers MUST notify an agency.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 terms: [],
                 updated: [
                   {

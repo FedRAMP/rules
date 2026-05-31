@@ -19,6 +19,22 @@ source of truth for the FedRAMP Consolidated Rules for 2026 Public Preview.
 [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
 is the source of truth for the expected data shape.
 
+## Rules JSON Edit Guardrail
+
+Do not modify
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) unless the
+user specifically instructs you to edit that file.
+
+If a task appears to require changing
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json), stop before
+editing it. Propose a concise plan that identifies the specific rule,
+definition, indicator, metadata, or structural paths you intend to change, then
+wait for the user's explicit confirmation before making those edits.
+
+Analysis, validation, structured reads, and reports may use
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) without
+additional permission. The guardrail applies to file modifications.
+
 ## Dataset Structure
 
 The JSON file has four top-level sections:
@@ -79,8 +95,8 @@ scopes, or process buckets. Requirement IDs follow the
 
 Each requirement contains either:
 
-- a single `statement` and `primary_key_word`, or
-- a `varies_by_class` object with class-specific statements and keywords.
+- a single `statement` and `force`, or
+- a `varies_by_class` object with class-specific statements and force values.
 
 Class-specific variants may also include `following_information`, `artifacts`,
 notes, effective dates, simple timeframes, and `pain_timeframes`.

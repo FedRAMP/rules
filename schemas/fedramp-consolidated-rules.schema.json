@@ -445,8 +445,8 @@
       "required": ["name", "affects"],
       "oneOf": [
         {
-          "properties": { "statement": {}, "primary_key_word": {} },
-          "required": ["statement", "primary_key_word"],
+          "properties": { "statement": {}, "force": {} },
+          "required": ["statement", "force"],
           "not": {
             "properties": { "varies_by_class": {} },
             "required": ["varies_by_class"]
@@ -462,8 +462,8 @@
                 "required": ["statement"]
               },
               {
-                "properties": { "primary_key_word": {} },
-                "required": ["primary_key_word"]
+                "properties": { "force": {} },
+                "required": ["force"]
               }
             ]
           }
@@ -510,8 +510,8 @@
           "type": "array",
           "items": { "type": "string" }
         },
-        "primary_key_word": {
-          "$ref": "#/$defs/primary_key_word_enum"
+        "force": {
+          "$ref": "#/$defs/force_enum"
         },
         "affects": { "type": "array", "items": { "type": "string" } },
         "artifacts": { "$ref": "#/$defs/artifacts" },
@@ -555,14 +555,14 @@
     },
     "frr_requirement_level": {
       "type": "object",
-      "required": ["primary_key_word", "statement"],
+      "required": ["force", "statement"],
       "properties": {
         "statement": { "type": "string" },
         "following_information": {
           "type": "array",
           "items": { "type": "string" }
         },
-        "primary_key_word": { "$ref": "#/$defs/primary_key_word_enum" },
+        "force": { "$ref": "#/$defs/force_enum" },
         "effective_date": { "$ref": "#/$defs/effective_dates" },
         "timeframe_type": { "type": "string" },
         "timeframe_num": { "type": "number" },
@@ -684,9 +684,9 @@
       "type": "array",
       "items": { "type": "string" }
     },
-    "primary_key_word_enum": {
+    "force_enum": {
       "type": "string",
-      "description": "Defines the primary keyword for a requirement or indicator, indicating its strength.",
+      "description": "Defines the force of a requirement or indicator.",
       "enum": ["MUST", "SHOULD", "MAY", "MUST NOT", "SHOULD NOT"]
     },
     "updated_list": {

@@ -86,8 +86,8 @@ function statementForClass(req: Requirement, classKey: (typeof CLASS_KEYS)[numbe
   return req.varies_by_class?.[classKey]?.statement ?? "";
 }
 
-function pkwForClass(req: Requirement, classKey: (typeof CLASS_KEYS)[number]): string {
-  return req.varies_by_class?.[classKey]?.primary_key_word ?? "";
+function forceForClass(req: Requirement, classKey: (typeof CLASS_KEYS)[number]): string {
+  return req.varies_by_class?.[classKey]?.force ?? "";
 }
 
 function buildFrrRows(document: RulesDocument) {
@@ -106,15 +106,15 @@ function buildFrrRows(document: RulesDocument) {
             Subset: subsetKey,
             Name: req.name,
             Statement: req.statement ?? "",
-            "Primary Keyword": req.primary_key_word ?? "",
+            Force: req.force ?? "",
             "Statement (Class A)": hasVariants ? statementForClass(req, "a") : "",
-            "Keyword (Class A)": hasVariants ? pkwForClass(req, "a") : "",
+            "Force (Class A)": hasVariants ? forceForClass(req, "a") : "",
             "Statement (Class B)": hasVariants ? statementForClass(req, "b") : "",
-            "Keyword (Class B)": hasVariants ? pkwForClass(req, "b") : "",
+            "Force (Class B)": hasVariants ? forceForClass(req, "b") : "",
             "Statement (Class C)": hasVariants ? statementForClass(req, "c") : "",
-            "Keyword (Class C)": hasVariants ? pkwForClass(req, "c") : "",
+            "Force (Class C)": hasVariants ? forceForClass(req, "c") : "",
             "Statement (Class D)": hasVariants ? statementForClass(req, "d") : "",
-            "Keyword (Class D)": hasVariants ? pkwForClass(req, "d") : "",
+            "Force (Class D)": hasVariants ? forceForClass(req, "d") : "",
             "Following Information": joinList(req.following_information),
             Note: req.note ?? joinList(req.notes),
             Affects: joinList(req.affects),

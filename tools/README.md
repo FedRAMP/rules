@@ -61,14 +61,14 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 - ID alignment
 - FRD, FRR, and KSI container alignment
 - FRR subset declaration consistency
-- primary keyword consistency
+- force consistency
 - term casing and synchronization
 - schema-driven property ordering
 - alphabetical FRR and KSI primary object ordering
 - update history checks
 - text hygiene
 - class-variant sanity checks
-- FRR subset primary-keyword ordering warnings
+- FRR subset force ordering warnings
 - controlled vocabulary consistency
 - internal cross-reference integrity
 - fix planning and application behavior
@@ -116,7 +116,7 @@ Focused test aliases:
 - `bun run test:schema`
 - `bun run test:schema-validation`
 - `bun run test:ids`
-- `bun run test:keywords`
+- `bun run test:force`
 - `bun run test:terms`
 - `bun run test:order`
 - `bun run test:consistency`
@@ -164,7 +164,7 @@ Shared implementation:
 - [src/id-alignment.ts](src/id-alignment.ts)
   ID alignment detection and rewrite logic.
 - [src/keywords.ts](src/keywords.ts)
-  Primary-keyword detection logic.
+  Force consistency logic.
 - [src/terms.ts](src/terms.ts)
   Term extraction, casing, and synchronization logic.
 - [src/property-order.ts](src/property-order.ts)
