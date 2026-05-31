@@ -126,6 +126,14 @@ export function collectConsistencyChecks(
 ): ConsistencyCheck[] {
   return [
     {
+      title: "Unique rule IDs",
+      issues: collectDuplicateRuleIdIssues(document),
+    },
+    {
+      title: "Unique rule names",
+      issues: collectDuplicateRuleNameIssues(document),
+    },
+    {
       title: "Full ID alignment",
       issues: collectFullIdAlignmentIssues(document),
     },
@@ -329,6 +337,91 @@ function collectDefinitionEntries(document: RulesDocument): Array<{
   }
 
   return entries;
+}
+
+function collectDuplicateIdIssues(
+  label: string,
+  entries: Array<{ id: string; location: string }>,
+): ConsistencyIssue[] {
+  const locationsById = new Map<string, string[]>();
+
+  for (const entry of entries) {
+    locationsById.set(entry.id, [
+      ...(locationsById.get(entry.id) ?? []),
+      entry.location,
+    ]);
+  }
+
+  return [...locationsById.entries()]
+    .filter(([, locations]) => locations.length > 1)
+    .map(([id, locations]) =>
+      issue(
+        locations[0] ?? label,
+        `${label} ID ${id} appears in multiple locations: ${locations.join(", ")}.`,
+      ),
+    )
+    .sort((left, right) => left.message.localeCompare(right.message));
+}
+
+export function collectDuplicateRuleIdIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  return [
+    ...collectDuplicateIdIssues(
+      "definition",
+      collectDefinitionEntries(document),
+    ),
+    ...collectDuplicateIdIssues(
+      "requirement",
+      collectRequirementEntries(document),
+    ),
+    ...collectDuplicateIdIssues("indicator", collectIndicatorEntries(document)),
+  ];
+}
+
+function collectDuplicateNameIssues(
+  label: string,
+  entries: Array<{ name: string; location: string }>,
+): ConsistencyIssue[] {
+  const locationsByName = new Map<string, string[]>();
+
+  for (const entry of entries) {
+    locationsByName.set(entry.name, [
+      ...(locationsByName.get(entry.name) ?? []),
+      entry.location,
+    ]);
+  }
+
+  return [...locationsByName.entries()]
+    .filter(([, locations]) => locations.length > 1)
+    .map(([name, locations]) =>
+      issue(
+        locations[0] ?? label,
+        `${label} name "${name}" appears in multiple locations: ${locations.join(", ")}.`,
+      ),
+    )
+    .sort((left, right) => left.message.localeCompare(right.message));
+}
+
+export function collectDuplicateRuleNameIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  return [
+    ...collectDuplicateNameIssues(
+      "requirement",
+      collectRequirementEntries(document).map((entry) => ({
+        name: entry.requirement.name,
+        location: entry.location,
+      })),
+    ),
+    ...collectDuplicateNameIssues(
+      "indicator",
+      collectIndicatorEntries(document).map((entry) => ({
+        name: entry.indicator.name,
+        location: entry.location,
+      })),
+    ),
+  ];
 }
 
 function walkJson(

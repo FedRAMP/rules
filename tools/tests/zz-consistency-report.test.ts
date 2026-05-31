@@ -2,6 +2,8 @@ import { expect, test } from "bun:test";
 
 import {
   collectConsistencyChecks,
+  collectDuplicateRuleIdIssues,
+  collectDuplicateRuleNameIssues,
   collectFrr20xSubsetApplicabilityWarnings,
   collectFrrSubsetForceOrderWarnings,
   collectFrrSubsetApplicabilityAffectsIssues,
@@ -19,6 +21,94 @@ test("consistency validation report", () => {
   if (checks.some((check) => check.issues.length > 0)) {
     throw new Error(formatConsistencyReport(checks));
   }
+});
+
+test("duplicate rule IDs fail consistency validation", () => {
+  const document = {
+    FRD: {
+      data: {
+        all: {},
+      },
+    },
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Common Rule",
+                statement: "Providers MUST do the thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+          rev5: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Rev5 Rule",
+                statement: "Providers MUST do the other thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectDuplicateRuleIdIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-001",
+      message:
+        "requirement ID ABC-CSO-001 appears in multiple locations: " +
+        "FRR.ABC.data.all.CSO.ABC-CSO-001, FRR.ABC.data.rev5.CSO.ABC-CSO-001.",
+    },
+  ]);
+});
+
+test("duplicate rule names fail consistency validation", () => {
+  const document = {
+    FRD: {
+      data: {
+        all: {},
+      },
+    },
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Shared Rule Name",
+                statement: "Providers MUST do the thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-002": {
+                name: "Shared Rule Name",
+                statement: "Providers MUST do the other thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectDuplicateRuleNameIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-001",
+      message:
+        'requirement name "Shared Rule Name" appears in multiple locations: ' +
+        "FRR.ABC.data.all.CSO.ABC-CSO-001, FRR.ABC.data.all.CSO.ABC-CSO-002.",
+    },
+  ]);
 });
 
 test("FRR subset declarations include certification-specific info subsets", () => {

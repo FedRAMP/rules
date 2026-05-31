@@ -1249,7 +1249,7 @@
               ]
             },
             "AGU-USE-NFC": {
-              "name": "Notify FedRAMP of Concerns",
+              "name": "Notify FedRAMP of Monitoring Concerns",
               "statement": "Agencies MUST notify FedRAMP if information presented in an Ongoing Authorization Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
               "note": "Agencies are expected to notify FedRAMP under OMB Memorandum M-24-15 section IV (a).",
               "force": "MUST",
@@ -1449,34 +1449,6 @@
                 }
               ]
             },
-            "CCM-AGM-NFR": {
-              "name": "Notify FedRAMP of Concerns",
-              "statement": "Agencies MUST notify FedRAMP by sending an email to info@fedramp.gov if the information presented in an Ongoing Certification Report, Quarterly Review, or other ongoing FedRAMP Certification Data causes significant concerns that may lead the agency to stop operation of the cloud service offering.",
-              "note": "Agencies are required to notify FedRAMP by OMB Memorandum M-24-15 section IV (a).",
-              "force": "MUST",
-              "affects": ["Agencies"],
-              "notification": [
-                {
-                  "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
-                }
-              ],
-              "terms": [
-                "Agency",
-                "Certification Data",
-                "Cloud Service Offering",
-                "Ongoing Certification",
-                "Ongoing Certification Report (OCR)",
-                "Quarterly Review"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "CCM-AGM-NFA": {
               "name": "Notify FedRAMP After Requests",
               "statement": "Agencies MUST notify FedRAMP after requesting any additional information or materials from a cloud service provider beyond those FedRAMP requires by sending an email to info@fedramp.gov.",
@@ -1529,34 +1501,6 @@
                 "Ongoing Certification",
                 "Quarterly Review",
                 "Security Category"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "CCM-AGM-NPC": {
-              "name": "Notify Provider of Concerns",
-              "statement": "Agencies SHOULD formally notify the provider if the information presented in an Ongoing Certification Report, Quarterly Review, or other ongoing FedRAMP Certification Data causes significant concerns that may lead the agency to remove the cloud service offering from operation.",
-              "force": "SHOULD",
-              "affects": ["Agencies"],
-              "notification": [
-                {
-                  "party": "Provider",
-                  "method": "email",
-                  "target": "security-email"
-                }
-              ],
-              "terms": [
-                "Agency",
-                "Certification Data",
-                "Cloud Service Offering",
-                "Ongoing Certification",
-                "Ongoing Certification Report (OCR)",
-                "Provider",
-                "Quarterly Review"
               ],
               "updated": [
                 {
@@ -1698,7 +1642,7 @@
               ]
             },
             "CCM-OCR-RPS": {
-              "name": "Responsible Public Sharing",
+              "name": "Responsible Public Certification Report Sharing",
               "statement": "Providers MAY responsibly supply some or all of the information an Ongoing Certification Report to the public or other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "force": "MAY",
               "affects": ["Providers"],
@@ -2275,7 +2219,7 @@
               ]
             },
             "CDS-CSO-RPS": {
-              "name": "Responsible Public Sharing",
+              "name": "Responsible Public Package Sharing",
               "statement": "Providers MAY responsibly share some or all of the information in a FedRAMP Certification Package publicly or with other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "force": "MAY",
               "affects": ["Providers"],
@@ -2371,7 +2315,7 @@
               ]
             },
             "CDS-TRC-HMR": {
-              "name": "Human and Machine-Readable",
+              "name": "Human and Machine-Readable Certification Data",
               "statement": "Trust centers SHOULD make FedRAMP Certification Data available to view and download in both human-readable and machine-readable formats.",
               "force": "SHOULD",
               "affects": ["Providers"],
@@ -2412,7 +2356,7 @@
           },
           "UTC": {
             "CDS-UTC-PGD": {
-              "name": "Public Guidance",
+              "name": "Public Guidance for Certification Data",
               "statement": "Providers MUST publicly provide plain-language policies and guidance for all necessary parties that explains how they can obtain and manage access to FedRAMP Certification Data stored in the trust center.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -3250,7 +3194,7 @@
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
                 "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
-                "Certification Data Sharing: CDS-UTC-PGD (Public Guidance)",
+                "Certification Data Sharing: CDS-UTC-PGD (Public Guidance for Certification Data)",
                 "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
                 "FedRAMP Security Inbox: FSI-CSO-INB (Maintain a FedRAMP Security Inbox)",
                 "FedRAMP Security Inbox: FSI-CSO-RCV (Receive Email Without Disruption)",
@@ -5883,7 +5827,7 @@
               ]
             },
             "SCG-CSO-PUB": {
-              "name": "Public Guidance",
+              "name": "Public Secure Configuration Guidance",
               "statement": "Providers SHOULD make the Secure Configuration Guide available publicly.",
               "force": "SHOULD",
               "affects": ["Providers"],
@@ -6186,7 +6130,7 @@
               ]
             },
             "SCN-CSO-HRM": {
-              "name": "Human and Machine-Readable",
+              "name": "Human and Machine-Readable Notifications",
               "statement": "Providers MUST make ALL Significant Change Notifications and related audit records available in human-readable and machine-readable formats.",
               "note": "During the SCN beta, many cloud service providers met this requirement by using carefully structured and organized csv files to meet human-readable and machine-readable requirements simultaneously.",
               "force": "MUST",
@@ -8143,8 +8087,8 @@
         },
         "20x": {
           "TFR": {
-            "VDR-TFR-PMV": {
-              "name": "Persistent Machine Verification and Validation",
+            "VDR-TFR-MVX": {
+              "name": "Persistent Machine Verification and Validation for 20x",
               "varies_by_class": {
                 "a": {
                   "statement": "Providers of FedRAMP 20x Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
@@ -8184,8 +8128,8 @@
         },
         "rev5": {
           "TFR": {
-            "VDR-TFR-PMV": {
-              "name": "Persistent Machine Verification and Validation",
+            "VDR-TFR-MVF": {
+              "name": "Persistent Machine Verification and Validation for Rev5",
               "varies_by_class": {
                 "a": {
                   "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
