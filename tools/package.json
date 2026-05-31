@@ -12,7 +12,7 @@
     "test:schema": "bun test tests/schema.test.ts",
     "test:schema-validation": "bun test tests/schema-validation.test.ts",
     "test:ids": "bun test tests/id-alignment.test.ts",
-    "test:keywords": "bun test tests/primary-keywords.test.ts",
+    "test:force": "bun test tests/force.test.ts",
     "test:terms": "bun test tests/terms.test.ts",
     "test:order": "bun test tests/property-order.test.ts",
     "test:consistency": "bun test tests/zz-consistency-report.test.ts",
@@ -21,6 +21,7 @@
     "fix:order": "bun run fix -- --scope order",
     "fix:related": "bun run fix -- --scope related",
     "fix:display-names": "bun run fix -- --scope display-names",
+    "fix:subset-affects": "bun run fix -- --scope subset-affects",
     "hooks:install": "sh ./install-git-hooks.sh",
     "export": "bun run export-spreadsheet.ts"
   },

@@ -2,6 +2,7 @@ import { visitIndicators, visitRequirements } from "./traversal";
 import type {
   ClassKey,
   DefinitionEntry,
+  FrrSubsetDefinition,
   KsiIndicator,
   Requirement,
   RequirementLike,
@@ -53,6 +54,8 @@ const ALLOWED_AFFECTS = [
   "FedRAMP",
   "Providers",
 ] as const;
+const ALLOWED_SUBSET_APPLICABILITY_TYPES = ["20x", "Rev5"] as const;
+const ALLOWED_SUBSET_APPLICABILITY_PATHS = ["Program", "Agency"] as const;
 const ALLOWED_NOTIFICATION_METHODS = ["email", "update", "web"] as const;
 const ALLOWED_NOTIFICATION_PARTIES = [
   "FedRAMP",
@@ -70,6 +73,19 @@ const ALLOWED_TIMEFRAME_TYPES = [
   "months",
   "years",
 ] as const;
+const FORCE_ORDER = [
+  "MUST",
+  "MUST NOT",
+  "SHOULD",
+  "SHOULD NOT",
+  "MAY",
+] as const;
+const FORCE_ORDER_INDEX = new Map<string, number>(
+  FORCE_ORDER.map((force, index): [string, number] => [
+    force,
+    index,
+  ]),
+);
 
 export function formatConsistencyIssues(
   title: string,
@@ -110,12 +126,28 @@ export function collectConsistencyChecks(
 ): ConsistencyCheck[] {
   return [
     {
+      title: "Unique rule IDs",
+      issues: collectDuplicateRuleIdIssues(document),
+    },
+    {
+      title: "Unique rule names",
+      issues: collectDuplicateRuleNameIssues(document),
+    },
+    {
       title: "Full ID alignment",
       issues: collectFullIdAlignmentIssues(document),
     },
     {
       title: "FRR subset declarations",
       issues: collectFrrSubsetDeclarationIssues(document),
+    },
+    {
+      title: "FRR subset applicability affects",
+      issues: collectFrrSubsetApplicabilityAffectsIssues(document),
+    },
+    {
+      title: "FRR 20x subset applicability warnings",
+      issues: collectFrr20xSubsetApplicabilityWarnings(document),
     },
     {
       title: "Non-empty audit history",
@@ -307,6 +339,91 @@ function collectDefinitionEntries(document: RulesDocument): Array<{
   return entries;
 }
 
+function collectDuplicateIdIssues(
+  label: string,
+  entries: Array<{ id: string; location: string }>,
+): ConsistencyIssue[] {
+  const locationsById = new Map<string, string[]>();
+
+  for (const entry of entries) {
+    locationsById.set(entry.id, [
+      ...(locationsById.get(entry.id) ?? []),
+      entry.location,
+    ]);
+  }
+
+  return [...locationsById.entries()]
+    .filter(([, locations]) => locations.length > 1)
+    .map(([id, locations]) =>
+      issue(
+        locations[0] ?? label,
+        `${label} ID ${id} appears in multiple locations: ${locations.join(", ")}.`,
+      ),
+    )
+    .sort((left, right) => left.message.localeCompare(right.message));
+}
+
+export function collectDuplicateRuleIdIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  return [
+    ...collectDuplicateIdIssues(
+      "definition",
+      collectDefinitionEntries(document),
+    ),
+    ...collectDuplicateIdIssues(
+      "requirement",
+      collectRequirementEntries(document),
+    ),
+    ...collectDuplicateIdIssues("indicator", collectIndicatorEntries(document)),
+  ];
+}
+
+function collectDuplicateNameIssues(
+  label: string,
+  entries: Array<{ name: string; location: string }>,
+): ConsistencyIssue[] {
+  const locationsByName = new Map<string, string[]>();
+
+  for (const entry of entries) {
+    locationsByName.set(entry.name, [
+      ...(locationsByName.get(entry.name) ?? []),
+      entry.location,
+    ]);
+  }
+
+  return [...locationsByName.entries()]
+    .filter(([, locations]) => locations.length > 1)
+    .map(([name, locations]) =>
+      issue(
+        locations[0] ?? label,
+        `${label} name "${name}" appears in multiple locations: ${locations.join(", ")}.`,
+      ),
+    )
+    .sort((left, right) => left.message.localeCompare(right.message));
+}
+
+export function collectDuplicateRuleNameIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  return [
+    ...collectDuplicateNameIssues(
+      "requirement",
+      collectRequirementEntries(document).map((entry) => ({
+        name: entry.requirement.name,
+        location: entry.location,
+      })),
+    ),
+    ...collectDuplicateNameIssues(
+      "indicator",
+      collectIndicatorEntries(document).map((entry) => ({
+        name: entry.indicator.name,
+        location: entry.location,
+      })),
+    ),
+  ];
+}
+
 function walkJson(
   value: unknown,
   path: JsonPathSegment[],
@@ -470,7 +587,9 @@ function collectDeclaredFrrSubsets(
   info: Record<string, unknown>,
   scopeKey: string,
 ): Set<string> {
-  const subsets = new Set(Object.keys(getRecordProperty(info, "subsets") ?? {}));
+  const subsets = new Set(
+    Object.keys(getRecordProperty(info, "subsets") ?? {}),
+  );
 
   if (scopeKey === "20x" || scopeKey === "rev5") {
     const certificationInfo = getRecordProperty(info, scopeKey);
@@ -494,6 +613,426 @@ function getRecordProperty(
 
   const property = value[key];
   return isRecord(property) ? property : undefined;
+}
+
+interface FrrSubsetDeclarationEntry {
+  sectionKey: string;
+  subsetKey: string;
+  subset: FrrSubsetDefinition;
+  location: string;
+  dataScopeKeys: ApplicabilityKey[];
+  section: RulesDocument["FRR"][string];
+}
+
+interface FrrSubsetApplicabilityAffectsFixTarget {
+  location: string;
+  subset: FrrSubsetDefinition;
+  expectedAffects: string[];
+  actualAffects: string[];
+}
+
+export interface FrrSubsetApplicabilityAffectsFix {
+  location: string;
+  oldAffects: string[];
+  newAffects: string[];
+}
+
+function collectFrrInfoSubsetEntries(
+  document: RulesDocument,
+): FrrSubsetDeclarationEntry[] {
+  const entries: FrrSubsetDeclarationEntry[] = [];
+
+  for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
+    const allDataScopeKeys = Object.keys(section.data ?? {}).filter(
+      isApplicabilityKey,
+    );
+    const commonSubsets = getRecordProperty(section.info, "subsets");
+    if (commonSubsets) {
+      for (const [subsetKey, subset] of Object.entries(commonSubsets)) {
+        entries.push({
+          sectionKey,
+          subsetKey,
+          subset: subset as FrrSubsetDefinition,
+          location: `FRR.${sectionKey}.info.subsets.${subsetKey}`,
+          dataScopeKeys: allDataScopeKeys,
+          section,
+        });
+      }
+    }
+
+    for (const certificationKey of ["20x", "rev5"] as const) {
+      const certificationInfo = getRecordProperty(
+        section.info,
+        certificationKey,
+      );
+      const certificationSubsets = getRecordProperty(
+        certificationInfo,
+        "subsets",
+      );
+      if (!certificationSubsets) {
+        continue;
+      }
+
+      for (const [subsetKey, subset] of Object.entries(certificationSubsets)) {
+        entries.push({
+          sectionKey,
+          subsetKey,
+          subset: subset as FrrSubsetDefinition,
+          location: `FRR.${sectionKey}.info.${certificationKey}.subsets.${subsetKey}`,
+          dataScopeKeys: [certificationKey],
+          section,
+        });
+      }
+    }
+  }
+
+  return entries;
+}
+
+function collectFrrSubsetRequirementAffects(entry: FrrSubsetDeclarationEntry): {
+  affects: string[];
+  requirementLocations: string[];
+} {
+  const affects: string[] = [];
+  const requirementLocations: string[] = [];
+
+  for (const scopeKey of entry.dataScopeKeys) {
+    const subsetRequirements =
+      entry.section.data?.[scopeKey]?.[entry.subsetKey];
+    if (!subsetRequirements) {
+      continue;
+    }
+
+    for (const [id, requirement] of Object.entries(subsetRequirements)) {
+      requirementLocations.push(
+        `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}.${id}`,
+      );
+
+      for (const affectedParty of requirement.affects ?? []) {
+        if (typeof affectedParty === "string") {
+          affects.push(affectedParty);
+        }
+      }
+    }
+  }
+
+  return { affects, requirementLocations };
+}
+
+function orderAffects(values: string[]): string[] {
+  const remaining = new Set(values);
+  const ordered = (ALLOWED_AFFECTS as readonly string[]).filter((value) => {
+    if (!remaining.has(value)) {
+      return false;
+    }
+
+    remaining.delete(value);
+    return true;
+  });
+
+  return [
+    ...ordered,
+    ...[...remaining].sort((left, right) => left.localeCompare(right)),
+  ];
+}
+
+function getSubsetApplicabilityArray(
+  subset: FrrSubsetDefinition,
+  key: "types" | "paths" | "classes" | "affects",
+): string[] | null {
+  const value = subset.applicability?.[key];
+  if (!Array.isArray(value)) {
+    return null;
+  }
+
+  return value.filter((item): item is string => typeof item === "string");
+}
+
+function hasSameStringSet(left: string[], right: string[]): boolean {
+  const leftSet = new Set(left);
+  const rightSet = new Set(right);
+  if (leftSet.size !== rightSet.size) {
+    return false;
+  }
+
+  return [...leftSet].every((value) => rightSet.has(value));
+}
+
+function formatValues(values: string[] | null): string {
+  if (!values || values.length === 0) {
+    return "(none)";
+  }
+
+  return values.join(", ");
+}
+
+function getForceOrderIndex(force: string): number | null {
+  return FORCE_ORDER_INDEX.get(force) ?? null;
+}
+
+function compareForces(left: string, right: string): number {
+  const leftIndex = getForceOrderIndex(left);
+  const rightIndex = getForceOrderIndex(right);
+
+  if (leftIndex === null && rightIndex === null) {
+    return left.localeCompare(right);
+  }
+  if (leftIndex === null) {
+    return 1;
+  }
+  if (rightIndex === null) {
+    return -1;
+  }
+
+  return leftIndex === rightIndex
+    ? left.localeCompare(right)
+    : leftIndex - rightIndex;
+}
+
+function getRequirementOrderingForce(
+  requirement: Requirement,
+): string | null {
+  if (typeof requirement.force === "string") {
+    return requirement.force;
+  }
+
+  const classForces = CLASS_KEYS.map(
+    (classKey) => requirement.varies_by_class?.[classKey]?.force,
+  ).filter((force): force is string => typeof force === "string");
+
+  return classForces.sort(compareForces)[0] ?? null;
+}
+
+function getForceRuns(forces: string[]): string[] {
+  const runs: string[] = [];
+
+  for (const force of forces) {
+    if (runs[runs.length - 1] !== force) {
+      runs.push(force);
+    }
+  }
+
+  return runs;
+}
+
+function isForceOrderOutOfOrder(forces: string[]): boolean {
+  let highestSeenIndex = -1;
+
+  for (const force of forces) {
+    const index = getForceOrderIndex(force);
+    if (index === null) {
+      continue;
+    }
+
+    if (index < highestSeenIndex) {
+      return true;
+    }
+
+    highestSeenIndex = Math.max(highestSeenIndex, index);
+  }
+
+  return false;
+}
+
+export function collectFrrSubsetForceOrderWarnings(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+  const checkedLocations = new Set<string>();
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    for (const scopeKey of entry.dataScopeKeys) {
+      const subsetRequirements =
+        entry.section.data?.[scopeKey]?.[entry.subsetKey];
+      if (!subsetRequirements) {
+        continue;
+      }
+
+      const location = `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}`;
+      if (checkedLocations.has(location)) {
+        continue;
+      }
+      checkedLocations.add(location);
+
+      const forces = Object.values(subsetRequirements)
+        .map(getRequirementOrderingForce)
+        .filter((force): force is string => typeof force === "string");
+      if (forces.length < 2 || !isForceOrderOutOfOrder(forces)) {
+        continue;
+      }
+
+      issues.push(
+        issue(
+          location,
+          `expected force groups ${joinAllowed(FORCE_ORDER)}; found ${formatValues(getForceRuns(forces))}.`,
+        ),
+      );
+    }
+  }
+
+  return issues;
+}
+
+function collectFrrSubsetApplicabilityAffectsFixTargets(
+  document: RulesDocument,
+): FrrSubsetApplicabilityAffectsFixTarget[] {
+  const targets: FrrSubsetApplicabilityAffectsFixTarget[] = [];
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    const { affects, requirementLocations } =
+      collectFrrSubsetRequirementAffects(entry);
+    if (requirementLocations.length === 0) {
+      continue;
+    }
+
+    const expectedAffects = orderAffects(affects);
+    if (expectedAffects.length === 0) {
+      continue;
+    }
+
+    const actualAffects = getSubsetApplicabilityArray(entry.subset, "affects");
+    if (!actualAffects) {
+      continue;
+    }
+
+    if (!hasSameStringSet(actualAffects, expectedAffects)) {
+      targets.push({
+        location: `${entry.location}.applicability.affects`,
+        subset: entry.subset,
+        expectedAffects,
+        actualAffects,
+      });
+    }
+  }
+
+  return targets;
+}
+
+export function collectFrrSubsetApplicabilityAffectsIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    const { affects, requirementLocations } =
+      collectFrrSubsetRequirementAffects(entry);
+    if (requirementLocations.length === 0) {
+      continue;
+    }
+
+    const expectedAffects = orderAffects(affects);
+    if (expectedAffects.length === 0) {
+      continue;
+    }
+
+    const actualAffects = getSubsetApplicabilityArray(entry.subset, "affects");
+    if (!actualAffects || actualAffects.length === 0) {
+      issues.push(
+        issue(
+          `${entry.location}.applicability.affects`,
+          `applicability.affects must list every party used by corresponding requirement affects arrays. Expected: ${formatValues(expectedAffects)}.`,
+        ),
+      );
+      continue;
+    }
+
+    if (hasSameStringSet(actualAffects, expectedAffects)) {
+      continue;
+    }
+
+    issues.push(
+      issue(
+        `${entry.location}.applicability.affects`,
+        `applicability.affects must match corresponding requirement affects arrays. Expected: ${formatValues(expectedAffects)}; found: ${formatValues(actualAffects)}.`,
+      ),
+    );
+  }
+
+  return issues;
+}
+
+function collectSubsetApplicabilitySetWarnings(
+  entry: FrrSubsetDeclarationEntry,
+  key: "types" | "paths",
+  expected: readonly string[],
+): ConsistencyIssue[] {
+  const actual = getSubsetApplicabilityArray(entry.subset, key);
+  if (actual && hasSameStringSet(actual, [...expected])) {
+    return [];
+  }
+
+  return [
+    issue(
+      `${entry.location}.applicability.${key}`,
+      `20x-specific subset warning: subset ${entry.subsetKey} ends in X, so applicability.${key} should only include ${formatValues([...expected])}; found: ${formatValues(actual)}.`,
+    ),
+  ];
+}
+
+export function collectFrr20xSubsetApplicabilityWarnings(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    if (!entry.subsetKey.endsWith("X")) {
+      continue;
+    }
+
+    issues.push(
+      ...collectSubsetApplicabilitySetWarnings(
+        entry,
+        "types",
+        ALLOWED_SUBSET_APPLICABILITY_TYPES.slice(0, 1),
+      ),
+      ...collectSubsetApplicabilitySetWarnings(
+        entry,
+        "paths",
+        ALLOWED_SUBSET_APPLICABILITY_PATHS.slice(0, 1),
+      ),
+    );
+  }
+
+  return issues;
+}
+
+export function collectFrrSubsetApplicabilityAffectsFixes(
+  document: RulesDocument,
+): FrrSubsetApplicabilityAffectsFix[] {
+  return collectFrrSubsetApplicabilityAffectsFixTargets(document).map(
+    (target) => ({
+      location: target.location,
+      oldAffects: target.actualAffects,
+      newAffects: target.expectedAffects,
+    }),
+  );
+}
+
+export function applyFrrSubsetApplicabilityAffectsFixes(
+  document: RulesDocument,
+): {
+  document: RulesDocument;
+  fixes: FrrSubsetApplicabilityAffectsFix[];
+  fixedCount: number;
+} {
+  const targets = collectFrrSubsetApplicabilityAffectsFixTargets(document);
+  const fixes = targets.map((target) => ({
+    location: target.location,
+    oldAffects: target.actualAffects,
+    newAffects: target.expectedAffects,
+  }));
+
+  for (const target of targets) {
+    if (target.subset.applicability) {
+      target.subset.applicability.affects = target.expectedAffects;
+    }
+  }
+
+  return {
+    document,
+    fixes,
+    fixedCount: fixes.length,
+  };
 }
 
 function collectUpdatedHistoryIssues(

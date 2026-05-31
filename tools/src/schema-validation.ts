@@ -36,9 +36,9 @@ export function formatSchemaErrors(
     const value = getValueAtJsonPointer(document, instancePath);
     const location = formatJsonPointerLocation(instancePath);
 
-    if (hasOwn(value, "varies_by_class") && hasOwn(value, "primary_key_word")) {
+    if (hasOwn(value, "varies_by_class") && hasOwn(value, "force")) {
       messages.push(
-        `${location} has both varies_by_class and top-level primary_key_word, and that's not allowed. Put primary_key_word inside each varies_by_class entry instead.`,
+        `${location} has both varies_by_class and top-level force, and that's not allowed. Put force inside each varies_by_class entry instead.`,
       );
       continue;
     }

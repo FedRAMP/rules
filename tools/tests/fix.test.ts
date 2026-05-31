@@ -4,35 +4,45 @@ import {
   applyAutoFixes,
   applyDisplayNamesFix,
   applyRelatedFix,
+  applySubsetAffectsFix,
   collectAutoFixPlan,
   collectDisplayNamesFixPlan,
+  collectOrderFixPlan,
   collectRelatedFixPlan,
+  collectSubsetAffectsFixPlan,
 } from "../src/fix";
 import { loadRulesDocument, loadSchemaDocument } from "../src/rules";
 import type { RulesDocument } from "../src/types";
 
 test("the auto-fix planner reflects the current configured dataset", () => {
   const document = loadRulesDocument();
-  const plan = collectAutoFixPlan(document, loadSchemaDocument());
+  const schema = loadSchemaDocument();
+  const plan = collectAutoFixPlan(document, schema);
   const displayNamesPlan = collectDisplayNamesFixPlan(document);
+  const orderPlan = collectOrderFixPlan(document, schema);
   const relatedPlan = collectRelatedFixPlan(document);
+  const subsetAffectsPlan = collectSubsetAffectsFixPlan(document);
 
   expect(plan.definitionTermIssueCount).toBe(0);
   expect(plan.termSyncIssueCount).toBe(0);
   expect(plan.idIssueCount).toBe(0);
-  expect(plan.propertyOrderIssueCount).toBe(0);
   expect(plan.needsTermsFix).toBe(false);
   expect(plan.needsIdsFix).toBe(false);
-  expect(plan.needsOrderFix).toBe(false);
+  expect(plan.propertyOrderIssueCount).toBe(orderPlan.issueCount);
+  expect(plan.needsOrderFix).toBe(orderPlan.needsFix);
   expect(plan.inlineRuleDisplayNameIssueCount).toBe(
     displayNamesPlan.issueCount,
   );
   expect(plan.needsDisplayNamesFix).toBe(displayNamesPlan.needsFix);
   expect(plan.relatedRuleIssueCount).toBe(relatedPlan.issueCount);
   expect(plan.needsRelatedFix).toBe(relatedPlan.needsFix);
+  expect(plan.subsetApplicabilityAffectsIssueCount).toBe(
+    subsetAffectsPlan.issueCount,
+  );
+  expect(plan.needsSubsetAffectsFix).toBe(subsetAffectsPlan.needsFix);
 });
 
-test("auto-fix applies ID, term, related, and property-order fixes in one pass", () => {
+test("auto-fix applies ID, term, related, subset-affects, and property-order fixes in one pass", () => {
   const schema = {
     type: "object",
     properties: {
@@ -114,7 +124,7 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
               name: { type: "string" },
               statement: { type: "string" },
               related: { type: "array" },
-              primary_key_word: { type: "string" },
+              force: { type: "string" },
               affects: { type: "array" },
               terms: { type: "array" },
               updated: { type: "array" },
@@ -148,12 +158,25 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
     },
     FRR: {
       MAS: {
-        info: {},
+        info: {
+          subsets: {
+            CSO: {
+              name: "Provider",
+              description: "Provider subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: ["Agencies"],
+              },
+            },
+          },
+        },
         data: {
           all: {
             CSO: {
               "MAS-CSX-TST": {
-                primary_key_word: "MUST",
+                force: "MUST",
                 statement:
                   "Providers MUST notify an agency and follow MAS-CSO-REF.",
                 related: ["MAS-CSO-OLD"],
@@ -165,7 +188,7 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
               "MAS-CSO-REF": {
                 name: "Referenced requirement",
                 statement: "Providers MUST retain the reference.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
                 terms: [],
                 updated: [],
@@ -173,7 +196,7 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
               "MAS-CSO-OLD": {
                 name: "Existing related requirement",
                 statement: "Providers MUST retain existing related entries.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
                 terms: [],
                 updated: [],
@@ -193,11 +216,13 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
     idIssueCount: 1,
     inlineRuleDisplayNameIssueCount: 1,
     relatedRuleIssueCount: 1,
+    subsetApplicabilityAffectsIssueCount: 1,
     propertyOrderIssueCount: 1,
     needsTermsFix: true,
     needsIdsFix: true,
     needsDisplayNamesFix: true,
     needsRelatedFix: true,
+    needsSubsetAffectsFix: true,
     needsOrderFix: true,
   });
 
@@ -209,6 +234,7 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
   expect(result.idSkippedCount).toBe(0);
   expect(result.inlineRuleDisplayNameFixedCount).toBe(1);
   expect(result.relatedRuleFixedCount).toBe(1);
+  expect(result.subsetApplicabilityAffectsFixedCount).toBe(1);
   expect(result.propertyOrderFixedCount).toBe(1);
   expect(result.document.info.version).toBe("1.0.1");
   expect(result.document.info.last_updated).toBe("2026-04-19");
@@ -224,6 +250,9 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
   expect(
     result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.related,
   ).toEqual(["MAS-CSO-OLD", "MAS-CSO-REF"]);
+  expect(
+    (result.document.FRR.MAS!.info as any).subsets.CSO.applicability.affects,
+  ).toEqual(["Providers"]);
   expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.fka).toBe(
     "MAS-CSX-TST",
   );
@@ -233,12 +262,77 @@ test("auto-fix applies ID, term, related, and property-order fixes in one pass",
     "name",
     "statement",
     "related",
-    "primary_key_word",
+    "force",
     "affects",
     "terms",
     "updated",
     "fka",
   ]);
+});
+
+test("subset-affects fix synchronizes FRR subset applicability affects", () => {
+  const document = {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-04-12",
+    },
+    FRD: { info: {}, data: { all: {} } },
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            FRP: {
+              name: "FedRAMP",
+              description: "FedRAMP subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+        data: {
+          all: {
+            FRP: {
+              "ABC-FRP-AAA": {
+                name: "FedRAMP Rule",
+                statement: "FedRAMP MUST do the thing.",
+                force: "MUST",
+                affects: ["FedRAMP"],
+              },
+            },
+          },
+          "20x": {
+            FRP: {
+              "ABC-FRP-BBB": {
+                name: "Agency Rule",
+                statement: "Agencies MUST do the thing.",
+                force: "MUST",
+                affects: ["Agencies"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectSubsetAffectsFixPlan(document)).toEqual({
+    issueCount: 1,
+    needsFix: true,
+  });
+
+  const result = applySubsetAffectsFix(document);
+
+  expect(result.fixedCount).toBe(1);
+  expect(
+    (result.document.FRR.ABC!.info as any).subsets.FRP.applicability.affects,
+  ).toEqual(["Agencies", "FedRAMP"]);
 });
 
 test("related fix adds detected rules without deleting existing related entries", () => {
@@ -260,19 +354,19 @@ test("related fix adds detected rules without deleting existing related entries"
                 name: "Source Rule",
                 statement: "Providers MUST follow ABC-CSO-BBB.",
                 related: ["ABC-CSO-OLD"],
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Detected Rule",
                 statement: "Providers MUST do the detected thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-OLD": {
                 name: "Existing Rule",
                 statement: "Providers MUST do the existing thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -316,25 +410,25 @@ test("display names fix adds parenthesized rule names and repairs unparenthesize
                 statement:
                   "Providers MUST follow ABC-CSO-BBB and ABC-CSO-CCC Target Rule C.",
                 note: "ABC-CSO-DDD (Target Rule D) is already formatted.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the detected thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST do the repaired thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-DDD": {
                 name: "Target Rule D",
                 statement: "Providers MUST do the formatted thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },

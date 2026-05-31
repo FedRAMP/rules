@@ -19,6 +19,22 @@ source of truth for the FedRAMP Consolidated Rules for 2026 Public Preview.
 [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
 is the source of truth for the expected data shape.
 
+## Rules JSON Edit Guardrail
+
+Do not modify
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) unless the
+user specifically instructs you to edit that file.
+
+If a task appears to require changing
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json), stop before
+editing it. Propose a concise plan that identifies the specific rule,
+definition, indicator, metadata, or structural paths you intend to change, then
+wait for the user's explicit confirmation before making those edits.
+
+Analysis, validation, structured reads, and reports may use
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) without
+additional permission. The guardrail applies to file modifications.
+
 ## Dataset Structure
 
 The JSON file has four top-level sections:
@@ -79,8 +95,8 @@ scopes, or process buckets. Requirement IDs follow the
 
 Each requirement contains either:
 
-- a single `statement` and `primary_key_word`, or
-- a `varies_by_class` object with class-specific statements and keywords.
+- a single `statement` and `force`, or
+- a `varies_by_class` object with class-specific statements and force values.
 
 Class-specific variants may also include `following_information`, `artifacts`,
 notes, effective dates, simple timeframes, and `pain_timeframes`.
@@ -184,15 +200,25 @@ unless the user explicitly asks for one.
 - Compare the initial branch state to the final branch state, not commit by
   commit, unless a commit-level explanation is specifically requested.
 - Detect and highlight breaking changes when summarizing underlying changes to
-  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json). Treat a
-  change as breaking when existing consumers, validators, exporters, queries, or
-  downstream mappings that understand the previous dataset shape or vocabulary
-  would likely fail, silently miss data, or need code changes. Examples include
-  renamed or removed properties, moved containers, changed required fields,
-  renamed applicability or subset buckets, ID format changes, controlled
-  vocabulary changes that invalidate existing values, statement shape changes,
-  array/object type changes, and changes that move rule content to a different
-  path.
+  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) or the
+  schema. Use the software compatibility meaning of breaking change: a
+  backwards-incompatible change to the machine-readable public contract that
+  would make existing parsers, validators, exporters, queries, or integrations
+  fail, reject previously valid data, silently misread data, or require code
+  changes to continue processing the dataset. Examples include renamed or
+  removed properties such as `primary_key_word` to `force`, changed required
+  fields, changed property types, changed statement shapes, changed ID formats,
+  controlled vocabulary changes that invalidate existing values, renamed
+  top-level sections, renamed applicability or subset bucket keys when those
+  keys are part of the schema contract, or stricter validation rules that reject
+  files accepted by the previous schema.
+- Do not mark rule-content taxonomy changes as breaking merely because a rule,
+  definition, or indicator moves to a different ruleset, process, applicability
+  path, subset, or ID. Treat those as Rules Content Changes and describe the
+  user-visible mapping or migration impact. Only mark such movement as breaking
+  when it also changes the documented data shape, schema vocabulary, required
+  fields, or other machine-readable contract in a way that breaks existing
+  tooling.
 - Mark every breaking change bullet with `**Breaking:**` at the start of the
   bullet in the relevant changelog section. Include the old shape and the new
   shape when known, and briefly state the practical impact. For example,

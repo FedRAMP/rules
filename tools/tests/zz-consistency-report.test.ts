@@ -2,6 +2,11 @@ import { expect, test } from "bun:test";
 
 import {
   collectConsistencyChecks,
+  collectDuplicateRuleIdIssues,
+  collectDuplicateRuleNameIssues,
+  collectFrr20xSubsetApplicabilityWarnings,
+  collectFrrSubsetForceOrderWarnings,
+  collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
   collectInlineRuleDisplayNameIssues,
   collectRelatedRuleReferenceIssues,
@@ -16,6 +21,94 @@ test("consistency validation report", () => {
   if (checks.some((check) => check.issues.length > 0)) {
     throw new Error(formatConsistencyReport(checks));
   }
+});
+
+test("duplicate rule IDs fail consistency validation", () => {
+  const document = {
+    FRD: {
+      data: {
+        all: {},
+      },
+    },
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Common Rule",
+                statement: "Providers MUST do the thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+          rev5: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Rev5 Rule",
+                statement: "Providers MUST do the other thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectDuplicateRuleIdIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-001",
+      message:
+        "requirement ID ABC-CSO-001 appears in multiple locations: " +
+        "FRR.ABC.data.all.CSO.ABC-CSO-001, FRR.ABC.data.rev5.CSO.ABC-CSO-001.",
+    },
+  ]);
+});
+
+test("duplicate rule names fail consistency validation", () => {
+  const document = {
+    FRD: {
+      data: {
+        all: {},
+      },
+    },
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Shared Rule Name",
+                statement: "Providers MUST do the thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-002": {
+                name: "Shared Rule Name",
+                statement: "Providers MUST do the other thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectDuplicateRuleNameIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-001",
+      message:
+        'requirement name "Shared Rule Name" appears in multiple locations: ' +
+        "FRR.ABC.data.all.CSO.ABC-CSO-001, FRR.ABC.data.all.CSO.ABC-CSO-002.",
+    },
+  ]);
 });
 
 test("FRR subset declarations include certification-specific info subsets", () => {
@@ -57,6 +150,254 @@ test("FRR subset declarations include certification-specific info subsets", () =
   expect(collectFrrSubsetDeclarationIssues(document)).toEqual([]);
 });
 
+test("FRR subset applicability affects match corresponding requirement affects", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            FRP: {
+              name: "FedRAMP",
+              description: "FedRAMP subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+        data: {
+          all: {
+            FRP: {
+              "ABC-FRP-AAA": {
+                name: "FedRAMP Rule",
+                statement: "FedRAMP MUST do the thing.",
+                force: "MUST",
+                affects: ["FedRAMP"],
+              },
+            },
+          },
+          rev5: {
+            FRP: {
+              "ABC-FRP-BBB": {
+                name: "Agency Rule",
+                statement: "Agencies MUST do the thing.",
+                force: "MUST",
+                affects: ["Agencies"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrSubsetApplicabilityAffectsIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.FRP.applicability.affects",
+      message:
+        "applicability.affects must match corresponding requirement affects arrays. " +
+        "Expected: Agencies, FedRAMP; found: Providers.",
+    },
+  ]);
+
+  (document.FRR.ABC!.info as any).subsets.FRP.applicability.affects = [
+    "Agencies",
+    "FedRAMP",
+  ];
+
+  expect(collectFrrSubsetApplicabilityAffectsIssues(document)).toEqual([]);
+});
+
+test("FRR subset applicability affects require a populated affects array when rules exist", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            FRP: {
+              name: "FedRAMP",
+              description: "FedRAMP subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: [],
+              },
+            },
+          },
+        },
+        data: {
+          all: {
+            FRP: {
+              "ABC-FRP-AAA": {
+                name: "FedRAMP Rule",
+                statement: "FedRAMP MUST do the thing.",
+                force: "MUST",
+                affects: ["FedRAMP"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrSubsetApplicabilityAffectsIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.FRP.applicability.affects",
+      message:
+        "applicability.affects must list every party used by corresponding requirement affects arrays. " +
+        "Expected: FedRAMP.",
+    },
+  ]);
+});
+
+test("X-suffix FRR subsets warn unless they are 20x Program only", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSX: {
+              name: "20x Provider",
+              description: "20x subset.",
+              applicability: {
+                types: ["20x", "Rev5"],
+                paths: ["Program", "Agency"],
+                classes: ["A", "B", "C", "D"],
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+        data: {},
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.CSX.applicability.types",
+      message:
+        "20x-specific subset warning: subset CSX ends in X, so applicability.types should only include 20x; found: 20x, Rev5.",
+    },
+    {
+      location: "FRR.ABC.info.subsets.CSX.applicability.paths",
+      message:
+        "20x-specific subset warning: subset CSX ends in X, so applicability.paths should only include Program; found: Program, Agency.",
+    },
+  ]);
+
+  (document.FRR.ABC!.info as any).subsets.CSX.applicability.types = ["20x"];
+  (document.FRR.ABC!.info as any).subsets.CSX.applicability.paths = ["Program"];
+
+  expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([]);
+});
+
+test("FRR subset force order warnings detect out-of-order groups", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSO: { name: "Provider", description: "Provider subset." },
+          },
+        },
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Must Rule",
+                statement: "Providers MUST do the first thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-002": {
+                name: "Should Rule",
+                statement: "Providers SHOULD do the second thing.",
+                force: "SHOULD",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-003": {
+                name: "Must Not Rule",
+                statement: "Providers MUST NOT do the third thing.",
+                force: "MUST NOT",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrSubsetForceOrderWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO",
+      message:
+        "expected force groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found MUST, SHOULD, MUST NOT.",
+    },
+  ]);
+
+  const orderedRequirements = document.FRR.ABC!.data.all!.CSO!;
+  const shouldRequirement = orderedRequirements["ABC-CSO-002"]!;
+  delete orderedRequirements["ABC-CSO-002"];
+  orderedRequirements["ABC-CSO-002"] = shouldRequirement;
+
+  expect(collectFrrSubsetForceOrderWarnings(document)).toEqual([]);
+});
+
+test("FRR subset force order warnings use class-specific force values", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSO: { name: "Provider", description: "Provider subset." },
+          },
+        },
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Class Should Rule",
+                varies_by_class: {
+                  a: {
+                    statement: "Class A providers SHOULD do the first thing.",
+                    force: "SHOULD",
+                  },
+                },
+                affects: ["Providers"],
+              },
+              "ABC-CSO-002": {
+                name: "Class Must Rule",
+                varies_by_class: {
+                  a: {
+                    statement: "Class A providers MUST do the second thing.",
+                    force: "MUST",
+                  },
+                },
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrSubsetForceOrderWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO",
+      message:
+        "expected force groups MUST, MUST NOT, SHOULD, SHOULD NOT, MAY; found SHOULD, MUST.",
+    },
+  ]);
+});
+
 test("related rule references cover inline FRR IDs in requirement text fields", () => {
   const document = {
     FRR: {
@@ -76,43 +417,43 @@ test("related rule references cover inline FRR IDs in requirement text fields", 
                 following_information_bullets: [
                   "Escalate when ABC-CSO-FFF applies.",
                 ],
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST do the other thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-DDD": {
                 name: "Target Rule D",
                 statement: "Providers MUST do the final thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-EEE": {
                 name: "Target Rule E",
                 statement: "Providers MUST document the outcome.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-FFF": {
                 name: "Target Rule F",
                 statement: "Providers MUST escalate the outcome.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-GGG": {
                 name: "Target Rule G",
                 statement: "Providers MUST preserve the outcome.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -193,11 +534,11 @@ test("related rule references cover class-specific statements and following info
                     statement:
                       "Providers with Class B MUST follow ABC-CSO-BBB.",
                     following_information: ["Document ABC-CSO-CCC evidence."],
-                    primary_key_word: "MUST",
+                    force: "MUST",
                   },
                   c: {
                     statement: "Providers with Class C MUST do the thing.",
-                    primary_key_word: "MUST",
+                    force: "MUST",
                   },
                 },
                 related: ["ABC-CSO-BBB"],
@@ -206,13 +547,13 @@ test("related rule references cover class-specific statements and following info
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST document the evidence.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -243,13 +584,13 @@ test("related rule references reject IDs that are not mentioned anywhere", () =>
                 name: "Source Rule",
                 statement: "Providers MUST do the source thing.",
                 related: ["ABC-CSO-BBB"],
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Unmentioned Rule",
                 statement: "Providers MUST do the unmentioned thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },
@@ -281,25 +622,25 @@ test("inline rule IDs are followed by their rule names in parentheses", () => {
                 statement:
                   "Providers MUST use ABC-CSO-BBB and ABC-CSO-CCC Target Rule C.",
                 note: "ABC-CSO-DDD (Target Rule D) is already formatted.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-BBB": {
                 name: "Target Rule B",
                 statement: "Providers MUST do the missing-name thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-CCC": {
                 name: "Target Rule C",
                 statement: "Providers MUST do the unparenthesized-name thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
               "ABC-CSO-DDD": {
                 name: "Target Rule D",
                 statement: "Providers MUST do the correctly formatted thing.",
-                primary_key_word: "MUST",
+                force: "MUST",
                 affects: ["Providers"],
               },
             },

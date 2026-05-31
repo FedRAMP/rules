@@ -11,7 +11,7 @@ import type { RulesDocument } from "../src/types";
 
 type MutableRuleEntity = Record<string, unknown> & {
   statement?: string;
-  primary_key_word?: string;
+  force?: string;
   varies_by_class?: Record<string, unknown>;
 };
 
@@ -24,6 +24,20 @@ function effectiveEntry() {
       maintain: "2026-01-01",
       grace_ends: "2026-07-01",
     },
+  };
+}
+
+function subsetDefinition(overrides: Record<string, unknown> = {}) {
+  return {
+    name: "Common",
+    description: "Common subset.",
+    applicability: {
+      types: ["20x", "Rev5"],
+      paths: ["Program", "Agency"],
+      classes: ["A", "B", "C", "D"],
+      affects: ["Providers"],
+    },
+    ...overrides,
   };
 }
 
@@ -72,7 +86,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function hasSingleRequirementStatement(entity: MutableRuleEntity): boolean {
   return (
     typeof entity.statement === "string" &&
-    typeof entity.primary_key_word === "string" &&
+    typeof entity.force === "string" &&
     !isRecord(entity.varies_by_class)
   );
 }
@@ -178,18 +192,36 @@ function expectSchemaRejects(
 test("the schema accepts common FRR info with certification-specific subsets and flows", () => {
   const document = minimalRulesDocument();
   (document as any).FRR.ABC.info.subsets = {
-    CSO: { name: "Common", description: "Common subset." },
+    CSO: subsetDefinition(),
   };
   (document as any).FRR.ABC.info.flows = ["Common flow"];
   (document as any).FRR.ABC.info["20x"] = {
     subsets: {
-      CSX: { name: "20x", description: "20x subset." },
+      CSX: subsetDefinition({
+        name: "20x",
+        description: "20x subset.",
+        applicability: {
+          types: ["20x"],
+          paths: ["Program"],
+          classes: ["A", "B", "C", "D"],
+          affects: ["Providers"],
+        },
+      }),
     },
     flows: ["20x flow"],
   };
   (document as any).FRR.ABC.info.rev5 = {
     subsets: {
-      CSF: { name: "Rev5", description: "Rev5 subset." },
+      CSF: subsetDefinition({
+        name: "Rev5",
+        description: "Rev5 subset.",
+        applicability: {
+          types: ["Rev5"],
+          paths: ["Program", "Agency"],
+          classes: ["A", "B", "C", "D"],
+          affects: ["Providers"],
+        },
+      }),
     },
     flows: ["Rev5 flow"],
   };
@@ -198,6 +230,87 @@ test("the schema accepts common FRR info with certification-specific subsets and
     "FRR certification-specific subsets and flows overlay common info",
     document,
   );
+});
+
+test("the schema requires FRR subset applicability fields", () => {
+  const missingApplicabilityDocument = minimalRulesDocument();
+  (missingApplicabilityDocument as any).FRR.ABC.info.subsets = {
+    CSO: { name: "Common", description: "Common subset." },
+  };
+
+  expectSchemaRejects(
+    "FRR subset without applicability metadata",
+    missingApplicabilityDocument,
+  );
+
+  const missingFieldDocument = minimalRulesDocument();
+  (missingFieldDocument as any).FRR.ABC.info.subsets = {
+    CSO: subsetDefinition({
+      applicability: {
+        types: ["20x", "Rev5"],
+        paths: ["Program", "Agency"],
+        affects: ["Providers"],
+      },
+    }),
+  };
+
+  expectSchemaRejects(
+    "FRR subset applicability without classes",
+    missingFieldDocument,
+  );
+});
+
+test("the schema permits empty type, path, and class applicability arrays", () => {
+  const document = minimalRulesDocument();
+  (document as any).FRR.ABC.info.subsets = {
+    IAS: subsetDefinition({
+      name: "Independent Assessors",
+      description: "Non-certification subset.",
+      applicability: {
+        types: [],
+        paths: [],
+        classes: [],
+        affects: ["Assessors"],
+      },
+    }),
+  };
+
+  expectSchemaAccepts(
+    "FRR subset applicability with empty non-affects arrays",
+    document,
+  );
+});
+
+test("the schema rejects unsupported FRR subset applicability values", () => {
+  const document = minimalRulesDocument();
+  (document as any).FRR.ABC.info.subsets = {
+    CSO: subsetDefinition({
+      applicability: {
+        types: ["Rev4"],
+        paths: ["Program"],
+        classes: ["A"],
+        affects: ["Providers"],
+      },
+    }),
+  };
+
+  expectSchemaRejects("FRR subset applicability with unknown type", document);
+});
+
+test("the schema requires FRR subset applicability affects to be populated", () => {
+  const document = minimalRulesDocument();
+  (document as any).FRR.ABC.info.subsets = {
+    CSO: subsetDefinition({
+      applicability: {
+        types: ["20x", "Rev5"],
+        paths: ["Program", "Agency"],
+        classes: ["A", "B", "C", "D"],
+        affects: [],
+      },
+    }),
+  };
+
+  expectSchemaRejects("FRR subset applicability without affects", document);
 });
 
 test("the schema requires certification-specific effective entries to be paired", () => {
@@ -250,11 +363,11 @@ test("the schema rejects FRR requirements that mix top-level and class-specific 
   singleStatementRequirement.varies_by_class = {
     b: {
       statement: singleStatementRequirement.statement,
-      primary_key_word: singleStatementRequirement.primary_key_word,
+      force: singleStatementRequirement.force,
     },
     c: {
       statement: singleStatementRequirement.statement,
-      primary_key_word: singleStatementRequirement.primary_key_word,
+      force: singleStatementRequirement.force,
     },
   };
 

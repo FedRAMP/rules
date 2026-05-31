@@ -1,7 +1,14 @@
 import {
   collectConsistencyChecks,
+  collectFrrSubsetForceOrderWarnings,
   type ConsistencyCheck,
+  type ConsistencyIssue,
 } from "./src/consistency";
+import {
+  collectMetadataFreshnessWarnings,
+  latestCommitMetadata,
+  type MetadataFreshnessWarning,
+} from "./src/metadata-freshness";
 import { collectPropertyOrderIssues } from "./src/property-order";
 import { loadRulesDocument, loadSchemaDocument } from "./src/rules";
 import type { PropertyOrderIssue } from "./src/types";
@@ -81,7 +88,7 @@ function formatPropertyOrderFailureSummary(
 ): string {
   const lines = [
     `${formatProblem(
-      "Schema-defined property order failed",
+      "Property order failed",
     )} with ${formatProblem(`${issues.length} ${plural(issues.length, "issue")}`)}:`,
   ];
 
@@ -94,6 +101,30 @@ function formatPropertyOrderFailureSummary(
   return lines.join("\n");
 }
 
+function formatMetadataFreshnessWarningSummary(
+  warnings: MetadataFreshnessWarning[],
+): string {
+  return [
+    color("Metadata freshness warning", `${BOLD}${YELLOW}`),
+    ...warnings.map(
+      (warning) => `  - ${formatPath(warning.field)}: ${warning.message}`,
+    ),
+    "    Update fedramp-consolidated-rules.json metadata before publishing this branch.",
+  ].join("\n");
+}
+
+function formatFrrSubsetForceOrderWarningSummary(
+  warnings: ConsistencyIssue[],
+): string {
+  return [
+    color("FRR subset force order warning", `${BOLD}${YELLOW}`),
+    ...warnings.map(
+      (warning) => `  - ${formatPath(warning.location)}: ${warning.message}`,
+    ),
+    "    Reorder these rule groups manually; no automatic fix is provided.",
+  ].join("\n");
+}
+
 const testResult = Bun.spawnSync({
   cmd: ["bun", "test"],
   stdout: "inherit",
@@ -102,6 +133,12 @@ const testResult = Bun.spawnSync({
 
 const rulesDocument = loadRulesDocument();
 const schemaDocument = loadSchemaDocument();
+const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
+  rulesDocument,
+  latestCommitMetadata(),
+);
+const frrSubsetForceOrderWarnings =
+  collectFrrSubsetForceOrderWarnings(rulesDocument);
 const consistencyChecks = collectConsistencyChecks(rulesDocument);
 const consistencyFailed = consistencyChecks.some(
   (check) => check.issues.length > 0,
@@ -112,6 +149,22 @@ const propertyOrderIssues = collectPropertyOrderIssues(
 );
 const propertyOrderFailed = propertyOrderIssues.length > 0;
 const finalReports: string[] = [];
+
+if (metadataFreshnessWarnings.length > 0) {
+  console.warn(
+    `\n${color("-----", DIM)}\n\n${formatMetadataFreshnessWarningSummary(
+      metadataFreshnessWarnings,
+    )}\n`,
+  );
+}
+
+if (frrSubsetForceOrderWarnings.length > 0) {
+  console.warn(
+    `\n${color("-----", DIM)}\n\n${formatFrrSubsetForceOrderWarningSummary(
+      frrSubsetForceOrderWarnings,
+    )}\n`,
+  );
+}
 
 if (consistencyFailed) {
   finalReports.push(formatConsistencyFailureSummary(consistencyChecks));

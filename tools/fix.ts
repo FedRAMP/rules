@@ -11,13 +11,16 @@ import {
   applyIdsFix,
   applyOrderFix,
   applyRelatedFix,
+  applySubsetAffectsFix,
   applyTermsFix,
   collectAutoFixPlan,
   collectDisplayNamesFixPlan,
   collectIdsFixPlan,
   collectOrderFixPlan,
   collectRelatedFixPlan,
+  collectSubsetAffectsFixPlan,
   collectTermsFixPlan,
+  FIX_SCOPES,
   isFixScope,
 } from "./src/fix";
 import {
@@ -56,7 +59,7 @@ function writeDocument(document: RulesDocument, outputPath?: string): void {
 const scopeValue = getOptionValue("--scope") ?? "auto";
 if (!isFixScope(scopeValue)) {
   console.error(
-    `Unsupported fix scope "${scopeValue}". Expected one of: auto, terms, ids, order, related, display-names.`,
+    `Unsupported fix scope "${scopeValue}". Expected one of: ${FIX_SCOPES.join(", ")}.`,
   );
   process.exit(1);
 }
@@ -94,7 +97,9 @@ async function formatRulesFile(): Promise<void> {
 }
 
 async function exitAfterFormatting(exitCode = 0): Promise<never> {
-  await formatRulesFile();
+  if (!outputPath) {
+    await formatRulesFile();
+  }
   process.exit(exitCode);
 }
 
@@ -131,6 +136,11 @@ if (scope === "auto") {
     plan.inlineRuleDisplayNameIssueCount,
     "fix:display-names",
   );
+  printAutoCheck(
+    "test:consistency (FRR subset applicability affects)",
+    plan.subsetApplicabilityAffectsIssueCount,
+    "fix:subset-affects",
+  );
   printAutoCheck("test:order", plan.propertyOrderIssueCount, "fix:order");
 
   if (
@@ -138,6 +148,7 @@ if (scope === "auto") {
     !plan.needsIdsFix &&
     !plan.needsDisplayNamesFix &&
     !plan.needsRelatedFix &&
+    !plan.needsSubsetAffectsFix &&
     !plan.needsOrderFix
   ) {
     console.log(green("No automatic fixes were needed."));
@@ -185,6 +196,13 @@ if (scope === "auto") {
       }.`,
     );
   }
+  if (result.subsetApplicabilityAffectsFixedCount > 0) {
+    console.log(
+      `[FIX] fix:subset-affects updated ${result.subsetApplicabilityAffectsFixedCount} FRR subset applicability affects array${
+        result.subsetApplicabilityAffectsFixedCount === 1 ? "" : "s"
+      }.`,
+    );
+  }
 
   const remaining = collectAutoFixPlan(result.document, schema);
   if (
@@ -192,6 +210,7 @@ if (scope === "auto") {
     remaining.needsIdsFix ||
     remaining.needsDisplayNamesFix ||
     remaining.needsRelatedFix ||
+    remaining.needsSubsetAffectsFix ||
     remaining.needsOrderFix
   ) {
     console.error(
@@ -279,6 +298,27 @@ if (scope === "related") {
   console.log(
     green(
       `Added ${result.fixedCount} related rule reference${result.fixedCount === 1 ? "" : "s"}.`,
+    ),
+  );
+  await exitAfterFormatting();
+}
+
+if (scope === "subset-affects") {
+  const plan = collectSubsetAffectsFixPlan(source);
+  if (!plan.needsFix) {
+    console.log(
+      green("All FRR subset applicability affects match requirement affects."),
+    );
+    await exitAfterFormatting();
+  }
+
+  const result = applySubsetAffectsFix(cloneDocument(source));
+  writeDocument(result.document, outputPath);
+  console.log(
+    green(
+      `Updated ${result.fixedCount} FRR subset applicability affects array${
+        result.fixedCount === 1 ? "" : "s"
+      }.`,
     ),
   );
   await exitAfterFormatting();
