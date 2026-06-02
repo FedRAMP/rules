@@ -23,7 +23,8 @@
     "fix:display-names": "bun run fix -- --scope display-names",
     "fix:subset-affects": "bun run fix -- --scope subset-affects",
     "hooks:install": "sh ./install-git-hooks.sh",
-    "export": "bun run export-spreadsheet.ts"
+    "export": "bun run export-spreadsheet.ts",
+    "summary:dates": "bun run summary-dates.ts"
   },
   "dependencies": {
     "ajv": "^8.17.1",
