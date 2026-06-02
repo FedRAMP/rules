@@ -1,0 +1,5047 @@
+{
+  "CTL": {
+    "CTL-AC": {
+      "CTL-AC-AC01": {
+        "nist_ctrl_id": "AC-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC02": {
+        "nist_ctrl_id": "AC-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC02(01)": {
+        "nist_ctrl_id": "AC-02 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC02(02)": {
+        "nist_ctrl_id": "AC-02 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC02(03)": {
+        "nist_ctrl_id": "AC-02 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC02(04)": {
+        "nist_ctrl_id": "AC-02 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC02(05)": {
+        "nist_ctrl_id": "AC-02 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC02(07)": {
+        "nist_ctrl_id": "AC-02 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC02(09)": {
+        "nist_ctrl_id": "AC-02 (09)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AC-AC02(11)": {
+        "nist_ctrl_id": "AC-02 (11)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-AC-AC02(12)": {
+        "nist_ctrl_id": "AC-02 (12)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-AC-AC02(13)": {
+        "nist_ctrl_id": "AC-02 (13)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-AC-AC03": {
+        "nist_ctrl_id": "AC-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC04": {
+        "nist_ctrl_id": "AC-04",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC04(04)": {
+        "nist_ctrl_id": "AC-04 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-AC-AC04(21)": {
+        "nist_ctrl_id": "AC-04 (21)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC05": {
+        "nist_ctrl_id": "AC-05",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-AC-AC06": {
+        "nist_ctrl_id": "AC-06",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC06(01)": {
+        "nist_ctrl_id": "AC-06 (01)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "params": [
+              {
+                "id": "a",
+                "value": "all functions not publicly accessible"
+              },
+              {
+                "id": "b",
+                "value": "all security-relevant information not publicly available"
+              }
+            ]
+          }
+        }
+      },
+      "CTL-AC-AC06(02)": {
+        "nist_ctrl_id": "AC-06 (02)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "all security functions"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-AC-AC06(03)": {
+        "nist_ctrl_id": "AC-06 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-AC-AC06(05)": {
+        "nist_ctrl_id": "AC-06 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC06(07)": {
+        "nist_ctrl_id": "AC-06 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AC-AC06(08)": {
+        "nist_ctrl_id": "AC-06 (08)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "any software except software explicitly documented"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-AC-AC06(09)": {
+        "nist_ctrl_id": "AC-06 (09)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC06(10)": {
+        "nist_ctrl_id": "AC-06 (10)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC07": {
+        "nist_ctrl_id": "AC-07",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC08": {
+        "nist_ctrl_id": "AC-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AC-AC10": {
+        "nist_ctrl_id": "AC-10",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '2' removed."
+        ]
+      },
+      "CTL-AC-AC11": {
+        "nist_ctrl_id": "AC-11",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AC-AC11(01)": {
+        "nist_ctrl_id": "AC-11 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC12": {
+        "nist_ctrl_id": "AC-12",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC14": {
+        "nist_ctrl_id": "AC-14",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC17": {
+        "nist_ctrl_id": "AC-17",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC17(01)": {
+        "nist_ctrl_id": "AC-17 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC17(02)": {
+        "nist_ctrl_id": "AC-17 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC17(03)": {
+        "nist_ctrl_id": "AC-17 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC17(04)": {
+        "nist_ctrl_id": "AC-17 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC18": {
+        "nist_ctrl_id": "AC-18",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC18(01)": {
+        "nist_ctrl_id": "AC-18 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC18(03)": {
+        "nist_ctrl_id": "AC-18 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC18(04)": {
+        "nist_ctrl_id": "AC-18 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-AC-AC18(05)": {
+        "nist_ctrl_id": "AC-18 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-AC-AC19": {
+        "nist_ctrl_id": "AC-19",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC19(05)": {
+        "nist_ctrl_id": "AC-19 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC20": {
+        "nist_ctrl_id": "AC-20",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "fedramp_guidance": "AC-20 Guidance: The interrelated controls of AC-20, CA-3, and SA-9 should be differentiated as follows:\nAC-20 describes system access to and from external systems.\nCA-3 describes documentation of an agreement between the respective system owners when data is exchanged between the CSO and an external system.\nSA-9 describes the responsibilities of external system owners. These responsibilities would typically be captured in the agreement required by CA-3."
+          },
+          "c": {
+            "fedramp_guidance": "AC-20 Guidance: The interrelated controls of AC-20, CA-3, and SA-9 should be differentiated as follows:\nAC-20 describes system access to and from external systems.\nCA-3 describes documentation of an agreement between the respective system owners when data is exchanged between the CSO and an external system.\nSA-9 describes the responsibilities of external system owners. These responsibilities would typically be captured in the agreement required by CA-3."
+          },
+          "d": {
+            "fedramp_guidance": "AC-20 Guidance: The interrelated controls of AC-20, CA-3, and SA-9 should be differentiated as follows:\nAC-20 describes system access to and from external systems.\nCA-3 describes documentation of an agreement between the respective system owners when data is exchanged between the CSO and an external system.\nSA-9 describes the responsibilities of external system owners. These responsibilities would typically be captured in the agreement required by CA-3."
+          }
+        }
+      },
+      "CTL-AC-AC20(01)": {
+        "nist_ctrl_id": "AC-20 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC20(02)": {
+        "nist_ctrl_id": "AC-20 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC21": {
+        "nist_ctrl_id": "AC-21",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AC-AC22": {
+        "nist_ctrl_id": "AC-22",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      }
+    },
+    "CTL-AT": {
+      "CTL-AT-AT01": {
+        "nist_ctrl_id": "AT-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AT-AT02": {
+        "nist_ctrl_id": "AT-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AT-AT02(02)": {
+        "nist_ctrl_id": "AT-02 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AT-AT02(03)": {
+        "nist_ctrl_id": "AT-02 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AT-AT03": {
+        "nist_ctrl_id": "AT-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AT-AT04": {
+        "nist_ctrl_id": "AT-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      }
+    },
+    "CTL-AU": {
+      "CTL-AU-AU01": {
+        "nist_ctrl_id": "AU-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU02": {
+        "nist_ctrl_id": "AU-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU03": {
+        "nist_ctrl_id": "AU-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU03(01)": {
+        "nist_ctrl_id": "AU-03 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AU-AU04": {
+        "nist_ctrl_id": "AU-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU05": {
+        "nist_ctrl_id": "AU-05",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU05(01)": {
+        "nist_ctrl_id": "AU-05 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '3' removed."
+        ]
+      },
+      "CTL-AU-AU05(02)": {
+        "nist_ctrl_id": "AU-05 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed.",
+          "All classes: Parameter '2' removed.",
+          "All classes: Parameter '3' removed."
+        ]
+      },
+      "CTL-AU-AU06": {
+        "nist_ctrl_id": "AU-06",
+        "all_classes": {
+          "fedramp_guidance": "This activity is considered vulnerability detection and is subject to the Vulnerability Detection and Response rules."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU06(01)": {
+        "nist_ctrl_id": "AU-06 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU06(03)": {
+        "nist_ctrl_id": "AU-06 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU06(04)": {
+        "nist_ctrl_id": "AU-06 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-AU-AU06(05)": {
+        "nist_ctrl_id": "AU-06 (05)",
+        "all_classes": {
+          "fedramp_guidance": "This activity is considered vulnerability detection and is subject to the Vulnerability Detection and Response rules."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AU-AU06(06)": {
+        "nist_ctrl_id": "AU-06 (06)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-AU-AU06(07)": {
+        "nist_ctrl_id": "AU-06 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AU-AU07": {
+        "nist_ctrl_id": "AU-07",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU07(01)": {
+        "nist_ctrl_id": "AU-07 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU08": {
+        "nist_ctrl_id": "AU-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU09": {
+        "nist_ctrl_id": "AU-09",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU09(02)": {
+        "nist_ctrl_id": "AU-09 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-AU-AU09(03)": {
+        "nist_ctrl_id": "AU-09 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-AU-AU09(04)": {
+        "nist_ctrl_id": "AU-09 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-AU-AU10": {
+        "nist_ctrl_id": "AU-10",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "at least actions including the addition, modification, deletion, approval, sending, or receiving of data"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' changed from \"minimum actions including the addition, modification, deletion, approval, sending, or receiving of data\" to \"at least actions including the addition, modification, deletion, approval, sending, or receiving of data\"."
+        ]
+      },
+      "CTL-AU-AU11": {
+        "nist_ctrl_id": "AU-11",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU12": {
+        "nist_ctrl_id": "AU-12",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "at least all information system and network components where audit capability is deployed/available"
+            }
+          ]
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-AU-AU12(01)": {
+        "nist_ctrl_id": "AU-12 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-AU-AU12(03)": {
+        "nist_ctrl_id": "AU-12 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed.",
+          "All classes: Parameter '2' removed."
+        ]
+      }
+    },
+    "CTL-CA": {
+      "CTL-CA-CA01": {
+        "nist_ctrl_id": "CA-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA02": {
+        "nist_ctrl_id": "CA-02",
+        "all_classes": {
+          "params": [
+            {
+              "id": "f",
+              "value": "individuals or roles to include FedRAMP and agency customers"
+            }
+          ]
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA02(01)": {
+        "nist_ctrl_id": "CA-02 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CA-CA02(02)": {
+        "nist_ctrl_id": "CA-02 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CA-CA02(03)": {
+        "nist_ctrl_id": "CA-02 (03)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "1",
+              "value": "any FedRAMP Recognized independent assessor"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' changed from \"any independent assessor\" to \"any FedRAMP Recognized independent assessor\"."
+        ]
+      },
+      "CTL-CA-CA03": {
+        "nist_ctrl_id": "CA-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA03(06)": {
+        "nist_ctrl_id": "CA-03 (06)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CA-CA05": {
+        "nist_ctrl_id": "CA-05",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": false,
+          "c": false,
+          "d": false
+        },
+        "changelog": [
+          "Class b: removed from baseline.",
+          "Class c: removed from baseline.",
+          "Class d: removed from baseline.",
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA06": {
+        "nist_ctrl_id": "CA-06",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA07": {
+        "nist_ctrl_id": "CA-07",
+        "all_classes": {
+          "fedramp_guidance": "CA-7 Requirement: Follow the Continuous Collaborative Monitoring, Significant Change Notification, and Vulnerability Detection and Response rules."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA07(01)": {
+        "nist_ctrl_id": "CA-07 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CA-CA07(04)": {
+        "nist_ctrl_id": "CA-07 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CA-CA08": {
+        "nist_ctrl_id": "CA-08",
+        "all_classes": {
+          "fedramp_guidance": "Penetration testing is part of vulnerability detection and is subject to the Vulnerability Detection and Response rules."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CA-CA08(01)": {
+        "nist_ctrl_id": "CA-08 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CA-CA08(02)": {
+        "nist_ctrl_id": "CA-08 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CA-CA09": {
+        "nist_ctrl_id": "CA-09",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      }
+    },
+    "CTL-CM": {
+      "CTL-CM-CM01": {
+        "nist_ctrl_id": "CM-01",
+        "all_classes": {
+          "fedramp_guidance": "Follow the Significant Change Notification rules."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CM-CM02": {
+        "nist_ctrl_id": "CM-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CM-CM02(02)": {
+        "nist_ctrl_id": "CM-02 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM02(03)": {
+        "nist_ctrl_id": "CM-02 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CM-CM02(07)": {
+        "nist_ctrl_id": "CM-02 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM03": {
+        "nist_ctrl_id": "CM-03",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-CM-CM03(01)": {
+        "nist_ctrl_id": "CM-03 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'c' removed.",
+          "All classes: Parameter 'f' removed."
+        ]
+      },
+      "CTL-CM-CM03(02)": {
+        "nist_ctrl_id": "CM-03 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM03(04)": {
+        "nist_ctrl_id": "CM-03 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '2' removed."
+        ]
+      },
+      "CTL-CM-CM03(06)": {
+        "nist_ctrl_id": "CM-03 (06)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CM-CM04": {
+        "nist_ctrl_id": "CM-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM04(01)": {
+        "nist_ctrl_id": "CM-04 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CM-CM04(02)": {
+        "nist_ctrl_id": "CM-04 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM05": {
+        "nist_ctrl_id": "CM-05",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM05(01)": {
+        "nist_ctrl_id": "CM-05 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM05(05)": {
+        "nist_ctrl_id": "CM-05 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-CM-CM06": {
+        "nist_ctrl_id": "CM-06",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CM-CM06(01)": {
+        "nist_ctrl_id": "CM-06 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM06(02)": {
+        "nist_ctrl_id": "CM-06 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CM-CM07": {
+        "nist_ctrl_id": "CM-07",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CM-CM07(01)": {
+        "nist_ctrl_id": "CM-07 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CM-CM07(02)": {
+        "nist_ctrl_id": "CM-07 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-CM-CM07(05)": {
+        "nist_ctrl_id": "CM-07 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'c' removed."
+        ]
+      },
+      "CTL-CM-CM08": {
+        "nist_ctrl_id": "CM-08",
+        "all_classes": {
+          "fedramp_guidance": "CM-8 Requirement: Follow the Continuous Collaborative Monitoring, Significant Change Notification, and Vulnerability Detection and Response rules."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CM-CM08(01)": {
+        "nist_ctrl_id": "CM-08 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM08(02)": {
+        "nist_ctrl_id": "CM-08 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CM-CM08(03)": {
+        "nist_ctrl_id": "CM-08 (03)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "automated mechanisms with a maximum five-minute delay in detection."
+            },
+            {
+              "id": "a",
+              "value": "continuously"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM08(04)": {
+        "nist_ctrl_id": "CM-08 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CM-CM09": {
+        "nist_ctrl_id": "CM-09",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-CM-CM10": {
+        "nist_ctrl_id": "CM-10",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CM-CM11": {
+        "nist_ctrl_id": "CM-11",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "params": [
+              {
+                "id": "c",
+                "value": "Continuously (via CM-7 (5))"
+              }
+            ]
+          },
+          "c": {
+            "params": [
+              {
+                "id": "c",
+                "value": "Continuously (via CM-7 (5))"
+              }
+            ]
+          },
+          "d": {
+            "params": [
+              {
+                "id": "c",
+                "value": "Continuously (via CM-7 (5))"
+              }
+            ]
+          }
+        }
+      },
+      "CTL-CM-CM12": {
+        "nist_ctrl_id": "CM-12",
+        "all_classes": {
+          "fedramp_guidance": "CM-12 Requirement: Follow Minimum Assessment Scope (MAS) rules."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance updated."
+        ]
+      },
+      "CTL-CM-CM12(01)": {
+        "nist_ctrl_id": "CM-12 (01)",
+        "all_classes": {
+          "fedramp_guidance": "CM-12(1) Requirement: Follow Minimum Assessment Scope (MAS) rules."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance updated.",
+          "All classes: Parameter '1:' removed."
+        ]
+      },
+      "CTL-CM-CM14": {
+        "nist_ctrl_id": "CM-14",
+        "all_classes": {
+          "fedramp_guidance": "CM-14 Guidance: If digital signatures/certificates are unavailable, alternative cryptographic integrity checks (hashes, self-signed certs, etc.) can be utilized."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      }
+    },
+    "CTL-CP": {
+      "CTL-CP-CP01": {
+        "nist_ctrl_id": "CP-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CP-CP02": {
+        "nist_ctrl_id": "CP-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CP-CP02(01)": {
+        "nist_ctrl_id": "CP-02 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP02(02)": {
+        "nist_ctrl_id": "CP-02 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP02(03)": {
+        "nist_ctrl_id": "CP-02 (03)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "2",
+              "value": "time period defined in service provider and organization  SLA"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-CP-CP02(05)": {
+        "nist_ctrl_id": "CP-02 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CP-CP02(08)": {
+        "nist_ctrl_id": "CP-02 (08)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CP-CP03": {
+        "nist_ctrl_id": "CP-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CP-CP03(01)": {
+        "nist_ctrl_id": "CP-03 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP04": {
+        "nist_ctrl_id": "CP-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CP-CP04(01)": {
+        "nist_ctrl_id": "CP-04 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP04(02)": {
+        "nist_ctrl_id": "CP-04 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP06": {
+        "nist_ctrl_id": "CP-06",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP06(01)": {
+        "nist_ctrl_id": "CP-06 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP06(02)": {
+        "nist_ctrl_id": "CP-06 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP06(03)": {
+        "nist_ctrl_id": "CP-06 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP07": {
+        "nist_ctrl_id": "CP-07",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-CP-CP07(01)": {
+        "nist_ctrl_id": "CP-07 (01)",
+        "all_classes": {
+          "fedramp_guidance": "CP-7 (1) Guidance: The service provider may determine what is considered a sufficient degree of separation between the primary and alternate processing sites, based on the types of threats that are of concern. For one particular type of threat (i.e., hostile cyber attack), the degree of separation between sites will be less relevant."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP07(02)": {
+        "nist_ctrl_id": "CP-07 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP07(03)": {
+        "nist_ctrl_id": "CP-07 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP07(04)": {
+        "nist_ctrl_id": "CP-07 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP08": {
+        "nist_ctrl_id": "CP-08",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-CP-CP08(01)": {
+        "nist_ctrl_id": "CP-08 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP08(02)": {
+        "nist_ctrl_id": "CP-08 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP08(03)": {
+        "nist_ctrl_id": "CP-08 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP08(04)": {
+        "nist_ctrl_id": "CP-08 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'c' removed."
+        ]
+      },
+      "CTL-CP-CP09": {
+        "nist_ctrl_id": "CP-09",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CP-CP09(01)": {
+        "nist_ctrl_id": "CP-09 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-CP-CP09(02)": {
+        "nist_ctrl_id": "CP-09 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP09(03)": {
+        "nist_ctrl_id": "CP-09 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-CP-CP09(05)": {
+        "nist_ctrl_id": "CP-09 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CP-CP09(08)": {
+        "nist_ctrl_id": "CP-09 (08)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-CP-CP10": {
+        "nist_ctrl_id": "CP-10",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP10(02)": {
+        "nist_ctrl_id": "CP-10 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-CP-CP10(04)": {
+        "nist_ctrl_id": "CP-10 (04)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "time period consistent with the restoration time-periods defined in the service provider and organization  SLA"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      }
+    },
+    "CTL-IA": {
+      "CTL-IA-IA01": {
+        "nist_ctrl_id": "IA-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA02": {
+        "nist_ctrl_id": "IA-02",
+        "all_classes": {
+          "fedramp_guidance": "IA-2 Requirement: Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA02(01)": {
+        "nist_ctrl_id": "IA-02 (01)",
+        "all_classes": {
+          "fedramp_guidance": "IA-2 Requirement: Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA02(02)": {
+        "nist_ctrl_id": "IA-02 (02)",
+        "all_classes": {
+          "fedramp_guidance": "IA-2 Requirement: Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA02(05)": {
+        "nist_ctrl_id": "IA-02 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA02(06)": {
+        "nist_ctrl_id": "IA-02 (06)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "1",
+              "value": "local, network and remote"
+            },
+            {
+              "id": "2",
+              "value": "privileged accounts; non-privileged accounts"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-IA-IA02(08)": {
+        "nist_ctrl_id": "IA-02 (08)",
+        "varies_by_class": {
+          "a": {},
+          "b": {},
+          "c": {
+            "params": [
+              {
+                "id": "a",
+                "value": "privileged accounts; non-privileged accounts"
+              }
+            ]
+          },
+          "d": {
+            "params": [
+              {
+                "id": "a",
+                "value": "privileged accounts; non-privileged accounts"
+              }
+            ]
+          }
+        }
+      },
+      "CTL-IA-IA02(12)": {
+        "nist_ctrl_id": "IA-02 (12)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA03": {
+        "nist_ctrl_id": "IA-03",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA04": {
+        "nist_ctrl_id": "IA-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA04(04)": {
+        "nist_ctrl_id": "IA-04 (04)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "contractors; foreign nationals"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA05": {
+        "nist_ctrl_id": "IA-05",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "fedramp_guidance": "IA-5 Requirement: Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 1. Link https://pages.nist.gov/800-63-3\n\nIA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+          },
+          "c": {
+            "fedramp_guidance": "IA-5 Requirement: Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 2. Link https://pages.nist.gov/800-63-3\n\nIA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+          },
+          "d": {
+            "fedramp_guidance": "IA-5 Requirement: Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 3. Link https://pages.nist.gov/800-63-3\n\nIA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+          }
+        }
+      },
+      "CTL-IA-IA05(01)": {
+        "nist_ctrl_id": "IA-05 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA05(02)": {
+        "nist_ctrl_id": "IA-05 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA05(06)": {
+        "nist_ctrl_id": "IA-05 (06)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA05(07)": {
+        "nist_ctrl_id": "IA-05 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-IA-IA05(08)": {
+        "nist_ctrl_id": "IA-05 (08)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-IA-IA05(13)": {
+        "nist_ctrl_id": "IA-05 (13)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-IA-IA06": {
+        "nist_ctrl_id": "IA-06",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA07": {
+        "nist_ctrl_id": "IA-07",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA08": {
+        "nist_ctrl_id": "IA-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA08(01)": {
+        "nist_ctrl_id": "IA-08 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA08(02)": {
+        "nist_ctrl_id": "IA-08 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA08(04)": {
+        "nist_ctrl_id": "IA-08 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA11": {
+        "nist_ctrl_id": "IA-11",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IA-IA12": {
+        "nist_ctrl_id": "IA-12",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-IA-IA12(02)": {
+        "nist_ctrl_id": "IA-12 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA12(03)": {
+        "nist_ctrl_id": "IA-12 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-IA-IA12(04)": {
+        "nist_ctrl_id": "IA-12 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IA-IA12(05)": {
+        "nist_ctrl_id": "IA-12 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      }
+    },
+    "CTL-IR": {
+      "CTL-IR-IR01": {
+        "nist_ctrl_id": "IR-01",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR02": {
+        "nist_ctrl_id": "IR-02",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR02(01)": {
+        "nist_ctrl_id": "IR-02 (01)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IR-IR02(02)": {
+        "nist_ctrl_id": "IR-02 (02)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IR-IR03": {
+        "nist_ctrl_id": "IR-03",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR03(02)": {
+        "nist_ctrl_id": "IR-03 (02)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR04": {
+        "nist_ctrl_id": "IR-04",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR04(01)": {
+        "nist_ctrl_id": "IR-04 (01)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR04(02)": {
+        "nist_ctrl_id": "IR-04 (02)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-IR-IR04(04)": {
+        "nist_ctrl_id": "IR-04 (04)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IR-IR04(06)": {
+        "nist_ctrl_id": "IR-04 (06)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IR-IR04(11)": {
+        "nist_ctrl_id": "IR-04 (11)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IR-IR05": {
+        "nist_ctrl_id": "IR-05",
+        "varies_by_class": {
+          "a": {},
+          "b": {},
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR05(01)": {
+        "nist_ctrl_id": "IR-05 (01)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-IR-IR06": {
+        "nist_ctrl_id": "IR-06",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR06(01)": {
+        "nist_ctrl_id": "IR-06 (01)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR06(03)": {
+        "nist_ctrl_id": "IR-06 (03)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR07": {
+        "nist_ctrl_id": "IR-07",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR07(01)": {
+        "nist_ctrl_id": "IR-07 (01)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR08": {
+        "nist_ctrl_id": "IR-08",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-IR-IR09": {
+        "nist_ctrl_id": "IR-09",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR09(02)": {
+        "nist_ctrl_id": "IR-09 (02)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-IR-IR09(03)": {
+        "nist_ctrl_id": "IR-09 (03)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      },
+      "CTL-IR-IR09(04)": {
+        "nist_ctrl_id": "IR-09 (04)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+          }
+        }
+      }
+    },
+    "CTL-MA": {
+      "CTL-MA-MA01": {
+        "nist_ctrl_id": "MA-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-MA-MA02": {
+        "nist_ctrl_id": "MA-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-MA-MA02(02)": {
+        "nist_ctrl_id": "MA-02 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-MA-MA03": {
+        "nist_ctrl_id": "MA-03",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-MA-MA03(01)": {
+        "nist_ctrl_id": "MA-03 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-MA-MA03(02)": {
+        "nist_ctrl_id": "MA-03 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-MA-MA03(03)": {
+        "nist_ctrl_id": "MA-03 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'd' removed."
+        ]
+      },
+      "CTL-MA-MA04": {
+        "nist_ctrl_id": "MA-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-MA-MA04(03)": {
+        "nist_ctrl_id": "MA-04 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-MA-MA05": {
+        "nist_ctrl_id": "MA-05",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "fedramp_guidance": "CSPs should clearly document nationality requirements (or lack of) for maintenance personnel where applicable."
+          },
+          "c": {
+            "fedramp_guidance": "CSPs should clearly document nationality requirements (or lack of) for maintenance personnel where applicable."
+          },
+          "d": {
+            "fedramp_guidance": "CSPs should clearly document nationality requirements (or lack of) for maintenance personnel where applicable."
+          }
+        }
+      },
+      "CTL-MA-MA05(01)": {
+        "nist_ctrl_id": "MA-05 (01)",
+        "varies_by_class": {
+          "c": {
+            "fedramp_guidance": "MA-5 (1) Requirement: Only MA-5 (1) (a) (1) is required by FedRAMP Moderate Baseline"
+          },
+          "d": {}
+        }
+      },
+      "CTL-MA-MA06": {
+        "nist_ctrl_id": "MA-06",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '2' removed."
+        ]
+      }
+    },
+    "CTL-MP": {
+      "CTL-MP-MP01": {
+        "nist_ctrl_id": "MP-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-MP-MP02": {
+        "nist_ctrl_id": "MP-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-MP-MP03": {
+        "nist_ctrl_id": "MP-03",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-MP-MP04": {
+        "nist_ctrl_id": "MP-04",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-MP-MP05": {
+        "nist_ctrl_id": "MP-05",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-MP-MP06": {
+        "nist_ctrl_id": "MP-06",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-MP-MP06(01)": {
+        "nist_ctrl_id": "MP-06 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-MP-MP06(02)": {
+        "nist_ctrl_id": "MP-06 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-MP-MP06(03)": {
+        "nist_ctrl_id": "MP-06 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-MP-MP07": {
+        "nist_ctrl_id": "MP-07",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      }
+    },
+    "CTL-PE": {
+      "CTL-PE-PE01": {
+        "nist_ctrl_id": "PE-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE02": {
+        "nist_ctrl_id": "PE-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE03": {
+        "nist_ctrl_id": "PE-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE03(01)": {
+        "nist_ctrl_id": "PE-03 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-PE-PE04": {
+        "nist_ctrl_id": "PE-04",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE05": {
+        "nist_ctrl_id": "PE-05",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE06": {
+        "nist_ctrl_id": "PE-06",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE06(01)": {
+        "nist_ctrl_id": "PE-06 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE06(04)": {
+        "nist_ctrl_id": "PE-06 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-PE-PE08": {
+        "nist_ctrl_id": "PE-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE08(01)": {
+        "nist_ctrl_id": "PE-08 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-PE-PE09": {
+        "nist_ctrl_id": "PE-09",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE10": {
+        "nist_ctrl_id": "PE-10",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-PE-PE11": {
+        "nist_ctrl_id": "PE-11",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE11(01)": {
+        "nist_ctrl_id": "PE-11 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-PE-PE12": {
+        "nist_ctrl_id": "PE-12",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE13": {
+        "nist_ctrl_id": "PE-13",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE13(01)": {
+        "nist_ctrl_id": "PE-13 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed.",
+          "All classes: Parameter '2' removed."
+        ]
+      },
+      "CTL-PE-PE13(02)": {
+        "nist_ctrl_id": "PE-13 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE14": {
+        "nist_ctrl_id": "PE-14",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE14(02)": {
+        "nist_ctrl_id": "PE-14 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-PE-PE15": {
+        "nist_ctrl_id": "PE-15",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE15(01)": {
+        "nist_ctrl_id": "PE-15 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-PE-PE16": {
+        "nist_ctrl_id": "PE-16",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PE-PE17": {
+        "nist_ctrl_id": "PE-17",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PE-PE18": {
+        "nist_ctrl_id": "PE-18",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      }
+    },
+    "CTL-PL": {
+      "CTL-PL-PL01": {
+        "nist_ctrl_id": "PL-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PL-PL02": {
+        "nist_ctrl_id": "PL-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PL-PL04": {
+        "nist_ctrl_id": "PL-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PL-PL04(01)": {
+        "nist_ctrl_id": "PL-04 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PL-PL08": {
+        "nist_ctrl_id": "PL-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PL-PL10": {
+        "nist_ctrl_id": "PL-10",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PL-PL11": {
+        "nist_ctrl_id": "PL-11",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      }
+    },
+    "CTL-PS": {
+      "CTL-PS-PS01": {
+        "nist_ctrl_id": "PS-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PS-PS02": {
+        "nist_ctrl_id": "PS-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PS-PS03": {
+        "nist_ctrl_id": "PS-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-PS-PS03(03)": {
+        "nist_ctrl_id": "PS-03 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-PS-PS04": {
+        "nist_ctrl_id": "PS-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PS-PS04(02)": {
+        "nist_ctrl_id": "PS-04 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '2 Notify' removed."
+        ]
+      },
+      "CTL-PS-PS05": {
+        "nist_ctrl_id": "PS-05",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PS-PS06": {
+        "nist_ctrl_id": "PS-06",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PS-PS07": {
+        "nist_ctrl_id": "PS-07",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "fedramp_guidance": "Requirement 1: CSPs MUST clearly document any nationality requirements for any account type within its platform.  If none exists, this must also be explicitly stated."
+          },
+          "c": {},
+          "d": {}
+        },
+        "changelog": [
+          "Class b: Parameter 'd' removed.",
+          "Class c: Parameter 'd' removed.",
+          "Class d: Parameter 'd' removed."
+        ]
+      },
+      "CTL-PS-PS08": {
+        "nist_ctrl_id": "PS-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-PS-PS09": {
+        "nist_ctrl_id": "PS-09",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      }
+    },
+    "CTL-RA": {
+      "CTL-RA-RA01": {
+        "nist_ctrl_id": "RA-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-RA-RA02": {
+        "nist_ctrl_id": "RA-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-RA-RA03": {
+        "nist_ctrl_id": "RA-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-RA-RA03(01)": {
+        "nist_ctrl_id": "RA-03 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-RA-RA05": {
+        "nist_ctrl_id": "RA-05",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-RA-RA05(02)": {
+        "nist_ctrl_id": "RA-05 (02)",
+        "varies_by_class": {
+          "a": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          },
+          "b": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance.",
+            "params": [
+              {
+                "id": "a",
+                "value": "prior to a new scan"
+              }
+            ]
+          },
+          "c": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          },
+          "d": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          }
+        },
+        "changelog": [
+          "Class a: FedRAMP guidance added.",
+          "Class b: FedRAMP guidance added.",
+          "Class c: FedRAMP guidance added.",
+          "Class d: FedRAMP guidance added."
+        ]
+      },
+      "CTL-RA-RA05(03)": {
+        "nist_ctrl_id": "RA-05 (03)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          }
+        }
+      },
+      "CTL-RA-RA05(04)": {
+        "nist_ctrl_id": "RA-05 (04)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-RA-RA05(05)": {
+        "nist_ctrl_id": "RA-05 (05)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter '1' removed.",
+          "All classes: Parameter '2' removed."
+        ]
+      },
+      "CTL-RA-RA05(08)": {
+        "nist_ctrl_id": "RA-05 (08)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance updated."
+        ]
+      },
+      "CTL-RA-RA05(11)": {
+        "nist_ctrl_id": "RA-05 (11)",
+        "varies_by_class": {
+          "a": {},
+          "b": {},
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          }
+        }
+      },
+      "CTL-RA-RA07": {
+        "nist_ctrl_id": "RA-07",
+        "varies_by_class": {
+          "a": {},
+          "b": {},
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          }
+        }
+      },
+      "CTL-RA-RA09": {
+        "nist_ctrl_id": "RA-09",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      }
+    },
+    "CTL-SA": {
+      "CTL-SA-SA01": {
+        "nist_ctrl_id": "SA-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SA-SA02": {
+        "nist_ctrl_id": "SA-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA03": {
+        "nist_ctrl_id": "SA-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA04": {
+        "nist_ctrl_id": "SA-04",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SA-SA04(01)": {
+        "nist_ctrl_id": "SA-04 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA04(02)": {
+        "nist_ctrl_id": "SA-04 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-SA-SA04(05)": {
+        "nist_ctrl_id": "SA-04 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SA-SA04(09)": {
+        "nist_ctrl_id": "SA-04 (09)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA04(10)": {
+        "nist_ctrl_id": "SA-04 (10)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA05": {
+        "nist_ctrl_id": "SA-05",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the FedRAMP Security Configuration Guidance"
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SA-SA08": {
+        "nist_ctrl_id": "SA-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA09": {
+        "nist_ctrl_id": "SA-09",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SA-SA09(01)": {
+        "nist_ctrl_id": "SA-09 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA09(02)": {
+        "nist_ctrl_id": "SA-09 (02)",
+        "all_classes": {
+          "params": [
+            {
+              "id": "a",
+              "value": "all external systems where federal customer data is processed or stored"
+            }
+          ]
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA09(05)": {
+        "nist_ctrl_id": "SA-09 (05)",
+        "varies_by_class": {
+          "c": {
+            "params": [
+              {
+                "id": "1",
+                "value": "information processing, information or data, AND system services"
+              },
+              {
+                "id": "3",
+                "value": "all Federal customer data"
+              }
+            ]
+          },
+          "d": {
+            "params": [
+              {
+                "id": "1",
+                "value": "information processing, information or data, AND system services"
+              },
+              {
+                "id": "2",
+                "value": "U.S./U.S. Territories or geographic locations where there is U.S. jurisdiction"
+              },
+              {
+                "id": "3",
+                "value": "all Federal customer data"
+              }
+            ]
+          }
+        },
+        "changelog": [
+          "Class c: Parameter '3' added.",
+          "Class d: Parameter '3' changed from \"all High impact data, systems, or services\" to \"all Federal customer data\"."
+        ]
+      },
+      "CTL-SA-SA10": {
+        "nist_ctrl_id": "SA-10",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-SA-SA11": {
+        "nist_ctrl_id": "SA-11",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA11(01)": {
+        "nist_ctrl_id": "SA-11 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-SA-SA11(02)": {
+        "nist_ctrl_id": "SA-11 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA15": {
+        "nist_ctrl_id": "SA-15",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SA-SA15(03)": {
+        "nist_ctrl_id": "SA-15 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SA-SA16": {
+        "nist_ctrl_id": "SA-16",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SA-SA17": {
+        "nist_ctrl_id": "SA-17",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SA-SA21": {
+        "nist_ctrl_id": "SA-21",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SA-SA22": {
+        "nist_ctrl_id": "SA-22",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      }
+    },
+    "CTL-SC": {
+      "CTL-SC-SC01": {
+        "nist_ctrl_id": "SC-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC02": {
+        "nist_ctrl_id": "SC-02",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC03": {
+        "nist_ctrl_id": "SC-03",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SC-SC04": {
+        "nist_ctrl_id": "SC-04",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC05": {
+        "nist_ctrl_id": "SC-05",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC07": {
+        "nist_ctrl_id": "SC-07",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "fedramp_guidance": "SC-7 (b) Guidance: SC-7 (b) MAY be met by using any technical capability or complement of capabilities that ensures logical separation between publicly accessible components and internal networks by preventing traversal without inspection and authorization; traffic may not flow unrestricted from publicly accessible components to internal networks."
+          },
+          "c": {
+            "fedramp_guidance": "SC-7 (b) Guidance: SC-7 (b) MAY be met by using any technical capability or complement of capabilities that ensures logical separation between publicly accessible components and internal networks by preventing traversal without inspection and authorization; traffic may not flow unrestricted from publicly accessible components to internal networks."
+          },
+          "d": {
+            "fedramp_guidance": "SC-7 (b) Guidance: SC-7 (b) MAY be met by using any technical capability or complement of capabilities that ensures logical separation between publicly accessible components and internal networks by preventing traversal without inspection and authorization; traffic may not flow unrestricted from publicly accessible components to internal networks."
+          }
+        }
+      },
+      "CTL-SC-SC07(03)": {
+        "nist_ctrl_id": "SC-07 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC07(04)": {
+        "nist_ctrl_id": "SC-07 (04)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC07(05)": {
+        "nist_ctrl_id": "SC-07 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-SC-SC07(07)": {
+        "nist_ctrl_id": "SC-07 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC07(08)": {
+        "nist_ctrl_id": "SC-07 (08)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '2' removed."
+        ]
+      },
+      "CTL-SC-SC07(10)": {
+        "nist_ctrl_id": "SC-07 (10)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SC-SC07(12)": {
+        "nist_ctrl_id": "SC-07 (12)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '1' removed."
+        ]
+      },
+      "CTL-SC-SC07(18)": {
+        "nist_ctrl_id": "SC-07 (18)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC07(20)": {
+        "nist_ctrl_id": "SC-07 (20)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SC-SC07(21)": {
+        "nist_ctrl_id": "SC-07 (21)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SC-SC08": {
+        "nist_ctrl_id": "SC-08",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC08(01)": {
+        "nist_ctrl_id": "SC-08 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC10": {
+        "nist_ctrl_id": "SC-10",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-SC-SC12": {
+        "nist_ctrl_id": "SC-12",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC12(01)": {
+        "nist_ctrl_id": "SC-12 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SC-SC13": {
+        "nist_ctrl_id": "SC-13",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Using Cryptographics Modules  guidance."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC15": {
+        "nist_ctrl_id": "SC-15",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC17": {
+        "nist_ctrl_id": "SC-17",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC18": {
+        "nist_ctrl_id": "SC-18",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC20": {
+        "nist_ctrl_id": "SC-20",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC21": {
+        "nist_ctrl_id": "SC-21",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC22": {
+        "nist_ctrl_id": "SC-22",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC23": {
+        "nist_ctrl_id": "SC-23",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC24": {
+        "nist_ctrl_id": "SC-24",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SC-SC28": {
+        "nist_ctrl_id": "SC-28",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC28(01)": {
+        "nist_ctrl_id": "SC-28 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SC-SC39": {
+        "nist_ctrl_id": "SC-39",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC45": {
+        "nist_ctrl_id": "SC-45",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SC-SC45(01)": {
+        "nist_ctrl_id": "SC-45 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed.",
+          "All classes: Parameter 'b' removed."
+        ]
+      }
+    },
+    "CTL-SI": {
+      "CTL-SI-SI01": {
+        "nist_ctrl_id": "SI-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SI-SI02": {
+        "nist_ctrl_id": "SI-02",
+        "varies_by_class": {
+          "a": {},
+          "b": {},
+          "c": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          },
+          "d": {}
+        },
+        "changelog": [
+          "Class b: Parameter 'c' removed.",
+          "Class c: FedRAMP guidance added.",
+          "Class c: Parameter 'c' removed.",
+          "Class d: Parameter 'c' removed."
+        ]
+      },
+      "CTL-SI-SI02(02)": {
+        "nist_ctrl_id": "SI-02 (02)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter '2' removed."
+        ]
+      },
+      "CTL-SI-SI02(03)": {
+        "nist_ctrl_id": "SI-02 (03)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI03": {
+        "nist_ctrl_id": "SI-03",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SI-SI04": {
+        "nist_ctrl_id": "SI-04",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response and Incident Communication Procedure guidance."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SI-SI04(01)": {
+        "nist_ctrl_id": "SI-04 (01)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          }
+        }
+      },
+      "CTL-SI-SI04(02)": {
+        "nist_ctrl_id": "SI-04 (02)",
+        "varies_by_class": {
+          "c": {},
+          "d": {
+            "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          }
+        }
+      },
+      "CTL-SI-SI04(04)": {
+        "nist_ctrl_id": "SI-04 (04)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance added.",
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-SI-SI04(05)": {
+        "nist_ctrl_id": "SI-04 (05)",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance updated."
+        ]
+      },
+      "CTL-SI-SI04(10)": {
+        "nist_ctrl_id": "SI-04 (10)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-SI-SI04(11)": {
+        "nist_ctrl_id": "SI-04 (11)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(12)": {
+        "nist_ctrl_id": "SI-04 (12)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(14)": {
+        "nist_ctrl_id": "SI-04 (14)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(16)": {
+        "nist_ctrl_id": "SI-04 (16)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(18)": {
+        "nist_ctrl_id": "SI-04 (18)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(19)": {
+        "nist_ctrl_id": "SI-04 (19)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(20)": {
+        "nist_ctrl_id": "SI-04 (20)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(22)": {
+        "nist_ctrl_id": "SI-04 (22)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI04(23)": {
+        "nist_ctrl_id": "SI-04 (23)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI05": {
+        "nist_ctrl_id": "SI-05",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the FedRAMP Secure Inbox (FSI) guidance."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SI-SI05(01)": {
+        "nist_ctrl_id": "SI-05 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI06": {
+        "nist_ctrl_id": "SI-06",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'b' removed.",
+          "All classes: Parameter 'c' removed."
+        ]
+      },
+      "CTL-SI-SI07": {
+        "nist_ctrl_id": "SI-07",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI07(01)": {
+        "nist_ctrl_id": "SI-07 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter '2' removed.",
+          "All classes: Parameter '3' removed."
+        ]
+      },
+      "CTL-SI-SI07(02)": {
+        "nist_ctrl_id": "SI-07 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-SI-SI07(05)": {
+        "nist_ctrl_id": "SI-07 (05)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SI-SI07(07)": {
+        "nist_ctrl_id": "SI-07 (07)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI07(15)": {
+        "nist_ctrl_id": "SI-07 (15)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-SI-SI08": {
+        "nist_ctrl_id": "SI-08",
+        "all_classes": {
+          "fedramp_guidance": "SI-8 Guidance: When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting & Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01.\nhttps://www.cisa.gov/news-events/directives/bod-18-01-enhance-email-and-web-security\n\nSI-8 Guidance: CSPs should confirm DMARC configuration (where appropriate) to ensure that policy=reject and the rua parameter includes reports@dmarc.cyber.dhs.gov.  DMARC compliance should be documented in the SI-08 control implementation solution description, and list the FROM: domain(s) when emails are sent on behalf of the government."
+        },
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance updated."
+        ]
+      },
+      "CTL-SI-SI08(02)": {
+        "nist_ctrl_id": "SI-08 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI10": {
+        "nist_ctrl_id": "SI-10",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-SI-SI11": {
+        "nist_ctrl_id": "SI-11",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: Parameter 'b' removed."
+        ]
+      },
+      "CTL-SI-SI12": {
+        "nist_ctrl_id": "SI-12",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SI-SI16": {
+        "nist_ctrl_id": "SI-16",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        }
+      }
+    },
+    "CTL-SR": {
+      "CTL-SR-SR01": {
+        "nist_ctrl_id": "SR-01",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SR-SR02": {
+        "nist_ctrl_id": "SR-02",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SR-SR02(01)": {
+        "nist_ctrl_id": "SR-02 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SR-SR03": {
+        "nist_ctrl_id": "SR-03",
+        "varies_by_class": {
+          "a": {},
+          "b": {
+            "fedramp_guidance": "SR-3 Requirement: CSO must document and maintain the supply chain custody, including replacement devices, to ensure the integrity of the devices before being introduced to the boundary."
+          },
+          "c": {
+            "fedramp_guidance": "SR-3 Requirement: CSO must document and maintain the supply chain custody, including replacement devices, to ensure the integrity of the devices before being introduced to the boundary."
+          },
+          "d": {
+            "fedramp_guidance": "SR-3 Requirement: CSO must document and maintain the supply chain custody, including replacement devices, to ensure the integrity of the devices before being introduced to the boundary."
+          }
+        }
+      },
+      "CTL-SR-SR05": {
+        "nist_ctrl_id": "SR-05",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SR-SR06": {
+        "nist_ctrl_id": "SR-06",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed.",
+          "All classes: Parameter 'a' removed."
+        ]
+      },
+      "CTL-SR-SR08": {
+        "nist_ctrl_id": "SR-08",
+        "all_classes": {
+          "fedramp_guidance": "Follow all applicable rules within the Incident Communication Procedure guidance."
+        },
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SR-SR09": {
+        "nist_ctrl_id": "SR-09",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        },
+        "changelog": [
+          "All classes: FedRAMP guidance removed."
+        ]
+      },
+      "CTL-SR-SR09(01)": {
+        "nist_ctrl_id": "SR-09 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": false,
+          "b": false,
+          "c": false,
+          "d": true
+        }
+      },
+      "CTL-SR-SR10": {
+        "nist_ctrl_id": "SR-10",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SR-SR11": {
+        "nist_ctrl_id": "SR-11",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SR-SR11(01)": {
+        "nist_ctrl_id": "SR-11 (01)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      },
+      "CTL-SR-SR11(02)": {
+        "nist_ctrl_id": "SR-11 (02)",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        },
+        "changelog": [
+          "Guidance structure changed from per-class to uniform."
+        ]
+      },
+      "CTL-SR-SR12": {
+        "nist_ctrl_id": "SR-12",
+        "all_classes": {},
+        "required_for": {
+          "a": true,
+          "b": true,
+          "c": true,
+          "d": true
+        }
+      }
+    }
+  }
+}

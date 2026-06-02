@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "RV5.documentation.schema.json",
+  "title": "FedRAMP Rev5 Documentation",
+  "description": "Schema for FedRAMP NIST SP 800-53 Rev5 control documentation",
+  "type": "object",
+  "required": [
+    "CTL"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "CTL": {
+      "$comment": "naming convention is CTL-[2 capital letters] for families, CTL-[family]-[family][2 digit control]([2 digit sub-control]) for controls. e.g. CTL-AC, CTL-AC-AC01, CTL-AC-AC02(01)",
+      "type": "object",
+      "title": "NIST 800-53 Rev5 Controls",
+      "description": "Top-level container for all NIST SP 800-53 Rev5 control families",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^CTL-[A-Z]{2}$": {
+          "type": "object",
+          "title": "Control Family",
+          "description": "A NIST SP 800-53 control family, keyed by CTL-{2-letter family code} (e.g. CTL-CA, CTL-AC)",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^CTL-[A-Z]{2}-[A-Z]{2}[0-9]{2}(\\([0-9]{2}\\))?$": {
+              "type": "object",
+              "title": "Control",
+              "description": "A FedRAMP Rev5 control entry, keyed by CTL-{family}-{control ID} (e.g. CTL-CA-CA07)",
+              "required": [
+                "nist_ctrl_id"
+              ],
+              "additionalProperties": false,
+              "oneOf": [
+                {
+                  "title": "Direct guidance",
+                  "$comment": "Control applies the same guidance to all system classes. Requires all_classes and required_for.",
+                  "required": [
+                    "all_classes",
+                    "required_for"
+                  ]
+                },
+                {
+                  "title": "Class-specific guidance",
+                  "$comment": "Control guidance differs by system class. Use varies_by_class instead of all_classes.",
+                  "required": [
+                    "varies_by_class"
+                  ]
+                }
+              ],
+              "properties": {
+                "nist_ctrl_id": {
+                  "type": "string",
+                  "description": "The NIST SP 800-53 control identifier",
+                  "pattern": "^[A-Z]{2}-[0-9]{2}( \\([0-9]{2}\\))?$",
+                  "examples": [
+                    "CA-07",
+                    "AC-02",
+                    "AC-02 (01)"
+                  ]
+                },
+                "all_classes": {
+                  "description": "FedRAMP guidance and parameters that apply uniformly across all system classes",
+                  "$ref": "#/$defs/FedrampGuidance"
+                },
+                "varies_by_class": {
+                  "description": "FedRAMP guidance and parameters broken out per system class (a, b, c, d)",
+                  "$ref": "#/$defs/VariesByClass"
+                },
+                "required_for": {
+                  "description": "Which system classes this control is required for",
+                  "$ref": "#/$defs/ClassFlags"
+                },
+                "related_rules": {
+                  "type": "array",
+                  "description": "NIST control IDs that are related to or referenced by this control",
+                  "items": {
+                    "type": "string"
+                  },
+                  "examples": [
+                    [
+                      "SC-7",
+                      "SI-3"
+                    ]
+                  ]
+                },
+                "changelog": {
+                  "type": "array",
+                  "description": "Summary of changes from the previous revision",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "FedrampGuidance": {
+      "type": "object",
+      "title": "FedRAMP Guidance",
+      "description": "FedRAMP-specific guidance reference and parameter values for a control or system class",
+      "additionalProperties": false,
+      "properties": {
+        "fedramp_guidance": {
+          "type": "string",
+          "description": "FedRAMP guidance reference for this control",
+          "examples": [
+            "https://www.fedramp.gov/compliance-as-code/fedramp-controls/"
+          ]
+        },
+        "params": {
+          "type": "array",
+          "description": "Parameter values that override or supplement the NIST control defaults",
+          "items": {
+            "$ref": "#/$defs/Param"
+          }
+        }
+      }
+    },
+    "Param": {
+      "type": "object",
+      "title": "Control Parameter",
+      "description": "A single parameter assignment for a control",
+      "required": [
+        "id",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Parameter identifier as defined in the NIST control",
+          "examples": [
+            "a",
+            "b"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "The assigned value for this parameter",
+          "examples": [
+            "1",
+            "monthly",
+            "annually"
+          ]
+        }
+      }
+    },
+    "ClassFlags": {
+      "type": "object",
+      "title": "Class Flags",
+      "description": "Boolean flags indicating whether this control is required for each system class",
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "boolean",
+          "description": "Required for system class a"
+        },
+        "b": {
+          "type": "boolean",
+          "description": "Required for system class b"
+        },
+        "c": {
+          "type": "boolean",
+          "description": "Required for system class c"
+        },
+        "d": {
+          "type": "boolean",
+          "description": "Required for system class d"
+        }
+      },
+      "examples": [
+        {
+          "a": true,
+          "b": true,
+          "c": false,
+          "d": false
+        }
+      ]
+    },
+    "VariesByClass": {
+      "type": "object",
+      "title": "Class-Specific Guidance",
+      "description": "Per-class FedRAMP guidance, used when requirements differ across system classes",
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "description": "Guidance for system class a",
+          "$ref": "#/$defs/FedrampGuidance"
+        },
+        "b": {
+          "description": "Guidance for system class b",
+          "$ref": "#/$defs/FedrampGuidance"
+        },
+        "c": {
+          "description": "Guidance for system class c",
+          "$ref": "#/$defs/FedrampGuidance"
+        },
+        "d": {
+          "description": "Guidance for system class d",
+          "$ref": "#/$defs/FedrampGuidance"
+        }
+      }
+    }
+  }
+}

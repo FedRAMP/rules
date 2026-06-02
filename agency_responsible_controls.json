@@ -1,0 +1,752 @@
+[
+  {
+    "control_id": "ac-1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-2.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-2.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-2.3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-2.4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-2.13",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on and role based access control. "
+  },
+  {
+    "control_id": "ac-6",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on and role based access control. "
+  },
+  {
+    "control_id": "ac-6.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on and role based access control. "
+  },
+  {
+    "control_id": "ac-6.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on and role based access control. "
+  },
+  {
+    "control_id": "ac-6.5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on and role based access control. "
+  },
+  {
+    "control_id": "ac-6.7",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ac-7",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ac-21",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ac-22",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applicable only if the cloud service is used to distribute public content."
+  },
+  {
+    "control_id": "at-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "at-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency security and privacy training"
+  },
+  {
+    "control_id": "at-2.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency security and privacy training"
+  },
+  {
+    "control_id": "at-2.3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency security and privacy training"
+  },
+  {
+    "control_id": "at-3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Define additional training required for use of the cloud service by role"
+  },
+  {
+    "control_id": "at-4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Record role based training "
+  },
+  {
+    "control_id": "au-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Define criteria and process for an alert if audit data from the cloud service becomes unavailable."
+  },
+  {
+    "control_id": "au-6",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-6.1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-6.3",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-7",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-7.1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-9",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-9.4",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "au-11",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ca-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ca-2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ca-2.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Scope is limited to the agency information system and not the cloud service"
+  },
+  {
+    "control_id": "ca-3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Limited to data flows between the agency system and other external systems. This does not include data flows between the cloud service and the agency system or other external systems."
+  },
+  {
+    "control_id": "ca-5",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ca-6",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ca-7",
+    "agency_responsible": true,
+    "agency_responsible_description": "Continuous authorization data from the cloud service should be integrated into agency monitoring tools with appropriate alerts and reporting"
+  },
+  {
+    "control_id": "ca-7.4",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to agency managed configurations "
+  },
+  {
+    "control_id": "cm-2.2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-2.3",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-3",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-3.2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-3.4",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to changes made by the agency to the agency information system, not changes made by the service provider to the service."
+  },
+  {
+    "control_id": "cm-4.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to changes made by the agency to the agency information system, not changes made by the service provider to the service."
+  },
+  {
+    "control_id": "cm-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to agency managed configurations and changes"
+  },
+  {
+    "control_id": "cm-6",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to agency managed configurations "
+  },
+  {
+    "control_id": "cm-7",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cm-9",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to changes made by the agency to the agency information system, not changes made by the service provider to the service."
+  },
+  {
+    "control_id": "cm-10",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-2.1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-2.3",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-3",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-4",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-4.1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-9",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-9.8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to copies of information stored outside the service assessment area such as downloaded backups and logs"
+  },
+  {
+    "control_id": "cp-10",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "cp-10.2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ia-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ia-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-2.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-2.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-2.8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-2.12",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-5.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-6",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-7",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-8.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-8.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-11",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-12",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-12.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-12.3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ia-12.5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ir-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ir-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-3.2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ir-4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-4.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-6",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-6.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-6.3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-7",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-7.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "ir-8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Incident Response Procedure."
+  },
+  {
+    "control_id": "pl-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "pl-2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "pl-4",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "pl-4.1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "pl-8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to the agency developed information system and not to the provided cloud service"
+  },
+  {
+    "control_id": "pl-10",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "pl-11",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ps-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ps-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies to user roles available in the cloud service."
+  },
+  {
+    "control_id": "ps-3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency Personnel Process."
+  },
+  {
+    "control_id": "ps-4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "ps-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on and role based access controls (RBAC) are enforced by the agency IdP system."
+  },
+  {
+    "control_id": "ps-6",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ps-7",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ps-8",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ps-9",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ra-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ra-2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ra-3",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ra-5.5",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ra-7",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "ra-9",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-3",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to development of agency information systems that leverage the cloud service, not to the cloud service itself."
+  },
+  {
+    "control_id": "sa-4",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-4.1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-4.2",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-4.9",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sa-4.10",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherit from agency IdP system if used for single sign on."
+  },
+  {
+    "control_id": "sa-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to development of agency information systems that leverage the cloud service, not to the cloud service itself."
+  },
+  {
+    "control_id": "sa-8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to development of agency information systems that leverage the cloud service, not to the cloud service itself."
+  },
+  {
+    "control_id": "sc-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "sc-8",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "sc-8.1",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "sc-10",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "sc-12",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to agency managed keys"
+  },
+  {
+    "control_id": "sc-20",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "sc-21",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "sc-22",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "sc-23",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "si-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "si-2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to development of agency information systems that leverage the cloud service, not to the cloud service itself."
+  },
+  {
+    "control_id": "si-4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "si-4.2",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "si-4.4",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "si-4.5",
+    "agency_responsible": true,
+    "agency_responsible_description": "Inherited from agency network (physical or software defined) configuration"
+  },
+  {
+    "control_id": "si-5",
+    "agency_responsible": true,
+    "agency_responsible_description": "FedRAMP will manage the notification to certified cloud service providers and will coordinate feedback to agencies."
+  },
+  {
+    "control_id": "si-12",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  },
+  {
+    "control_id": "si-16",
+    "agency_responsible": true,
+    "agency_responsible_description": "Applies only to agency information systems used to access the cloud service."
+  },
+  {
+    "control_id": "sr-1",
+    "agency_responsible": true,
+    "agency_responsible_description": null
+  }
+]
