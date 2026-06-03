@@ -4205,7 +4205,7 @@
               "name": "Initial Incident Report",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting and/or the current relevant status for each item:",
                   "following_information": [
                     "Contact information for the federal incident response coordinator.",
                     "Provider's internally assigned tracking identifier",
@@ -4256,7 +4256,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting and/or the current relevant status for each item:",
                   "following_information": [
                     "Contact information for the federal incident response coordinator.",
                     "Provider's internally assigned tracking identifier",
@@ -4307,7 +4307,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting and/or the current relevant status for each item:",
                   "following_information": [
                     "Contact information for the federal incident response coordinator.",
                     "Provider's internally assigned tracking identifier",
@@ -4358,7 +4358,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting:",
+                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting and/or the current relevant status for each item:",
                   "following_information": [
                     "Contact information for the federal incident response coordinator.",
                     "Provider's internally assigned tracking identifier",
@@ -4447,7 +4447,7 @@
               "name": "Ongoing Incident Reports",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -4495,7 +4495,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -4543,7 +4543,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -4591,7 +4591,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available:",
+                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
