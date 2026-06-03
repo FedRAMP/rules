@@ -1958,23 +1958,24 @@
           "CSO": {
             "CDS-CSO-PUB": {
               "name": "Public Information",
-              "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and machine-readable formats, including at least:",
+              "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and machine-readable formats, including at least the following information that is available and applicable:",
               "following_information": [
                 "Direct link to the FedRAMP Marketplace for the offering",
                 "Service Model",
                 "Deployment Model",
                 "Business Category",
                 "UEI Number",
-                "Contact Information",
+                "Sales Contact Information",
+                "Security Contact Information",
+                "Product Website Link",
+                "Link to Product Logo",
                 "Overall Service Description",
                 "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
-                "Summary of customer responsibilities and secure configuration guidance (if applicable, see the FedRAMP Secure Configuration Guide process)",
-                "Process for accessing information in the trust center (if applicable)",
-                "Availability status and recent disruptions for the trust center (if applicable)",
-                "Customer support information for the trust center (if applicable)",
+                "Summary of customer responsibilities and secure configuration guidance",
+                "Link to Trust Center landing page that includes instructions on accessing information in the trust center",
                 "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))"
               ],
-              "note": "Generally, this information should be available on a public webpage.",
+              "note": "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
               "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
               "force": "MUST",
               "affects": ["Providers"],
@@ -2380,7 +2381,7 @@
             },
             "CDS-UTC-AAD": {
               "name": "Agency Access Denial",
-              "statement": "Providers MUST notify FedRAMP by email to info@fedramp.gov within 5 business days of denying an agency access request for FedRAMP Certification Data.",
+              "statement": "Providers MUST notify FedRAMP within 5 business days of denying an agency access request for FedRAMP Certification Data.",
               "force": "MUST",
               "affects": ["Providers"],
               "timeframe_type": "bizdays",
@@ -2402,7 +2403,7 @@
             },
             "CDS-UTC-AGA": {
               "name": "Agency Access",
-              "statement": "Providers SHOULD share the FedRAMP Certification package with agencies upon request.",
+              "statement": "Providers SHOULD supply access to the FedRAMP Certification package with agencies upon request.",
               "force": "SHOULD",
               "affects": ["Providers"],
               "artifacts": {
@@ -2420,9 +2421,6 @@
               ]
             }
           }
-        },
-        "20x": {
-          "CSX": {}
         },
         "rev5": {
           "CSF": {
