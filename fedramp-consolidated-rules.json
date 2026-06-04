@@ -4105,7 +4105,7 @@
     },
     "IFR": {
       "info": {
-        "name": "Obtaining Initial FedRAMP Certification",
+        "name": "Initial FedRAMP Certification",
         "short_name": "IFR",
         "web_name": "initial-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain initial FedRAMP Certification across certification classes and paths.",
@@ -4805,7 +4805,7 @@
     },
     "OFR": {
       "info": {
-        "name": "Maintaining Ongoing FedRAMP Certification",
+        "name": "Ongoing FedRAMP Certification",
         "short_name": "OFR",
         "web_name": "ongoing-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings maintain ongoing FedRAMP Certification across certification classes and paths.",
