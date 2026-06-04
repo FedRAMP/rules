@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.03.01-preview",
+    "version": "2026.06.4.01-preview",
     "last_updated": "2026-06-03",
     "default_artifacts": {
       "FRR": [
@@ -2502,6 +2502,109 @@
         }
       }
     },
+    "CPO": {
+      "info": {
+        "name": "Certification Package Overview",
+        "short_name": "CPO",
+        "web_name": "certification-package-overview",
+        "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package.",
+        "status": "empty",
+        "subsets": {
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These rules apply to providers for FedRAMP Certifications of any type.",
+            "applicability": {
+              "types": ["20x", "Rev5"],
+              "paths": ["Program", "Agency"],
+              "classes": ["A", "B", "C", "D"],
+              "affects": ["Providers"]
+            }
+          },
+          "IAS": {
+            "name": "General Independent Assessor Responsibilities",
+            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
+            "applicability": {
+              "types": ["20x", "Rev5"],
+              "paths": ["Program", "Agency"],
+              "classes": ["B", "C", "D"],
+              "affects": ["Assessors"]
+            }
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          },
+          "subsets": {
+            "CSX": {
+              "name": "20x-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP 20x Certifications.",
+              "applicability": {
+                "types": ["20x"],
+                "paths": ["Program"],
+                "classes": ["A", "B", "C", "D"],
+                "affects": ["Providers"]
+              }
+            },
+            "IAX": {
+              "name": "20x-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
+              "applicability": {
+                "types": ["20x"],
+                "paths": ["Program"],
+                "classes": ["B", "C", "D"],
+                "affects": ["Assessors"]
+              }
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-08-01",
+              "grace_ends": "2028-02-01"
+            },
+            "signup_url": "ADDME"
+          },
+          "subsets": {
+            "CSF": {
+              "name": "Rev5-Specific Provider Responsibilities",
+              "description": "These rules apply to providers for FedRAMP Rev5 Certifications.",
+              "applicability": {
+                "types": ["Rev5"],
+                "paths": ["Program", "Agency"],
+                "classes": ["A", "B", "C", "D"],
+                "affects": ["Providers"]
+              }
+            },
+            "IAF": {
+              "name": "Rev5-Specific Independent Assessor Responsibilities",
+              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
+              "applicability": {
+                "types": ["Rev5"],
+                "paths": ["Program", "Agency"],
+                "classes": ["A", "B", "C", "D"],
+                "affects": ["Assessors"]
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "all": {},
+        "20x": {},
+        "rev5": {}
+      }
+    },
     "FRC": {
       "info": {
         "name": "FedRAMP Certification",
@@ -2523,6 +2626,16 @@
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to cloud service providers obtaining and maintaining any FedRAMP Certification.",
+            "applicability": {
+              "types": ["20x", "Rev5"],
+              "paths": ["Program", "Agency"],
+              "classes": ["A", "B", "C", "D"],
+              "affects": ["Providers"]
+            }
+          },
+          "AFR": {
+            "name": "Addressing FedRAMP Rules",
+            "description": "These rules apply to all cloud service providers obtaining and maintaining any FedRAMP Certification.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
@@ -2695,252 +2808,6 @@
                 }
               ]
             },
-            "FRC-CSO-CDS": {
-              "name": "FedRAMP Certification Data Sharing",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Certification Data Sharing (CDS) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "FedRAMP Certification Data Sharing",
-              "reference_url_web_name": "certification-data-sharing",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "controls": [
-                "ac-3",
-                "ac-4",
-                "au-2",
-                "au-3",
-                "au-6",
-                "ca-2",
-                "ir-4",
-                "ra-5",
-                "sc-8"
-              ],
-              "terms": ["Certification Data", "Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-CCM": {
-              "name": "Collaborative Continuous Monitoring",
-              "statement": "Providers MUST follow and persistently address the Collaborative Continuous Monitoring (CCM) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Collaborative Continuous Monitoring",
-              "reference_url_web_name": "collaborative-continuous-monitoring",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-FSI": {
-              "name": "FedRAMP Security Inbox",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Security Inbox (FSI) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "FedRAMP Security Inbox",
-              "reference_url_web_name": "fedramp-security-inbox",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["FedRAMP Security Inbox", "Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-ICP": {
-              "name": "Incident Communications Procedures",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Incident Communications Procedures (ICP) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Incident Communications Procedures",
-              "reference_url_web_name": "incident-communications-procedures",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Incident", "Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-MAS": {
-              "name": "Minimum Assessment Scope",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Minimum Assessment Scope (MAS) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Minimum Assessment Scope",
-              "reference_url_web_name": "minimum-assessment-scope",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "controls": [
-                "ac-1",
-                "ac-21",
-                "at-1",
-                "au-1",
-                "ca-1",
-                "cm-1",
-                "cp-1",
-                "cp-2.1",
-                "cp-2.8",
-                "cp-4.1",
-                "ia-1",
-                "ir-1",
-                "ma-1",
-                "mp-1",
-                "pe-1",
-                "pl-1",
-                "pl-2",
-                "pl-4",
-                "pl-4.1",
-                "ps-1",
-                "ra-1",
-                "ra-9",
-                "sa-1",
-                "sc-1",
-                "si-1",
-                "sr-1",
-                "sr-2",
-                "sr-3",
-                "sr-11"
-              ],
-              "terms": ["Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-SCG": {
-              "name": "Secure Configuration Guide",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Secure Configuration Guide (SCG) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Secure Configuration Guide",
-              "reference_url_web_name": "secure-configuration-guide",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-SCN": {
-              "name": "Significant Change Notifications",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Significant Change Notifications (SCN) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Significant Change Notifications",
-              "reference_url_web_name": "significant-change-notifications",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "controls": [
-                "ca-7.4",
-                "cm-3.4",
-                "cm-4",
-                "cm-7.1",
-                "au-5",
-                "ca-5",
-                "ca-7",
-                "ra-5",
-                "ra-5.2",
-                "sa-22",
-                "si-2",
-                "si-2.2",
-                "si-3",
-                "si-5",
-                "si-7.7",
-                "si-10",
-                "si-11"
-              ],
-              "terms": ["Persistently", "Provider", "Significant Change"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-UCM": {
-              "name": "Using Cryptographic Modules",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Using Cryptographic Modules (UCM) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Using Cryptographic Modules",
-              "reference_url_web_name": "using-cryptographic-modules",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Persistently", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "FRC-CSO-VDR": {
-              "name": "Vulnerability Detection and Response",
-              "statement": "Providers MUST follow and persistently address the FedRAMP Vulnerability Detection and Response (VDR) rules, based on the applicability and effective date(s) in those rules.",
-              "reference": "Vulnerability Detection and Response",
-              "reference_url_web_name": "vulnerability-detection-and-response",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "controls": [
-                "ca-2",
-                "ca-7",
-                "ca-7.6",
-                "ir-1",
-                "ir-4",
-                "ir-4.1",
-                "ir-5",
-                "ir-5.1",
-                "ir-6",
-                "ir-6.1",
-                "ir-6.2",
-                "pm-3",
-                "pm-5",
-                "pm-31",
-                "ra-2",
-                "ra-2.1",
-                "ra-3",
-                "ra-3.3",
-                "ra-5",
-                "ra-5.2",
-                "ra-5.3",
-                "ra-5.4",
-                "ra-5.5",
-                "ra-5.6",
-                "ra-5.7",
-                "ra-5.11",
-                "ra-9",
-                "ra-10",
-                "si-2",
-                "si-2.1",
-                "si-2.2",
-                "si-2.4",
-                "si-2.5",
-                "si-3",
-                "si-3.1",
-                "si-3.2",
-                "si-4",
-                "si-4.2",
-                "si-4.3",
-                "si-4.7",
-                "ca-7.4",
-                "ra-7"
-              ],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "FRC-CSO-IVV": {
               "name": "Independent Verification and Validation",
               "varies_by_class": {
@@ -3032,6 +2899,258 @@
                 "Verification"
               ],
               "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          },
+          "AFR": {
+            "FRC-AFR-CDS": {
+              "name": "FedRAMP Certification Data Sharing",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Certification Data Sharing (CDS) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "FedRAMP Certification Data Sharing",
+              "reference_url_web_name": "certification-data-sharing",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "controls": [
+                "ac-3",
+                "ac-4",
+                "au-2",
+                "au-3",
+                "au-6",
+                "ca-2",
+                "ir-4",
+                "ra-5",
+                "sc-8"
+              ],
+              "terms": ["Certification Data", "Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-CCM": {
+              "name": "Collaborative Continuous Monitoring",
+              "statement": "Providers MUST follow and persistently address the Collaborative Continuous Monitoring (CCM) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Collaborative Continuous Monitoring",
+              "reference_url_web_name": "collaborative-continuous-monitoring",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-FSI": {
+              "name": "FedRAMP Security Inbox",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Security Inbox (FSI) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "FedRAMP Security Inbox",
+              "reference_url_web_name": "fedramp-security-inbox",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["FedRAMP Security Inbox", "Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-ICP": {
+              "name": "Incident Communications Procedures",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Incident Communications Procedures (ICP) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Incident Communications Procedures",
+              "reference_url_web_name": "incident-communications-procedures",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Incident", "Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-MAS": {
+              "name": "Minimum Assessment Scope",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Minimum Assessment Scope (MAS) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Minimum Assessment Scope",
+              "reference_url_web_name": "minimum-assessment-scope",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "controls": [
+                "ac-1",
+                "ac-21",
+                "at-1",
+                "au-1",
+                "ca-1",
+                "cm-1",
+                "cp-1",
+                "cp-2.1",
+                "cp-2.8",
+                "cp-4.1",
+                "ia-1",
+                "ir-1",
+                "ma-1",
+                "mp-1",
+                "pe-1",
+                "pl-1",
+                "pl-2",
+                "pl-4",
+                "pl-4.1",
+                "ps-1",
+                "ra-1",
+                "ra-9",
+                "sa-1",
+                "sc-1",
+                "si-1",
+                "sr-1",
+                "sr-2",
+                "sr-3",
+                "sr-11"
+              ],
+              "terms": ["Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-SCN": {
+              "name": "Significant Change Notifications",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Significant Change Notifications (SCN) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Significant Change Notifications",
+              "reference_url_web_name": "significant-change-notifications",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "controls": [
+                "ca-7.4",
+                "cm-3.4",
+                "cm-4",
+                "cm-7.1",
+                "au-5",
+                "ca-5",
+                "ca-7",
+                "ra-5",
+                "ra-5.2",
+                "sa-22",
+                "si-2",
+                "si-2.2",
+                "si-3",
+                "si-5",
+                "si-7.7",
+                "si-10",
+                "si-11"
+              ],
+              "terms": ["Persistently", "Provider", "Significant Change"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-UCM": {
+              "name": "Using Cryptographic Modules",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Using Cryptographic Modules (UCM) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Using Cryptographic Modules",
+              "reference_url_web_name": "using-cryptographic-modules",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-VDR": {
+              "name": "Vulnerability Detection and Response",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Vulnerability Detection and Response (VDR) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Vulnerability Detection and Response",
+              "reference_url_web_name": "vulnerability-detection-and-response",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "controls": [
+                "ca-2",
+                "ca-7",
+                "ca-7.6",
+                "ir-1",
+                "ir-4",
+                "ir-4.1",
+                "ir-5",
+                "ir-5.1",
+                "ir-6",
+                "ir-6.1",
+                "ir-6.2",
+                "pm-3",
+                "pm-5",
+                "pm-31",
+                "ra-2",
+                "ra-2.1",
+                "ra-3",
+                "ra-3.3",
+                "ra-5",
+                "ra-5.2",
+                "ra-5.3",
+                "ra-5.4",
+                "ra-5.5",
+                "ra-5.6",
+                "ra-5.7",
+                "ra-5.11",
+                "ra-9",
+                "ra-10",
+                "si-2",
+                "si-2.1",
+                "si-2.2",
+                "si-2.4",
+                "si-2.5",
+                "si-3",
+                "si-3.1",
+                "si-3.2",
+                "si-4",
+                "si-4.2",
+                "si-4.3",
+                "si-4.7",
+                "ca-7.4",
+                "ra-7"
+              ],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-AFR-SCG": {
+              "name": "Secure Configuration Guide",
+              "statement": "Providers MUST follow and persistently address the FedRAMP Secure Configuration Guide (SCG) rules, based on the applicability and effective date(s) in those rules.",
+              "reference": "Secure Configuration Guide",
+              "reference_url_web_name": "secure-configuration-guide",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-03",
+                  "comment": "Renamed to \"FRC-AFR-SCG\"."
+                },
                 {
                   "date": "2026-05-04",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
@@ -3821,212 +3940,6 @@
             }
           }
         }
-      }
-    },
-    "IAP": {
-      "info": {
-        "name": "Independent Assessment Plan",
-        "short_name": "IAP",
-        "web_name": "independent-assessment-plan",
-        "purpose": "The Independent Assessment Plan rules explain how independent assessment services should approach the verification, validation, and attestation of a cloud service provider's own Security Decision Record on behalf of FedRAMP.",
-        "status": "empty",
-        "subsets": {
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Certifications of any type.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
-              "affects": ["Assessors"]
-            }
-          }
-        },
-        "20x": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "subsets": {
-            "CSX": {
-              "name": "20x-Specific Provider Responsibilities",
-              "description": "These rules apply to providers for FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["B", "C", "D"],
-                "affects": ["Assessors"]
-              }
-            }
-          }
-        },
-        "rev5": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
-            },
-            "signup_url": "ADDME"
-          },
-          "subsets": {
-            "CSF": {
-              "name": "Rev5-Specific Provider Responsibilities",
-              "description": "These rules apply to providers for FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
-              }
-            }
-          }
-        }
-      },
-      "data": {
-        "all": {},
-        "20x": {},
-        "rev5": {}
-      }
-    },
-    "IAR": {
-      "info": {
-        "name": "Independent Assessment Report",
-        "short_name": "IAR",
-        "web_name": "independent-assessment-report",
-        "purpose": "The Independent Assessment Report rules explain the minimum expectations for independent assessor attestations after the completion of an independent assessment for FedRAMP Certification.",
-        "status": "empty",
-        "subsets": {
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers for FedRAMP Certifications of any type.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
-              "affects": ["Assessors"]
-            }
-          }
-        },
-        "20x": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          },
-          "subsets": {
-            "CSX": {
-              "name": "20x-Specific Provider Responsibilities",
-              "description": "These rules apply to providers for FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["B", "C", "D"],
-                "affects": ["Assessors"]
-              }
-            }
-          }
-        },
-        "rev5": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
-            },
-            "signup_url": "ADDME"
-          },
-          "subsets": {
-            "CSF": {
-              "name": "Rev5-Specific Provider Responsibilities",
-              "description": "These rules apply to providers for FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["B", "C", "D"],
-                "affects": ["Assessors"]
-              }
-            }
-          }
-        }
-      },
-      "data": {
-        "all": {},
-        "20x": {},
-        "rev5": {}
       }
     },
     "ICP": {
