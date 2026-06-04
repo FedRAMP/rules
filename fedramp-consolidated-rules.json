@@ -4107,7 +4107,7 @@
       "info": {
         "name": "Obtaining Initial FedRAMP Certification",
         "short_name": "IFR",
-        "web_name": "fedramp-certification",
+        "web_name": "initial-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain initial FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
         "subsets": {
@@ -4803,11 +4803,11 @@
         }
       }
     },
-    "MFR": {
+    "OFR": {
       "info": {
-        "name": "Maintaining FedRAMP Certification",
-        "short_name": "MFR",
-        "web_name": "fedramp-certification",
+        "name": "Maintaining Ongoing FedRAMP Certification",
+        "short_name": "OFR",
+        "web_name": "ongoing-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings maintain ongoing FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
         "subsets": {
@@ -4892,7 +4892,7 @@
       "data": {
         "all": {
           "FRP": {
-            "MFR-FRP-MCM": {
+            "OFR-FRP-MCM": {
               "name": "Minimum Continuous Monitoring",
               "statement": "FedRAMP MUST perform a minimum level of continuous monitoring for cloud service offerings with FedRAMP Program Certification, including at least reviewing Ongoing Certification Reports.",
               "force": "MUST",
@@ -4907,7 +4907,7 @@
             }
           },
           "CSO": {
-            "MFR-CSO-IVV": {
+            "OFR-CSO-IVV": {
               "name": "Independent Verification and Validation",
               "varies_by_class": {
                 "a": {
@@ -4960,7 +4960,7 @@
             }
           },
           "AFR": {
-            "MFR-AFR-CDS": {
+            "OFR-AFR-CDS": {
               "name": "FedRAMP Certification Data Sharing",
               "statement": "Providers MUST follow and persistently address the FedRAMP Certification Data Sharing (CDS) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "FedRAMP Certification Data Sharing",
@@ -4986,7 +4986,7 @@
                 }
               ]
             },
-            "MFR-AFR-CCM": {
+            "OFR-AFR-CCM": {
               "name": "Collaborative Continuous Monitoring",
               "statement": "Providers MUST follow and persistently address the Collaborative Continuous Monitoring (CCM) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Collaborative Continuous Monitoring",
@@ -5001,7 +5001,7 @@
                 }
               ]
             },
-            "MFR-AFR-FSI": {
+            "OFR-AFR-FSI": {
               "name": "FedRAMP Security Inbox",
               "statement": "Providers MUST follow and persistently address the FedRAMP Security Inbox (FSI) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "FedRAMP Security Inbox",
@@ -5016,7 +5016,7 @@
                 }
               ]
             },
-            "MFR-AFR-ICP": {
+            "OFR-AFR-ICP": {
               "name": "Incident Communications Procedures",
               "statement": "Providers MUST follow and persistently address the FedRAMP Incident Communications Procedures (ICP) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Incident Communications Procedures",
@@ -5031,7 +5031,7 @@
                 }
               ]
             },
-            "MFR-AFR-MAS": {
+            "OFR-AFR-MAS": {
               "name": "Minimum Assessment Scope",
               "statement": "Providers MUST follow and persistently address the FedRAMP Minimum Assessment Scope (MAS) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Minimum Assessment Scope",
@@ -5077,7 +5077,7 @@
                 }
               ]
             },
-            "MFR-AFR-SCN": {
+            "OFR-AFR-SCN": {
               "name": "Significant Change Notifications",
               "statement": "Providers MUST follow and persistently address the FedRAMP Significant Change Notifications (SCN) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Significant Change Notifications",
@@ -5111,7 +5111,7 @@
                 }
               ]
             },
-            "MFR-AFR-UCM": {
+            "OFR-AFR-UCM": {
               "name": "Using Cryptographic Modules",
               "statement": "Providers MUST follow and persistently address the FedRAMP Using Cryptographic Modules (UCM) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Using Cryptographic Modules",
@@ -5126,7 +5126,7 @@
                 }
               ]
             },
-            "MFR-AFR-VDR": {
+            "OFR-AFR-VDR": {
               "name": "Vulnerability Detection and Response",
               "statement": "Providers MUST follow and persistently address the FedRAMP Vulnerability Detection and Response (VDR) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Vulnerability Detection and Response",
@@ -5191,7 +5191,7 @@
                 }
               ]
             },
-            "MFR-AFR-SCG": {
+            "OFR-AFR-SCG": {
               "name": "Secure Configuration Guide",
               "statement": "Providers MUST follow and persistently address the FedRAMP Secure Configuration Guide (SCG) rules, based on the applicability and effective date(s) in those rules.",
               "reference": "Secure Configuration Guide",
