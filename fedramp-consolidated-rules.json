@@ -2674,6 +2674,27 @@
             }
           },
           "CSO": {
+            "FRC-CSO-PKG": {
+              "name": "FedRAMP Certification Package",
+              "statement": "Providers MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+              "following_information": [
+                "A Certification Package Overview following the Certification Package Overview rules",
+                "A Security Decision Record following the Security Decision Record rules"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Package",
+                "Initial Certification",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-07-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "FRC-CSO-CDS": {
               "name": "FedRAMP Certification Data Sharing",
               "statement": "Providers MUST follow and persistently address the FedRAMP Certification Data Sharing (CDS) rules, based on the applicability and effective date(s) in those rules.",
@@ -3460,20 +3481,6 @@
         },
         "rev5": {
           "CSF": {
-            "FRC-CSF-CDE": {
-              "name": "Class D Program Certification Exclusion",
-              "statement": "Providers seeking a FedRAMP Rev5 Class D Certification MUST use the FedRAMP Agency Certification path.",
-              "note": "FedRAMP will not perform FedRAMP Rev5 Class D Program Certifications.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Agency", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "FRC-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
               "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
