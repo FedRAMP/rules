@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.4.01-preview",
-    "last_updated": "2026-06-03",
+    "version": "2026.06.04.01-preview",
+    "last_updated": "2026-06-04",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -4351,7 +4351,6 @@
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
                 "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
-                "Certification Data Sharing: CDS-UTC-PGD (Public Guidance for Certification Data)",
                 "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
                 "FedRAMP Security Inbox: FSI-CSO-INB (Maintain a FedRAMP Security Inbox)",
                 "FedRAMP Security Inbox: FSI-CSO-RCV (Receive Email Without Disruption)",
@@ -4367,7 +4366,6 @@
                 "MAS-CSO-IIR",
                 "CDS-CSO-PUB",
                 "CDS-CSO-UTC",
-                "CDS-UTC-PGD",
                 "CDS-UTC-AAD",
                 "FSI-CSO-INB",
                 "FSI-CSO-RCV",
@@ -4769,6 +4767,331 @@
                 "Information Resource",
                 "Provider"
               ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "MKT": {
+      "info": {
+        "name": "Marketplace Listing",
+        "short_name": "MKT",
+        "web_name": "marketplace-listing",
+        "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
+        "status": "placeholder",
+        "subsets": {
+          "FRP": {
+            "name": "FedRAMP Responsibilities",
+            "description": "These rules apply to FedRAMP activities related to the FedRAMP Marketplace.",
+            "applicability": {
+              "types": ["20x", "Rev5"],
+              "paths": ["Program", "Agency"],
+              "classes": ["A", "B", "C", "D"],
+              "affects": ["FedRAMP"]
+            }
+          },
+          "CSO": {
+            "name": "General Provider Responsibilities",
+            "description": "These rules apply to providers seeking a listing in the FedRAMP Marketplace.",
+            "applicability": {
+              "types": ["20x", "Rev5"],
+              "paths": ["Program", "Agency"],
+              "classes": ["A", "B", "C", "D"],
+              "affects": ["Providers"]
+            }
+          },
+          "IAS": {
+            "name": "General Assessor Responsibilities",
+            "description": "These rules apply to independent assessment services seeking a listing in the FedRAMP Marketplace.",
+            "applicability": {
+              "types": [],
+              "paths": [],
+              "classes": [],
+              "affects": ["Assessors"]
+            }
+          },
+          "CAS": {
+            "name": "General Advisor Responsibilities",
+            "description": "These rules apply to consulting and advisory services seeking a listing in the FedRAMP Marketplace.",
+            "applicability": {
+              "types": [],
+              "paths": [],
+              "classes": [],
+              "affects": ["Advisors"]
+            }
+          },
+          "PRE": {
+            "name": "Provider Responsibilities for Preparation Phase Listings",
+            "description": "These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace.",
+            "applicability": {
+              "types": ["20x", "Rev5"],
+              "paths": ["Program", "Agency"],
+              "classes": [],
+              "affects": ["Providers"]
+            }
+          }
+        },
+        "20x": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2026-07-04",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-05-04"
+            }
+          }
+        },
+        "rev5": {
+          "effective": {
+            "is": "required",
+            "current_status": "Consolidated Rules for 2026",
+            "date": {
+              "obtain": "2027-01-01",
+              "maintain": "2027-01-01",
+              "grace_ends": "2027-06-01"
+            }
+          }
+        }
+      },
+      "data": {
+        "all": {
+          "FRP": {
+            "MKT-FRP-DSM": {
+              "name": "Decision Summaries",
+              "statement": "FedRAMP MUST include a summary with any Marketplace listing decision that explains why the decision was made, including an explanation of deficiencies if applicable.",
+              "force": "MUST",
+              "affects": ["FedRAMP"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-FRP-MJS": {
+              "name": "Marketplace JSON Schemas",
+              "statement": "FedRAMP MUST publish and maintain JSON schemas for required machine-readable Marketplace web information supplied by advisors and assessors.",
+              "reference": "FedRAMP JSON Schemas on GitHub",
+              "reference_url": "https://github.com/FedRAMP/schemas",
+              "force": "MUST",
+              "affects": ["FedRAMP"],
+              "terms": ["Advisor", "Assessor", "Machine-Readable"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-FRP-SOF": {
+              "name": "Scope of FedRAMP",
+              "statement": "FedRAMP MUST NOT list cloud service offerings in the Marketplace or perform any FedRAMP Certification activities unless it determines the cloud service offering is within the scope of FedRAMP.",
+              "reference": "Scope of FedRAMP",
+              "reference_url": "https://fedramp.gov/docs/authority/scope",
+              "force": "MUST NOT",
+              "affects": ["FedRAMP"],
+              "terms": ["Cloud Service Offering"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          },
+          "CSO": {
+            "MKT-CSO-AGU": {
+              "name": "Agency Use Cases",
+              "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
+              "following_information": [
+                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
+                "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
+              ],
+              "notes": [
+                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
+                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
+              ],
+              "related": ["MKT-FRP-SOF"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "Information Resource",
+                "Provider",
+                "Third-Party Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-CSO-LRQ": {
+              "name": "Listing Requests for Providers",
+              "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ in full to request listing in the FedRAMP Marketplace.",
+              "reference": "FedRAMP Marketplace Provider Listing Request Form",
+              "reference_url": "https://fedramp.gov/forms",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          },
+          "IAS": {
+            "MKT-IAS-OFR": {
+              "name": "Only FedRAMP Recognized Assessors",
+              "statement": "Assessors MUST obtain and maintain FedRAMP Recognition to be listed in the FedRAMP Marketplace.",
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": ["Assessor", "FedRAMP Recognized"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-IAS-WEB": {
+              "name": "Website Requirements for Assessors",
+              "statement": "Assessors MUST have an appropriate web site that publicly supplies at least the following information in consistent machine-readable and human-readable formats:",
+              "following_information": [
+                "General description of the independent assessment service",
+                "Contact information",
+                "Types of independent services offered",
+                "Optional: Positive attestations from customers or customer references"
+              ],
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": ["Assessor", "Machine-Readable"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-IAS-LRQ": {
+              "name": "Listing Requests for Assessors",
+              "statement": "Assessors MUST complete the Assessor Listing Request Form at https://fedramp.gov/forms/assessor-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": ["Assessor"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          },
+          "CAS": {
+            "MKT-CAS-WEB": {
+              "name": "Website Requirements for Advisors",
+              "statement": "Advisors MUST have an appropriate web site that publicly supplies at least the following information in consistent machine-readable and human-readable formats:",
+              "following_information": [
+                "General description of the consulting or advisory service",
+                "Contact information",
+                "Types of consulting or advisory services offered",
+                "Optional: Positive attestations from customers or customer references"
+              ],
+              "force": "MUST",
+              "affects": ["Advisors"],
+              "terms": ["Advisor", "Machine-Readable"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-CAS-LRQ": {
+              "name": "Listing Requests for Advisors",
+              "statement": "Advisors MUST complete the Advisor Listing Request Form at https://fedramp.gov/forms/advisor-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "force": "MUST",
+              "affects": ["Advisors"],
+              "terms": ["Advisor"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-CAS-RFR": {
+              "name": "Advisor Responses to FedRAMP",
+              "statement": "Advisors MUST reply to all requests from @fedramp.gov or @gsa.gov email addresses sent to the contact information provided in their advisor listing within 5 business days.",
+              "corrective_actions": [
+                "If an advisor fails to respond to a request within 5 business days, FedRAMP will send a follow-up email.",
+                "If an advisor fails to respond to the follow-up email within 5 business days, FedRAMP will remove their listing from the Marketplace.",
+                "Advisors removed from the Marketplace for failure to respond to FedRAMP will not be eligible for listing for at least 6 months unless there are extenuating circumstances."
+              ],
+              "force": "MUST",
+              "affects": ["Advisors"],
+              "terms": ["Advisor"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          },
+          "PRE": {
+            "MKT-PRE-REQ": {
+              "name": "Preparation Phase Requirements",
+              "statement": "Providers MUST implement a minimum set of rules to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
+              "following_information": [
+                "CDS-CSO-PUB (Public Information) (Public Information",
+                "CDS-CSO-UTC (Use Trust Centers)"
+              ],
+              "related": ["CDS-CSO-PUB", "CDS-CSO-UTC"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Trust Center"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-PRE-DCP": {
+              "name": "Demonstrating Continuous Progress",
+              "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
+              "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Trust Center"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "MKT-PRE-DLA": {
+              "name": "Deadline for Assessment",
+              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Preparation Phase",
+              "corrective_actions": [
+                "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Preparation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -5187,330 +5510,6 @@
         },
         "20x": {},
         "rev5": {}
-      }
-    },
-    "MKT": {
-      "info": {
-        "name": "Marketplace Listing",
-        "short_name": "MKT",
-        "web_name": "marketplace-listing",
-        "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
-        "status": "placeholder",
-        "subsets": {
-          "FRP": {
-            "name": "FedRAMP Responsibilities",
-            "description": "These rules apply to FedRAMP activities related to the FedRAMP Marketplace.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["FedRAMP"]
-            }
-          },
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to providers seeking a listing in the FedRAMP Marketplace.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services seeking a listing in the FedRAMP Marketplace.",
-            "applicability": {
-              "types": [],
-              "paths": [],
-              "classes": [],
-              "affects": ["Assessors"]
-            }
-          },
-          "CAS": {
-            "name": "General Advisor Responsibilities",
-            "description": "These rules apply to consulting and advisory services seeking a listing in the FedRAMP Marketplace.",
-            "applicability": {
-              "types": [],
-              "paths": [],
-              "classes": [],
-              "affects": ["Advisors"]
-            }
-          },
-          "PRE": {
-            "name": "Provider Responsibilities for Preparation Phase Listings",
-            "description": "These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": [],
-              "affects": ["Providers"]
-            }
-          }
-        },
-        "20x": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
-            }
-          }
-        },
-        "rev5": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
-            }
-          }
-        }
-      },
-      "data": {
-        "all": {
-          "FRP": {
-            "MKT-FRP-DSM": {
-              "name": "Decision Summaries",
-              "statement": "FedRAMP MUST include a summary with any Marketplace listing decision that explains why the decision was made, including an explanation of deficiencies if applicable.",
-              "force": "MUST",
-              "affects": ["FedRAMP"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-FRP-MJS": {
-              "name": "Marketplace JSON Schemas",
-              "statement": "FedRAMP MUST publish and maintain JSON schemas for required machine-readable Marketplace web information supplied by advisors and assessors.",
-              "reference": "FedRAMP JSON Schemas on GitHub",
-              "reference_url": "https://github.com/FedRAMP/schemas",
-              "force": "MUST",
-              "affects": ["FedRAMP"],
-              "terms": ["Advisor", "Assessor", "Machine-Readable"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-FRP-SOF": {
-              "name": "Scope of FedRAMP",
-              "statement": "FedRAMP MUST NOT list cloud service offerings in the Marketplace or perform any FedRAMP Certification activities unless it determines the cloud service offering is within the scope of FedRAMP.",
-              "reference": "Scope of FedRAMP",
-              "reference_url": "https://fedramp.gov/docs/authority/scope",
-              "force": "MUST NOT",
-              "affects": ["FedRAMP"],
-              "terms": ["Cloud Service Offering"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "CSO": {
-            "MKT-CSO-AGU": {
-              "name": "Agency Use Cases",
-              "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
-              "following_information": [
-                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
-                "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
-              ],
-              "notes": [
-                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
-                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
-              ],
-              "related": ["MKT-FRP-SOF"],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering",
-                "Information Resource",
-                "Provider",
-                "Third-Party Information Resource"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-CSO-LRQ": {
-              "name": "Listing Requests for Providers",
-              "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ in full to request listing in the FedRAMP Marketplace.",
-              "reference": "FedRAMP Marketplace Provider Listing Request Form",
-              "reference_url": "https://fedramp.gov/forms",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "IAS": {
-            "MKT-IAS-OFR": {
-              "name": "Only FedRAMP Recognized Assessors",
-              "statement": "Assessors MUST obtain and maintain FedRAMP Recognition to be listed in the FedRAMP Marketplace.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor", "FedRAMP Recognized"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-IAS-WEB": {
-              "name": "Website Requirements for Assessors",
-              "statement": "Assessors MUST have an appropriate web site that publicly supplies at least the following information in consistent machine-readable and human-readable formats:",
-              "following_information": [
-                "General description of the independent assessment service",
-                "Contact information",
-                "Types of independent services offered",
-                "Optional: Positive attestations from customers or customer references"
-              ],
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor", "Machine-Readable"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-IAS-LRQ": {
-              "name": "Listing Requests for Assessors",
-              "statement": "Assessors MUST complete the Assessor Listing Request Form at https://fedramp.gov/forms/assessor-listing-request/ to request listing in the FedRAMP Marketplace.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "CAS": {
-            "MKT-CAS-WEB": {
-              "name": "Website Requirements for Advisors",
-              "statement": "Advisors MUST have an appropriate web site that publicly supplies at least the following information in consistent machine-readable and human-readable formats:",
-              "following_information": [
-                "General description of the consulting or advisory service",
-                "Contact information",
-                "Types of consulting or advisory services offered",
-                "Optional: Positive attestations from customers or customer references"
-              ],
-              "force": "MUST",
-              "affects": ["Advisors"],
-              "terms": ["Advisor", "Machine-Readable"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-CAS-LRQ": {
-              "name": "Listing Requests for Advisors",
-              "statement": "Advisors MUST complete the Advisor Listing Request Form at https://fedramp.gov/forms/advisor-listing-request/ to request listing in the FedRAMP Marketplace.",
-              "force": "MUST",
-              "affects": ["Advisors"],
-              "terms": ["Advisor"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-CAS-RFR": {
-              "name": "Advisor Responses to FedRAMP",
-              "statement": "Advisors MUST reply to all requests from @fedramp.gov or @gsa.gov email addresses sent to the contact information provided in their advisor listing within 5 business days.",
-              "corrective_actions": [
-                "If an advisor fails to respond to a request within 5 business days, FedRAMP will send a follow-up email.",
-                "If an advisor fails to respond to the follow-up email within 5 business days, FedRAMP will remove their listing from the Marketplace.",
-                "Advisors removed from the Marketplace for failure to respond to FedRAMP will not be eligible for listing for at least 6 months unless there are extenuating circumstances."
-              ],
-              "force": "MUST",
-              "affects": ["Advisors"],
-              "terms": ["Advisor"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "PRE": {
-            "MKT-PRE-REQ": {
-              "name": "Preparation Phase Requirements",
-              "statement": "Providers MUST implement a minimum set of rules to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
-              "following_information": [
-                "CDS-CSO-PUB (Public Information",
-                "CDS-CSO-UTC (Use Trust Centers)"
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-PRE-DCP": {
-              "name": "Demonstrating Continuous Progress",
-              "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
-              "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Ongoing Certification", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-PRE-DLA": {
-              "name": "Deadline for Assessment",
-              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Preparation Phase",
-              "corrective_actions": [
-                "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Preparation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          }
-        }
       }
     },
     "REC": {
