@@ -2356,29 +2356,6 @@
             }
           },
           "UTC": {
-            "CDS-UTC-PGD": {
-              "name": "Public Guidance for Certification Data",
-              "statement": "Providers MUST publicly provide plain-language policies and guidance for all necessary parties that explains how they can obtain and manage access to FedRAMP Certification Data stored in the trust center.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "artifacts": {
-                "all": [
-                  "URL or explanation of the supplied materials, including how to access and use them."
-                ]
-              },
-              "terms": [
-                "All Necessary Parties",
-                "Certification Data",
-                "Provider",
-                "Trust Center"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "CDS-UTC-AAD": {
               "name": "Agency Access Denial",
               "statement": "Providers MUST notify FedRAMP within 5 business days of denying an agency access request for FedRAMP Certification Data.",
@@ -5488,7 +5465,10 @@
             "MKT-PRE-REQ": {
               "name": "Preparation Phase Requirements",
               "statement": "Providers MUST implement a minimum set of rules to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
-              "following_information": ["CDS: rules", "CCM: rules"],
+              "following_information": [
+                "CDS-CSO-PUB (Public Information",
+                "CDS-CSO-UTC (Use Trust Centers)"
+              ],
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -5501,7 +5481,7 @@
             },
             "MKT-PRE-DCP": {
               "name": "Demonstrating Continuous Progress",
-              "statement": "Providers MUST demonstrate continuous progress towards FedRAMP Certification, documented in their quarterly Ongoing Certification Reports; progress is measured by the provider against documented goals and milestones.",
+              "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
               "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
               "force": "MUST",
               "affects": ["Providers"],
