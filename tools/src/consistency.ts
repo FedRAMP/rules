@@ -69,7 +69,7 @@ const ALLOWED_TIMEFRAME_TYPES = [
   "bizdays",
   "days",
   "hours",
-  "month",
+  "weeks",
   "months",
   "years",
 ] as const;

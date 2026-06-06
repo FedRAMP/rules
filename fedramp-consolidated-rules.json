@@ -5493,17 +5493,59 @@
             }
           }
         },
-        "20x": {},
+        "20x": {
+          "CSX": {
+            "OFR-CSX-CPM": {
+              "name": "Certification Package Maintenance for 20x",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with 20x Class A Certifications SHOULD persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every 3 months.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
+                "b": {
+                  "statement": "Providers with 20x Class B Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every month.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with 20x Class C Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every 2 weeks.",
+                  "force": "MUST",
+                  "timeframe_type": "weeks",
+                  "timeframe_num": 2
+                },
+                "d": {
+                  "statement": "Providers with 20x Class D Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every week.",
+                  "force": "MUST",
+                  "timeframe_type": "weeks",
+                  "timeframe_num": 1
+                }
+              },
+              "notes": [
+                "Providers are expected to maintain their FedRAMP Certification Package using automation as changes occur to ensure they are never out of date.",
+                "This rule does not require or expect persistent human review of all materials in this cadence."
+              ],
+              "affects": ["Providers"],
+              "terms": ["Certification Package", "Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
         "rev5": {
           "CSF": {
             "OFR-CSF-ANA": {
               "name": "Annual Assessments for Rev5 Certifications",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Rev5 Class A Certifications MAY do whatever.",
-                  "force": "MAY",
-                  "timeframe_type": "years",
-                  "timeframe_num": 1
+                  "statement": "Providers with Rev5 Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
+                  "force": "MUST"
                 },
                 "b": {
                   "statement": "Providers with Rev5 Class B Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
@@ -5751,6 +5793,75 @@
                 "Provider",
                 "Validation",
                 "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "OFR-CSF-IFC": {
+              "name": "Integrating FedRAMP Changes",
+              "statement": "Providers MUST include any changes to FedRAMP rules in their persistent independent verification and validation assessment at least once per year, based on the mandatory effective date of the rules.",
+              "corrective_actions": [
+                "If a provider fails to include changes to FedRAMP rules in a persistent independent verification and validation assessment within 6 months of the mandatory effective date of the rules, FedRAMP will remove their listing from the Marketplace until they provide evidence of an updated assessment that includes the changes to FedRAMP rules.",
+                "Alternative correction actions may be specified in specific rules that will override this corrective action."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "OFR-CSF-CPM": {
+              "name": "Certification Package Maintenance for Rev5",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Rev5 Class A Certifications SHOULD persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
+                  "force": "SHOULD",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers with Rev5 Class B Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with Rev5 Class C Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers with Rev5 Class D Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every six months.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 6
+                }
+              },
+              "notes": [
+                "This maximum timeframe for Rev5 is the absolutely poorest worst case for horrible customer experience and is based on legacy FedRAMP Rev5 allowing providers to leave their packages unmaintained for up to a year. Rev5 providers should maintain their packages far more frequently than this requirement to ensure potential customers have access to up-to-date information, updating it at least after every transformative significant change.",
+                "FedRAMP 20x Certifications expect providers to maintain their FedRAMP Certification Packages as changes occur to ensure they are never out of date."
+              ],
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Package",
+                "Persistently",
+                "Provider",
+                "Significant Change",
+                "Transformative Change"
               ],
               "updated": [
                 {
@@ -7734,7 +7845,7 @@
               "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties in a consistent format that is human readable at least monthly.",
               "force": "MUST",
               "affects": ["Providers"],
-              "timeframe_type": "month",
+              "timeframe_type": "months",
               "timeframe_num": 1,
               "terms": [
                 "All Necessary Parties",
@@ -7809,13 +7920,13 @@
                 "a": {
                   "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
                   "force": "MAY",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "c": {
@@ -7898,13 +8009,13 @@
                 "a": {
                   "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 3 months.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "c": {
@@ -7943,25 +8054,25 @@
                 "a": {
                   "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 6
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 6
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 }
               },
