@@ -516,6 +516,7 @@
         },
         "affects": { "type": "array", "items": { "type": "string" } },
         "artifacts": { "$ref": "#/$defs/artifacts" },
+        "schema": { "$ref": "#/$defs/rule_schema" },
         "examples": {
           "type": "array",
           "items": {
@@ -684,6 +685,15 @@
     "artifact_list": {
       "type": "array",
       "items": { "type": "string" }
+    },
+    "rule_schema": {
+      "type": "object",
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
     },
     "force_enum": {
       "type": "string",

@@ -1985,6 +1985,10 @@
                   "URL to the machine-readable data."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Public Marketplace Information Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-public-marketplace-information-schema-v2026.06.06.01.json"
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Machine-Readable",
@@ -4292,6 +4296,20 @@
                 }
               ]
             },
+            "IFR-CSO-JSN": {
+              "name": "FedRAMP JSON Schemas",
+              "statement": "Providers MUST supply machine-readable information in JSON documents that are valid against the corresponding JSON schema when a rule contains a FedRAMP JSON schema, UNLESS otherwise specified in the rule.",
+              "note": "FedRAMP JSON schemas are designed to be lightweight and flexible to establish a minimum set of structured information while allowing providers to improve on the format and structure of the information as needed to meet their needs and the needs of their customers.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Machine-Readable", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "IFR-CSO-POP": {
               "name": "Pick One Program Certification Type",
               "statement": "Providers MUST NOT seek both FedRAMP Rev5 Program Certification and FedRAMP 20x Program Certification for the same cloud service offering; pick one type.",
@@ -4312,13 +4330,13 @@
               "name": "Approved Alternative Security Frameworks",
               "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment, from one of the following alternative security frameworks:",
               "following_information": [
-                "FedRAMP Ready",
+                "FedRAMP Rev5 (including FedRAMP Ready) at any historical Impact Level",
                 "SOC 2 Type II",
-                "GovRAMP"
+                "GovRAMP at any Impact Level"
               ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Provider", "Security Category"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -4345,7 +4363,7 @@
             },
             "IFR-CLA-AFR": {
               "name": "Address FedRAMP Rules",
-              "statement": "Providers seeking a Class A FedRAMP Certification MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
+              "statement": "Providers seeking a Class A FedRAMP Certification of any Type MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
               "following_information": [
                 "FedRAMP Certification: IFR-CSO-POP (Pick One Program Certification Type)",
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
@@ -4358,9 +4376,19 @@
                 "Incident Communications Procedures: ICP-CSO-EFR (Evaluate FedRAMP Reportability)",
                 "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
                 "Continuous Collaborative Monitoring: CCM-OCR-AVL (Report Availability)",
-                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)"
+                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)",
+                "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
+                "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
+                "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
+                "Key Security Indicators: KSI-IAM-AAM (Automating Account Management)",
+                "Key Security Indicators: KSI-INR-RIR (Reviewing Incident Response Procedures)",
+                "Key Security Indicators: KSI-SVC-SNT (Securing Network Traffic)"
               ],
-              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
+              "notes": [
+                "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
+                "In general, for each of these FedRAMP requirements, providers should include a sufficiently detailed summary that reviewers will not need to dig into the related security framework materials to understand the related decisions - just saying \"see SOC 2 report\" is not particularly helpful.",
+                "Information about how the provider addresses the included Key Security Indicators are required for both Rev5 and 20x Class A Certifications."
+              ],
               "related": [
                 "IFR-CSO-POP",
                 "MAS-CSO-IIR",
@@ -4579,25 +4607,9 @@
             "IFR-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
               "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
-              "note": "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "CLA": {
-            "IFR-CLA-CAC": {
-              "name": "Rev5 Class A Certification",
-              "statement": "Providers seeking a FedRAMP Rev5 Class A Certification by leveraging an alternative security framework that is based on the SP 800-53 Revision 5 MUST supply all Security Decision Record materials required for FedRAMP Rev5 Class B Certification.",
               "notes": [
-                "The only approved alternative security frameworks based on the SP 800-53 Revision 5 are FedRAMP Ready and GovRAMP.",
-                "An independent assessment is not required for FedRAMP Rev5 Class A Certification."
+                "The simplest conversion in most cases would be to a FedRAMP Rev5 Class A Certification.",
+                "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready."
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -4828,7 +4840,7 @@
           },
           "PRE": {
             "name": "Provider Responsibilities for Preparation Phase Listings",
-            "description": "These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace.",
+            "description": "FedRAMP allows cloud service providers that are actively preparing to obtain a FedRAMP Certification to apply for listing in the FedRAMP Marketplace. All cloud service providers must obtain a Preparation Phase Marketplace Listing before they can apply for FedRAMP Certification. These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
@@ -4863,33 +4875,6 @@
       "data": {
         "all": {
           "FRP": {
-            "MKT-FRP-DSM": {
-              "name": "Decision Summaries",
-              "statement": "FedRAMP MUST include a summary with any Marketplace listing decision that explains why the decision was made, including an explanation of deficiencies if applicable.",
-              "force": "MUST",
-              "affects": ["FedRAMP"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-FRP-MJS": {
-              "name": "Marketplace JSON Schemas",
-              "statement": "FedRAMP MUST publish and maintain JSON schemas for required machine-readable Marketplace web information supplied by advisors and assessors.",
-              "reference": "FedRAMP JSON Schemas on GitHub",
-              "reference_url": "https://github.com/FedRAMP/schemas",
-              "force": "MUST",
-              "affects": ["FedRAMP"],
-              "terms": ["Advisor", "Assessor", "Machine-Readable"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "MKT-FRP-SOF": {
               "name": "Scope of FedRAMP",
               "statement": "FedRAMP MUST NOT list cloud service offerings in the Marketplace or perform any FedRAMP Certification activities unless it determines the cloud service offering is within the scope of FedRAMP.",
@@ -4907,27 +4892,16 @@
             }
           },
           "CSO": {
-            "MKT-CSO-AGU": {
-              "name": "Agency Use Cases",
-              "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
+            "MKT-CSO-MLR": {
+              "name": "Marketplace Listing Requirements",
+              "statement": "Providers MUST address at least these FedRAMP rules to apply for a new FedRAMP Marketplace listing OR to request updates to an existing listing:",
               "following_information": [
-                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
-                "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
+                "Certification Data Sharing: CDS-CSO-PUB (Public Information)"
               ],
-              "notes": [
-                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
-                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
-              ],
-              "related": ["MKT-FRP-SOF"],
+              "related": ["CDS-CSO-PUB"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering",
-                "Information Resource",
-                "Provider",
-                "Third-Party Information Resource"
-              ],
+              "terms": ["Certification Data", "Provider"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -4935,11 +4909,12 @@
                 }
               ]
             },
-            "MKT-CSO-LRQ": {
-              "name": "Listing Requests for Providers",
-              "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ in full to request listing in the FedRAMP Marketplace.",
+            "MKT-CSO-PML": {
+              "name": "Provider Marketplace Listing Requests",
+              "statement": "Providers MUST use the FedRAMP Marketplace Providing Listing Request Form to request a listing in the FedRAMP Marketplace.",
+              "note": "FedRAMP does not accept applications for a FedRAMP Marketplace Listing via email!",
               "reference": "FedRAMP Marketplace Provider Listing Request Form",
-              "reference_url": "https://fedramp.gov/forms",
+              "reference_url": "https://fedramp.gov/forms/to-be-added",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -5051,17 +5026,27 @@
             }
           },
           "PRE": {
-            "MKT-PRE-REQ": {
-              "name": "Preparation Phase Requirements",
-              "statement": "Providers MUST implement a minimum set of rules to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
+            "MKT-PRE-AGU": {
+              "name": "Agency Use Cases",
+              "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
               "following_information": [
-                "CDS-CSO-PUB (Public Information) (Public Information",
-                "CDS-CSO-UTC (Use Trust Centers)"
+                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
+                "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
               ],
-              "related": ["CDS-CSO-PUB", "CDS-CSO-UTC"],
+              "notes": [
+                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
+                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
+              ],
+              "related": ["MKT-FRP-SOF"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider", "Trust Center"],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "Information Resource",
+                "Provider",
+                "Third-Party Information Resource"
+              ],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -5085,7 +5070,7 @@
             },
             "MKT-PRE-DLA": {
               "name": "Deadline for Assessment",
-              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Preparation Phase",
+              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Preparation Phase.",
               "corrective_actions": [
                 "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Preparation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
               ],
