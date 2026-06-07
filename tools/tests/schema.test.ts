@@ -22,7 +22,10 @@ function effectiveEntry() {
     date: {
       obtain: "2026-01-01",
       maintain: "2026-01-01",
-      grace_ends: "2026-07-01",
+      grace: {
+        default: "2026-07-01",
+        until_next_assessment: false,
+      },
     },
   };
 }

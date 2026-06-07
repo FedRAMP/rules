@@ -354,27 +354,21 @@
     },
     "effective_dates": {
       "type": "object",
-      "required": ["obtain", "maintain"],
+      "required": ["obtain", "maintain", "grace"],
       "properties": {
         "obtain": { "type": "string", "format": "date" },
         "maintain": { "type": "string", "format": "date" },
-        "grace_ends": { "type": "string", "format": "date" },
-        "grace_by_assessment_months": { "type": "number" }
-      },
-      "oneOf": [
-        {
-          "required": ["grace_ends"],
+        "optional_adoption": { "type": "string", "format": "date" },
+        "grace": {
+          "type": "object",
+          "required": ["default", "until_next_assessment"],
           "properties": {
-            "grace_ends": {}
-          }
-        },
-        {
-          "required": ["grace_by_assessment_months"],
-          "properties": {
-            "grace_by_assessment_months": {}
-          }
+            "default": { "type": "string", "format": "date" },
+            "until_next_assessment": { "type": "boolean" }
+          },
+          "additionalProperties": false
         }
-      ],
+      },
       "additionalProperties": false
     },
     "data_container_frd": {

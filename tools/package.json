@@ -12,6 +12,7 @@
     "test:schema": "bun test tests/schema.test.ts",
     "test:schema-validation": "bun test tests/schema-validation.test.ts",
     "test:ids": "bun test tests/id-alignment.test.ts",
+    "test:effective-dates": "bun test tests/effective-dates.test.ts",
     "test:force": "bun test tests/force.test.ts",
     "test:terms": "bun test tests/terms.test.ts",
     "test:order": "bun test tests/property-order.test.ts",

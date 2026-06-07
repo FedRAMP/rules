@@ -32,7 +32,10 @@
         "date": {
           "obtain": "2026-07-04",
           "maintain": "2026-07-04",
-          "grace_ends": "2026-05-04"
+          "grace": {
+            "default": "2026-05-04",
+            "until_next_assessment": false
+          }
         }
       }
     },
@@ -1004,7 +1007,10 @@
           "date": {
             "obtain": "2026-07-04",
             "maintain": "2026-07-04",
-            "grace_ends": "2026-07-04"
+            "grace": {
+              "default": "2026-07-04",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -1459,7 +1465,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -1470,7 +1479,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-04-02",
-              "grace_ends": "2027-10-01"
+              "grace": {
+                "default": "2027-10-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -1961,7 +1973,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -1984,7 +1999,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
+              "grace": {
+                "default": "2028-02-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           },
@@ -2194,11 +2212,6 @@
               "name": "Historical FedRAMP Certification Data",
               "statement": "Providers MUST make historical versions of FedRAMP Certification Data available for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
               "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Authorization Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
-              "effective_date": {
-                "obtain": "2027-05-04",
-                "maintain": "2027-05-04",
-                "grace_by_assessment_months": 2
-              },
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -2250,11 +2263,6 @@
                 "d": {
                   "statement": "Providers with Class D Certifications MUST supply per-service FedRAMP Certification materials.",
                   "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-05-04",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  },
                   "artifacts": {
                     "all": [
                       "Explanation of the supplied materials, including how to access and use them."
@@ -2487,39 +2495,19 @@
               "varies_by_class": {
                 "a": {
                   "statement": "Providers with Class A Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-01-01",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
+                  "force": "MUST"
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-01-01",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
+                  "force": "MUST"
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-01-01",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
+                  "force": "MUST"
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications MUST supply comprehensive machine-readable FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-05-04",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
+                  "force": "MUST"
                 }
               },
               "affects": ["Providers"],
@@ -2540,8 +2528,8 @@
         "name": "Certification Package Overview",
         "short_name": "CPO",
         "web_name": "certification-package-overview",
-        "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package.",
-        "status": "empty",
+        "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package. This overview replaces the historically required base System Security Plan for FedRAMP Rev5 and is intended to provide a clear, concise, and consistent summary of the offering and the information included in the package to help customers understand the offering at a high level.",
+        "status": "placeholder",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -2571,7 +2559,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -2604,7 +2595,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-07-01",
-              "grace_ends": "2028-01-01"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             },
             "signup_url": "ADDME"
           },
@@ -2743,8 +2737,11 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
+              "maintain": "2027-01-01",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -2767,7 +2764,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -3010,7 +3010,10 @@
           "date": {
             "obtain": "2026-01-05",
             "maintain": "2026-01-05",
-            "grace_ends": "2026-07-01"
+            "grace": {
+              "default": "2026-07-01",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -3399,7 +3402,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -3410,7 +3416,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -4281,8 +4290,11 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
+              "maintain": "2027-01-01",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -4315,7 +4327,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -4826,7 +4841,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -4837,7 +4855,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_by_assessment_months": 2
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             },
             "signup_url": "ADDME"
           }
@@ -5031,7 +5052,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -5042,7 +5066,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             }
           }
         }
@@ -5308,8 +5335,11 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
+              "maintain": "2027-01-01",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -5332,7 +5362,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -6062,7 +6095,10 @@
           "date": {
             "obtain": "2026-07-04",
             "maintain": "2026-07-04",
-            "grace_ends": "2026-07-04"
+            "grace": {
+              "default": "2026-07-04",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -6155,11 +6191,6 @@
               "name": "Actually Do Assessments",
               "statement": "Assessors MUST complete at least 2 initial or ongoing assessments for Class B, C, or D FedRAMP Certifications every 2 years to maintain FedRAMP Recognition.",
               "note": "For a newly FedRAMP Recognized Assessor, this rule applies beginning on the initial date of FedRAMP Recognition if that date is later than 2026-06-01.",
-              "effective_date": {
-                "obtain": "2026-06-01",
-                "maintain": "2026-06-01",
-                "grace_ends": "2026-06-01"
-              },
               "corrective_actions": [
                 "FedRAMP will notify assessors when they are within 6 months of losing FedRAMP Recognition under this rule and request a corrective action plan.",
                 "Assessors whose corrective action plan is not accepted will lose FedRAMP Recognition and must supply an alternative corrective action plan to move toward renewed FedRAMP Recognition."
@@ -6391,7 +6422,10 @@
           "date": {
             "obtain": "2026-03-01",
             "maintain": "2026-03-01",
-            "grace_ends": "2026-07-01"
+            "grace": {
+              "default": "2026-07-01",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -6636,7 +6670,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -6647,7 +6684,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -7145,7 +7185,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -7168,7 +7211,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
+              "grace": {
+                "default": "2027-08-01",
+                "until_next_assessment": true
+              }
             },
             "signup_url": "ADDME"
           },
@@ -7218,7 +7264,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -7229,7 +7278,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             }
           }
         }
@@ -7382,7 +7434,10 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -7393,7 +7448,10 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-06-01",
-              "grace_ends": "2028-01-01"
+              "grace": {
+                "default": "2028-01-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
