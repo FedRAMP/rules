@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.06.01-preview",
-    "last_updated": "2026-06-06",
+    "version": "2026.06.07.01-preview",
+    "last_updated": "2026-06-07",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -2020,9 +2020,11 @@
                 "Link to Product Logo",
                 "Overall Service Description",
                 "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
-                "Summary of customer responsibilities and secure configuration guidance",
+                "Link to Secure Configuration Guidance",
+                "Overview of documentation supplied by the provider for the cloud service offering",
                 "Link to Trust Center landing page that includes instructions on accessing information in the trust center",
-                "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))"
+                "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))",
+                "Current FedRAMP Recognized Independent Assessment Service"
               ],
               "note": "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
               "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
@@ -2040,6 +2042,7 @@
               },
               "terms": [
                 "Cloud Service Offering",
+                "FedRAMP Recognized",
                 "Machine-Readable",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
@@ -2600,8 +2603,8 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2027-01-01",
-              "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
+              "maintain": "2027-07-01",
+              "grace_ends": "2028-01-01"
             },
             "signup_url": "ADDME"
           },
@@ -2630,7 +2633,77 @@
         }
       },
       "data": {
-        "all": {},
+        "all": {
+          "CSO": {
+            "CPO-CSO-OVR": {
+              "name": "Overview of the Cloud Service Offering",
+              "statement": "Providers MUST supply a Certification Package Overview within their FedRAMP Certification Package, in both human-readable and machine-readable formats, that includes at least the all of the information required by the following rules:",
+              "following_information": [
+                "Certification Package Overview: CPO-CSO-MTD (Certification Package Overview Metadata)",
+                "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
+                "Certification Data Sharing: CDS-CSO-SVC (Service List)",
+                "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
+                "Minimum Assessment Scope: MAS-CSO-FLO (Information Flows and Security Categories)",
+                "Minimum Assessment Scope: MAS-CSO-TPR (Third-Party Information Resources)",
+                "Using Cryptographic Modules: UCM-CSO-CMD (Cryptographic Module Documentation)",
+                "FedRAMP Assessment: Whatever rule is created to replace the SAR ;)"
+              ],
+              "notes": [
+                "For FedRAMP Rev5, the Certification Package Overview replaces the historically required System Security Plan (not including appendices).",
+                "This list of rules may not apply to all FedRAMP Certification Classes or Types - if a rule does not apply then the information is not required."
+              ],
+              "related": [
+                "CPO-CSO-MTD",
+                "CDS-CSO-PUB",
+                "CDS-CSO-SVC",
+                "MAS-CSO-IIR",
+                "MAS-CSO-FLO",
+                "MAS-CSO-TPR",
+                "UCM-CSO-CMD"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Certification Package Overview Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-v2026.06.06.01.json"
+              },
+              "terms": [
+                "Certification Data",
+                "Certification Package",
+                "Information Resource",
+                "Initial Incident Report (IIR)",
+                "Machine-Readable",
+                "Provider",
+                "Security Category",
+                "Third-Party Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "CPO-CSO-MTD": {
+              "name": "Certification Package Overview Metadata",
+              "statement": "Providers MUST also include the following basic metadata in their Certification Package Overview:",
+              "following_information": [
+                "Name, title, and contact information of official that is responsible and accountable for the FedRAMP Certification Package",
+                "Version",
+                "Date of last update"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Certification Package", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
         "20x": {},
         "rev5": {}
       }
