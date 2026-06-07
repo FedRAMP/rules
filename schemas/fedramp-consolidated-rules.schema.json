@@ -110,6 +110,7 @@
         "web_name": { "type": "string" },
         "purpose": { "type": "string" },
         "status": { "$ref": "#/$defs/document_status" },
+        "tag": { "type": "string" },
         "effective": { "$ref": "#/$defs/effective_entry" },
         "subsets": { "$ref": "#/$defs/frr_info_subsets" },
         "flows": { "$ref": "#/$defs/info_flows" },

@@ -1002,6 +1002,7 @@
         "web_name": "agency-use",
         "purpose": "The Agency Use rules summarize the many demands made on agencies by the FedRAMP Authorization Act and OMB Memorandum M-24-15 in a simple, clear, easy-to-follow set of FedRAMP-style rules. These rules align agency policies, authorization letters, machine-readable tools, secure configuration review, continuous monitoring, and communication with FedRAMP so certifications can be reused consistently across government.",
         "status": "placeholder",
+        "tag": "gov",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
@@ -1428,6 +1429,7 @@
         "web_name": "collaborative-continuous-monitoring",
         "purpose": "The Collaborative Continuous Monitoring rules help agencies use shared, current authorization information from providers as part of each agency's own Information Security Continuous Monitoring strategy. These rules reduce unnecessary manual burden by encouraging automated monitoring and review while allowing each agency to make its own risk-based decisions about ongoing authorization.",
         "status": "stable",
+        "tag": "ongoing",
         "subsets": {
           "AGM": {
             "name": "Agency Guidance",
@@ -1938,6 +1940,7 @@
         "web_name": "certification-data-sharing",
         "purpose": "The Certification Data Sharing rules allow providers to store and share FedRAMP certification information through the platform they choose as long as it follows FedRAMP rules for access, accuracy, and transparency. This helps customers and the public review consistent, current security and compliance information while recognizing that the information usually remains the provider's intellectual property and is not federal information.",
         "status": "stable",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -2506,6 +2509,7 @@
         "web_name": "certification-package-overview",
         "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package. This overview replaces the historically required base System Security Plan for FedRAMP Rev5 and is intended to provide a clear, concise, and consistent summary of the offering and the information included in the package to help customers understand the offering at a high level.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -2686,6 +2690,7 @@
         "web_name": "fedramp-assessments",
         "purpose": "This ruleset explains the expectations for FedRAMP assessments.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -2983,6 +2988,7 @@
         "web_name": "fedramp-security-inbox",
         "purpose": "The FedRAMP Security Inbox rules ensure FedRAMP can reliably contact the security and compliance staff responsible for every FedRAMP-authorized cloud service offering. These rules also set expectations for urgent communications, response time testing, and routing important messages separately from general support or customer service channels.",
         "status": "stable",
+        "tag": "ongoing",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
@@ -3291,6 +3297,7 @@
         "web_name": "incident-communications-procedures",
         "purpose": "The Incident Communications Procedures rules explain how providers must communicate incident information to FedRAMP and government customers.",
         "status": "placeholder",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -4203,6 +4210,7 @@
         "web_name": "initial-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain initial FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -4805,6 +4813,7 @@
         "web_name": "minimum-assessment-scope",
         "purpose": "The Minimum Assessment Scope rules help providers define assessment boundaries narrowly enough to avoid unnecessary review of components that do not affect the offering's security. These rules still ensure the assessment includes the resources and connections needed to understand the offering's confidentiality, integrity, and availability.",
         "status": "stable",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -4978,6 +4987,7 @@
         "web_name": "marketplace-listing",
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -5292,6 +5302,7 @@
         "web_name": "ongoing-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings maintain ongoing FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -6086,6 +6097,7 @@
         "web_name": "fedramp-recognition",
         "purpose": "The FedRAMP Recognition of Independent Assessment Services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
         "status": "placeholder",
+        "tag": "assessor",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
@@ -6414,6 +6426,7 @@
         "web_name": "secure-configuration-guide",
         "purpose": "The Secure Configuration Guide rules help agencies and other customers understand how to configure a cloud service offering securely. These rules require providers to clearly explain the security impact of common settings so customers can make informed configuration choices.",
         "status": "stable",
+        "tag": "initial",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
@@ -6609,6 +6622,7 @@
         "web_name": "significant-change-notifications",
         "purpose": "The Significant Change Notifications rules supply a simple framework allowing providers to make significant changes to their own products while keeping agency customers in the loop. These rules organize significant changes into clear categories so agencies can understand the expected risk and make authorization decisions accordingly.",
         "status": "stable",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -7169,6 +7183,7 @@
         "web_name": "security-decision-record",
         "purpose": "The Security Decision Record replaced a traditional System Security Plan with a persistently maintained, verified, and validated record of the security decisions made by the cloud service provider over the lifecycle of their cloud service offering.",
         "status": "empty",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -7250,6 +7265,7 @@
         "web_name": "using-cryptographic-modules",
         "purpose": "The Using Cryptographic Modules rules clarify how providers should select and use cryptographic modules. These rules allow risk-based decisions for some services while still encouraging validated cryptographic modules whenever they are technically feasible and reasonable.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "Cloud Service Provider Responsibilities",
@@ -7362,6 +7378,7 @@
         "web_name": "vulnerability-detection-and-response",
         "purpose": "The Vulnerability Detection and Response rules require providers to continuously identify, analyze, prioritize, mitigate, and remediate vulnerabilities and related exposures through automated systems. These rules give providers flexibility in implementation while ensuring agencies receive the information needed to support ongoing authorization decisions.",
         "status": "stable",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
