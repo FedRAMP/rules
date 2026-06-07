@@ -32,6 +32,7 @@
         "date": {
           "obtain": "2026-07-04",
           "maintain": "2026-07-04",
+          "optional_adoption": "2026-07-04",
           "grace": {
             "default": "2026-05-04",
             "until_next_assessment": false
@@ -1007,6 +1008,7 @@
           "date": {
             "obtain": "2026-07-04",
             "maintain": "2026-07-04",
+            "optional_adoption": "2026-07-04",
             "grace": {
               "default": "2026-07-04",
               "until_next_assessment": false
@@ -1465,6 +1467,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -1479,6 +1482,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-04-02",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-10-01",
                 "until_next_assessment": false
@@ -1973,6 +1977,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -1999,6 +2004,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2028-02-01",
                 "until_next_assessment": false
@@ -2559,6 +2565,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -2595,6 +2602,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-07-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -2738,6 +2746,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -2764,6 +2773,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -3402,6 +3412,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -3416,6 +3427,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-06-01",
                 "until_next_assessment": false
@@ -4291,6 +4303,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -4327,6 +4340,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -4841,6 +4855,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -4855,6 +4870,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -5052,6 +5068,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -5066,6 +5083,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-06-01",
                 "until_next_assessment": false
@@ -5336,6 +5354,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -5362,6 +5381,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -6095,6 +6115,7 @@
           "date": {
             "obtain": "2026-07-04",
             "maintain": "2026-07-04",
+            "optional_adoption": "2026-07-04",
             "grace": {
               "default": "2026-07-04",
               "until_next_assessment": false
@@ -6670,6 +6691,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -6684,6 +6706,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-06-01",
                 "until_next_assessment": false
@@ -7185,6 +7208,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -7211,6 +7235,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-08-01",
                 "until_next_assessment": true
@@ -7264,6 +7289,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -7278,6 +7304,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-06-01",
                 "until_next_assessment": false
@@ -7434,6 +7461,7 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
@@ -7448,6 +7476,7 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-06-01",
+              "optional_adoption": "2026-07-04",
               "grace": {
                 "default": "2028-01-01",
                 "until_next_assessment": false
