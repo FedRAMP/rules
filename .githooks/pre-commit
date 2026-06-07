@@ -9,7 +9,6 @@ cd "$repo_root"
 bunx prettier --write fedramp-consolidated-rules.json schemas/fedramp-consolidated-rules.schema.json
 git add fedramp-consolidated-rules.json schemas/fedramp-consolidated-rules.schema.json
 
-echo "Running bun test from $repo_root/tools"
 echo "Running bun check from $repo_root/tools"
 cd "$repo_root/tools"
-bun run check
+bun check
