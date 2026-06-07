@@ -2031,7 +2031,7 @@
           "CSO": {
             "CDS-CSO-PUB": {
               "name": "Public Information",
-              "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and machine-readable formats, including at least the following information that is available and applicable:",
+              "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and JSON formats, including at least the following information that is available and applicable:",
               "following_information": [
                 "Direct link to the FedRAMP Marketplace for the offering",
                 "Service Model",
@@ -2067,7 +2067,6 @@
               "terms": [
                 "Cloud Service Offering",
                 "FedRAMP Recognized",
-                "Machine-Readable",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
@@ -2495,35 +2494,6 @@
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
-            },
-            "CDS-CSF-SCD": {
-              "name": "Structured Certification Data",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST"
-                },
-                "b": {
-                  "statement": "Providers with Class B Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST"
-                },
-                "c": {
-                  "statement": "Providers with Class C Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST"
-                },
-                "d": {
-                  "statement": "Providers with Class D Certifications MUST supply comprehensive machine-readable FedRAMP Certification Data.",
-                  "force": "MUST"
-                }
-              },
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Machine-Readable", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
             }
           }
         }
@@ -2639,7 +2609,7 @@
           "CSO": {
             "CPO-CSO-OVR": {
               "name": "Overview of the Cloud Service Offering",
-              "statement": "Providers MUST supply a Certification Package Overview within their FedRAMP Certification Package, in both human-readable and machine-readable formats, that includes at least the all of the information required by the following rules:",
+              "statement": "Providers MUST supply a Certification Package Overview within their FedRAMP Certification Package, in both human-readable and JSON formats, that includes at least the all of the information required by the following rules:",
               "following_information": [
                 "Certification Package Overview: CPO-CSO-MTD (Certification Package Overview Metadata)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
@@ -2674,7 +2644,6 @@
                 "Certification Package",
                 "Information Resource",
                 "Initial Incident Report (IIR)",
-                "Machine-Readable",
                 "Provider",
                 "Security Category",
                 "Third-Party Information Resource"
@@ -5162,7 +5131,7 @@
             },
             "MKT-IAS-WEB": {
               "name": "Website Requirements for Assessors",
-              "statement": "Assessors MUST have an appropriate web site that publicly supplies at least the following information in consistent machine-readable and human-readable formats:",
+              "statement": "Assessors MUST have an appropriate web site that publicly supplies at least the following information in human-readable and JSON formats:",
               "following_information": [
                 "General description of the independent assessment service",
                 "Contact information",
@@ -5171,7 +5140,11 @@
               ],
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": ["Assessor", "Machine-Readable"],
+              "schema": {
+                "name": "FedRAMP Assessor Information Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Assessor"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -5205,6 +5178,10 @@
               ],
               "force": "MUST",
               "affects": ["Advisors"],
+              "schema": {
+                "name": "FedRAMP Advisory Service Information Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-v2026.06.06.01.json"
+              },
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
                 {
@@ -6829,11 +6806,14 @@
             },
             "SCN-CSO-HRM": {
               "name": "Human and Machine-Readable Notifications",
-              "statement": "Providers MUST make ALL Significant Change Notifications and related audit records available in human-readable and machine-readable formats.",
-              "note": "During the SCN beta, many cloud service providers met this requirement by using carefully structured and organized csv files to meet human-readable and machine-readable requirements simultaneously.",
+              "statement": "Providers MUST make ALL Significant Change Notifications and related audit records available in human-readable and JSON formats.",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Machine-Readable", "Provider", "Significant Change"],
+              "schema": {
+                "name": "FedRAMP Significant Change Notifications Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -8180,34 +8160,37 @@
               "name": "Historical Activity",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
+                  "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
                   "force": "MAY",
                   "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
+                  "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "force": "SHOULD",
                   "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
+                  "statement": "Providers with Class C Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
                   "force": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
+                  "statement": "Providers with Class D Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
                   "force": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 }
               },
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Historical VDR Activity Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-historical-vdr-activity-schema-v2026.06.06.01.json"
+              },
               "terms": [
                 "All Necessary Parties",
-                "Machine-Readable",
                 "Persistently",
                 "Provider",
                 "Vulnerability",
