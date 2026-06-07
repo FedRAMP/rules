@@ -1124,13 +1124,45 @@
             },
             "AGU-AGC-NAR": {
               "name": "No Additional Security Requirements",
-              "statement": "Agencies MUST NOT require additional information or materials from FedRAMP Certified cloud service offerings beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate determines there is a demonstrable need; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
-              "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification.",
+              "statement": "Agencies MUST NOT require additional information or materials from FedRAMP Certified cloud service offerings beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate determines there is a demonstrable need and notifies FedRAMP; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
+              "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification and notification is mandated by OMB Memorandum M-24-15 section IV (a).",
               "force": "MUST NOT",
               "affects": ["Agencies"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov"
+                }
+              ],
               "terms": [
                 "Agency",
                 "Certification Data",
+                "Cloud Service Offering",
+                "FedRAMP Certified"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "AGU-AGC-TPP": {
+              "name": "No Certification Type or Path Preferences",
+              "statement": "Agencies MUST NOT require cloud service offerings to obtain or maintain a specific FedRAMP Certification Type or FedRAMP Certification Path, UNLESS the head of the agency or an authorized delegate determines there is a demonstrable need and notifies FedRAMP.",
+              "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification and notification is mandated by OMB Memorandum M-24-15 section IV (a).",
+              "force": "MUST NOT",
+              "affects": ["Agencies"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov"
+                }
+              ],
+              "terms": [
+                "Agency",
                 "Cloud Service Offering",
                 "FedRAMP Certified"
               ],
@@ -1337,6 +1369,23 @@
                 "Cloud Service Offering",
                 "Information Resource",
                 "Third-Party Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "AGU-USE-CLA": {
+              "name": "Using FedRAMP Class A Certifications",
+              "statement": "Agencies SHOULD NOT authorize the use of a FedRAMP Class A Certified cloud service offering for more than 12 months UNLESS the cloud service offering is actively seeking a FedRAMP Class B, C, or D Certification.",
+              "force": "SHOULD NOT",
+              "affects": ["Agencies"],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "FedRAMP Certified"
               ],
               "updated": [
                 {
@@ -4124,7 +4173,7 @@
           },
           "CLA": {
             "name": "FedRAMP Class A Certification Rules",
-            "description": "These rules apply to providers seeking FedRAMP Class A Certifications.",
+            "description": "These are specific rules that apply to providers seeking FedRAMP Class A Certifications.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
@@ -4310,6 +4359,19 @@
                 }
               ]
             },
+            "IFR-CSO-MRA": {
+              "name": "Maintain Responsibility and Accountability",
+              "statement": "Providers MUST maintain responsibility and accountability for the accuracy and completeness of all information in the FedRAMP Certification Package, especially when they engage a third party (such as an independent assessor, advisory service, or external tools) to supply information on their behalf.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Assessor", "Certification Package", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "IFR-CSO-POP": {
               "name": "Pick One Program Certification Type",
               "statement": "Providers MUST NOT seek both FedRAMP Rev5 Program Certification and FedRAMP 20x Program Certification for the same cloud service offering; pick one type.",
@@ -4362,9 +4424,11 @@
               ]
             },
             "IFR-CLA-AFR": {
-              "name": "Address FedRAMP Rules",
-              "statement": "Providers seeking a Class A FedRAMP Certification of any Type MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
+              "name": "Address FedRAMP Rules for Class A",
+              "statement": "Providers seeking a Class A FedRAMP Certification of any Type MUST address all rules in this FedRAMP Class A Certification subset (IFR-CLA) AND the following additional FedRAMP rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
               "following_information": [
+                "FedRAMP Certification: IFR-CSO-PKG (FedRAMP Certification Package)",
+                "FedRAMP Certification: IFR-CSO-JSN (FedRAMP JSON Schemas)",
                 "FedRAMP Certification: IFR-CSO-POP (Pick One Program Certification Type)",
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
@@ -4401,7 +4465,9 @@
                 "ICP-CSO-EFR",
                 "VDR-CSO-DET",
                 "CCM-OCR-AVL",
-                "CCM-OCR-NRD"
+                "CCM-OCR-NRD",
+                "IFR-CSO-PKG",
+                "IFR-CSO-JSN"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -4504,6 +4570,42 @@
               "force": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Recognized",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IFR-APP-NTP": {
+              "name": "No Third-Party Applications",
+              "statement": "Providers MUST NOT use a third party to apply for a FedRAMP Certification on their behalf; this includes independent assessment services.",
+              "notes": [
+                "FedRAMP previously allowed independent assessment services to submit applications on behalf of providers, but this caused confusion about who was responsible for the application and the information in it. Providers should apply directly to ensure clear accountability.",
+                "Providers may use third parties to help them prepare their application and assessment materials for submission."
+              ],
+              "force": "MUST NOT",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IFR-APP-USA": {
+              "name": "Updating Stale Assessments",
+              "statement": "Providers MAY freshen a stale initial independent verification and validation assessment by having a FedRAMP Recognized Independent Assessment Service review any changes between the original assessment and the current status of the cloud service offering in place of a full re-assessment, UNLESS the stale assessment is more than 9 months old.",
+              "force": "MAY",
+              "affects": ["Providers"],
+              "terms": [
+                "Cloud Service Offering",
                 "FedRAMP Recognized",
                 "Provider",
                 "Validation",
