@@ -25,7 +25,7 @@ Install the repository Git hooks:
 bun run hooks:install
 ```
 
-The hook runs `bun run check` before commits.
+The hook runs `bun check` before commits.
 
 ## Configuration
 

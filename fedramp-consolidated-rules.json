@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.04.01-preview",
-    "last_updated": "2026-06-04",
+    "version": "2026.06.07.01-preview",
+    "last_updated": "2026-06-07",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -32,7 +32,11 @@
         "date": {
           "obtain": "2026-07-04",
           "maintain": "2026-07-04",
-          "grace_ends": "2026-05-04"
+          "optional_adoption": "2026-07-04",
+          "grace": {
+            "default": "2026-05-04",
+            "until_next_assessment": false
+          }
         }
       }
     },
@@ -998,13 +1002,18 @@
         "web_name": "agency-use",
         "purpose": "The Agency Use rules summarize the many demands made on agencies by the FedRAMP Authorization Act and OMB Memorandum M-24-15 in a simple, clear, easy-to-follow set of FedRAMP-style rules. These rules align agency policies, authorization letters, machine-readable tools, secure configuration review, continuous monitoring, and communication with FedRAMP so certifications can be reused consistently across government.",
         "status": "placeholder",
+        "tag": "gov",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
             "obtain": "2026-07-04",
             "maintain": "2026-07-04",
-            "grace_ends": "2026-07-04"
+            "optional_adoption": "2026-07-04",
+            "grace": {
+              "default": "2026-07-04",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -1124,13 +1133,45 @@
             },
             "AGU-AGC-NAR": {
               "name": "No Additional Security Requirements",
-              "statement": "Agencies MUST NOT require additional information or materials from FedRAMP Certified cloud service offerings beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate determines there is a demonstrable need; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
-              "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification.",
+              "statement": "Agencies MUST NOT require additional information or materials from FedRAMP Certified cloud service offerings beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate determines there is a demonstrable need and notifies FedRAMP; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
+              "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification and notification is mandated by OMB Memorandum M-24-15 section IV (a).",
               "force": "MUST NOT",
               "affects": ["Agencies"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov"
+                }
+              ],
               "terms": [
                 "Agency",
                 "Certification Data",
+                "Cloud Service Offering",
+                "FedRAMP Certified"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "AGU-AGC-TPP": {
+              "name": "No Certification Type or Path Preferences",
+              "statement": "Agencies MUST NOT require cloud service offerings to obtain or maintain a specific FedRAMP Certification Type or FedRAMP Certification Path, UNLESS the head of the agency or an authorized delegate determines there is a demonstrable need and notifies FedRAMP.",
+              "note": "This is related to the Presumption of Adequacy for a FedRAMP Certification and notification is mandated by OMB Memorandum M-24-15 section IV (a).",
+              "force": "MUST NOT",
+              "affects": ["Agencies"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov"
+                }
+              ],
+              "terms": [
+                "Agency",
                 "Cloud Service Offering",
                 "FedRAMP Certified"
               ],
@@ -1344,6 +1385,23 @@
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
+            },
+            "AGU-USE-CLA": {
+              "name": "Using FedRAMP Class A Certifications",
+              "statement": "Agencies SHOULD NOT authorize the use of a FedRAMP Class A Certified cloud service offering for more than 12 months UNLESS the cloud service offering is actively seeking a FedRAMP Class B, C, or D Certification.",
+              "force": "SHOULD NOT",
+              "affects": ["Agencies"],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "FedRAMP Certified"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
             }
           },
           "SPN": {
@@ -1371,6 +1429,7 @@
         "web_name": "collaborative-continuous-monitoring",
         "purpose": "The Collaborative Continuous Monitoring rules help agencies use shared, current authorization information from providers as part of each agency's own Information Security Continuous Monitoring strategy. These rules reduce unnecessary manual burden by encouraging automated monitoring and review while allowing each agency to make its own risk-based decisions about ongoing authorization.",
         "status": "stable",
+        "tag": "ongoing",
         "subsets": {
           "AGM": {
             "name": "Agency Guidance",
@@ -1410,7 +1469,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -1421,7 +1484,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-04-02",
-              "grace_ends": "2027-10-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-10-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -1873,6 +1940,7 @@
         "web_name": "certification-data-sharing",
         "purpose": "The Certification Data Sharing rules allow providers to store and share FedRAMP certification information through the platform they choose as long as it follows FedRAMP rules for access, accuracy, and transparency. This helps customers and the public review consistent, current security and compliance information while recognizing that the information usually remains the provider's intellectual property and is not federal information.",
         "status": "stable",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -1912,7 +1980,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -1935,7 +2007,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2028-02-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           },
@@ -1958,7 +2034,7 @@
           "CSO": {
             "CDS-CSO-PUB": {
               "name": "Public Information",
-              "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and machine-readable formats, including at least the following information that is available and applicable:",
+              "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and JSON formats, including at least the following information that is available and applicable:",
               "following_information": [
                 "Direct link to the FedRAMP Marketplace for the offering",
                 "Service Model",
@@ -1971,9 +2047,11 @@
                 "Link to Product Logo",
                 "Overall Service Description",
                 "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
-                "Summary of customer responsibilities and secure configuration guidance",
+                "Link to Secure Configuration Guidance",
+                "Overview of documentation supplied by the provider for the cloud service offering",
                 "Link to Trust Center landing page that includes instructions on accessing information in the trust center",
-                "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))"
+                "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))",
+                "Current FedRAMP Recognized Independent Assessment Service"
               ],
               "note": "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
               "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
@@ -1985,9 +2063,13 @@
                   "URL to the machine-readable data."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Public Marketplace Information Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-public-marketplace-information-schema-v2026.06.06.01.json"
+              },
               "terms": [
                 "Cloud Service Offering",
-                "Machine-Readable",
+                "FedRAMP Recognized",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
@@ -2138,11 +2220,6 @@
               "name": "Historical FedRAMP Certification Data",
               "statement": "Providers MUST make historical versions of FedRAMP Certification Data available for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
               "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Authorization Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
-              "effective_date": {
-                "obtain": "2027-05-04",
-                "maintain": "2027-05-04",
-                "grace_by_assessment_months": 2
-              },
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -2194,11 +2271,6 @@
                 "d": {
                   "statement": "Providers with Class D Certifications MUST supply per-service FedRAMP Certification materials.",
                   "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-05-04",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  },
                   "artifacts": {
                     "all": [
                       "Explanation of the supplied materials, including how to access and use them."
@@ -2425,55 +2497,6 @@
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
-            },
-            "CDS-CSF-SCD": {
-              "name": "Structured Certification Data",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-01-01",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
-                },
-                "b": {
-                  "statement": "Providers with Class B Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-01-01",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
-                },
-                "c": {
-                  "statement": "Providers with Class C Certifications MUST supply semi-structured text-based FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-01-01",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
-                },
-                "d": {
-                  "statement": "Providers with Class D Certifications MUST supply comprehensive machine-readable FedRAMP Certification Data.",
-                  "force": "MUST",
-                  "effective_date": {
-                    "obtain": "2027-05-04",
-                    "maintain": "2027-05-04",
-                    "grace_by_assessment_months": 2
-                  }
-                }
-              },
-              "affects": ["Providers"],
-              "terms": ["Certification Data", "Machine-Readable", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
             }
           }
         }
@@ -2484,8 +2507,9 @@
         "name": "Certification Package Overview",
         "short_name": "CPO",
         "web_name": "certification-package-overview",
-        "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package.",
-        "status": "empty",
+        "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package. This overview replaces the historically required base System Security Plan for FedRAMP Rev5 and is intended to provide a clear, concise, and consistent summary of the offering and the information included in the package to help customers understand the offering at a high level.",
+        "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -2515,7 +2539,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -2547,8 +2575,12 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2027-01-01",
-              "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
+              "maintain": "2027-07-01",
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             },
             "signup_url": "ADDME"
           },
@@ -2577,7 +2609,76 @@
         }
       },
       "data": {
-        "all": {},
+        "all": {
+          "CSO": {
+            "CPO-CSO-OVR": {
+              "name": "Overview of the Cloud Service Offering",
+              "statement": "Providers MUST supply a Certification Package Overview within their FedRAMP Certification Package, in both human-readable and JSON formats, that includes at least the all of the information required by the following rules:",
+              "following_information": [
+                "Certification Package Overview: CPO-CSO-MTD (Certification Package Overview Metadata)",
+                "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
+                "Certification Data Sharing: CDS-CSO-SVC (Service List)",
+                "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
+                "Minimum Assessment Scope: MAS-CSO-FLO (Information Flows and Security Categories)",
+                "Minimum Assessment Scope: MAS-CSO-TPR (Third-Party Information Resources)",
+                "Using Cryptographic Modules: UCM-CSO-CMD (Cryptographic Module Documentation)",
+                "FedRAMP Assessment: Whatever rule is created to replace the SAR ;)"
+              ],
+              "notes": [
+                "For FedRAMP Rev5, the Certification Package Overview replaces the historically required System Security Plan (not including appendices).",
+                "This list of rules may not apply to all FedRAMP Certification Classes or Types - if a rule does not apply then the information is not required."
+              ],
+              "related": [
+                "CPO-CSO-MTD",
+                "CDS-CSO-PUB",
+                "CDS-CSO-SVC",
+                "MAS-CSO-IIR",
+                "MAS-CSO-FLO",
+                "MAS-CSO-TPR",
+                "UCM-CSO-CMD"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Certification Package Overview Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-v2026.06.06.01.json"
+              },
+              "terms": [
+                "Certification Data",
+                "Certification Package",
+                "Information Resource",
+                "Initial Incident Report (IIR)",
+                "Provider",
+                "Security Category",
+                "Third-Party Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "CPO-CSO-MTD": {
+              "name": "Certification Package Overview Metadata",
+              "statement": "Providers MUST also include the following basic metadata in their Certification Package Overview:",
+              "following_information": [
+                "Name, title, and contact information of official that is responsible and accountable for the FedRAMP Certification Package",
+                "Version",
+                "Date of last update"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Certification Package", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
         "20x": {},
         "rev5": {}
       }
@@ -2589,6 +2690,7 @@
         "web_name": "fedramp-assessments",
         "purpose": "This ruleset explains the expectations for FedRAMP assessments.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -2617,8 +2719,12 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
+              "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -2641,7 +2747,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -2878,13 +2988,17 @@
         "web_name": "fedramp-security-inbox",
         "purpose": "The FedRAMP Security Inbox rules ensure FedRAMP can reliably contact the security and compliance staff responsible for every FedRAMP-authorized cloud service offering. These rules also set expectations for urgent communications, response time testing, and routing important messages separately from general support or customer service channels.",
         "status": "stable",
+        "tag": "ongoing",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
             "obtain": "2026-01-05",
             "maintain": "2026-01-05",
-            "grace_ends": "2026-07-01"
+            "grace": {
+              "default": "2026-07-01",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -3183,6 +3297,7 @@
         "web_name": "incident-communications-procedures",
         "purpose": "The Incident Communications Procedures rules explain how providers must communicate incident information to FedRAMP and government customers.",
         "status": "placeholder",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -3273,7 +3388,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -3284,7 +3403,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -4087,6 +4210,7 @@
         "web_name": "initial-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain initial FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -4120,7 +4244,7 @@
           },
           "CLA": {
             "name": "FedRAMP Class A Certification Rules",
-            "description": "These rules apply to providers seeking FedRAMP Class A Certifications.",
+            "description": "These are specific rules that apply to providers seeking FedRAMP Class A Certifications.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
@@ -4155,8 +4279,12 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
+              "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -4189,7 +4317,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -4292,6 +4424,33 @@
                 }
               ]
             },
+            "IFR-CSO-JSN": {
+              "name": "FedRAMP JSON Schemas",
+              "statement": "Providers MUST supply machine-readable information in JSON documents that are valid against the corresponding JSON schema when a rule contains a FedRAMP JSON schema, UNLESS otherwise specified in the rule.",
+              "note": "FedRAMP JSON schemas are designed to be lightweight and flexible to establish a minimum set of structured information while allowing providers to improve on the format and structure of the information as needed to meet their needs and the needs of their customers.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Machine-Readable", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IFR-CSO-MRA": {
+              "name": "Maintain Responsibility and Accountability",
+              "statement": "Providers MUST maintain responsibility and accountability for the accuracy and completeness of all information in the FedRAMP Certification Package, especially when they engage a third party (such as an independent assessor, advisory service, or external tools) to supply information on their behalf.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Assessor", "Certification Package", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "IFR-CSO-POP": {
               "name": "Pick One Program Certification Type",
               "statement": "Providers MUST NOT seek both FedRAMP Rev5 Program Certification and FedRAMP 20x Program Certification for the same cloud service offering; pick one type.",
@@ -4312,13 +4471,13 @@
               "name": "Approved Alternative Security Frameworks",
               "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment, from one of the following alternative security frameworks:",
               "following_information": [
-                "FedRAMP Ready",
+                "FedRAMP Rev5 (including FedRAMP Ready) at any historical Impact Level",
                 "SOC 2 Type II",
-                "GovRAMP"
+                "GovRAMP at any Impact Level"
               ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Provider", "Security Category"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -4344,9 +4503,11 @@
               ]
             },
             "IFR-CLA-AFR": {
-              "name": "Address FedRAMP Rules",
-              "statement": "Providers seeking a Class A FedRAMP Certification MUST address the following FedRAMP rules and supply the appropriate artifacts or information mapping in the FedRAMP Certification Package:",
+              "name": "Address FedRAMP Rules for Class A",
+              "statement": "Providers seeking a Class A FedRAMP Certification of any Type MUST address all rules in this FedRAMP Class A Certification subset (IFR-CLA) AND the following additional FedRAMP rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
               "following_information": [
+                "FedRAMP Certification: IFR-CSO-PKG (FedRAMP Certification Package)",
+                "FedRAMP Certification: IFR-CSO-JSN (FedRAMP JSON Schemas)",
                 "FedRAMP Certification: IFR-CSO-POP (Pick One Program Certification Type)",
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
@@ -4358,9 +4519,19 @@
                 "Incident Communications Procedures: ICP-CSO-EFR (Evaluate FedRAMP Reportability)",
                 "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
                 "Continuous Collaborative Monitoring: CCM-OCR-AVL (Report Availability)",
-                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)"
+                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)",
+                "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
+                "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
+                "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
+                "Key Security Indicators: KSI-IAM-AAM (Automating Account Management)",
+                "Key Security Indicators: KSI-INR-RIR (Reviewing Incident Response Procedures)",
+                "Key Security Indicators: KSI-SVC-SNT (Securing Network Traffic)"
               ],
-              "note": "If the alternative security framework has existing rules that align with these FedRAMP rules then a mapping to the alternative security framework content may be supplied instead of generating new artifacts.",
+              "notes": [
+                "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
+                "In general, for each of these FedRAMP requirements, providers should include a sufficiently detailed summary that reviewers will not need to dig into the related security framework materials to understand the related decisions - just saying \"see SOC 2 report\" is not particularly helpful.",
+                "Information about how the provider addresses the included Key Security Indicators are required for both Rev5 and 20x Class A Certifications."
+              ],
               "related": [
                 "IFR-CSO-POP",
                 "MAS-CSO-IIR",
@@ -4373,7 +4544,9 @@
                 "ICP-CSO-EFR",
                 "VDR-CSO-DET",
                 "CCM-OCR-AVL",
-                "CCM-OCR-NRD"
+                "CCM-OCR-NRD",
+                "IFR-CSO-PKG",
+                "IFR-CSO-JSN"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -4425,7 +4598,7 @@
             "IFR-APP-MLF": {
               "name": "Marketplace Listing First",
               "statement": "Providers MUST be listed in the FedRAMP Marketplace before applying for FedRAMP Certification.",
-              "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Preparation Phase prior to receiving a formal FedRAMP Certification.",
+              "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Initial Implementation Phase prior to receiving a formal FedRAMP Certification.",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -4476,6 +4649,42 @@
               "force": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Recognized",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IFR-APP-NTP": {
+              "name": "No Third-Party Applications",
+              "statement": "Providers MUST NOT use a third party to apply for a FedRAMP Certification on their behalf; this includes independent assessment services.",
+              "notes": [
+                "FedRAMP previously allowed independent assessment services to submit applications on behalf of providers, but this caused confusion about who was responsible for the application and the information in it. Providers should apply directly to ensure clear accountability.",
+                "Providers may use third parties to help them prepare their application and assessment materials for submission."
+              ],
+              "force": "MUST NOT",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IFR-APP-USA": {
+              "name": "Updating Stale Assessments",
+              "statement": "Providers MAY freshen a stale initial independent verification and validation assessment by having a FedRAMP Recognized Independent Assessment Service review any changes between the original assessment and the current status of the cloud service offering in place of a full re-assessment, UNLESS the stale assessment is more than 9 months old.",
+              "force": "MAY",
+              "affects": ["Providers"],
+              "terms": [
+                "Cloud Service Offering",
                 "FedRAMP Recognized",
                 "Provider",
                 "Validation",
@@ -4579,25 +4788,9 @@
             "IFR-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
               "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
-              "note": "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "CLA": {
-            "IFR-CLA-CAC": {
-              "name": "Rev5 Class A Certification",
-              "statement": "Providers seeking a FedRAMP Rev5 Class A Certification by leveraging an alternative security framework that is based on the SP 800-53 Revision 5 MUST supply all Security Decision Record materials required for FedRAMP Rev5 Class B Certification.",
               "notes": [
-                "The only approved alternative security frameworks based on the SP 800-53 Revision 5 are FedRAMP Ready and GovRAMP.",
-                "An independent assessment is not required for FedRAMP Rev5 Class A Certification."
+                "The simplest conversion in most cases would be to a FedRAMP Rev5 Class A Certification.",
+                "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready."
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -4620,6 +4813,7 @@
         "web_name": "minimum-assessment-scope",
         "purpose": "The Minimum Assessment Scope rules help providers define assessment boundaries narrowly enough to avoid unnecessary review of components that do not affect the offering's security. These rules still ensure the assessment includes the resources and connections needed to understand the offering's confidentiality, integrity, and availability.",
         "status": "stable",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -4639,7 +4833,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -4650,7 +4848,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_by_assessment_months": 2
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             },
             "signup_url": "ADDME"
           }
@@ -4785,6 +4987,7 @@
         "web_name": "marketplace-listing",
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -4826,9 +5029,9 @@
               "affects": ["Advisors"]
             }
           },
-          "PRE": {
-            "name": "Provider Responsibilities for Preparation Phase Listings",
-            "description": "These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace.",
+          "IIP": {
+            "name": "Provider Responsibilities for Initial Implementation Phase Listings",
+            "description": "FedRAMP allows cloud service providers that are actively preparing to obtain a FedRAMP Certification to apply for listing in the FedRAMP Marketplace. All cloud service providers must obtain a Initial Implementation Phase Marketplace Listing before they can apply for FedRAMP Certification. These rules apply to providers seeking a Initial Implementation Phase listing in the FedRAMP Marketplace.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
@@ -4844,7 +5047,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -4855,7 +5062,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             }
           }
         }
@@ -4863,33 +5074,6 @@
       "data": {
         "all": {
           "FRP": {
-            "MKT-FRP-DSM": {
-              "name": "Decision Summaries",
-              "statement": "FedRAMP MUST include a summary with any Marketplace listing decision that explains why the decision was made, including an explanation of deficiencies if applicable.",
-              "force": "MUST",
-              "affects": ["FedRAMP"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "MKT-FRP-MJS": {
-              "name": "Marketplace JSON Schemas",
-              "statement": "FedRAMP MUST publish and maintain JSON schemas for required machine-readable Marketplace web information supplied by advisors and assessors.",
-              "reference": "FedRAMP JSON Schemas on GitHub",
-              "reference_url": "https://github.com/FedRAMP/schemas",
-              "force": "MUST",
-              "affects": ["FedRAMP"],
-              "terms": ["Advisor", "Assessor", "Machine-Readable"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "MKT-FRP-SOF": {
               "name": "Scope of FedRAMP",
               "statement": "FedRAMP MUST NOT list cloud service offerings in the Marketplace or perform any FedRAMP Certification activities unless it determines the cloud service offering is within the scope of FedRAMP.",
@@ -4907,27 +5091,16 @@
             }
           },
           "CSO": {
-            "MKT-CSO-AGU": {
-              "name": "Agency Use Cases",
-              "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
+            "MKT-CSO-MLR": {
+              "name": "Marketplace Listing Requirements",
+              "statement": "Providers MUST address at least these FedRAMP rules to apply for a new FedRAMP Marketplace listing OR to request updates to an existing listing:",
               "following_information": [
-                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
-                "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
+                "Certification Data Sharing: CDS-CSO-PUB (Public Information)"
               ],
-              "notes": [
-                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
-                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
-              ],
-              "related": ["MKT-FRP-SOF"],
+              "related": ["CDS-CSO-PUB"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "Cloud Service Offering",
-                "Information Resource",
-                "Provider",
-                "Third-Party Information Resource"
-              ],
+              "terms": ["Certification Data", "Provider"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -4935,11 +5108,12 @@
                 }
               ]
             },
-            "MKT-CSO-LRQ": {
-              "name": "Listing Requests for Providers",
-              "statement": "Providers MUST complete the Provider Listing Request Form at https://fedramp.gov/forms/provider-listing-request/ in full to request listing in the FedRAMP Marketplace.",
+            "MKT-CSO-PML": {
+              "name": "Provider Marketplace Listing Requests",
+              "statement": "Providers MUST use the FedRAMP Marketplace Providing Listing Request Form to request a listing in the FedRAMP Marketplace.",
+              "note": "FedRAMP does not accept applications for a FedRAMP Marketplace Listing via email!",
               "reference": "FedRAMP Marketplace Provider Listing Request Form",
-              "reference_url": "https://fedramp.gov/forms",
+              "reference_url": "https://fedramp.gov/forms/to-be-added",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -4967,7 +5141,7 @@
             },
             "MKT-IAS-WEB": {
               "name": "Website Requirements for Assessors",
-              "statement": "Assessors MUST have an appropriate web site that publicly supplies at least the following information in consistent machine-readable and human-readable formats:",
+              "statement": "Assessors MUST have an appropriate web site that publicly supplies at least the following information in human-readable and JSON formats:",
               "following_information": [
                 "General description of the independent assessment service",
                 "Contact information",
@@ -4976,7 +5150,11 @@
               ],
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": ["Assessor", "Machine-Readable"],
+              "schema": {
+                "name": "FedRAMP Assessor Information Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Assessor"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -5010,6 +5188,10 @@
               ],
               "force": "MUST",
               "affects": ["Advisors"],
+              "schema": {
+                "name": "FedRAMP Advisory Service Information Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-v2026.06.06.01.json"
+              },
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
                 {
@@ -5050,18 +5232,28 @@
               ]
             }
           },
-          "PRE": {
-            "MKT-PRE-REQ": {
-              "name": "Preparation Phase Requirements",
-              "statement": "Providers MUST implement a minimum set of rules to be listed in the FedRAMP Marketplace during the Preparation Phase, including at least:",
+          "IIP": {
+            "MKT-IIP-AGU": {
+              "name": "Agency Use Cases",
+              "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
               "following_information": [
-                "CDS-CSO-PUB (Public Information) (Public Information",
-                "CDS-CSO-UTC (Use Trust Centers)"
+                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
+                "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
               ],
-              "related": ["CDS-CSO-PUB", "CDS-CSO-UTC"],
+              "notes": [
+                "FedRAMP will not list products or services that are outside the explicit statutory scope of FedRAMP; See MKT-FRP-SOF (Scope of FedRAMP).",
+                "Services used by private companies to meet other compliance requirements (such as CMMC) that do not also meet one of the above use cases are outside the scope of FedRAMP."
+              ],
+              "related": ["MKT-FRP-SOF"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider", "Trust Center"],
+              "terms": [
+                "Agency",
+                "Cloud Service Offering",
+                "Information Resource",
+                "Provider",
+                "Third-Party Information Resource"
+              ],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -5069,7 +5261,7 @@
                 }
               ]
             },
-            "MKT-PRE-DCP": {
+            "MKT-IIP-DCP": {
               "name": "Demonstrating Continuous Progress",
               "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
               "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
@@ -5083,11 +5275,11 @@
                 }
               ]
             },
-            "MKT-PRE-DLA": {
+            "MKT-IIP-DLA": {
               "name": "Deadline for Assessment",
-              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Preparation Phase",
+              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Initial Implementation Phase.",
               "corrective_actions": [
-                "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Preparation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
+                "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Initial Implementation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -5110,6 +5302,7 @@
         "web_name": "ongoing-fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings maintain ongoing FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -5148,8 +5341,12 @@
             "current_status": "Consolidated Rules for 2026",
             "date": {
               "obtain": "2026-07-04",
-              "maintain": "2027-05-04",
-              "grace_ends": "2027-05-04"
+              "maintain": "2027-01-01",
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -5172,7 +5369,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-01-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -5508,8 +5709,385 @@
             }
           }
         },
-        "20x": {},
-        "rev5": {}
+        "20x": {
+          "CSX": {
+            "OFR-CSX-CPM": {
+              "name": "Certification Package Maintenance for 20x",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with 20x Class A Certifications SHOULD persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every 3 months.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
+                "b": {
+                  "statement": "Providers with 20x Class B Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every month.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with 20x Class C Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every 2 weeks.",
+                  "force": "MUST",
+                  "timeframe_type": "weeks",
+                  "timeframe_num": 2
+                },
+                "d": {
+                  "statement": "Providers with 20x Class D Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every week.",
+                  "force": "MUST",
+                  "timeframe_type": "weeks",
+                  "timeframe_num": 1
+                }
+              },
+              "notes": [
+                "Providers are expected to maintain their FedRAMP Certification Package using automation as changes occur to ensure they are never out of date.",
+                "This rule does not require or expect persistent human review of all materials in this cadence."
+              ],
+              "affects": ["Providers"],
+              "terms": ["Certification Package", "Persistently", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
+        "rev5": {
+          "CSF": {
+            "OFR-CSF-ANA": {
+              "name": "Annual Assessments for Rev5 Certifications",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Rev5 Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
+                  "force": "MUST"
+                },
+                "b": {
+                  "statement": "Providers with Rev5 Class B Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "following_information": [
+                    "AC-2",
+                    "AC-3",
+                    "AU-2",
+                    "AU-3",
+                    "AU-4",
+                    "AU-5",
+                    "AU-6",
+                    "AU-8",
+                    "AU-11",
+                    "AU-12",
+                    "CM-5",
+                    "CM-6",
+                    "CM-7",
+                    "CM-8",
+                    "CP-4",
+                    "IA-2",
+                    "IA-2 (1)",
+                    "IA-2 (2)",
+                    "IA-2 (8)",
+                    "IA-2 (12)",
+                    "IA-4",
+                    "IA-5",
+                    "IR-4",
+                    "PE-3",
+                    "RA-5",
+                    "RA-5 (2)",
+                    "SA-9",
+                    "SC-7",
+                    "SC-8",
+                    "SC-12",
+                    "SC-13",
+                    "SC-21",
+                    "SC-28",
+                    "SI-3"
+                  ],
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with Rev5 Class C Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "following_information": [
+                    "AC-2",
+                    "AC-2 (1)",
+                    "AC-2 (2)",
+                    "AC-2 (3)",
+                    "AC-2 (4)",
+                    "AC-2 (5)",
+                    "AC-2 (7)",
+                    "AC-2 (9)",
+                    "AC-2 (12)",
+                    "AC-2 (13)",
+                    "AC-3",
+                    "AC-6",
+                    "AC-6 (2)",
+                    "AC-6 (5)",
+                    "AC-6 (10)",
+                    "AC-17 (2)",
+                    "AU-2",
+                    "AU-3",
+                    "AU-3 (1)",
+                    "AU-4",
+                    "AU-5",
+                    "AU-6",
+                    "AU-6 (1)",
+                    "AU-6 (3)",
+                    "AU-8",
+                    "AU-11",
+                    "AU-12",
+                    "CA-8 (2)",
+                    "CM-5",
+                    "CM-6",
+                    "CM-6 (1)",
+                    "CM-7",
+                    "CM-7 (1)",
+                    "CM-7 (2)",
+                    "CM-7 (5)",
+                    "CM-8",
+                    "CP-4",
+                    "IA-2",
+                    "IA-2 (1)",
+                    "IA-2 (2)",
+                    "IA-2 (5)",
+                    "IA-2 (6)",
+                    "IA-2 (8)",
+                    "IA-2 (12)",
+                    "IA-4",
+                    "IA-5",
+                    "IR-3",
+                    "IR-4",
+                    "IR-4 (1)",
+                    "MA-3 (2)",
+                    "PE-3",
+                    "RA-5",
+                    "RA-5 (2)",
+                    "RA-5 (3)",
+                    "SA-9",
+                    "SA-11 (1)",
+                    "SC-7",
+                    "SC-7 (3)",
+                    "SC-7 (4)",
+                    "SC-7 (5)",
+                    "SC-7 (7)",
+                    "SC-7 (8)",
+                    "SC-7 (12)",
+                    "SC-7 (18)",
+                    "SC-8",
+                    "SC-12",
+                    "SC-13",
+                    "SC-21",
+                    "SC-28",
+                    "SC-45 (1)",
+                    "SI-3",
+                    "SI-4 (1)",
+                    "SI-4 (2)",
+                    "SI-4 (16)",
+                    "SI-4 (23)",
+                    "SI-6",
+                    "SI-7",
+                    "SI-7 (1)",
+                    "SI-10"
+                  ],
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers with Rev5 Class D Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "following_information": [
+                    "AC-2",
+                    "AC-2 (1)",
+                    "AC-2 (2)",
+                    "AC-2 (3)",
+                    "AC-2 (4)",
+                    "AC-2 (5)",
+                    "AC-2 (7)",
+                    "AC-2 (9)",
+                    "AC-2 (11)",
+                    "AC-2 (12)",
+                    "AC-2 (13)",
+                    "AC-3",
+                    "AC-6",
+                    "AC-6 (2)",
+                    "AC-6 (3)",
+                    "AC-6 (5)",
+                    "AC-6 (8)",
+                    "AC-6 (10)",
+                    "AC-17 (2)",
+                    "AU-2",
+                    "AU-3",
+                    "AU-3 (1)",
+                    "AU-4",
+                    "AU-5",
+                    "AU-5 (1)",
+                    "AU-5 (2)",
+                    "AU-6",
+                    "AU-6 (1)",
+                    "AU-6 (3)",
+                    "AU-6 (4)",
+                    "AU-6 (5)",
+                    "AU-6 (6)",
+                    "AU-6 (7)",
+                    "AU-8",
+                    "AU-10",
+                    "AU-11",
+                    "AU-12",
+                    "AU-12 (1)",
+                    "AU-12 (3)",
+                    "CA-8 (2)",
+                    "CM-5",
+                    "CM-6",
+                    "CM-6 (1)",
+                    "CM-6 (2)",
+                    "CM-7",
+                    "CM-7 (1)",
+                    "CM-7 (2)",
+                    "CM-7 (5)",
+                    "CM-8",
+                    "CP-4",
+                    "IA-2",
+                    "IA-2 (1)",
+                    "IA-2 (2)",
+                    "IA-2 (5)",
+                    "IA-2 (6)",
+                    "IA-2 (8)",
+                    "IA-2 (12)",
+                    "IA-4",
+                    "IA-5",
+                    "IR-3",
+                    "IR-4",
+                    "IR-4 (1)",
+                    "IR-4 (2)",
+                    "IR-4 (4)",
+                    "IR-4 (6)",
+                    "MA-3 (2)",
+                    "PE-3",
+                    "RA-5",
+                    "RA-5 (2)",
+                    "RA-5 (3)",
+                    "SA-9",
+                    "SA-11 (1)",
+                    "SC-7",
+                    "SC-7 (3)",
+                    "SC-7 (4)",
+                    "SC-7 (5)",
+                    "SC-7 (7)",
+                    "SC-7 (8)",
+                    "SC-7 (12)",
+                    "SC-7 (18)",
+                    "SC-7 (20)",
+                    "SC-7 (21)",
+                    "SC-8",
+                    "SC-12",
+                    "SC-13",
+                    "SC-21",
+                    "SC-28",
+                    "SC-45 (1)",
+                    "SI-3",
+                    "SI-4 (1)",
+                    "SI-4 (2)",
+                    "SI-4 (10)",
+                    "SI-4 (16)",
+                    "SI-4 (19)",
+                    "SI-4 (20)",
+                    "SI-4 (23)",
+                    "SI-6",
+                    "SI-7",
+                    "SI-7 (1)",
+                    "SI-10"
+                  ],
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                }
+              },
+              "note": "This rule supplements OFR-CSO-IVV (Independent Verification and Validation) by supplying additional specifics for FedRAMP Rev5 Certifications",
+              "related": ["OFR-CSO-IVV"],
+              "affects": ["Providers"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "OFR-CSF-IFC": {
+              "name": "Integrating FedRAMP Changes",
+              "statement": "Providers MUST include any changes to FedRAMP rules in their persistent independent verification and validation assessment at least once per year, based on the mandatory effective date of the rules.",
+              "corrective_actions": [
+                "If a provider fails to include changes to FedRAMP rules in a persistent independent verification and validation assessment within 6 months of the mandatory effective date of the rules, FedRAMP will remove their listing from the Marketplace until they provide evidence of an updated assessment that includes the changes to FedRAMP rules.",
+                "Alternative correction actions may be specified in specific rules that will override this corrective action."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "OFR-CSF-CPM": {
+              "name": "Certification Package Maintenance for Rev5",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Rev5 Class A Certifications SHOULD persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
+                  "force": "SHOULD",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers with Rev5 Class B Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with Rev5 Class C Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers with Rev5 Class D Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every six months.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 6
+                }
+              },
+              "notes": [
+                "This maximum timeframe for Rev5 is the absolutely poorest worst case for horrible customer experience and is based on legacy FedRAMP Rev5 allowing providers to leave their packages unmaintained for up to a year. Rev5 providers should maintain their packages far more frequently than this requirement to ensure potential customers have access to up-to-date information, updating it at least after every transformative significant change.",
+                "FedRAMP 20x Certifications expect providers to maintain their FedRAMP Certification Packages as changes occur to ensure they are never out of date."
+              ],
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Package",
+                "Persistently",
+                "Provider",
+                "Significant Change",
+                "Transformative Change"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        }
       }
     },
     "REC": {
@@ -5519,13 +6097,18 @@
         "web_name": "fedramp-recognition",
         "purpose": "The FedRAMP Recognition of Independent Assessment Services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
         "status": "placeholder",
+        "tag": "assessor",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
             "obtain": "2026-07-04",
             "maintain": "2026-07-04",
-            "grace_ends": "2026-07-04"
+            "optional_adoption": "2026-07-04",
+            "grace": {
+              "default": "2026-07-04",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -5618,11 +6201,6 @@
               "name": "Actually Do Assessments",
               "statement": "Assessors MUST complete at least 2 initial or ongoing assessments for Class B, C, or D FedRAMP Certifications every 2 years to maintain FedRAMP Recognition.",
               "note": "For a newly FedRAMP Recognized Assessor, this rule applies beginning on the initial date of FedRAMP Recognition if that date is later than 2026-06-01.",
-              "effective_date": {
-                "obtain": "2026-06-01",
-                "maintain": "2026-06-01",
-                "grace_ends": "2026-06-01"
-              },
               "corrective_actions": [
                 "FedRAMP will notify assessors when they are within 6 months of losing FedRAMP Recognition under this rule and request a corrective action plan.",
                 "Assessors whose corrective action plan is not accepted will lose FedRAMP Recognition and must supply an alternative corrective action plan to move toward renewed FedRAMP Recognition."
@@ -5848,13 +6426,17 @@
         "web_name": "secure-configuration-guide",
         "purpose": "The Secure Configuration Guide rules help agencies and other customers understand how to configure a cloud service offering securely. These rules require providers to clearly explain the security impact of common settings so customers can make informed configuration choices.",
         "status": "stable",
+        "tag": "initial",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
           "date": {
             "obtain": "2026-03-01",
             "maintain": "2026-03-01",
-            "grace_ends": "2026-07-01"
+            "grace": {
+              "default": "2026-07-01",
+              "until_next_assessment": false
+            }
           }
         },
         "subsets": {
@@ -6040,6 +6622,7 @@
         "web_name": "significant-change-notifications",
         "purpose": "The Significant Change Notifications rules supply a simple framework allowing providers to make significant changes to their own products while keeping agency customers in the loop. These rules organize significant changes into clear categories so agencies can understand the expected risk and make authorization decisions accordingly.",
         "status": "stable",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -6099,7 +6682,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -6110,7 +6697,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -6229,11 +6820,14 @@
             },
             "SCN-CSO-HRM": {
               "name": "Human and Machine-Readable Notifications",
-              "statement": "Providers MUST make ALL Significant Change Notifications and related audit records available in human-readable and machine-readable formats.",
-              "note": "During the SCN beta, many cloud service providers met this requirement by using carefully structured and organized csv files to meet human-readable and machine-readable requirements simultaneously.",
+              "statement": "Providers MUST make ALL Significant Change Notifications and related audit records available in human-readable and JSON formats.",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Machine-Readable", "Provider", "Significant Change"],
+              "schema": {
+                "name": "FedRAMP Significant Change Notifications Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -6589,6 +7183,7 @@
         "web_name": "security-decision-record",
         "purpose": "The Security Decision Record replaced a traditional System Security Plan with a persistently maintained, verified, and validated record of the security decisions made by the cloud service provider over the lifecycle of their cloud service offering.",
         "status": "empty",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -6608,7 +7203,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           },
           "subsets": {
@@ -6631,7 +7230,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-08-01",
-              "grace_ends": "2028-02-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-08-01",
+                "until_next_assessment": true
+              }
             },
             "signup_url": "ADDME"
           },
@@ -6662,6 +7265,7 @@
         "web_name": "using-cryptographic-modules",
         "purpose": "The Using Cryptographic Modules rules clarify how providers should select and use cryptographic modules. These rules allow risk-based decisions for some services while still encouraging validated cryptographic modules whenever they are technically feasible and reasonable.",
         "status": "placeholder",
+        "tag": "initial",
         "subsets": {
           "CSO": {
             "name": "Cloud Service Provider Responsibilities",
@@ -6681,7 +7285,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -6692,7 +7300,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-06-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-06-01",
+                "until_next_assessment": false
+              }
             }
           }
         }
@@ -6766,6 +7378,7 @@
         "web_name": "vulnerability-detection-and-response",
         "purpose": "The Vulnerability Detection and Response rules require providers to continuously identify, analyze, prioritize, mitigate, and remediate vulnerabilities and related exposures through automated systems. These rules give providers flexibility in implementation while ensuring agencies receive the information needed to support ongoing authorization decisions.",
         "status": "stable",
+        "tag": "ongoing",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -6845,7 +7458,11 @@
             "date": {
               "obtain": "2026-07-04",
               "maintain": "2027-01-01",
-              "grace_ends": "2027-05-04"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2027-01-01",
+                "until_next_assessment": true
+              }
             }
           }
         },
@@ -6856,7 +7473,11 @@
             "date": {
               "obtain": "2027-01-01",
               "maintain": "2027-06-01",
-              "grace_ends": "2028-01-01"
+              "optional_adoption": "2026-07-04",
+              "grace": {
+                "default": "2028-01-01",
+                "until_next_assessment": false
+              }
             },
             "signup_url": "ADDME"
           }
@@ -7483,7 +8104,7 @@
               "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties in a consistent format that is human readable at least monthly.",
               "force": "MUST",
               "affects": ["Providers"],
-              "timeframe_type": "month",
+              "timeframe_type": "months",
               "timeframe_num": 1,
               "terms": [
                 "All Necessary Parties",
@@ -7556,34 +8177,37 @@
               "name": "Historical Activity",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
+                  "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
                   "force": "MAY",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
+                  "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
+                  "statement": "Providers with Class C Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
                   "force": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 14
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD make all recent historical vulnerability detection and response activity available in a machine-readable format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
+                  "statement": "Providers with Class D Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
                   "force": "SHOULD",
                   "timeframe_type": "days",
                   "timeframe_num": 7
                 }
               },
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Historical VDR Activity Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-historical-vdr-activity-schema-v2026.06.06.01.json"
+              },
               "terms": [
                 "All Necessary Parties",
-                "Machine-Readable",
                 "Persistently",
                 "Provider",
                 "Vulnerability",
@@ -7647,13 +8271,13 @@
                 "a": {
                   "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 3 months.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "c": {
@@ -7692,25 +8316,25 @@
                 "a": {
                   "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 6
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 6
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
                   "force": "SHOULD",
-                  "timeframe_type": "month",
+                  "timeframe_type": "months",
                   "timeframe_num": 1
                 }
               },
