@@ -4590,7 +4590,7 @@
             "IFR-APP-MLF": {
               "name": "Marketplace Listing First",
               "statement": "Providers MUST be listed in the FedRAMP Marketplace before applying for FedRAMP Certification.",
-              "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Preparation Phase prior to receiving a formal FedRAMP Certification.",
+              "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Initial Implementation Phase prior to receiving a formal FedRAMP Certification.",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -5019,9 +5019,9 @@
               "affects": ["Advisors"]
             }
           },
-          "PRE": {
-            "name": "Provider Responsibilities for Preparation Phase Listings",
-            "description": "FedRAMP allows cloud service providers that are actively preparing to obtain a FedRAMP Certification to apply for listing in the FedRAMP Marketplace. All cloud service providers must obtain a Preparation Phase Marketplace Listing before they can apply for FedRAMP Certification. These rules apply to providers seeking a Preparation Phase listing in the FedRAMP Marketplace.",
+          "IIP": {
+            "name": "Provider Responsibilities for Initial Implementation Phase Listings",
+            "description": "FedRAMP allows cloud service providers that are actively preparing to obtain a FedRAMP Certification to apply for listing in the FedRAMP Marketplace. All cloud service providers must obtain a Initial Implementation Phase Marketplace Listing before they can apply for FedRAMP Certification. These rules apply to providers seeking a Initial Implementation Phase listing in the FedRAMP Marketplace.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
@@ -5222,8 +5222,8 @@
               ]
             }
           },
-          "PRE": {
-            "MKT-PRE-AGU": {
+          "IIP": {
+            "MKT-IIP-AGU": {
               "name": "Agency Use Cases",
               "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
               "following_information": [
@@ -5251,7 +5251,7 @@
                 }
               ]
             },
-            "MKT-PRE-DCP": {
+            "MKT-IIP-DCP": {
               "name": "Demonstrating Continuous Progress",
               "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
               "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
@@ -5265,11 +5265,11 @@
                 }
               ]
             },
-            "MKT-PRE-DLA": {
+            "MKT-IIP-DLA": {
               "name": "Deadline for Assessment",
-              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Preparation Phase.",
+              "statement": "Providers MUST demonstrate that an assessment for a FedRAMP Certification Class B, C, or D has been scheduled within 2 years of initial listing in the Initial Implementation Phase.",
               "corrective_actions": [
-                "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Preparation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
+                "If a provider fails to schedule an assessment for a FedRAMP Certification Class B, C, or D within 2 years of initial listing in the Initial Implementation Phase, FedRAMP will remove their listing from the Marketplace until they provide evidence of a scheduled assessment."
               ],
               "force": "MUST",
               "affects": ["Providers"],
