@@ -74,10 +74,72 @@
         }
       },
       "additionalProperties": false
+    },
+    "CTL": {
+      "type": "object",
+      "description": "Control families, keyed by 2 letter family code (e.g. AC, AU, CA)",
+      "propertyNames": {
+        "pattern": "^[A-Z]{2}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "description": "Controls within a family, keyed by control ID (e.g. AC-02, AC-02-01)",
+        "propertyNames": {
+          "pattern": "^[A-Z]{2}-\\d{2}(-\\d{2})?$"
+        },
+        "additionalProperties": {
+          "type": "object",
+          "description": "Guidance and parameters for a single control",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "all_classes": {
+              "$ref": "#/$defs/classData",
+              "description": "Guidance and parameters that apply uniformly across all classes"
+            },
+            "varies_by_class": {
+              "type": "object",
+              "description": "Per-class parameters and guidance",
+              "additionalProperties": false,
+              "properties": {
+                "a": { "$ref": "#/$defs/classData" },
+                "b": { "$ref": "#/$defs/classData" },
+                "c": { "$ref": "#/$defs/classData" },
+                "d": { "$ref": "#/$defs/classData" }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "additionalProperties": false,
   "$defs": {
+    "classData": {
+      "type": "object",
+      "description": "Class-specific parameters and guidance",
+      "additionalProperties": false,
+      "properties": {
+        "guidance": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["parameterId", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "parameterId": { "type": "string", "minLength": 1 },
+              "value": { "type": "string", "minLength": 1 }
+            }
+          },
+          "minItems": 1
+        }
+      }
+    },
     "frd_document_info": {
       "type": "object",
       "required": ["name", "short_name", "web_name", "purpose", "status"],
@@ -165,7 +227,8 @@
         "APP",
         "APS",
         "USE",
-        "SPN"
+        "SPN",
+        "CCL"
       ]
     },
     "frr_info_subset_name": {
