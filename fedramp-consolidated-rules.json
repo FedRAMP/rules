@@ -1620,7 +1620,7 @@
             },
             "AGU-USE-NFC": {
               "name": "Notify FedRAMP of Monitoring Concerns",
-              "statement": "Agencies MUST notify FedRAMP if information presented in an Ongoing Authorization Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
+              "statement": "Agencies MUST notify FedRAMP if information presented in an Ongoing Certification Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
               "note": "Agencies are expected to notify FedRAMP under OMB Memorandum M-24-15 section IV (a).",
               "force": "MUST",
               "affects": ["Agencies"],
@@ -1645,8 +1645,8 @@
               ]
             },
             "AGU-USE-ROR": {
-              "name": "Review Ongoing Authorization Reports",
-              "statement": "Agencies SHOULD review each Ongoing Authorization Report to understand how changes to the cloud service offering may impact the risk tolerance documented in the agency Authorization to Operate for the federal information system that includes the cloud service offering in its boundary.",
+              "name": "Review Ongoing Certification Reports",
+              "statement": "Agencies SHOULD review each Ongoing Certification Report to understand how changes to the cloud service offering may impact the risk tolerance documented in the agency Authorization to Operate for the federal information system that includes the cloud service offering in its boundary.",
               "note": "This agency review supports agency responsibilities under 44 USC § 35, OMB Circular A-130, FIPS-200, and OMB Memorandum M-24-15.",
               "force": "SHOULD",
               "affects": ["Agencies"],
@@ -1660,7 +1660,7 @@
             },
             "AGU-USE-DSO": {
               "name": "Designate Senior Official",
-              "statement": "Agencies SHOULD designate a federal senior information security official to review Ongoing Authorization Reports and represent the agency at Quarterly Reviews for cloud service offerings included in agency information systems.",
+              "statement": "Agencies SHOULD designate a federal senior information security official to review Ongoing Certification Reports and represent the agency at Quarterly Reviews for cloud service offerings included in agency information systems.",
               "force": "SHOULD",
               "affects": ["Agencies"],
               "terms": ["Agency", "Cloud Service Offering", "Quarterly Review"],
@@ -1673,7 +1673,7 @@
             },
             "AGU-USE-NPC": {
               "name": "Notify Provider of Concerns",
-              "statement": "Agencies SHOULD formally notify the Provider if information presented in an Ongoing Authorization Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
+              "statement": "Agencies SHOULD formally notify the Provider if information presented in an Ongoing Certification Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
               "force": "SHOULD",
               "affects": ["Agencies"],
               "notification": [
@@ -2583,7 +2583,7 @@
             "CDS-CSO-HAD": {
               "name": "Historical FedRAMP Certification Data",
               "statement": "Providers MUST make historical versions of FedRAMP Certification Data available for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
-              "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Authorization Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
+              "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Certification Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
