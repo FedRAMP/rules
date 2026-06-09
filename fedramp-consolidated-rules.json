@@ -7329,7 +7329,24 @@
         }
       },
       "data": {
-        "all": {},
+        "all": {
+          "CSO": {
+            "SDR-CSO-PLC": {
+              "name": "Placeholder Rule",
+              "statement": "Providers MUST NOT follow an imaginary rule that is only in place to ensure placeholder content is generated without errors.",
+              "note": "This Ruleset is still being prepared offline but we want to make sure it renders properly and stops throwing errors in the web build process. ;)",
+              "force": "MUST NOT",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
         "20x": {},
         "rev5": {}
       }
