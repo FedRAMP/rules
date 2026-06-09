@@ -1593,6 +1593,12 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Most recent Ongoing Certification Report. If the report is not available, the provider MUST provide a sample report that includes all required information.",
+                  "How the report will be delivered"
+                ]
+              },
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -1638,6 +1644,9 @@
               "note": "This could be email by default but providers are encouraged to consider something more interactive as appropriate.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": ["How to access the feedback mechanism."]
+              },
               "terms": [
                 "All Necessary Parties",
                 "Ongoing Certification",
@@ -1657,6 +1666,9 @@
               "note": "This is intended to encourage sharing of information and decrease the burden on the cloud service provider - providing this summary will reduce duplicate questions from agencies and ensure FedRAMP has access to this information. It is generally in the provider's interest to update this addendum frequently throughout the quarter.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": ["How the summary will be delivered"]
+              },
               "terms": [
                 "Agency",
                 "Ongoing Certification",
@@ -1737,25 +1749,45 @@
                   "statement": "Providers with Class A Certifications MAY host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "force": "MAY",
                   "timeframe_type": "months",
-                  "timeframe_num": 3
+                  "timeframe_num": 3,
+                  "artifacts": {
+                    "all": [
+                      "selected ordinal recurrence for the synchronous Quarterly Review cycle if applicable."
+                    ]
+                  }
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "force": "SHOULD",
                   "timeframe_type": "months",
-                  "timeframe_num": 3
+                  "timeframe_num": 3,
+                  "artifacts": {
+                    "all": [
+                      "selected ordinal recurrence for the Ongoing Certification Report cycle if applicable OR explanation for why Ongoing Certification Reports are not being delivered."
+                    ]
+                  }
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "force": "MUST",
                   "timeframe_type": "months",
-                  "timeframe_num": 3
+                  "timeframe_num": 3,
+                  "artifacts": {
+                    "all": [
+                      "selected ordinal recurrence for the Ongoing Certification Report cycle."
+                    ]
+                  }
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications MUST host a synchronous Quarterly Review every 3 months, open to all necessary parties, to review aspects of the most recent Ongoing Certification Reports that the provider determines are of the most relevance to agencies.",
                   "force": "MUST",
                   "timeframe_type": "months",
-                  "timeframe_num": 3
+                  "timeframe_num": 3,
+                  "artifacts": {
+                    "all": [
+                      "selected ordinal recurrence for the Ongoing Certification Report cycle."
+                    ]
+                  }
                 }
               },
               "affects": ["Providers"],
@@ -1778,6 +1810,9 @@
               "statement": "Providers MUST supply either a registration link or a downloadable calendar file with meeting information for Quarterly Reviews to all necessary parties.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": ["URL to the registration page or calendar file."]
+              },
               "terms": [
                 "All Necessary Parties",
                 "Provider",
@@ -3172,6 +3207,9 @@
               "related": ["FSI-CSO-NOC"],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": ["Email address to receive messages from FedRAMP"]
+              },
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
@@ -3185,6 +3223,11 @@
               "statement": "Providers MUST immediately notify FedRAMP of any changes in addressing for their FedRAMP Security Inbox by emailing info@fedramp.gov with the name and FedRAMP ID of the cloud service offering and the updated email address.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Process, manual or automated, to notify FedRAMP of changes in the FedRAMP Security Inbox"
+                ]
+              },
               "notification": [
                 {
                   "party": "FedRAMP",
@@ -3209,6 +3252,12 @@
               "statement": "Providers MUST treat any email originating from an @fedramp.gov or @gsa.gov email address as if it was sent from FedRAMP by default; if such a message is confirmed to originate from someone other than FedRAMP then the FedRAMP Security Inbox rules no longer apply.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Configuration settings for FSI mailbox",
+                  "Automated validation to check FSI mailbox configuration"
+                ]
+              },
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
@@ -3251,6 +3300,12 @@
               "note": "Senior security officials are determined by the provider.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Configuration settings for FSI mailbox",
+                  "Automated validation to check FSI mailbox configuration"
+                ]
+              },
               "terms": ["Provider"],
               "updated": [
                 {
@@ -3440,6 +3495,11 @@
               "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Communications Procedures.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
+                ]
+              },
               "terms": [
                 "FedRAMP Reportable Incident",
                 "Federal Customer Data",
@@ -3528,6 +3588,11 @@
                         "description": "Initial Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "b": {
@@ -3579,6 +3644,11 @@
                         "description": "Initial Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "c": {
@@ -3630,6 +3700,11 @@
                         "description": "Initial Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "d": {
@@ -3681,6 +3756,11 @@
                         "description": "Initial Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Initial Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 }
               },
@@ -3767,6 +3847,11 @@
                         "description": "Ongoing Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "b": {
@@ -3815,6 +3900,11 @@
                         "description": "Ongoing Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "c": {
@@ -3863,6 +3953,11 @@
                         "description": "Ongoing Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "d": {
@@ -3911,6 +4006,11 @@
                         "description": "Ongoing Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Ongoing Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 }
               },
@@ -3989,6 +4089,11 @@
                         "description": "Final Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "b": {
@@ -4030,6 +4135,11 @@
                         "description": "Final Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "c": {
@@ -4071,6 +4181,11 @@
                         "description": "Final Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 },
                 "d": {
@@ -4112,6 +4227,11 @@
                         "description": "Final Incident Report"
                       }
                     }
+                  },
+                  "artifacts": {
+                    "all": [
+                      "An Final Incident Report for one or more incidents. The report can be from real incidents, simulated incidents, or a combination of sources."
+                    ]
                   }
                 }
               },
@@ -4161,6 +4281,11 @@
               "related": ["ICP-CSO-DPR"],
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
+                ]
+              },
               "terms": [
                 "Agency",
                 "Debilitating Customer Effect",
@@ -4871,6 +4996,13 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A machine readable output containing all required data of the components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                  "A human readable explanation of how the machine readable output is derived.",
+                  "The code for the automated process used to generate the machine readable output."
+                ]
+              },
               "terms": [
                 "Agency",
                 "Certification Package",
@@ -4894,6 +5026,13 @@
               "note": "Information resources (including third-party information resources) MAY vary by security category as appropriate to the type of information handled by or impacted by the information resource.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A machine readable output containing all required data of the permitted connections between components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                  "A human readable explanation of how the machine readable output is derived.",
+                  "The code for the automated process used to generate the machine readable output."
+                ]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Handle",
@@ -4921,6 +5060,13 @@
               "related": ["MAS-CSO-IIR"],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A machine readable output containing all required data of the third-party information resources of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                  "A human readable explanation of how the machine readable output is derived.",
+                  "The code for the automated process used to generate the machine readable output."
+                ]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Federal Customer Data",
@@ -4942,6 +5088,13 @@
               "related": ["MAS-CSO-IIR"],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A machine readable output containing all required data of the metadata collected or maintained by the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
+                  "A human readable explanation of how the machine readable output is derived.",
+                  "The code for the automated process used to generate the machine readable output."
+                ]
+              },
               "terms": [
                 "Federal Customer Data",
                 "Information Resource",
@@ -5150,6 +5303,12 @@
               ],
               "force": "MUST",
               "affects": ["Assessors"],
+              "artifacts": {
+                "all": [
+                  "URL to the human-readable data.",
+                  "URL to the machine-readable data."
+                ]
+              },
               "schema": {
                 "name": "FedRAMP Assessor Information Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-v2026.06.06.01.json"
@@ -5188,6 +5347,12 @@
               ],
               "force": "MUST",
               "affects": ["Advisors"],
+              "artifacts": {
+                "all": [
+                  "URL to the human-readable data.",
+                  "URL to the machine-readable data."
+                ]
+              },
               "schema": {
                 "name": "FedRAMP Advisory Service Information Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-v2026.06.06.01.json"
@@ -6479,6 +6644,12 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "URL to the human-readable data.",
+                  "URL to the machine-readable data."
+                ]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Privileged Account",
@@ -6498,6 +6669,12 @@
               "note": "These instructions may appear in a variety of ways; it is up to the provider to do so in the most appropriate and effective ways for their specific customer needs.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "URL or explanation of how to request these materials.",
+                  "Explanation of how the provider decides whether or not to share these materials or other related policies."
+                ]
+              },
               "terms": ["Certification Package", "Provider"],
               "updated": [
                 {
@@ -6511,6 +6688,12 @@
               "statement": "Providers SHOULD make the Secure Configuration Guide available publicly.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": ["Provider"],
               "updated": [
                 {
@@ -6524,6 +6707,12 @@
               "statement": "Providers SHOULD set all settings to their recommended secure defaults for top-level administrative accounts and privileged accounts when initially provisioned.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": [
                 "Privileged Account",
                 "Provider",
@@ -6543,6 +6732,12 @@
               "statement": "Providers SHOULD offer the capability to compare all current settings for top-level administrative accounts and privileged accounts to the recommended secure defaults.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": [
                 "Privileged Account",
                 "Provider",
@@ -6560,6 +6755,12 @@
               "statement": "Providers SHOULD offer the capability to export all security settings in a machine-readable format.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
@@ -6573,6 +6774,12 @@
               "statement": "Providers SHOULD offer the capability to view and adjust security settings via an API or similar capability.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": ["Provider"],
               "updated": [
                 {
@@ -6586,6 +6793,12 @@
               "statement": "Providers SHOULD also provide the Secure Configuration Guide in a machine-readable format that can be used by customers or third-party tools to compare against current settings.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
@@ -6599,6 +6812,12 @@
               "statement": "Providers SHOULD provide versioning and a release history for recommended secure default settings for top-level administrative accounts and privileged accounts as they are adjusted over time.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how to access this information",
+                  "or explanation why this functionality is not available"
+                ]
+              },
               "terms": [
                 "Privileged Account",
                 "Provider",
@@ -6738,6 +6957,11 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Evidence of signifincat change evaluation including a description fo the change, the determined type, and an explanation for the decision. At least one example must be provided for each type of change. Real examples are prefered but the provider may use fictitious examples as long as the example provides evidence of the decision making process."
+                ]
+              },
               "terms": [
                 "Adaptive Change",
                 "Certification Class Change",
@@ -6760,6 +6984,11 @@
               "related": ["SCN-CSO-EVA"],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how FedRAMP can obtain this information."
+                ]
+              },
               "terms": [
                 "Certification Package",
                 "Provider",
@@ -6790,6 +7019,11 @@
               "note": "Structure of the information may vary depending on how the provider tracks this internally.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A recent Significant Change Notification or sample Significant Change Notification"
+                ]
+              },
               "terms": [
                 "Assessor",
                 "Provider",
@@ -6810,6 +7044,11 @@
               "statement": "Providers MUST keep 12 months of historical Significant Change Notifications available with their FedRAMP Certification Data.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Explanation of how FedRAMP can obtain this information."
+                ]
+              },
               "terms": ["Certification Data", "Provider", "Significant Change"],
               "updated": [
                 {
@@ -6823,6 +7062,12 @@
               "statement": "Providers MUST make ALL Significant Change Notifications and related audit records available in human-readable and JSON formats.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "URL or explanation of how to request these materials.",
+                  "Explanation of how the provider decides whether or not to share these materials or other related policies."
+                ]
+              },
               "schema": {
                 "name": "FedRAMP Significant Change Notifications Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-v2026.06.06.01.json"
@@ -6858,6 +7103,9 @@
               ],
               "force": "MAY",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": ["Current list of available notification mechanisms"]
+              },
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
@@ -6901,6 +7149,11 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "At least the most recent SCN notification including the date it was sent and the date the change was applied. Additional examples may be provided. If no SCN notifications have been sent then this artifact is not required."
+                ]
+              },
               "examples": [
                 {
                   "id": "Tips on adaptive changes",
@@ -7006,6 +7259,11 @@
               "statement": "Providers MUST notify all necessary parties of initial plans for transformative changes at least 30 business days before starting transformative changes, including a summary of any likely security impacts or changes in risk.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "At least the most recent initial SCN notification for a transformative change including the date it was sent and the date the change was applied. Additional examples may be provided. If no transformative SCN notifications have been sent then this artifact is not required."
+                ]
+              },
               "timeframe_type": "bizdays",
               "timeframe_num": 30,
               "notification": [
@@ -7033,6 +7291,11 @@
               "statement": "Providers MUST notify all necessary parties of final plans for transformative changes at least 10 business days before starting transformative changes, including updates to all previously sent information.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "At least the most recent final SCN notification for a transformative change including the date it was sent and the date the change was applied. Additional examples may be provided. If no transformative SCN notifications have been sent then this artifact is not required."
+                ]
+              },
               "timeframe_type": "bizdays",
               "timeframe_num": 10,
               "notification": [
@@ -7059,6 +7322,11 @@
               "statement": "Providers MUST notify all necessary parties within 5 business days after finishing transformative changes, including updates to all previously sent information.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "At least the most recent post deployment SCN notification for a transformative change including the date it was sent and the date the change was applied. Additional examples may be provided. If no transformative SCN notifications have been sent then this artifact is not required."
+                ]
+              },
               "timeframe_type": "bizdays",
               "timeframe_num": 5,
               "notification": [
@@ -7090,6 +7358,11 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "At least the most recent after verification SCN notification for a transformative change including the date it was sent and the date the change was applied. Additional examples may be provided. If no transformative SCN notifications have been sent then this artifact is not required."
+                ]
+              },
               "timeframe_type": "bizdays",
               "timeframe_num": 5,
               "notification": [
@@ -7120,6 +7393,11 @@
               "note": "This requirement is focused on service documentation like user guides, information listed in the marketplace, and other such materials; it does not require updating the system security plan or FedRAMP Certification package.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Date of the most recent transformative change and the date of the corresponding documentation update. If no documentation updates were required as the result of this change, explain how this was determined."
+                ]
+              },
               "timeframe_type": "bizdays",
               "timeframe_num": 30,
               "terms": [
@@ -7140,6 +7418,11 @@
               "note": "Activities that match the transformative significant change type are rare for a cloud service offering, adjusted for the size, scale, and complexity of the service. Small cloud service offerings may go years without transformative changes, while hyperscale providers may release multiple transformative changes per year.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "Third Party assesment report OR explanation why a third party assessor was not engaged"
+                ]
+              },
               "examples": [
                 {
                   "id": "Tips on transformative changes",
@@ -7317,6 +7600,11 @@
               "statement": "Providers MUST document the cryptographic modules used in each service (or groups of services that use the same modules) where cryptographic services are used to protect federal customer data, including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "List of cryptographic modules including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
+                ]
+              },
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
@@ -7330,19 +7618,39 @@
               "varies_by_class": {
                 "a": {
                   "statement": "Providers with Class A Certifications MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
-                  "force": "MAY"
+                  "force": "MAY",
+                  "artifacts": {
+                    "all": [
+                      "List of cryptographic modules including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
+                    ]
+                  }
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications MAY use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
-                  "force": "MAY"
+                  "force": "MAY",
+                  "artifacts": {
+                    "all": [
+                      "List of cryptographic modules including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
+                    ]
+                  }
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications SHOULD use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
-                  "force": "SHOULD"
+                  "force": "SHOULD",
+                  "artifacts": {
+                    "all": [
+                      "List of cryptographic modules including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
+                    ]
+                  }
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications MUST use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when using cryptographic services to protect federal customer data.",
-                  "force": "MUST"
+                  "force": "MUST",
+                  "artifacts": {
+                    "all": [
+                      "List of cryptographic modules including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
+                    ]
+                  }
                 }
               },
               "affects": ["Providers"],
@@ -7359,6 +7667,11 @@
               "statement": "Providers SHOULD configure agency tenants by default to use cryptographic services that use cryptographic modules or update streams of cryptographic modules with active validations under the NIST Cryptographic Module Validation Program when such modules are available.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "List of cryptographic modules used by default including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
+                ]
+              },
               "terms": ["Agency", "Provider", "Validation"],
               "updated": [
                 {
@@ -7986,6 +8299,11 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A recent vulnerability report or a sample vulnerability report"
+                ]
+              },
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -8024,6 +8342,11 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A recent vulnerability report or a sample vulnerability report"
+                ]
+              },
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -8104,6 +8427,11 @@
               "statement": "Providers MUST report vulnerability detection and response activity to all necessary parties in a consistent format that is human readable at least monthly.",
               "force": "MUST",
               "affects": ["Providers"],
+              "artifacts": {
+                "all": [
+                  "A recent vulnerability report or a sample vulnerability report"
+                ]
+              },
               "timeframe_type": "months",
               "timeframe_num": 1,
               "terms": [
@@ -8180,25 +8508,48 @@
                   "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
                   "force": "MAY",
                   "timeframe_type": "months",
-                  "timeframe_num": 1
+                  "timeframe_num": 1,
+                  "artifacts": {
+                    "all": [
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format"
+                    ]
+                  }
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "force": "SHOULD",
                   "timeframe_type": "months",
-                  "timeframe_num": 1
+                  "timeframe_num": 1,
+                  "artifacts": {
+                    "all": [
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format",
+                      "or an explanation of why machine readable content is not being provided"
+                    ]
+                  }
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 14 days.",
                   "force": "SHOULD",
                   "timeframe_type": "days",
-                  "timeframe_num": 14
+                  "timeframe_num": 14,
+                  "artifacts": {
+                    "all": [
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format",
+                      "or an explanation of why machine readable content is not being provided"
+                    ]
+                  }
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every 7 days.",
                   "force": "SHOULD",
                   "timeframe_type": "days",
-                  "timeframe_num": 7
+                  "timeframe_num": 7,
+                  "artifacts": {
+                    "all": [
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format",
+                      "or an explanation of why machine readable content is not being provided"
+                    ]
+                  }
                 }
               },
               "affects": ["Providers"],
