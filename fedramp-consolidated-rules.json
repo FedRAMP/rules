@@ -7632,6 +7632,474 @@
                 }
               ]
             }
+          },
+          "TFR": {
+            "VDR-TFR-PDD": {
+              "name": "Persistent Drift Detection",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 3 months.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 14 days.",
+                  "force": "SHOULD",
+                  "timeframe_type": "days",
+                  "timeframe_num": 14
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 7 days.",
+                  "force": "SHOULD",
+                  "timeframe_type": "days",
+                  "timeframe_num": 7
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Drift",
+                "Information Resource",
+                "Likely",
+                "Persistently",
+                "Provider",
+                "Vulnerability",
+                "Vulnerability Detection"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-TFR-PCD": {
+              "name": "Persistently Complete Detection",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 6
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 6
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Drift",
+                "Information Resource",
+                "Likely",
+                "Persistently",
+                "Provider",
+                "Vulnerability",
+                "Vulnerability Detection"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-TFR-PVR": {
+              "name": "Mitigation and Remediation Expectations",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
+                  "force": "SHOULD",
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 96,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 160,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    }
+                  }
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "force": "SHOULD",
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 96,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 160,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    }
+                  }
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "force": "SHOULD",
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 48,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 128,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 16,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 128,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 2,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 4,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 16,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    }
+                  }
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "force": "SHOULD",
+                  "pain_timeframes": {
+                    "1": {},
+                    "2": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 24,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 96,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 192,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "3": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 16,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 64,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "4": {
+                      "irv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 2,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 32,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    },
+                    "5": {
+                      "irv_lev": {
+                        "timeframe_type": "hours",
+                        "timeframe_num": 12,
+                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nirv_lev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 1,
+                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
+                      },
+                      "nlev": {
+                        "timeframe_type": "days",
+                        "timeframe_num": 8,
+                        "description": "Not Likely Exploitable Vulnerability"
+                      }
+                    }
+                  }
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Agency",
+                "Fully Mitigated Vulnerability",
+                "Likely",
+                "Partially Mitigated Vulnerability",
+                "Potential Agency Impact",
+                "Provider",
+                "Remediated Vulnerability",
+                "Vulnerability"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-TFR-RMN": {
+              "name": "Remaining Vulnerabilities",
+              "statement": "Providers SHOULD mitigate or remediate remaining vulnerabilities during routine operations as determined necessary by the provider.",
+              "force": "SHOULD",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Vulnerability"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
+        "20x": {
+          "TFR": {
+            "VDR-TFR-MVX": {
+              "name": "Persistent Machine Verification and Validation for 20x",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of FedRAMP 20x Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers of FedRAMP 20x Class B offerings MUST verify and validate the status of machine-based information resources at least once every 7 days.",
+                  "force": "MUST",
+                  "timeframe_type": "days",
+                  "timeframe_num": 7
+                },
+                "c": {
+                  "statement": "Providers of FedRAMP 20x Class C offerings MUST verify and validate the status of machine-based information resources at least once every 3 days.",
+                  "force": "MUST",
+                  "timeframe_type": "days",
+                  "timeframe_num": 3
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
           }
         }
       }
@@ -8378,96 +8846,6 @@
                 }
               ]
             },
-            "VER-TFR-PDD": {
-              "name": "Persistent Drift Detection",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 3 months.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 3
-                },
-                "b": {
-                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "c": {
-                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 14 days.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 14
-                },
-                "d": {
-                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are likely to drift, at least once every 7 days.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 7
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Drift",
-                "Information Resource",
-                "Likely",
-                "Persistently",
-                "Provider",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VER-TFR-PCD": {
-              "name": "Persistently Complete Detection",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 6
-                },
-                "b": {
-                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every 6 months.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 6
-                },
-                "c": {
-                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "d": {
-                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on all information resources that are NOT likely to drift, at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Drift",
-                "Information Resource",
-                "Likely",
-                "Persistently",
-                "Provider",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "VER-TFR-EVU": {
               "name": "Evaluate Vulnerabilities Quickly",
               "varies_by_class": {
@@ -8498,341 +8876,6 @@
               },
               "affects": ["Providers"],
               "terms": ["Provider", "Vulnerability", "Vulnerability Detection"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VER-TFR-PVR": {
-              "name": "Mitigation and Remediation Expectations",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
-                  "force": "SHOULD",
-                  "pain_timeframes": {
-                    "1": {},
-                    "2": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 96,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 160,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 192,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "3": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 64,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 192,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "4": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 64,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "5": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 4,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    }
-                  }
-                },
-                "b": {
-                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
-                  "force": "SHOULD",
-                  "pain_timeframes": {
-                    "1": {},
-                    "2": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 96,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 160,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 192,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "3": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 64,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 192,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "4": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 64,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "5": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 4,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    }
-                  }
-                },
-                "c": {
-                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
-                  "force": "SHOULD",
-                  "pain_timeframes": {
-                    "1": {},
-                    "2": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 48,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 128,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 192,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "3": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 16,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 128,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "4": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 4,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 64,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "5": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 2,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 4,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 16,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    }
-                  }
-                },
-                "d": {
-                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
-                  "force": "SHOULD",
-                  "pain_timeframes": {
-                    "1": {},
-                    "2": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 24,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 96,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 192,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "3": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 16,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 64,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "4": {
-                      "irv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 2,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 32,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    },
-                    "5": {
-                      "irv_lev": {
-                        "timeframe_type": "hours",
-                        "timeframe_num": 12,
-                        "description": "Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nirv_lev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 1,
-                        "description": "Not Internet-Reachable Vulnerability + Likely Exploitable Vulnerability"
-                      },
-                      "nlev": {
-                        "timeframe_type": "days",
-                        "timeframe_num": 8,
-                        "description": "Not Likely Exploitable Vulnerability"
-                      }
-                    }
-                  }
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Agency",
-                "Fully Mitigated Vulnerability",
-                "Likely",
-                "Partially Mitigated Vulnerability",
-                "Potential Agency Impact",
-                "Provider",
-                "Remediated Vulnerability",
-                "Vulnerability"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VER-TFR-RMN": {
-              "name": "Remaining Vulnerabilities",
-              "statement": "Providers SHOULD mitigate or remediate remaining vulnerabilities during routine operations as determined necessary by the provider.",
-              "force": "SHOULD",
-              "affects": ["Providers"],
-              "terms": ["Provider", "Vulnerability"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -8920,47 +8963,7 @@
             }
           }
         },
-        "20x": {
-          "TFR": {
-            "VER-TFR-MVX": {
-              "name": "Persistent Machine Verification and Validation for 20x",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of FedRAMP 20x Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "b": {
-                  "statement": "Providers of FedRAMP 20x Class B offerings MUST verify and validate the status of machine-based information resources at least once every 7 days.",
-                  "force": "MUST",
-                  "timeframe_type": "days",
-                  "timeframe_num": 7
-                },
-                "c": {
-                  "statement": "Providers of FedRAMP 20x Class C offerings MUST verify and validate the status of machine-based information resources at least once every 3 days.",
-                  "force": "MUST",
-                  "timeframe_type": "days",
-                  "timeframe_num": 3
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          }
-        },
+        "20x": {},
         "rev5": {
           "TFR": {
             "VER-TFR-MVF": {
