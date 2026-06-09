@@ -227,7 +227,8 @@
         "APP",
         "APS",
         "USE",
-        "SPN"
+        "SPN",
+        "CCL"
       ]
     },
     "frr_info_subset_name": {

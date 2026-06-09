@@ -3368,6 +3368,16 @@
               "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
+          },
+          "CCL": {
+            "name": "Changing Certification Class",
+            "description": "These rules apply to cloud service providers when changing their FedRAMP Certification Class.",
+            "applicability": {
+              "types": ["Rev5"],
+              "paths": ["Agency"],
+              "classes": ["A", "B", "C", "D"],
+              "affects": ["Providers"]
+            }
           }
         },
         "20x": {
@@ -3782,6 +3792,22 @@
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          },
+          "CCL": {
+            "FRC-CCL-PLC": {
+              "name": "Placeholder on Changing Certification Class",
+              "statement": "Providers MUST do things properly in order to change their FedRAMP Certification Class.",
+              "note": "This is a placeholder rule that must be updated!",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -7634,6 +7660,25 @@
             }
           },
           "TFR": {
+            "VDR-TFR-NMV": {
+              "name": "Non-Machine Verification and Validation",
+              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "VDR-TFR-PDD": {
               "name": "Persistent Drift Detection",
               "varies_by_class": {
@@ -8052,25 +8097,6 @@
               "force": "SHOULD",
               "affects": ["Providers"],
               "terms": ["Provider", "Vulnerability"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VDR-TFR-NMV": {
-              "name": "Non-Machine Verification and Validation",
-              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
               "updated": [
                 {
                   "date": "2026-05-04",
@@ -8822,7 +8848,6 @@
                 }
               ]
             },
-
             "VER-TFR-MRH": {
               "name": "Historical Activity",
               "varies_by_class": {
@@ -8894,7 +8919,6 @@
                 }
               ]
             },
-
             "VER-TFR-EVU": {
               "name": "Evaluate Vulnerabilities Quickly",
               "varies_by_class": {
