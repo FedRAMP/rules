@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ctl.guidance.schema.json",
+  "title": "CTL Guidance",
+  "description": "FedRAMP control guidance and per-class parameters",
+  "type": "object",
+  "required": ["CTL"],
+  "additionalProperties": false,
+  "properties": {
+    "CTL": {
+      "type": "object",
+      "description": "Control families, keyed by 2 letter family code (e.g. AC, AU, CA)",
+      "propertyNames": {
+        "pattern": "^[A-Z]{2}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "description": "Controls within a family, keyed by control ID (e.g. AC-02, AC-02-01)",
+        "propertyNames": {
+          "pattern": "^[A-Z]{2}-\\d{2}(-\\d{2})?$"
+        },
+        "additionalProperties": {
+          "type": "object",
+          "description": "Guidance and parameters for a single control",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "guidance": {
+              "type": "array",
+              "description": "Guidance statements that apply uniformly across all classes",
+              "items": { "type": "string", "minLength": 1 },
+              "minItems": 1
+            },
+            "all_classes": {
+              "$ref": "#/$defs/classData",
+              "description": "Parameters and guidance that apply uniformly across all classes"
+            },
+            "varies_by_class": {
+              "type": "object",
+              "description": "Per-class parameters and guidance",
+              "additionalProperties": false,
+              "properties": {
+                "a": { "$ref": "#/$defs/classData" },
+                "b": { "$ref": "#/$defs/classData" },
+                "c": { "$ref": "#/$defs/classData" },
+                "d": { "$ref": "#/$defs/classData" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "classData": {
+      "type": "object",
+      "description": "Class-specific parameters and guidance",
+      "additionalProperties": false,
+      "properties": {
+        "parameters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["parameterId", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "parameterId": { "type": "string", "minLength": 1 },
+              "value": { "type": "string", "minLength": 1 }
+            }
+          },
+          "minItems": 1
+        },
+        "guidance": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}
