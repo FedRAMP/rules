@@ -93,15 +93,9 @@
           "additionalProperties": false,
           "minProperties": 1,
           "properties": {
-            "guidance": {
-              "type": "array",
-              "description": "Guidance statements that apply uniformly across all classes",
-              "items": { "type": "string", "minLength": 1 },
-              "minItems": 1
-            },
             "all_classes": {
               "$ref": "#/$defs/classData",
-              "description": "Parameters and guidance that apply uniformly across all classes"
+              "description": "Guidance and parameters that apply uniformly across all classes"
             },
             "varies_by_class": {
               "type": "object",
