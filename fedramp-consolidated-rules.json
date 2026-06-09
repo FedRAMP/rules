@@ -8058,6 +8058,88 @@
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
+            },
+            "VDR-TFR-NMV": {
+              "name": "Non-Machine Verification and Validation",
+              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-TFR-KEV": {
+              "name": "Remediate KEVs",
+              "statement": "Providers SHOULD remediate Known Exploited Vulnerabilities according to the due dates in the CISA Known Exploited Vulnerabilities Catalog (even if the vulnerability has been fully mitigated) as required by CISA Binding Operational Directive (BOD) 22-01 or any successor guidance from CISA.",
+              "reference": "CISA BOD 22-01",
+              "reference_url": "https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities",
+              "force": "SHOULD",
+              "affects": ["Providers"],
+              "terms": [
+                "Known Exploited Vulnerability (KEV)",
+                "Provider",
+                "Vulnerability"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "VDR-TFR-PSD": {
+              "name": "Persistent Sample Detection",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 14 days.",
+                  "force": "SHOULD",
+                  "timeframe_type": "days",
+                  "timeframe_num": 14
+                },
+                "b": {
+                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 7 days.",
+                  "force": "SHOULD",
+                  "timeframe_type": "days",
+                  "timeframe_num": 7
+                },
+                "c": {
+                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 3 days.",
+                  "force": "SHOULD",
+                  "timeframe_type": "days",
+                  "timeframe_num": 3
+                },
+                "d": {
+                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once per day.",
+                  "force": "SHOULD",
+                  "timeframe_type": "days",
+                  "timeframe_num": 1
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Persistently",
+                "Provider",
+                "Vulnerability",
+                "Vulnerability Detection"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
             }
           }
         },
@@ -8083,6 +8165,53 @@
                   "force": "MUST",
                   "timeframe_type": "days",
                   "timeframe_num": 3
+                }
+              },
+              "affects": ["Providers"],
+              "terms": [
+                "Information Resource",
+                "Machine-Based (Information Resources)",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-05-04",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
+        "rev5": {
+          "TFR": {
+            "VDR-TFR-MVF": {
+              "name": "Persistent Machine Verification and Validation for Rev5",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "b": {
+                  "statement": "Providers of FedRAMP Rev5 Class B offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
+                  "force": "SHOULD",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers of FedRAMP Rev5 Class C offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 1
                 }
               },
               "affects": ["Providers"],
@@ -8693,44 +8822,7 @@
                 }
               ]
             },
-            "VER-TFR-NMV": {
-              "name": "Non-Machine Verification and Validation",
-              "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "VER-TFR-KEV": {
-              "name": "Remediate KEVs",
-              "statement": "Providers SHOULD remediate Known Exploited Vulnerabilities according to the due dates in the CISA Known Exploited Vulnerabilities Catalog (even if the vulnerability has been fully mitigated) as required by CISA Binding Operational Directive (BOD) 22-01 or any successor guidance from CISA.",
-              "reference": "CISA BOD 22-01",
-              "reference_url": "https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities",
-              "force": "SHOULD",
-              "affects": ["Providers"],
-              "terms": [
-                "Known Exploited Vulnerability (KEV)",
-                "Provider",
-                "Vulnerability"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
+
             "VER-TFR-MRH": {
               "name": "Historical Activity",
               "varies_by_class": {
@@ -8802,50 +8894,7 @@
                 }
               ]
             },
-            "VER-TFR-PSD": {
-              "name": "Persistent Sample Detection",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 14 days.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 14
-                },
-                "b": {
-                  "statement": "Providers with Class B Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 7 days.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 7
-                },
-                "c": {
-                  "statement": "Providers with Class C Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once every 3 days.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 3
-                },
-                "d": {
-                  "statement": "Providers with Class D Certifications SHOULD persistently perform vulnerability detection on representative samples of similar machine-based information resources, at least once per day.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 1
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Persistently",
-                "Provider",
-                "Vulnerability",
-                "Vulnerability Detection"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
+
             "VER-TFR-EVU": {
               "name": "Evaluate Vulnerabilities Quickly",
               "varies_by_class": {
@@ -8964,53 +9013,7 @@
           }
         },
         "20x": {},
-        "rev5": {
-          "TFR": {
-            "VER-TFR-MVF": {
-              "name": "Persistent Machine Verification and Validation for Rev5",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "b": {
-                  "statement": "Providers of FedRAMP Rev5 Class B offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "c": {
-                  "statement": "Providers of FedRAMP Rev5 Class C offerings MUST verify and validate the status of machine-based information resources at least once every month.",
-                  "force": "MUST",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
-                "d": {
-                  "statement": "Providers of FedRAMP Rev5 Class D offerings MUST verify and validate the status of machine-based information resources at least once every month.",
-                  "force": "MUST",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                }
-              },
-              "affects": ["Providers"],
-              "terms": [
-                "Information Resource",
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          }
-        }
+        "rev5": {}
       }
     }
   },
