@@ -3307,7 +3307,7 @@
         "web_name": "fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain and maintain FedRAMP Certification across certification classes and paths.",
         "status": "placeholder",
-        "tag": "initial",
+        "tag": "other",
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
