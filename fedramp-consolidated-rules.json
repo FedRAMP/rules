@@ -10551,16 +10551,16 @@
       },
       "RA-05-02": {
         "all_classes": {
-            "guidance": [
-              "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-            ],
-            "parameters": [
-              {
-                "parameterId": "ra-05.02_odp.02",
-                "value": "prior to a new scan"
-              }
-            ]
-          }
+          "guidance": [
+            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
+          ],
+          "parameters": [
+            {
+              "parameterId": "ra-05.02_odp.02",
+              "value": "prior to a new scan"
+            }
+          ]
+        }
       },
       "RA-05-03": {
         "all_classes": {
