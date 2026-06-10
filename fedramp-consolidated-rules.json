@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.09.01-preview",
-    "last_updated": "2026-06-09",
+    "version": "2026.06.10.01-preview",
+    "last_updated": "2026-06-10",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -3778,7 +3778,7 @@
               ]
             },
             "FRC-APP-NTP": {
-              "name": "No Third-Party Applications",
+              "name": "No Third-Party Applicants",
               "statement": "Providers MUST NOT use a third party to apply for a FedRAMP Certification on their behalf; this includes independent assessment services.",
               "notes": [
                 "FedRAMP previously allowed independent assessment services to submit applications on behalf of providers, but this caused confusion about who was responsible for the application and the information in it. Providers should apply directly to ensure clear accountability.",
@@ -3879,33 +3879,6 @@
               "force": "SHOULD",
               "affects": ["Providers"],
               "terms": ["Cloud Service Offering", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "CLA": {
-            "FRC-CLA-KSM": {
-              "name": "Key Security Indicator Mapping",
-              "statement": "Providers seeking a FedRAMP 20x Certification Class A by leveraging an alternative security framework MUST supply a temporary mapping from the alternative security assessment to the following FedRAMP Key Security Indicators:",
-              "following_information": [
-                "KSI-CMT-LMC",
-                "KSI-CNA-RNT",
-                "KSI-CED-RAT",
-                "KSI-IAM-AAM",
-                "KSI-INR-RIR",
-                "KSI-SVC-SNT"
-              ],
-              "notes": [
-                "The mapping must be available in both machine-readable and human-readable formats.",
-                "If a mapping is not clear, the provider should supply new information indicating that the Key Security Indicator has not been independently audited."
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5175,14 +5148,11 @@
             },
             "IVV-IAS-SUM": {
               "name": "Assessment Summary",
-              "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each FedRAMP requirement, including rules, controls, and Key Security Indicators; this summary will be included in the FedRAMP Certification Data for the cloud service offering.",
+              "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each FedRAMP requirement, including rules, controls, and Key Security Indicators; this summary will be included by the provider in the FedRAMP Security Decision Record for the cloud service offering.",
+              "note": "FedRAMP does not require a separate Security Assessment Plan or Security Assessment Report for FedRAMP 20x or FedRAMP Rev5 Certifications; this information is expected to be included in the Security Decision Record by the cloud service provider.",
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": [
-                "Assessor",
-                "Certification Data",
-                "Cloud Service Offering"
-              ],
+              "terms": ["Assessor", "Security Decision Record", "Cloud Service Offering"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5192,8 +5162,8 @@
             },
             "IVV-IAS-OSA": {
               "name": "Overall Summary of Assessment",
-              "statement": "Assessors MUST supply an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute, to the provider and all necessary assessors.",
-              "note": "FedRAMP will make the final FedRAMP Certification decision based on the assessor's findings and other relevant information.",
+              "statement": "Assessors MUST supply an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute, to the provider; this summary will be included by the provider in the FedRAMP Certification Package Overview for the cloud service offering.",
+              "note": "FedRAMP does not supply a template for this summary and encourages independent assessment services to optimize for the best customer experience in the creation of these materials.",
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": [
@@ -5559,6 +5529,74 @@
               "affects": ["Providers"],
               "terms": [
                 "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSF-MRA": {
+              "name": "Mandatory Rules Assessment",
+              "statement": "Providers MUST include independent verification and validation of all applicable FedRAMP Rules every time they perform an annual assessment as required by IVV-CSF-ANA (Annual Assessments for Rev5 Certifications).",
+              "related": ["IVV-CSF-ANA"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSF-MCA": {
+              "name": "Mandatory Control Assessment",
+              "statement": "Providers MUST have all controls in their Certification Package independently verified and validated at least every 3 years.",
+              "note": "Traditionally this has been done by reviewing a rotating selection of controls at each annual assessment, however this requirement is a ceiling and not a floor. See IVV-CSF-PCA (Preferred Control Assessment) for FedRAMP's recommended approach to Rev5 control assessments.",
+              "related": ["IVV-CSF-PCA"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Package",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSF-ACF": {
+              "name": "Assessment of Controls with Findings",
+              "statement": "Providers MUST have controls with findings in the previous assessment independently verified and validated in the next annual assessment as required by IVV-CSF-ANA (Annual Assessments for Rev5 Certifications).",
+              "note": "Traditionally this has been done by reviewing a rotating selection of controls at each annual assessment, however this requirement is a ceiling and not a floor. See IVV-CSF-PCA (Preferred Control Assessment) for FedRAMP's recommended approach to Rev5 control assessments.",
+              "related": ["IVV-CSF-PCA", "IVV-CSF-ANA"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSF-PCA": {
+              "name": "Preferred Control Assessment",
+              "statement": "Providers SHOULD have all controls in their Certification Package independently verified and validated every time they perform an annual assessment as required by IVV-CSF-ANA (Annual Assessments for Rev5 Certifications).",
+              "related": ["IVV-CSF-ANA"],
+              "force": "SHOULD",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Package",
                 "Provider",
                 "Validation",
                 "Verification"
