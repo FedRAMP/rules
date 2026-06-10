@@ -12,7 +12,7 @@ export function validateSchema(
     strict: true,
     allErrors: true,
   });
-  addFormats(ajv);
+  addFormats(ajv as any);
 
   const schema = schemaDocument as AnySchema;
   const validate = ajv.compile(schema);

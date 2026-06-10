@@ -622,18 +622,18 @@
           "type": "array",
           "items": { "type": "string" }
         },
-        "force": { "$ref": "#/$defs/force_enum" },
-        "effective_date": { "$ref": "#/$defs/effective_dates" },
-        "timeframe_type": { "type": "string" },
-        "timeframe_num": { "type": "number" },
-        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
-        "artifacts": { "$ref": "#/$defs/artifacts" },
         "note": { "type": "string" },
         "notes": {
           "type": "array",
           "items": { "type": "string" },
           "minItems": 2
-        }
+        },
+        "force": { "$ref": "#/$defs/force_enum" },
+        "effective_date": { "$ref": "#/$defs/effective_dates" },
+        "timeframe_type": { "type": "string" },
+        "timeframe_num": { "type": "number" },
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
+        "artifacts": { "$ref": "#/$defs/artifacts" }
       },
       "additionalProperties": false
     },
