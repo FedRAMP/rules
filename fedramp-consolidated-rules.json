@@ -5152,7 +5152,7 @@
               "note": "FedRAMP does not require a separate Security Assessment Plan or Security Assessment Report for FedRAMP 20x or FedRAMP Rev5 Certifications; this information is expected to be included in the Security Decision Record by the cloud service provider.",
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": ["Assessor", "Security Decision Record", "Cloud Service Offering"],
+              "terms": ["Assessor", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5167,8 +5167,9 @@
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": [
-                "All Necessary Assessors",
                 "Assessor",
+                "Certification Package",
+                "Cloud Service Offering",
                 "Provider",
                 "Validation",
                 "Verification"
