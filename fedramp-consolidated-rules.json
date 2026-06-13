@@ -497,7 +497,7 @@
         },
         "FRD-INC": {
           "term": "Initial Certification",
-          "definition": "The first FedRAMP Certification of a cloud service offering based on the applicable initial assessment, validation, certification package, and certification data.",
+          "definition": "The first FedRAMP Certification of a cloud service offering based on the applicable FedRAMP Practices.",
           "tag": "Certification",
           "alts": ["initial certification", "initial certifications"],
           "updated": [
@@ -676,7 +676,8 @@
         },
         "FRD-ONC": {
           "term": "Ongoing Certification",
-          "definition": "The continued FedRAMP Certification of a cloud service offering based on the applicable ongoing assessment, validation, monitoring, reporting, and certification data.",
+          "definition": "The continued FedRAMP Certification of a cloud service offering based on the applicable FedRAMP Practices.",
+          "tag": "Certification",
           "alts": ["ongoing certification", "ongoing certifications"],
           "updated": [
             {
