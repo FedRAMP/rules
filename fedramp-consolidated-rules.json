@@ -5053,12 +5053,84 @@
                 }
               ]
             },
+            "IVV-CSO-SEI": {
+              "name": "Supply Evidence of Implementation",
+              "statement": "Providers MUST supply evidence to all necessary assessors of the implementation of the measures that have been documented to meet FedRAMP Rules, controls, and Key Security Indicators; this evidence is the result of verification.",
+              "note": "For example, if the documentation says that firewall rules are used to block traffic then the cloud service provider would verify that firewall rules are in place to block traffic and supply that evidence to assessors (preferably by allowing them to see how firewall configurations are deployed from a source of truth).",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "All Necessary Assessors",
+                "Assessor",
+                "Provider",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-SEE": {
+              "name": "Supply Evidence of Effectiveness",
+              "statement": "Providers MUST supply evidence to all necessary assessors of the effectiveness of the measures that have been implemented to meet FedRAMP Rules, controls, and Key Security Indicators; this evidence is the result of validation.",
+              "note": "For example, after verifying that firewalls are configured to block traffic following IVV-CSO-SEI (Supply Evidence of Implementation), the provider would validate that traffic is actually being blocked and supply evidence of that validation to assessors (such as by allowing them to see metrics on the traffic that is blocked vs not).",
+              "related": ["IVV-CSO-SEI"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "All Necessary Assessors",
+                "Assessor",
+                "Provider",
+                "Validation"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-DUS": {
+              "name": "Document Use of Representative Samples",
+              "statement": "Providers MUST document and explain the use of representative samples during verification and validation if used following IVV-CSO-USR (Use Representative Samples).",
+              "related": ["IVV-CSO-USR"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "IVV-CSO-STE": {
-              "name": "Supply Technical Evidence",
+              "name": "Supply Technical Explanations",
               "statement": "Providers SHOULD supply all necessary accessors with technical explanations, demonstrations, and other relevant supporting information about the technical capabilities they employ to address FedRAMP rules; this SHOULD be supplied as necessary to ensure the assessor can effectively complete verification and validation.",
               "force": "SHOULD",
               "affects": ["Providers"],
               "terms": ["Assessor", "Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-USR": {
+              "name": "Use Representative Samples",
+              "statement": "Providers MAY use representative samples as appropriate during verification and validation.",
+              "note": "Many modern cloud services using effective automation do not need to use representative sampling and are capable of persistently verifying and validating the majority of their security measures automatically.",
+              "force": "MAY",
+              "affects": ["Providers"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-30",
