@@ -157,6 +157,18 @@
             }
           ]
         },
+        "FRD-CCL": {
+          "term": "Certification Class",
+          "definition": "The category of assurance that a cloud service offering supplies to federal government customers following FedRAMP Practices, increasing from minimal assurance at Class A to significant assurance at Class D; currently available categories are Class A, B, C, or D.",
+          "tag": "Certification",
+          "alts": ["Certification Class", "Certification Classes"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-CCC": {
           "term": "Certification Class Change",
           "definition": "A type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
@@ -190,6 +202,42 @@
           "alts": ["certification package", "certification packages"],
           "reference": "44 USC § 3607 (b)(8)",
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-CPH": {
+          "term": "Certification Path",
+          "definition": "The underlying source of the FedRAMP Certification, either from a federal agency sponsored authorization to operate or directly from FedRAMP itself. The agency path is a legacy path that is only available for FedRAMP Rev5 and still requires review and approval from FedRAMP.",
+          "tag": "Certification",
+          "alts": ["Certification Path", "Certification Paths"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-CPF": {
+          "term": "Certification Profile",
+          "definition": "The combination of a FedRAMP Certification Type (Rev5 or 20x), FedRAMP Certification Path (Program or Agency), and FedRAMP Certification Class (A, B, C, or D) for a cloud service offering.",
+          "tag": "Certification",
+          "alts": ["Certification Profile", "Certification Profiles"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-CTY": {
+          "term": "Certification Type",
+          "definition": "The form of assurance that a cloud service offering supplies to federal government customers following FedRAMP Practices, either Rev5 or 20x. Rev5 follows a legacy approach based primarily on documented plans while 20x follows a modern approach based primarily on measured outcomes.",
+          "tag": "Certification",
+          "alts": ["Certification Type", "Certification Types"],
           "updated": [
             {
               "date": "2026-07-04",
@@ -1290,7 +1338,7 @@
               "note": "Timeframes may vary by FedRAMP Certification class.",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -1324,7 +1372,7 @@
               "note": "Timeframes may vary by FedRAMP Certification class.",
               "force": "SHOULD",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -1526,6 +1574,8 @@
               ],
               "terms": [
                 "Agency",
+                "Certification Path",
+                "Certification Type",
                 "Cloud Service Offering",
                 "FedRAMP Certified"
               ],
@@ -3210,6 +3260,7 @@
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-v2026.06.06.01.json"
               },
               "terms": [
+                "Certification Class",
                 "Certification Data",
                 "Certification Package",
                 "Information Resource",
@@ -3501,11 +3552,34 @@
       "data": {
         "all": {
           "CSO": {
+            "FRC-CSO-FCP": {
+              "name": "FedRAMP Certification Profile",
+              "statement": "Providers MUST identify a target FedRAMP Certification Profile and apply all relevant FedRAMP Practices to the cloud service offering.",
+              "note": "Information resources (including third-party information resources) MAY vary by security category as appropriate to the type of information handled by or impacted by the information resource.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Profile",
+                "Cloud Service Offering",
+                "FedRAMP Practices",
+                "Handle",
+                "Information Resource",
+                "Provider",
+                "Security Category",
+                "Third-Party Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers seeking a Class A Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class A Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "An External Framework Mapping"
@@ -3513,7 +3587,7 @@
                   "force": "MUST"
                 },
                 "b": {
-                  "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "A Security Decision Record",
@@ -3522,7 +3596,7 @@
                   "force": "MUST"
                 },
                 "c": {
-                  "statement": "Providers seeking a Class C Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class C Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "A Security Decision Record",
@@ -3531,7 +3605,7 @@
                   "force": "MUST"
                 },
                 "d": {
-                  "statement": "Providers seeking a Class D Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class D Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "A Security Decision Record",
@@ -3685,6 +3759,7 @@
                 "Artifacts",
                 "Certification Data",
                 "Certification Package",
+                "Certification Type",
                 "FedRAMP Security Inbox",
                 "Incident",
                 "Information Resource",
@@ -3860,7 +3935,7 @@
               "note": "This is a placeholder rule that must be updated!",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5062,6 +5137,7 @@
               ],
               "affects": ["Providers"],
               "terms": [
+                "Certification Class",
                 "FedRAMP Independent Assessment",
                 "FedRAMP Recognized",
                 "Persistently",
@@ -6197,7 +6273,7 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -6922,6 +6998,7 @@
               },
               "terms": [
                 "Adaptive Change",
+                "Certification Class",
                 "Certification Class Change",
                 "Provider",
                 "Routine Recurring Change",
