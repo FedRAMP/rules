@@ -312,6 +312,20 @@
             }
           ]
         },
+        "FRD-FIN": {
+          "term": "FedRAMP Independent Assessment",
+          "definition": "An independent verification and validation assessment, performed by a FedRAMP Recognized independent assessment service or FedRAMP following FedRAMP Rules. These assessments are typically first performed to obtain an initial FedRAMP Certification then repeated on an annual basis to maintain FedRAMP Certification.",
+          "alts": [
+            "FedRAMP independent assessment",
+            "FedRAMP independent assessments"
+          ],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-FRA": {
           "term": "FedRAMP Recognized",
           "definition": "The status of independent assessment services that are recognized by FedRAMP to perform assessment activities on behalf of FedRAMP for cloud service offerings seeking to obtain or maintain FedRAMP Certification.",
@@ -3574,7 +3588,7 @@
           "CLA": {
             "FRC-CLA-ASF": {
               "name": "Approved Alternative Security Frameworks",
-              "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment, from one of the following alternative security frameworks:",
+              "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment if applicable, from one of the following alternative security frameworks:",
               "following_information": [
                 "FedRAMP Rev5 (including FedRAMP Ready) at any historical Impact Level",
                 "SOC 2 Type II",
@@ -3761,14 +3775,13 @@
             },
             "FRC-APP-FIA": {
               "name": "Fresh Independent Assessment",
-              "statement": "Providers MUST supply a fresh initial independent verification and validation assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+              "statement": "Providers MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Independent Assessment",
                 "FedRAMP Recognized",
-                "Provider",
-                "Validation",
-                "Verification"
+                "Provider"
               ],
               "updated": [
                 {
@@ -3796,7 +3809,7 @@
             },
             "FRC-APP-USA": {
               "name": "Updating Stale Assessments",
-              "statement": "Providers MAY freshen a stale initial independent verification and validation assessment by having a FedRAMP Recognized Independent Assessment Service review any changes between the original assessment and the current status of the cloud service offering in place of a full re-assessment, UNLESS the stale assessment is more than 9 months old.",
+              "statement": "Providers MAY freshen a stale initial independent verification and validation assessment by having a FedRAMP Recognized independent assessment service review any changes between the original assessment and the current status of the cloud service offering in place of a full re-assessment, UNLESS the stale assessment is more than 9 months old.",
               "force": "MAY",
               "affects": ["Providers"],
               "terms": [
@@ -5038,6 +5051,7 @@
               ],
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Independent Assessment",
                 "FedRAMP Recognized",
                 "Persistently",
                 "Provider",
@@ -5080,7 +5094,12 @@
               "related": ["IVV-IAS-VIP"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Certification Package", "Provider", "Verification"],
+              "terms": [
+                "Certification Package",
+                "FedRAMP Independent Assessment",
+                "Provider",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5246,6 +5265,7 @@
               "terms": [
                 "Assessor",
                 "Certification Package",
+                "FedRAMP Independent Assessment",
                 "Provider",
                 "Verification"
               ],
@@ -5293,26 +5313,26 @@
         "20x": {
           "CSX": {
             "IVV-CSX-AIA": {
-              "name": "Annual Independent Assessments for 20x Certifications",
+              "name": "Annual Independent Assessments for 20x",
               "varies_by_class": {
                 "a": {
                   "statement": "Providers with 20x Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
                   "force": "MUST"
                 },
                 "b": {
-                  "statement": "Providers with 20x Class B Certifications MUST have include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class B Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with 20x Class C Certifications MUST have include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class C Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with 20x Class D Certifications MUST have include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class D Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
@@ -5320,6 +5340,7 @@
               },
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Independent Assessment",
                 "Persistently",
                 "Provider",
                 "Validation",
@@ -5337,7 +5358,7 @@
         "rev5": {
           "CSF": {
             "IVV-CSF-AIA": {
-              "name": "Annual Independent Assessments for Rev5 Certifications",
+              "name": "Annual Independent Assessments for Rev5",
               "varies_by_class": {
                 "a": {
                   "statement": "Providers MUST NOT obtain a FedRAMP Rev5 Class A Certification.",
@@ -5582,7 +5603,7 @@
                 }
               },
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5597,7 +5618,7 @@
               "related": ["IVV-CSF-PCA"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5610,7 +5631,7 @@
               "statement": "Providers MUST have controls with negative findings from the previous FedRAMP independent assessment included in the next FedRAMP independent assessment.",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5623,7 +5644,7 @@
               "statement": "Providers SHOULD include all applicable controls in each FedRAMP independent assessment.",
               "force": "SHOULD",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -6473,7 +6494,7 @@
             },
             "REC-IAS-SEP": {
               "name": "Advisory Separation",
-              "statement": "Assessors MUST NOT perform an independent assessment of the same cloud service offering within 2 years after supplying advisory or consulting services for that offering, unless FedRAMP publishes a specific exception for a limited pilot or other explicitly scoped process.",
+              "statement": "Assessors MUST NOT perform a FedRAMP independent assessment of the same cloud service offering within 2 years after supplying advisory or consulting services for that offering, unless FedRAMP publishes a specific exception for a limited pilot or other explicitly scoped process.",
               "corrective_actions": [
                 "FedRAMP may require a consultation meeting, corrective action plan, or revocation for failure to comply."
               ],
@@ -6481,7 +6502,11 @@
               "affects": ["Assessors"],
               "timeframe_type": "years",
               "timeframe_num": 2,
-              "terms": ["Assessor", "Cloud Service Offering"],
+              "terms": [
+                "Assessor",
+                "Cloud Service Offering",
+                "FedRAMP Independent Assessment"
+              ],
               "updated": [
                 {
                   "date": "2026-06-30",
