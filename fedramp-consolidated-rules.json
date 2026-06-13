@@ -2,13 +2,15 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.13.01-preview",
+    "version": "2026.06.14.01-preview",
     "last_updated": "2026-06-13",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
-        "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted.",
-        "Validation that the implementation is in place and working as intended, or that the reason for not implementing is valid."
+        "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted by a senior official.",
+        "Validation that the implementation is in place and working as intended, or that the reason for not implementing is accepted by a senior official.",
+        "Independent verification.",
+        "Independent validation."
       ],
       "KSI": [
         "Explanation of measures (and their objectives) that demonstrate the Key Security Indicator, or an explanation of the reason and resulting risk to customers for not having measures available for that Key Security Indicator.",
@@ -3283,7 +3285,8 @@
               "following_information": [
                 "Name, title, and contact information of official that is responsible and accountable for the FedRAMP Certification Package",
                 "Version",
-                "Date of last update"
+                "Date and time of last update",
+                "Source of update"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -3948,31 +3951,6 @@
         },
         "20x": {
           "CSX": {
-            "FRC-CSX-SUM": {
-              "name": "Initial Implementation Summaries",
-              "statement": "Providers MUST supply simple high-level summaries of at least the following for each Key Security Indicator:",
-              "following_information": [
-                "Goals for how it will be implemented and validated, including clear pass/fail criteria and traceability",
-                "The consolidated _information resources_ that will be validated (this should include consolidated summaries such as \"all employees with privileged access that are members of the Admin group\")",
-                "The machine-based processes for _validation_ and the _persistent_ cycle on which they will be performed (or an explanation of why this doesn't apply)",
-                "The non-machine-based processes for _validation_ and the _persistent_ cycle on which they will be performed (or an explanation of why this doesn't apply)",
-                "Current implementation status",
-                "Any clarifications or responses to the assessment summary"
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "FRC-CSX-MAS": {
               "name": "Application within MAS",
               "statement": "Providers SHOULD apply ALL Key Security Indicators to ALL aspects of their cloud service offering that are within the FedRAMP Minimum Assessment Scope.",
@@ -7510,7 +7488,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -7536,7 +7514,7 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -7564,7 +7542,7 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -7574,11 +7552,41 @@
       "data": {
         "all": {
           "CSO": {
-            "SDR-CSO-PLC": {
-              "name": "Placeholder Rule",
-              "statement": "Providers MUST NOT follow an imaginary rule that is only in place to ensure placeholder content is generated without errors.",
-              "note": "This Ruleset is still being prepared offline but we want to make sure it renders properly and stops throwing errors in the web build process. ;)",
-              "force": "MUST NOT",
+            "SDR-CSO-FRR": {
+              "name": "FedRAMP Rules",
+              "statement": "Providers MUST supply a Security Decision Record, in both human-readable and JSON formats, that includes at least all of the following information for each applicable FedRAMP Rule:",
+              "following_information": [
+                "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
+                "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted by a senior official.",
+                "Validation that the implementation is in place and working as intended, or that the reason for not implementing is accepted by a senior official.",
+                "Independent verification.",
+                "Independent validation.",
+                "Any responses or clarifications to the comments in the independent verification or validation.",
+                "Rule-specific artifacts (if applicable)."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Security Decision Record Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Artifacts", "Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "SDR-CSO-MTD": {
+              "name": "Security Decision Record Metadata",
+              "statement": "Providers MUST also include the following basic metadata in their Security Decision Record:",
+              "following_information": [
+                "Version",
+                "Date and time of last update",
+                "Source of update"
+              ],
+              "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
               "updated": [
@@ -7590,7 +7598,81 @@
             }
           }
         },
-        "20x": {},
+        "20x": {
+          "CSX": {
+            "SDR-CSX-KSI": {
+              "name": "Key Security Indicators",
+              "statement": "Providers MUST also include short and simple high-level summaries of at least the following for each Key Security Indicator:",
+              "following_information": [
+                "Explanation of measures (and their objectives) that demonstrate the Key Security Indicator, or an explanation of the reason and resulting risk to customers for not having measures available for that Key Security Indicator.",
+                "Explanation of the cycle for any measures that are implemented persistently (if applicable).",
+                "Verification that the measures demonstrate the Key Security Indicator, or that the reason for not having them is accepted.",
+                "Verification that the automation in place is accurate and sufficient to demonstrate appropriate measures for the Key Security Indicator, or that automation is not necessary for each measure.",
+                "Validation that the measures are accurately produced and are in place and working as intended, or that the reason for not having them is valid."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Security Decision Record Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+              },
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "SDR-CSX-KMT": {
+              "name": "Key Security Indicator Metrics",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with 20x Class A Certifications MAY also include historical metrics in their Security Decision Record.",
+                  "force": "MAY"
+                },
+                "b": {
+                  "statement": "Providers with 20x Class B Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each Key Security Indicator:",
+                  "following_information": [
+                    "Summary of each metric over the past 30 days",
+                    "Summary of metric up to the past year (where available)"
+                  ],
+                  "force": "MUST"
+                },
+                "c": {
+                  "statement": "Providers with 20x Class C Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each Key Security Indicator:",
+                  "following_information": [
+                    "Summary of each metric over the past 30 days",
+                    "Summary of metric up to the past year (where available)",
+                    "All daily metric data up to the past year (where available)"
+                  ],
+                  "force": "MUST"
+                },
+                "d": {
+                  "statement": "Providers with 20x Class D Certifications MUST significantly supersede the minimum requirements for lower Classes, with specifics to be set during the 20x Phase 4 Pilot.",
+                  "force": "MUST"
+                }
+              },
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Security Decision Record Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
         "rev5": {}
       }
     },
