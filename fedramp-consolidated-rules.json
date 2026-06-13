@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.10.01-preview",
-    "last_updated": "2026-06-10",
+    "version": "2026.06.13.01-preview",
+    "last_updated": "2026-06-13",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -3630,7 +3630,7 @@
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
                 "Key Security Indicators: KSI-IAM-AAM (Automating Account Management)",
                 "Key Security Indicators: KSI-INR-RIR (Reviewing Incident Response Procedures)",
-                "Key Security Indicators: KSI-SVC-SNT (Securing Network Traffic)"
+                "Key Security Indicators: KSI-SVC-SIN (Securing Information)"
               ],
               "notes": [
                 "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
@@ -5006,25 +5006,25 @@
               "name": "Persistent Independent Verification and Validation Assessments",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MAY",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
@@ -5033,13 +5033,11 @@
               "notes": [
                 "The first such completed assessment is typically called an \"initial assessment\" while following assessments are called \"annual assessments.\"",
                 "The specific requirements for independent verification and validation assessments are documented by the FedRAMP Certification Class and Type.",
-                "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council.",
-                "FedRAMP Recognized independent assessors are listed on the FedRAMP Marketplace."
+                "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council; this is _extremely_ rare.",
+                "FedRAMP Recognized independent assessment services are listed on the FedRAMP Marketplace."
               ],
               "affects": ["Providers"],
               "terms": [
-                "Assessor",
-                "Certification Data",
                 "FedRAMP Recognized",
                 "Persistently",
                 "Provider",
@@ -5065,6 +5063,24 @@
                 "Provider",
                 "Verification"
               ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-ICP": {
+              "name": "Inclusion in Certification Package",
+              "statement": "Providers MUST supply the results of FedRAMP independent assessments in their FedRAMP Certification Package without inappropriate modification.",
+              "notes": [
+                "Inappropriate modification in this context means changing the underlying intent/etc. of the content provided by the independent assessment service - the content itself may be modified for presentation, formatting, etc. as needed.",
+                "This rule is related to IVV-IAS-VIP (Verify Inclusion in Certification Package)."
+              ],
+              "related": ["IVV-IAS-VIP"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Certification Package", "Provider", "Verification"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5159,18 +5175,12 @@
             }
           },
           "IAS": {
-            "IVV-IAS-VVP": {
-              "name": "Verify and Validate Processes",
-              "statement": "Assessors MUST verify and validate the implementation of processes derived from FedRAMP requirements, including rules, controls and Key Security Indicators, to determine whether or not the provider has accurately documented their process and security goals for the cloud service offering.",
+            "IVV-IAS-VIM": {
+              "name": "Verify Implementation",
+              "statement": "Assessors MUST verify the cloud service offering's implementation matches the documented measures to meet FedRAMP rules, controls and Key Security Indicators.",
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": [
-                "Assessor",
-                "Cloud Service Offering",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Assessor", "Cloud Service Offering", "Verification"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5178,39 +5188,12 @@
                 }
               ]
             },
-            "IVV-IAS-OUC": {
-              "name": "Outcome Consistency",
-              "statement": "Assessors MUST verify and validate whether or not the underlying processes are consistently creating the desired security outcome documented by the provider.",
+            "IVV-IAS-VEF": {
+              "name": "Validate Effectiveness",
+              "statement": "Assessors MUST validate the effectiveness of the implemented measures to ensure they have the intended outcome for meeting FedRAMP Rules, controls, and Key Security Indicators.",
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": ["Assessor", "Provider", "Validation", "Verification"],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAS-PAD": {
-              "name": "Procedure Adherence",
-              "statement": "Assessors MUST assess whether or not procedures are consistently followed, including evaluating the processes in place to ensure this occurs, without relying solely on the existence of procedure documents.",
-              "note": "This includes evaluating tests or plans for activities that may occur in the future but have not yet occurred.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAS-MME": {
-              "name": "Mixed Methods Evaluation",
-              "statement": "Assessors MUST perform verification and validation using a combination of quantitative and expert qualitative assessment as appropriate AND document which is applied to which aspect of the assessment.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor", "Validation", "Verification"],
+              "terms": ["Assessor", "Validation"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5220,7 +5203,7 @@
             },
             "IVV-IAS-SUM": {
               "name": "Assessment Summary",
-              "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each FedRAMP requirement, including rules, controls, and Key Security Indicators; this summary will be included by the provider in the FedRAMP Security Decision Record for the cloud service offering.",
+              "statement": "Assessors MUST supply the provider with a high-level summary of their assessment process and findings for each FedRAMP Rule, control, and Key Security Indicator; this summary will be included by the provider in the FedRAMP Security Decision Record for the cloud service offering.",
               "note": "FedRAMP does not require a separate Security Assessment Plan or Security Assessment Report for FedRAMP 20x or FedRAMP Rev5 Certifications; this information is expected to be included in the Security Decision Record by the cloud service provider.",
               "force": "MUST",
               "affects": ["Assessors"],
@@ -5234,7 +5217,7 @@
             },
             "IVV-IAS-OSA": {
               "name": "Overall Summary of Assessment",
-              "statement": "Assessors MUST supply an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute, to the provider; this summary will be included by the provider in the FedRAMP Certification Package Overview for the cloud service offering.",
+              "statement": "Assessors MUST supply the provider with an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute; this summary will be included by the provider in the FedRAMP Certification Package Overview for the cloud service offering.",
               "note": "FedRAMP does not supply a template for this summary and encourages independent assessment services to optimize for the best customer experience in the creation of these materials.",
               "force": "MUST",
               "affects": ["Assessors"],
@@ -5244,6 +5227,26 @@
                 "Cloud Service Offering",
                 "Provider",
                 "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-IAS-VIP": {
+              "name": "Verify Inclusion in Certification Package",
+              "statement": "Assessors MUST verify that information supplied during a FedRAMP independent assessment is included in the FedRAMP Certification Package by the provider without inappropriate modification.",
+              "note": "This rule is related to IVV-CSO-ICP (Inclusion in Certification Package).",
+              "related": ["IVV-CSO-ICP"],
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": [
+                "Assessor",
+                "Certification Package",
+                "Provider",
                 "Verification"
               ],
               "updated": [
@@ -5288,39 +5291,40 @@
           }
         },
         "20x": {
-          "IAX": {
-            "IVV-IAX-UNP": {
-              "name": "Underlying Processes",
-              "statement": "Assessors MUST verify and validate the underlying processes (both machine-based and non-machine-based) that providers use to validate Key Security Indicators; this should include at least:",
-              "following_information": [
-                "The effectiveness, completeness, and integrity of the automated processes that perform validation of the cloud service offering's security posture.",
-                "The effectiveness, completeness, and integrity of the human processes that perform validation of the cloud service offering's security posture",
-                "The coverage of these processes within the cloud service offering, including if all of the consolidated information resources listed are being validated."
-              ],
-              "force": "MUST",
-              "affects": ["Assessors"],
+          "CSX": {
+            "IVV-CSX-AIA": {
+              "name": "Annual Independent Assessments for 20x Certifications",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with 20x Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
+                  "force": "MUST"
+                },
+                "b": {
+                  "statement": "Providers with 20x Class B Certifications MUST have include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with 20x Class C Certifications MUST have include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers with 20x Class D Certifications MUST have include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                }
+              },
+              "affects": ["Providers"],
               "terms": [
-                "Assessor",
-                "Cloud Service Offering",
-                "Information Resource",
-                "Machine-Based (Information Resources)",
+                "Persistently",
                 "Provider",
                 "Validation",
                 "Verification"
               ],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAX-STE": {
-              "name": "Static Evidence",
-              "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
-              "force": "MUST NOT",
-              "affects": ["Assessors"],
-              "terms": ["Artifacts", "Assessor"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5332,15 +5336,15 @@
         },
         "rev5": {
           "CSF": {
-            "IVV-CSF-ANA": {
-              "name": "Annual Assessments for Rev5 Certifications",
+            "IVV-CSF-AIA": {
+              "name": "Annual Independent Assessments for Rev5 Certifications",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Rev5 Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
-                  "force": "MUST"
+                  "statement": "Providers MUST NOT obtain a FedRAMP Rev5 Class A Certification.",
+                  "force": "MUST NOT"
                 },
                 "b": {
-                  "statement": "Providers with Rev5 Class B Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "statement": "Providers with Rev5 Class B Certifications MUST include the following controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
                     "AC-2",
                     "AC-3",
@@ -5382,7 +5386,7 @@
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Rev5 Class C Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "statement": "Providers with Rev5 Class C Certifications MUST include the following controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
                     "AC-2",
                     "AC-2 (1)",
@@ -5469,7 +5473,7 @@
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with Rev5 Class D Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "statement": "Providers with Rev5 Class D Certifications MUST include the following controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
                     "AC-2",
                     "AC-2 (1)",
@@ -5578,48 +5582,7 @@
                 }
               },
               "affects": ["Providers"],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-CSF-IFC": {
-              "name": "Integrating FedRAMP Changes",
-              "statement": "Providers MUST include any changes to FedRAMP rules in their persistent independent verification and validation assessment at least once per year, based on the mandatory effective date of the rules.",
-              "corrective_actions": [
-                "If a provider fails to include changes to FedRAMP rules in a persistent independent verification and validation assessment within 6 months of the mandatory effective date of the rules, FedRAMP will remove their listing from the Marketplace until they provide evidence of an updated assessment that includes the changes to FedRAMP rules.",
-                "Alternative correction actions may be specified in specific rules that will override this corrective action."
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-30",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-CSF-MRA": {
-              "name": "Mandatory Rules Assessment",
-              "statement": "Providers MUST include independent verification and validation of all applicable FedRAMP Rules every time they perform an annual assessment as required by IVV-CSF-ANA (Annual Assessments for Rev5 Certifications).",
-              "related": ["IVV-CSF-ANA"],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider", "Validation", "Verification"],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5629,17 +5592,12 @@
             },
             "IVV-CSF-MCA": {
               "name": "Mandatory Control Assessment",
-              "statement": "Providers MUST have all controls in their Certification Package independently verified and validated at least every 3 years.",
+              "statement": "Providers MUST have all applicable controls included in FedRAMP independent assessments every 3 years but are not required to have all controls included in the same FedRAMP independent assessment.",
               "note": "Traditionally this has been done by reviewing a rotating selection of controls at each annual assessment, however this requirement is a ceiling and not a floor. See IVV-CSF-PCA (Preferred Control Assessment) for FedRAMP's recommended approach to Rev5 control assessments.",
               "related": ["IVV-CSF-PCA"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Certification Package",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5649,12 +5607,10 @@
             },
             "IVV-CSF-ACF": {
               "name": "Assessment of Controls with Findings",
-              "statement": "Providers MUST have controls with findings in the previous assessment independently verified and validated in the next annual assessment as required by IVV-CSF-ANA (Annual Assessments for Rev5 Certifications).",
-              "note": "Traditionally this has been done by reviewing a rotating selection of controls at each annual assessment, however this requirement is a ceiling and not a floor. See IVV-CSF-PCA (Preferred Control Assessment) for FedRAMP's recommended approach to Rev5 control assessments.",
-              "related": ["IVV-CSF-PCA", "IVV-CSF-ANA"],
+              "statement": "Providers MUST have controls with negative findings from the previous FedRAMP independent assessment included in the next FedRAMP independent assessment.",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider", "Validation", "Verification"],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5664,16 +5620,10 @@
             },
             "IVV-CSF-PCA": {
               "name": "Preferred Control Assessment",
-              "statement": "Providers SHOULD have all controls in their Certification Package independently verified and validated every time they perform an annual assessment as required by IVV-CSF-ANA (Annual Assessments for Rev5 Certifications).",
-              "related": ["IVV-CSF-ANA"],
+              "statement": "Providers SHOULD include all applicable controls in each FedRAMP independent assessment.",
               "force": "SHOULD",
               "affects": ["Providers"],
-              "terms": [
-                "Certification Package",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -10177,9 +10127,9 @@
           },
           "terms": ["Agency", "Federal Customer Data", "Promptly"]
         },
-        "KSI-SVC-SNT": {
-          "name": "Securing Network Traffic",
-          "statement": "Encrypt or otherwise secure network traffic.",
+        "KSI-SVC-SIN": {
+          "name": "Securing Information",
+          "statement": "Information is encrypted or otherwise secured from unwanted access or modification.",
           "controls": [
             "ac-1",
             "ac-17.2",
@@ -10190,7 +10140,9 @@
             "sc-20",
             "sc-21",
             "sc-22",
-            "sc-23"
+            "sc-23",
+            "sc-28",
+            "sc-28.1"
           ],
           "updated": [
             {
