@@ -5,9 +5,10 @@ import {
   collectDuplicateRuleIdIssues,
   collectDuplicateRuleNameIssues,
   collectFrr20xSubsetApplicabilityWarnings,
-  collectFrrSubsetForceOrderWarnings,
   collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
+  collectFrrSubsetForceOrderWarnings,
+  collectFrrUnusedSubsetWarnings,
   collectInlineRuleDisplayNameIssues,
   collectRelatedRuleReferenceIssues,
   formatConsistencyReport,
@@ -295,6 +296,70 @@ test("X-suffix FRR subsets warn unless they are 20x Program only", () => {
   (document.FRR.ABC!.info as any).subsets.CSX.applicability.paths = ["Program"];
 
   expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([]);
+});
+
+test("FRR unused subset warnings detect subset declarations without rules", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSO: { name: "Provider", description: "Provider subset." },
+            FRP: { name: "FedRAMP", description: "FedRAMP subset." },
+          },
+          "20x": {
+            subsets: {
+              CSX: { name: "20x", description: "20x subset." },
+            },
+          },
+        },
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Provider Rule",
+                statement: "Providers MUST do the thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+            FRP: {},
+          },
+          "20x": {
+            CSX: {},
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrUnusedSubsetWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.FRP",
+      message:
+        "subset FRP is declared but has no corresponding rules in FRR.ABC.data.",
+    },
+    {
+      location: "FRR.ABC.info.20x.subsets.CSX",
+      message:
+        "subset CSX is declared but has no corresponding rules in FRR.ABC.data.",
+    },
+  ]);
+
+  (document.FRR.ABC!.data["20x"]!.CSX as any)["ABC-CSX-001"] = {
+    name: "20x Rule",
+    statement: "Providers MUST do the 20x thing.",
+    force: "MUST",
+    affects: ["Providers"],
+  };
+
+  expect(collectFrrUnusedSubsetWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.FRP",
+      message:
+        "subset FRP is declared but has no corresponding rules in FRR.ABC.data.",
+    },
+  ]);
 });
 
 test("FRR subset force order warnings detect out-of-order groups", () => {

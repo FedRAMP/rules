@@ -996,6 +996,36 @@ export function collectFrr20xSubsetApplicabilityWarnings(
   return issues;
 }
 
+export function collectFrrUnusedSubsetWarnings(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    const hasRequirements = entry.dataScopeKeys.some((scopeKey) => {
+      const subsetRequirements =
+        entry.section.data?.[scopeKey]?.[entry.subsetKey];
+
+      return Boolean(
+        subsetRequirements && Object.keys(subsetRequirements).length > 0,
+      );
+    });
+
+    if (hasRequirements) {
+      continue;
+    }
+
+    issues.push(
+      issue(
+        entry.location,
+        `subset ${entry.subsetKey} is declared but has no corresponding rules in FRR.${entry.sectionKey}.data.`,
+      ),
+    );
+  }
+
+  return issues;
+}
+
 export function collectFrrSubsetApplicabilityAffectsFixes(
   document: RulesDocument,
 ): FrrSubsetApplicabilityAffectsFix[] {

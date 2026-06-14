@@ -1,6 +1,7 @@
 import {
   collectConsistencyChecks,
   collectFrrSubsetForceOrderWarnings,
+  collectFrrUnusedSubsetWarnings,
   type ConsistencyCheck,
   type ConsistencyIssue,
 } from "./src/consistency";
@@ -125,6 +126,18 @@ function formatFrrSubsetForceOrderWarningSummary(
   ].join("\n");
 }
 
+function formatFrrUnusedSubsetWarningSummary(
+  warnings: ConsistencyIssue[],
+): string {
+  return [
+    color("FRR unused subset warning", `${BOLD}${YELLOW}`),
+    ...warnings.map(
+      (warning) => `  - ${formatPath(warning.location)}: ${warning.message}`,
+    ),
+    "    Remove unused subset declarations or add corresponding FRR data rules.",
+  ].join("\n");
+}
+
 const testResult = Bun.spawnSync({
   cmd: ["bun", "test"],
   stdout: "inherit",
@@ -139,6 +152,7 @@ const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
 );
 const frrSubsetForceOrderWarnings =
   collectFrrSubsetForceOrderWarnings(rulesDocument);
+const frrUnusedSubsetWarnings = collectFrrUnusedSubsetWarnings(rulesDocument);
 const consistencyChecks = collectConsistencyChecks(rulesDocument);
 const consistencyFailed = consistencyChecks.some(
   (check) => check.issues.length > 0,
@@ -162,6 +176,14 @@ if (frrSubsetForceOrderWarnings.length > 0) {
   console.warn(
     `\n${color("-----", DIM)}\n\n${formatFrrSubsetForceOrderWarningSummary(
       frrSubsetForceOrderWarnings,
+    )}\n`,
+  );
+}
+
+if (frrUnusedSubsetWarnings.length > 0) {
+  console.warn(
+    `\n${color("-----", DIM)}\n\n${formatFrrUnusedSubsetWarningSummary(
+      frrUnusedSubsetWarnings,
     )}\n`,
   );
 }

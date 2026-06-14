@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.14.01-preview",
+    "version": "2026.06.15.01-preview",
     "last_updated": "2026-06-13",
     "default_artifacts": {
       "FRR": [
@@ -7602,7 +7602,7 @@
           "CSX": {
             "SDR-CSX-KSI": {
               "name": "Key Security Indicators",
-              "statement": "Providers MUST also include short and simple high-level summaries of at least the following for each Key Security Indicator:",
+              "statement": "Providers MUST also include short and simple high-level summaries of at least the following for each applicable Key Security Indicator:",
               "following_information": [
                 "Explanation of measures (and their objectives) that demonstrate the Key Security Indicator, or an explanation of the reason and resulting risk to customers for not having measures available for that Key Security Indicator.",
                 "Explanation of the cycle for any measures that are implemented persistently (if applicable).",
@@ -7637,7 +7637,7 @@
                   "force": "MAY"
                 },
                 "b": {
-                  "statement": "Providers with 20x Class B Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each Key Security Indicator:",
+                  "statement": "Providers with 20x Class B Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
                   "following_information": [
                     "Summary of each metric over the past 30 days",
                     "Summary of metric up to the past year (where available)"
@@ -7645,7 +7645,7 @@
                   "force": "MUST"
                 },
                 "c": {
-                  "statement": "Providers with 20x Class C Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each Key Security Indicator:",
+                  "statement": "Providers with 20x Class C Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
                   "following_information": [
                     "Summary of each metric over the past 30 days",
                     "Summary of metric up to the past year (where available)",
@@ -7673,7 +7673,53 @@
             }
           }
         },
-        "rev5": {}
+        "rev5": {
+          "CSF": {
+            "SDR-CSF-CTF": {
+              "name": "Rev5 Controls",
+              "statement": "Providers MUST also include short and simple high-level summaries of at least the following for each applicable Rev5 Control:",
+              "following_information": [
+                "Any organization-defined parameter values.",
+                "Implementation status, one of Implemented, Partially Implemented, Planned, Alternative Implementation, or Not Applicable.",
+                "The mechanisms or activities that address the control, including inheritance from another cloud service offering if applicable.",
+                "The verification that is in place to ensure the implementation is appropriate for the control.",
+                "The validation that is in place to ensure the implementation is working as intended.",
+                "Independent verification.",
+                "Independent validation.",
+                "Any responses or clarifications to the comments in the independent verification or validation.",
+                "Control-specific artifacts (if applicable)."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Artifacts",
+                "Cloud Service Offering",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "SDR-CSF-ODP": {
+              "name": "Organization-Defined Parameters",
+              "statement": "Providers MUST define all required organization-defined parameters tied all Rev5 Controls, following FedRAMP Rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        }
       }
     },
     "VDR": {
