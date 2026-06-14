@@ -564,7 +564,7 @@
         },
         "FRD-KEV": {
           "term": "Known Exploited Vulnerability (KEV)",
-          "definition": "Has the meaning given in CISA Binding Operational Directive 22-01, which is any vulnerability identified in CISA's Known Exploited Vulnerabilities catalog.",
+          "definition": "Has the meaning given in CISA Binding Operational Directive 26-04, which is any vulnerability identified in CISA's Known Exploited Vulnerabilities catalog.",
           "tag": "Vulnerability",
           "alts": [
             "known exploited vulnerability",
@@ -572,8 +572,8 @@
             "KEV",
             "KEVs"
           ],
-          "reference": "CISA BOD 22-01",
-          "reference_url": "https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities",
+          "reference": "CISA BOD 26-04",
+          "reference_url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
           "updated": [
             {
               "date": "2026-07-04",
@@ -8358,9 +8358,9 @@
             },
             "VDR-TFR-KEV": {
               "name": "Remediate KEVs",
-              "statement": "Providers SHOULD remediate Known Exploited Vulnerabilities according to the due dates in the CISA Known Exploited Vulnerabilities Catalog (even if the vulnerability has been fully mitigated) as required by CISA Binding Operational Directive (BOD) 22-01 or any successor guidance from CISA.",
-              "reference": "CISA BOD 22-01",
-              "reference_url": "https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities",
+              "statement": "Providers SHOULD remediate Known Exploited Vulnerabilities according to the due dates in the CISA Known Exploited Vulnerabilities Catalog (even if the vulnerability has been fully mitigated) as required by CISA Binding Operational Directive (BOD) 26-04 or any successor guidance from CISA.",
+              "reference": "CISA BOD 26-04",
+              "reference_url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
               "force": "SHOULD",
               "affects": ["Providers"],
               "terms": [
