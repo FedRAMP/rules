@@ -1120,7 +1120,7 @@
             "AFC-FRP-VRE": {
               "name": "Verified Emails",
               "statement": "FedRAMP MUST send messages to cloud service providers using an official @fedramp.gov or @gsa.gov email address with properly configured Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM), and Domain-based Message Authentication Reporting and Conformance (DMARC) email authentication.",
-              "note": "Anyone at GSA can send email from @fedramp.gov or @gsa.gov - FedRAMP team members will typically have \"FedRAMP\" or \"Q20B\" in their name but this is not universal or enforceable. The nature of government enterprise IT services makes it difficult for FedRAMP to isolate FedRAMP-specific team members with enforceable identifiers.",
+              "note": "Anyone at GSA can send email from @fedramp.gov or @gsa.gov - FedRAMP team members will typically have \"FedRAMP\" or \"F20B\" in their name but this is not universal or enforceable. The nature of government enterprise IT services makes it difficult for FedRAMP to isolate FedRAMP-specific team members with enforceable identifiers.",
               "force": "MUST",
               "affects": ["FedRAMP"],
               "terms": ["Provider"],
@@ -2502,7 +2502,7 @@
                 "Product Website Link",
                 "Link to Product Logo",
                 "Overall Service Description",
-                "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
+                "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Public Service List) (Service List))",
                 "Link to Secure Configuration Guidance",
                 "Overview of documentation supplied by the provider for the cloud service offering",
                 "Link to Trust Center landing page that includes instructions on accessing information in the trust center",
@@ -2540,7 +2540,7 @@
               ]
             },
             "CDS-CSO-SVC": {
-              "name": "Service List",
+              "name": "Public Service List",
               "statement": "Providers MUST publicly share a detailed list of specific services and their security categories that are included in the cloud service offering using clear feature or service names that align with standard public marketing materials; this list MUST be complete enough for a potential customer to determine which services are and are not included in the FedRAMP Minimum Assessment Scope without requesting access to underlying FedRAMP Certification Data.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -2690,9 +2690,39 @@
                 }
               ]
             },
+            "CDS-CSO-IRP": {
+              "name": "Include Relevant Policies",
+              "statement": "Providers MUST supply all relevant policies and procedures in the FedRAMP Certification Data, including a human-readable and machine-readable reference that explains at least the following about each included policy and procedure:",
+              "following_information": [
+                "Name of policy or procedure",
+                "Name of file, document, web page, etc.",
+                "Brief summary of policy or procedure",
+                "Word count of document",
+                "Current version",
+                "Date of last update",
+                "Related FedRAMP Practices (if applicable)"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "artifacts": {
+                "all": ["Explanation of how to access this information."]
+              },
+              "terms": [
+                "Certification Data",
+                "FedRAMP Practices",
+                "Machine-Readable",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "CDS-CSO-HAD": {
               "name": "Historical FedRAMP Certification Data",
-              "statement": "Providers MUST make historical versions of FedRAMP Certification Data available for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
+              "statement": "Providers MUST supply historical versions of FedRAMP Certification Data for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
               "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Certification Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -3236,7 +3266,8 @@
               "following_information": [
                 "Certification Package Overview: CPO-CSO-MTD (Certification Package Overview Metadata)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
-                "Certification Data Sharing: CDS-CSO-SVC (Service List)",
+                "Certification Data Sharing: CDS-CSO-SVC (Public Service List)",
+                "Certification Data Sharing: CDS-CSO-IRP (Include Relevant Policies)",
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
                 "Minimum Assessment Scope: MAS-CSO-FLO (Information Flows and Security Categories)",
                 "Minimum Assessment Scope: MAS-CSO-TPR (Third-Party Information Resources)",
@@ -3254,7 +3285,8 @@
                 "MAS-CSO-IIR",
                 "MAS-CSO-FLO",
                 "MAS-CSO-TPR",
-                "CMU-CSO-CMD"
+                "CMU-CSO-CMD",
+                "CDS-CSO-IRP"
               ],
               "force": "MUST",
               "affects": ["Providers"],
