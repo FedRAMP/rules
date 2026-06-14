@@ -9,8 +9,6 @@ export interface UpdatedEntry {
 }
 
 export interface DefinitionEntry {
-  fka?: string;
-  fkas?: string[];
   term: string;
   alts?: string[];
   tag?: string;
@@ -47,8 +45,6 @@ export type PainTimeframes = Record<string, Record<string, PainTimeframeEntry>>;
 export type RequirementByClass = Partial<Record<ClassKey, RequirementLevel>>;
 
 export interface RequirementLike {
-  fka?: string;
-  fkas?: string[];
   statement?: string;
   force?: string;
   note?: string;

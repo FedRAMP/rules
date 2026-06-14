@@ -128,7 +128,6 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
               affects: { type: "array" },
               terms: { type: "array" },
               updated: { type: "array" },
-              fka: { type: "string" },
             },
           },
         },
@@ -253,9 +252,6 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
   expect(
     (result.document.FRR.MAS!.info as any).subsets.CSO.applicability.affects,
   ).toEqual(["Providers"]);
-  expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.fka).toBe(
-    "MAS-CSX-TST",
-  );
   expect(
     Object.keys(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!),
   ).toEqual([
@@ -266,7 +262,6 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
     "affects",
     "terms",
     "updated",
-    "fka",
   ]);
 });
 
