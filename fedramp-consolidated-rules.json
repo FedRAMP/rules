@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.15.01-preview",
-    "last_updated": "2026-06-13",
+    "version": "2026.06.14.01-preview",
+    "last_updated": "2026-06-14",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1098,7 +1098,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -1108,7 +1108,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -1858,7 +1858,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Agencies"]
             }
           },
@@ -1868,7 +1868,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -1878,7 +1878,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -2404,7 +2404,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -2414,7 +2414,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -2424,7 +2424,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -2440,18 +2440,6 @@
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
-              }
-            }
-          },
-          "subsets": {
-            "CSX": {
-              "name": "20x-Specific Provider Responsibilities",
-              "description": "These rules apply to providers for FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Providers"]
               }
             }
           }
@@ -2478,7 +2466,7 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -3023,7 +3011,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -3166,18 +3154,8 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
               "classes": ["B", "C", "D"],
-              "affects": ["Assessors"]
+              "affects": ["Providers"]
             }
           }
         },
@@ -3204,16 +3182,6 @@
                 "paths": ["Program"],
                 "classes": ["A", "B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3242,16 +3210,6 @@
                 "paths": ["Program", "Agency"],
                 "classes": ["A", "B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3439,16 +3397,6 @@
         "status": "placeholder",
         "tag": "other",
         "subsets": {
-          "FRP": {
-            "name": "FedRAMP Responsibilities",
-            "description": "These rules apply to FedRAMP.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["FedRAMP"]
-            }
-          },
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to cloud service providers obtaining and maintaining any FedRAMP Certification.",
@@ -3457,16 +3405,6 @@
               "paths": ["Program", "Agency"],
               "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Assessors"]
             }
           },
           "CLA": {
@@ -3531,18 +3469,8 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3568,18 +3496,8 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3758,8 +3676,8 @@
                 "FedRAMP Security Inbox: AFC-CSO-CRA (Complete Required Actions)",
                 "Incident Communications Procedures: IEC-CSO-EFR (Evaluate FedRAMP Reportability)",
                 "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
-                "Continuous Collaborative Monitoring: CCM-OCR-AVL (Report Availability)",
-                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)",
+                "Collaborative Continuous Monitoring: CCM-OCR-AVL (Report Availability)",
+                "Collaborative Continuous Monitoring: CCM-OCR-NRD (Next Report Date)",
                 "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
                 "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
@@ -4036,7 +3954,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -4046,7 +3964,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -5019,7 +4937,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -5029,7 +4947,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Assessors"]
             }
           }
@@ -5055,18 +4973,8 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -5092,18 +5000,8 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -5782,7 +5680,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -6656,7 +6554,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6666,7 +6564,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -6894,7 +6792,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -6904,7 +6802,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6914,7 +6812,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6924,7 +6822,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6934,7 +6832,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -7763,43 +7661,13 @@
         "status": "stable",
         "tag": "boundary",
         "subsets": {
-          "FRP": {
-            "name": "FedRAMP Responsibilities",
-            "description": "These rules apply to FedRAMP when setting expectations for specific cloud service providers.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["FedRAMP"]
-            }
-          },
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to all providers with FedRAMP Certifications of any type.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "EVA": {
-            "name": "Evaluation",
-            "description": "These rules apply to the evaluation of vulnerabilities.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "RPT": {
-            "name": "Reporting",
-            "description": "These rules apply to reporting related to vulnerability detection and response.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -7809,7 +7677,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -8652,18 +8520,8 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
-            }
-          },
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to all providers with FedRAMP Certifications of any type.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
             }
           },
           "AGM": {
@@ -8672,18 +8530,8 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Agencies"]
-            }
-          },
-          "BST": {
-            "name": "Best Practices",
-            "description": "These recommendations for best practices apply to all cloud service providers.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
             }
           },
           "EVA": {
@@ -8692,7 +8540,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -8702,7 +8550,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -8712,7 +8560,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
