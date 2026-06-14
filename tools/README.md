@@ -69,6 +69,7 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 - text hygiene
 - class-variant sanity checks
 - FRR subset force ordering warnings
+- FRR unused subset warnings
 - controlled vocabulary consistency
 - internal cross-reference integrity
 - fix planning and application behavior

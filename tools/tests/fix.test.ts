@@ -128,7 +128,6 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
               affects: { type: "array" },
               terms: { type: "array" },
               updated: { type: "array" },
-              fka: { type: "string" },
             },
           },
         },
@@ -253,9 +252,6 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
   expect(
     (result.document.FRR.MAS!.info as any).subsets.CSO.applicability.affects,
   ).toEqual(["Providers"]);
-  expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.fka).toBe(
-    "MAS-CSX-TST",
-  );
   expect(
     Object.keys(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!),
   ).toEqual([
@@ -266,7 +262,6 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
     "affects",
     "terms",
     "updated",
-    "fka",
   ]);
 });
 
@@ -390,6 +385,63 @@ test("related fix adds detected rules without deleting existing related entries"
   ).toEqual(["ABC-CSO-OLD", "ABC-CSO-BBB"]);
 });
 
+test("related fix adds detected KSI IDs without deleting existing related entries", () => {
+  const document = {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-04-12",
+    },
+    FRD: { info: {}, data: { all: {} } },
+    FRR: {
+      ABC: {
+        info: {},
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-AAA": {
+                name: "Source Rule",
+                statement: "Providers MUST follow KSI-IAM-AAA.",
+                related: ["ABC-CSO-OLD"],
+                force: "MUST",
+                affects: ["Providers"],
+              },
+              "ABC-CSO-OLD": {
+                name: "Existing Rule",
+                statement: "Providers MUST do the existing thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {
+      IAM: {
+        indicators: {
+          "KSI-IAM-AAA": {
+            name: "Identity Verification",
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectRelatedFixPlan(document)).toEqual({
+    issueCount: 1,
+    needsFix: true,
+  });
+
+  const result = applyRelatedFix(document);
+
+  expect(result.fixedCount).toBe(1);
+  expect(
+    result.document.FRR.ABC!.data.all!.CSO!["ABC-CSO-AAA"]!.related,
+  ).toEqual(["ABC-CSO-OLD", "KSI-IAM-AAA"]);
+});
+
 test("display names fix adds parenthesized rule names and repairs unparenthesized names", () => {
   const document = {
     info: {
@@ -454,5 +506,68 @@ test("display names fix adds parenthesized rule names and repairs unparenthesize
   );
   expect(result.document.FRR.ABC!.data.all!.CSO!["ABC-CSO-AAA"]!.note).toBe(
     "ABC-CSO-DDD (Target Rule D) is already formatted.",
+  );
+});
+
+test("display names fix adds parenthesized KSI indicator names and repairs unparenthesized names", () => {
+  const document = {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-04-12",
+    },
+    FRD: { info: {}, data: { all: {} } },
+    FRR: {
+      ABC: {
+        info: {},
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-AAA": {
+                name: "Source Rule",
+                statement:
+                  "Providers MUST follow KSI-IAM-AAA and KSI-IAM-BBB Identity Boundary.",
+                note: "KSI-IAM-CCC (Credential Review) is already formatted.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {
+      IAM: {
+        indicators: {
+          "KSI-IAM-AAA": {
+            name: "Identity Verification",
+          },
+          "KSI-IAM-BBB": {
+            name: "Identity Boundary",
+          },
+          "KSI-IAM-CCC": {
+            name: "Credential Review",
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectDisplayNamesFixPlan(document)).toEqual({
+    issueCount: 2,
+    needsFix: true,
+  });
+
+  const result = applyDisplayNamesFix(document);
+
+  expect(result.fixedCount).toBe(2);
+  expect(
+    result.document.FRR.ABC!.data.all!.CSO!["ABC-CSO-AAA"]!.statement,
+  ).toBe(
+    "Providers MUST follow KSI-IAM-AAA (Identity Verification) and KSI-IAM-BBB (Identity Boundary).",
+  );
+  expect(result.document.FRR.ABC!.data.all!.CSO!["ABC-CSO-AAA"]!.note).toBe(
+    "KSI-IAM-CCC (Credential Review) is already formatted.",
   );
 });

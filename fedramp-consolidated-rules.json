@@ -2,13 +2,15 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.10.01-preview",
-    "last_updated": "2026-06-10",
+    "version": "2026.06.14.01-preview",
+    "last_updated": "2026-06-14",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
-        "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted.",
-        "Validation that the implementation is in place and working as intended, or that the reason for not implementing is valid."
+        "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted by a senior official.",
+        "Validation that the implementation is in place and working as intended, or that the reason for not implementing is accepted by a senior official.",
+        "Independent verification.",
+        "Independent validation."
       ],
       "KSI": [
         "Explanation of measures (and their objectives) that demonstrate the Key Security Indicator, or an explanation of the reason and resulting risk to customers for not having measures available for that Key Security Indicator.",
@@ -157,6 +159,18 @@
             }
           ]
         },
+        "FRD-CCL": {
+          "term": "Certification Class",
+          "definition": "The category of assurance that a cloud service offering supplies to federal government customers following FedRAMP Practices, increasing from minimal assurance at Class A to significant assurance at Class D; currently available categories are Class A, B, C, or D.",
+          "tag": "Certification",
+          "alts": ["Certification Class", "Certification Classes"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-CCC": {
           "term": "Certification Class Change",
           "definition": "A type of significant change that is likely to change the FedRAMP Certification class for the entire cloud service offering (e.g. from Class B to Class C or from Class D to Class C).",
@@ -190,6 +204,42 @@
           "alts": ["certification package", "certification packages"],
           "reference": "44 USC § 3607 (b)(8)",
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-CPH": {
+          "term": "Certification Path",
+          "definition": "The underlying source of the FedRAMP Certification, either from a federal agency sponsored authorization to operate or directly from FedRAMP itself. The agency path is a legacy path that is only available for FedRAMP Rev5 and still requires review and approval from FedRAMP.",
+          "tag": "Certification",
+          "alts": ["Certification Path", "Certification Paths"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-CPF": {
+          "term": "Certification Profile",
+          "definition": "The combination of a FedRAMP Certification Type (Rev5 or 20x), FedRAMP Certification Path (Program or Agency), and FedRAMP Certification Class (A, B, C, or D) for a cloud service offering.",
+          "tag": "Certification",
+          "alts": ["Certification Profile", "Certification Profiles"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-CTY": {
+          "term": "Certification Type",
+          "definition": "The form of assurance that a cloud service offering supplies to federal government customers following FedRAMP Practices, either Rev5 or 20x. Rev5 follows a legacy approach based primarily on documented plans while 20x follows a modern approach based primarily on measured outcomes.",
+          "tag": "Certification",
+          "alts": ["Certification Type", "Certification Types"],
           "updated": [
             {
               "date": "2026-07-04",
@@ -312,6 +362,31 @@
             }
           ]
         },
+        "FRD-FIN": {
+          "term": "FedRAMP Independent Assessment",
+          "definition": "An independent verification and validation assessment, performed by a FedRAMP Recognized independent assessment service or FedRAMP following FedRAMP Rules. These assessments are typically first performed to obtain an initial FedRAMP Certification then repeated on an annual basis to maintain FedRAMP Certification.",
+          "alts": [
+            "FedRAMP independent assessment",
+            "FedRAMP independent assessments"
+          ],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
+        "FRD-FPR": {
+          "term": "FedRAMP Practices",
+          "definition": "The security measures, safeguards, precautions, procedures, activities, policies, capabilities, mechanisms, etc. that are expected to be in place by FedRAMP to demonstrate that information resources are properly protected, expressed in FedRAMP 20x Key Security Indicators or FedRAMP Rev5 Controls and supplemented by FedRAMP Rules.",
+          "alts": ["FedRAMP Practice", "FedRAMP Practices"],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-FRA": {
           "term": "FedRAMP Recognized",
           "definition": "The status of independent assessment services that are recognized by FedRAMP to perform assessment activities on behalf of FedRAMP for cloud service offerings seeking to obtain or maintain FedRAMP Certification.",
@@ -424,7 +499,7 @@
         },
         "FRD-INC": {
           "term": "Initial Certification",
-          "definition": "The first FedRAMP Certification of a cloud service offering based on the applicable initial assessment, validation, certification package, and certification data.",
+          "definition": "The first FedRAMP Certification of a cloud service offering based on the applicable FedRAMP Practices.",
           "tag": "Certification",
           "alts": ["initial certification", "initial certifications"],
           "updated": [
@@ -603,7 +678,8 @@
         },
         "FRD-ONC": {
           "term": "Ongoing Certification",
-          "definition": "The continued FedRAMP Certification of a cloud service offering based on the applicable ongoing assessment, validation, monitoring, reporting, and certification data.",
+          "definition": "The continued FedRAMP Certification of a cloud service offering based on the applicable FedRAMP Practices.",
+          "tag": "Certification",
           "alts": ["ongoing certification", "ongoing certifications"],
           "updated": [
             {
@@ -927,7 +1003,7 @@
         },
         "FRD-VRF": {
           "term": "Verification",
-          "definition": "Confirmation through objective evidence that specified FedRAMP rules, controls, indicators, or certification data requirements have been fulfilled for a cloud service offering.",
+          "definition": "Confirmation through objective evidence that specified FedRAMP Practices have been fulfilled for a cloud service offering.",
           "note": "This adapts the ISO conformity assessment concept of verification to the FedRAMP Certification context.",
           "alts": ["verification", "verify", "verified"],
           "reference": "ISO/IEC 27001:2022",
@@ -941,7 +1017,7 @@
         },
         "FRD-VUL": {
           "term": "Vulnerability",
-          "definition": "Has the meaning given to \"security vulnerability\" in 6 USC § 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
+          "definition": "Has the meaning given to \"security vulnerability\" in 6 USC § 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 Controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
           "tag": "Vulnerability",
           "alts": ["vulnerability", "vulnerabilities"],
           "reference": "6 USC § 650 (25)",
@@ -1022,7 +1098,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -1032,7 +1108,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -1044,13 +1120,13 @@
             "AFC-FRP-VRE": {
               "name": "Verified Emails",
               "statement": "FedRAMP MUST send messages to cloud service providers using an official @fedramp.gov or @gsa.gov email address with properly configured Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM), and Domain-based Message Authentication Reporting and Conformance (DMARC) email authentication.",
-              "note": "Anyone at GSA can send email from @fedramp.gov or @gsa.gov - FedRAMP team members will typically have \"FedRAMP\" or \"Q20B\" in their name but this is not universal or enforceable. The nature of government enterprise IT services makes it difficult for FedRAMP to isolate FedRAMP-specific team members with enforceable identifiers.",
+              "note": "Anyone at GSA can send email from @fedramp.gov or @gsa.gov - FedRAMP team members will typically have \"FedRAMP\" or \"F20B\" in their name but this is not universal or enforceable. The nature of government enterprise IT services makes it difficult for FedRAMP to isolate FedRAMP-specific team members with enforceable identifiers.",
               "force": "MUST",
               "affects": ["FedRAMP"],
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1069,7 +1145,7 @@
               "terms": ["FedRAMP Security Inbox", "Incident", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1081,7 +1157,7 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1107,7 +1183,7 @@
               "terms": ["Likely"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1119,7 +1195,7 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1143,7 +1219,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1155,7 +1231,7 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1168,7 +1244,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1192,7 +1268,7 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1221,7 +1297,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1240,7 +1316,7 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1254,7 +1330,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1265,10 +1341,10 @@
               "note": "Timeframes may vary by FedRAMP Certification class.",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1288,7 +1364,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1299,10 +1375,10 @@
               "note": "Timeframes may vary by FedRAMP Certification class.",
               "force": "SHOULD",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1315,7 +1391,7 @@
               "terms": ["FedRAMP Security Inbox", "Promptly", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1389,7 +1465,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1413,7 +1489,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1430,7 +1506,7 @@
               "terms": ["Agency", "Artifacts", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1455,7 +1531,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1481,7 +1557,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1501,12 +1577,14 @@
               ],
               "terms": [
                 "Agency",
+                "Certification Path",
+                "Certification Type",
                 "Cloud Service Offering",
                 "FedRAMP Certified"
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1519,7 +1597,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1534,7 +1612,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1548,7 +1626,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1570,7 +1648,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1583,7 +1661,7 @@
               "terms": ["Agency", "Certification Package"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1596,7 +1674,7 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1613,7 +1691,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1641,7 +1719,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1660,7 +1738,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1678,7 +1756,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1706,7 +1784,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1724,7 +1802,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1741,7 +1819,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1756,7 +1834,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1780,7 +1858,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Agencies"]
             }
           },
@@ -1790,7 +1868,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -1800,7 +1878,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -1854,7 +1932,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1875,7 +1953,7 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1894,7 +1972,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1914,7 +1992,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1958,7 +2036,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1976,7 +2054,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -1998,7 +2076,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2020,7 +2098,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2039,7 +2117,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2058,7 +2136,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2078,7 +2156,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2143,7 +2221,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2163,7 +2241,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2176,7 +2254,7 @@
               "terms": ["Certification Data", "Provider", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2194,7 +2272,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2213,7 +2291,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2226,7 +2304,7 @@
               "terms": ["Agency", "Provider", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2243,7 +2321,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2263,7 +2341,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2283,7 +2361,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2302,7 +2380,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2326,7 +2404,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -2336,7 +2414,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -2346,7 +2424,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -2362,18 +2440,6 @@
               "grace": {
                 "default": "2027-01-01",
                 "until_next_assessment": true
-              }
-            }
-          },
-          "subsets": {
-            "CSX": {
-              "name": "20x-Specific Provider Responsibilities",
-              "description": "These rules apply to providers for FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Providers"]
               }
             }
           }
@@ -2400,7 +2466,7 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -2424,7 +2490,7 @@
                 "Product Website Link",
                 "Link to Product Logo",
                 "Overall Service Description",
-                "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Service List))",
+                "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Public Service List) (Service List))",
                 "Link to Secure Configuration Guidance",
                 "Overview of documentation supplied by the provider for the cloud service offering",
                 "Link to Trust Center landing page that includes instructions on accessing information in the trust center",
@@ -2456,13 +2522,13 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "CDS-CSO-SVC": {
-              "name": "Service List",
+              "name": "Public Service List",
               "statement": "Providers MUST publicly share a detailed list of specific services and their security categories that are included in the cloud service offering using clear feature or service names that align with standard public marketing materials; this list MUST be complete enough for a potential customer to determine which services are and are not included in the FedRAMP Minimum Assessment Scope without requesting access to underlying FedRAMP Certification Data.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -2480,7 +2546,25 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "CDS-CSO-FID": {
+              "name": "Always Include FedRAMP ID",
+              "statement": "Providers MUST always include the FedRAMP ID of the related cloud service offering in all FedRAMP Certification Data, including all reports, notifications, and other communication that results from FedRAMP Rules.",
+              "note": "Many providers have multiple cloud service offerings or use internal names that don't align to public materials; using the FedRAMP ID ensures we can easily align the communication with a specific cloud service offering.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Data",
+                "Cloud Service Offering",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2490,23 +2574,23 @@
               "varies_by_class": {
                 "a": {
                   "statement": "Providers with Class A Certifications SHOULD maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service SHOULD be available even if the primary cloud service offering is unavailable.",
-                  "force": "SHOULD",
-                  "note": "This service may be separate from the trust center."
+                  "note": "This service may be separate from the trust center.",
+                  "force": "SHOULD"
                 },
                 "b": {
                   "statement": "Providers with Class B Certifications MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
-                  "force": "MUST",
-                  "note": "This service may be separate from the trust center."
+                  "note": "This service may be separate from the trust center.",
+                  "force": "MUST"
                 },
                 "c": {
                   "statement": "Providers with Class C Certifications MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
-                  "force": "MUST",
-                  "note": "This service may be separate from the trust center."
+                  "note": "This service may be separate from the trust center.",
+                  "force": "MUST"
                 },
                 "d": {
                   "statement": "Providers with Class D Certifications MUST maintain a web service, available to all necessary parties, that indicates current and historical availability of core services within the cloud service offering over at least the past 30 days, including availability incidents, in both human-readable and machine-readable formats; this service MUST be available even if the primary cloud service offering is unavailable.",
-                  "force": "MUST",
-                  "note": "This service may be separate from the trust center."
+                  "note": "This service may be separate from the trust center.",
+                  "force": "MUST"
                 }
               },
               "affects": ["Providers"],
@@ -2519,7 +2603,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2538,7 +2622,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2551,7 +2635,7 @@
               "terms": ["Certification Data", "Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2589,14 +2673,44 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "CDS-CSO-IRP": {
+              "name": "Include Relevant Policies",
+              "statement": "Providers MUST supply all relevant policies and procedures in the FedRAMP Certification Data, including a human-readable and machine-readable reference that explains at least the following about each included policy and procedure:",
+              "following_information": [
+                "Name of policy or procedure",
+                "Name of file, document, web page, etc.",
+                "Brief summary of policy or procedure",
+                "Word count of document",
+                "Current version",
+                "Date of last update",
+                "Related FedRAMP Practices (if applicable)"
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "artifacts": {
+                "all": ["Explanation of how to access this information."]
+              },
+              "terms": [
+                "Certification Data",
+                "FedRAMP Practices",
+                "Machine-Readable",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "CDS-CSO-HAD": {
               "name": "Historical FedRAMP Certification Data",
-              "statement": "Providers MUST make historical versions of FedRAMP Certification Data available for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
+              "statement": "Providers MUST supply historical versions of FedRAMP Certification Data for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
               "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Certification Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -2613,7 +2727,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2666,7 +2780,7 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2690,7 +2804,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2710,7 +2824,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2726,7 +2840,7 @@
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2744,7 +2858,7 @@
               "terms": ["Agency", "Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2762,7 +2876,7 @@
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2779,7 +2893,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2801,7 +2915,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2825,7 +2939,7 @@
               "terms": ["Agency", "Certification Data", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2844,7 +2958,7 @@
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2873,7 +2987,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2897,7 +3011,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -2949,7 +3063,7 @@
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -2998,7 +3112,7 @@
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3016,7 +3130,7 @@
               "terms": ["Agency", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3040,18 +3154,8 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
               "classes": ["B", "C", "D"],
-              "affects": ["Assessors"]
+              "affects": ["Providers"]
             }
           }
         },
@@ -3078,16 +3182,6 @@
                 "paths": ["Program"],
                 "classes": ["A", "B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3117,16 +3211,6 @@
                 "classes": ["A", "B", "C", "D"],
                 "affects": ["Providers"]
               }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
-              }
             }
           }
         }
@@ -3140,7 +3224,8 @@
               "following_information": [
                 "Certification Package Overview: CPO-CSO-MTD (Certification Package Overview Metadata)",
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
-                "Certification Data Sharing: CDS-CSO-SVC (Service List)",
+                "Certification Data Sharing: CDS-CSO-SVC (Public Service List)",
+                "Certification Data Sharing: CDS-CSO-IRP (Include Relevant Policies)",
                 "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
                 "Minimum Assessment Scope: MAS-CSO-FLO (Information Flows and Security Categories)",
                 "Minimum Assessment Scope: MAS-CSO-TPR (Third-Party Information Resources)",
@@ -3158,7 +3243,8 @@
                 "MAS-CSO-IIR",
                 "MAS-CSO-FLO",
                 "MAS-CSO-TPR",
-                "CMU-CSO-CMD"
+                "CMU-CSO-CMD",
+                "CDS-CSO-IRP"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -3167,6 +3253,7 @@
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-v2026.06.06.01.json"
               },
               "terms": [
+                "Certification Class",
                 "Certification Data",
                 "Certification Package",
                 "Information Resource",
@@ -3177,7 +3264,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3188,14 +3275,15 @@
               "following_information": [
                 "Name, title, and contact information of official that is responsible and accountable for the FedRAMP Certification Package",
                 "Version",
-                "Date of last update"
+                "Date and time of last update",
+                "Source of update"
               ],
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3240,7 +3328,7 @@
               "terms": ["Certification Package", "Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3291,7 +3379,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3309,16 +3397,6 @@
         "status": "placeholder",
         "tag": "other",
         "subsets": {
-          "FRP": {
-            "name": "FedRAMP Responsibilities",
-            "description": "These rules apply to FedRAMP.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["FedRAMP"]
-            }
-          },
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to cloud service providers obtaining and maintaining any FedRAMP Certification.",
@@ -3327,16 +3405,6 @@
               "paths": ["Program", "Agency"],
               "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
-            }
-          },
-          "IAS": {
-            "name": "General Independent Assessor Responsibilities",
-            "description": "These rules apply to independent assessment services supporting all FedRAMP Certification types.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Assessors"]
             }
           },
           "CLA": {
@@ -3401,18 +3469,8 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3438,18 +3496,8 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -3458,11 +3506,34 @@
       "data": {
         "all": {
           "CSO": {
+            "FRC-CSO-FCP": {
+              "name": "FedRAMP Certification Profile",
+              "statement": "Providers MUST identify a target FedRAMP Certification Profile and apply all relevant FedRAMP Practices to the cloud service offering.",
+              "note": "Information resources (including third-party information resources) MAY vary by security category as appropriate to the type of information handled by or impacted by the information resource.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Profile",
+                "Cloud Service Offering",
+                "FedRAMP Practices",
+                "Handle",
+                "Information Resource",
+                "Provider",
+                "Security Category",
+                "Third-Party Information Resource"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers seeking a Class A Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class A Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "An External Framework Mapping"
@@ -3470,7 +3541,7 @@
                   "force": "MUST"
                 },
                 "b": {
-                  "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "A Security Decision Record",
@@ -3479,7 +3550,7 @@
                   "force": "MUST"
                 },
                 "c": {
-                  "statement": "Providers seeking a Class C Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class C Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "A Security Decision Record",
@@ -3488,7 +3559,7 @@
                   "force": "MUST"
                 },
                 "d": {
-                  "statement": "Providers seeking a Class D Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification, aligned to the requirements for the target Certification Type, Class, and Path; the FedRAMP Certification Package MUST include at least the following information:",
+                  "statement": "Providers seeking a Class D Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
                   "following_information": [
                     "A Certification Package Overview",
                     "A Security Decision Record",
@@ -3520,7 +3591,7 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3533,7 +3604,7 @@
               "terms": ["Assessor", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3547,7 +3618,7 @@
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3556,7 +3627,7 @@
           "CLA": {
             "FRC-CLA-ASF": {
               "name": "Approved Alternative Security Frameworks",
-              "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment, from one of the following alternative security frameworks:",
+              "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment if applicable, from one of the following alternative security frameworks:",
               "following_information": [
                 "FedRAMP Rev5 (including FedRAMP Ready) at any historical Impact Level",
                 "SOC 2 Type II",
@@ -3567,7 +3638,7 @@
               "terms": ["Provider", "Security Category"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3584,7 +3655,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3600,19 +3671,19 @@
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
                 "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
                 "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
-                "FedRAMP Security Inbox: AFC-CSO-INB (Maintain a FedRAMP Security Inbox)",
-                "FedRAMP Security Inbox: AFC-CSO-RCV (Receive Email Without Disruption)",
-                "FedRAMP Security Inbox: AFC-CSO-CRA (Complete Required Actions)",
-                "Incident Communications Procedures: IEC-CSO-EFR (Evaluate FedRAMP Reportability)",
+                "Addressing FedRAMP Communication: AFC-CSO-INB (Maintain a FedRAMP Security Inbox)",
+                "Addressing FedRAMP Communication: AFC-CSO-RCV (Receive Email Without Disruption)",
+                "Addressing FedRAMP Communication: AFC-CSO-CRA (Complete Required Actions)",
+                "Incident Evaluation and Communication: IEC-CSO-EFR (Evaluate FedRAMP Reportability)",
                 "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
-                "Continuous Collaborative Monitoring: CCM-OCR-AVL (Report Availability)",
-                "Continuous Collaborative Monitoring: CCM-OCR-NRD (Next Report Date)",
+                "Collaborative Continuous Monitoring: CCM-OCR-AVL (Report Availability)",
+                "Collaborative Continuous Monitoring: CCM-OCR-NRD (Next Report Date)",
                 "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
                 "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
                 "Key Security Indicators: KSI-IAM-AAM (Automating Account Management)",
                 "Key Security Indicators: KSI-INR-RIR (Reviewing Incident Response Procedures)",
-                "Key Security Indicators: KSI-SVC-SNT (Securing Network Traffic)"
+                "Key Security Indicators: KSI-SVC-SIN (Securing Information)"
               ],
               "notes": [
                 "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
@@ -3633,7 +3704,13 @@
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD",
                 "FRC-CSO-PKG",
-                "FRC-CSO-JSN"
+                "FRC-CSO-JSN",
+                "KSI-CMT-LMC",
+                "KSI-CNA-RNT",
+                "KSI-CED-RAT",
+                "KSI-IAM-AAM",
+                "KSI-INR-RIR",
+                "KSI-SVC-SIN"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -3642,6 +3719,7 @@
                 "Artifacts",
                 "Certification Data",
                 "Certification Package",
+                "Certification Type",
                 "FedRAMP Security Inbox",
                 "Incident",
                 "Information Resource",
@@ -3655,7 +3733,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3675,7 +3753,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3684,14 +3762,25 @@
           "APP": {
             "FRC-APP-MLF": {
               "name": "Marketplace Listing First",
-              "statement": "Providers MUST be listed in the FedRAMP Marketplace before applying for FedRAMP Certification.",
-              "note": "See FedRAMP's Marketplace Listing rules for information about being listed in the Marketplace in the Initial Implementation Phase prior to receiving a formal FedRAMP Certification.",
+              "statement": "Providers MUST be listed in the FedRAMP Marketplace before applying for FedRAMP Certification, including:",
+              "following_information": [
+                "FedRAMP Marketplace: MKT-CSO-MLR (Marketplace Listing Requirements),",
+                "FedRAMP Marketplace: MKT-CSO-PML (Provider Marketplace Listing Requests)",
+                "FedRAMP Marketplace: MKT-IIP-AGU (Agency Use Cases)",
+                "FedRAMP Marketplace: MKT-IIP-DCP (Demonstrating Continuous Progress)"
+              ],
+              "related": [
+                "MKT-CSO-MLR",
+                "MKT-CSO-PML",
+                "MKT-IIP-AGU",
+                "MKT-IIP-DCP"
+              ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3706,7 +3795,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3725,31 +3814,30 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "FRC-APP-FIA": {
               "name": "Fresh Independent Assessment",
-              "statement": "Providers MUST supply a fresh initial independent verification and validation assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+              "statement": "Providers MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Independent Assessment",
                 "FedRAMP Recognized",
-                "Provider",
-                "Validation",
-                "Verification"
+                "Provider"
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "FRC-APP-NTP": {
-              "name": "No Third-Party Applications",
+              "name": "No Third-Party Applicants",
               "statement": "Providers MUST NOT use a third party to apply for a FedRAMP Certification on their behalf; this includes independent assessment services.",
               "notes": [
                 "FedRAMP previously allowed independent assessment services to submit applications on behalf of providers, but this caused confusion about who was responsible for the application and the information in it. Providers should apply directly to ensure clear accountability.",
@@ -3760,14 +3848,14 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "FRC-APP-USA": {
               "name": "Updating Stale Assessments",
-              "statement": "Providers MAY freshen a stale initial independent verification and validation assessment by having a FedRAMP Recognized Independent Assessment Service review any changes between the original assessment and the current status of the cloud service offering in place of a full re-assessment, UNLESS the stale assessment is more than 9 months old.",
+              "statement": "Providers MAY freshen a stale initial independent verification and validation assessment by having a FedRAMP Recognized independent assessment service review any changes between the original assessment and the current status of the cloud service offering in place of a full re-assessment, UNLESS the stale assessment is more than 9 months old.",
               "force": "MAY",
               "affects": ["Providers"],
               "terms": [
@@ -3779,7 +3867,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3794,7 +3882,7 @@
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3807,10 +3895,10 @@
               "note": "This is a placeholder rule that must be updated!",
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3819,31 +3907,6 @@
         },
         "20x": {
           "CSX": {
-            "FRC-CSX-SUM": {
-              "name": "Initial Implementation Summaries",
-              "statement": "Providers MUST supply simple high-level summaries of at least the following for each Key Security Indicator:",
-              "following_information": [
-                "Goals for how it will be implemented and validated, including clear pass/fail criteria and traceability",
-                "The consolidated _information resources_ that will be validated (this should include consolidated summaries such as \"all employees with privileged access that are members of the Admin group\")",
-                "The machine-based processes for _validation_ and the _persistent_ cycle on which they will be performed (or an explanation of why this doesn't apply)",
-                "The non-machine-based processes for _validation_ and the _persistent_ cycle on which they will be performed (or an explanation of why this doesn't apply)",
-                "Current implementation status",
-                "Any clarifications or responses to the assessment summary"
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Machine-Based (Information Resources)",
-                "Provider",
-                "Validation"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
             "FRC-CSX-MAS": {
               "name": "Application within MAS",
               "statement": "Providers SHOULD apply ALL Key Security Indicators to ALL aspects of their cloud service offering that are within the FedRAMP Minimum Assessment Scope.",
@@ -3852,34 +3915,7 @@
               "terms": ["Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            }
-          },
-          "CLA": {
-            "FRC-CLA-KSM": {
-              "name": "Key Security Indicator Mapping",
-              "statement": "Providers seeking a FedRAMP 20x Certification Class A by leveraging an alternative security framework MUST supply a temporary mapping from the alternative security assessment to the following FedRAMP Key Security Indicators:",
-              "following_information": [
-                "KSI-CMT-LMC",
-                "KSI-CNA-RNT",
-                "KSI-CED-RAT",
-                "KSI-IAM-AAM",
-                "KSI-INR-RIR",
-                "KSI-SVC-SNT"
-              ],
-              "notes": [
-                "The mapping must be available in both machine-readable and human-readable formats.",
-                "If a mapping is not clear, the provider should supply new information indicating that the Key Security Indicator has not been independently audited."
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Machine-Readable", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3900,7 +3936,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -3924,7 +3960,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -3934,7 +3970,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -4047,7 +4083,7 @@
               "terms": ["Incident", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4074,7 +4110,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4095,7 +4131,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4106,11 +4142,11 @@
                 "a": {
                   "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties after identifying FedRAMP Reportable Incidents by providing an Initial Incident Report with as much of the following information that is available at the time of reporting and/or the current relevant status for each item:",
                   "following_information": [
-                    "Contact information for the federal incident response coordinator.",
+                    "Contact information for the federal incident response coordinator",
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
+                    "Historically and currently estimated Potential Agency Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -4166,7 +4202,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
+                    "Historically and currently estimated Potential Agency Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -4222,7 +4258,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
+                    "Historically and currently estimated Potential Agency Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -4278,7 +4314,7 @@
                     "Provider's internally assigned tracking identifier",
                     "Description of the incident",
                     "Timeline of the incident, including start time, time and source of detection, time of completed FedRAMP Reportable Incident evaluation, and other major incident milestones determined by the provider",
-                    "Historically and currently estimated Potential Adverse Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
+                    "Historically and currently estimated Potential Agency Impact N-rating (PAIN) of the incident, including an explanation of the evaluation following the requirements in IEC-CSO-EFI (Estimate Federal Impact) (if applicable)",
                     "Functional impact to federal agency customers (include impact to confidentiality and/or integrity and the impacted federal customer data types)",
                     "Estimated recovery plan, milestones, and timelines",
                     "List of likely affected customer agencies"
@@ -4357,7 +4393,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4606,7 +4642,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4826,7 +4862,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4864,7 +4900,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4883,7 +4919,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -4907,7 +4943,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -4917,7 +4953,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Assessors"]
             }
           }
@@ -4943,18 +4979,8 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAX": {
-              "name": "20x-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP 20x Certifications.",
-              "applicability": {
-                "types": ["20x"],
-                "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -4980,18 +5006,8 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
-              }
-            },
-            "IAF": {
-              "name": "Rev5-Specific Independent Assessor Responsibilities",
-              "description": "These rules apply to independent assessment services supporting FedRAMP Rev5 Certifications.",
-              "applicability": {
-                "types": ["Rev5"],
-                "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
-                "affects": ["Assessors"]
               }
             }
           }
@@ -5000,29 +5016,29 @@
       "data": {
         "all": {
           "CSO": {
-            "IVV-CSO-PIA": {
-              "name": "Persistent Independent Verification and Validation Assessments",
+            "IVV-CSO-FIA": {
+              "name": "FedRAMP Independent Assessments",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment at least once per year; these assessments MAY be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MAY be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MAY",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment at least once per year; these assessments MUST be performed by a FedRAMP Recognized independent assessor OR by FedRAMP directly; the results of these assessments MUST be included in their FedRAMP Certification Data without inappropriate modification.",
+                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
@@ -5031,13 +5047,13 @@
               "notes": [
                 "The first such completed assessment is typically called an \"initial assessment\" while following assessments are called \"annual assessments.\"",
                 "The specific requirements for independent verification and validation assessments are documented by the FedRAMP Certification Class and Type.",
-                "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council.",
-                "FedRAMP Recognized independent assessors are listed on the FedRAMP Marketplace."
+                "The option for assessment by FedRAMP directly is limited to cloud services that are explicitly prioritized by FedRAMP, in consultation with the FedRAMP Board and the federal Chief Information Officers Council; this is _extremely_ rare.",
+                "FedRAMP Recognized independent assessment services are listed on the FedRAMP Marketplace."
               ],
               "affects": ["Providers"],
               "terms": [
-                "Assessor",
-                "Certification Data",
+                "Certification Class",
+                "FedRAMP Independent Assessment",
                 "FedRAMP Recognized",
                 "Persistently",
                 "Provider",
@@ -5046,20 +5062,123 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-SEI": {
+              "name": "Supply Evidence of Implementation",
+              "statement": "Providers MUST supply evidence to all necessary assessors of the implementation of the measures that have been documented to meet FedRAMP Practices; this evidence is the result of verification.",
+              "note": "For example, if the documentation says that firewall rules are used to block traffic then the cloud service provider would verify that firewall rules are in place to block traffic and supply that evidence to assessors (preferably by allowing them to see how firewall configurations are deployed from a source of truth).",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "All Necessary Assessors",
+                "Assessor",
+                "FedRAMP Practices",
+                "Provider",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-SEE": {
+              "name": "Supply Evidence of Effectiveness",
+              "statement": "Providers MUST supply evidence to all necessary assessors of the effectiveness of the measures that have been implemented to meet FedRAMP Practices; this evidence is the result of validation.",
+              "note": "For example, after verifying that firewalls are configured to block traffic following IVV-CSO-SEI (Supply Evidence of Implementation), the provider would validate that traffic is actually being blocked and supply evidence of that validation to assessors (such as by allowing them to see metrics on the traffic that is blocked vs not).",
+              "related": ["IVV-CSO-SEI"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "All Necessary Assessors",
+                "Assessor",
+                "FedRAMP Practices",
+                "Provider",
+                "Validation"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-ICP": {
+              "name": "Inclusion in Certification Package",
+              "statement": "Providers MUST supply the results of FedRAMP independent assessments in their FedRAMP Certification Package without inappropriate modification.",
+              "notes": [
+                "Inappropriate modification in this context means changing the underlying intent/etc. of the content provided by the independent assessment service - the content itself may be modified for presentation, formatting, etc. as needed.",
+                "This rule is related to IVV-IAS-VIP (Verify Inclusion in Certification Package)."
+              ],
+              "related": ["IVV-IAS-VIP"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Package",
+                "FedRAMP Independent Assessment",
+                "Provider",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-DUS": {
+              "name": "Document Use of Representative Samples",
+              "statement": "Providers MUST document and explain the use of representative samples during verification and validation when using representative samples as allowed by IVV-CSO-USR (Use Representative Samples).",
+              "related": ["IVV-CSO-USR"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "IVV-CSO-STE": {
-              "name": "Supply Technical Evidence",
-              "statement": "Providers SHOULD supply all necessary accessors with technical explanations, demonstrations, and other relevant supporting information about the technical capabilities they employ to address FedRAMP rules; this SHOULD be supplied as necessary to ensure the assessor can effectively complete verification and validation.",
+              "name": "Supply Technical Explanations",
+              "statement": "Providers SHOULD supply all necessary assessors with technical explanations, demonstrations, and other relevant supporting information about the technical capabilities they employ to address FedRAMP rules; this SHOULD be supplied as necessary to ensure the assessor can effectively complete verification and validation.",
               "force": "SHOULD",
               "affects": ["Providers"],
-              "terms": ["Assessor", "Provider", "Validation", "Verification"],
+              "terms": [
+                "All Necessary Assessors",
+                "Assessor",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSO-USR": {
+              "name": "Use Representative Samples",
+              "statement": "Providers MAY use representative samples as appropriate during verification and validation.",
+              "note": "Many modern cloud services using effective automation do not need to use representative sampling and are capable of persistently verifying and validating the majority of their security measures automatically.",
+              "force": "MAY",
+              "affects": ["Providers"],
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5078,20 +5197,67 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
           },
           "IAS": {
-            "IVV-IAS-VVP": {
-              "name": "Verify and Validate Processes",
-              "statement": "Assessors MUST verify and validate the implementation of processes derived from FedRAMP requirements, including rules, controls and Key Security Indicators, to determine whether or not the provider has accurately documented their process and security goals for the cloud service offering.",
+            "IVV-IAS-VIM": {
+              "name": "Verify Implementation",
+              "statement": "Assessors MUST verify that the measures implemented by the cloud service offering matches the  measures they documented to meet FedRAMP Practices.",
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": [
                 "Assessor",
+                "Cloud Service Offering",
+                "FedRAMP Practices",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-IAS-VEF": {
+              "name": "Validate Effectiveness",
+              "statement": "Assessors MUST validate the effectiveness of the implemented measures to ensure they have the intended outcome for meeting FedRAMP Practices.",
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": ["Assessor", "FedRAMP Practices", "Validation"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-IAS-SUM": {
+              "name": "Assessment Summary",
+              "statement": "Assessors MUST supply the provider with a high-level summary of their assessment process and findings for each FedRAMP Rule, control, and Key Security Indicator; this summary will be included by the provider in the FedRAMP Security Decision Record for the cloud service offering.",
+              "note": "FedRAMP does not require a separate Security Assessment Plan or Security Assessment Report for FedRAMP 20x or FedRAMP Rev5 Certifications; this information is expected to be included in the Security Decision Record by the cloud service provider.",
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": ["Assessor", "Cloud Service Offering", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-IAS-OSA": {
+              "name": "Overall Summary of Assessment",
+              "statement": "Assessors MUST supply the provider with an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute; this summary will be included by the provider in the FedRAMP Certification Package Overview for the cloud service offering.",
+              "note": "FedRAMP does not supply a template for this summary and encourages independent assessment services to optimize for the best customer experience in the creation of these materials.",
+              "force": "MUST",
+              "affects": ["Assessors"],
+              "terms": [
+                "Assessor",
+                "Certification Package",
                 "Cloud Service Offering",
                 "Provider",
                 "Validation",
@@ -5099,84 +5265,28 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
-            "IVV-IAS-OUC": {
-              "name": "Outcome Consistency",
-              "statement": "Assessors MUST verify and validate whether or not the underlying processes are consistently creating the desired security outcome documented by the provider.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor", "Provider", "Validation", "Verification"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAS-PAD": {
-              "name": "Procedure Adherence",
-              "statement": "Assessors MUST assess whether or not procedures are consistently followed, including evaluating the processes in place to ensure this occurs, without relying solely on the existence of procedure documents.",
-              "note": "This includes evaluating tests or plans for activities that may occur in the future but have not yet occurred.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAS-MME": {
-              "name": "Mixed Methods Evaluation",
-              "statement": "Assessors MUST perform verification and validation using a combination of quantitative and expert qualitative assessment as appropriate AND document which is applied to which aspect of the assessment.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": ["Assessor", "Validation", "Verification"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAS-SUM": {
-              "name": "Assessment Summary",
-              "statement": "Assessors MUST deliver a high-level summary of their assessment process and findings for each FedRAMP requirement, including rules, controls, and Key Security Indicators; this summary will be included in the FedRAMP Certification Data for the cloud service offering.",
+            "IVV-IAS-VIP": {
+              "name": "Verify Inclusion in Certification Package",
+              "statement": "Assessors MUST verify that information supplied during a FedRAMP independent assessment is included in the FedRAMP Certification Package by the provider without inappropriate modification.",
+              "note": "This rule is related to IVV-CSO-ICP (Inclusion in Certification Package).",
+              "related": ["IVV-CSO-ICP"],
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": [
                 "Assessor",
-                "Certification Data",
-                "Cloud Service Offering"
-              ],
-              "updated": [
-                {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAS-OSA": {
-              "name": "Overall Summary of Assessment",
-              "statement": "Assessors MUST supply an overall summary of the verification and validation assessment results, including any resulting failures or areas of dispute, to the provider and all necessary assessors.",
-              "note": "FedRAMP will make the final FedRAMP Certification decision based on the assessor's findings and other relevant information.",
-              "force": "MUST",
-              "affects": ["Assessors"],
-              "terms": [
-                "All Necessary Assessors",
-                "Assessor",
+                "Certification Package",
+                "FedRAMP Independent Assessment",
                 "Provider",
-                "Validation",
                 "Verification"
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5189,7 +5299,7 @@
               "terms": ["Assessor", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5208,7 +5318,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5216,42 +5326,44 @@
           }
         },
         "20x": {
-          "IAX": {
-            "IVV-IAX-UNP": {
-              "name": "Underlying Processes",
-              "statement": "Assessors MUST verify and validate the underlying processes (both machine-based and non-machine-based) that providers use to validate Key Security Indicators; this should include at least:",
-              "following_information": [
-                "The effectiveness, completeness, and integrity of the automated processes that perform validation of the cloud service offering's security posture.",
-                "The effectiveness, completeness, and integrity of the human processes that perform validation of the cloud service offering's security posture",
-                "The coverage of these processes within the cloud service offering, including if all of the consolidated information resources listed are being validated."
-              ],
-              "force": "MUST",
-              "affects": ["Assessors"],
+          "CSX": {
+            "IVV-CSX-AIA": {
+              "name": "Annual Independent Assessments for 20x",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with 20x Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
+                  "force": "MUST"
+                },
+                "b": {
+                  "statement": "Providers with 20x Class B Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "c": {
+                  "statement": "Providers with 20x Class C Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                },
+                "d": {
+                  "statement": "Providers with 20x Class D Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "force": "MUST",
+                  "timeframe_type": "years",
+                  "timeframe_num": 1
+                }
+              },
+              "affects": ["Providers"],
               "terms": [
-                "Assessor",
-                "Cloud Service Offering",
-                "Information Resource",
-                "Machine-Based (Information Resources)",
+                "FedRAMP Independent Assessment",
+                "Persistently",
                 "Provider",
                 "Validation",
                 "Verification"
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
-                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
-                }
-              ]
-            },
-            "IVV-IAX-STE": {
-              "name": "Static Evidence",
-              "statement": "Assessors MUST NOT rely on screenshots, configuration dumps, or other static output as evidence EXCEPT when evaluating the accuracy and reliability of a process that generates such artifacts.",
-              "force": "MUST NOT",
-              "affects": ["Assessors"],
-              "terms": ["Artifacts", "Assessor"],
-              "updated": [
-                {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5260,15 +5372,15 @@
         },
         "rev5": {
           "CSF": {
-            "IVV-CSF-ANA": {
-              "name": "Annual Assessments for Rev5 Certifications",
+            "IVV-CSF-AIA": {
+              "name": "Annual Independent Assessments for Rev5",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Rev5 Class A Certifications MUST meet the expectations of their underlying alternative security framework as part of their persistent independent verification and validation assessment.",
-                  "force": "MUST"
+                  "statement": "Providers MUST NOT obtain a FedRAMP Rev5 Class A Certification.",
+                  "force": "MUST NOT"
                 },
                 "b": {
-                  "statement": "Providers with Rev5 Class B Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "statement": "Providers with Rev5 Class B Certifications MUST include the following Rev5 Controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
                     "AC-2",
                     "AC-3",
@@ -5310,7 +5422,7 @@
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Rev5 Class C Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "statement": "Providers with Rev5 Class C Certifications MUST include the following Rev5 Controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
                     "AC-2",
                     "AC-2 (1)",
@@ -5397,7 +5509,7 @@
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with Rev5 Class D Certifications MUST include the following controls in their persistent independent verification and validation assessment at least one per year:",
+                  "statement": "Providers with Rev5 Class D Certifications MUST include the following Rev5 Controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
                     "AC-2",
                     "AC-2 (1)",
@@ -5506,37 +5618,51 @@
                 }
               },
               "affects": ["Providers"],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
-            "IVV-CSF-IFC": {
-              "name": "Integrating FedRAMP Changes",
-              "statement": "Providers MUST include any changes to FedRAMP rules in their persistent independent verification and validation assessment at least once per year, based on the mandatory effective date of the rules.",
-              "corrective_actions": [
-                "If a provider fails to include changes to FedRAMP rules in a persistent independent verification and validation assessment within 6 months of the mandatory effective date of the rules, FedRAMP will remove their listing from the Marketplace until they provide evidence of an updated assessment that includes the changes to FedRAMP rules.",
-                "Alternative correction actions may be specified in specific rules that will override this corrective action."
-              ],
+            "IVV-CSF-MCA": {
+              "name": "Mandatory Control Assessment",
+              "statement": "Providers MUST have all applicable Rev5 Controls included in FedRAMP independent assessments every 3 years but are not required to have all Rev5 Controls included in the same FedRAMP independent assessment.",
+              "note": "Traditionally this has been done by reviewing a rotating selection of Rev5 Controls at each annual assessment, however this requirement is a ceiling and not a floor. See IVV-CSF-PCA (Preferred Control Assessment) for FedRAMP's recommended approach to Rev5 control assessments.",
+              "related": ["IVV-CSF-PCA"],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "Persistently",
-                "Provider",
-                "Validation",
-                "Verification"
-              ],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSF-ACF": {
+              "name": "Assessment of Rev5 Controls with Findings",
+              "statement": "Providers MUST have Rev5 Controls with negative findings from the previous FedRAMP independent assessment included in the next FedRAMP independent assessment.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "IVV-CSF-PCA": {
+              "name": "Preferred Control Assessment",
+              "statement": "Providers SHOULD include all applicable Rev5 Controls in each FedRAMP independent assessment.",
+              "force": "SHOULD",
+              "affects": ["Providers"],
+              "terms": ["FedRAMP Independent Assessment", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5560,7 +5686,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -5629,7 +5755,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5657,7 +5783,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5691,7 +5817,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5717,7 +5843,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5738,7 +5864,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5851,7 +5977,7 @@
               "terms": ["Cloud Service Offering"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5870,7 +5996,7 @@
               "terms": ["Certification Data", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5886,7 +6012,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5901,7 +6027,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5930,7 +6056,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5943,7 +6069,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5974,7 +6100,7 @@
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -5987,7 +6113,7 @@
               "terms": ["Advisor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6005,7 +6131,7 @@
               "terms": ["Advisor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6035,7 +6161,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6049,7 +6175,7 @@
               "terms": ["Provider", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6062,10 +6188,10 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6129,7 +6255,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6147,7 +6273,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6160,7 +6286,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6176,7 +6302,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6196,7 +6322,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6211,7 +6337,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6229,7 +6355,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6247,7 +6373,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6261,7 +6387,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6277,7 +6403,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6300,7 +6426,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6323,7 +6449,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6350,7 +6476,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6363,7 +6489,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6376,14 +6502,14 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "REC-IAS-SEP": {
               "name": "Advisory Separation",
-              "statement": "Assessors MUST NOT perform an independent assessment of the same cloud service offering within 2 years after supplying advisory or consulting services for that offering, unless FedRAMP publishes a specific exception for a limited pilot or other explicitly scoped process.",
+              "statement": "Assessors MUST NOT perform a FedRAMP independent assessment of the same cloud service offering within 2 years after supplying advisory or consulting services for that offering, unless FedRAMP publishes a specific exception for a limited pilot or other explicitly scoped process.",
               "corrective_actions": [
                 "FedRAMP may require a consultation meeting, corrective action plan, or revocation for failure to comply."
               ],
@@ -6391,10 +6517,14 @@
               "affects": ["Assessors"],
               "timeframe_type": "years",
               "timeframe_num": 2,
-              "terms": ["Assessor", "Cloud Service Offering"],
+              "terms": [
+                "Assessor",
+                "Cloud Service Offering",
+                "FedRAMP Independent Assessment"
+              ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6430,7 +6560,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6440,7 +6570,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -6477,7 +6607,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6497,7 +6627,7 @@
               "terms": ["Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6516,7 +6646,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6539,7 +6669,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6564,7 +6694,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6583,7 +6713,7 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6602,7 +6732,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6621,7 +6751,7 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6644,7 +6774,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6668,7 +6798,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -6678,7 +6808,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6688,7 +6818,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6698,7 +6828,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -6708,7 +6838,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -6757,7 +6887,7 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6783,6 +6913,7 @@
               },
               "terms": [
                 "Adaptive Change",
+                "Certification Class",
                 "Certification Class Change",
                 "Provider",
                 "Routine Recurring Change",
@@ -6791,7 +6922,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6815,7 +6946,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6831,7 +6962,7 @@
                 "Short description of change",
                 "Reason for change",
                 "Summary of customer impact, including changes to services and customer configuration responsibilities",
-                "Plan and timeline for the change, including for the verification, assessment, and/or validation of impacted Key Security Indicators or controls",
+                "Plan and timeline for the change, including for the verification, assessment, and/or validation of impacted Key Security Indicators or Rev5 Controls",
                 "Copy of the business or security impact analysis",
                 "Name and title of approver"
               ],
@@ -6853,7 +6984,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6871,7 +7002,7 @@
               "terms": ["Certification Data", "Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6894,7 +7025,7 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6908,7 +7039,7 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6928,7 +7059,7 @@
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -6949,7 +7080,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7009,7 +7140,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7066,7 +7197,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7100,7 +7231,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7131,7 +7262,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7162,7 +7293,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7201,7 +7332,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7226,7 +7357,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7269,7 +7400,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7293,7 +7424,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -7319,7 +7450,7 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -7347,7 +7478,7 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -7357,24 +7488,174 @@
       "data": {
         "all": {
           "CSO": {
-            "SDR-CSO-PLC": {
-              "name": "Placeholder Rule",
-              "statement": "Providers MUST NOT follow an imaginary rule that is only in place to ensure placeholder content is generated without errors.",
-              "note": "This Ruleset is still being prepared offline but we want to make sure it renders properly and stops throwing errors in the web build process. ;)",
-              "force": "MUST NOT",
+            "SDR-CSO-FRR": {
+              "name": "FedRAMP Rules",
+              "statement": "Providers MUST supply a Security Decision Record, in both human-readable and JSON formats, that includes at least all of the following information for each applicable FedRAMP Rule:",
+              "following_information": [
+                "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
+                "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted by a senior official.",
+                "Validation that the implementation is in place and working as intended, or that the reason for not implementing is accepted by a senior official.",
+                "Independent verification.",
+                "Independent validation.",
+                "Any responses or clarifications to the comments in the independent verification or validation.",
+                "Rule-specific artifacts (if applicable)."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Security Decision Record Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Artifacts", "Provider", "Validation", "Verification"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "SDR-CSO-MTD": {
+              "name": "Security Decision Record Metadata",
+              "statement": "Providers MUST also include the following basic metadata in their Security Decision Record:",
+              "following_information": [
+                "Version",
+                "Date and time of last update",
+                "Source of update"
+              ],
+              "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             }
           }
         },
-        "20x": {},
-        "rev5": {}
+        "20x": {
+          "CSX": {
+            "SDR-CSX-KSI": {
+              "name": "Key Security Indicators",
+              "statement": "Providers MUST also include short and simple high-level summaries of at least the following for each applicable Key Security Indicator:",
+              "following_information": [
+                "Explanation of measures (and their objectives) that demonstrate the Key Security Indicator, or an explanation of the reason and resulting risk to customers for not having measures available for that Key Security Indicator.",
+                "Explanation of the cycle for any measures that are implemented persistently (if applicable).",
+                "Verification that the measures demonstrate the Key Security Indicator, or that the reason for not having them is accepted.",
+                "Verification that the automation in place is accurate and sufficient to demonstrate appropriate measures for the Key Security Indicator, or that automation is not necessary for each measure.",
+                "Validation that the measures are accurately produced and are in place and working as intended, or that the reason for not having them is valid."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Security Decision Record Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+              },
+              "terms": [
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "SDR-CSX-KMT": {
+              "name": "Key Security Indicator Metrics",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers with 20x Class A Certifications MAY also include historical metrics in their Security Decision Record.",
+                  "force": "MAY"
+                },
+                "b": {
+                  "statement": "Providers with 20x Class B Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
+                  "following_information": [
+                    "Summary of each metric over the past 30 days",
+                    "Summary of metric up to the past year (where available)"
+                  ],
+                  "force": "MUST"
+                },
+                "c": {
+                  "statement": "Providers with 20x Class C Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
+                  "following_information": [
+                    "Summary of each metric over the past 30 days",
+                    "Summary of metric up to the past year (where available)",
+                    "All daily metric data up to the past year (where available)"
+                  ],
+                  "force": "MUST"
+                },
+                "d": {
+                  "statement": "Providers with 20x Class D Certifications MUST significantly supersede the minimum requirements for lower Classes, with specifics to be set during the 20x Phase 4 Pilot.",
+                  "force": "MUST"
+                }
+              },
+              "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Security Decision Record Schema",
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+              },
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        },
+        "rev5": {
+          "CSF": {
+            "SDR-CSF-CTF": {
+              "name": "Rev5 Controls",
+              "statement": "Providers MUST also include short and simple high-level summaries of at least the following for each applicable Rev5 Control:",
+              "following_information": [
+                "Any organization-defined parameter values.",
+                "Implementation status, one of Implemented, Partially Implemented, Planned, Alternative Implementation, or Not Applicable.",
+                "The mechanisms or activities that address the control, including inheritance from another cloud service offering if applicable.",
+                "The verification that is in place to ensure the implementation is appropriate for the control.",
+                "The validation that is in place to ensure the implementation is working as intended.",
+                "Independent verification.",
+                "Independent validation.",
+                "Any responses or clarifications to the comments in the independent verification or validation.",
+                "Control-specific artifacts (if applicable)."
+              ],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "Artifacts",
+                "Cloud Service Offering",
+                "Provider",
+                "Validation",
+                "Verification"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "SDR-CSF-ODP": {
+              "name": "Organization-Defined Parameters",
+              "statement": "Providers MUST define all required organization-defined parameters tied all Rev5 Controls, following FedRAMP Rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": ["Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            }
+          }
+        }
       }
     },
     "VDR": {
@@ -7386,43 +7667,13 @@
         "status": "stable",
         "tag": "boundary",
         "subsets": {
-          "FRP": {
-            "name": "FedRAMP Responsibilities",
-            "description": "These rules apply to FedRAMP when setting expectations for specific cloud service providers.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["FedRAMP"]
-            }
-          },
           "CSO": {
             "name": "General Provider Responsibilities",
             "description": "These rules apply to all providers with FedRAMP Certifications of any type.",
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "EVA": {
-            "name": "Evaluation",
-            "description": "These rules apply to the evaluation of vulnerabilities.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
-            }
-          },
-          "RPT": {
-            "name": "Reporting",
-            "description": "These rules apply to reporting related to vulnerability detection and response.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -7432,7 +7683,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -7474,7 +7725,7 @@
           "CSO": {
             "VDR-CSO-DET": {
               "name": "Vulnerability Detection",
-              "statement": "Providers MUST systematically, persistently, and promptly discover and identify vulnerabilities within their cloud service offering using appropriate techniques such as assessment, scanning, threat intelligence, vulnerability disclosure mechanisms, bug bounties, penetration testing, incident response, automated control testing, supply chain monitoring, and other relevant capabilities; this process is called vulnerability detection. Vulnerability detection includes persistently verifying and validating that information resources and processes are operating as intended and documented for controls, Key Security Indicators, and FedRAMP Rules.",
+              "statement": "Providers MUST systematically, persistently, and promptly discover and identify vulnerabilities within their cloud service offering using appropriate techniques such as assessment, scanning, threat intelligence, vulnerability disclosure mechanisms, bug bounties, penetration testing, incident response, automated control testing, supply chain monitoring, and other relevant capabilities; this process is called vulnerability detection. Vulnerability detection includes persistently verifying and validating that information resources and processes are operating as intended and documented for FedRAMP Practices.",
               "danger": "Vulnerability Detection and Response includes all efforts to identify weaknesses in a system and is NOT limited to traditional vulnerability scanning or testing. An out-of-date control statement in the Security Decision Record is a vulnerability that must be detected and remediated just like any other vulnerability.",
               "notes": [
                 "FedRAMP's vulnerability detection (and response) rules are intended to set modern expectations for maintaining the security of a cloud service. Historical FedRAMP guidance on vulnerability scanning or continuous monitoring generally focused only on CVE-type vulnerabilities while leaving other types of vulnerabilities and exposures unaddressed.",
@@ -7484,6 +7735,7 @@
               "affects": ["Providers"],
               "terms": [
                 "Cloud Service Offering",
+                "FedRAMP Practices",
                 "Incident",
                 "Information Resource",
                 "Persistently",
@@ -7495,7 +7747,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7524,7 +7776,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7542,7 +7794,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7561,7 +7813,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7579,7 +7831,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7597,7 +7849,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7615,7 +7867,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7634,7 +7886,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7653,7 +7905,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7674,7 +7926,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7719,7 +7971,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7764,7 +8016,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -7773,7 +8025,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -7848,7 +8100,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential adverse impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -8086,7 +8338,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8099,7 +8351,7 @@
               "terms": ["Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8118,7 +8370,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8162,7 +8414,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8203,7 +8455,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8250,7 +8502,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8274,18 +8526,8 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["FedRAMP"]
-            }
-          },
-          "CSO": {
-            "name": "General Provider Responsibilities",
-            "description": "These rules apply to all providers with FedRAMP Certifications of any type.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
             }
           },
           "AGM": {
@@ -8294,18 +8536,8 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Agencies"]
-            }
-          },
-          "BST": {
-            "name": "Best Practices",
-            "description": "These recommendations for best practices apply to all cloud service providers.",
-            "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
-              "affects": ["Providers"]
             }
           },
           "EVA": {
@@ -8314,7 +8546,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -8324,7 +8556,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -8334,7 +8566,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -8382,7 +8614,7 @@
               "terms": ["Agency", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8400,7 +8632,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8423,7 +8655,7 @@
               "terms": ["Agency", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8443,7 +8675,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8462,7 +8694,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8483,7 +8715,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8510,7 +8742,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8536,14 +8768,14 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
             },
             "VER-EVA-EPA": {
               "name": "Estimate Potential Agency Impact",
-              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential adverse impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
+              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential agency impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
               "following_information_bullets": [
                 "**N1**: Exploitation could be expected to have minimal customer effects on one or more agencies that use the cloud service offering.",
                 "**N2**: Exploitation could be expected to have narrow customer effects on one or more agencies that use the cloud service offering.",
@@ -8567,7 +8799,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8587,7 +8819,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8606,7 +8838,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8636,7 +8868,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8661,7 +8893,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8707,7 +8939,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8749,7 +8981,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8768,7 +9000,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8787,7 +9019,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8800,7 +9032,7 @@
               "terms": ["Likely", "Provider", "Responsibly", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8828,7 +9060,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8843,7 +9075,7 @@
               "terms": ["Accepted Vulnerability", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8914,7 +9146,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8951,7 +9183,7 @@
               "terms": ["Provider", "Vulnerability", "Vulnerability Detection"],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -8990,7 +9222,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -9029,7 +9261,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-05-04",
+                  "date": "2026-06-30",
                   "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
                 }
               ]
@@ -10037,9 +10269,9 @@
           },
           "terms": ["Agency", "Federal Customer Data", "Promptly"]
         },
-        "KSI-SVC-SNT": {
-          "name": "Securing Network Traffic",
-          "statement": "Encrypt or otherwise secure network traffic.",
+        "KSI-SVC-SIN": {
+          "name": "Securing Information",
+          "statement": "Information is encrypted or otherwise secured from unwanted access or modification.",
           "controls": [
             "ac-1",
             "ac-17.2",
@@ -10050,7 +10282,9 @@
             "sc-20",
             "sc-21",
             "sc-22",
-            "sc-23"
+            "sc-23",
+            "sc-28",
+            "sc-28.1"
           ],
           "updated": [
             {

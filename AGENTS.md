@@ -35,6 +35,23 @@ Analysis, validation, structured reads, and reports may use
 [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) without
 additional permission. The guardrail applies to file modifications.
 
+## Test Creation Guardrail
+
+When the user asks to add or update tests for the tooling, test harness, or
+validation behavior, assume the requested test may expose existing rules data
+issues, warnings, or intentionally failing cases. That is often the reason the
+test is being added.
+
+Do not fix test failures or warnings by editing
+[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) unless the
+user explicitly asks for rule-content changes. If a newly added test reports
+errors or warnings against the current rules file, report the result and keep
+the change scoped to test or tooling support.
+
+If a test cannot be made meaningful without changing the rules JSON, stop before
+editing it. Explain the specific rule, definition, indicator, metadata, or
+structural path that would need to change and wait for explicit confirmation.
+
 ## Dataset Structure
 
 The JSON file has four top-level sections:

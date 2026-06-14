@@ -5,9 +5,10 @@ import {
   collectDuplicateRuleIdIssues,
   collectDuplicateRuleNameIssues,
   collectFrr20xSubsetApplicabilityWarnings,
-  collectFrrSubsetForceOrderWarnings,
   collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
+  collectFrrSubsetForceOrderWarnings,
+  collectFrrUnusedSubsetWarnings,
   collectInlineRuleDisplayNameIssues,
   collectRelatedRuleReferenceIssues,
   formatConsistencyReport,
@@ -297,6 +298,70 @@ test("X-suffix FRR subsets warn unless they are 20x Program only", () => {
   expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([]);
 });
 
+test("FRR unused subset warnings detect subset declarations without rules", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        info: {
+          subsets: {
+            CSO: { name: "Provider", description: "Provider subset." },
+            FRP: { name: "FedRAMP", description: "FedRAMP subset." },
+          },
+          "20x": {
+            subsets: {
+              CSX: { name: "20x", description: "20x subset." },
+            },
+          },
+        },
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-001": {
+                name: "Provider Rule",
+                statement: "Providers MUST do the thing.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+            FRP: {},
+          },
+          "20x": {
+            CSX: {},
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectFrrUnusedSubsetWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.FRP",
+      message:
+        "subset FRP is declared but has no corresponding rules in FRR.ABC.data.",
+    },
+    {
+      location: "FRR.ABC.info.20x.subsets.CSX",
+      message:
+        "subset CSX is declared but has no corresponding rules in FRR.ABC.data.",
+    },
+  ]);
+
+  (document.FRR.ABC!.data["20x"]!.CSX as any)["ABC-CSX-001"] = {
+    name: "20x Rule",
+    statement: "Providers MUST do the 20x thing.",
+    force: "MUST",
+    affects: ["Providers"],
+  };
+
+  expect(collectFrrUnusedSubsetWarnings(document)).toEqual([
+    {
+      location: "FRR.ABC.info.subsets.FRP",
+      message:
+        "subset FRP is declared but has no corresponding rules in FRR.ABC.data.",
+    },
+  ]);
+});
+
 test("FRR subset force order warnings detect out-of-order groups", () => {
   const document = {
     FRR: {
@@ -467,7 +532,7 @@ test("related rule references cover inline FRR IDs in requirement text fields", 
     {
       location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
       message:
-        "related must be an array containing mentioned FRR requirement IDs: " +
+        "related must be an array containing mentioned rule IDs: " +
         "ABC-CSO-BBB in FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement; " +
         "ABC-CSO-CCC in FRR.ABC.data.all.CSO.ABC-CSO-AAA.note; " +
         "ABC-CSO-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.notes[1]; " +
@@ -493,7 +558,7 @@ test("related rule references cover inline FRR IDs in requirement text fields", 
     {
       location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
       message:
-        "related is missing mentioned FRR requirement IDs: " +
+        "related is missing mentioned rule IDs: " +
         "ABC-CSO-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.notes[1].",
     },
   ]);
@@ -567,8 +632,86 @@ test("related rule references cover class-specific statements and following info
     {
       location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
       message:
-        "related is missing mentioned FRR requirement IDs: " +
+        "related is missing mentioned rule IDs: " +
         "ABC-CSO-CCC in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.following_information[0].",
+    },
+  ]);
+});
+
+test("related rule references cover inline KSI IDs in requirement text fields", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-AAA": {
+                name: "Source Rule",
+                statement: "Providers MUST follow KSI-IAM-AAA.",
+                following_information: ["Map the outcome to KSI-MLA-BBB."],
+                varies_by_class: {
+                  b: {
+                    statement: "Class B providers MUST document KSI-CNA-CCC.",
+                    following_information: ["Review KSI-SVC-DDD evidence."],
+                    force: "MUST",
+                  },
+                },
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
+      message:
+        "related must be an array containing mentioned rule IDs: " +
+        "KSI-IAM-AAA in FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement; " +
+        "KSI-MLA-BBB in FRR.ABC.data.all.CSO.ABC-CSO-AAA.following_information[0]; " +
+        "KSI-CNA-CCC in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.statement; " +
+        "KSI-SVC-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.following_information[0].",
+    },
+  ]);
+
+  const sourceRequirement = document.FRR.ABC?.data.all?.CSO?.["ABC-CSO-AAA"];
+  expect(sourceRequirement).toBeDefined();
+  if (!sourceRequirement) {
+    throw new Error("expected source requirement fixture to exist");
+  }
+
+  sourceRequirement.related = ["KSI-IAM-AAA", "KSI-MLA-BBB", "KSI-CNA-CCC"];
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
+      message:
+        "related is missing mentioned rule IDs: " +
+        "KSI-SVC-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.following_information[0].",
+    },
+  ]);
+
+  sourceRequirement.related = [
+    "KSI-IAM-AAA",
+    "KSI-MLA-BBB",
+    "KSI-CNA-CCC",
+    "KSI-SVC-DDD",
+  ];
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([]);
+
+  sourceRequirement.related.push("KSI-SCR-EEE");
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related[4]",
+      message:
+        "related ID KSI-SCR-EEE is not mentioned in statement, note, notes, following_information, " +
+        "following_information_bullets, or varies_by_class text.",
     },
   ]);
 });
@@ -662,6 +805,59 @@ test("inline rule IDs are followed by their rule names in parentheses", () => {
       message:
         'referenced FRR requirement ID ABC-CSO-CCC is followed by "Target Rule C" without parentheses; ' +
         "use ABC-CSO-CCC (Target Rule C).",
+    },
+  ]);
+});
+
+test("inline KSI IDs are followed by their indicator names in parentheses", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-AAA": {
+                name: "Source Rule",
+                statement:
+                  "Providers MUST use KSI-IAM-AAA and KSI-IAM-BBB Identity Boundary.",
+                note: "KSI-IAM-CCC (Credential Review) is already formatted.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {
+      IAM: {
+        indicators: {
+          "KSI-IAM-AAA": {
+            name: "Identity Verification",
+          },
+          "KSI-IAM-BBB": {
+            name: "Identity Boundary",
+          },
+          "KSI-IAM-CCC": {
+            name: "Credential Review",
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectInlineRuleDisplayNameIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement",
+      message:
+        "referenced KSI indicator ID KSI-IAM-AAA must be followed by its indicator name in parentheses: " +
+        "KSI-IAM-AAA (Identity Verification).",
+    },
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement",
+      message:
+        'referenced KSI indicator ID KSI-IAM-BBB is followed by "Identity Boundary" without parentheses; ' +
+        "use KSI-IAM-BBB (Identity Boundary).",
     },
   ]);
 });

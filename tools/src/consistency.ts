@@ -46,6 +46,7 @@ const CONTROL_ID_REGEX = /^[a-z]{2}-\d+(?:\.\d+)?$/;
 const TEXT_CONTROL_CHARACTER_REGEX = /[\u0000-\u001f\u007f]/;
 const INLINE_FRR_ID_REGEX = /\b(?!KSI-)([A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3})\b/g;
 const INLINE_KSI_ID_REGEX = /\b(KSI-[A-Z]{3}-[A-Z0-9]{3})\b/g;
+const INLINE_RULE_ID_REGEXES = [INLINE_FRR_ID_REGEX, INLINE_KSI_ID_REGEX];
 
 const ALLOWED_AFFECTS = [
   "Advisors",
@@ -996,6 +997,36 @@ export function collectFrr20xSubsetApplicabilityWarnings(
   return issues;
 }
 
+export function collectFrrUnusedSubsetWarnings(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    const hasRequirements = entry.dataScopeKeys.some((scopeKey) => {
+      const subsetRequirements =
+        entry.section.data?.[scopeKey]?.[entry.subsetKey];
+
+      return Boolean(
+        subsetRequirements && Object.keys(subsetRequirements).length > 0,
+      );
+    });
+
+    if (hasRequirements) {
+      continue;
+    }
+
+    issues.push(
+      issue(
+        entry.location,
+        `subset ${entry.subsetKey} is declared but has no corresponding rules in FRR.${entry.sectionKey}.data.`,
+      ),
+    );
+  }
+
+  return issues;
+}
+
 export function collectFrrSubsetApplicabilityAffectsFixes(
   document: RulesDocument,
 ): FrrSubsetApplicabilityAffectsFix[] {
@@ -1552,6 +1583,11 @@ interface RuleTextPart {
   setText: (value: string) => void;
 }
 
+interface InlineRuleMatch {
+  id: string;
+  index: number;
+}
+
 function collectRequirementRuleTextParts(
   location: string,
   requirement: Requirement,
@@ -1619,6 +1655,24 @@ function collectRequirementRuleTextParts(
   return parts;
 }
 
+function collectInlineRuleMatches(text: string): InlineRuleMatch[] {
+  const matches: InlineRuleMatch[] = [];
+
+  for (const regex of INLINE_RULE_ID_REGEXES) {
+    for (const match of text.matchAll(regex)) {
+      const id = match[1];
+      const index = match.index;
+      if (!id || index === undefined) {
+        continue;
+      }
+
+      matches.push({ id, index });
+    }
+  }
+
+  return matches.sort((left, right) => left.index - right.index);
+}
+
 function collectRequirementRuleMentionSources(
   location: string,
   requirement: Requirement,
@@ -1626,12 +1680,7 @@ function collectRequirementRuleMentionSources(
   const mentions = new Map<string, string[]>();
 
   for (const part of collectRequirementRuleTextParts(location, requirement)) {
-    for (const match of part.text.matchAll(INLINE_FRR_ID_REGEX)) {
-      const id = match[1];
-      if (!id) {
-        continue;
-      }
-
+    for (const { id } of collectInlineRuleMatches(part.text)) {
       const locations = mentions.get(id) ?? [];
       locations.push(part.location);
       mentions.set(id, locations);
@@ -1651,29 +1700,59 @@ function collectRequirementNameMap(
   );
 }
 
+function collectIndicatorNameMap(
+  entries: ReturnType<typeof collectIndicatorEntries>,
+): Map<string, string> {
+  return new Map(
+    entries
+      .filter((entry) => typeof entry.indicator.name === "string")
+      .map((entry) => [entry.id, entry.indicator.name]),
+  );
+}
+
+function collectRuleReferenceNameMap(
+  document: RulesDocument,
+): Map<string, string> {
+  return new Map([
+    ...collectRequirementNameMap(collectRequirementEntries(document)),
+    ...collectIndicatorNameMap(collectIndicatorEntries(document)),
+  ]);
+}
+
+function describeInlineRuleReference(id: string): {
+  idLabel: string;
+  nameLabel: string;
+} {
+  if (id.startsWith("KSI-")) {
+    return {
+      idLabel: "KSI indicator ID",
+      nameLabel: "indicator name",
+    };
+  }
+
+  return {
+    idLabel: "FRR requirement ID",
+    nameLabel: "rule name",
+  };
+}
+
 export function collectInlineRuleDisplayNameIssues(
   document: RulesDocument,
 ): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
-  const entries = collectRequirementEntries(document);
-  const requirementNames = collectRequirementNameMap(entries);
+  const referenceNames = collectRuleReferenceNameMap(document);
 
-  for (const { location, requirement } of entries) {
+  for (const { location, requirement } of collectRequirementEntries(document)) {
     for (const part of collectRequirementRuleTextParts(location, requirement)) {
-      for (const match of part.text.matchAll(INLINE_FRR_ID_REGEX)) {
-        const id = match[1];
-        const index = match.index;
-        if (!id || index === undefined) {
-          continue;
-        }
-
-        const name = requirementNames.get(id);
+      for (const { id, index } of collectInlineRuleMatches(part.text)) {
+        const name = referenceNames.get(id);
         if (!name) {
           continue;
         }
 
         const expectedDisplay = `${id} (${name})`;
         const suffix = part.text.slice(index + id.length);
+        const description = describeInlineRuleReference(id);
         if (suffix.startsWith(` (${name})`)) {
           continue;
         }
@@ -1682,7 +1761,7 @@ export function collectInlineRuleDisplayNameIssues(
           issues.push(
             issue(
               part.location,
-              `referenced FRR requirement ID ${id} is followed by "${name}" without parentheses; use ${expectedDisplay}.`,
+              `referenced ${description.idLabel} ${id} is followed by "${name}" without parentheses; use ${expectedDisplay}.`,
             ),
           );
           continue;
@@ -1691,7 +1770,7 @@ export function collectInlineRuleDisplayNameIssues(
         issues.push(
           issue(
             part.location,
-            `referenced FRR requirement ID ${id} must be followed by its rule name in parentheses: ${expectedDisplay}.`,
+            `referenced ${description.idLabel} ${id} must be followed by its ${description.nameLabel} in parentheses: ${expectedDisplay}.`,
           ),
         );
       }
@@ -1708,20 +1787,18 @@ export interface InlineRuleDisplayNameFix {
 
 function fixInlineRuleDisplayText(
   text: string,
-  requirementNames: Map<string, string>,
+  referenceNames: Map<string, string>,
 ): { text: string; fixedIds: string[] } {
   let nextText = "";
   let cursor = 0;
   const fixedIds: string[] = [];
 
-  for (const match of text.matchAll(INLINE_FRR_ID_REGEX)) {
-    const id = match[1];
-    const index = match.index;
-    if (!id || index === undefined || index < cursor) {
+  for (const { id, index } of collectInlineRuleMatches(text)) {
+    if (index < cursor) {
       continue;
     }
 
-    const name = requirementNames.get(id);
+    const name = referenceNames.get(id);
     if (!name) {
       continue;
     }
@@ -1767,17 +1844,16 @@ function collectInlineRuleDisplayNameFixTargets(
   nextText: string;
   fixedIds: string[];
 }> {
-  const entries = collectRequirementEntries(document);
-  const requirementNames = collectRequirementNameMap(entries);
+  const referenceNames = collectRuleReferenceNameMap(document);
   const targets: Array<{
     part: RuleTextPart;
     nextText: string;
     fixedIds: string[];
   }> = [];
 
-  for (const { location, requirement } of entries) {
+  for (const { location, requirement } of collectRequirementEntries(document)) {
     for (const part of collectRequirementRuleTextParts(location, requirement)) {
-      const result = fixInlineRuleDisplayText(part.text, requirementNames);
+      const result = fixInlineRuleDisplayText(part.text, referenceNames);
       if (result.fixedIds.length > 0) {
         targets.push({
           part,
@@ -1986,14 +2062,14 @@ export function collectRelatedRuleReferenceIssues(
         issues.push(
           issue(
             `${location}.related`,
-            `related must be an array containing mentioned FRR requirement IDs: ${sourceSummary}.`,
+            `related must be an array containing mentioned rule IDs: ${sourceSummary}.`,
           ),
         );
       } else {
         issues.push(
           issue(
             `${location}.related`,
-            `related is missing mentioned FRR requirement IDs: ${sourceSummary}.`,
+            `related is missing mentioned rule IDs: ${sourceSummary}.`,
           ),
         );
       }

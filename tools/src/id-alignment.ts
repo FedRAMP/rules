@@ -40,28 +40,6 @@ export function incrementVersion(version: string): string {
   return suffix ? `${parts.join(".")}-${suffix}` : parts.join(".");
 }
 
-function applyRenameMetadata(item: Record<string, unknown>, oldKey: string, newKey: string): Record<string, unknown> {
-  if (typeof item.fka === "string") {
-    const { fka, ...rest } = item;
-    return {
-      fkas: [fka, oldKey],
-      ...rest,
-    };
-  }
-
-  if (Array.isArray(item.fkas)) {
-    return {
-      ...item,
-      fkas: [...item.fkas, newKey],
-    };
-  }
-
-  return {
-    fka: oldKey,
-    ...item,
-  };
-}
-
 function processDataBlock(
   dataBlock: Record<string, unknown>,
   entryDate: string,
@@ -115,13 +93,12 @@ function processDataBlock(
           delete node[oldKey];
 
           if (isRecord(item)) {
-            const updated = applyRenameMetadata(item, oldKey, newKey);
             ensureUpdatedEntry(
-              updated,
+              item,
               `Auto-fix: key "${oldKey}" middle segment did not match parent "${parentKey}". Renamed to "${newKey}".`,
               entryDate,
             );
-            node[newKey] = updated;
+            node[newKey] = item;
           } else {
             node[newKey] = item;
           }
