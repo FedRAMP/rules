@@ -532,7 +532,7 @@ test("related rule references cover inline FRR IDs in requirement text fields", 
     {
       location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
       message:
-        "related must be an array containing mentioned FRR requirement IDs: " +
+        "related must be an array containing mentioned rule IDs: " +
         "ABC-CSO-BBB in FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement; " +
         "ABC-CSO-CCC in FRR.ABC.data.all.CSO.ABC-CSO-AAA.note; " +
         "ABC-CSO-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.notes[1]; " +
@@ -558,7 +558,7 @@ test("related rule references cover inline FRR IDs in requirement text fields", 
     {
       location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
       message:
-        "related is missing mentioned FRR requirement IDs: " +
+        "related is missing mentioned rule IDs: " +
         "ABC-CSO-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.notes[1].",
     },
   ]);
@@ -632,8 +632,86 @@ test("related rule references cover class-specific statements and following info
     {
       location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
       message:
-        "related is missing mentioned FRR requirement IDs: " +
+        "related is missing mentioned rule IDs: " +
         "ABC-CSO-CCC in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.following_information[0].",
+    },
+  ]);
+});
+
+test("related rule references cover inline KSI IDs in requirement text fields", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-AAA": {
+                name: "Source Rule",
+                statement: "Providers MUST follow KSI-IAM-AAA.",
+                following_information: ["Map the outcome to KSI-MLA-BBB."],
+                varies_by_class: {
+                  b: {
+                    statement: "Class B providers MUST document KSI-CNA-CCC.",
+                    following_information: ["Review KSI-SVC-DDD evidence."],
+                    force: "MUST",
+                  },
+                },
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
+      message:
+        "related must be an array containing mentioned rule IDs: " +
+        "KSI-IAM-AAA in FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement; " +
+        "KSI-MLA-BBB in FRR.ABC.data.all.CSO.ABC-CSO-AAA.following_information[0]; " +
+        "KSI-CNA-CCC in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.statement; " +
+        "KSI-SVC-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.following_information[0].",
+    },
+  ]);
+
+  const sourceRequirement = document.FRR.ABC?.data.all?.CSO?.["ABC-CSO-AAA"];
+  expect(sourceRequirement).toBeDefined();
+  if (!sourceRequirement) {
+    throw new Error("expected source requirement fixture to exist");
+  }
+
+  sourceRequirement.related = ["KSI-IAM-AAA", "KSI-MLA-BBB", "KSI-CNA-CCC"];
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related",
+      message:
+        "related is missing mentioned rule IDs: " +
+        "KSI-SVC-DDD in FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.following_information[0].",
+    },
+  ]);
+
+  sourceRequirement.related = [
+    "KSI-IAM-AAA",
+    "KSI-MLA-BBB",
+    "KSI-CNA-CCC",
+    "KSI-SVC-DDD",
+  ];
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([]);
+
+  sourceRequirement.related.push("KSI-SCR-EEE");
+
+  expect(collectRelatedRuleReferenceIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.related[4]",
+      message:
+        "related ID KSI-SCR-EEE is not mentioned in statement, note, notes, following_information, " +
+        "following_information_bullets, or varies_by_class text.",
     },
   ]);
 });
@@ -727,6 +805,59 @@ test("inline rule IDs are followed by their rule names in parentheses", () => {
       message:
         'referenced FRR requirement ID ABC-CSO-CCC is followed by "Target Rule C" without parentheses; ' +
         "use ABC-CSO-CCC (Target Rule C).",
+    },
+  ]);
+});
+
+test("inline KSI IDs are followed by their indicator names in parentheses", () => {
+  const document = {
+    FRR: {
+      ABC: {
+        data: {
+          all: {
+            CSO: {
+              "ABC-CSO-AAA": {
+                name: "Source Rule",
+                statement:
+                  "Providers MUST use KSI-IAM-AAA and KSI-IAM-BBB Identity Boundary.",
+                note: "KSI-IAM-CCC (Credential Review) is already formatted.",
+                force: "MUST",
+                affects: ["Providers"],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {
+      IAM: {
+        indicators: {
+          "KSI-IAM-AAA": {
+            name: "Identity Verification",
+          },
+          "KSI-IAM-BBB": {
+            name: "Identity Boundary",
+          },
+          "KSI-IAM-CCC": {
+            name: "Credential Review",
+          },
+        },
+      },
+    },
+  } as unknown as RulesDocument;
+
+  expect(collectInlineRuleDisplayNameIssues(document)).toEqual([
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement",
+      message:
+        "referenced KSI indicator ID KSI-IAM-AAA must be followed by its indicator name in parentheses: " +
+        "KSI-IAM-AAA (Identity Verification).",
+    },
+    {
+      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.statement",
+      message:
+        'referenced KSI indicator ID KSI-IAM-BBB is followed by "Identity Boundary" without parentheses; ' +
+        "use KSI-IAM-BBB (Identity Boundary).",
     },
   ]);
 });
