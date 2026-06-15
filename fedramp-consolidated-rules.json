@@ -6168,7 +6168,7 @@
             },
             "MKT-IIP-DCP": {
               "name": "Demonstrating Continuous Progress",
-              "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
+              "statement": "Providers MUST demonstrate continuous progress towards a FedRAMP Certification, documented in their Trust Center or website and updated at least quarterly; progress is measured by the provider against documented goals and milestones.",
               "note": "This is an opportunity for a business to showcase its goals and progress, and should be seen as a marketing and customer experience challenge instead of a compliance challenge.",
               "force": "MUST",
               "affects": ["Providers"],
