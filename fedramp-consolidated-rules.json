@@ -1946,8 +1946,7 @@
                 "default": "2027-10-01",
                 "until_next_assessment": false
               }
-            },
-            "signup_url": "ADDME"
+            }
           }
         }
       },
@@ -2001,6 +2000,13 @@
               "note": "This is a statutory requirement in 44 USC § 3613 (e) related to the Presumption of Adequacy for a FedRAMP Certification.",
               "force": "MUST NOT",
               "affects": ["Agencies"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov"
+                }
+              ],
               "terms": [
                 "Agency",
                 "Certification Data",
@@ -2500,8 +2506,7 @@
                 "default": "2028-02-01",
                 "until_next_assessment": false
               }
-            },
-            "signup_url": "ADDME"
+            }
           },
           "subsets": {
             "CSF": {
@@ -3265,8 +3270,7 @@
                 "default": "2027-01-01",
                 "until_next_assessment": true
               }
-            },
-            "signup_url": "ADDME"
+            }
           },
           "subsets": {
             "CSF": {
@@ -3728,9 +3732,9 @@
                 }
               ]
             },
-            "FRC-CLA-AFR": {
-              "name": "Address FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification of any Type MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
+            "FRC-CLA-MFR": {
+              "name": "Mandatory FedRAMP Rules for Class A",
+              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class Arules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
               "following_information": [
                 "FedRAMP Certification: FRC-CSO-PKG (FedRAMP Certification Package)",
                 "FedRAMP Certification: FRC-CSO-JSN (FedRAMP JSON Schemas)",
@@ -3744,9 +3748,12 @@
                 "Addressing FedRAMP Communication: AFC-CSO-RCV (Receive Email Without Disruption)",
                 "Addressing FedRAMP Communication: AFC-CSO-CRA (Complete Required Actions)",
                 "Incident Evaluation and Communication: IEC-CSO-EFR (Evaluate FedRAMP Reportability)",
+                "Incident Evaluation and Communication: IEC-CSO-FIR (Final Incident Report)",
                 "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
                 "Collaborative Continuous Monitoring: CCM-OCR-AVL (Report Availability)",
                 "Collaborative Continuous Monitoring: CCM-OCR-NRD (Next Report Date)",
+                "Independent Verification and Validation: IVV-CSX-AIA (Annual Independent Assessments for 20x)",
+                "Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5)",
                 "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
                 "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
@@ -3770,9 +3777,12 @@
                 "AFC-CSO-RCV",
                 "AFC-CSO-CRA",
                 "IEC-CSO-EFR",
+                "IEC-CSO-FIR",
                 "VDR-CSO-DET",
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD",
+                "IVV-CSX-AIA",
+                "IVV-CSF-AIA",
                 "FRC-CSO-PKG",
                 "FRC-CSO-JSN",
                 "KSI-CMT-LMC",
@@ -3793,15 +3803,116 @@
                 "Certification Package",
                 "Certification Type",
                 "FedRAMP Security Inbox",
+                "Final Incident Report (FIR)",
                 "Incident",
                 "Information Resource",
                 "Initial Incident Report (IIR)",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
                 "Trust Center",
+                "Validation",
+                "Verification",
                 "Vulnerability",
                 "Vulnerability Detection",
                 "Vulnerability Response"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-23",
+                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CLA-RFR": {
+              "name": "Recommended FedRAMP Rules for Class A",
+              "statement": "Providers seeking a Class A FedRAMP Certification SHOULD address the following additional recommended FedRAMP Class A rules (if applicable):",
+              "following_information": [
+                "Certification Data Sharing: CDS-CSO-AVR (Availability Reporting)",
+                "Certification Package Overview: CPO-CSF-CPM (Certification Package Maintenance for Rev5)",
+                "Certification Package Overview: CPO-CSX-CPM (Certification Package Maintenance for 20x)",
+                "Incident Evaluation and Communication: IEC-CSO-IIR (Initial Incident Report)",
+                "Incident Evaluation and Communication: IEC-CSO-OIR (Ongoing Incident Reports)",
+                "Vulnerability Detection and Response: VDR-TFR-MVX (Persistent Machine Verification and Validation for 20x)",
+                "Vulnerability Detection and Response: VDR-TFR-PCD (Persistently Complete Detection)",
+                "Vulnerability Detection and Response: VDR-TFR-PDD (Persistent Drift Detection)",
+                "Vulnerability Detection and Response: VDR-TFR-PSD (Persistent Sample Detection)",
+                "Vulnerability Detection and Response: VDR-TFR-PVR (Mitigation and Remediation Expectations)",
+                "Vulnerability Evaluation and Reporting: VER-TFR-EVU (Evaluate Vulnerabilities Quickly)"
+              ],
+              "related": [
+                "CDS-CSO-AVR",
+                "CPO-CSF-CPM",
+                "CPO-CSX-CPM",
+                "IEC-CSO-IIR",
+                "IEC-CSO-OIR",
+                "VDR-TFR-MVX",
+                "VDR-TFR-PCD",
+                "VDR-TFR-PDD",
+                "VDR-TFR-PSD",
+                "VDR-TFR-PVR",
+                "VER-TFR-EVU"
+              ],
+              "force": "SHOULD",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Data",
+                "Certification Package",
+                "Drift",
+                "Incident",
+                "Initial Incident Report (IIR)",
+                "Ongoing Incident Report (OIR)",
+                "Persistently",
+                "Provider",
+                "Validation",
+                "Verification",
+                "Vulnerability",
+                "Vulnerability Detection",
+                "Vulnerability Response"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-23",
+                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "FRC-CLA-OFR": {
+              "name": "Address Optional FedRAMP Rules for Class A",
+              "statement": "Providers seeking a Class A FedRAMP Certification MAY address the following additional optional FedRAMP Class A rules (if applicable):",
+              "following_information": [
+                "Collaborative Continuous Monitoring: CCM-QTR-MTG (Quarterly Review Meeting)",
+                "Certification Data Sharing: CDS-CSO-PSM (Per-Service Certification Materials)",
+                "Cryptographic Module Use: CMU-CSO-UVM (Using Validated Cryptographic Modules)",
+                "FedRAMP Certification: FRC-APP-FIA (Fresh Independent Assessment)",
+                "Independent Verification and Validation: IVV-CSO-FIA (FedRAMP Independent Assessments)",
+                "Security Decision Record: SDR-CSX-KMT (Key Security Indicator Metrics)",
+                "Vulnerability Evaluation and Reporting: VER-TFR-IRI (Internet-Reachable Incidents)",
+                "Vulnerability Evaluation and Reporting: VER-TFR-MRH (Historical Activity)",
+                "Vulnerability Evaluation and Reporting: VER-TFR-NRI (Non-Internet-Reachable Incidents)"
+              ],
+              "related": [
+                "CCM-QTR-MTG",
+                "CDS-CSO-PSM",
+                "CMU-CSO-UVM",
+                "FRC-APP-FIA",
+                "IVV-CSO-FIA",
+                "SDR-CSX-KMT",
+                "VER-TFR-IRI",
+                "VER-TFR-MRH",
+                "VER-TFR-NRI"
+              ],
+              "force": "MAY",
+              "affects": ["Providers"],
+              "terms": [
+                "Certification Data",
+                "FedRAMP Independent Assessment",
+                "Incident",
+                "Provider",
+                "Quarterly Review",
+                "Security Decision Record (SDR)",
+                "Validation",
+                "Verification",
+                "Vulnerability"
               ],
               "updated": [
                 {
@@ -4063,7 +4174,7 @@
               "name": "FedRAMP Ready Conversion",
               "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
               "notes": [
-                "The simplest conversion in most cases would be to a FedRAMP Rev5 Class A Certification.",
+                "The simplest conversion in most cases would be to a FedRAMP 20x Class A Certification.",
                 "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready."
               ],
               "force": "MUST",
@@ -4198,8 +4309,7 @@
                 "default": "2027-06-01",
                 "until_next_assessment": false
               }
-            },
-            "signup_url": "ADDME"
+            }
           }
         }
       },
@@ -5515,10 +5625,6 @@
             "IVV-CSF-AIA": {
               "name": "Annual Independent Assessments for Rev5",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers MUST NOT obtain a FedRAMP Rev5 Class A Certification.",
-                  "force": "MUST NOT"
-                },
                 "b": {
                   "statement": "Providers with Rev5 Class B Certifications MUST include the following Rev5 Controls in a FedRAMP independent assessment at least once per year:",
                   "following_information": [
@@ -5858,8 +5964,7 @@
                 "default": "2027-01-01",
                 "until_next_assessment": true
               }
-            },
-            "signup_url": "ADDME"
+            }
           }
         }
       },
@@ -7010,8 +7115,7 @@
                 "default": "2027-06-01",
                 "until_next_assessment": false
               }
-            },
-            "signup_url": "ADDME"
+            }
           }
         }
       },
@@ -7608,8 +7712,7 @@
                 "default": "2027-08-01",
                 "until_next_assessment": true
               }
-            },
-            "signup_url": "ADDME"
+            }
           },
           "subsets": {
             "CSF": {
@@ -7861,8 +7964,7 @@
                 "default": "2028-01-01",
                 "until_next_assessment": false
               }
-            },
-            "signup_url": "ADDME"
+            }
           }
         }
       },
@@ -8613,12 +8715,6 @@
             "VDR-TFR-MVF": {
               "name": "Persistent Machine Verification and Validation for Rev5",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers of FedRAMP Rev5 Class A offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
-                  "force": "SHOULD",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1
-                },
                 "b": {
                   "statement": "Providers of FedRAMP Rev5 Class B offerings SHOULD verify and validate the status of machine-based information resources at least once every month.",
                   "force": "SHOULD",
@@ -8851,6 +8947,13 @@
               "note": "This is related to the Presumption of Adequacy directed by 44 USC § 3613 (e).",
               "force": "SHOULD NOT",
               "affects": ["Agencies"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov"
+                }
+              ],
               "terms": [
                 "Agency",
                 "FedRAMP Certified",
