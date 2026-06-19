@@ -7938,6 +7938,19 @@
         "purpose": "The Vulnerability Detection and Response rules require providers to continuously identify, analyze, prioritize, mitigate, and remediate vulnerabilities and related exposures through automated systems. These rules give providers flexibility in implementation while ensuring agencies receive the information needed to support ongoing authorization decisions.",
         "status": "stable",
         "tag": "boundary",
+        "effective": {
+          "is": "required",
+          "current_status": "Mandated by CISA BOD 26-04",
+          "date": {
+            "obtain": "2026-12-07",
+            "maintain": "2026-12-07",
+            "optional_adoption": "2026-07-04",
+            "grace": {
+              "default": "2027-03-07",
+              "until_next_assessment": false
+            }
+          }
+        },
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -7957,36 +7970,6 @@
               "paths": ["Program", "Agency"],
               "classes": ["B", "C", "D"],
               "affects": ["Providers"]
-            }
-          }
-        },
-        "20x": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "optional_adoption": "2026-07-04",
-              "grace": {
-                "default": "2027-01-01",
-                "until_next_assessment": true
-              }
-            }
-          }
-        },
-        "rev5": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-06-01",
-              "optional_adoption": "2026-07-04",
-              "grace": {
-                "default": "2028-01-01",
-                "until_next_assessment": false
-              }
             }
           }
         }
@@ -8784,6 +8767,19 @@
         "purpose": "The Vulnerability Evaluation and Reporting rules require cloud service providers to determine when vulnerabilities are likely to impact federal customers and report the status of such vulnerabilities to all necessary parties.",
         "status": "stable",
         "tag": "assurance",
+        "effective": {
+          "is": "required",
+          "current_status": "Mandated by CISA BOD 26-04",
+          "date": {
+            "obtain": "2026-12-07",
+            "maintain": "2026-12-07",
+            "optional_adoption": "2026-07-04",
+            "grace": {
+              "default": "2027-03-07",
+              "until_next_assessment": false
+            }
+          }
+        },
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -8834,37 +8830,6 @@
               "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
-          }
-        },
-        "20x": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "optional_adoption": "2026-07-04",
-              "grace": {
-                "default": "2027-01-01",
-                "until_next_assessment": true
-              }
-            }
-          }
-        },
-        "rev5": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-06-01",
-              "optional_adoption": "2026-07-04",
-              "grace": {
-                "default": "2028-01-01",
-                "until_next_assessment": false
-              }
-            },
-            "signup_url": "ADDME"
           }
         }
       },
