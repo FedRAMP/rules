@@ -5480,7 +5480,8 @@
           "IAS": {
             "IVV-IAS-VIM": {
               "name": "Verify Implementation",
-              "statement": "Assessors MUST verify that the measures implemented by the cloud service offering matches the  measures they documented to meet FedRAMP Practices.",
+              "statement": "Assessors MUST verify that the measures implemented by the cloud service offering matches the measures they documented to meet FedRAMP Practices.",
+              "note": "This requires reviewing the actual measures themselves at a technical level, such as reviewing underlying code as appropriate; don't simply review documentation or screenshots.",
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": [
@@ -5499,6 +5500,7 @@
             "IVV-IAS-VEF": {
               "name": "Validate Effectiveness",
               "statement": "Assessors MUST validate the effectiveness of the implemented measures to ensure they have the intended outcome for meeting FedRAMP Practices.",
+              "note": "This requires reviewing the actual measures themselves at a technical level, such as reviewing underlying code as appropriate; don't simply review documentation or screenshots.",
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": ["Assessor", "FedRAMP Practices", "Validation"],
