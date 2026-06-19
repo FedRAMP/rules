@@ -2550,7 +2550,7 @@
                 "Overview of documentation supplied by the provider for the cloud service offering",
                 "Link to Trust Center landing page that includes instructions on accessing information in the trust center",
                 "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))",
-                "Current FedRAMP Recognized Independent Assessment Service"
+                "Current FedRAMP Recognized independent assessment service"
               ],
               "note": "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
               "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
@@ -4026,25 +4026,25 @@
               "name": "Fresh Independent Assessment",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers seeking Class A Certification MAY supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "statement": "Providers seeking Class A Certification MAY supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized independent assessment service within the previous 3 months.",
                   "force": "MAY",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "b": {
-                  "statement": "Providers seeking Class B Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "statement": "Providers seeking Class B Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized independent assessment service within the previous 3 months.",
                   "force": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "c": {
-                  "statement": "Providers seeking Class C Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "statement": "Providers seeking Class C Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized independent assessment service within the previous 3 months.",
                   "force": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
                 },
                 "d": {
-                  "statement": "Providers seeking Class D Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "statement": "Providers seeking Class D Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized independent assessment service within the previous 3 months.",
                   "force": "MUST",
                   "timeframe_type": "months",
                   "timeframe_num": 3
@@ -6468,7 +6468,7 @@
         "name": "FedRAMP Recognition of Independent Assessment Services",
         "short_name": "REC",
         "web_name": "fedramp-recognition",
-        "purpose": "The FedRAMP Recognition of Independent Assessment Services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
+        "purpose": "The FedRAMP Recognition of independent assessment services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
         "status": "stable",
         "tag": "other",
         "effective": {
