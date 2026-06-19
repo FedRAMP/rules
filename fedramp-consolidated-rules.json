@@ -2450,7 +2450,7 @@
         "name": "Certification Data Sharing",
         "short_name": "CDS",
         "web_name": "certification-data-sharing",
-        "purpose": "The Certification Data Sharing rules allow providers to store and share FedRAMP certification information through the platform they choose as long as it follows FedRAMP rules for access, accuracy, and transparency. This helps customers and the public review consistent, current security and compliance information while recognizing that the information usually remains the provider's intellectual property and is not federal information.",
+        "purpose": "The Certification Data Sharing rules allow providers to store and share FedRAMP Certification Data through the platform they choose as long as it follows FedRAMP rules for access, accuracy, and transparency. This helps customers and the public review consistent, current security and compliance information while recognizing that the information usually remains the provider's intellectual property and is not federal information.",
         "status": "stable",
         "tag": "boundary",
         "subsets": {
@@ -2629,7 +2629,7 @@
               ]
             },
             "CDS-CSO-FRC": {
-              "name": "FedRAMP Certification Information",
+              "name": "FedRAMP Certification Reports",
               "statement": "Providers MUST include FedRAMP Certification Reports with their FedRAMP Certification Data without inappropriate modifications, and make such reports available within 2 weeks of receiving the materials from FedRAMP.",
               "note": "FedRAMP provides Certification Reports for all cloud service offerings following the Program Certification path as part of the initial and ongoing FedRAMP Certification process, and may provide Certification Reports for cloud service offerings following the Agency Certification path.",
               "force": "MUST",
