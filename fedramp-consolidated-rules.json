@@ -1690,7 +1690,7 @@
             },
             "AGU-USE-RCF": {
               "name": "Resolve Certification Package Conflicts",
-              "statement": "Agencies MUST collaborate with FedRAMP when discrepancies or conflicts arise between agency-specific security determinations and the baseline FedRAMP Certification package.",
+              "statement": "Agencies MUST collaborate with FedRAMP when discrepancies or conflicts arise between agency-specific security determinations and the baseline FedRAMP Certification Package.",
               "force": "MUST",
               "affects": ["Agencies"],
               "terms": ["Agency", "Certification Package"],
@@ -3028,7 +3028,7 @@
             },
             "CDS-UTC-AGA": {
               "name": "Agency Access",
-              "statement": "Providers SHOULD supply access to the FedRAMP Certification package with agencies upon request.",
+              "statement": "Providers SHOULD supply access to the FedRAMP Certification Package with agencies upon request.",
               "force": "SHOULD",
               "affects": ["Providers"],
               "artifacts": {
@@ -6125,7 +6125,7 @@
             },
             "MAS-CSO-SUP": {
               "name": "Supplemental Information",
-              "statement": "Providers MAY include additional materials about other information resources that are not part of the cloud service offering in a FedRAMP Certification package supplement; these resources will not be FedRAMP Certified and MUST be clearly marked and separated from the cloud service offering.",
+              "statement": "Providers MAY include additional materials about other information resources that are not part of the cloud service offering in a FedRAMP Certification Package supplement; these resources will not be FedRAMP Certified and MUST be clearly marked and separated from the cloud service offering.",
               "note": "This is intended to allow inclusion of things like security materials for apps, supplemental marketing collateral, and other information that is not part of the cloud service offering but may be useful to agencies.",
               "force": "MAY",
               "affects": ["Providers"],
@@ -6878,7 +6878,7 @@
             },
             "SCG-CSO-AUP": {
               "name": "Use Instructions",
-              "statement": "Providers MUST include instructions in the FedRAMP Certification package that explain how to obtain and use the Secure Configuration Guide.",
+              "statement": "Providers MUST include instructions in the FedRAMP Certification Package that explain how to obtain and use the Secure Configuration Guide.",
               "note": "These instructions may appear in a variety of ways; it is up to the provider to do so in the most appropriate and effective ways for their specific customer needs.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -7193,7 +7193,7 @@
             "SCN-CSO-MAR": {
               "name": "Maintain Audit Records",
               "statement": "Providers MUST maintain auditable records of the significant change evaluation activities required by SCN-CSO-EVA (Evaluate Changes) and make them available to FedRAMP as requested.",
-              "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification package by default and do not need to be emailed to FedRAMP continuously.",
+              "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification Package by default and do not need to be emailed to FedRAMP continuously.",
               "related": ["SCN-CSO-EVA"],
               "force": "MUST",
               "affects": ["Providers"],
@@ -7309,7 +7309,7 @@
             },
             "SCN-CSO-NOM": {
               "name": "Notification Mechanisms",
-              "statement": "Providers MAY notify necessary parties in a variety of ways as long as the mechanism for notification is clearly documented in the FedRAMP Certification package and easily accessible.",
+              "statement": "Providers MAY notify necessary parties in a variety of ways as long as the mechanism for notification is clearly documented in the FedRAMP Certification Package and easily accessible.",
               "notes": [
                 "The sharing mechanism should be designed based on the needs of the provider and their customers and may vary between providers.",
                 "The default sharing mechanism for most providers during the SCN beta was to send an email to agency customers and upload a copy of the notification to the provider's secure sharing location."
@@ -7330,7 +7330,7 @@
             "SCN-CSO-EMG": {
               "name": "Emergency Changes",
               "statement": "Providers MAY execute significant changes (including transformative changes) during an emergency or incident without following the Significant Change Notification rules in advance. In such emergencies, providers MUST follow all relevant procedures, notify all necessary parties, retroactively provide all Significant Change Notification materials, and complete appropriate assessment after the incident.",
-              "note": "Procedures for emergency changes should be documented in the FedRAMP Certification package.",
+              "note": "Procedures for emergency changes should be documented in the FedRAMP Certification Package.",
               "force": "MAY",
               "affects": ["Providers"],
               "terms": [
@@ -7608,7 +7608,7 @@
             "SCN-TRF-UPD": {
               "name": "Update Documentation",
               "statement": "Providers MUST publish updated service documentation and other materials to reflect transformative changes within 30 business days after finishing transformative changes.",
-              "note": "This requirement is focused on service documentation like user guides, information listed in the marketplace, and other such materials; it does not require updating the system security plan or FedRAMP Certification package.",
+              "note": "This requirement is focused on service documentation like user guides, information listed in the marketplace, and other such materials; it does not require updating the system security plan or FedRAMP Certification Package.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
