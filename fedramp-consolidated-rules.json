@@ -340,6 +340,24 @@
             }
           ]
         },
+        "FRD-FCR": {
+          "term": "FedRAMP Certification Report",
+          "definition": "A report that is produced by FedRAMP documenting the results of a FedRAMP Certification assessment. This report is typically produced after the initial FedRAMP Certification assessment on the Program Certification Path and updated as necessary during ongoing FedRAMP Certification, but may be produced at any time by FedRAMP as part of ongoing FedRAMP Certification activities for any cloud service offering (such as corrective action). Cloud service offerings must include these reports in their FedRAMP Certification Package.",
+          "tag": "Certification",
+          "alts": [
+            "FedRAMP Certification Report",
+            "FedRAMP certification report",
+            "certification report"
+          ],
+          "reference": "FedRAMP Certification Act (44 USC § 3608)",
+          "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-FCT": {
           "term": "FedRAMP Certified",
           "definition": "The status of a cloud service offering that has received FedRAMP Certification and meets the legal requirement to be FedRAMP authorized.",
@@ -1712,6 +1730,7 @@
               "terms": [
                 "Agency",
                 "Certification Data",
+                "FedRAMP Certification Report",
                 "Likely",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
@@ -1733,6 +1752,7 @@
               "terms": [
                 "Agency",
                 "Cloud Service Offering",
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)"
               ],
@@ -1776,6 +1796,7 @@
               "terms": [
                 "Agency",
                 "Certification Data",
+                "FedRAMP Certification Report",
                 "Likely",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
@@ -1927,6 +1948,7 @@
               "terms": [
                 "Agency",
                 "Cloud Service Offering",
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)"
               ],
@@ -2026,6 +2048,7 @@
                 "All Necessary Parties",
                 "Certification Data",
                 "Cloud Service Offering",
+                "FedRAMP Certification Report",
                 "FedRAMP Reportable Incident",
                 "Incident",
                 "Ongoing Certification",
@@ -2048,6 +2071,7 @@
               "affects": ["Providers"],
               "terms": [
                 "Certification Data",
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider"
@@ -2070,6 +2094,7 @@
               },
               "terms": [
                 "All Necessary Parties",
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider"
@@ -2092,6 +2117,7 @@
               },
               "terms": [
                 "Agency",
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider"
@@ -2110,6 +2136,7 @@
               "affects": ["Providers"],
               "terms": [
                 "Cloud Service Offering",
+                "FedRAMP Certification Report",
                 "Likely",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
@@ -2148,6 +2175,7 @@
               "affects": ["Providers"],
               "terms": [
                 "Cloud Service Offering",
+                "FedRAMP Certification Report",
                 "Likely",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
@@ -2283,6 +2311,7 @@
               "force": "SHOULD",
               "affects": ["Providers"],
               "terms": [
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
@@ -2513,6 +2542,7 @@
               },
               "terms": [
                 "Cloud Service Offering",
+                "FedRAMP Certification Report",
                 "FedRAMP Recognized",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
@@ -2559,6 +2589,28 @@
               "affects": ["Providers"],
               "terms": [
                 "Certification Data",
+                "Cloud Service Offering",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "CDS-CSO-FRC": {
+              "name": "FedRAMP Certification Information",
+              "statement": "Providers MUST include FedRAMP Certification Reports with their FedRAMP Certification Data without inappropriate modifications, and make such reports available within 2 weeks of receiving the materials from FedRAMP.",
+              "note": "FedRAMP provides Certification Reports for all cloud service offerings following the Program Certification path as part of the initial and ongoing FedRAMP Certification process, and may provide Certification Reports for cloud service offerings following the Agency Certification path.",
+              "force": "MUST",
+              "affects": ["Providers"],
+              "timeframe_type": "weeks",
+              "timeframe_num": 2,
+              "terms": [
+                "Agency",
+                "Certification Data",
+                "Certification Path",
                 "Cloud Service Offering",
                 "Provider"
               ],
@@ -2720,6 +2772,7 @@
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
+                "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
@@ -3627,7 +3680,7 @@
           "CLA": {
             "FRC-CLA-ASF": {
               "name": "Approved Alternative Security Frameworks",
-              "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment if applicable, from one of the following alternative security frameworks:",
+              "statement": "Providers seeking a FedRAMP Class A Certification MUST have completed a certification or equivalent process, including an independent assessment if applicable, from one of the following alternative security frameworks within the past 12 months:",
               "following_information": [
                 "FedRAMP Rev5 (including FedRAMP Ready) at any historical Impact Level",
                 "SOC 2 Type II",
@@ -3645,14 +3698,15 @@
             },
             "FRC-CLA-EAM": {
               "name": "External Assessment Materials",
-              "statement": "Providers seeking a FedRAMP Class A Certification MUST supply the full materials from the alternative security assessment to all necessary parties as part of the FedRAMP Certification Package.",
+              "statement": "Providers seeking a FedRAMP Class A Certification MUST supply the following materials from their alternative security framework assessment to all necessary parties:",
+              "following_information": [
+                "SOC 2 Type II: Complete report, bridge or gap letter (if applicable), verified audit engagement documentation, estimated schedule for upcoming report, supplemental compliance evidence (if applicable)",
+                "FedRAMP Ready: Readiness Assessment Report, Security Assessment Plan, and any other materials required by FedRAMP.",
+                "GovRAMP: Readiness Assessment Report, Security Assessment Plan, and any other materials required by GovRAMP."
+              ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": [
-                "All Necessary Parties",
-                "Certification Package",
-                "Provider"
-              ],
+              "terms": ["All Necessary Parties", "Provider", "Verification"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -3682,6 +3736,7 @@
                 "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
                 "Key Security Indicators: KSI-IAM-AAM (Automating Account Management)",
+                "Key Security Indicators: KSI-IAM-APM (Adopting Passwordless Methods)",
                 "Key Security Indicators: KSI-INR-RIR (Reviewing Incident Response Procedures)",
                 "Key Security Indicators: KSI-SVC-SIN (Securing Information)"
               ],
@@ -3710,7 +3765,8 @@
                 "KSI-CED-RAT",
                 "KSI-IAM-AAM",
                 "KSI-INR-RIR",
-                "KSI-SVC-SIN"
+                "KSI-SVC-SIN",
+                "KSI-IAM-APM"
               ],
               "force": "MUST",
               "affects": ["Providers"],
