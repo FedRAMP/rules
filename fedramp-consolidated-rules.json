@@ -931,6 +931,21 @@
             }
           ]
         },
+        "FRD-SDR": {
+          "term": "Security Decision Record (SDR)",
+          "definition": "A persistently maintained, verified, and validated record of the security decisions made by a provider over the lifecycle of a cloud service offering. The Security Decision Record replaces the traditional System Security Plan and documents how applicable FedRAMP Practices are addressed, including implementation rationale, resulting customer risk, assessment findings, and supporting artifacts.",
+          "alts": [
+            "security decision record",
+            "security decision records",
+            "SDR"
+          ],
+          "updated": [
+            {
+              "date": "2026-07-04",
+              "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+            }
+          ]
+        },
         "FRD-SGC": {
           "term": "Significant Change",
           "definition": "Has the meaning given in NIST SP 800-37 Rev. 2 which is \"a change that is likely to substantively affect the security or privacy posture of a system.\"",
@@ -3969,13 +3984,52 @@
             }
           },
           "CCL": {
-            "FRC-CCL-PLC": {
-              "name": "Placeholder on Changing Certification Class",
-              "statement": "Providers MUST do things properly in order to change their FedRAMP Certification Class.",
-              "note": "This is a placeholder rule that must be updated!",
+            "FRC-CCL-UCC": {
+              "name": "Upgrading Certification Class",
+              "statement": "Providers MUST apply for a new FedRAMP Certification to upgrade their Certification Class; all applicable requirements MUST be met in advance.",
+              "notes": [
+                "Upgrade paths include moving from A to B, C, or D; B to C or D; and C to D.",
+                "The preferred path is to incrementally update the implementation and assurance commitments within the current Certification Class until the provider has met all requirements for the target Certification Class, then apply for the new Certification Class."
+              ],
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Certification Class", "Provider"],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-CCL-DCC": {
+              "name": "Downgrading Certification Class",
+              "statement": "Providers MUST apply for a new FedRAMP Certification to downgrade their Certification Class.",
+              "notes": [
+                "Downgrade paths include moving from D to C, B, or A; C to B or A; or B to A.",
+                "FRC-CCL-DNP (Downgrade Notification Period) applies - please DO NOT downgrade Certification Class with providing advance notification to all necessary parties!"
+              ],
+              "related": ["FRC-CCL-DNP"],
+              "force": "MUST",
+              "affects": ["Providers"],
+              "terms": [
+                "All Necessary Parties",
+                "Certification Class",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-30",
+                  "comment": "Initial reset for the Consolidated Rules for 2026 Public Preview."
+                }
+              ]
+            },
+            "FRC-CCL-DNP": {
+              "name": "Downgrade Notification Period",
+              "statement": "Providers SHOULD notify all necessary parties at least 120 days in advance of an intended downgrade or cancellation of FedRAMP Certification.",
+              "note": "Downgrading or canceling FedRAMP Certification will have severe negative consequences for the provider and their agency customers and should only be done after careful consideration and planning... but if it must be done, notify all necessary parties as soon as possible.",
+              "force": "SHOULD",
+              "affects": ["Providers"],
+              "terms": ["Agency", "All Necessary Parties", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -5321,7 +5375,12 @@
               "note": "FedRAMP does not require a separate Security Assessment Plan or Security Assessment Report for FedRAMP 20x or FedRAMP Rev5 Certifications; this information is expected to be included in the Security Decision Record by the cloud service provider.",
               "force": "MUST",
               "affects": ["Assessors"],
-              "terms": ["Assessor", "Cloud Service Offering", "Provider"],
+              "terms": [
+                "Assessor",
+                "Cloud Service Offering",
+                "Provider",
+                "Security Decision Record (SDR)"
+              ],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -7586,7 +7645,13 @@
                 "name": "FedRAMP Security Decision Record Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
               },
-              "terms": ["Artifacts", "Provider", "Validation", "Verification"],
+              "terms": [
+                "Artifacts",
+                "Provider",
+                "Security Decision Record (SDR)",
+                "Validation",
+                "Verification"
+              ],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -7604,7 +7669,7 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Provider"],
+              "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -7679,7 +7744,7 @@
                 "name": "FedRAMP Security Decision Record Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
               },
-              "terms": ["Provider"],
+              "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
                 {
                   "date": "2026-06-30",
@@ -10157,7 +10222,7 @@
         },
         "KSI-RPL-RRO": {
           "name": "Reviewing Recovery Objectives",
-          "statement": "The desired Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) are persistently reviewed for alignment with the provider's business needs and capabilities.",
+          "statement": "The desired Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) are defined and persistently reviewed for alignment with the provider's business needs and capabilities.",
           "controls": ["cp-2.3", "cp-10"],
           "updated": [
             {
