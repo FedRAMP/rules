@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.15.01-preview",
-    "last_updated": "2026-06-15",
+    "version": "2026.06.19.01-preview",
+    "last_updated": "2026-06-19",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -2123,7 +2123,7 @@
             },
             "CCM-OCR-AFS": {
               "name": "Anonymized Feedback Summary",
-              "statement": "Providers MUST supply an anonymized and desensitized summary of the feedback, questions, and answers about each Ongoing Certification Report as an addendum to the Ongoing Certification Report.",
+              "statement": "Providers MUST supply an anonymized and desensitized summary of the feedback, questions, and answers about each Ongoing Certification Report as an addendum to the Ongoing Certification Report OR in the next Ongoing Certification Report.",
               "note": "This is intended to encourage sharing of information and decrease the burden on the cloud service provider - providing this summary will reduce duplicate questions from agencies and ensure FedRAMP has access to this information. It is generally in the provider's interest to update this addendum frequently throughout the quarter.",
               "force": "MUST",
               "affects": ["Providers"],
@@ -2777,8 +2777,8 @@
             },
             "CDS-CSO-HAD": {
               "name": "Historical FedRAMP Certification Data",
-              "statement": "Providers MUST supply historical versions of FedRAMP Certification Data for three years to all necessary parties UNLESS otherwise specified by applicable FedRAMP rules; deltas between versions MAY be consolidated quarterly.",
-              "note": "Consolidating changes quarterly means that the historical status at the end of each quarter or at the time of the Ongoing Certification Report or Quarterly Review is sufficient, instead of maintaining separate versions with every single change that took place throughout the quarter.",
+              "statement": "Providers MUST supply snapshots of FedRAMP Certification Data aligned to Ongoing Certification Reports to all necessary parties; these snapshots MUST be available for the duration of FedRAMP Certification.",
+              "note": "Historical snapshots do not need to be reconstructed for periods before the provider's first Ongoing Certification Report, but should be maintained for all subsequent Ongoing Certification Reports.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -2790,8 +2790,7 @@
                 "FedRAMP Certification Report",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
-                "Provider",
-                "Quarterly Review"
+                "Provider"
               ],
               "updated": [
                 {
@@ -3070,7 +3069,7 @@
         "short_name": "CMU",
         "web_name": "cryptographic-module-use",
         "purpose": "The Cryptographic Module Use rules clarify how providers should select and use cryptographic modules. These rules allow risk-based decisions for some services while still encouraging validated cryptographic modules whenever they are technically feasible and reasonable.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "boundary",
         "subsets": {
           "CSO": {
@@ -3213,7 +3212,7 @@
         "short_name": "CPO",
         "web_name": "certification-package-overview",
         "purpose": "The Certification Package Overview rules outline the expectations for a simple overview of the cloud service offering that must be included within a FedRAMP Certification Package. This overview replaces the historically required base System Security Plan for FedRAMP Rev5 and is intended to provide a clear, concise, and consistent summary of the offering and the information included in the package to help customers understand the offering at a high level.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "materials",
         "subsets": {
           "CSO": {
@@ -3462,7 +3461,7 @@
         "short_name": "FRC",
         "web_name": "fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain and maintain FedRAMP Certification across certification classes and paths.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "other",
         "subsets": {
           "CSO": {
@@ -3740,6 +3739,7 @@
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
                 "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
                 "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
+                "Certification Data Sharing: CDS-CSO-AVR (Availability Reporting)",
                 "Addressing FedRAMP Communication: AFC-CSO-INB (Maintain a FedRAMP Security Inbox)",
                 "Addressing FedRAMP Communication: AFC-CSO-RCV (Receive Email Without Disruption)",
                 "Addressing FedRAMP Communication: AFC-CSO-CRA (Complete Required Actions)",
@@ -3781,7 +3781,8 @@
                 "KSI-IAM-AAM",
                 "KSI-INR-RIR",
                 "KSI-SVC-SIN",
-                "KSI-IAM-APM"
+                "KSI-IAM-APM",
+                "CDS-CSO-AVR"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -4085,7 +4086,7 @@
         "short_name": "IEC",
         "web_name": "incident-evaluation-and-communication",
         "purpose": "The Incident Evaluation and Communication rules explain how providers must communicate incident information to FedRAMP and government customers when they are affected by an incident or likely to be affected by an incident.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "assurance",
         "subsets": {
           "FRP": {
@@ -5068,7 +5069,7 @@
         "short_name": "IVV",
         "web_name": "independent-verification-and-validation",
         "purpose": "This ruleset explains the expectations for independent verification and validation assessments.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "assurance",
         "subsets": {
           "CSO": {
@@ -6018,7 +6019,7 @@
         "short_name": "MKT",
         "web_name": "marketplace-listing",
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "other",
         "subsets": {
           "FRP": {
@@ -6345,7 +6346,7 @@
         "short_name": "REC",
         "web_name": "fedramp-recognition",
         "purpose": "The FedRAMP Recognition of Independent Assessment Services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
-        "status": "placeholder",
+        "status": "stable",
         "tag": "other",
         "effective": {
           "is": "required",
@@ -7554,7 +7555,7 @@
         "short_name": "SDR",
         "web_name": "security-decision-record",
         "purpose": "The Security Decision Record replaced a traditional System Security Plan with a persistently maintained, verified, and validated record of the security decisions made by the cloud service provider over the lifecycle of their cloud service offering.",
-        "status": "empty",
+        "status": "stable",
         "tag": "materials",
         "subsets": {
           "CSO": {
