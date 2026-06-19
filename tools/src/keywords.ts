@@ -1,9 +1,18 @@
 import { visitRequirements } from "./traversal";
+import { loadSchemaDocument } from "./rules";
+import { requireStringEnum } from "./schema-metadata";
+import type { ClassKey } from "./types";
 import type { RulesDocument, ValidationIssue } from "./types";
 
-const KEYWORDS = ["MUST NOT", "SHOULD NOT", "MUST", "SHOULD", "MAY"] as const;
+const SCHEMA_DOCUMENT = loadSchemaDocument();
+const KEYWORDS = requireStringEnum(SCHEMA_DOCUMENT, "#/$defs/force_enum").sort(
+  (left, right) => right.length - left.length,
+);
 const KEYWORD_REGEX = new RegExp(`\\b(${KEYWORDS.join("|")})\\b`);
-const CLASS_KEYS = ["a", "b", "c", "d"] as const;
+const CLASS_KEYS = requireStringEnum(
+  SCHEMA_DOCUMENT,
+  "#/$defs/class_key",
+) as ClassKey[];
 
 function validateRequirementObject(
   obj: { statement?: string; force?: string } | undefined,

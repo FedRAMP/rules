@@ -6,8 +6,6 @@ import type {
   RulesDocument,
 } from "./types";
 
-const CLASS_KEYS = ["a", "b", "c", "d"] as const;
-
 export interface RequirementVisit {
   id: string;
   location: string;
@@ -25,9 +23,15 @@ export function getDefinitionEntries(document: RulesDocument): Array<{
   source: string;
   definition: DefinitionEntry;
 }> {
-  const entries: Array<{ id: string; source: string; definition: DefinitionEntry }> = [];
+  const entries: Array<{
+    id: string;
+    source: string;
+    definition: DefinitionEntry;
+  }> = [];
 
-  for (const [scopeKey, definitions] of Object.entries(document.FRD.data ?? {})) {
+  for (const [scopeKey, definitions] of Object.entries(
+    document.FRD.data ?? {},
+  )) {
     for (const [id, definition] of Object.entries(definitions ?? {})) {
       entries.push({
         id,
@@ -65,7 +69,12 @@ export function visitIndicators(
 ): void {
   for (const [themeKey, theme] of Object.entries(document.KSI ?? {})) {
     const indicators = Array.isArray(theme.indicators)
-      ? Object.fromEntries(theme.indicators.map((indicator, index) => [`${theme.id}-${index}`, indicator]))
+      ? Object.fromEntries(
+          theme.indicators.map((indicator, index) => [
+            `${theme.id}-${index}`,
+            indicator,
+          ]),
+        )
       : theme.indicators;
 
     for (const [id, indicator] of Object.entries(indicators ?? {})) {
@@ -104,8 +113,8 @@ export function getSearchableTextParts(entity: {
     parts.push(...entity.following_information_bullets);
   }
   if (entity.varies_by_class) {
-    for (const classKey of CLASS_KEYS) {
-      const statement = entity.varies_by_class[classKey]?.statement;
+    for (const classEntry of Object.values(entity.varies_by_class)) {
+      const statement = classEntry?.statement;
       if (statement) {
         parts.push(statement);
       }

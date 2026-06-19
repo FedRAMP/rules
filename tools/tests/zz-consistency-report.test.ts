@@ -4,7 +4,7 @@ import {
   collectConsistencyChecks,
   collectDuplicateRuleIdIssues,
   collectDuplicateRuleNameIssues,
-  collectFrr20xSubsetApplicabilityWarnings,
+  collectAuditHistoryIssues,
   collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
   collectFrrSubsetForceOrderWarnings,
@@ -108,6 +108,35 @@ test("duplicate rule names fail consistency validation", () => {
       message:
         'requirement name "Shared Rule Name" appears in multiple locations: ' +
         "FRR.ABC.data.all.CSO.ABC-CSO-001, FRR.ABC.data.all.CSO.ABC-CSO-002.",
+    },
+  ]);
+});
+
+test("updated histories use the order defined outside the schema", () => {
+  const document = {
+    FRD: {
+      data: {
+        all: {
+          "FRD-TST": {
+            term: "Test",
+            definition: "Test definition.",
+            updated: [
+              { date: "2025-01-01", comment: "Older change." },
+              { date: "2026-01-01", comment: "Newer change." },
+            ],
+          },
+        },
+      },
+    },
+    FRR: {},
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectAuditHistoryIssues(document)).toEqual([
+    {
+      location: "FRD.data.all.FRD-TST.updated",
+      message:
+        "updated history must be sorted newest-first; found 2025-01-01, 2026-01-01.",
     },
   ]);
 });
@@ -254,48 +283,6 @@ test("FRR subset applicability affects require a populated affects array when ru
         "Expected: FedRAMP.",
     },
   ]);
-});
-
-test("X-suffix FRR subsets warn unless they are 20x Program only", () => {
-  const document = {
-    FRR: {
-      ABC: {
-        info: {
-          subsets: {
-            CSX: {
-              name: "20x Provider",
-              description: "20x subset.",
-              applicability: {
-                types: ["20x", "Rev5"],
-                paths: ["Program", "Agency"],
-                classes: ["A", "B", "C", "D"],
-                affects: ["Providers"],
-              },
-            },
-          },
-        },
-        data: {},
-      },
-    },
-  } as unknown as RulesDocument;
-
-  expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([
-    {
-      location: "FRR.ABC.info.subsets.CSX.applicability.types",
-      message:
-        "20x-specific subset warning: subset CSX ends in X, so applicability.types should only include 20x; found: 20x, Rev5.",
-    },
-    {
-      location: "FRR.ABC.info.subsets.CSX.applicability.paths",
-      message:
-        "20x-specific subset warning: subset CSX ends in X, so applicability.paths should only include Program; found: Program, Agency.",
-    },
-  ]);
-
-  (document.FRR.ABC!.info as any).subsets.CSX.applicability.types = ["20x"];
-  (document.FRR.ABC!.info as any).subsets.CSX.applicability.paths = ["Program"];
-
-  expect(collectFrr20xSubsetApplicabilityWarnings(document)).toEqual([]);
 });
 
 test("FRR unused subset warnings detect subset declarations without rules", () => {

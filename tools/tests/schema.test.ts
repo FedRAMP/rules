@@ -163,6 +163,31 @@ test("the consolidated rules document matches the configured schema", () => {
   expect(result.valid).toBe(true);
 });
 
+test("the schema does not contain custom extension keywords", () => {
+  const extensionKeywords: string[] = [];
+
+  function visit(value: unknown, path: string): void {
+    if (Array.isArray(value)) {
+      value.forEach((entry, index) => visit(entry, `${path}[${index}]`));
+      return;
+    }
+    if (!isRecord(value)) {
+      return;
+    }
+
+    for (const [key, child] of Object.entries(value)) {
+      const childPath = path ? `${path}.${key}` : key;
+      if (key.startsWith("x-")) {
+        extensionKeywords.push(childPath);
+      }
+      visit(child, childPath);
+    }
+  }
+
+  visit(loadSchemaDocument(), "");
+  expect(extensionKeywords).toEqual([]);
+});
+
 function expectSchemaAccepts(title: string, document: RulesDocument): void {
   const result = validateSchema(document, loadSchemaDocument());
 
@@ -260,6 +285,138 @@ test("the schema requires FRR subset applicability fields", () => {
   expectSchemaRejects(
     "FRR subset applicability without classes",
     missingFieldDocument,
+  );
+});
+
+test("the schema requires notification names", () => {
+  const document = minimalRulesDocument();
+  (document as any).FRR.ABC.info.subsets = {
+    CSO: subsetDefinition(),
+  };
+  (document as any).FRR.ABC.data = {
+    all: {
+      CSO: {
+        "ABC-CSO-NTF": {
+          name: "Example Notification",
+          statement: "Providers MUST notify FedRAMP.",
+          force: "MUST",
+          affects: ["Providers"],
+          notification: [
+            {
+              party: "FedRAMP",
+              method: "form",
+              target: "https://example.gov/notify",
+              name: "Notification Form",
+            },
+          ],
+          updated: [
+            {
+              date: "2026-01-01",
+              comment: "Added example notification.",
+            },
+          ],
+        },
+      },
+    },
+  };
+
+  expectSchemaAccepts("notification with a name", document);
+
+  delete (document as any).FRR.ABC.data.all.CSO["ABC-CSO-NTF"].notification[0]
+    .name;
+
+  expectSchemaRejects("notification without a name", document);
+});
+
+test("the schema owns requirement vocabularies and scalar constraints", () => {
+  const document = minimalRulesDocument();
+  (document as any).FRR.ABC.info.subsets = {
+    CSO: subsetDefinition(),
+  };
+  const requirement = {
+    name: "Example Requirement",
+    statement: "Providers MUST notify FedRAMP.",
+    force: "MUST",
+    affects: ["Providers"],
+    controls: ["ac-2"],
+    timeframe_type: "days",
+    timeframe_num: 1,
+    notification: [
+      {
+        party: "FedRAMP",
+        method: "form",
+        target: "https://example.gov/notify",
+        name: "Notification Form",
+      },
+    ],
+    updated: [
+      {
+        date: "2026-01-01",
+        comment: "Added example requirement.",
+      },
+    ],
+  };
+  (document as any).FRR.ABC.data = {
+    all: {
+      CSO: {
+        "ABC-CSO-TST": requirement,
+      },
+    },
+  };
+
+  expectSchemaAccepts("requirement using schema vocabularies", document);
+
+  requirement.affects = ["Customers"];
+  expectSchemaRejects("requirement with unsupported affects", document);
+  requirement.affects = ["Providers"];
+
+  requirement.controls = ["AC-2"];
+  expectSchemaRejects("requirement with malformed control ID", document);
+  requirement.controls = ["ac-2"];
+
+  requirement.timeframe_type = "fortnights";
+  expectSchemaRejects("requirement with unsupported timeframe type", document);
+  requirement.timeframe_type = "days";
+
+  delete (requirement as any).timeframe_num;
+  expectSchemaRejects("requirement with incomplete timeframe", document);
+  requirement.timeframe_num = 0;
+  expectSchemaRejects("requirement with non-positive timeframe", document);
+  requirement.timeframe_num = 1;
+
+  requirement.notification[0]!.method = "carrier-pigeon";
+  expectSchemaRejects("notification with unsupported method", document);
+  requirement.notification[0]!.method = "form";
+
+  requirement.notification[0]!.party = "Nobody";
+  expectSchemaRejects("notification with unsupported party", document);
+  requirement.notification[0]!.party = "FedRAMP";
+
+  requirement.updated = [];
+  expectSchemaRejects("requirement without audit history", document);
+});
+
+test("the schema constrains X-suffix subsets to 20x Program applicability", () => {
+  const document = minimalRulesDocument();
+  (document as any).FRR.ABC.info.subsets = {
+    CSX: subsetDefinition({
+      applicability: {
+        types: ["20x", "Rev5"],
+        paths: ["Program", "Agency"],
+        classes: ["A", "B", "C", "D"],
+        affects: ["Providers"],
+      },
+    }),
+  };
+
+  expectSchemaRejects("X-suffix subset with broad applicability", document);
+
+  (document as any).FRR.ABC.info.subsets.CSX.applicability.types = ["20x"];
+  (document as any).FRR.ABC.info.subsets.CSX.applicability.paths = ["Program"];
+
+  expectSchemaAccepts(
+    "X-suffix subset with 20x Program applicability",
+    document,
   );
 });
 

@@ -5,7 +5,9 @@ import {
   fixPropertyOrder,
   formatPropertyOrderReport,
 } from "../src/property-order";
+import { loadOrderConfig } from "../src/order-config";
 import { loadRulesDocument, loadSchemaDocument } from "../src/rules";
+import { requireStringEnum } from "../src/schema-metadata";
 import type { RulesDocument } from "../src/types";
 
 test("the consolidated rules document follows the configured property order", () => {
@@ -19,6 +21,22 @@ test("the consolidated rules document follows the configured property order", ()
   }
 
   expect(issues).toEqual([]);
+});
+
+test("configured FRR subset order covers every schema-allowed subset", () => {
+  const subsetOrder = loadOrderConfig().objectKeys.find(
+    (rule) => rule.by === "explicit" && rule.paths.includes("FRR.*.data.*"),
+  );
+  if (!subsetOrder || subsetOrder.by !== "explicit") {
+    throw new Error("Order config is missing the explicit FRR subset order.");
+  }
+
+  const allowedSubsets = requireStringEnum(
+    loadSchemaDocument(),
+    "#/$defs/frr_data_subset_name",
+  );
+
+  expect([...subsetOrder.keys].sort()).toEqual([...allowedSubsets].sort());
 });
 
 test("property order fixes use schema property order as the source of truth", () => {
@@ -197,7 +215,7 @@ test("property order fixes alphabetize FRR and KSI primary objects", () => {
   expect(Object.keys(fixed.document.KSI)).toEqual(["CMT", "CNA", "MLA"]);
 });
 
-test("property order fixes use schema propertyNames enum order for FRR subsets and subset groups", () => {
+test("property order fixes use configured explicit order for FRR subsets and subset groups", () => {
   const schema = {
     type: "object",
     properties: {
@@ -296,7 +314,7 @@ test("property order fixes use schema propertyNames enum order for FRR subsets a
     {
       path: "FRR.ABC.info.subsets",
       actualOrder: ["IAL", "CSX", "FRP", "UTC"],
-      expectedOrder: ["FRP", "CSX", "UTC", "IAL"],
+      expectedOrder: ["FRP", "CSX", "IAL", "UTC"],
     },
     {
       path: "FRR.ABC.data.all",
@@ -310,8 +328,8 @@ test("property order fixes use schema propertyNames enum order for FRR subsets a
   expect(Object.keys(fixed.document.FRR.ABC!.info.subsets as object)).toEqual([
     "FRP",
     "CSX",
-    "UTC",
     "IAL",
+    "UTC",
   ]);
   expect(Object.keys(fixed.document.FRR.ABC!.data.all!)).toEqual([
     "FRP",

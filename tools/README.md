@@ -31,6 +31,9 @@ The hook runs `bun check` before commits.
 
 All commands read canonical file locations from
 [fedramp-rules.config.json](fedramp-rules.config.json).
+Repository-only ordering rules for dynamic object keys and array items live in
+[order-config.json](order-config.json). Standard object property order is
+derived directly from each schema object's `properties` order.
 
 Current configuration:
 
@@ -64,7 +67,7 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 - force consistency
 - term casing and synchronization
 - schema-driven property ordering
-- alphabetical FRR and KSI primary object ordering
+- config-driven dynamic key and array item ordering
 - update history checks
 - text hygiene
 - class-variant sanity checks
@@ -89,7 +92,7 @@ Runs [fix.ts](fix.ts), which plans and applies fixable normalizations:
 - ID alignment
 - inline rule display names
 - related rule references
-- schema-driven property ordering and alphabetical FRR/KSI primary object ordering
+- schema-driven property ordering and config-driven dynamic key ordering
 
 Useful variants:
 
@@ -154,6 +157,8 @@ Shared implementation:
 
 - [src/config.ts](src/config.ts)
   Resolves repository paths and shared configuration.
+- [src/order-config.ts](src/order-config.ts)
+  Loads repository-only ordering rules from [order-config.json](order-config.json).
 - [src/rules.ts](src/rules.ts)
   Loads, clones, and writes configured rules and schema documents.
 - [src/fix.ts](src/fix.ts)
@@ -169,7 +174,7 @@ Shared implementation:
 - [src/terms.ts](src/terms.ts)
   Term extraction, casing, and synchronization logic.
 - [src/property-order.ts](src/property-order.ts)
-  Schema-driven property-order and FRR/KSI primary object ordering logic.
+  Schema-driven property-order and config-driven dynamic object-key ordering.
 - [src/traversal.ts](src/traversal.ts)
   Shared FRD, FRR, and KSI traversal helpers.
 - [src/types.ts](src/types.ts)

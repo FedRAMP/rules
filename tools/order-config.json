@@ -1,0 +1,66 @@
+{
+  "objectKeys": [
+    {
+      "path": "FRR",
+      "by": "key",
+      "direction": "ascending"
+    },
+    {
+      "path": "KSI",
+      "by": "key",
+      "direction": "ascending"
+    },
+    {
+      "path": "FRD.data.*",
+      "by": "property",
+      "property": "term",
+      "direction": "ascending"
+    },
+    {
+      "paths": ["FRR.*.info.subsets", "FRR.*.info.*.subsets", "FRR.*.data.*"],
+      "by": "explicit",
+      "keys": [
+        "FRP",
+        "AGC",
+        "CSO",
+        "CSF",
+        "CSX",
+        "CSL",
+        "AFR",
+        "IAF",
+        "IAS",
+        "IAX",
+        "IAL",
+        "AGM",
+        "ADP",
+        "BST",
+        "CAS",
+        "ENH",
+        "EVA",
+        "OCR",
+        "IIP",
+        "QTR",
+        "RPT",
+        "RTR",
+        "TFR",
+        "TRC",
+        "TRF",
+        "UTC",
+        "CLA",
+        "APP",
+        "APS",
+        "USE",
+        "SPN",
+        "CCL"
+      ]
+    }
+  ],
+  "arrayItems": [
+    {
+      "path": "**.updated",
+      "by": "property",
+      "property": "date",
+      "direction": "descending"
+    }
+  ]
+}
