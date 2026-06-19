@@ -1208,9 +1208,10 @@
               "timeframe_num": 10,
               "notification": [
                 {
-                  "party": "publicly",
+                  "party": "Everyone",
                   "method": "web",
-                  "target": "fedramp.gov"
+                  "target": "https://www.fedramp.gov/notices",
+                  "name": "FedRAMP Public Notices"
                 }
               ],
               "terms": ["Likely"],
@@ -1308,7 +1309,7 @@
             },
             "AFC-CSO-NOC": {
               "name": "Notification of Changes",
-              "statement": "Providers MUST immediately notify FedRAMP of any changes in addressing for their FedRAMP Security Inbox by emailing info@fedramp.gov with the name and FedRAMP ID of the cloud service offering and the updated email address.",
+              "statement": "Providers MUST immediately notify FedRAMP of any changes to the email address for their FedRAMP Security Inbox.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -1319,15 +1320,12 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51829466938011",
+                  "name": "[CSP] Notification of Changes"
                 }
               ],
-              "terms": [
-                "Cloud Service Offering",
-                "FedRAMP Security Inbox",
-                "Provider"
-              ],
+              "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
                   "date": "2026-06-23",
@@ -1505,18 +1503,19 @@
             },
             "AGU-AGC-NAL": {
               "name": "Notify FedRAMP After Authorization",
-              "statement": "Agencies MUST supply FedRAMP the following information upon authorizing the use of a cloud service within the scope of FedRAMP:",
+              "statement": "Agencies MUST notify FedRAMP upon authorizing the use of a cloud service within the scope of FedRAMP, supplying at least the following information:",
               "following_information": [
                 "A copy of the Authorization to Operate letter",
-                "All other supplementary information outlined at https://help.fedramp.gov/ato"
+                "All other supplementary information outlined in the Submit an ATO Letter form on the FedRAMP Help Center"
               ],
               "force": "MUST",
               "affects": ["Agencies"],
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "ato-letter@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51447926193691",
+                  "name": "Submit an ATO Letter"
                 }
               ],
               "terms": ["Agency"],
@@ -1546,15 +1545,16 @@
             },
             "AGU-AGC-NAI": {
               "name": "Notify Additional Information Requests",
-              "statement": "Agencies MUST notify FedRAMP after requesting any additional information or materials from a FedRAMP Certified cloud service offering beyond those FedRAMP requires.",
+              "statement": "Agencies MUST notify FedRAMP after requesting any additional information or materials from a FedRAMP Certified cloud service offering beyond those required by FedRAMP.",
               "note": "Agencies are expected to notify FedRAMP under OMB Memorandum M-24-15 section IV (a).",
               "force": "MUST",
               "affects": ["Agencies"],
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
+                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
                 }
               ],
               "terms": [
@@ -1579,7 +1579,8 @@
                 {
                   "party": "FedRAMP",
                   "method": "email",
-                  "target": "info@fedramp.gov"
+                  "target": "info@fedramp.gov",
+                  "name": "info@fedramp.gov"
                 }
               ],
               "terms": [
@@ -1605,7 +1606,8 @@
                 {
                   "party": "FedRAMP",
                   "method": "email",
-                  "target": "info@fedramp.gov"
+                  "target": "info@fedramp.gov",
+                  "name": "info@fedramp.gov"
                 }
               ],
               "terms": [
@@ -1738,8 +1740,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51821301979547",
+                  "name": "Report Concerns on Ongoing Certifications"
                 }
               ],
               "terms": [
@@ -1798,14 +1801,15 @@
             },
             "AGU-USE-NPC": {
               "name": "Notify Provider of Concerns",
-              "statement": "Agencies SHOULD formally notify the Provider if information presented in an Ongoing Certification Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
+              "statement": "Agencies SHOULD formally notify the cloud service provider if information presented in an Ongoing Certification Report, Quarterly Review, or other FedRAMP Certification Data causes significant concerns for the authorizing official that would likely result in rescission of their Authorization to Operate.",
               "force": "SHOULD",
               "affects": ["Agencies"],
               "notification": [
                 {
                   "party": "Provider",
-                  "method": "email",
-                  "target": "Provider security contact"
+                  "method": "varies",
+                  "target": "varies by provider",
+                  "name": "The provider's security contact email or form."
                 }
               ],
               "terms": [
@@ -1982,8 +1986,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
+                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
                 }
               ],
               "terms": ["Agency", "Provider"],
@@ -2003,8 +2008,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
+                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
                 }
               ],
               "terms": [
@@ -2603,8 +2609,11 @@
             },
             "CDS-CSO-FID": {
               "name": "Always Include FedRAMP ID",
-              "statement": "Providers MUST always include the FedRAMP ID of the related cloud service offering in all FedRAMP Certification Data, including all reports, notifications, and other communication that results from FedRAMP Rules.",
-              "note": "Many providers have multiple cloud service offerings or use internal names that don't align to public materials; using the FedRAMP ID ensures we can easily align the communication with a specific cloud service offering.",
+              "statement": "Providers MUST always include the FedRAMP ID of the related cloud service offering in all FedRAMP Certification Data once assigned, including all reports, notifications, and other communication that results from FedRAMP Rules.",
+              "notes": [
+                "The FedRAMP ID is supplied by FedRAMP after a cloud service offering is registered to be listed on the FedRAMP Marketplace - providers will need to use a placeholder until the FedRAMP ID is assigned.",
+                "Many providers have multiple cloud service offerings or use internal names that don't align to public materials; using the FedRAMP ID ensures we can easily align the communication with a specific cloud service offering."
+              ],
               "force": "MUST",
               "affects": ["Providers"],
               "terms": [
@@ -3004,8 +3013,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51829826617243",
+                  "name": "[CSP] Agency Access Denial"
                 }
               ],
               "terms": ["Agency", "Certification Data", "Provider"],
@@ -3046,9 +3056,16 @@
               "affects": ["Providers"],
               "notification": [
                 {
-                  "party": "All Necessary Parties",
-                  "method": "update",
-                  "target": "FedRAMP Certification Data"
+                  "party": "FedRAMP",
+                  "method": "email",
+                  "target": "info@fedramp.gov",
+                  "name": "info@fedramp.gov"
+                },
+                {
+                  "party": "Agency Customers",
+                  "method": "varies",
+                  "target": "varies by agency",
+                  "name": "Agency Security Contact"
                 }
               ],
               "terms": [
@@ -3301,7 +3318,7 @@
                 "Minimum Assessment Scope: MAS-CSO-FLO (Information Flows and Security Categories)",
                 "Minimum Assessment Scope: MAS-CSO-TPR (Third-Party Information Resources)",
                 "Using Cryptographic Modules: CMU-CSO-CMD (Cryptographic Module Documentation)",
-                "FedRAMP Assessment: Whatever rule is created to replace the SAR ;)"
+                "Independent Verification and Validation: IVV-CSO-ICP (Inclusion in Certification Package)"
               ],
               "notes": [
                 "For FedRAMP Rev5, the Certification Package Overview replaces the historically required System Security Plan (not including appendices).",
@@ -3315,7 +3332,8 @@
                 "MAS-CSO-FLO",
                 "MAS-CSO-TPR",
                 "CMU-CSO-CMD",
-                "CDS-CSO-IRP"
+                "CDS-CSO-IRP",
+                "IVV-CSO-ICP"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -3331,7 +3349,9 @@
                 "Initial Incident Report (IIR)",
                 "Provider",
                 "Security Category",
-                "Third-Party Information Resource"
+                "Third-Party Information Resource",
+                "Validation",
+                "Verification"
               ],
               "updated": [
                 {
@@ -4615,17 +4635,20 @@
                 {
                   "party": "FedRAMP",
                   "method": "email",
-                  "target": "fedramp_security@fedramp.gov"
+                  "target": "fedramp_security@fedramp.gov",
+                  "name": "FedRAMP Security Team"
                 },
                 {
                   "party": "Agency Customers",
-                  "method": "update",
-                  "target": "incident contact procedures documented in contract agreement"
+                  "method": "varies",
+                  "target": "varies by agency",
+                  "name": "Follow agency-specific incident reporting procedures"
                 },
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "trust center"
+                  "target": "trust center",
+                  "name": "Provider's Trust Center or USDA Connect"
                 }
               ],
               "terms": [
@@ -4864,17 +4887,20 @@
                 {
                   "party": "FedRAMP",
                   "method": "email",
-                  "target": "fedramp_security@fedramp.gov"
+                  "target": "fedramp_security@fedramp.gov",
+                  "name": "FedRAMP Security Team"
                 },
                 {
                   "party": "Agency Customers",
-                  "method": "update",
-                  "target": "incident contact procedures documented in contract agreement"
+                  "method": "varies",
+                  "target": "varies by agency",
+                  "name": "Follow agency-specific incident reporting procedures"
                 },
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "trust center"
+                  "target": "trust center",
+                  "name": "Provider's Trust Center or USDA Connect"
                 }
               ],
               "terms": [
@@ -5085,17 +5111,20 @@
                 {
                   "party": "FedRAMP",
                   "method": "email",
-                  "target": "fedramp_security@fedramp.gov"
+                  "target": "fedramp_security@fedramp.gov",
+                  "name": "FedRAMP Security Team"
                 },
                 {
                   "party": "Agency Customers",
-                  "method": "update",
-                  "target": "incident contact procedures documented in contract agreement"
+                  "method": "varies",
+                  "target": "varies by agency",
+                  "name": "Follow agency-specific incident reporting procedures"
                 },
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "trust center"
+                  "target": "trust center",
+                  "name": "Provider's Trust Center or USDA Connect"
                 }
               ],
               "terms": [
@@ -6126,6 +6155,19 @@
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
         "status": "stable",
         "tag": "other",
+        "effective": {
+          "is": "required",
+          "current_status": "Consolidated Rules for 2026",
+          "date": {
+            "obtain": "2026-07-04",
+            "maintain": "2026-07-04",
+            "optional_adoption": "2026-07-04",
+            "grace": {
+              "default": "2026-07-04",
+              "until_next_assessment": false
+            }
+          }
+        },
         "subsets": {
           "FRP": {
             "name": "FedRAMP Responsibilities",
@@ -6177,36 +6219,6 @@
               "affects": ["Providers"]
             }
           }
-        },
-        "20x": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2026-07-04",
-              "maintain": "2027-01-01",
-              "optional_adoption": "2026-07-04",
-              "grace": {
-                "default": "2027-01-01",
-                "until_next_assessment": true
-              }
-            }
-          }
-        },
-        "rev5": {
-          "effective": {
-            "is": "required",
-            "current_status": "Consolidated Rules for 2026",
-            "date": {
-              "obtain": "2027-01-01",
-              "maintain": "2027-01-01",
-              "optional_adoption": "2026-07-04",
-              "grace": {
-                "default": "2027-06-01",
-                "until_next_assessment": false
-              }
-            }
-          }
         }
       },
       "data": {
@@ -6248,12 +6260,18 @@
             },
             "MKT-CSO-PML": {
               "name": "Provider Marketplace Listing Requests",
-              "statement": "Providers MUST use the FedRAMP Marketplace Providing Listing Request Form to request a listing in the FedRAMP Marketplace.",
+              "statement": "Providers MUST notify FedRAMP using the FedRAMP Marketplace Providing Listing Request Form to request a listing in the FedRAMP Marketplace.",
               "note": "FedRAMP does not accept applications for a FedRAMP Marketplace Listing via email!",
-              "reference": "FedRAMP Marketplace Provider Listing Request Form",
-              "reference_url": "https://fedramp.gov/forms/to-be-added",
               "force": "MUST",
               "affects": ["Providers"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=50939227168027",
+                  "name": "FedRAMP Marketplace Provider Listing Request Form"
+                }
+              ],
               "terms": ["Provider"],
               "updated": [
                 {
@@ -6663,9 +6681,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "web",
-                  "target": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form",
-                  "url": "https://help.fedramp.gov/forms/assessors/foci-declaration"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/forms/assessors/foci-declaration",
+                  "name": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form"
                 }
               ],
               "terms": ["Assessor"],
@@ -6686,9 +6704,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "web",
-                  "target": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form",
-                  "url": "https://help.fedramp.gov/forms/assessors/foci-declaration"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/forms/assessors/foci-declaration",
+                  "name": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form"
                 }
               ],
               "terms": ["Assessor"],
@@ -6834,7 +6852,7 @@
               ],
               "notes": [
                 "These rules refer to this guidance as a Secure Configuration Guide but cloud service providers may make this guidance available in various appropriate forms that provide the best customer experience.",
-                "This guidance should explain how top-level administrative accounts are named and referred to in the cloud service offering."
+                "This guidance should explain how top-level administrative accounts and privileged accounts are named and referred to in the cloud service offering."
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -7173,8 +7191,8 @@
             },
             "SCN-CSO-MAR": {
               "name": "Maintain Audit Records",
-              "statement": "Providers MUST maintain auditable records of the significant change evaluation activities required by SCN-CSO-EVA (Evaluate Changes) and make them available to FedRAMP.",
-              "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification package by default.",
+              "statement": "Providers MUST maintain auditable records of the significant change evaluation activities required by SCN-CSO-EVA (Evaluate Changes) and make them available to FedRAMP as requested.",
+              "note": "These audit records must be available to FedRAMP on request; these records do not need to be included in the FedRAMP Certification package by default and do not need to be emailed to FedRAMP continuously.",
               "related": ["SCN-CSO-EVA"],
               "force": "MUST",
               "affects": ["Providers"],
@@ -7371,7 +7389,8 @@
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "FedRAMP Certification Data"
+                  "target": "FedRAMP Certification Data",
+                  "name": "FedRAMP Certification Data"
                 }
               ],
               "terms": [
@@ -7464,7 +7483,8 @@
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "FedRAMP Certification Data"
+                  "target": "FedRAMP Certification Data",
+                  "name": "FedRAMP Certification Data"
                 }
               ],
               "terms": [
@@ -7496,7 +7516,8 @@
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "FedRAMP Certification Data"
+                  "target": "FedRAMP Certification Data",
+                  "name": "FedRAMP Certification Data"
                 }
               ],
               "terms": [
@@ -7527,7 +7548,8 @@
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "FedRAMP Certification Data"
+                  "target": "FedRAMP Certification Data",
+                  "name": "FedRAMP Certification Data"
                 }
               ],
               "terms": [
@@ -7563,7 +7585,8 @@
                 {
                   "party": "All Necessary Parties",
                   "method": "update",
-                  "target": "FedRAMP Certification Data"
+                  "target": "FedRAMP Certification Data",
+                  "name": "FedRAMP Certification Data"
                 }
               ],
               "terms": [
@@ -7892,7 +7915,7 @@
             },
             "SDR-CSF-ODP": {
               "name": "Organization-Defined Parameters",
-              "statement": "Providers MUST define all required organization-defined parameters tied all Rev5 Controls, following FedRAMP Rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
+              "statement": "Providers MUST define all required organization-defined parameters tied to all Rev5 Controls, following FedRAMP Rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
@@ -8890,8 +8913,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
+                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
                 }
               ],
               "terms": ["Agency", "Provider", "Vulnerability"],
@@ -8950,8 +8974,9 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "email",
-                  "target": "info@fedramp.gov"
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
+                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
                 }
               ],
               "terms": [

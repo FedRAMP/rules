@@ -1,12 +1,24 @@
+import { loadSchemaDocument } from "./rules";
+import { getSchemaPattern } from "./schema-metadata";
 import type { IdAlignmentIssue, RulesDocument, UpdatedEntry } from "./types";
 
-const ID_KEY_REGEX = /^([A-Z]+)-([A-Z]+)-([A-Z0-9]+)$/;
+const REQUIREMENT_ID_PATTERN = getSchemaPattern(
+  loadSchemaDocument(),
+  "#/$defs/frr_requirement_id",
+);
+const REQUIREMENT_ID_REGEX = REQUIREMENT_ID_PATTERN
+  ? new RegExp(REQUIREMENT_ID_PATTERN)
+  : null;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
-function ensureUpdatedEntry(target: Record<string, unknown>, comment: string, entryDate: string): void {
+function ensureUpdatedEntry(
+  target: Record<string, unknown>,
+  comment: string,
+  entryDate: string,
+): void {
   const entry: UpdatedEntry = { date: entryDate, comment };
   const updated = target.updated;
 
@@ -53,12 +65,14 @@ function processDataBlock(
         const renamePlan: Array<{ oldKey: string; newKey: string }> = [];
 
         for (const key of Object.keys(node)) {
-          const match = key.match(ID_KEY_REGEX);
-          if (!match) {
+          if (!REQUIREMENT_ID_REGEX?.test(key)) {
             continue;
           }
 
-          const [, left, middle, right] = match;
+          const [left, middle, right] = key.split("-");
+          if (!left || !middle || !right) {
+            continue;
+          }
           if (middle === parentKey) {
             continue;
           }
@@ -118,9 +132,14 @@ function processDataBlock(
   walk(dataBlock, null, basePath);
 }
 
-export function collectIdAlignmentIssues(document: RulesDocument): IdAlignmentIssue[] {
+export function collectIdAlignmentIssues(
+  document: RulesDocument,
+): IdAlignmentIssue[] {
   const cloned = structuredClone(document);
-  return fixIdAlignment(cloned, { entryDate: cloned.info.last_updated, updateDocument: false }).issues;
+  return fixIdAlignment(cloned, {
+    entryDate: cloned.info.last_updated,
+    updateDocument: false,
+  }).issues;
 }
 
 export function fixIdAlignment(
@@ -138,7 +157,13 @@ export function fixIdAlignment(
     }
 
     if (isRecord(node.data)) {
-      processDataBlock(node.data, options.entryDate, issues, options.updateDocument, nodePath ? `${nodePath}.data` : "data");
+      processDataBlock(
+        node.data,
+        options.entryDate,
+        issues,
+        options.updateDocument,
+        nodePath ? `${nodePath}.data` : "data",
+      );
     }
 
     for (const [key, value] of Object.entries(node)) {
@@ -149,7 +174,9 @@ export function fixIdAlignment(
   walk(document, "");
 
   const fixedCount = issues.filter((issue) => issue.status === "fixed").length;
-  const skippedCount = issues.filter((issue) => issue.status === "skipped_collision").length;
+  const skippedCount = issues.filter(
+    (issue) => issue.status === "skipped_collision",
+  ).length;
 
   if (options.updateDocument && fixedCount > 0) {
     document.info.version = incrementVersion(document.info.version);

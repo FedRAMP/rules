@@ -12,6 +12,16 @@ export function validateSchema(
     strict: true,
     allErrors: true,
   });
+  ajv.addKeyword({
+    keyword: "x-key-order",
+    schemaType: ["string", "object"],
+    valid: true,
+  });
+  ajv.addKeyword({
+    keyword: "x-item-order",
+    schemaType: ["string", "object"],
+    valid: true,
+  });
   addFormats(ajv as any);
 
   const schema = schemaDocument as AnySchema;
@@ -92,10 +102,7 @@ function isPropertyNameCompanionError(error: ErrorObject): boolean {
     return true;
   }
 
-  if (
-    error.keyword === "enum" &&
-    Array.isArray(error.params.allowedValues)
-  ) {
+  if (error.keyword === "enum" && Array.isArray(error.params.allowedValues)) {
     return true;
   }
 

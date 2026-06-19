@@ -1,57 +1,12 @@
 import type { PropertyOrderIssue, RulesDocument } from "./types";
+import {
+  dereferenceSchema,
+  isJsonObject,
+  type JsonObject,
+  type JsonSchema,
+} from "./schema-metadata";
 
-type JsonObject = Record<string, unknown>;
-type JsonSchema = Record<string, unknown>;
-
-function isRecord(value: unknown): value is JsonObject {
-  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
-}
-
-function decodeJsonPointerSegment(segment: string): string {
-  return segment.replaceAll("~1", "/").replaceAll("~0", "~");
-}
-
-function resolveRef(rootSchema: JsonSchema, ref: string): JsonSchema | null {
-  if (!ref.startsWith("#/")) {
-    return null;
-  }
-
-  let current: unknown = rootSchema;
-
-  for (const segment of ref.slice(2).split("/").map(decodeJsonPointerSegment)) {
-    if (!isRecord(current) || !(segment in current)) {
-      return null;
-    }
-
-    current = current[segment];
-  }
-
-  return isRecord(current) ? current : null;
-}
-
-function dereferenceSchema(
-  rootSchema: JsonSchema,
-  schema: unknown,
-): JsonSchema | null {
-  if (!isRecord(schema)) {
-    return null;
-  }
-
-  let current: JsonSchema | null = schema;
-  const seenRefs = new Set<string>();
-
-  while (current && typeof current.$ref === "string") {
-    const ref = current.$ref;
-    if (seenRefs.has(ref)) {
-      break;
-    }
-
-    seenRefs.add(ref);
-    current = resolveRef(rootSchema, ref);
-  }
-
-  return current;
-}
+const isRecord = isJsonObject;
 
 function getPropertiesSchema(schema: JsonSchema | null): JsonObject | null {
   if (!schema || !isRecord(schema.properties)) {
@@ -147,29 +102,63 @@ function getOrderedNamesFromSchema(
   return null;
 }
 
-function getFrdDefinitionTerm(value: unknown): string | null {
-  if (!isRecord(value) || typeof value.term !== "string") {
+function getStringProperty(value: unknown, property: string): string | null {
+  if (!isRecord(value) || typeof value[property] !== "string") {
     return null;
   }
 
-  return value.term;
+  return value[property];
 }
 
-function compareFrdDefinitionEntries(
+function compareEntriesByProperty(
   left: [string, unknown],
   right: [string, unknown],
+  property: string,
 ): number {
-  const leftTerm = getFrdDefinitionTerm(left[1]) ?? left[0];
-  const rightTerm = getFrdDefinitionTerm(right[1]) ?? right[0];
-  const termComparison = leftTerm.localeCompare(rightTerm);
+  const leftValue = getStringProperty(left[1], property) ?? left[0];
+  const rightValue = getStringProperty(right[1], property) ?? right[0];
+  const valueComparison = leftValue.localeCompare(rightValue);
 
-  return termComparison === 0
+  return valueComparison === 0
     ? left[0].localeCompare(right[0])
-    : termComparison;
+    : valueComparison;
 }
 
 function compareKeysAlphabetically(left: string, right: string): number {
   return left.localeCompare(right);
+}
+
+function getCustomKeyOrder(
+  schema: JsonSchema | null,
+  value: JsonObject,
+): string[] | null {
+  if (!schema || !isRecord(schema["x-key-order"])) {
+    return null;
+  }
+
+  const order = schema["x-key-order"];
+  const direction = order.direction === "descending" ? -1 : 1;
+  const entries = Object.entries(value);
+
+  if (order.by === "key") {
+    return entries
+      .map(([key]) => key)
+      .sort(
+        (left, right) => direction * compareKeysAlphabetically(left, right),
+      );
+  }
+
+  if (order.by === "property" && typeof order.property === "string") {
+    return entries
+      .sort(
+        (left, right) =>
+          direction *
+          compareEntriesByProperty(left, right, order.property as string),
+      )
+      .map(([key]) => key);
+  }
+
+  return null;
 }
 
 function formatPropertyList(values: string[]): string {
@@ -196,16 +185,11 @@ function getPreferredOrder(
   rootSchema: JsonSchema,
   schema: JsonSchema | null,
   value: JsonObject,
-  path: string,
+  _path: string,
 ): string[] {
-  if (path === "FRR" || path === "KSI") {
-    return Object.keys(value).sort(compareKeysAlphabetically);
-  }
-
-  if (path === "FRD.data.all") {
-    return Object.entries(value)
-      .sort(compareFrdDefinitionEntries)
-      .map(([key]) => key);
+  const customOrder = getCustomKeyOrder(schema, value);
+  if (customOrder) {
+    return customOrder;
   }
 
   const properties = getPropertiesSchema(schema);

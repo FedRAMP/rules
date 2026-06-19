@@ -4,20 +4,27 @@ import {
   collectArtifactApplicabilityIssues,
   type ConsistencyIssue,
 } from "../src/consistency";
-import { cloneDocument, loadRulesDocument } from "../src/rules";
+import {
+  cloneDocument,
+  loadRulesDocument,
+  loadSchemaDocument,
+} from "../src/rules";
+import { getStringEnum } from "../src/schema-metadata";
 import type { RulesDocument } from "../src/types";
 
-const APPLICABILITY_KEYS = ["all", "20x", "rev5"] as const;
-type ApplicabilityKey = (typeof APPLICABILITY_KEYS)[number];
+type ApplicabilityKey = "all" | "20x" | "rev5";
+const APPLICABILITY_KEYS = getStringEnum(
+  loadSchemaDocument(),
+  "#/$defs/applicability_key",
+) as ApplicabilityKey[];
 
-const ALLOWED_ARTIFACT_KEYS_BY_PARENT: Record<
-  ApplicabilityKey,
-  readonly ApplicabilityKey[]
-> = {
-  all: APPLICABILITY_KEYS,
-  "20x": ["20x"],
-  rev5: ["rev5"],
-};
+function allowedArtifactKeys(
+  parentApplicability: ApplicabilityKey,
+): ApplicabilityKey[] {
+  return parentApplicability === "all"
+    ? APPLICABILITY_KEYS
+    : [parentApplicability];
+}
 
 type ArtifactHolder = Record<string, unknown> & {
   artifacts?: Record<string, string[]>;
@@ -105,8 +112,7 @@ function expectedIssueForTarget(
     return null;
   }
 
-  const allowedKeys =
-    ALLOWED_ARTIFACT_KEYS_BY_PARENT[target.parentApplicability];
+  const allowedKeys = allowedArtifactKeys(target.parentApplicability);
   const disallowedKeys = Object.keys(target.holder.artifacts).filter(
     (key) => !allowedKeys.includes(key as ApplicabilityKey),
   );
@@ -157,10 +163,7 @@ test("artifact applicability permits keys based on every FRR data scope in the r
   expect(targets.length).toBeGreaterThan(0);
 
   for (const target of targets) {
-    setArtifacts(
-      target,
-      ALLOWED_ARTIFACT_KEYS_BY_PARENT[target.parentApplicability],
-    );
+    setArtifacts(target, allowedArtifactKeys(target.parentApplicability));
   }
 
   const issues = collectArtifactApplicabilityIssues(document);

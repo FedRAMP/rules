@@ -1,11 +1,17 @@
 import { visitIndicators, visitRequirements } from "./traversal";
+import { loadSchemaDocument } from "./rules";
+import {
+  getSchemaAtPointer,
+  getSchemaPattern,
+  getSchemaPropertyOrder,
+  requireStringEnum,
+} from "./schema-metadata";
 import type {
   ClassKey,
   DefinitionEntry,
   FrrSubsetDefinition,
   KsiIndicator,
   Requirement,
-  RequirementLike,
   RulesDocument,
   UpdatedEntry,
 } from "./types";
@@ -23,70 +29,42 @@ export interface ConsistencyCheck {
 type JsonPathSegment = string | number;
 type JsonRecord = Record<string, unknown>;
 
-const CLASS_KEYS = ["a", "b", "c", "d"] as const;
-const APPLICABILITY_KEYS = ["all", "20x", "rev5"] as const;
-type ApplicabilityKey = (typeof APPLICABILITY_KEYS)[number];
-const CLASS_NAMES: Record<ClassKey, string> = {
-  a: "Class A",
-  b: "Class B",
-  c: "Class C",
-  d: "Class D",
-};
-const ALLOWED_ARTIFACT_KEYS_BY_PARENT: Record<
-  ApplicabilityKey,
-  readonly ApplicabilityKey[]
-> = {
-  all: APPLICABILITY_KEYS,
-  "20x": ["20x"],
-  rev5: ["rev5"],
-};
-const FRR_ID_REGEX = /^([A-Z]{3})-([A-Z]{3})-([A-Z0-9]{3})$/;
-const KSI_ID_REGEX = /^KSI-([A-Z]{3})-([A-Z0-9]{3})$/;
-const CONTROL_ID_REGEX = /^[a-z]{2}-\d+(?:\.\d+)?$/;
+type ApplicabilityKey = "all" | "20x" | "rev5";
+const SCHEMA_DOCUMENT = loadSchemaDocument();
+const CLASS_KEYS = requireStringEnum(
+  SCHEMA_DOCUMENT,
+  "#/$defs/class_key",
+) as ClassKey[];
+const CLASS_STATEMENT_REGEX = new RegExp(
+  `\\bClass (${requireStringEnum(SCHEMA_DOCUMENT, "#/$defs/class_name").join("|")})\\b`,
+  "g",
+);
+const APPLICABILITY_KEYS = requireStringEnum(
+  SCHEMA_DOCUMENT,
+  "#/$defs/applicability_key",
+) as ApplicabilityKey[];
+const AFFECTED_PARTY_ORDER = requireStringEnum(
+  SCHEMA_DOCUMENT,
+  "#/$defs/affected_party",
+);
+const FORCE_ORDER = requireStringEnum(SCHEMA_DOCUMENT, "#/$defs/force_enum");
+const FORCE_ORDER_INDEX = new Map(
+  FORCE_ORDER.map((force, index) => [force, index]),
+);
 const TEXT_CONTROL_CHARACTER_REGEX = /[\u0000-\u001f\u007f]/;
-const INLINE_FRR_ID_REGEX = /\b(?!KSI-)([A-Z]{3}-[A-Z]{3}-[A-Z0-9]{3})\b/g;
-const INLINE_KSI_ID_REGEX = /\b(KSI-[A-Z]{3}-[A-Z0-9]{3})\b/g;
+const INLINE_FRR_ID_REGEX = inlineIdRegex("#/$defs/frr_requirement_id");
+const INLINE_KSI_ID_REGEX = inlineIdRegex("#/$defs/ksi_indicator_id");
 const INLINE_RULE_ID_REGEXES = [INLINE_FRR_ID_REGEX, INLINE_KSI_ID_REGEX];
 
-const ALLOWED_AFFECTS = [
-  "Advisors",
-  "Agencies",
-  "Assessors",
-  "FedRAMP",
-  "Providers",
-] as const;
-const ALLOWED_SUBSET_APPLICABILITY_TYPES = ["20x", "Rev5"] as const;
-const ALLOWED_SUBSET_APPLICABILITY_PATHS = ["Program", "Agency"] as const;
-const ALLOWED_NOTIFICATION_METHODS = ["email", "update", "web"] as const;
-const ALLOWED_NOTIFICATION_PARTIES = [
-  "FedRAMP",
-  "Provider",
-  "All Necessary Parties",
-  "publicly",
-  "Agency Customers",
-  "All Affected Parties",
-] as const;
-const ALLOWED_TIMEFRAME_TYPES = [
-  "bizdays",
-  "days",
-  "hours",
-  "weeks",
-  "months",
-  "years",
-] as const;
-const FORCE_ORDER = [
-  "MUST",
-  "MUST NOT",
-  "SHOULD",
-  "SHOULD NOT",
-  "MAY",
-] as const;
-const FORCE_ORDER_INDEX = new Map<string, number>(
-  FORCE_ORDER.map((force, index): [string, number] => [
-    force,
-    index,
-  ]),
-);
+function inlineIdRegex(schemaPointer: string): RegExp {
+  const pattern = getSchemaPattern(SCHEMA_DOCUMENT, schemaPointer);
+  if (!pattern) {
+    throw new Error(`Schema is missing ID pattern at ${schemaPointer}.`);
+  }
+
+  const unanchoredPattern = pattern.replace(/^\^/, "").replace(/\$$/, "");
+  return new RegExp(`\\b(${unanchoredPattern})\\b`, "g");
+}
 
 export function formatConsistencyIssues(
   title: string,
@@ -147,11 +125,7 @@ export function collectConsistencyChecks(
       issues: collectFrrSubsetApplicabilityAffectsIssues(document),
     },
     {
-      title: "FRR 20x subset applicability warnings",
-      issues: collectFrr20xSubsetApplicabilityWarnings(document),
-    },
-    {
-      title: "Non-empty audit history",
+      title: "Audit history consistency",
       issues: collectAuditHistoryIssues(document),
     },
     {
@@ -165,10 +139,6 @@ export function collectConsistencyChecks(
     {
       title: "Artifact applicability",
       issues: collectArtifactApplicabilityIssues(document),
-    },
-    {
-      title: "Controlled vocabularies",
-      issues: collectControlledVocabularyIssues(document),
     },
     {
       title: "FRD term lookup determinism",
@@ -460,17 +430,6 @@ export function collectFullIdAlignmentIssues(
     );
   }
 
-  for (const entry of collectDefinitionEntries(document)) {
-    if (!entry.id.startsWith("FRD-")) {
-      issues.push(
-        issue(
-          entry.location,
-          `definition ID must start with FRD-, but found ${entry.id}.`,
-        ),
-      );
-    }
-  }
-
   for (const [sectionKey, section] of Object.entries(document.FRR ?? {})) {
     if (section.info.short_name !== sectionKey) {
       issues.push(
@@ -483,18 +442,11 @@ export function collectFullIdAlignmentIssues(
   }
 
   for (const entry of collectRequirementEntries(document)) {
-    const match = entry.id.match(FRR_ID_REGEX);
-    if (!match) {
-      issues.push(
-        issue(
-          entry.location,
-          `requirement ID ${entry.id} does not match ABC-LBL-XYZ format.`,
-        ),
-      );
+    const [idSection, idSubset] = entry.id.split("-");
+    if (!idSection || !idSubset) {
       continue;
     }
 
-    const [, idSection, idSubset] = match;
     if (idSection !== entry.sectionKey) {
       issues.push(
         issue(
@@ -534,18 +486,11 @@ export function collectFullIdAlignmentIssues(
   }
 
   for (const entry of collectIndicatorEntries(document)) {
-    const match = entry.id.match(KSI_ID_REGEX);
-    if (!match) {
-      issues.push(
-        issue(
-          entry.location,
-          `indicator ID ${entry.id} does not match KSI-ABC-XYZ format.`,
-        ),
-      );
+    const [, idTheme] = entry.id.split("-");
+    if (!idTheme) {
       continue;
     }
 
-    const [, idTheme] = match;
     if (idTheme !== entry.themeKey) {
       issues.push(
         issue(
@@ -722,7 +667,7 @@ function collectFrrSubsetRequirementAffects(entry: FrrSubsetDeclarationEntry): {
 
 function orderAffects(values: string[]): string[] {
   const remaining = new Set(values);
-  const ordered = (ALLOWED_AFFECTS as readonly string[]).filter((value) => {
+  const ordered = AFFECTED_PARTY_ORDER.filter((value) => {
     if (!remaining.has(value)) {
       return false;
     }
@@ -790,9 +735,7 @@ function compareForces(left: string, right: string): number {
     : leftIndex - rightIndex;
 }
 
-function getRequirementOrderingForce(
-  requirement: Requirement,
-): string | null {
+function getRequirementOrderingForce(requirement: Requirement): string | null {
   if (typeof requirement.force === "string") {
     return requirement.force;
   }
@@ -952,51 +895,6 @@ export function collectFrrSubsetApplicabilityAffectsIssues(
   return issues;
 }
 
-function collectSubsetApplicabilitySetWarnings(
-  entry: FrrSubsetDeclarationEntry,
-  key: "types" | "paths",
-  expected: readonly string[],
-): ConsistencyIssue[] {
-  const actual = getSubsetApplicabilityArray(entry.subset, key);
-  if (actual && hasSameStringSet(actual, [...expected])) {
-    return [];
-  }
-
-  return [
-    issue(
-      `${entry.location}.applicability.${key}`,
-      `20x-specific subset warning: subset ${entry.subsetKey} ends in X, so applicability.${key} should only include ${formatValues([...expected])}; found: ${formatValues(actual)}.`,
-    ),
-  ];
-}
-
-export function collectFrr20xSubsetApplicabilityWarnings(
-  document: RulesDocument,
-): ConsistencyIssue[] {
-  const issues: ConsistencyIssue[] = [];
-
-  for (const entry of collectFrrInfoSubsetEntries(document)) {
-    if (!entry.subsetKey.endsWith("X")) {
-      continue;
-    }
-
-    issues.push(
-      ...collectSubsetApplicabilitySetWarnings(
-        entry,
-        "types",
-        ALLOWED_SUBSET_APPLICABILITY_TYPES.slice(0, 1),
-      ),
-      ...collectSubsetApplicabilitySetWarnings(
-        entry,
-        "paths",
-        ALLOWED_SUBSET_APPLICABILITY_PATHS.slice(0, 1),
-      ),
-    );
-  }
-
-  return issues;
-}
-
 export function collectFrrUnusedSubsetWarnings(
   document: RulesDocument,
 ): ConsistencyIssue[] {
@@ -1073,7 +971,6 @@ function collectUpdatedHistoryIssues(
   const issues: ConsistencyIssue[] = [];
 
   if (!Array.isArray(updated) || updated.length === 0) {
-    issues.push(issue(location, "updated history must be a non-empty array."));
     return issues;
   }
 
@@ -1088,8 +985,15 @@ function collectUpdatedHistoryIssues(
     );
   }
 
+  const updatedSchema = getSchemaAtPointer(
+    SCHEMA_DOCUMENT,
+    "#/$defs/updated_list",
+  );
+  const itemOrder = updatedSchema?.["x-item-order"];
+  const descending =
+    isRecord(itemOrder) && itemOrder.direction === "descending";
   const expectedOrder = [...dates].sort((left, right) =>
-    right.localeCompare(left),
+    descending ? right.localeCompare(left) : left.localeCompare(right),
   );
   if (dates.some((date, index) => date !== expectedOrder[index])) {
     issues.push(
@@ -1163,7 +1067,7 @@ export function collectClassVariantStatementIssues(
       }
 
       const mentionedClasses = sortedUnique(
-        [...classEntry.statement.matchAll(/\bClass ([A-D])\b/g)].map(
+        [...classEntry.statement.matchAll(CLASS_STATEMENT_REGEX)].map(
           (match) => `Class ${match[1]}`,
         ),
       );
@@ -1171,7 +1075,7 @@ export function collectClassVariantStatementIssues(
         continue;
       }
 
-      const expectedClass = CLASS_NAMES[classKey];
+      const expectedClass = `Class ${classKey.toUpperCase()}`;
       const unexpectedClasses = mentionedClasses.filter(
         (className) => className !== expectedClass,
       );
@@ -1221,7 +1125,10 @@ export function collectArtifactApplicabilityIssues(
       return;
     }
 
-    const allowedKeys = ALLOWED_ARTIFACT_KEYS_BY_PARENT[parentApplicability];
+    const allowedKeys =
+      parentApplicability === "all"
+        ? APPLICABILITY_KEYS
+        : [parentApplicability];
     const disallowedKeys = Object.keys(value.artifacts).filter(
       (key) => !allowedKeys.includes(key as ApplicabilityKey),
     );
@@ -1236,209 +1143,6 @@ export function collectArtifactApplicabilityIssues(
       ),
     );
   });
-
-  return issues;
-}
-
-function collectAffectsIssues(
-  location: string,
-  requirement: Requirement,
-): ConsistencyIssue[] {
-  const issues: ConsistencyIssue[] = [];
-  const affects = requirement.affects ?? [];
-
-  if (affects.length === 0) {
-    issues.push(
-      issue(`${location}.affects`, "affects must list at least one party."),
-    );
-    return issues;
-  }
-
-  const duplicateAffects = collectDuplicateValues(affects);
-  if (duplicateAffects.length > 0) {
-    issues.push(
-      issue(
-        `${location}.affects`,
-        `affects contains duplicate values: ${duplicateAffects.join(", ")}.`,
-      ),
-    );
-  }
-
-  for (const [index, value] of affects.entries()) {
-    if (!(ALLOWED_AFFECTS as readonly string[]).includes(value)) {
-      issues.push(
-        issue(
-          `${location}.affects[${index}]`,
-          `affects value ${value} is not allowed. Allowed values are: ${joinAllowed(ALLOWED_AFFECTS)}.`,
-        ),
-      );
-    }
-  }
-
-  return issues;
-}
-
-function collectControlIssues(
-  location: string,
-  entity: RequirementLike,
-): ConsistencyIssue[] {
-  const issues: ConsistencyIssue[] = [];
-  const controls =
-    isRecord(entity) && Array.isArray(entity.controls)
-      ? entity.controls.filter(
-          (control): control is string => typeof control === "string",
-        )
-      : [];
-
-  const duplicateControls = collectDuplicateValues(controls);
-  if (duplicateControls.length > 0) {
-    issues.push(
-      issue(
-        `${location}.controls`,
-        `controls contains duplicate IDs: ${duplicateControls.join(", ")}.`,
-      ),
-    );
-  }
-
-  for (const [index, control] of controls.entries()) {
-    if (!CONTROL_ID_REGEX.test(control)) {
-      issues.push(
-        issue(
-          `${location}.controls[${index}]`,
-          `control ID ${control} must use lowercase family-number format, such as ac-2 or ia-2.1.`,
-        ),
-      );
-    }
-  }
-
-  return issues;
-}
-
-function collectTimeframeIssues(
-  value: unknown,
-  path: JsonPathSegment[],
-): ConsistencyIssue[] {
-  const issues: ConsistencyIssue[] = [];
-
-  walkJson(value, path, (node, nodePath) => {
-    if (!isRecord(node)) {
-      return;
-    }
-
-    const hasType = Object.hasOwn(node, "timeframe_type");
-    const hasNum = Object.hasOwn(node, "timeframe_num");
-    if (!hasType && !hasNum) {
-      return;
-    }
-
-    const location = formatPath(nodePath);
-    if (hasType !== hasNum) {
-      issues.push(
-        issue(
-          location,
-          "timeframe_type and timeframe_num must be provided together.",
-        ),
-      );
-    }
-
-    if (hasType && typeof node.timeframe_type === "string") {
-      if (
-        !(ALLOWED_TIMEFRAME_TYPES as readonly string[]).includes(
-          node.timeframe_type,
-        )
-      ) {
-        issues.push(
-          issue(
-            `${location}.timeframe_type`,
-            `timeframe_type ${node.timeframe_type} is not allowed. Allowed values are: ${joinAllowed(ALLOWED_TIMEFRAME_TYPES)}.`,
-          ),
-        );
-      }
-    }
-
-    if (
-      hasNum &&
-      typeof node.timeframe_num === "number" &&
-      node.timeframe_num <= 0
-    ) {
-      issues.push(
-        issue(
-          `${location}.timeframe_num`,
-          "timeframe_num must be greater than zero.",
-        ),
-      );
-    }
-  });
-
-  return issues;
-}
-
-function collectNotificationIssues(
-  value: unknown,
-  path: JsonPathSegment[],
-): ConsistencyIssue[] {
-  const issues: ConsistencyIssue[] = [];
-
-  walkJson(value, path, (node, nodePath) => {
-    if (!isRecord(node) || !Array.isArray(node.notification)) {
-      return;
-    }
-
-    for (const [index, notification] of node.notification.entries()) {
-      if (!isRecord(notification)) {
-        continue;
-      }
-
-      const location = `${formatPath(nodePath)}.notification[${index}]`;
-      if (
-        typeof notification.method === "string" &&
-        !(ALLOWED_NOTIFICATION_METHODS as readonly string[]).includes(
-          notification.method,
-        )
-      ) {
-        issues.push(
-          issue(
-            `${location}.method`,
-            `notification method ${notification.method} is not allowed. Allowed values are: ${joinAllowed(ALLOWED_NOTIFICATION_METHODS)}.`,
-          ),
-        );
-      }
-
-      if (
-        typeof notification.party === "string" &&
-        !(ALLOWED_NOTIFICATION_PARTIES as readonly string[]).includes(
-          notification.party,
-        )
-      ) {
-        issues.push(
-          issue(
-            `${location}.party`,
-            `notification party ${notification.party} is not allowed. Allowed values are: ${joinAllowed(ALLOWED_NOTIFICATION_PARTIES)}.`,
-          ),
-        );
-      }
-    }
-  });
-
-  return issues;
-}
-
-export function collectControlledVocabularyIssues(
-  document: RulesDocument,
-): ConsistencyIssue[] {
-  const issues: ConsistencyIssue[] = [];
-
-  visitRequirements(document, ({ location, requirement }) => {
-    issues.push(...collectAffectsIssues(location, requirement));
-    issues.push(...collectControlIssues(location, requirement));
-  });
-
-  visitIndicators(document, ({ location, indicator }) => {
-    issues.push(...collectControlIssues(location, indicator));
-  });
-
-  issues.push(...collectTimeframeIssues(document, []));
-  issues.push(...collectNotificationIssues(document, []));
 
   return issues;
 }
@@ -1953,41 +1657,34 @@ export function collectRelatedRuleReferenceFixes(
   }));
 }
 
-const RELATED_PRECEDING_KEYS = new Set([
-  "name",
-  "statement",
-  "varies_by_class",
-  "following_information",
-  "following_information_bullets",
-  "danger",
-  "note",
-  "notes",
-]);
-
 function assignRelatedInSchemaOrder(
   requirement: Requirement,
   related: string[],
 ): void {
-  if (Array.isArray(requirement.related)) {
-    requirement.related = related;
+  const hadRelated = Array.isArray(requirement.related);
+  requirement.related = related;
+  if (hadRelated) {
     return;
   }
 
-  const reordered: Record<string, unknown> = {};
-  let inserted = false;
-
-  for (const [key, value] of Object.entries(requirement)) {
-    if (!inserted && !RELATED_PRECEDING_KEYS.has(key)) {
-      reordered.related = related;
-      inserted = true;
-    }
-
-    reordered[key] = value;
-  }
-
-  if (!inserted) {
-    reordered.related = related;
-  }
+  const propertyOrder = getSchemaPropertyOrder(
+    SCHEMA_DOCUMENT,
+    "#/$defs/frr_requirement",
+  );
+  const orderIndex = new Map(
+    propertyOrder.map((property, index) => [property, index]),
+  );
+  const reordered = Object.fromEntries(
+    Object.entries(requirement)
+      .map(([key, value], index) => ({ key, value, index }))
+      .sort(
+        (left, right) =>
+          (orderIndex.get(left.key) ?? Number.MAX_SAFE_INTEGER) -
+            (orderIndex.get(right.key) ?? Number.MAX_SAFE_INTEGER) ||
+          left.index - right.index,
+      )
+      .map(({ key, value }) => [key, value]),
+  );
 
   for (const key of Object.keys(requirement)) {
     delete (requirement as unknown as Record<string, unknown>)[key];
