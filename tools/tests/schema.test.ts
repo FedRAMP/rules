@@ -163,6 +163,31 @@ test("the consolidated rules document matches the configured schema", () => {
   expect(result.valid).toBe(true);
 });
 
+test("the schema does not contain custom extension keywords", () => {
+  const extensionKeywords: string[] = [];
+
+  function visit(value: unknown, path: string): void {
+    if (Array.isArray(value)) {
+      value.forEach((entry, index) => visit(entry, `${path}[${index}]`));
+      return;
+    }
+    if (!isRecord(value)) {
+      return;
+    }
+
+    for (const [key, child] of Object.entries(value)) {
+      const childPath = path ? `${path}.${key}` : key;
+      if (key.startsWith("x-")) {
+        extensionKeywords.push(childPath);
+      }
+      visit(child, childPath);
+    }
+  }
+
+  visit(loadSchemaDocument(), "");
+  expect(extensionKeywords).toEqual([]);
+});
+
 function expectSchemaAccepts(title: string, document: RulesDocument): void {
   const result = validateSchema(document, loadSchemaDocument());
 

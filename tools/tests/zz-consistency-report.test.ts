@@ -4,6 +4,7 @@ import {
   collectConsistencyChecks,
   collectDuplicateRuleIdIssues,
   collectDuplicateRuleNameIssues,
+  collectAuditHistoryIssues,
   collectFrrSubsetApplicabilityAffectsIssues,
   collectFrrSubsetDeclarationIssues,
   collectFrrSubsetForceOrderWarnings,
@@ -107,6 +108,35 @@ test("duplicate rule names fail consistency validation", () => {
       message:
         'requirement name "Shared Rule Name" appears in multiple locations: ' +
         "FRR.ABC.data.all.CSO.ABC-CSO-001, FRR.ABC.data.all.CSO.ABC-CSO-002.",
+    },
+  ]);
+});
+
+test("updated histories use the order defined outside the schema", () => {
+  const document = {
+    FRD: {
+      data: {
+        all: {
+          "FRD-TST": {
+            term: "Test",
+            definition: "Test definition.",
+            updated: [
+              { date: "2025-01-01", comment: "Older change." },
+              { date: "2026-01-01", comment: "Newer change." },
+            ],
+          },
+        },
+      },
+    },
+    FRR: {},
+    KSI: {},
+  } as unknown as RulesDocument;
+
+  expect(collectAuditHistoryIssues(document)).toEqual([
+    {
+      location: "FRD.data.all.FRD-TST.updated",
+      message:
+        "updated history must be sorted newest-first; found 2025-01-01, 2026-01-01.",
     },
   ]);
 });

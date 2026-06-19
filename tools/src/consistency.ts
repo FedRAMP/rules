@@ -1,11 +1,11 @@
 import { visitIndicators, visitRequirements } from "./traversal";
 import { loadSchemaDocument } from "./rules";
 import {
-  getSchemaAtPointer,
   getSchemaPattern,
   getSchemaPropertyOrder,
   requireStringEnum,
 } from "./schema-metadata";
+import { findArrayItemOrderRule, loadOrderConfig } from "./order-config";
 import type {
   ClassKey,
   DefinitionEntry,
@@ -31,6 +31,7 @@ type JsonRecord = Record<string, unknown>;
 
 type ApplicabilityKey = "all" | "20x" | "rev5";
 const SCHEMA_DOCUMENT = loadSchemaDocument();
+const ORDER_CONFIG = loadOrderConfig();
 const CLASS_KEYS = requireStringEnum(
   SCHEMA_DOCUMENT,
   "#/$defs/class_key",
@@ -985,13 +986,18 @@ function collectUpdatedHistoryIssues(
     );
   }
 
-  const updatedSchema = getSchemaAtPointer(
-    SCHEMA_DOCUMENT,
-    "#/$defs/updated_list",
-  );
-  const itemOrder = updatedSchema?.["x-item-order"];
-  const descending =
-    isRecord(itemOrder) && itemOrder.direction === "descending";
+  const itemOrder = findArrayItemOrderRule(ORDER_CONFIG, `${location}.updated`);
+  if (
+    !itemOrder ||
+    itemOrder.by !== "property" ||
+    itemOrder.property !== "date"
+  ) {
+    throw new Error(
+      "Order config must define **.updated ordering by the date property.",
+    );
+  }
+
+  const descending = itemOrder.direction === "descending";
   const expectedOrder = [...dates].sort((left, right) =>
     descending ? right.localeCompare(left) : left.localeCompare(right),
   );
@@ -999,7 +1005,9 @@ function collectUpdatedHistoryIssues(
     issues.push(
       issue(
         `${location}.updated`,
-        `updated history must be sorted newest-first; found ${dates.join(", ")}.`,
+        `updated history must be sorted ${
+          descending ? "newest-first" : "oldest-first"
+        }; found ${dates.join(", ")}.`,
       ),
     );
   }

@@ -1,5 +1,10 @@
 import type { PropertyOrderIssue, RulesDocument } from "./types";
 import {
+  findObjectKeyOrderRule,
+  loadOrderConfig,
+  type OrderConfig,
+} from "./order-config";
+import {
   dereferenceSchema,
   isJsonObject,
   type JsonObject,
@@ -7,6 +12,7 @@ import {
 } from "./schema-metadata";
 
 const isRecord = isJsonObject;
+const ORDER_CONFIG = loadOrderConfig();
 
 function getPropertiesSchema(schema: JsonSchema | null): JsonObject | null {
   if (!schema || !isRecord(schema.properties)) {
@@ -44,64 +50,6 @@ function getItemsSchema(schema: JsonSchema | null): JsonSchema | null {
   return schema.items;
 }
 
-function getPropertyNamesSchema(schema: JsonSchema | null): JsonSchema | null {
-  if (!schema || !isRecord(schema.propertyNames)) {
-    return null;
-  }
-
-  return schema.propertyNames;
-}
-
-function getOrderedNamesFromSchema(
-  rootSchema: JsonSchema,
-  schema: unknown,
-): string[] | null {
-  const resolvedSchema = dereferenceSchema(rootSchema, schema);
-  if (!resolvedSchema) {
-    return null;
-  }
-
-  if (Array.isArray(resolvedSchema.enum)) {
-    const enumValues = resolvedSchema.enum.filter(
-      (value): value is string => typeof value === "string",
-    );
-    if (enumValues.length > 0) {
-      return enumValues;
-    }
-  }
-
-  if (typeof resolvedSchema.const === "string") {
-    return [resolvedSchema.const];
-  }
-
-  for (const keyword of ["anyOf", "oneOf", "allOf"] as const) {
-    const entries = resolvedSchema[keyword];
-    if (!Array.isArray(entries)) {
-      continue;
-    }
-
-    const orderedNames: string[] = [];
-    for (const entry of entries) {
-      const childNames = getOrderedNamesFromSchema(rootSchema, entry);
-      if (!childNames) {
-        continue;
-      }
-
-      for (const name of childNames) {
-        if (!orderedNames.includes(name)) {
-          orderedNames.push(name);
-        }
-      }
-    }
-
-    if (orderedNames.length > 0) {
-      return orderedNames;
-    }
-  }
-
-  return null;
-}
-
 function getStringProperty(value: unknown, property: string): string | null {
   if (!isRecord(value) || typeof value[property] !== "string") {
     return null;
@@ -128,18 +76,26 @@ function compareKeysAlphabetically(left: string, right: string): number {
   return left.localeCompare(right);
 }
 
-function getCustomKeyOrder(
-  schema: JsonSchema | null,
+function getConfiguredKeyOrder(
+  config: OrderConfig,
+  path: string,
   value: JsonObject,
 ): string[] | null {
-  if (!schema || !isRecord(schema["x-key-order"])) {
+  const order = findObjectKeyOrderRule(config, path);
+  if (!order) {
     return null;
   }
 
-  const order = schema["x-key-order"];
-  const direction = order.direction === "descending" ? -1 : 1;
   const entries = Object.entries(value);
+  if (order.by === "explicit") {
+    const presentKeys = order.keys.filter((key) => key in value);
+    const remainingKeys = Object.keys(value).filter(
+      (key) => !order.keys.includes(key),
+    );
+    return [...presentKeys, ...remainingKeys];
+  }
 
+  const direction = order.direction === "descending" ? -1 : 1;
   if (order.by === "key") {
     return entries
       .map(([key]) => key)
@@ -182,38 +138,25 @@ export function formatPropertyOrderReport(
 }
 
 function getPreferredOrder(
-  rootSchema: JsonSchema,
   schema: JsonSchema | null,
   value: JsonObject,
-  _path: string,
+  path: string,
 ): string[] {
-  const customOrder = getCustomKeyOrder(schema, value);
-  if (customOrder) {
-    return customOrder;
+  const configuredOrder = getConfiguredKeyOrder(ORDER_CONFIG, path, value);
+  if (configuredOrder) {
+    return configuredOrder;
   }
 
   const properties = getPropertiesSchema(schema);
-  const propertyNameSchema = getPropertyNamesSchema(schema);
-  const propertyNameOrder = propertyNameSchema
-    ? (getOrderedNamesFromSchema(rootSchema, propertyNameSchema) ?? [])
-    : [];
-
   const preferredKeys = properties ? Object.keys(properties) : [];
-  const orderedKeys = [...preferredKeys];
 
-  for (const key of propertyNameOrder) {
-    if (!orderedKeys.includes(key)) {
-      orderedKeys.push(key);
-    }
-  }
-
-  if (orderedKeys.length === 0) {
+  if (preferredKeys.length === 0) {
     return Object.keys(value);
   }
 
-  const presentPreferredKeys = orderedKeys.filter((key) => key in value);
+  const presentPreferredKeys = preferredKeys.filter((key) => key in value);
   const remainingKeys = Object.keys(value).filter(
-    (key) => !orderedKeys.includes(key),
+    (key) => !preferredKeys.includes(key),
   );
 
   return [...presentPreferredKeys, ...remainingKeys];
@@ -278,12 +221,7 @@ function collectIssuesForValue(
   }
 
   const actualOrder = Object.keys(value);
-  const expectedOrder = getPreferredOrder(
-    rootSchema,
-    resolvedSchema,
-    value,
-    path,
-  );
+  const expectedOrder = getPreferredOrder(resolvedSchema, value, path);
 
   if (
     actualOrder.length > 1 &&
@@ -354,7 +292,6 @@ function reorderValue(
 
   const actualOrder = Object.keys(withReorderedChildren);
   const expectedOrder = getPreferredOrder(
-    rootSchema,
     resolvedSchema,
     withReorderedChildren,
     path,

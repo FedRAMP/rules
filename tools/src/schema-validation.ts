@@ -12,16 +12,6 @@ export function validateSchema(
     strict: true,
     allErrors: true,
   });
-  ajv.addKeyword({
-    keyword: "x-key-order",
-    schemaType: ["string", "object"],
-    valid: true,
-  });
-  ajv.addKeyword({
-    keyword: "x-item-order",
-    schemaType: ["string", "object"],
-    valid: true,
-  });
   addFormats(ajv as any);
 
   const schema = schemaDocument as AnySchema;

@@ -28,7 +28,6 @@
     },
     "FRR": {
       "type": "object",
-      "x-key-order": { "by": "key", "direction": "ascending" },
       "propertyNames": { "$ref": "#/$defs/frr_document_key" },
       "additionalProperties": {
         "type": "object",
@@ -42,7 +41,6 @@
     },
     "KSI": {
       "type": "object",
-      "x-key-order": { "by": "key", "direction": "ascending" },
       "propertyNames": { "$ref": "#/$defs/ksi_theme_key" },
       "additionalProperties": {
         "type": "object",
@@ -451,12 +449,6 @@
     },
     "frd_definitions_map": {
       "type": "object",
-      "x-key-order": {
-        "by": "property",
-        "property": "term",
-        "fallback": "key",
-        "direction": "ascending"
-      },
       "propertyNames": { "$ref": "#/$defs/frd_definition_id" },
       "additionalProperties": { "$ref": "#/$defs/frd_definition" }
     },
@@ -866,11 +858,6 @@
     "updated_list": {
       "type": "array",
       "minItems": 1,
-      "x-item-order": {
-        "by": "property",
-        "property": "date",
-        "direction": "descending"
-      },
       "items": {
         "type": "object",
         "required": ["date", "comment"],
