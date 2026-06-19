@@ -382,7 +382,7 @@
         },
         "FRD-FIN": {
           "term": "FedRAMP Independent Assessment",
-          "definition": "An independent verification and validation assessment, performed by a FedRAMP Recognized independent assessment service or FedRAMP following FedRAMP Rules. These assessments are typically first performed to obtain an initial FedRAMP Certification then repeated on an annual basis to maintain FedRAMP Certification.",
+          "definition": "An independent verification and validation assessment, performed by a FedRAMP Recognized independent assessment service or FedRAMP following FedRAMP rules. These assessments are typically first performed to obtain an initial FedRAMP Certification then repeated on an annual basis to maintain FedRAMP Certification.",
           "alts": [
             "FedRAMP independent assessment",
             "FedRAMP independent assessments"
@@ -396,7 +396,7 @@
         },
         "FRD-FPR": {
           "term": "FedRAMP Practices",
-          "definition": "The security measures, safeguards, precautions, procedures, activities, policies, capabilities, mechanisms, etc. that are expected to be in place by FedRAMP to demonstrate that information resources are properly protected, expressed in FedRAMP 20x Key Security Indicators or FedRAMP Rev5 Controls and supplemented by FedRAMP Rules.",
+          "definition": "The security measures, safeguards, precautions, procedures, activities, policies, capabilities, mechanisms, etc. that are expected to be in place by FedRAMP to demonstrate that information resources are properly protected, expressed in FedRAMP 20x Key Security Indicators or FedRAMP Rev5 Controls and supplemented by FedRAMP rules.",
           "alts": ["FedRAMP Practice", "FedRAMP Practices"],
           "updated": [
             {
@@ -2535,7 +2535,7 @@
               "name": "Public Information",
               "statement": "Providers MUST publicly share up-to-date information about the cloud service offering in both human-readable and JSON formats, including at least the following information that is available and applicable:",
               "following_information": [
-                "Direct link to the FedRAMP Marketplace for the offering",
+                "FedRAMP ID",
                 "Service Model",
                 "Deployment Model",
                 "Business Category",
@@ -2609,7 +2609,7 @@
             },
             "CDS-CSO-FID": {
               "name": "Always Include FedRAMP ID",
-              "statement": "Providers MUST always include the FedRAMP ID of the related cloud service offering in all FedRAMP Certification Data once assigned, including all reports, notifications, and other communication that results from FedRAMP Rules.",
+              "statement": "Providers MUST always include the FedRAMP ID of the related cloud service offering in all FedRAMP Certification Data once assigned, including all reports, notifications, and other communication that results from FedRAMP rules.",
               "notes": [
                 "The FedRAMP ID is supplied by FedRAMP after a cloud service offering is registered to be listed on the FedRAMP Marketplace - providers will need to use a placeholder until the FedRAMP ID is assigned.",
                 "Many providers have multiple cloud service offerings or use internal names that don't align to public materials; using the FedRAMP ID ensures we can easily align the communication with a specific cloud service offering."
@@ -5294,25 +5294,25 @@
               "name": "FedRAMP Independent Assessments",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
+                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment of all applicable FedRAMP rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MAY",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
+                  "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
+                  "statement": "Providers with Class C Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP Rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
+                  "statement": "Providers with Class D Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
@@ -5511,13 +5511,14 @@
             },
             "IVV-IAS-SUM": {
               "name": "Assessment Summary",
-              "statement": "Assessors MUST supply the provider with a high-level summary of their assessment process and findings for each FedRAMP Rule, control, and Key Security Indicator; this summary will be included by the provider in the FedRAMP Security Decision Record for the cloud service offering.",
+              "statement": "Assessors MUST supply the provider with a high-level summary of their assessment process and findings for each FedRAMP Practice; this summary will be included by the provider in the FedRAMP Security Decision Record for the cloud service offering.",
               "note": "FedRAMP does not require a separate Security Assessment Plan or Security Assessment Report for FedRAMP 20x or FedRAMP Rev5 Certifications; this information is expected to be included in the Security Decision Record by the cloud service provider.",
               "force": "MUST",
               "affects": ["Assessors"],
               "terms": [
                 "Assessor",
                 "Cloud Service Offering",
+                "FedRAMP Practices",
                 "Provider",
                 "Security Decision Record (SDR)"
               ],
@@ -7756,7 +7757,7 @@
           "CSO": {
             "SDR-CSO-FRR": {
               "name": "FedRAMP Rules",
-              "statement": "Providers MUST supply a Security Decision Record, in both human-readable and JSON formats, that includes at least all of the following information for each applicable FedRAMP Rule:",
+              "statement": "Providers MUST supply a Security Decision Record, in both human-readable and JSON formats, that includes at least all of the following information for each applicable FedRAMP rule:",
               "following_information": [
                 "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
                 "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted by a senior official.",
@@ -7915,7 +7916,7 @@
             },
             "SDR-CSF-ODP": {
               "name": "Organization-Defined Parameters",
-              "statement": "Providers MUST define all required organization-defined parameters tied to all Rev5 Controls, following FedRAMP Rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
+              "statement": "Providers MUST define all required organization-defined parameters tied to all Rev5 Controls, following FedRAMP rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Provider"],
