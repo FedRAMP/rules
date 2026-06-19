@@ -3821,8 +3821,32 @@
             },
             "FRC-APP-FIA": {
               "name": "Fresh Independent Assessment",
-              "statement": "Providers MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
-              "force": "MUST",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers seeking Class A Certification MAY supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "force": "MAY",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
+                "b": {
+                  "statement": "Providers seeking Class B Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
+                "c": {
+                  "statement": "Providers seeking Class C Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                },
+                "d": {
+                  "statement": "Providers seeking Class D Certification MUST supply a fresh initial FedRAMP independent assessment that was completed by a FedRAMP Recognized Independent Assessment Service within the previous 3 months.",
+                  "force": "MUST",
+                  "timeframe_type": "months",
+                  "timeframe_num": 3
+                }
+              },
               "affects": ["Providers"],
               "terms": [
                 "FedRAMP Independent Assessment",
