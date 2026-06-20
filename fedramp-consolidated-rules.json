@@ -4252,7 +4252,7 @@
               },
               {
                 "from": "IEC-CSO-EFR",
-                "to": "Incident Communication Procedures are complete.",
+                "to": "Incident Evaluation and Reporting is complete.",
                 "description": "No"
               },
               {
@@ -4287,7 +4287,7 @@
               },
               {
                 "from": "IEC-CSO-FIR",
-                "to": "Incident Communication Procedures are complete."
+                "to": "Incident Evaluation and Reporting are complete."
               }
             ],
             "nodes": {
@@ -4298,7 +4298,7 @@
               "IEC-CSO-IIR": "process",
               "IEC-CSO-OIR": "process",
               "IEC-CSO-FIR": "process",
-              "Incident Communication Procedures are complete.": "end"
+              "Incident Evaluation and Reporting are complete.": "end"
             }
           }
         ],
@@ -10886,168 +10886,168 @@
       "IR-01": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-02": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-02-01": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-02-02": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-03": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-03-02": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-04": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-04-01": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-04-02": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-04-04": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-04-06": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-04-11": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-05": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-05-01": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-06": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-06-01": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-06-03": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-07": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-07-01": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-08": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-09": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-09-02": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-09-03": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       },
       "IR-09-04": {
         "all_classes": {
           "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Communication Procedures."
+            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
           ]
         }
       }
