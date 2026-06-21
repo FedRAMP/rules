@@ -85,16 +85,31 @@
           "additionalProperties": false,
           "minProperties": 1,
           "properties": {
-            "all_classes": {
-              "$ref": "#/$defs/classData",
-              "description": "Guidance and parameters that apply uniformly across all classes"
+            "guidance": {
+              "type": "array",
+              "description": "Guidance strings that apply uniformly across all classes",
+              "items": { "type": "string", "minLength": 1 },
+              "minItems": 1
+            },
+            "parameters": {
+              "type": "array",
+              "description": "Parameters that apply uniformly across all classes",
+              "items": {
+                "type": "object",
+                "required": ["parameterId", "value"],
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": { "type": "string", "minLength": 1 },
+                  "value": { "type": "string", "minLength": 1 }
+                }
+              },
+              "minItems": 1
             },
             "varies_by_class": {
               "type": "object",
               "description": "Per-class parameters and guidance",
               "additionalProperties": false,
               "properties": {
-                "a": { "$ref": "#/$defs/classData" },
                 "b": { "$ref": "#/$defs/classData" },
                 "c": { "$ref": "#/$defs/classData" },
                 "d": { "$ref": "#/$defs/classData" }

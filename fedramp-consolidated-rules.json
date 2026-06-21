@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.19.02-preview",
-    "last_updated": "2026-06-19",
+    "version": "2026.06.21.01-preview",
+    "last_updated": "2026-06-21",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -444,7 +444,7 @@
         },
         "FRD-FIR": {
           "term": "Final Incident Report (FIR)",
-          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Communications Procedures.",
+          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Evaluation and Response rules.",
           "tag": "Incident",
           "alts": [
             "final incident report",
@@ -541,7 +541,7 @@
         },
         "FRD-IIR": {
           "term": "Initial Incident Report (IIR)",
-          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Communications Procedures.",
+          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP FedRAMP Incident Evaluation and Response rules.",
           "tag": "Incident",
           "alts": [
             "initial incident report",
@@ -719,7 +719,7 @@
         },
         "FRD-OIR": {
           "term": "Ongoing Incident Report (OIR)",
-          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, aligned to the rules in the FedRAMP Incident Communications Procedures.",
+          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following the FedRAMP Incident Evaluation and Response rules.",
           "tag": "Incident",
           "alts": [
             "ongoing incident report",
@@ -4338,14 +4338,14 @@
           "FRP": {
             "IEC-FRP-ORV": {
               "name": "Ongoing Review",
-              "statement": "FedRAMP MUST periodically review Incident Communications Procedures implementation with providers based on lack of reporting or other information.",
+              "statement": "FedRAMP MUST periodically review FedRAMP Incident Evaluation and Response implementation with providers based on lack of reporting or other information.",
               "corrective_actions": [
                 "FedRAMP will request a Corrective Action Plan when a provider is unaware of the rules or has failed to implement proper procedures.",
                 "FedRAMP will grant a 3 month grace period to implement proper procedures pending remediation and possible revocation of FedRAMP Certification."
               ],
               "force": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Incident", "Provider"],
+              "terms": ["Incident", "Provider", "Vulnerability Response"],
               "updated": [
                 {
                   "date": "2026-06-23",
@@ -4357,7 +4357,7 @@
           "CSO": {
             "IEC-CSO-EFR": {
               "name": "Evaluate FedRAMP Reportability",
-              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Communications Procedures.",
+              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Evaluation and Response rules.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -4371,7 +4371,8 @@
                 "Incident",
                 "Likely",
                 "Promptly",
-                "Provider"
+                "Provider",
+                "Vulnerability Response"
               ],
               "updated": [
                 {
@@ -10602,241 +10603,176 @@
   "CTL": {
     "AC": {
       "AC-06-01": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ac-06.01_odp.02",
-              "value": "all functions not publicly accessible"
-            },
-            {
-              "parameterId": "ac-06.01_odp.05",
-              "value": "all security-relevant information not publicly available"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ac-06.01_odp.02",
+            "value": "all functions not publicly accessible"
+          },
+          {
+            "parameterId": "ac-06.01_odp.05",
+            "value": "all security-relevant information not publicly available"
+          }
+        ]
       },
       "AC-20": {
-        "all_classes": {
-          "guidance": [
-            "The interrelated controls of AC-20, CA-3, and SA-9 should be differentiated as follows:",
-            "AC-20 describes system access to and from external systems.",
-            "CA-3 describes documentation of an agreement between the respective system owners when data is exchanged between the CSO and an external system.",
-            "SA-9 describes the responsibilities of external system owners. These responsibilities would typically be captured in the agreement required by CA-3."
-          ]
-        }
+        "guidance": [
+          "The interrelated controls of AC-20, CA-3, and SA-9 should be differentiated as follows:",
+          "AC-20 describes system access to and from external systems.",
+          "CA-3 describes documentation of an agreement between the respective system owners when data is exchanged between the CSO and an external system.",
+          "SA-9 describes the responsibilities of external system owners. These responsibilities would typically be captured in the agreement required by CA-3."
+        ]
       },
       "AC-06-02": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ac-06.02_odp",
-              "value": "all security functions"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ac-06.02_odp",
+            "value": "all security functions"
+          }
+        ]
       },
       "AC-06-08": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ac-06.08_odp",
-              "value": "any software except software explicitly documented"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ac-06.08_odp",
+            "value": "any software except software explicitly documented"
+          }
+        ]
       }
     },
     "AU": {
       "AU-06": {
-        "all_classes": {
-          "guidance": [
-            "This activity is considered vulnerability detection and is subject to the Vulnerability Detection and Response rules."
-          ]
-        }
+        "guidance": [
+          "This activity is considered vulnerability detection and is subject to the Vulnerability Detection and Response rules."
+        ]
       },
       "AU-06-05": {
-        "all_classes": {
-          "guidance": [
-            "This activity is considered vulnerability detection and is subject to the Vulnerability Detection and Response rules."
-          ]
-        }
+        "guidance": [
+          "This activity is considered vulnerability detection and is subject to the Vulnerability Detection and Response rules."
+        ]
       },
       "AU-10": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "au-10_odp",
-              "value": "at least actions including the addition, modification, deletion, approval, sending, or receiving of data"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "au-10_odp",
+            "value": "at least actions including the addition, modification, deletion, approval, sending, or receiving of data"
+          }
+        ]
       },
       "AU-12": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "au-12_odp.01",
-              "value": "at least all information system and network components where audit capability is deployed/available"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "au-12_odp.01",
+            "value": "at least all information system and network components where audit capability is deployed/available"
+          }
+        ]
       }
     },
     "CA": {
       "CA-07": {
-        "all_classes": {
-          "guidance": [
-            "Follow the Continuous Collaborative Monitoring, Significant Change Notification, and Vulnerability Detection and Response rules."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Continuous Collaborative Monitoring, Significant Change Notification, Vulnerability Detection and Response, and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "CA-08": {
-        "all_classes": {
-          "guidance": [
-            "Penetration testing is part of vulnerability detection and is subject to the Vulnerability Detection and Response rules."
-          ]
-        }
+        "guidance": [
+          "Penetration testing is part of vulnerability detection and is subject to the Vulnerability Detection and Response rules."
+        ]
       },
       "CA-02": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ca-02_odp.02",
-              "value": "individuals or roles to include FedRAMP and agency customers"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ca-02_odp.02",
+            "value": "individuals or roles to include FedRAMP and agency customers"
+          }
+        ]
       },
       "CA-02-03": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ca-02.03_odp.01",
-              "value": "any FedRAMP Recognized independent assessor"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ca-02.03_odp.01",
+            "value": "any FedRAMP Recognized independent assessment service"
+          }
+        ]
       }
     },
     "CM": {
       "CM-01": {
-        "all_classes": {
-          "guidance": ["Follow the Significant Change Notification rules."]
-        }
+        "guidance": ["Follow the Significant Change Notification rules."]
       },
       "CM-08": {
-        "all_classes": {
-          "guidance": [
-            "Follow the Continuous Collaborative Monitoring, Significant Change Notification, and Vulnerability Detection and Response rules."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Continuous Collaborative Monitoring, Significant Change Notification, Vulnerability Detection and Response, and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "CM-11": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "cm-11_odp.03",
-              "value": "Continuously (via CM-7 (5))"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "cm-11_odp.03",
+            "value": "Continuously (via CM-7 (5))"
+          }
+        ]
       },
       "CM-12": {
-        "all_classes": {
-          "guidance": ["Follow Minimum Assessment Scope (MAS) rules."]
-        }
+        "guidance": ["Follow the FedRAMP Minimum Assessment Scope rules."]
       },
       "CM-12-01": {
-        "all_classes": {
-          "guidance": ["Follow Minimum Assessment Scope (MAS) rules."]
-        }
+        "guidance": ["Follow the FedRAMP Minimum Assessment Scope rules."]
       },
       "CM-14": {
-        "all_classes": {
-          "guidance": [
-            "If digital signatures/certificates are unavailable, alternative cryptographic integrity checks (hashes, self-signed certs, etc.) can be utilized."
-          ]
-        }
-      },
-      "CM-08-03": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "cm-08.03_odp.01",
-              "value": "automated mechanisms with a maximum five-minute delay in detection."
-            },
-            {
-              "parameterId": "cm-08.03_odp.04",
-              "value": "continuously"
-            }
-          ]
-        }
+        "guidance": [
+          "If digital signatures/certificates are unavailable, alternative cryptographic integrity checks (hashes, self-signed certs, etc.) can be utilized."
+        ]
       }
     },
     "CP": {
       "CP-07-01": {
-        "all_classes": {
-          "guidance": [
-            "The service provider may determine what is considered a sufficient degree of separation between the primary and alternate processing sites, based on the types of threats that are of concern. For one particular type of threat (i.e., hostile cyber attack), the degree of separation between sites will be less relevant."
-          ]
-        }
+        "guidance": [
+          "The service provider may determine what is considered a sufficient degree of separation between the primary and alternate processing sites, based on the types of threats that are of concern. For one particular type of threat (i.e., hostile cyber attack), the degree of separation between sites will be less relevant."
+        ]
       },
       "CP-02-03": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "cp-02.03_odp.02",
-              "value": "time period defined in service provider and organization SLA"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "cp-02.03_odp.02",
+            "value": "time period defined in service provider and organization Service Level Agreements"
+          }
+        ]
       },
       "CP-10-04": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "cp-10.04_odp",
-              "value": "time period consistent with the restoration time-periods defined in the service provider and organization SLA"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "cp-10.04_odp",
+            "value": "time period consistent with the restoration time-periods defined in the service provider and organization Service Level Agreements"
+          }
+        ]
       }
     },
     "IA": {
       "IA-02": {
-        "all_classes": {
-          "guidance": [
-            "Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
-          ]
-        }
+        "guidance": [
+          "Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
+        ]
       },
       "IA-02-01": {
-        "all_classes": {
-          "guidance": [
-            "Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
-          ]
-        }
+        "guidance": [
+          "Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
+        ]
       },
       "IA-02-02": {
-        "all_classes": {
-          "guidance": [
-            "Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
-          ]
-        }
+        "guidance": [
+          "Multi-factor authentication must be phishing-resistant. In accordance with current CISA Guidance. Current CISA guidance can be found here: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf"
+        ]
       },
       "IA-02-08": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ia-02.08_odp",
-              "value": "privileged accounts; non-privileged accounts"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ia-02.08_odp",
+            "value": "privileged accounts; non-privileged accounts"
+          }
+        ]
       },
       "IA-05": {
         "varies_by_class": {
-          "a": {},
           "b": {
             "guidance": [
               "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 1. Link https://pages.nist.gov/800-63-3",
@@ -10858,296 +10794,212 @@
         }
       },
       "IA-02-06": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ia-02.06_odp.01",
-              "value": "local, network and remote"
-            },
-            {
-              "parameterId": "ia-02.06_odp.02",
-              "value": "privileged accounts; non-privileged accounts"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ia-02.06_odp.01",
+            "value": "local, network and remote"
+          },
+          {
+            "parameterId": "ia-02.06_odp.02",
+            "value": "privileged accounts; non-privileged accounts"
+          }
+        ]
       },
       "IA-04-04": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "ia-04.04_odp",
-              "value": "contractors; foreign nationals"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "ia-04.04_odp",
+            "value": "contractors; foreign nationals"
+          }
+        ]
       }
     },
     "IR": {
       "IR-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-02-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-02-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-03": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-03-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-04": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-04-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-04-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-04-04": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-04-06": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-04-11": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-05": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-05-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-06": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-06-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-06-03": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-07": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-07-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-08": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-09": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-09-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-09-03": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       },
       "IR-09-04": {
-        "all_classes": {
-          "guidance": [
-            "Follow all guidelines associated with FedRAMP Incident Evaluation and Reporting."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+        ]
       }
     },
     "MA": {
       "MA-05": {
-        "all_classes": {
-          "guidance": [
-            "CSPs should clearly document nationality requirements (or lack of) for maintenance personnel where applicable."
-          ]
-        }
+        "guidance": [
+          "CSPs should clearly document nationality requirements (or lack of) for maintenance personnel where applicable."
+        ]
       },
       "MA-05-01": {
-        "all_classes": {
-          "guidance": [
-            "Only MA-5 (1) (a) (1) is required by FedRAMP Moderate Baseline"
-          ]
-        }
+        "guidance": [
+          "Only MA-5 (1) (a) (1) is required by FedRAMP Class C Baseline."
+        ]
       }
     },
     "PS": {
       "PS-07": {
-        "all_classes": {
-          "guidance": [
-            "CSPs MUST clearly document any nationality requirements for any account type within its platform.  If none exists, this must also be explicitly stated."
-          ]
-        }
+        "guidance": [
+          "CSPs MUST clearly document any nationality requirements for any account type within its platform. If none exists, this must also be explicitly stated."
+        ]
       }
     },
     "RA": {
       "RA-05": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-05-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ],
-          "parameters": [
-            {
-              "parameterId": "ra-05.02_odp.02",
-              "value": "prior to a new scan"
-            }
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-05-03": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-05-04": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-05-05": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-05-08": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-05-11": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "RA-07": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       }
     },
     "SA": {
       "SA-05": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the FedRAMP Security Configuration Guidance"
-          ]
-        }
+        "guidance": ["Follow the FedRAMP Secure Configuration Guide rules."]
       },
       "SA-09-05": {
         "varies_by_class": {
@@ -11159,7 +11011,7 @@
               },
               {
                 "parameterId": "sa-09.05_odp.03",
-                "value": "all Federal customer data"
+                "value": "all federal customer data"
               }
             ]
           },
@@ -11175,119 +11027,89 @@
               },
               {
                 "parameterId": "sa-09.05_odp.03",
-                "value": "all Federal customer data"
+                "value": "all federal customer data"
               }
             ]
           }
         }
       },
       "SA-09-02": {
-        "all_classes": {
-          "parameters": [
-            {
-              "parameterId": "sa-09.02_odp",
-              "value": "all external systems where federal customer data is processed or stored"
-            }
-          ]
-        }
+        "parameters": [
+          {
+            "parameterId": "sa-09.02_odp",
+            "value": "all external systems where federal customer data is processed or stored"
+          }
+        ]
       }
     },
     "SC": {
       "SC-07": {
-        "all_classes": {
-          "guidance": [
-            "SC-7 (b) MAY be met by using any technical capability or complement of capabilities that ensures logical separation between publicly accessible components and internal networks by preventing traversal without inspection and authorization; traffic may not flow unrestricted from publicly accessible components to internal networks."
-          ]
-        }
+        "guidance": [
+          "SC-7 (b) may be met by using any technical capability or complement of capabilities that ensures logical separation between publicly accessible components and internal networks by preventing traversal without inspection and authorization; traffic may not flow unrestricted from publicly accessible components to internal networks."
+        ]
       },
       "SC-13": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Using Cryptographics Modules  guidance."
-          ]
-        }
+        "guidance": ["Follow the FedRAMP Cryptographic Module Use rules."]
       }
     },
     "SI": {
       "SI-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "SI-02-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "SI-04": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response and Incident Communication Procedure guidance."
-          ]
-        }
+        "guidance": [
+          "Follow all applicable rules within the Vulnerability and Detection Response and Incident Communication Procedure guidance."
+        ]
       },
       "SI-04-01": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "SI-04-02": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "SI-04-04": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "SI-04-05": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Vulnerability and Detection Response guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Vulnerability Detection and Response and Vulnerability Evaluation and Reporting rules."
+        ]
       },
       "SI-05": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the FedRAMP Secure Inbox (FSI) guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Addressing FedRAMP Communication rules."
+        ]
       },
       "SI-08": {
-        "all_classes": {
-          "guidance": [
-            "When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting & Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01. https://www.cisa.gov/news-events/directives",
-            "SI-8 Guidance: CSPs should confirm DMARC configuration (where appropriate) to ensure that policy=reject and the rua parameter includes reports@dmarc.cyber.dhs.gov.  DMARC compliance should be documented in the SI-08 control implementation solution description, and list the FROM: domain(s) when emails are sent on behalf of the government."
-          ]
-        }
+        "guidance": [
+          "When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting & Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01. https://www.cisa.gov/news-events/directives",
+          "SI-8 Guidance: CSPs should confirm DMARC configuration (where appropriate) to ensure that policy=reject and the rua parameter includes reports@dmarc.cyber.dhs.gov.  DMARC compliance should be documented in the SI-08 control implementation solution description, and list the FROM: domain(s) when emails are sent on behalf of the government."
+        ]
       }
     },
     "SR": {
       "SR-03": {
-        "all_classes": {
-          "guidance": [
-            "CSO must document and maintain the supply chain custody, including replacement devices, to ensure the integrity of the devices before being introduced to the boundary."
-          ]
-        }
+        "guidance": [
+          "CSO must document and maintain the supply chain custody, including replacement devices, to ensure the integrity of the devices before being introduced to the boundary."
+        ]
       },
       "SR-08": {
-        "all_classes": {
-          "guidance": [
-            "Follow all applicable rules within the Incident Communication Procedure guidance."
-          ]
-        }
+        "guidance": [
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
+        ]
       }
     }
   }
