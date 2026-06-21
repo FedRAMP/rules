@@ -85,16 +85,31 @@
           "additionalProperties": false,
           "minProperties": 1,
           "properties": {
-            "all_classes": {
-              "$ref": "#/$defs/classData",
-              "description": "Guidance and parameters that apply uniformly across all classes"
+            "guidance": {
+              "type": "array",
+              "description": "Guidance strings that apply uniformly across all classes",
+              "items": { "type": "string", "minLength": 1 },
+              "minItems": 1
+            },
+            "parameters": {
+              "type": "array",
+              "description": "Parameters that apply uniformly across all classes",
+              "items": {
+                "type": "object",
+                "required": ["parameterId", "value"],
+                "additionalProperties": false,
+                "properties": {
+                  "parameterId": { "type": "string", "minLength": 1 },
+                  "value": { "type": "string", "minLength": 1 }
+                }
+              },
+              "minItems": 1
             },
             "varies_by_class": {
               "type": "object",
               "description": "Per-class parameters and guidance",
               "additionalProperties": false,
               "properties": {
-                "a": { "$ref": "#/$defs/classData" },
                 "b": { "$ref": "#/$defs/classData" },
                 "c": { "$ref": "#/$defs/classData" },
                 "d": { "$ref": "#/$defs/classData" }
@@ -629,6 +644,7 @@
           "type": "array",
           "items": { "type": "string" }
         },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
         "note": { "type": "string" },
         "notes": {
           "type": "array",
@@ -647,6 +663,17 @@
         "timeframe_num": ["timeframe_type"]
       },
       "additionalProperties": false
+    },
+    "rev5_controls_list": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[A-Z]{2}$" },
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/rev5_control_id" },
+        "minItems": 1,
+        "uniqueItems": true
+      }
     },
     "pain_timeframes": {
       "type": "object",
@@ -830,6 +857,10 @@
     "control_id": {
       "type": "string",
       "pattern": "^[a-z]{2}-\\d+(?:\\.\\d+)?$"
+    },
+    "rev5_control_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{2}(?: \\(\\d{2}\\))?$"
     },
     "frd_definition_id": {
       "type": "string",
