@@ -644,6 +644,7 @@
           "type": "array",
           "items": { "type": "string" }
         },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
         "note": { "type": "string" },
         "notes": {
           "type": "array",
@@ -662,6 +663,17 @@
         "timeframe_num": ["timeframe_type"]
       },
       "additionalProperties": false
+    },
+    "rev5_controls_list": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[A-Z]{2}$" },
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/rev5_control_id" },
+        "minItems": 1,
+        "uniqueItems": true
+      }
     },
     "pain_timeframes": {
       "type": "object",
@@ -845,6 +857,10 @@
     "control_id": {
       "type": "string",
       "pattern": "^[a-z]{2}-\\d+(?:\\.\\d+)?$"
+    },
+    "rev5_control_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{2}(?: \\(\\d{2}\\))?$"
     },
     "frd_definition_id": {
       "type": "string",
