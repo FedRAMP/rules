@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.21.01-preview",
-    "last_updated": "2026-06-21",
+    "version": "2026.06.23.01-preview",
+    "last_updated": "2026-06-23",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -3622,49 +3622,23 @@
             },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers seeking a Class A Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "An External Framework Mapping"
-                  ],
-                  "force": "MUST"
-                },
-                "b": {
-                  "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "A Security Decision Record",
-                    "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
-                  ],
-                  "force": "MUST"
-                },
-                "c": {
-                  "statement": "Providers seeking a Class C Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "A Security Decision Record",
-                    "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
-                  ],
-                  "force": "MUST"
-                },
-                "d": {
-                  "statement": "Providers seeking a Class D Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "A Security Decision Record",
-                    "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
-                  ],
-                  "force": "MUST"
-                }
-              },
+              "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
+              "following_information": [
+                "A Certification Package Overview",
+                "A Security Decision Record",
+                "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
+              ],
               "related": ["CCM-OCR-AVL"],
+              "force": "MUST",
               "affects": ["Providers"],
               "terms": [
                 "Certification Package",
+                "FedRAMP Certification Report",
                 "Initial Certification",
-                "Provider"
+                "Ongoing Certification",
+                "Ongoing Certification Report (OCR)",
+                "Provider",
+                "Security Decision Record (SDR)"
               ],
               "updated": [
                 {
@@ -5334,7 +5308,7 @@
             },
             "FRC-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
-              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
+              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification by whichever of the follow dates is later: the expiration of their annual assessment or November 17, 2026 (the legacy FedRAMP Ready status will be entirely removed on December 31, 2027).",
               "notes": [
                 "The simplest conversion in most cases would be to a FedRAMP 20x Class A Certification.",
                 "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready."
@@ -6760,19 +6734,19 @@
                   "force": "MUST"
                 },
                 "b": {
-                  "statement": "Providers with 20x Class B Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class B Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least once per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with 20x Class C Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class C Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least once per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with 20x Class D Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class D Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least once per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
@@ -7848,7 +7822,7 @@
                 {
                   "party": "FedRAMP",
                   "method": "form",
-                  "target": "https://help.fedramp.gov/forms/assessors/foci-declaration",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52006681154587",
                   "name": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form"
                 }
               ],
@@ -7871,7 +7845,7 @@
                 {
                   "party": "FedRAMP",
                   "method": "form",
-                  "target": "https://help.fedramp.gov/forms/assessors/foci-declaration",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52006681154587",
                   "name": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form"
                 }
               ],
@@ -7889,7 +7863,7 @@
               "following_information": [
                 "Complete Assessment Packages: Supplies complete and thoroughly prepared documents on the first submission.",
                 "Deliverable Quality: Ensures documentation content is clear, complete, concise, and consistent.",
-                "Deliverable Format: Uses current FedRAMP templates, procedures, and required formats for assessor-authored deliverables unless FedRAMP publishes an alternate format for a specific path, pilot, or process, and does not alter or delete required template content.",
+                "Deliverable Format: Follows applicable FedRAMP rules.",
                 "Timeliness and Responsiveness: Delivers documents on time according to the schedule agreed to by the federal government, provider, and assessor.",
                 "Testing Accuracy and Completeness: Ensures accurate and complete testing of a cloud service offering in accordance with ISO 17020 and FedRAMP security rules.",
                 "Assessment Integrity: Submits independent assessments of provider security implementations that are not influenced by provider demands.",
@@ -9072,19 +9046,6 @@
                 "Validation",
                 "Verification"
               ],
-              "updated": [
-                {
-                  "date": "2026-06-23",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "SDR-CSF-ODP": {
-              "name": "Organization-Defined Parameters",
-              "statement": "Providers MUST define all required organization-defined parameters tied to all Rev5 Controls, following FedRAMP rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
               "updated": [
                 {
                   "date": "2026-06-23",
