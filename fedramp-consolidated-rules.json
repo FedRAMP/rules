@@ -3351,7 +3351,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Package Overview Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Class",
@@ -8492,7 +8492,7 @@
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notifications Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": ["Provider", "Significant Change"],
               "updated": [
@@ -8980,7 +8980,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
               "terms": [
                 "Artifacts",
