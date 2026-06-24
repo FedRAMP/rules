@@ -1,9 +1,9 @@
 {
   "info": {
-    "title": "FedRAMP Consolidated Rules for 2026 Public Preview",
+    "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.21.01-preview",
-    "last_updated": "2026-06-21",
+    "version": "2026.06.24.01",
+    "last_updated": "2026-06-24",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -51,7 +51,7 @@
           "alts": ["accepted vulnerability", "accepted vulnerabilities"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -64,7 +64,7 @@
           "alts": ["adaptive", "adaptive change", "adaptive changes"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -77,7 +77,7 @@
           "do_not_link": true,
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -92,7 +92,7 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -104,7 +104,7 @@
           "alts": ["all affected parties"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -116,7 +116,7 @@
           "alts": ["all necessary assessors"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -128,7 +128,7 @@
           "alts": ["all necessary parties"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -140,7 +140,7 @@
           "alts": ["artifact", "artifacts"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -154,7 +154,7 @@
           "do_not_link": true,
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -166,7 +166,7 @@
           "alts": ["Certification Class", "Certification Classes"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -178,7 +178,7 @@
           "alts": ["certification class change", "certification class changes"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -191,7 +191,7 @@
           "alts": ["certification data"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -206,7 +206,7 @@
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -218,7 +218,7 @@
           "alts": ["Certification Path", "Certification Paths"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -230,7 +230,7 @@
           "alts": ["Certification Profile", "Certification Profiles"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -242,7 +242,7 @@
           "alts": ["Certification Type", "Certification Types"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -254,7 +254,7 @@
           "alts": ["cloud service offering", "cloud service offerings"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -269,7 +269,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -281,7 +281,7 @@
           "alts": ["deterministic telemetry"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -293,7 +293,7 @@
           "alts": ["disruptive customer effect", "disruptive customer effects"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -304,7 +304,7 @@
           "alts": ["drift", "drifts", "drifting"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -323,7 +323,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -335,7 +335,7 @@
           "alts": ["federal customer data"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -353,7 +353,7 @@
           "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -375,7 +375,7 @@
           "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -389,7 +389,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -400,7 +400,7 @@
           "alts": ["FedRAMP Practice", "FedRAMP Practices"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -411,7 +411,7 @@
           "alts": ["FedRAMP Recognized", "FedRAMP Recognition"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -426,7 +426,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -437,7 +437,7 @@
           "alts": ["security inbox", "security inboxes", "FSI"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -454,7 +454,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -470,7 +470,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -481,7 +481,7 @@
           "alts": ["handle", "handles", "handled", "handling"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -495,7 +495,7 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title44/USCODE-2024-title44-chap35-subchapII-sec3552",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -510,7 +510,7 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -522,7 +522,7 @@
           "alts": ["initial certification", "initial certifications"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -534,7 +534,7 @@
           "alts": ["initial FedRAMP assessment", "IFRA"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -551,7 +551,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -575,7 +575,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -594,7 +594,7 @@
           "reference_url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -605,7 +605,7 @@
           "alts": ["likely", "likelihood"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -628,7 +628,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -641,7 +641,7 @@
           "alts": ["machine-based", "machine based"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -652,7 +652,7 @@
           "alts": ["machine-generated"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -665,7 +665,7 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -677,7 +677,7 @@
           "alts": ["minimal customer effect", "minimal customer effects"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -689,7 +689,7 @@
           "alts": ["narrow customer effect", "narrow customer effects"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -701,7 +701,7 @@
           "alts": ["ongoing certification", "ongoing certifications"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -712,7 +712,7 @@
           "alts": ["ongoing certification report", "OCR", "OCRs"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -729,7 +729,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -741,7 +741,7 @@
           "alts": ["overdue vulnerability", "overdue vulnerabilities"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -757,7 +757,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -769,7 +769,7 @@
           "alts": ["persistent FedRAMP assessment", "PFRA"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -781,7 +781,7 @@
           "alts": ["persistently", "persistent"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -797,7 +797,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -810,7 +810,7 @@
           "alts": ["privileged account", "privileged accounts"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -822,7 +822,7 @@
           "alts": ["promptly", "prompt"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -841,7 +841,7 @@
           "do_not_link": true,
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -853,7 +853,7 @@
           "alts": ["quarterly review", "quarterly reviews"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -864,7 +864,7 @@
           "alts": ["regularly", "regular"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -880,7 +880,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -892,7 +892,7 @@
           "alts": ["responsibly"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -908,7 +908,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -926,7 +926,7 @@
           "reference_url": "https://csrc.nist.gov/pubs/fips/199/final",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -941,7 +941,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -955,7 +955,7 @@
           "reference_url": "https://csrc.nist.gov/pubs/sp/800/37/r2/final",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -970,7 +970,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -986,7 +986,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1003,7 +1003,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1015,7 +1015,7 @@
           "alts": ["trust center", "trust centers"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1029,7 +1029,7 @@
           "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1043,7 +1043,7 @@
           "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1057,7 +1057,7 @@
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title6/USCODE-2024-title6-chap1-subchapXVIII-sec650",
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1076,7 +1076,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1095,7 +1095,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -1159,7 +1159,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1178,7 +1178,7 @@
               "terms": ["FedRAMP Security Inbox", "Incident", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1190,7 +1190,7 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1217,7 +1217,7 @@
               "terms": ["Likely"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1229,7 +1229,7 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1253,7 +1253,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1265,7 +1265,7 @@
               "affects": ["FedRAMP"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1278,7 +1278,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1302,7 +1302,7 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1328,7 +1328,7 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1347,7 +1347,7 @@
               "terms": ["FedRAMP Security Inbox", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1361,7 +1361,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1375,7 +1375,7 @@
               "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1395,7 +1395,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1409,7 +1409,7 @@
               "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1422,7 +1422,7 @@
               "terms": ["FedRAMP Security Inbox", "Promptly", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1496,7 +1496,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1521,7 +1521,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1538,7 +1538,7 @@
               "terms": ["Agency", "Artifacts", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1564,7 +1564,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1591,7 +1591,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1619,7 +1619,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1632,7 +1632,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1647,7 +1647,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1661,7 +1661,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1683,7 +1683,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1696,7 +1696,7 @@
               "terms": ["Agency", "Certification Package"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1709,7 +1709,7 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1726,7 +1726,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1756,7 +1756,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1776,7 +1776,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1794,7 +1794,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1824,7 +1824,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1842,7 +1842,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1859,7 +1859,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1874,7 +1874,7 @@
               "terms": ["Agency"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1972,7 +1972,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -1994,7 +1994,7 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2021,7 +2021,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2041,7 +2041,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2069,6 +2069,10 @@
                   "How the report will be delivered"
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Ongoing Certification Report (CCM-OCR-AVL)",
+                "url": "https://fedramp.gov/schemas/fedramp-ongoing-certification-report-schema-2026-06-24.json"
+              },
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -2086,7 +2090,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2105,7 +2109,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2128,7 +2132,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2151,7 +2155,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2171,7 +2175,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2190,7 +2194,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2211,7 +2215,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2276,7 +2280,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2296,7 +2300,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2309,7 +2313,7 @@
               "terms": ["Certification Data", "Provider", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2327,7 +2331,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2347,7 +2351,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2360,7 +2364,7 @@
               "terms": ["Agency", "Provider", "Quarterly Review"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2377,7 +2381,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2397,7 +2401,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2417,7 +2421,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2436,7 +2440,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2563,8 +2567,8 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Public Marketplace Information Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-public-marketplace-information-schema-v2026.06.06.01.json"
+                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
@@ -2578,7 +2582,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2594,6 +2598,10 @@
                   "URL to the machine-readable data (if applicable)."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+              },
               "terms": [
                 "Certification Data",
                 "Cloud Service Offering",
@@ -2602,7 +2610,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2623,7 +2631,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2645,7 +2653,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2684,7 +2692,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2695,6 +2703,10 @@
               "note": "Rules for FedRAMP-Compatible Trust Centers are explained in the Certification Data Sharing Rules under the FedRAMP-Compatible Trust Centers section (id: CDS-TRC).",
               "force": "MUST",
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+              },
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -2703,7 +2715,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2716,7 +2728,7 @@
               "terms": ["Certification Data", "Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2754,7 +2766,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2784,7 +2796,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2808,7 +2820,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2861,7 +2873,7 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2885,7 +2897,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2905,7 +2917,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2921,7 +2933,7 @@
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2939,7 +2951,7 @@
               "terms": ["Agency", "Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2957,7 +2969,7 @@
               "terms": ["Certification Data", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2974,7 +2986,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -2996,7 +3008,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3021,7 +3033,7 @@
               "terms": ["Agency", "Certification Data", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3040,7 +3052,7 @@
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3076,7 +3088,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3152,7 +3164,7 @@
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3201,7 +3213,7 @@
               "terms": ["Federal Customer Data", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3219,7 +3231,7 @@
               "terms": ["Agency", "Provider", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3355,7 +3367,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3374,7 +3386,7 @@
               "terms": ["Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3419,7 +3431,7 @@
               "terms": ["Certification Package", "Persistently", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3470,7 +3482,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3615,60 +3627,38 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers seeking a Class A Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "An External Framework Mapping"
-                  ],
-                  "force": "MUST"
-                },
-                "b": {
-                  "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "A Security Decision Record",
-                    "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
-                  ],
-                  "force": "MUST"
-                },
-                "c": {
-                  "statement": "Providers seeking a Class C Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "A Security Decision Record",
-                    "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
-                  ],
-                  "force": "MUST"
-                },
-                "d": {
-                  "statement": "Providers seeking a Class D Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
-                  "following_information": [
-                    "A Certification Package Overview",
-                    "A Security Decision Record",
-                    "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
-                  ],
-                  "force": "MUST"
-                }
-              },
+              "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
+              "following_information": [
+                "A Certification Package Overview",
+                "A Security Decision Record",
+                "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
+              ],
               "related": ["CCM-OCR-AVL"],
+              "force": "MUST",
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+              },
               "terms": [
                 "Certification Package",
+                "FedRAMP Certification Report",
                 "Initial Certification",
-                "Provider"
+                "Ongoing Certification",
+                "Ongoing Certification Report (OCR)",
+                "Provider",
+                "Security Decision Record (SDR)"
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3682,7 +3672,7 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3695,7 +3685,7 @@
               "terms": ["Assessor", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3709,7 +3699,7 @@
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3729,7 +3719,7 @@
               "terms": ["Provider", "Security Category"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3747,7 +3737,7 @@
               "terms": ["All Necessary Parties", "Provider", "Verification"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3838,7 +3828,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3891,7 +3881,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3936,7 +3926,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3956,7 +3946,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -3983,22 +3973,28 @@
               "terms": ["Agency", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
             "FRC-APP-AFC": {
               "name": "Applying for FedRAMP Certification",
-              "statement": "Providers MUST complete the FedRAMP Certification Application Form at https://fedramp.gov/forms/provider-listing-request/ in full to request an initial assessment by FedRAMP.",
-              "reference": "FedRAMP Certification Application Form",
-              "reference_url": "https://fedramp.gov/forms",
+              "statement": "Providers MUST complete the FedRAMP Certification Application Form in full to request an initial assessment by FedRAMP.",
               "force": "MUST",
               "affects": ["Providers"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51137131584283",
+                  "name": "[For CSPs] FedRAMP Certification Application Form"
+                }
+              ],
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4017,7 +4013,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4058,7 +4054,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4075,7 +4071,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4094,7 +4090,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4109,7 +4105,7 @@
               "terms": ["Agency", "Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4128,7 +4124,7 @@
               "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4150,7 +4146,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4164,7 +4160,7 @@
               "terms": ["Agency", "All Necessary Parties", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4202,7 +4198,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4237,7 +4233,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4273,7 +4269,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -4286,7 +4282,7 @@
               "terms": ["Cloud Service Offering", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5301,7 +5297,7 @@
               "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5314,7 +5310,7 @@
               "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5327,14 +5323,14 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
             "FRC-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
-              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification before the furthest date of the expiration of their most recently yearly assessment or November 17, 2026; the legacy FedRAMP Ready status will be entirely removed on December 31, 2027.",
+              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification by whichever of the follow dates is later: the expiration of their annual assessment or November 17, 2026 (the legacy FedRAMP Ready status will be entirely removed on December 31, 2027).",
               "notes": [
                 "The simplest conversion in most cases would be to a FedRAMP 20x Class A Certification.",
                 "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready."
@@ -5344,7 +5340,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5490,7 +5486,7 @@
               "terms": ["Incident", "Provider", "Vulnerability Response"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5518,7 +5514,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5539,7 +5535,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -5774,6 +5770,10 @@
               },
               "related": ["IEC-CSO-EFI"],
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Incident Report (IEC-CSO-IIR / IEC-CSO-OIR / IEC-CSO-FIR)",
+                "url": "https://fedramp.gov/schemas/fedramp-incident-report-schema-2026-06-24.json"
+              },
               "notification": [
                 {
                   "party": "FedRAMP",
@@ -5804,7 +5804,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6026,6 +6026,10 @@
                 }
               },
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Incident Report (IEC-CSO-IIR / IEC-CSO-OIR / IEC-CSO-FIR)",
+                "url": "https://fedramp.gov/schemas/fedramp-incident-report-schema-2026-06-24.json"
+              },
               "notification": [
                 {
                   "party": "FedRAMP",
@@ -6056,7 +6060,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6250,6 +6254,10 @@
                 }
               },
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Incident Report (IEC-CSO-IIR / IEC-CSO-OIR / IEC-CSO-FIR)",
+                "url": "https://fedramp.gov/schemas/fedramp-incident-report-schema-2026-06-24.json"
+              },
               "notification": [
                 {
                   "party": "FedRAMP",
@@ -6279,7 +6287,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6303,6 +6311,10 @@
                   "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Incident Report (IEC-CSO-IIR / IEC-CSO-OIR / IEC-CSO-FIR)",
+                "url": "https://fedramp.gov/schemas/fedramp-incident-report-schema-2026-06-24.json"
+              },
               "terms": [
                 "Agency",
                 "Debilitating Customer Effect",
@@ -6317,7 +6329,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6336,7 +6348,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6479,7 +6491,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6499,7 +6511,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6520,7 +6532,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6543,7 +6555,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6557,7 +6569,7 @@
               "terms": ["Provider", "Validation", "Verification"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6576,7 +6588,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6595,7 +6607,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6614,7 +6626,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6635,7 +6647,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6649,7 +6661,7 @@
               "terms": ["Assessor", "FedRAMP Practices", "Validation"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6669,7 +6681,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6690,7 +6702,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6711,7 +6723,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6724,7 +6736,7 @@
               "terms": ["Assessor", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6743,7 +6755,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -6760,19 +6772,19 @@
                   "force": "MUST"
                 },
                 "b": {
-                  "statement": "Providers with 20x Class B Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class B Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least once per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "c": {
-                  "statement": "Providers with 20x Class C Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class C Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least once per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
                 },
                 "d": {
-                  "statement": "Providers with 20x Class D Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least one per year.",
+                  "statement": "Providers with 20x Class D Certifications MUST include all Key Security Indicators in a FedRAMP independent assessment at least once per year.",
                   "force": "MUST",
                   "timeframe_type": "years",
                   "timeframe_num": 1
@@ -6788,7 +6800,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7062,7 +7074,7 @@
               "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7077,7 +7089,7 @@
               "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7090,7 +7102,7 @@
               "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7103,7 +7115,7 @@
               "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7171,7 +7183,7 @@
               "statement": "Providers MUST identify a set of information resources to assess for FedRAMP Certification that includes all information resources that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering; this set of information resources is the cloud service offering.",
               "notes": [
                 "Certain categories of cloud computing products and services are specified as entirely outside the scope of FedRAMP by the Director of the Office of Management and Budget. All such products and services are therefore not included in the cloud service offering for FedRAMP. For more, see https://fedramp.gov/scope.",
-                "Software produced by cloud service providers that is delivered separately for installation on agency systems and not operated in a shared responsibility model (typically including agents, application clients, mobile applications, etc. that are not fully managed by the cloud service provider) is not a cloud computing product or service and is entirely outside the scope of FedRAMP under the FedRAMP Certification Act. All such software is therefore not included in the cloud service offering for FedRAMP. For more, see fedramp.gov/scope.",
+                "Software produced by cloud service providers that is delivered separately for installation on agency systems and not operated in a shared responsibility model (typically including agents, application clients, mobile applications, etc. that are not fully managed by the cloud service provider) is not a cloud computing product or service and is entirely outside the scope of FedRAMP under the FedRAMP Certification Act. All such software is therefore not included in the cloud service offering for FedRAMP. For more, see https://fedramp.gov/scope.",
                 "All aspects of the cloud service offering are determined and maintained by the cloud service provider in accordance with related FedRAMP Certification rules and documented by the cloud service provider in their FedRAMP Certification Package."
               ],
               "force": "MUST",
@@ -7195,7 +7207,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7223,7 +7235,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7247,6 +7259,10 @@
                   "The code for the automated process used to generate the machine readable output."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Federal Customer Data",
@@ -7257,7 +7273,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7283,7 +7299,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7304,7 +7320,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7394,13 +7410,13 @@
               "name": "Scope of FedRAMP",
               "statement": "FedRAMP MUST NOT list cloud service offerings in the Marketplace or perform any FedRAMP Certification activities unless it determines the cloud service offering is within the scope of FedRAMP.",
               "reference": "Scope of FedRAMP",
-              "reference_url": "https://fedramp.gov/docs/authority/scope",
+              "reference_url": "https://fedramp.gov/scope",
               "force": "MUST NOT",
               "affects": ["FedRAMP"],
               "terms": ["Cloud Service Offering"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7419,7 +7435,7 @@
               "terms": ["Certification Data", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7441,7 +7457,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7456,7 +7472,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7485,20 +7501,28 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
             "MKT-IAS-LRQ": {
               "name": "Listing Requests for Assessors",
-              "statement": "Assessors MUST complete the Assessor Listing Request Form at https://fedramp.gov/forms/assessor-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "statement": "Assessors MUST complete the Assessor Listing Request Form to request listing in the FedRAMP Marketplace.",
               "force": "MUST",
               "affects": ["Assessors"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52060327520795",
+                  "name": "[For Assessors/Advisors] Marketplace Listing Form"
+                }
+              ],
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7529,20 +7553,28 @@
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
             "MKT-CAS-LRQ": {
               "name": "Listing Requests for Advisors",
-              "statement": "Advisors MUST complete the Advisor Listing Request Form at https://fedramp.gov/forms/advisor-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "statement": "Advisors MUST complete the Advisor Listing Request Form to request listing in the FedRAMP Marketplace.",
               "force": "MUST",
               "affects": ["Advisors"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52060327520795",
+                  "name": "[For Assessors/Advisors] Marketplace Listing Form"
+                }
+              ],
               "terms": ["Advisor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7560,7 +7592,7 @@
               "terms": ["Advisor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7590,7 +7622,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7604,7 +7636,7 @@
               "terms": ["Provider", "Trust Center"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7620,7 +7652,7 @@
               "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7684,7 +7716,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7702,7 +7734,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7715,7 +7747,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7731,7 +7763,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7751,7 +7783,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7766,7 +7798,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7784,7 +7816,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7802,7 +7834,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7816,7 +7848,7 @@
               "terms": ["Assessor", "FedRAMP Recognized"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7832,7 +7864,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7848,14 +7880,14 @@
                 {
                   "party": "FedRAMP",
                   "method": "form",
-                  "target": "https://help.fedramp.gov/forms/assessors/foci-declaration",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52006681154587",
                   "name": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form"
                 }
               ],
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7871,14 +7903,14 @@
                 {
                   "party": "FedRAMP",
                   "method": "form",
-                  "target": "https://help.fedramp.gov/forms/assessors/foci-declaration",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52006681154587",
                   "name": "FedRAMP Foreign Ownership, Control, or Influence Declaration Form"
                 }
               ],
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7889,7 +7921,7 @@
               "following_information": [
                 "Complete Assessment Packages: Supplies complete and thoroughly prepared documents on the first submission.",
                 "Deliverable Quality: Ensures documentation content is clear, complete, concise, and consistent.",
-                "Deliverable Format: Uses current FedRAMP templates, procedures, and required formats for assessor-authored deliverables unless FedRAMP publishes an alternate format for a specific path, pilot, or process, and does not alter or delete required template content.",
+                "Deliverable Format: Follows applicable FedRAMP rules.",
                 "Timeliness and Responsiveness: Delivers documents on time according to the schedule agreed to by the federal government, provider, and assessor.",
                 "Testing Accuracy and Completeness: Ensures accurate and complete testing of a cloud service offering in accordance with ISO 17020 and FedRAMP security rules.",
                 "Assessment Integrity: Submits independent assessments of provider security implementations that are not influenced by provider demands.",
@@ -7905,7 +7937,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7918,7 +7950,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7931,7 +7963,7 @@
               "terms": ["Assessor"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -7953,7 +7985,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8028,6 +8060,10 @@
                   "URL to the machine-readable data."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Privileged Account",
@@ -8036,7 +8072,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8056,7 +8092,7 @@
               "terms": ["Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8075,7 +8111,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8098,7 +8134,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8123,7 +8159,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8142,7 +8178,7 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8161,7 +8197,7 @@
               "terms": ["Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8180,7 +8216,7 @@
               "terms": ["Machine-Readable", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8203,7 +8239,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8315,7 +8351,7 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8339,6 +8375,10 @@
                   "Evidence of signifincat change evaluation including a description fo the change, the determined type, and an explanation for the decision. At least one example must be provided for each type of change. Real examples are prefered but the provider may use fictitious examples as long as the example provides evidence of the decision making process."
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+              },
               "terms": [
                 "Adaptive Change",
                 "Certification Class",
@@ -8350,7 +8390,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8374,7 +8414,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8402,6 +8442,10 @@
                   "A recent Significant Change Notification or sample Significant Change Notification"
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+              },
               "terms": [
                 "Assessor",
                 "Provider",
@@ -8412,7 +8456,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8430,7 +8474,7 @@
               "terms": ["Certification Data", "Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8453,7 +8497,7 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8467,7 +8511,7 @@
               "terms": ["Provider", "Significant Change"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8487,7 +8531,7 @@
               "terms": ["Agency", "Certification Package", "Provider"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8508,7 +8552,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8569,7 +8613,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8626,7 +8670,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8661,7 +8705,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8693,7 +8737,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8725,7 +8769,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8765,7 +8809,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8790,7 +8834,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8833,7 +8877,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8947,7 +8991,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8965,7 +9009,7 @@
               "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -8998,7 +9042,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9040,7 +9084,7 @@
               "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9074,20 +9118,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "SDR-CSF-ODP": {
-              "name": "Organization-Defined Parameters",
-              "statement": "Providers MUST define all required organization-defined parameters tied to all Rev5 Controls, following FedRAMP rules if applicable, UNLESS the parameter is assigned by FedRAMP.",
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": ["Provider"],
-              "updated": [
-                {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9167,7 +9198,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9196,7 +9227,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9214,7 +9245,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9233,7 +9264,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9251,7 +9282,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9269,7 +9300,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9287,7 +9318,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9306,7 +9337,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9325,7 +9356,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9346,7 +9377,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9391,7 +9422,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9436,7 +9467,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9758,7 +9789,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9771,7 +9802,7 @@
               "terms": ["Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9790,7 +9821,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9834,7 +9865,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9875,7 +9906,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -9916,7 +9947,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10010,7 +10041,7 @@
               "terms": ["Agency", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10028,7 +10059,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10052,7 +10083,7 @@
               "terms": ["Agency", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10072,7 +10103,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10091,7 +10122,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10120,7 +10151,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10147,7 +10178,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10173,7 +10204,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10204,7 +10235,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10217,7 +10248,7 @@
               "terms": ["Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10237,7 +10268,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10256,7 +10287,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10286,7 +10317,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10298,6 +10329,10 @@
               "statement": "Providers MUST report vulnerability detection and response activity (including persistent verification and validation) to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification Data and are subject to FedRAMP Certification Data Sharing rules.",
               "force": "MUST",
               "affects": ["Providers"],
+              "schema": {
+                "name": "FedRAMP Vulnerability Detail Report (VER-RPT-VDT)",
+                "url": "https://fedramp.gov/schemas/fedramp-vulnerability-detail-report-schema-2026-06-24.json"
+              },
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -10311,7 +10346,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10339,6 +10374,10 @@
                   "A recent vulnerability report or a sample vulnerability report"
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Vulnerability Detail Report (VER-RPT-VDT)",
+                "url": "https://fedramp.gov/schemas/fedramp-vulnerability-detail-report-schema-2026-06-24.json"
+              },
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -10357,7 +10396,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10382,6 +10421,10 @@
                   "A recent vulnerability report or a sample vulnerability report"
                 ]
               },
+              "schema": {
+                "name": "FedRAMP Accepted Vulnerability Info (VER-RPT-AVI)",
+                "url": "https://fedramp.gov/schemas/fedramp-accepted-vulnerability-info-schema-2026-06-24.json"
+              },
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -10399,7 +10442,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10418,7 +10461,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10437,7 +10480,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10450,7 +10493,7 @@
               "terms": ["Likely", "Provider", "Responsibly", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10478,7 +10521,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10493,7 +10536,7 @@
               "terms": ["Accepted Vulnerability", "Provider", "Vulnerability"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10551,8 +10594,8 @@
               },
               "affects": ["Providers"],
               "schema": {
-                "name": "FedRAMP Historical VDR Activity Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-historical-VER-activity-schema-v2026.06.06.01.json"
+                "name": "FedRAMP Historical Vulnerability Evaluation and Reporting Activity (VER-TFR-MRH)",
+                "url": "https://fedramp.gov/schemas/fedramp-historical-ver-activity-schema-2026-06-24.json"
               },
               "terms": [
                 "All Necessary Parties",
@@ -10564,7 +10607,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10601,7 +10644,7 @@
               "terms": ["Provider", "Vulnerability", "Vulnerability Detection"],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10640,7 +10683,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10679,7 +10722,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-23",
+                  "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
@@ -10717,7 +10760,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10746,7 +10789,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10766,7 +10809,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10781,7 +10824,7 @@
           "controls": ["cm-3", "cm-3.2", "cm-3.4", "cm-5", "cm-7.1", "cm-9"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10793,7 +10836,7 @@
           "controls": ["cm-3", "cm-3.2", "cm-4.2", "si-2"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10814,7 +10857,7 @@
           "controls": ["cm-2", "si-3"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -10824,7 +10867,7 @@
           "controls": ["ca-2.1", "ca-7.1"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10848,7 +10891,7 @@
           "controls": ["ac-17.3", "cm-2", "pl-10"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10880,7 +10923,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10896,7 +10939,7 @@
           "controls": [],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10912,7 +10955,7 @@
           "controls": ["ac-17.3", "ca-9", "cm-7.1", "sc-7.5", "si-8"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10928,7 +10971,7 @@
           "controls": ["sc-5", "si-8", "si-8.2"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10953,7 +10996,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -10984,7 +11027,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -11009,7 +11052,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -11055,7 +11098,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11106,7 +11149,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11126,7 +11169,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11146,7 +11189,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11167,7 +11210,7 @@
           "controls": ["ir-3", "ir-4", "ir-4.1", "ir-8"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11190,7 +11233,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11202,7 +11245,7 @@
           "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5", "ir-8"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11222,7 +11265,7 @@
           "controls": ["si-11"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11242,7 +11285,7 @@
           "controls": ["ca-7", "cm-2", "cm-6", "si-7.7"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11269,7 +11312,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11300,7 +11343,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11320,7 +11363,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11349,7 +11392,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11361,7 +11404,7 @@
           "controls": [],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11383,7 +11426,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11408,7 +11451,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11420,7 +11463,7 @@
           "controls": ["ra-5.11"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11441,7 +11484,7 @@
           "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2", "si-12"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11474,7 +11517,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11486,7 +11529,7 @@
           "controls": ["cp-2.3", "cp-10"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11509,7 +11552,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11543,7 +11586,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11566,7 +11609,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11599,7 +11642,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11616,7 +11659,7 @@
           "controls": ["ac-17.2", "ia-5.2", "ia-5.6", "sc-12", "sc-17"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11638,7 +11681,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11649,7 +11692,7 @@
           "controls": ["sc-4"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11673,7 +11716,7 @@
           "controls": ["si-12.3", "si-18.4"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11706,7 +11749,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ]
@@ -11716,7 +11759,7 @@
           "controls": ["sc-23", "si-7.1"],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
@@ -11749,7 +11792,7 @@
           ],
           "updated": [
             {
-              "date": "2026-06-23",
+              "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
