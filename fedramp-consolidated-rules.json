@@ -3980,11 +3980,17 @@
             },
             "FRC-APP-AFC": {
               "name": "Applying for FedRAMP Certification",
-              "statement": "Providers MUST complete the FedRAMP Certification Application Form at https://fedramp.gov/forms/provider-listing-request/ in full to request an initial assessment by FedRAMP.",
-              "reference": "FedRAMP Certification Application Form",
-              "reference_url": "https://fedramp.gov/forms",
+              "statement": "Providers MUST complete the FedRAMP Certification Application Form in full to request an initial assessment by FedRAMP.",
               "force": "MUST",
               "affects": ["Providers"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51137131584283",
+                  "name": "[For CSPs] FedRAMP Certification Application Form"
+                }
+              ],
               "terms": ["Provider"],
               "updated": [
                 {
