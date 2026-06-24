@@ -84,11 +84,11 @@
         },
         "FRD-AGY": {
           "term": "Agency",
-          "definition": "Has the meaning given in 44 U.S. Code \u00a7 3502 (1), which is \"any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include\u2014(A) the Government Accountability Office; (B) Federal Election Commission; (C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or (D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.\"",
+          "definition": "Has the meaning given in 44 U.S. Code § 3502 (1), which is \"any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include—(A) the Government Accountability Office; (B) Federal Election Commission; (C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or (D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.\"",
           "tag": "Stakeholder",
           "alts": ["agency", "agencies"],
           "do_not_link": true,
-          "reference": "44 U.S. Code \u00a7 3502 (1)",
+          "reference": "44 U.S. Code § 3502 (1)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
@@ -198,11 +198,11 @@
         },
         "FRD-CRP": {
           "term": "Certification Package",
-          "definition": "Has meaning from 44 USC \u00a7 3607 (b)(8) given to \"authorization package\", which is \"the essential information that can be used by an agency to determine whether to authorize the operation of an information system or the use of a designated set of common controls for all cloud computing products and services [certified] by FedRAMP.\"",
+          "definition": "Has meaning from 44 USC § 3607 (b)(8) given to \"authorization package\", which is \"the essential information that can be used by an agency to determine whether to authorize the operation of an information system or the use of a designated set of common controls for all cloud computing products and services [certified] by FedRAMP.\"",
           "note": "In FedRAMP documentation, certification package always refers to a FedRAMP Certification Package unless otherwise specified.",
           "tag": "Certification",
           "alts": ["certification package", "certification packages"],
-          "reference": "44 USC \u00a7 3607 (b)(8)",
+          "reference": "44 USC § 3607 (b)(8)",
           "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
           "updated": [
             {
@@ -277,7 +277,7 @@
         "FRD-DTM": {
           "term": "Deterministic Telemetry",
           "definition": "Verifiable data collected directly from an authoritative source that represents a factual and reproducible observation of the attributes of a system such as the system's state, configuration, or behavior.",
-          "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as \u201cGenerative AI\u201d) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
+          "note": "Probabilistic inferences, generative outputs, or predictive assessments such as those produced using generative transformer models (commonly referred to as “Generative AI”) do not constitute a factual record of the system state and must not be used to generate deterministic telemetry.",
           "alts": ["deterministic telemetry"],
           "updated": [
             {
@@ -349,7 +349,7 @@
             "FedRAMP certification report",
             "certification report"
           ],
-          "reference": "FedRAMP Certification Act (44 USC \u00a7 3608)",
+          "reference": "FedRAMP Certification Act (44 USC § 3608)",
           "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
@@ -371,7 +371,7 @@
             "FedRAMP Authorized",
             "authorized"
           ],
-          "reference": "FedRAMP Certification Act (44 USC \u00a7 3608)",
+          "reference": "FedRAMP Certification Act (44 USC § 3608)",
           "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
@@ -488,10 +488,10 @@
         },
         "FRD-INT": {
           "term": "Incident",
-          "definition": "Has the meaning given in 44 USC \u00a7 3552 (b)(2) which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of information or an information system; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies.\"",
+          "definition": "Has the meaning given in 44 USC § 3552 (b)(2) which is \"an occurrence that (A) actually or imminently jeopardizes, without lawful authority, the integrity, confidentiality, or availability of information or an information system; or (B) constitutes a violation or imminent threat of violation of law, security policies, security procedures, or acceptable use policies.\"",
           "tag": "Incident",
           "alts": ["incident", "incidents"],
-          "reference": "44 USC \u00a7 3552 (b)(2)",
+          "reference": "44 USC § 3552 (b)(2)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title44/USCODE-2024-title44-chap35-subchapII-sec3552",
           "updated": [
             {
@@ -502,11 +502,11 @@
         },
         "FRD-IRS": {
           "term": "Information Resource",
-          "definition": "Has the meaning from 44 USC \u00a7 3502 (6): \"information and related resources, such as personnel, equipment, funds, and information technology.\" This includes any aspect of the cloud service offering, both technical and managerial, including everything that makes up the business of the offering from non-machine-based information resources like organizational policies, procedures, employees, etc. to machine-based information resources like hardware, software, cloud services, code, etc.",
+          "definition": "Has the meaning from 44 USC § 3502 (6): \"information and related resources, such as personnel, equipment, funds, and information technology.\" This includes any aspect of the cloud service offering, both technical and managerial, including everything that makes up the business of the offering from non-machine-based information resources like organizational policies, procedures, employees, etc. to machine-based information resources like hardware, software, cloud services, code, etc.",
           "note": "Information resources are either machine-based or non-machine-based; any requirement or recommendation that references information resources without specifying a type is inclusive of all information resources.",
           "tag": "Information Resource",
           "alts": ["information resource", "information resources"],
-          "reference": "44 USC \u00a7 3502 (6)",
+          "reference": "44 USC § 3502 (6)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
@@ -635,7 +635,7 @@
         },
         "FRD-MBI": {
           "term": "Machine-Based (Information Resources)",
-          "definition": "Any information technology information resource\u2014including systems, processes, software, hardware, services, cloud-native capabilities, and any other such capability, component, or resource\u2014that relies primarily on mechanical or electronic devices (i.e. computers) for operation.",
+          "definition": "Any information technology information resource—including systems, processes, software, hardware, services, cloud-native capabilities, and any other such capability, component, or resource—that relies primarily on mechanical or electronic devices (i.e. computers) for operation.",
           "note": "All other information resources that do not rely on computers are non-machine-based information resources.",
           "tag": "Information Resource",
           "alts": ["machine-based", "machine based"],
@@ -659,9 +659,9 @@
         },
         "FRD-MRD": {
           "term": "Machine-Readable",
-          "definition": "Has the meaning from 44 U.S. Code \u00a7 3502 (18) which is \"the term \"machine-readable\", when used with respect to data, means data in a format that can be easily processed by a computer without human intervention while ensuring no semantic meaning is lost\"",
+          "definition": "Has the meaning from 44 U.S. Code § 3502 (18) which is \"the term \"machine-readable\", when used with respect to data, means data in a format that can be easily processed by a computer without human intervention while ensuring no semantic meaning is lost\"",
           "alts": ["machine-readable"],
-          "reference": "44 U.S. Code \u00a7 3502 (18)",
+          "reference": "44 U.S. Code § 3502 (18)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2023-title44/USCODE-2023-title44-chap35-subchapI-sec3502",
           "updated": [
             {
@@ -1050,10 +1050,10 @@
         },
         "FRD-VUL": {
           "term": "Vulnerability",
-          "definition": "Has the meaning given to \"security vulnerability\" in 6 USC \u00a7 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 Controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
+          "definition": "Has the meaning given to \"security vulnerability\" in 6 USC § 650 (25), which is \"any attribute of hardware, software, process, or procedure that could enable or facilitate the defeat of [...] management, operational, and technical controls used to protect against an unauthorized effort to adversely affect the confidentiality, integrity, and availability of an information system or its information.\" This includes gaps in Rev5 Controls and 20x Key Security Indicators, software vulnerabilities, misconfigurations, exposures, weak credentials, insecure services, and all other such potential weaknesses in protection (intentional or unintentional).",
           "tag": "Vulnerability",
           "alts": ["vulnerability", "vulnerabilities"],
-          "reference": "6 USC \u00a7 650 (25)",
+          "reference": "6 USC § 650 (25)",
           "reference_url": "https://www.govinfo.gov/app/details/USCODE-2024-title6/USCODE-2024-title6-chap1-subchapXVIII-sec650",
           "updated": [
             {
@@ -1764,7 +1764,7 @@
             "AGU-USE-ROR": {
               "name": "Review Ongoing Certification Reports",
               "statement": "Agencies SHOULD review each Ongoing Certification Report to understand how changes to the cloud service offering may impact the risk tolerance documented in the agency Authorization to Operate for the federal information system that includes the cloud service offering in its boundary.",
-              "note": "This agency review supports agency responsibilities under 44 USC \u00a7 35, OMB Circular A-130, FIPS-200, and OMB Memorandum M-24-15.",
+              "note": "This agency review supports agency responsibilities under 44 USC § 35, OMB Circular A-130, FIPS-200, and OMB Memorandum M-24-15.",
               "force": "SHOULD",
               "affects": ["Agencies"],
               "terms": [
@@ -1960,7 +1960,7 @@
             "CCM-AGM-ROR": {
               "name": "Review Ongoing Reports",
               "statement": "Agencies MUST review each Ongoing Certification Report to understand how changes to the cloud service offering may impact the previously agreed-upon risk tolerance documented in the agency's Authorization to Operate of a federal information system that includes the cloud service offering in its boundary.",
-              "note": "This is required by 44 USC \u00a7 35, OMB A-130, FIPS-200, and M-24-15.",
+              "note": "This is required by 44 USC § 35, OMB A-130, FIPS-200, and M-24-15.",
               "force": "MUST",
               "affects": ["Agencies"],
               "terms": [
@@ -2002,7 +2002,7 @@
             "CCM-AGM-NAR": {
               "name": "No Additional Requirements",
               "statement": "Agencies MUST NOT place additional security requirements on cloud service providers beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate makes a determination that there is a demonstrable need for such; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
-              "note": "This is a statutory requirement in 44 USC \u00a7 3613 (e) related to the Presumption of Adequacy for a FedRAMP Certification.",
+              "note": "This is a statutory requirement in 44 USC § 3613 (e) related to the Presumption of Adequacy for a FedRAMP Certification.",
               "force": "MUST NOT",
               "affects": ["Agencies"],
               "notification": [
@@ -7502,9 +7502,17 @@
             },
             "MKT-IAS-LRQ": {
               "name": "Listing Requests for Assessors",
-              "statement": "Assessors MUST complete the Assessor Listing Request Form at https://fedramp.gov/forms/assessor-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "statement": "Assessors MUST complete the Assessor Listing Request Form to request listing in the FedRAMP Marketplace.",
               "force": "MUST",
               "affects": ["Assessors"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52060327520795",
+                  "name": "[For Assessors/Advisors] Marketplace Listing Form"
+                }
+              ],
               "terms": ["Assessor"],
               "updated": [
                 {
@@ -7546,9 +7554,17 @@
             },
             "MKT-CAS-LRQ": {
               "name": "Listing Requests for Advisors",
-              "statement": "Advisors MUST complete the Advisor Listing Request Form at https://fedramp.gov/forms/advisor-listing-request/ to request listing in the FedRAMP Marketplace.",
+              "statement": "Advisors MUST complete the Advisor Listing Request Form to request listing in the FedRAMP Marketplace.",
               "force": "MUST",
               "affects": ["Advisors"],
+              "notification": [
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52060327520795",
+                  "name": "[For Assessors/Advisors] Marketplace Listing Form"
+                }
+              ],
               "terms": ["Advisor"],
               "updated": [
                 {
@@ -7581,7 +7597,7 @@
               "name": "Agency Use Cases",
               "statement": "Providers MUST demonstrate that a cloud service offering is intended for one of the following use cases:",
               "following_information": [
-                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC \u00a7 3506 and will receive an agency Authorization to Operate.",
+                "Direct Use: The product will be used directly by agency customers for integration into a federal information system that falls within the scope of 44 USC § 3506 and will receive an agency Authorization to Operate.",
                 "Indirect Use: The product will be included as a third-party information resource in other cloud service offerings that are directly used by agency customers."
               ],
               "notes": [
@@ -10108,7 +10124,7 @@
             "VER-AGM-DRE": {
               "name": "Do Not Request Extra Info",
               "statement": "Agencies SHOULD NOT request additional information from cloud service providers that is not required by the FedRAMP Vulnerability Detection and Response rules UNLESS the head of the agency or an authorized delegate makes a determination that there is a demonstrable need for such.",
-              "note": "This is related to the Presumption of Adequacy directed by 44 USC \u00a7 3613 (e).",
+              "note": "This is related to the Presumption of Adequacy directed by 44 USC § 3613 (e).",
               "force": "SHOULD NOT",
               "affects": ["Agencies"],
               "notification": [
