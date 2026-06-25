@@ -3500,8 +3500,8 @@
             "name": "FedRAMP Class A Certification Rules",
             "description": "These are specific rules that apply to providers seeking FedRAMP Class A Certifications.",
             "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
+              "types": ["20x"],
+              "paths": ["Program"],
               "classes": ["A"],
               "affects": ["Providers"]
             }
@@ -3734,7 +3734,7 @@
             },
             "FRC-CLA-MFR": {
               "name": "Mandatory FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class Arules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
+              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class A rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
               "following_information": [
                 "FedRAMP Certification: FRC-CSO-PKG (FedRAMP Certification Package)",
                 "FedRAMP Certification: FRC-CSO-JSN (FedRAMP JSON Schemas)",
