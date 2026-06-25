@@ -5769,7 +5769,7 @@
                   "party": "FedRAMP",
                   "method": "email",
                   "target": "fedramp_security@fedramp.gov",
-                  "name": "FedRAMP Security Team"
+                  "name": "fedramp_security@fedramp.gov"
                 },
                 {
                   "party": "Agency Customers",
@@ -6025,7 +6025,7 @@
                   "party": "FedRAMP",
                   "method": "email",
                   "target": "fedramp_security@fedramp.gov",
-                  "name": "FedRAMP Security Team"
+                  "name": "fedramp_security@fedramp.gov"
                 },
                 {
                   "party": "Agency Customers",
@@ -6253,7 +6253,7 @@
                   "party": "FedRAMP",
                   "method": "email",
                   "target": "fedramp_security@fedramp.gov",
-                  "name": "FedRAMP Security Team"
+                  "name": "fedramp_security@fedramp.gov"
                 },
                 {
                   "party": "Agency Customers",
