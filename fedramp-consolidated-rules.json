@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.24.01",
-    "last_updated": "2026-06-24",
+    "version": "2026.06.25.01",
+    "last_updated": "2026-06-25",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1977,55 +1977,6 @@
                 }
               ]
             },
-            "CCM-AGM-NFA": {
-              "name": "Notify FedRAMP After Requests",
-              "statement": "Agencies MUST notify FedRAMP after requesting any additional information or materials from a cloud service provider beyond those FedRAMP requires by sending an email to info@fedramp.gov.",
-              "note": "Agencies are required to notify FedRAMP by OMB Memorandum M-24-15 section IV (a).",
-              "force": "MUST",
-              "affects": ["Agencies"],
-              "notification": [
-                {
-                  "party": "FedRAMP",
-                  "method": "form",
-                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
-                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
-                }
-              ],
-              "terms": ["Agency", "Provider"],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "CCM-AGM-NAR": {
-              "name": "No Additional Requirements",
-              "statement": "Agencies MUST NOT place additional security requirements on cloud service providers beyond those required by FedRAMP UNLESS the head of the agency or an authorized delegate makes a determination that there is a demonstrable need for such; this does not apply to seeking clarification or asking general questions about FedRAMP Certification Data.",
-              "note": "This is a statutory requirement in 44 USC § 3613 (e) related to the Presumption of Adequacy for a FedRAMP Certification.",
-              "force": "MUST NOT",
-              "affects": ["Agencies"],
-              "notification": [
-                {
-                  "party": "FedRAMP",
-                  "method": "form",
-                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
-                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
-                }
-              ],
-              "terms": [
-                "Agency",
-                "Certification Data",
-                "FedRAMP Certified",
-                "Provider"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
             "CCM-AGM-CSC": {
               "name": "Consider Security Category",
               "statement": "Agencies SHOULD consider the Security Category noted in their Authorization to Operate of the federal information system that includes the cloud service offering in its boundary and assign appropriate information security resources for reviewing Ongoing Certification Reports, attending Quarterly Reviews, and other ongoing FedRAMP Certification Data.",
@@ -3390,6 +3341,41 @@
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
+            },
+            "CPO-CSO-OSA": {
+              "name": "Overall Summary of Assessment in Certification Package",
+              "varies_by_class": {
+                "a": {
+                  "statement": "Providers seeking Class A Certification MAY also include an overall summary of their FedRAMP independent assessment in their Certification Package Overview.",
+                  "force": "MAY"
+                },
+                "b": {
+                  "statement": "Providers seeking Class B Certification MUST also include the overall summary of their FedRAMP independent assessment, supplied by the assessor per IVV-IAS-OSA (Overall Summary of Assessment), in their Certification Package Overview.",
+                  "force": "MUST"
+                },
+                "c": {
+                  "statement": "Providers seeking Class C Certification MUST also include the overall summary of their FedRAMP independent assessment, supplied by the assessor per IVV-IAS-OSA (Overall Summary of Assessment), in their Certification Package Overview.",
+                  "force": "MUST"
+                },
+                "d": {
+                  "statement": "Providers seeking Class D Certification MUST also include the overall summary of their FedRAMP independent assessment, supplied by the assessor per IVV-IAS-OSA (Overall Summary of Assessment), in their Certification Package Overview.",
+                  "force": "MUST"
+                }
+              },
+              "related": ["IVV-IAS-OSA"],
+              "affects": ["Providers"],
+              "terms": [
+                "Assessor",
+                "Certification Package",
+                "FedRAMP Independent Assessment",
+                "Provider"
+              ],
+              "updated": [
+                {
+                  "date": "2026-06-25",
+                  "comment": "Added after official launch to clarify that the provider is required to supply this artifact."
+                }
+              ]
             }
           }
         },
@@ -3514,8 +3500,8 @@
             "name": "FedRAMP Class A Certification Rules",
             "description": "These are specific rules that apply to providers seeking FedRAMP Class A Certifications.",
             "applicability": {
-              "types": ["20x", "Rev5"],
-              "paths": ["Program", "Agency"],
+              "types": ["20x"],
+              "paths": ["Program"],
               "classes": ["A"],
               "affects": ["Providers"]
             }
@@ -3634,7 +3620,7 @@
             },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
-              "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
+              "statement": "Providers MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
               "following_information": [
                 "A Certification Package Overview",
                 "A Security Decision Record",
@@ -3657,6 +3643,10 @@
                 "Security Decision Record (SDR)"
               ],
               "updated": [
+                {
+                  "date": "2026-06-25",
+                  "comment": "Removed dangling mention of Class B from a last-minute merger of rules; apologies for confusion, this rule applies to all classes."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -3744,7 +3734,7 @@
             },
             "FRC-CLA-MFR": {
               "name": "Mandatory FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class Arules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
+              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class A rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
               "following_information": [
                 "FedRAMP Certification: FRC-CSO-PKG (FedRAMP Certification Package)",
                 "FedRAMP Certification: FRC-CSO-JSN (FedRAMP JSON Schemas)",
@@ -5779,7 +5769,7 @@
                   "party": "FedRAMP",
                   "method": "email",
                   "target": "fedramp_security@fedramp.gov",
-                  "name": "FedRAMP Security Team"
+                  "name": "fedramp_security@fedramp.gov"
                 },
                 {
                   "party": "Agency Customers",
@@ -6035,7 +6025,7 @@
                   "party": "FedRAMP",
                   "method": "email",
                   "target": "fedramp_security@fedramp.gov",
-                  "name": "FedRAMP Security Team"
+                  "name": "fedramp_security@fedramp.gov"
                 },
                 {
                   "party": "Agency Customers",
@@ -6263,7 +6253,7 @@
                   "party": "FedRAMP",
                   "method": "email",
                   "target": "fedramp_security@fedramp.gov",
-                  "name": "FedRAMP Security Team"
+                  "name": "fedramp_security@fedramp.gov"
                 },
                 {
                   "party": "Agency Customers",
@@ -10066,28 +10056,6 @@
             }
           },
           "AGM": {
-            "VER-AGM-NFR": {
-              "name": "Notify FedRAMP",
-              "statement": "Agencies MUST notify FedRAMP after requesting any additional vulnerability information or materials from a cloud service provider beyond those FedRAMP requires by sending a notification to [info@fedramp.gov](mailto:info@fedramp.gov).",
-              "note": "This is an OMB policy; agencies are required to notify FedRAMP in OMB Memorandum M-24-15 section IV (a).",
-              "force": "MUST",
-              "affects": ["Agencies"],
-              "notification": [
-                {
-                  "party": "FedRAMP",
-                  "method": "form",
-                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
-                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
-                }
-              ],
-              "terms": ["Agency", "Provider", "Vulnerability"],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
             "VER-AGM-RVR": {
               "name": "Review Vulnerability Reports",
               "statement": "Agencies SHOULD review the information provided in vulnerability reports at appropriate and reasonable intervals commensurate with the expectations and risk posture indicated by their Authorization to Operate, and SHOULD use automated processing and filtering of machine readable information from cloud service providers.",
@@ -10119,35 +10087,6 @@
                 "FedRAMP Certified",
                 "Provider",
                 "Vulnerability"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "VER-AGM-DRE": {
-              "name": "Do Not Request Extra Info",
-              "statement": "Agencies SHOULD NOT request additional information from cloud service providers that is not required by the FedRAMP Vulnerability Detection and Response rules UNLESS the head of the agency or an authorized delegate makes a determination that there is a demonstrable need for such.",
-              "note": "This is related to the Presumption of Adequacy directed by 44 USC § 3613 (e).",
-              "force": "SHOULD NOT",
-              "affects": ["Agencies"],
-              "notification": [
-                {
-                  "party": "FedRAMP",
-                  "method": "form",
-                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51822364715035",
-                  "name": "[For Agencies] Additional Information, Security Requirements, or Certification Change, or After Request Form"
-                }
-              ],
-              "terms": [
-                "Agency",
-                "FedRAMP Certified",
-                "Provider",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
               ],
               "updated": [
                 {
