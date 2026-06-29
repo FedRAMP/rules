@@ -3351,7 +3351,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Package Overview Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Class",
