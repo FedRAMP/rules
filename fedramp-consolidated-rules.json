@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.24.01",
-    "last_updated": "2026-06-24",
+    "version": "2026.07.01.01",
+    "last_updated": "2026-07-01",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -3826,12 +3826,12 @@
               ],
               "updated": [
                 {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                },
-                {
                   "date": "2026-07-01",
                   "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5)"
+                },
+                {
+                  "date": "2026-06-24",
+                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
@@ -9478,7 +9478,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability.",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9553,7 +9553,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9628,7 +9628,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9703,7 +9703,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9778,22 +9778,23 @@
                   }
                 }
               },
+              "related": ["VER-EVA-EPA"],
               "affects": ["Providers"],
               "terms": [
                 "Agency",
                 "Fully Mitigated Vulnerability",
-                "Internet-Reachable Vulnerability",
-                "Known Exploited Vulnerability",
                 "Likely",
-                "Likely Exploitable Vulnerability",
                 "Partially Mitigated Vulnerability",
                 "Potential Agency Impact",
                 "Provider",
                 "Remediated Vulnerability",
                 "Vulnerability"
               ],
-              "related": ["VER-EVA-EPA"],
               "updated": [
+                {
+                  "date": "2026-07-01",
+                  "comment": "Added relevent terms and related controls. No change to the requirement."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
