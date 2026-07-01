@@ -3744,7 +3744,7 @@
             },
             "FRC-CLA-MFR": {
               "name": "Mandatory FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class Arules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
+              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class A rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
               "following_information": [
                 "FedRAMP Certification: FRC-CSO-PKG (FedRAMP Certification Package)",
                 "FedRAMP Certification: FRC-CSO-JSN (FedRAMP JSON Schemas)",
@@ -3753,7 +3753,6 @@
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
                 "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
                 "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
-                "Certification Data Sharing: CDS-CSO-AVR (Availability Reporting)",
                 "Addressing FedRAMP Communication: AFC-CSO-INB (Maintain a FedRAMP Security Inbox)",
                 "Addressing FedRAMP Communication: AFC-CSO-RCV (Receive Email Without Disruption)",
                 "Addressing FedRAMP Communication: AFC-CSO-CRA (Complete Required Actions)",
@@ -3799,8 +3798,7 @@
                 "KSI-IAM-AAM",
                 "KSI-INR-RIR",
                 "KSI-SVC-SIN",
-                "KSI-IAM-APM",
-                "CDS-CSO-AVR"
+                "KSI-IAM-APM"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -3827,7 +3825,7 @@
               "updated": [
                 {
                   "date": "2026-07-01",
-                  "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5)"
+                  "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5); Removed CDS-CSO-AVR (Availability Reporting) since this rule is defined as SHOULD and included in FRC-CLA-RFR (Recommended FedRAMP Rules for Class A)"
                 },
                 {
                   "date": "2026-06-24",
