@@ -3828,6 +3828,10 @@
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
+                },
+                {
+                  "date": "2026-07-01",
+                  "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5)"
                 }
               ]
             },
