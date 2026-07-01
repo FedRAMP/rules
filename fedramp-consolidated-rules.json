@@ -3634,7 +3634,7 @@
             },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
-              "statement": "Providers seeking a Class B Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
+              "statement": "Providers seeking a Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
               "following_information": [
                 "A Certification Package Overview",
                 "A Security Decision Record",
@@ -9782,7 +9782,10 @@
               "terms": [
                 "Agency",
                 "Fully Mitigated Vulnerability",
+                "Internet-Reachable Vulnerability",
+                "Known Exploited Vulnerability",
                 "Likely",
+                "Likely Exploitable Vulnerability",
                 "Partially Mitigated Vulnerability",
                 "Potential Agency Impact",
                 "Provider",
