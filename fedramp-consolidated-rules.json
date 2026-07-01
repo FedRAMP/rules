@@ -9792,6 +9792,7 @@
                 "Remediated Vulnerability",
                 "Vulnerability"
               ],
+              "related": ["VER-EVA-EPA"],
               "updated": [
                 {
                   "date": "2026-06-24",
