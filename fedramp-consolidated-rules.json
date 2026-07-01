@@ -5390,7 +5390,7 @@
               },
               {
                 "from": "IEC-CSO-EFR",
-                "to": "Incident Evaluation and Reporting is complete.",
+                "to": "Incident Evaluation and Communication is complete.",
                 "description": "No"
               },
               {
@@ -5425,7 +5425,7 @@
               },
               {
                 "from": "IEC-CSO-FIR",
-                "to": "Incident Evaluation and Reporting are complete."
+                "to": "Incident Evaluation and Communication are complete."
               }
             ],
             "nodes": {
@@ -5436,7 +5436,7 @@
               "IEC-CSO-IIR": "process",
               "IEC-CSO-OIR": "process",
               "IEC-CSO-FIR": "process",
-              "Incident Evaluation and Reporting are complete.": "end"
+              "Incident Evaluation and Communication are complete.": "end"
             }
           }
         ],
@@ -12027,122 +12027,122 @@
     "IR": {
       "IR-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-02-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-02-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-03": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-03-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-04": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-06": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-11": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-05": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-05-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-06": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-06-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-06-03": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-07": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-07-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-08": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09-03": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09-04": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       }
     },
