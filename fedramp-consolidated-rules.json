@@ -8396,7 +8396,7 @@
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": [
                 "Adaptive Change",
@@ -8463,7 +8463,7 @@
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": [
                 "Assessor",
@@ -8511,7 +8511,7 @@
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notifications Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": ["Provider", "Significant Change"],
               "updated": [

@@ -60,6 +60,7 @@ tooling.
 Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 
 - schema validity
+- rule schema URL reachability and JSON validity
 - JSON formatting
 - ID alignment
 - FRD, FRR, and KSI container alignment
@@ -79,6 +80,10 @@ Runs the Bun test suite through [test.ts](test.ts). Coverage includes:
 
 When consistency validation fails, the runner prints a human-readable summary
 after the regular Bun output.
+
+The rule schema URL check makes live network requests to each `schema.url`
+referenced by a rule, so `bun run test`, `bun run check`, and the pre-commit
+hook all require network access to succeed.
 
 ### `bun run typecheck`
 
@@ -119,6 +124,7 @@ Focused test aliases:
 - `bun run test:formatting`
 - `bun run test:schema`
 - `bun run test:schema-validation`
+- `bun run test:schema-urls`
 - `bun run test:ids`
 - `bun run test:force`
 - `bun run test:terms`
@@ -167,6 +173,8 @@ Shared implementation:
   Read-only consistency validation checks and reporting.
 - [src/schema-validation.ts](src/schema-validation.ts)
   Schema validation logic and error formatting.
+- [src/schema-urls.ts](src/schema-urls.ts)
+  Collects rule `schema.url` references for reachability checks.
 - [src/id-alignment.ts](src/id-alignment.ts)
   ID alignment detection and rewrite logic.
 - [src/keywords.ts](src/keywords.ts)

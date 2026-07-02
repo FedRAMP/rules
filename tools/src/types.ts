@@ -56,10 +56,16 @@ export interface RequirementLike {
   varies_by_class?: RequirementByClass;
 }
 
+export interface RuleSchemaReference {
+  name: string;
+  url: string;
+}
+
 export interface Requirement extends RequirementLike {
   affects: string[];
   name: string;
   related?: string[];
+  schema?: RuleSchemaReference;
 }
 
 export interface KsiIndicator extends RequirementLike {
