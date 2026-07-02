@@ -2580,7 +2580,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
@@ -2612,7 +2612,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Data",
@@ -2717,7 +2717,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "All Necessary Parties",
@@ -3363,7 +3363,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Package Overview Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Class",
@@ -3657,7 +3657,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Package",
@@ -7280,7 +7280,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
@@ -8081,7 +8081,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
