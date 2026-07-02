@@ -8511,7 +8511,7 @@
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notifications Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
               },
               "terms": ["Provider", "Significant Change"],
               "updated": [
