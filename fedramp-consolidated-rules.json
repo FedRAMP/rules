@@ -7515,7 +7515,7 @@
               },
               "schema": {
                 "name": "FedRAMP Assessor Information Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-2026-06-24.json"
               },
               "terms": ["Assessor"],
               "updated": [
@@ -7567,7 +7567,7 @@
               },
               "schema": {
                 "name": "FedRAMP Advisory Service Information Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-2026-06-24.json"
               },
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
@@ -9051,7 +9051,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
               "terms": [
                 "Persistently",
@@ -9098,7 +9098,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
               "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
