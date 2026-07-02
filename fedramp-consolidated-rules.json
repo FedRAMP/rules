@@ -444,7 +444,7 @@
         },
         "FRD-FIR": {
           "term": "Final Incident Report (FIR)",
-          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Evaluation and Response rules.",
+          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "final incident report",
@@ -453,6 +453,10 @@
             "FIRs"
           ],
           "updated": [
+            {
+              "date": "2026-07-02",
+              "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -541,7 +545,7 @@
         },
         "FRD-IIR": {
           "term": "Initial Incident Report (IIR)",
-          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP FedRAMP Incident Evaluation and Response rules.",
+          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "initial incident report",
@@ -550,6 +554,10 @@
             "IIRs"
           ],
           "updated": [
+            {
+              "date": "2026-07-02",
+              "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -719,7 +727,7 @@
         },
         "FRD-OIR": {
           "term": "Ongoing Incident Report (OIR)",
-          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following the FedRAMP Incident Evaluation and Response rules.",
+          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following the FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "ongoing incident report",
@@ -728,6 +736,10 @@
             "OIRs"
           ],
           "updated": [
+            {
+              "date": "2026-07-02",
+              "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -5476,15 +5488,19 @@
           "FRP": {
             "IEC-FRP-ORV": {
               "name": "Ongoing Review",
-              "statement": "FedRAMP MUST periodically review FedRAMP Incident Evaluation and Response implementation with providers based on lack of reporting or other information.",
+              "statement": "FedRAMP MUST periodically review FedRAMP Incident Evaluation and Communication implementation with providers based on lack of reporting or other information.",
               "corrective_actions": [
                 "FedRAMP will request a Corrective Action Plan when a provider is unaware of the rules or has failed to implement proper procedures.",
                 "FedRAMP will grant a 3 month grace period to implement proper procedures pending remediation and possible revocation of FedRAMP Certification."
               ],
               "force": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Incident", "Provider", "Vulnerability Response"],
+              "terms": ["Incident", "Provider"],
               "updated": [
+                {
+                  "date": "2026-07-02",
+                  "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -5495,7 +5511,7 @@
           "CSO": {
             "IEC-CSO-EFR": {
               "name": "Evaluate FedRAMP Reportability",
-              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Evaluation and Response rules.",
+              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Evaluation and Communication rules.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -5509,10 +5525,13 @@
                 "Incident",
                 "Likely",
                 "Promptly",
-                "Provider",
-                "Vulnerability Response"
+                "Provider"
               ],
               "updated": [
+                {
+                  "date": "2026-07-02",
+                  "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
