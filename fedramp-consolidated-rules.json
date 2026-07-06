@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.06.25.01",
-    "last_updated": "2026-06-25",
+    "version": "2026.07.02.02",
+    "last_updated": "2026-07-02",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -444,7 +444,7 @@
         },
         "FRD-FIR": {
           "term": "Final Incident Report (FIR)",
-          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Evaluation and Response rules.",
+          "definition": "A final report after recovery from an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "final incident report",
@@ -453,6 +453,10 @@
             "FIRs"
           ],
           "updated": [
+            {
+              "date": "2026-07-02",
+              "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -541,7 +545,7 @@
         },
         "FRD-IIR": {
           "term": "Initial Incident Report (IIR)",
-          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP FedRAMP Incident Evaluation and Response rules.",
+          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "initial incident report",
@@ -550,6 +554,10 @@
             "IIRs"
           ],
           "updated": [
+            {
+              "date": "2026-07-02",
+              "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -719,7 +727,7 @@
         },
         "FRD-OIR": {
           "term": "Ongoing Incident Report (OIR)",
-          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following the FedRAMP Incident Evaluation and Response rules.",
+          "definition": "A recurring report about an ongoing incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following the FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "ongoing incident report",
@@ -728,6 +736,10 @@
             "OIRs"
           ],
           "updated": [
+            {
+              "date": "2026-07-02",
+              "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -2519,7 +2531,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
@@ -2551,7 +2563,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Data",
@@ -2656,7 +2668,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "All Necessary Parties",
@@ -3302,7 +3314,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Package Overview Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Class",
@@ -3620,7 +3632,7 @@
             },
             "FRC-CSO-PKG": {
               "name": "FedRAMP Certification Package",
-              "statement": "Providers MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
+              "statement": "Providers seeking a Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
               "following_information": [
                 "A Certification Package Overview",
                 "A Security Decision Record",
@@ -3631,7 +3643,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Package",
@@ -3743,7 +3755,6 @@
                 "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
                 "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
                 "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
-                "Certification Data Sharing: CDS-CSO-AVR (Availability Reporting)",
                 "Addressing FedRAMP Communication: AFC-CSO-INB (Maintain a FedRAMP Security Inbox)",
                 "Addressing FedRAMP Communication: AFC-CSO-RCV (Receive Email Without Disruption)",
                 "Addressing FedRAMP Communication: AFC-CSO-CRA (Complete Required Actions)",
@@ -3753,7 +3764,6 @@
                 "Collaborative Continuous Monitoring: CCM-OCR-AVL (Report Availability)",
                 "Collaborative Continuous Monitoring: CCM-OCR-NRD (Next Report Date)",
                 "Independent Verification and Validation: IVV-CSX-AIA (Annual Independent Assessments for 20x)",
-                "Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5)",
                 "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
                 "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
@@ -3782,7 +3792,6 @@
                 "CCM-OCR-AVL",
                 "CCM-OCR-NRD",
                 "IVV-CSX-AIA",
-                "IVV-CSF-AIA",
                 "FRC-CSO-PKG",
                 "FRC-CSO-JSN",
                 "KSI-CMT-LMC",
@@ -3791,8 +3800,7 @@
                 "KSI-IAM-AAM",
                 "KSI-INR-RIR",
                 "KSI-SVC-SIN",
-                "KSI-IAM-APM",
-                "CDS-CSO-AVR"
+                "KSI-IAM-APM"
               ],
               "force": "MUST",
               "affects": ["Providers"],
@@ -3817,6 +3825,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-07-01",
+                  "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5); Removed CDS-CSO-AVR (Availability Reporting) since this rule is defined as SHOULD and included in FRC-CLA-RFR (Recommended FedRAMP Rules for Class A)"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -5380,7 +5392,7 @@
               },
               {
                 "from": "IEC-CSO-EFR",
-                "to": "Incident Evaluation and Reporting is complete.",
+                "to": "Incident Evaluation and Communication is complete.",
                 "description": "No"
               },
               {
@@ -5415,7 +5427,7 @@
               },
               {
                 "from": "IEC-CSO-FIR",
-                "to": "Incident Evaluation and Reporting are complete."
+                "to": "Incident Evaluation and Communication are complete."
               }
             ],
             "nodes": {
@@ -5426,7 +5438,7 @@
               "IEC-CSO-IIR": "process",
               "IEC-CSO-OIR": "process",
               "IEC-CSO-FIR": "process",
-              "Incident Evaluation and Reporting are complete.": "end"
+              "Incident Evaluation and Communication are complete.": "end"
             }
           }
         ],
@@ -5466,15 +5478,19 @@
           "FRP": {
             "IEC-FRP-ORV": {
               "name": "Ongoing Review",
-              "statement": "FedRAMP MUST periodically review FedRAMP Incident Evaluation and Response implementation with providers based on lack of reporting or other information.",
+              "statement": "FedRAMP MUST periodically review FedRAMP Incident Evaluation and Communication implementation with providers based on lack of reporting or other information.",
               "corrective_actions": [
                 "FedRAMP will request a Corrective Action Plan when a provider is unaware of the rules or has failed to implement proper procedures.",
                 "FedRAMP will grant a 3 month grace period to implement proper procedures pending remediation and possible revocation of FedRAMP Certification."
               ],
               "force": "MUST",
               "affects": ["FedRAMP"],
-              "terms": ["Incident", "Provider", "Vulnerability Response"],
+              "terms": ["Incident", "Provider"],
               "updated": [
+                {
+                  "date": "2026-07-02",
+                  "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -5485,7 +5501,7 @@
           "CSO": {
             "IEC-CSO-EFR": {
               "name": "Evaluate FedRAMP Reportability",
-              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Evaluation and Response rules.",
+              "statement": "Providers MUST promptly evaluate incidents to determine if they affect confidentiality or integrity of federal customer data or are likely to affect confidentiality or integrity of federal customer data; such incidents are FedRAMP Reportable Incidents and must be reported following the FedRAMP Incident Evaluation and Communication rules.",
               "force": "MUST",
               "affects": ["Providers"],
               "artifacts": {
@@ -5499,10 +5515,13 @@
                 "Incident",
                 "Likely",
                 "Promptly",
-                "Provider",
-                "Vulnerability Response"
+                "Provider"
               ],
               "updated": [
+                {
+                  "date": "2026-07-02",
+                  "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7251,7 +7270,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
@@ -7486,7 +7505,7 @@
               },
               "schema": {
                 "name": "FedRAMP Assessor Information Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-assessor-information-schema-2026-06-24.json"
               },
               "terms": ["Assessor"],
               "updated": [
@@ -7538,7 +7557,7 @@
               },
               "schema": {
                 "name": "FedRAMP Advisory Service Information Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-advisor-information-schema-2026-06-24.json"
               },
               "terms": ["Advisor", "Machine-Readable"],
               "updated": [
@@ -8052,7 +8071,7 @@
               },
               "schema": {
                 "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
-                "url": "https://fedramp.gov/schemas/fedramp-certification-overview-package-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Cloud Service Offering",
@@ -8362,12 +8381,12 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Evidence of signifincat change evaluation including a description fo the change, the determined type, and an explanation for the decision. At least one example must be provided for each type of change. Real examples are prefered but the provider may use fictitious examples as long as the example provides evidence of the decision making process."
+                  "Evidence of significant change evaluation including a description fo the change, the determined type, and an explanation for the decision. At least one example must be provided for each type of change. Real examples are prefered but the provider may use fictitious examples as long as the example provides evidence of the decision making process."
                 ]
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": [
                 "Adaptive Change",
@@ -8434,7 +8453,7 @@
               },
               "schema": {
                 "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
-                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notification-schema-2026-06-24.json"
+                "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
               "terms": [
                 "Assessor",
@@ -9022,7 +9041,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
               "terms": [
                 "Persistently",
@@ -9069,7 +9088,7 @@
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
-                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-v2026.06.06.01.json"
+                "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
               "terms": ["Provider", "Security Decision Record (SDR)"],
               "updated": [
@@ -9466,7 +9485,7 @@
               "name": "Mitigation and Remediation Expectations",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability.",
+                  "statement": "Providers with Class A Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability.",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9541,7 +9560,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class B Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower potential agency impact within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9616,7 +9635,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class C Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9691,7 +9710,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating, internet reachability, and likely exploitability:",
+                  "statement": "Providers with Class D Certifications SHOULD partially mitigate vulnerabilities, fully mitigate vulnerabilities, or remediate vulnerabilities to a lower Potential Agency Impact N-rating within the maximum timeframes from evaluation shown below, factoring for the current Potential Agency Impact N-rating as defined in VER-EVA-EPA (Estimate Potential Agency Impact), internet reachability, and likely exploitability:",
                   "force": "SHOULD",
                   "pain_timeframes": {
                     "1": {},
@@ -9766,6 +9785,7 @@
                   }
                 }
               },
+              "related": ["VER-EVA-EPA"],
               "affects": ["Providers"],
               "terms": [
                 "Agency",
@@ -9778,6 +9798,10 @@
                 "Vulnerability"
               ],
               "updated": [
+                {
+                  "date": "2026-07-01",
+                  "comment": "Added relevent terms and related controls. No change to the requirement."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11961,122 +11985,122 @@
     "IR": {
       "IR-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-02-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-02-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-03": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-03-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-04": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-06": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-04-11": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-05": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-05-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-06": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-06-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-06-03": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-07": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-07-01": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-08": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09-02": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09-03": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       },
       "IR-09-04": {
         "guidance": [
-          "Follow the FedRAMP Incident Evaluation and Reporting rules."
+          "Follow the FedRAMP Incident Evaluation and Communication rules."
         ]
       }
     },
