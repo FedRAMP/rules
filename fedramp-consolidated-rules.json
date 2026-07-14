@@ -11949,23 +11949,29 @@
         "varies_by_class": {
           "b": {
             "guidance": [
-              "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 1. Link https://pages.nist.gov/800-63-3",
-              "IA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+              "Authenticators must be compliant with the most recent NIST Digital Identity Guidelines IAL, AAL, FAL level 1.",
+              "IA-5 Guidance: FedRAMP requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
             ]
           },
           "c": {
             "guidance": [
-              "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 2. Link https://pages.nist.gov/800-63-3",
-              "IA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+              "Authenticators must be compliant with the most recent NIST Digital Identity Guidelines IAL, AAL, FAL level 2.",
+              "IA-5 Guidance: FedRAMP requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
             ]
           },
           "d": {
             "guidance": [
-              "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 3. Link https://pages.nist.gov/800-63-3",
-              "IA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+              "Authenticators must be compliant with the most recent NIST Digital Identity Guidelines IAL, AAL, FAL level 3.",
+              "IA-5 Guidance: FedRAMP requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
             ]
           }
-        }
+        },
+        "updated": [
+          {
+            "date": "2026-07-14",
+            "comment": "Update guidance to direct users to the latest NIST Digital Identity Guidelines and remove references to specific instances of SP 800-63."
+          }
+        ]
       },
       "IA-02-06": {
         "parameters": [
