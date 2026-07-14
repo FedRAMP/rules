@@ -2530,7 +2530,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -2562,7 +2562,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -2667,7 +2667,7 @@
               "force": "MUST",
               "affects": ["Providers"],
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -3634,25 +3634,27 @@
               "name": "FedRAMP Certification Package",
               "statement": "Providers seeking a Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
               "following_information": [
-                "A Certification Package Overview",
-                "A Security Decision Record",
+                "Information about the Cloud Service Offering following CPO-CSO-OVR (Overview of the Cloud Service Offering)",
+                "Implementation, Validation, and Assessment information for each relevant FedRAMP requirement/control/ksi as defined in SDR-CSO-FRR (FedRAMP Rules)",
                 "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
               ],
-              "related": ["CCM-OCR-AVL"],
+              "related": ["CPO-CSO-OVR", "SDR-CSO-FRR", "CCM-OCR-AVL"],
               "force": "MUST",
               "affects": ["Providers"],
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Package",
+                "Cloud Service Offering",
                 "FedRAMP Certification Report",
                 "Initial Certification",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
-                "Security Decision Record (SDR)"
+                "Security Decision Record (SDR)",
+                "Validation"
               ],
               "updated": [
                 {
@@ -7269,7 +7271,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -8070,7 +8072,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
