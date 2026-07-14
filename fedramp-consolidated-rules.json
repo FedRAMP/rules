@@ -3442,12 +3442,6 @@
             "CPO-CSF-CPM": {
               "name": "Certification Package Maintenance for Rev5",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Rev5 Class A Certifications SHOULD persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
-                  "force": "SHOULD",
-                  "timeframe_type": "years",
-                  "timeframe_num": 1
-                },
                 "b": {
                   "statement": "Providers with Rev5 Class B Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
                   "force": "MUST",
