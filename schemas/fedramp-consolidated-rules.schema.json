@@ -114,7 +114,8 @@
                 "c": { "$ref": "#/$defs/classData" },
                 "d": { "$ref": "#/$defs/classData" }
               }
-            }
+            },
+            "updated": { "$ref": "#/$defs/updated_list" }
           }
         }
       }
