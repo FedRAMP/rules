@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.07.06.01",
-    "last_updated": "2026-07-06",
+    "version": "2026.07.14.01",
+    "last_updated": "2026-07-14",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -801,6 +801,7 @@
         "FRD-PAI": {
           "term": "Potential Agency Impact",
           "definition": "The estimated cumulative effect of unauthorized access, disruption, harm, or other adverse impacts to all agencies using the cloud service that are likely to result from security incidents or the exploitation of vulnerabilities in the cloud service offering; as estimated following appropriate FedRAMP rules to calculate the Potential Agency Impact N-rating (PAIN).",
+          "note": "Potential Agency Impact N-rating (PAIN) levels are defined in VER-EVA-EPA (Estimate Potential Agency Impact)",
           "alts": [
             "potential agency impact",
             "potential agency impacts",
@@ -2530,7 +2531,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -2562,7 +2563,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -2667,7 +2668,7 @@
               "force": "MUST",
               "affects": ["Providers"],
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -3441,12 +3442,6 @@
             "CPO-CSF-CPM": {
               "name": "Certification Package Maintenance for Rev5",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Rev5 Class A Certifications SHOULD persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
-                  "force": "SHOULD",
-                  "timeframe_type": "years",
-                  "timeframe_num": 1
-                },
                 "b": {
                   "statement": "Providers with Rev5 Class B Certifications MUST persistently maintain their FedRAMP Certification Package to ensure it is up to date and complete at least once every year.",
                   "force": "MUST",
@@ -3479,6 +3474,10 @@
                 "Transformative Change"
               ],
               "updated": [
+                {
+                  "date": "2026-07-14",
+                  "comment": "Removed reference to class A. All class A certifications are 20x."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -3634,25 +3633,27 @@
               "name": "FedRAMP Certification Package",
               "statement": "Providers seeking a Certification MUST supply a complete FedRAMP Certification Package to FedRAMP for initial certification; the FedRAMP Certification Package MUST include at least the following information:",
               "following_information": [
-                "A Certification Package Overview",
-                "A Security Decision Record",
+                "Information about the Cloud Service Offering following CPO-CSO-OVR (Overview of the Cloud Service Offering)",
+                "Implementation, Validation, and Assessment information for each relevant FedRAMP requirement/control/ksi as defined in SDR-CSO-FRR (FedRAMP Rules)",
                 "A real or example Ongoing Certification Report following CCM-OCR-AVL (Report Availability)"
               ],
-              "related": ["CCM-OCR-AVL"],
+              "related": ["CPO-CSO-OVR", "SDR-CSO-FRR", "CCM-OCR-AVL"],
               "force": "MUST",
               "affects": ["Providers"],
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
                 "Certification Package",
+                "Cloud Service Offering",
                 "FedRAMP Certification Report",
                 "Initial Certification",
                 "Ongoing Certification",
                 "Ongoing Certification Report (OCR)",
                 "Provider",
-                "Security Decision Record (SDR)"
+                "Security Decision Record (SDR)",
+                "Validation"
               ],
               "updated": [
                 {
@@ -3775,7 +3776,7 @@
               "notes": [
                 "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
                 "In general, for each of these FedRAMP requirements, providers should include a sufficiently detailed summary that reviewers will not need to dig into the related security framework materials to understand the related decisions - just saying \"see SOC 2 report\" is not particularly helpful.",
-                "Information about how the provider addresses the included Key Security Indicators are required for both Rev5 and 20x Class A Certifications."
+                "Information about how the provider addresses the included Key Security Indicators are required to receive a class A certification even if the provider intends to pursue a Rev 5 Program Certification path in the future."
               ],
               "related": [
                 "FRC-CSO-POP",
@@ -3809,6 +3810,7 @@
                 "Artifacts",
                 "Certification Data",
                 "Certification Package",
+                "Certification Path",
                 "Certification Type",
                 "FedRAMP Security Inbox",
                 "Final Incident Report (FIR)",
@@ -3825,6 +3827,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-07-14",
+                  "comment": "Clarified that providers MUST address the Key Security Indicators even if they intend to pursue a Rev 5 Program Certification path in the future."
+                },
                 {
                   "date": "2026-07-01",
                   "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5); Removed CDS-CSO-AVR (Availability Reporting) since this rule is defined as SHOULD and included in FRC-CLA-RFR (Recommended FedRAMP Rules for Class A)"
@@ -7269,7 +7275,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -8070,7 +8076,7 @@
                 ]
               },
               "schema": {
-                "name": "FedRAMP Certification Overview Package (FRC-CSO-PKG)",
+                "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
               "terms": [
@@ -11943,23 +11949,29 @@
         "varies_by_class": {
           "b": {
             "guidance": [
-              "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 1. Link https://pages.nist.gov/800-63-3",
-              "IA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+              "Authenticators must be compliant with the most recent NIST Digital Identity Guidelines IAL, AAL, FAL level 1.",
+              "IA-5 Guidance: FedRAMP requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
             ]
           },
           "c": {
             "guidance": [
-              "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 2. Link https://pages.nist.gov/800-63-3",
-              "IA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+              "Authenticators must be compliant with the most recent NIST Digital Identity Guidelines IAL, AAL, FAL level 2.",
+              "IA-5 Guidance: FedRAMP requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
             ]
           },
           "d": {
             "guidance": [
-              "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 3. Link https://pages.nist.gov/800-63-3",
-              "IA-5 Guidance: SP 800-63C Section 6.2.3 Encrypted Assertion requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
+              "Authenticators must be compliant with the most recent NIST Digital Identity Guidelines IAL, AAL, FAL level 3.",
+              "IA-5 Guidance: FedRAMP requires that authentication assertions be encrypted when passed through third parties, such as a browser. For example, a SAML assertion can be encrypted using XML-Encryption, or an OpenID Connect ID Token can be encrypted using JSON Web Encryption (JWE)."
             ]
           }
-        }
+        },
+        "updated": [
+          {
+            "date": "2026-07-14",
+            "comment": "Update guidance to direct users to the latest NIST Digital Identity Guidelines and remove references to specific instances of SP 800-63."
+          }
+        ]
       },
       "IA-02-06": {
         "parameters": [
