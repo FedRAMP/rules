@@ -3475,6 +3475,10 @@
               ],
               "updated": [
                 {
+                  "date": "2026-07-14",
+                  "comment": "Removed reference to class A. All class A certifications are 20x."
+                },
+                {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
@@ -3772,7 +3776,7 @@
               "notes": [
                 "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
                 "In general, for each of these FedRAMP requirements, providers should include a sufficiently detailed summary that reviewers will not need to dig into the related security framework materials to understand the related decisions - just saying \"see SOC 2 report\" is not particularly helpful.",
-                "Information about how the provider addresses the included Key Security Indicators are required for both Rev5 and 20x Class A Certifications."
+                "Information about how the provider addresses the included Key Security Indicators are required to receive a class A certification even if the provider intends to pursue a Rev 5 Program Certification path in the future."
               ],
               "related": [
                 "FRC-CSO-POP",
@@ -3822,6 +3826,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-07-14",
+                  "comment": "Clarified that providers MUST address the Key Security Indicators even if they intend to pursue a Rev 5 Program Certification path in the future."
+                },
                 {
                   "date": "2026-07-01",
                   "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5); Removed CDS-CSO-AVR (Availability Reporting) since this rule is defined as SHOULD and included in FRC-CLA-RFR (Recommended FedRAMP Rules for Class A)"
