@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.07.14.01",
-    "last_updated": "2026-07-14",
+    "version": "2026.09.13.01",
+    "last_updated": "2026-09-13",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1654,11 +1654,15 @@
               "name": "Agency Liaison Program",
               "statement": "Agencies SHOULD assign at least 1 federal employee to be an active participant in the FedRAMP Agency Liaison program.",
               "reference": "Agency Liaison Program",
-              "reference_url": "https://www.fedramp.gov/preview/2026/agencies/support/liaisons",
+              "reference_url": "https://www.fedramp.gov/2026/agencies/support/liaisons",
               "force": "SHOULD",
               "affects": ["Agencies"],
               "terms": ["Agency"],
               "updated": [
+                {
+                  "date": "2026-09-13",
+                  "comment": "Fixed broken reference URL for the Agency Liaison Program."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -1686,7 +1690,7 @@
               "statement": "Agencies MUST complete the Authorization to Operate process for federal information systems that use FedRAMP Certified cloud service offerings.",
               "note": "FedRAMP provides technical assistance to help agencies navigate this process.",
               "reference": "Using a FedRAMP Certified Cloud Service Offering",
-              "reference_url": "https://fedramp.gov/preview/2026/agencies/use",
+              "reference_url": "https://www.fedramp.gov/2026/agencies/use",
               "force": "MUST",
               "affects": ["Agencies"],
               "terms": [
@@ -2014,7 +2018,7 @@
           "OCR": {
             "CCM-OCR-AVL": {
               "name": "Report Availability",
-              "statement": "Providers MUST supply an Ongoing Certification Report to all necessary parties every 3 months, covering the entire period since the previous summary, in a consistent format that is human readable; this report MUST include high-level summaries of at least the following information:",
+              "statement": "Providers MUST supply an Ongoing Certification Report to all necessary parties every 3 months, covering the entire period since the previous summary, in a consistent format that is human readable; this report MUST include high-level summaries of at least the following information (if applicable):",
               "following_information": [
                 "Changes to FedRAMP Certification Data",
                 "Planned changes to FedRAMP Certification Data during at least the next 3 months",
@@ -2037,6 +2041,8 @@
                 "name": "FedRAMP Ongoing Certification Report (CCM-OCR-AVL)",
                 "url": "https://fedramp.gov/schemas/fedramp-ongoing-certification-report-schema-2026-06-24.json"
               },
+              "timeframe_type": "months",
+              "timeframe_num": 3,
               "terms": [
                 "Accepted Vulnerability",
                 "Agency",
@@ -2053,6 +2059,10 @@
                 "Vulnerability"
               ],
               "updated": [
+                {
+                  "date": "2026-09-13",
+                  "comment": "Added (if applicable) to clarify that some of these items are not always required depending on the FedRAMP Certification Type or Class."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -2305,6 +2315,9 @@
               "statement": "Providers SHOULD regularly schedule Quarterly Reviews to occur at least 3 business days after releasing an Ongoing Certification Report AND within 10 business days of such release.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "timeframe_type": "bizdays",
+              "timeframe_num_min": 3,
+              "timeframe_num_max": 10,
               "terms": [
                 "FedRAMP Certification Report",
                 "Ongoing Certification",
@@ -3260,7 +3273,7 @@
               "maintain": "2027-07-01",
               "optional_adoption": "2026-07-04",
               "grace": {
-                "default": "2027-01-01",
+                "default": "2027-07-01",
                 "until_next_assessment": true
               }
             }
@@ -3272,7 +3285,7 @@
               "applicability": {
                 "types": ["Rev5"],
                 "paths": ["Program", "Agency"],
-                "classes": ["A", "B", "C", "D"],
+                "classes": ["B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -3543,7 +3556,7 @@
             "applicability": {
               "types": ["Rev5"],
               "paths": ["Agency"],
-              "classes": ["A", "B", "C", "D"],
+              "classes": ["B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -5828,7 +5841,7 @@
               "name": "Ongoing Incident Reports",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
+                  "statement": "Providers with Class A Certifications SHOULD responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -5881,7 +5894,7 @@
                   }
                 },
                 "b": {
-                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
+                  "statement": "Providers with Class B Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -5934,7 +5947,7 @@
                   }
                 },
                 "c": {
-                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
+                  "statement": "Providers with Class C Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -5987,7 +6000,7 @@
                   }
                 },
                 "d": {
-                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the the following additional information that is available and/or the current relevant status for each item:",
+                  "statement": "Providers with Class D Certifications MUST responsibly notify all affected parties of ongoing activity as new information becomes available during incident response for FedRAMP Reportable Incidents, including updates (or lack of updates) to all previously reported information and as much of the following additional information that is available and/or the current relevant status for each item:",
                   "following_information": [
                     "Observed incident activity",
                     "Indicators of compromise",
@@ -6074,6 +6087,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-09-13",
+                  "comment": "Removed the extra the in all statements."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7101,6 +7118,8 @@
               "related": ["IVV-CSF-PCA"],
               "force": "MUST",
               "affects": ["Providers"],
+              "timeframe_type": "years",
+              "timeframe_num": 3,
               "terms": ["FedRAMP Independent Assessment", "Provider"],
               "updated": [
                 {
@@ -7604,6 +7623,8 @@
               ],
               "force": "MUST",
               "affects": ["Advisors"],
+              "timeframe_type": "bizdays",
+              "timeframe_num": 5,
               "terms": ["Advisor"],
               "updated": [
                 {
@@ -7664,6 +7685,8 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "timeframe_type": "years",
+              "timeframe_num": 2,
               "terms": ["Certification Class", "Provider"],
               "updated": [
                 {
@@ -9383,6 +9406,8 @@
               "statement": "Providers MUST verify and validate the status of non-machine-based information resources at least once every 3 months.",
               "force": "MUST",
               "affects": ["Providers"],
+              "timeframe_type": "months",
+              "timeframe_num": 3,
               "terms": [
                 "Information Resource",
                 "Machine-Based (Information Resources)",
