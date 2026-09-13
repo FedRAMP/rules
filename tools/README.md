@@ -112,6 +112,11 @@ normalizations. Focused aliases select individual scopes:
 | `bun run fix:display-names`  | Repairs inline rule IDs and their parenthesized display names.                  |
 | `bun run fix:subset-affects` | Aligns FRR subset applicability `affects` with its requirements.                |
 
+Term synchronization excludes definitions with `ignore_in_terms: true`,
+including their aliases, from FRR and KSI `terms` arrays. The term check reports
+existing entries for these definitions, and the fixer removes them. An absent
+or `false` flag keeps normal matching behavior.
+
 Pass flags after `--`:
 
 | Flag                      | Behavior                                                                                                                                                               |

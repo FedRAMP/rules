@@ -51,6 +51,10 @@ function buildTermLookup(document: RulesDocument): Map<string, string> {
   const lookup = new Map<string, string>();
 
   for (const { definition } of getDefinitionEntries(document)) {
+    if (definition.ignore_in_terms === true) {
+      continue;
+    }
+
     lookup.set(definition.term.toLowerCase(), definition.term);
 
     for (const alt of definition.alts ?? []) {

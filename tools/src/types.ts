@@ -11,6 +11,7 @@ export interface UpdatedEntry {
 export interface DefinitionEntry {
   term: string;
   alts?: string[];
+  ignore_in_terms?: boolean;
   tag?: string;
   definition: string;
   note?: string;
