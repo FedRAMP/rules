@@ -103,6 +103,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
         properties: {
           term: { type: "string" },
           alts: { type: "array" },
+          ignore_in_terms: { type: "boolean" },
           definition: { type: "string" },
           updated: { type: "array" },
         },
@@ -152,6 +153,12 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
             definition: "Test definition",
             updated: [],
           },
+          "FRD-MST": {
+            term: "MUST",
+            ignore_in_terms: true,
+            definition: "Test definition",
+            updated: [],
+          },
         },
       },
     },
@@ -181,7 +188,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
                 related: ["MAS-CSO-OLD"],
                 affects: ["Providers"],
                 name: "Test requirement",
-                terms: [],
+                terms: ["MUST"],
                 updated: [],
               },
               "MAS-CSO-REF": {

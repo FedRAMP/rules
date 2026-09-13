@@ -8,8 +8,140 @@ import {
   collectDefinitionTermTitleChanges,
   collectTermSyncChanges,
   toDefaultTitleCase,
+  type TermSyncChange,
 } from "../src/terms";
 import type { RulesDocument } from "../src/types";
+
+function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
+  return {
+    info: {
+      title: "Test",
+      description: "Test",
+      version: "1.0.0",
+      last_updated: "2026-09-13",
+    },
+    FRD: {
+      info: {},
+      data: {
+        all: {
+          "FRD-MST": {
+            term: "MUST",
+            alts: ["required"],
+            ...(ignoreInTerms === undefined
+              ? {}
+              : { ignore_in_terms: ignoreInTerms }),
+            definition: "Test definition",
+          },
+          "FRD-AGY": {
+            term: "Agency",
+            definition: "Test definition",
+          },
+          "FRD-PVD": {
+            term: "Provider",
+            alts: ["providers"],
+            ignore_in_terms: false,
+            definition: "Test definition",
+          },
+        },
+      },
+    },
+    FRR: {
+      MAS: {
+        info: {},
+        data: {
+          all: {
+            CSO: {
+              "MAS-CSO-TST": {
+                name: "Test requirement",
+                affects: ["Providers"],
+                statement: "Providers MUST notify an agency.",
+                force: "MUST",
+                terms: [],
+              },
+            },
+          },
+        },
+      },
+    },
+    KSI: {
+      IAM: {
+        id: "KSI-IAM",
+        name: "Test theme",
+        web_name: "Test theme",
+        short_name: "Test",
+        theme: "Test",
+        indicators: {
+          "KSI-IAM-TST": {
+            name: "Test indicator",
+            varies_by_class: {
+              b: { statement: "Providers are required to notify an agency." },
+              c: { statement: "Providers are required to notify an agency." },
+            },
+            terms: [],
+          },
+        },
+      },
+    },
+  };
+}
+
+test.each([
+  ["absent", undefined],
+  ["false", false],
+  ["true", true],
+] as const)("term sync honors ignore_in_terms=%s for terms and aliases", (_, ignoreInTerms) => {
+  const document = createTermSyncDocument(ignoreInTerms);
+  const expectedTerms = ignoreInTerms === true
+    ? ["Agency", "Provider"]
+    : ["Agency", "MUST", "Provider"];
+  const expectedChanges: TermSyncChange[] = [
+    {
+      id: "MAS-CSO-TST",
+      location: "FRR.MAS.data.all.CSO.MAS-CSO-TST",
+      kind: "requirement",
+      currentTerms: [],
+      nextTerms: expectedTerms,
+    },
+    {
+      id: "KSI-IAM-TST",
+      location: "KSI.IAM.indicators.KSI-IAM-TST",
+      kind: "indicator",
+      currentTerms: [],
+      nextTerms: expectedTerms,
+    },
+  ];
+  const original = structuredClone(document);
+
+  expect(collectTermSyncChanges(document)).toEqual(expectedChanges);
+  expect(document).toEqual(original);
+  expect(applyTermSync(document)).toEqual(expectedChanges);
+  expect(collectTermSyncChanges(document)).toEqual([]);
+  expect(applyTermSync(document)).toEqual([]);
+});
+
+test.each(["all", "20x", "rev5"])("term sync removes ignored definitions from %s even when their text still matches", (scope) => {
+  const document = createTermSyncDocument(true);
+  const definitions = document.FRD.data.all!;
+  document.FRD.data = { [scope]: definitions };
+  const requirement = document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!;
+  const indicator = Object.values(document.KSI.IAM!.indicators)[0]!;
+  requirement.terms = ["Agency", "MUST", "Provider"];
+  indicator.varies_by_class = {
+    b: { statement: "This behavior is required." },
+    c: { statement: "This behavior is required." },
+  };
+  indicator.terms = ["MUST"];
+
+  const changes = collectTermSyncChanges(document);
+
+  expect(changes).toHaveLength(2);
+  expect(changes[0]!.nextTerms).toEqual(["Agency", "Provider"]);
+  expect(changes[1]!.nextTerms).toEqual([]);
+  expect(applyTermSync(document)).toEqual(changes);
+  expect(requirement.terms).toEqual(["Agency", "Provider"]);
+  expect(indicator.terms).toEqual([]);
+  expect(collectTermSyncChanges(document)).toEqual([]);
+});
 
 test("all FRD terms use the default title casing", () => {
   const changes = collectDefinitionTermTitleChanges(loadRulesDocument());
