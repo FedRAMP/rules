@@ -1,285 +1,133 @@
-# Instructions For AI Agents
+# Instructions For Information Analysis
 
-## Primary Scope
+## Start Here
 
-When analyzing this repository, focus on only these files:
+Use these two authoritative files:
 
-- [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json)
-- [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
+- [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json): the
+  FedRAMP Consolidated Rules for 2026, including definitions and indicators.
+- [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json):
+  the expected data shape and allowed values, using JSON Schema Draft 2020-12.
 
-The rest of the repository is supporting infrastructure. The `tools` directory,
-tests, and READMEs can help with validation and orientation, but they are not
-the rules and should not be treated as authoritative rule content.
+Default to read-only analysis. Parse the JSON with a real JSON parser and
+validate it against the local schema before relying on automated analysis.
+If validation fails or cannot be run, disclose that limitation and avoid
+unsupported conclusions. Read the relevant entries with their surrounding
+metadata; this guide is a navigation aid, not a substitute for the source.
 
-## Source Of Truth
+The `tools/` directory is only relevant to FedRAMP developers during project
+maintenance; most users and information-analysis agents should ignore it.
+For maintenance tasks, including edits, tooling support, or branch changelogs,
+first read [tools/AGENTS-TOOLS.md](tools/AGENTS-TOOLS.md).
 
-[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) is the
-source of truth for the FedRAMP Consolidated Rules for 2026.
+## Locate The Information
 
-[schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json)
-is the source of truth for the expected data shape.
+The schema requires four top-level sections; the current dataset also includes
+the optional `CTL` section:
 
-## Rules JSON Edit Guardrail
+| Section          | Contents                                                                | Lookup path                                                    |
+| ---------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `info`           | Dataset title, description, version, update date, and default artifacts | `info`                                                         |
+| `FRD`            | Controlled definitions and their metadata                               | `FRD.data.<applicability>.<definition ID>`                     |
+| `FRR`            | Process documents, requirements, and recommendations                    | `FRR.<process>.data.<applicability>.<subset>.<requirement ID>` |
+| `KSI`            | Security themes and indicators                                          | `KSI.<theme>.indicators.<indicator ID>`                        |
+| `CTL` (optional) | Control guidance and parameters                                         | `CTL.<family>.<control ID>`                                    |
 
-Do not modify
-[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) unless the
-user specifically instructs you to edit that file.
+For `CTL`, read each control's common `guidance` and `parameters` and any
+`varies_by_class` entries. Schema support does not imply that every optional
+field or class variant is populated; inspect the JSON before drawing conclusions.
 
-If a task appears to require changing
-[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json), stop before
-editing it. Propose a concise plan that identifies the specific rule,
-definition, indicator, metadata, or structural paths you intend to change, then
-wait for the user's explicit confirmation before making those edits.
+**Definitions:** IDs follow `FRD-XXX`, such as `FRD-ACV`. Read `term`,
+`definition`, `alts`, and any notes or references. Use the FRD meaning whenever
+a defined term appears in a rule or indicator; use plain-language meaning when
+no definition exists. Shared definitions are in `FRD.data.all`; the schema also
+allows framework-specific definitions in `FRD.data.20x` and `FRD.data.rev5`.
+Definition IDs are object keys, not an `id` field in each definition.
 
-Analysis, validation, structured reads, and reports may use
-[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) without
-additional permission. The guardrail applies to file modifications.
+**Process rules:** Process keys include `VDR`, `FRC`, `CCM`, and `SCN`.
+Each process has `info` metadata and a `data` tree. Subsets identify actors,
+scopes, or process buckets. Requirement IDs follow `PROCESS-SUBSET-KEY`, with
+three-character segments; the final segment can contain letters or digits.
+For example, `AFC-FRP-VRE` is at `FRR.AFC.data.all.FRP.AFC-FRP-VRE`.
+Requirement IDs are object keys.
 
-## Test Creation Guardrail
+**Security indicators:** Theme keys include `IAM`, `CNA`, `MLA`, and `SCR`.
+Indicator IDs follow `KSI-THEME-KEY`, such as `KSI-CED-RAT` at
+`KSI.CED.indicators.KSI-CED-RAT`. Theme metadata, including `status`, lives
+directly on the theme. KSI does not use FRR's `info`/`data`/subset hierarchy,
+and KSI indicators and their class variants do not have a `force` field.
 
-When the user asks to add or update tests for the tooling, test harness, or
-validation behavior, assume the requested test may expose existing rules data
-issues, warnings, or intentionally failing cases. That is often the reason the
-test is being added.
+## Interpret Applicability And Meaning
 
-Do not fix test failures or warnings by editing
-[fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) unless the
-user explicitly asks for rule-content changes. If a newly added test reports
-errors or warnings against the current rules file, report the result and keep
-the change scoped to test or tooling support.
+1. **State the scope.** Record `info.version` and `info.last_updated`, the
+   framework (`20x` or `rev5`), certification path, service class, actor, and
+   relevant date. Identify unknowns that could change the answer.
+2. **Include shared content.** For FRD and FRR, consider `all` plus the matching
+   framework bucket when present. `all` means shared across frameworks, not
+   universally applicable to every actor or class. Resolve FRR subsets from
+   common `info.subsets` plus matching `info.20x.subsets` or
+   `info.rev5.subsets`. Read their descriptions and `applicability.types`,
+   `paths`, `classes`, and `affects`, together with each requirement's `affects`.
+   Preserve schema vocabulary and case: for example, the bucket `rev5` differs
+   from the certification type value `Rev5`.
+3. **Check status and timing.** FRD and FRR status is under their document
+   `info.status`; KSI status is `KSI.<theme>.status`. Distinguish `stable`,
+   `placeholder`, and `empty`. For FRD and FRR, effective metadata is either
+   common `info.effective` or paired `info.20x.effective` and
+   `info.rev5.effective`. Read `is` (`required`, `optional`, or `no`), comments,
+   warnings, and the separate obtain, maintain, optional-adoption, and grace
+   dates. Check entry-level and class-specific `effective_date` where present.
+   Neither `stable` nor an update date alone establishes current applicability.
+4. **Select the statement shape.** FRR has either top-level `statement` and
+   `force`, or `varies_by_class` with statements and forces inside each class.
+   KSI has either a top-level `statement` or class-specific statements.
+   Class keys are lowercase `a`, `b`, `c`, and `d`; not all are necessarily
+   present. Do not invent missing variants or copy another class's statement.
+   Read class-specific following information, notes, artifacts, control lists,
+   effective dates, and timeframes where the schema permits them, together with
+   the entry's common information.
+5. **Respect the force.** In FRR, `MUST` and `MUST NOT` are hard requirements;
+   `SHOULD` and `SHOULD NOT` are expected practices with possible justified
+   exceptions; `MAY` is optional or permitted behavior. Interpret KSI through
+   its capability statement and applicable process rules without inventing a
+   normative force.
+6. **Read the supporting details.** Include following information and bullets,
+   notes, examples, corrective actions, notifications, references, related IDs,
+   and timeframes as relevant. Consult `info.default_artifacts.FRR` or
+   `info.default_artifacts.KSI` and applicable entry/class `artifacts` buckets
+   (`all`, `20x`, `rev5`). Control mappings and artifact lists are analysis
+   signals; they do not replace the statement or prove implementation.
 
-If a test cannot be made meaningful without changing the rules JSON, stop before
-editing it. Explain the specific rule, definition, indicator, metadata, or
-structural path that would need to change and wait for explicit confirmation.
+## Produce Traceable Analysis
 
-## Dataset Structure
+Cite stable definition, rule, or indicator IDs and relevant JSON paths for each
+finding, mapping, or recommendation. For document or dataset metadata, cite its
+exact path. Resolve related IDs and terms from the dataset instead of guessing.
 
-The JSON file has four top-level sections:
+When reviewing a system, codebase, infrastructure configuration, or operational
+process, map IDs to concrete evidence such as configuration, access controls,
+logs, tests, policies, or runbooks. State evidence found, evidence missing, and
+conclusions inferred, with assumptions, confidence, and next actions where
+useful. Prefer narrowly scoped findings; do not claim compliance from silence
+or from a control mapping alone.
 
-- `info`
-  Dataset metadata, including title, description, version, `last_updated`, and
-  default artifact expectations.
-- `FRD`
-  FedRAMP Definitions. Use these definitions to resolve terms used in rules and
-  indicators.
-- `FRR`
-  FedRAMP Rules process documents. These contain process-oriented requirements
-  and recommendations.
-- `KSI`
-  Key Security Indicators. These describe security capabilities and evidence
-  expectations.
+## Additional Context
 
-### FRD
+Use these resources when the analysis needs information beyond this dataset:
 
-`FRD` entries are controlled definitions. Definition IDs follow `FRD-XXX`.
-Important fields include `term`, `definition`, `alts`, references, notes, and
-`updated` history.
+- [FedRAMP/2026](https://github.com/fedramp/2026): narrative text and the website
+  project accompanying the structured rules.
+- [FedRAMP/2026-markdown](https://github.com/fedramp/2026-markdown): generated
+  Markdown combining structured rules and narrative text for reading and AI
+  ingestion; `_sources.json` records the source commits.
+- [FedRAMP community discussions](https://github.com/FedRAMP/community/discussions/):
+  community questions, announcements, and discussion.
+- [FedRAMP 2026 discussions](https://github.com/FedRAMP/2026/discussions/):
+  discussion associated with the 2026 project.
+- [FedRAMP Help](https://help.fedramp.gov): help articles and support information.
 
-The FRD data container uses applicability buckets. Shared definitions live under
-`FRD.data.all`; framework-specific definitions, if present, live under
-`FRD.data.20x` or `FRD.data.rev5`.
-
-FRD effective metadata may be common (`FRD.info.effective`) or split into
-paired framework-specific blocks (`FRD.info.20x.effective` and
-`FRD.info.rev5.effective`).
-
-When a defined term appears in an FRR rule or KSI indicator, use the FRD
-definition instead of assuming the plain-language meaning.
-
-### FRR
-
-`FRR` is keyed by process short names such as `VDR`, `FRC`, `CCM`, and `SCN`.
-Each process contains:
-
-- `info`
-  Rule metadata, purpose, status, effective metadata, subset definitions, and
-  optional flow descriptions. Effective metadata may be common
-  (`info.effective`) or split into paired framework-specific blocks
-  (`info.20x.effective` and `info.rev5.effective`). Subsets and flows may also
-  be common or framework-specific.
-- `data`
-  The rule tree.
-
-The rule tree is organized as:
-
-```text
-FRR -> process -> data -> applicability -> subset -> requirement ID
-```
-
-Applicability keys are `all`, `20x`, and `rev5`. Subsets identify actors,
-scopes, or process buckets. Requirement IDs follow the
-`PROCESS-SUBSET-KEY` pattern, such as `VDR-CSO-123`.
-
-Each requirement contains either:
-
-- a single `statement` and `force`, or
-- a `varies_by_class` object with class-specific statements and force values.
-
-Class-specific variants may also include `following_information`, `artifacts`,
-notes, effective dates, simple timeframes, and `pain_timeframes`.
-
-Other useful top-level fields include `affects`, `controls`, `artifacts`,
-`following_information`, `following_information_bullets`, `examples`,
-`notification`, simple timeframes, terms, related rule references, references,
-corrective actions, effective dates, and `updated` history.
-
-### KSI
-
-`KSI` is keyed by security theme short names such as `IAM`, `CNA`, `MLA`, and
-`SCR`. Indicator IDs follow `KSI-THEME-KEY`.
-
-Indicators describe security capabilities. They include statements or
-class-specific variants, mapped controls, optional artifact expectations,
-terms, references, and update history.
-
-## Analysis Best Practices
-
-- Parse the JSON with a real JSON parser. Do not analyze it with ad hoc text
-  matching when structured access is practical.
-- Validate the rules file against the schema before relying on automated
-  analysis.
-- Select the correct applicability path: `all`, `20x`, or `rev5`; `all`
-  means shared across frameworks.
-- Check common `info.effective` or the framework-specific
-  `info.20x.effective` / `info.rev5.effective` before deciding whether a rule
-  applies to a framework or timeline.
-- Check each document `status`; `placeholder` and `empty` content should be
-  treated differently from `stable` content.
-- Resolve relevant terms through `FRD`.
-- Resolve FRR subset definitions from common `info.subsets` plus any matching
-  framework-specific `info.20x.subsets` or `info.rev5.subsets`.
-- Respect `varies_by_class` before applying a rule to a specific service class,
-  including class-specific following information, artifacts, notes, and
-  timeframes.
-- Treat `MUST` and `MUST NOT` as hard requirements, `SHOULD` and `SHOULD NOT`
-  as expected practices with possible justified exceptions, and `MAY` as
-  optional or permitted behavior.
-- Cite stable IDs for every finding, mapping, or recommendation.
-- Use `affects`, `controls`, `artifacts`, `default_artifacts`, notifications,
-  related rule references, and timeframes as mapping signals. They are aids for
-  analysis, not replacements for the rule statement.
-- Distinguish evidence found, evidence missing, and conclusions inferred from
-  evidence. Do not claim compliance from silence.
-
-## Cloud Code, Codex, And MCP Analysis
-
-For cloud code, infrastructure-as-code, Codex workflows, and MCP servers, use
-the rules as a structured mapping source:
-
-- Start with KSI themes for capability review:
-  `IAM` for identity and access, `MLA` for monitoring and auditing, `SVC` for
-  service configuration, `CNA` for cloud-native architecture, `CMT` for change
-  management, `SCR` for supply chain risk, `INR` for incident response, and
-  `RPL` for recovery planning.
-- Use FRR documents for process obligations such as vulnerability response,
-  significant changes, certification, continuous monitoring, incident
-  communication, cryptographic modules, and marketplace listing.
-- For code repositories, map rule and indicator IDs to concrete evidence:
-  configuration files, IaC modules, CI workflows, policy files, access-control
-  definitions, logging configuration, vulnerability workflows, dependency
-  manifests, deployment pipelines, and operational runbooks.
-- For Codex-style agents, produce traceable outputs: scope, assumptions,
-  matched IDs, evidence paths, missing evidence, confidence, and recommended
-  next actions.
-- For MCP servers, pay particular attention to tool permissions,
-  authentication, authorization, audit logging, secret handling, data boundary
-  controls, dependency provenance, and incident reporting paths.
-- Prefer narrowly scoped findings with exact citations over broad claims about
-  FedRAMP readiness.
-
-## Changelog Generation
-
-When asked to generate a changelog for the active branch, produce a screen-only
-summary of the branch delta against `main`; do not create a changelog file
-unless the user explicitly asks for one.
-
-- Output the changelog as copy/pasteable Markdown. When responding in chat,
-  place the changelog itself inside a fenced `markdown` code block; keep any
-  explanatory notes outside the block.
-- Use plain repository paths inside the changelog instead of clickable Markdown
-  file links so the copied text remains portable.
-- Use the branch merge base with `main` as the starting point and the current
-  branch tip as the ending point. Prefer `git diff main...HEAD`,
-  `git diff --name-status main...HEAD`, and
-  `git log --reverse --format='%h %s' main..HEAD`.
-- If `main` is missing or stale and network access is available, fetch it first;
-  otherwise state which local ref was used.
-- Treat committed branch changes as the changelog scope by default. Mention
-  uncommitted workspace changes separately only when they affect the requested
-  analysis or the user asks to include them.
-- Validate the rules file against the schema before relying on automated JSON
-  analysis. If validation cannot be run, say so and continue carefully.
-- Parse JSON with a real JSON parser when comparing
-  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) and
-  [schemas/fedramp-consolidated-rules.schema.json](schemas/fedramp-consolidated-rules.schema.json);
-  avoid text-only diff analysis for rule content whenever structured access is
-  practical.
-- Compare the initial branch state to the final branch state, not commit by
-  commit, unless a commit-level explanation is specifically requested.
-- Detect and highlight breaking changes when summarizing underlying changes to
-  [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) or the
-  schema. Use the software compatibility meaning of breaking change: a
-  backwards-incompatible change to the machine-readable public contract that
-  would make existing parsers, validators, exporters, queries, or integrations
-  fail, reject previously valid data, silently misread data, or require code
-  changes to continue processing the dataset. Examples include renamed or
-  removed properties such as `primary_key_word` to `force`, changed required
-  fields, changed property types, changed statement shapes, changed ID formats,
-  controlled vocabulary changes that invalidate existing values, renamed
-  top-level sections, renamed applicability or subset bucket keys when those
-  keys are part of the schema contract, or stricter validation rules that reject
-  files accepted by the previous schema.
-- Do not mark rule-content taxonomy changes as breaking merely because a rule,
-  definition, or indicator moves to a different ruleset, process, applicability
-  path, subset, or ID. Treat those as Rules Content Changes and describe the
-  user-visible mapping or migration impact. Only mark such movement as breaking
-  when it also changes the documented data shape, schema vocabulary, required
-  fields, or other machine-readable contract in a way that breaks existing
-  tooling.
-- Mark every breaking change bullet with `**Breaking:**` at the start of the
-  bullet in the relevant changelog section. Include the old shape and the new
-  shape when known, and briefly state the practical impact. For example,
-  changing FRR metadata from `info.labels` to `info.subsets` is breaking
-  because tools or consumers that still look for `labels` will fail to find the
-  declarations and may reject or misread the FRR data until updated.
-- Use stable IDs in every rule-content bullet: `FRD-XXX`, `FRR` requirement IDs
-  such as `VDR-CSO-123`, and `KSI-THEME-KEY`.
-- For each substantively changed rule, definition, or indicator, write one
-  sentence describing the user-visible change. Include additions, removals,
-  renamed terms, wording changes, actor/scope changes, applicability moves,
-  artifact changes, control mappings, examples, notifications, related rule
-  references, external references, timeframes, and class-specific variants.
-- Group purely mechanical metadata churn, such as mass `updated` date resets or
-  property ordering changes, instead of listing every affected rule separately.
-- Separate evidence from inference. When a conclusion comes from schema shape,
-  property names, or structural movement rather than explicit wording, label it
-  as structural.
-- Use exactly these changelog sections, in this order:
-  1. `Rules Content Changes`
-     Summarize changes inside `fedramp-consolidated-rules.json` itself. Focus
-     on rule, definition, indicator, FRR document, and metadata meaning changes.
-  2. `Schema And Structure Changes`
-     Summarize changes to
-     `schemas/fedramp-consolidated-rules.schema.json` and corresponding
-     structural changes in the rules JSON, such as top-level `info` changes,
-     property additions, renamed applicability buckets, required fields,
-     controlled vocabularies, and object shapes.
-  3. `Tooling And Test Changes`
-     Summarize support-code changes, CLI behavior, validators, fixers,
-     package scripts, test harnesses, and test coverage.
-- Keep bullets simple and high signal. Prefer a single line per bullet unless
-  the change is complex enough that a short second sentence prevents ambiguity.
-- End with a brief validation note naming the commands run, such as
-  `bun run check`, or explain why validation was not run.
-
-## Editing Guidance
-
-If asked to edit the rules:
-
-- Edit [fedramp-consolidated-rules.json](fedramp-consolidated-rules.json) and,
-  only when necessary, the schema.
-- Keep IDs stable unless the requested change requires a new or corrected ID.
-- Preserve schema-driven property order.
-- Update `updated` history when changing rule, definition, or indicator
-  meaning.
-- Run the tooling checks when available.
+Cite the specific page, discussion, or comment when using external context,
+and distinguish participant opinions or proposals from published requirements.
+Compare source commits and dates with the dataset version; generated content
+and discussions may describe a different revision. Report discrepancies rather
+than silently replacing local rule content with external text.

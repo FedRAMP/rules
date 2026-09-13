@@ -607,6 +607,8 @@
         },
         "timeframe_type": { "$ref": "#/$defs/timeframe_type" },
         "timeframe_num": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_min": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_max": { "$ref": "#/$defs/positive_number" },
         "notification": {
           "type": "array",
           "items": {
@@ -631,8 +633,26 @@
         "updated": { "$ref": "#/$defs/updated_list" }
       },
       "dependentRequired": {
-        "timeframe_type": ["timeframe_num"],
-        "timeframe_num": ["timeframe_type"]
+        "timeframe_num": ["timeframe_type"],
+        "timeframe_num_min": ["timeframe_type", "timeframe_num_max"],
+        "timeframe_num_max": ["timeframe_type", "timeframe_num_min"]
+      },
+      "dependentSchemas": {
+        "timeframe_type": {
+          "oneOf": [
+            {
+              "properties": { "timeframe_num": {} },
+              "required": ["timeframe_num"]
+            },
+            {
+              "properties": {
+                "timeframe_num_min": {},
+                "timeframe_num_max": {}
+              },
+              "required": ["timeframe_num_min", "timeframe_num_max"]
+            }
+          ]
+        }
       },
       "additionalProperties": false
     },

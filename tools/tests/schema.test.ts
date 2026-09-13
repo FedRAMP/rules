@@ -328,6 +328,52 @@ test("the schema requires notification names", () => {
   expectSchemaRejects("notification without a name", document);
 });
 
+for (const [hasType, hasNum, hasMin, hasMax, valid] of [
+  [false, false, false, false, true],
+  [false, false, false, true, false],
+  [false, false, true, false, false],
+  [false, false, true, true, false],
+  [false, true, false, false, false],
+  [false, true, false, true, false],
+  [false, true, true, false, false],
+  [false, true, true, true, false],
+  [true, false, false, false, false],
+  [true, false, false, true, false],
+  [true, false, true, false, false],
+  [true, false, true, true, true],
+  [true, true, false, false, true],
+  [true, true, false, true, false],
+  [true, true, true, false, false],
+  [true, true, true, true, false],
+]) {
+  test(`FRR timeframe fields (type=${hasType}, num=${hasNum}, min=${hasMin}, max=${hasMax}) validate as ${valid}`, () => {
+    const document = minimalRulesDocument();
+    (document as any).FRR.ABC.data = {
+      all: {
+        CSO: {
+          "ABC-CSO-TST": {
+            name: "Example Timeframe",
+            statement: "Providers MUST complete the review.",
+            force: "MUST",
+            affects: ["Providers"],
+            ...(hasType ? { timeframe_type: "days" } : {}),
+            ...(hasNum ? { timeframe_num: 5 } : {}),
+            ...(hasMin ? { timeframe_num_min: 1 } : {}),
+            ...(hasMax ? { timeframe_num_max: 10 } : {}),
+            updated: [{ date: "2026-01-01", comment: "Added timeframe." }],
+          },
+        },
+      },
+    };
+
+    if (valid) {
+      expectSchemaAccepts("complete, exclusive timeframe", document);
+    } else {
+      expectSchemaRejects("incomplete or mixed timeframe", document);
+    }
+  });
+}
+
 test("the schema owns requirement vocabularies and scalar constraints", () => {
   const document = minimalRulesDocument();
   (document as any).FRR.ABC.info.subsets = {
