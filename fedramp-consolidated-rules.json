@@ -1322,7 +1322,7 @@
               "updated": [
                 {
                   "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
+                  "comment": "Official launch of thCe FedRAMP Consolidated Rules for 2026."
                 }
               ]
             },
@@ -2535,7 +2535,7 @@
                 "Sales Contact Information",
                 "Security Contact Information",
                 "Product Website Link",
-                "Link to Product Logo",
+                "Link to Product Logo (must be a valid image link, properly named, that will display in a browser without processing - transparent PNG preferred)",
                 "Overall Service Description",
                 "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Public Service List) (Service List))",
                 "Link to Secure Configuration Guidance",
@@ -2544,7 +2544,10 @@
                 "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))",
                 "Current FedRAMP Recognized independent assessment service"
               ],
-              "note": "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
+              "notes": [
+                "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
+                "The JSON data for this rule will be consumed by FedRAMP and agency GRC tools using automation with web-based tools. Do not expect FedRAMP or your customers to download this data directly, it should be accessible for common web frameworks. FedRAMP strongly recommends that application engineering experts be involved in making public JSON data and the related information available in a way that can work with web-based applications."
+              ],
               "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
               "force": "MUST",
               "affects": ["Providers"],
@@ -2568,6 +2571,10 @@
                 "Trust Center"
               ],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Clarified that logo link must be a viewable web image. Added note recommending the involvement of web-based application engineers."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
