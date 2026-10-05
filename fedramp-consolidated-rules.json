@@ -10059,8 +10059,9 @@
             },
             "VER-EVA-EPA": {
               "name": "Estimate Potential Agency Impact",
-              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential agency impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
+              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the likely potential agency impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
               "following_information_bullets": [
+                "**N0**: Exploitation is extremely unlikely to have any adverse effects on agencies that use the cloud service offering.",
                 "**N1**: Exploitation could be expected to have minimal customer effects on one or more agencies that use the cloud service offering.",
                 "**N2**: Exploitation could be expected to have narrow customer effects on one or more agencies that use the cloud service offering.",
                 "**N3**: Exploitation could be expected to have a disruptive customer effect on one agency that uses the cloud service offering.",
@@ -10080,6 +10081,10 @@
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Clarified that likely potential agency impact should be calculated; added PAIN0 to clarify that likely potential agency impact can be entirely mitigated/remediated."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
