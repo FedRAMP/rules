@@ -3189,8 +3189,13 @@
                 }
               },
               "affects": ["Providers"],
+              "note": "Cryptographic modules include specific algorithms by definition; if an update stream of a cryptographic module adds new algorithms that were not previously validated then those algorithms can not be considered within the scope of update stream usage under these rules as they are new algorithms within the module that have never been validated.",
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
+                {
+                  "date": "2026-10-10",
+                  "comment": "Added a note clarifying that new algorithms in update streams of modules are not included in the scope of updates to  validated cryptographic modules."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
