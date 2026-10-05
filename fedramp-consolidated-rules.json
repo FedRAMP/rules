@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.09.13.02",
-    "last_updated": "2026-09-13",
+    "version": "2026.10.05.01",
+    "last_updated": "2026-10-05",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -2535,7 +2535,7 @@
                 "Sales Contact Information",
                 "Security Contact Information",
                 "Product Website Link",
-                "Link to Product Logo",
+                "Link to Product Logo (must be a valid image link, properly named, that will display in a browser without processing - transparent PNG preferred)",
                 "Overall Service Description",
                 "Detailed list of specific services and their security categories (see CDS-CSO-SVC (Public Service List) (Service List))",
                 "Link to Secure Configuration Guidance",
@@ -2544,7 +2544,10 @@
                 "Next Ongoing Certification Report date (see CCM-OCR-NRD (Next Report Date))",
                 "Current FedRAMP Recognized independent assessment service"
               ],
-              "note": "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
+              "notes": [
+                "Generally, this information should be available on a public webpage or publicly shared in a FedRAMP-compatible trust center.",
+                "The JSON data for this rule will be consumed by FedRAMP and agency GRC tools using automation with web-based tools. Do not expect FedRAMP or your customers to download this data directly, it should be accessible for common web frameworks. FedRAMP strongly recommends that application engineering experts be involved in making public JSON data and the related information available in a way that can work with web-based applications."
+              ],
               "related": ["CDS-CSO-SVC", "CCM-OCR-NRD"],
               "force": "MUST",
               "affects": ["Providers"],
@@ -2568,6 +2571,10 @@
                 "Trust Center"
               ],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Clarified that logo link must be a viewable web image. Added note recommending the involvement of web-based application engineers."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -3181,9 +3188,14 @@
                   }
                 }
               },
+              "note": "Cryptographic modules include specific algorithms by definition; if an update stream of a cryptographic module adds new algorithms that were not previously validated then those algorithms can not be considered within the scope of update stream usage under these rules as they are new algorithms within the module that have never been validated.",
               "affects": ["Providers"],
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
+                {
+                  "date": "2026-10-10",
+                  "comment": "Added a note clarifying that new algorithms in update streams of modules are not included in the scope of updates to  validated cryptographic modules."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -3670,12 +3682,24 @@
             },
             "FRC-CSO-JSN": {
               "name": "FedRAMP JSON Schemas",
-              "statement": "Providers MUST supply machine-readable information in JSON documents that are valid against the corresponding JSON schema when a rule contains a FedRAMP JSON schema, UNLESS otherwise specified in the rule.",
-              "note": "FedRAMP JSON schemas are designed to be lightweight and flexible to establish a minimum set of structured information while allowing providers to improve on the format and structure of the information as needed to meet their needs and the needs of their customers.",
+              "statement": "Providers MUST supply machine-readable information in JSON documents that are valid against the corresponding JSON schema when a rule contains a FedRAMP JSON schema, UNLESS otherwise specified in the rule; public JSON data MUST be supplied in a manner compatible with modern web frameworks, including:",
+              "following_information": [
+                "Cross-Origin Resource Sharing (CORS) should allow web applications running on a different domain to access the public JSON data directly.",
+                "Proper web application headers should be supplied for public JSON data, including at least setting Content-Type to application/json and X-Content-Type-Options: nosniff."
+              ],
+              "notes": [
+                "FedRAMP JSON schemas are designed to be lightweight and flexible to establish a minimum set of structured information while allowing providers to improve on the format and structure of the information as needed to meet their needs and the needs of their customers.",
+                "Public JSON data is intended to be consumed by FedRAMP, agency GRC tools, and more - it should be available in a way that enables standard web-application use following standard web frameworks. Generally, if you can't write a web app to parse this data without configuring a browser to bypass security defaults then there has likely been a problem.",
+                "The Schema Validator available at fedramp.gov will not work properly if Cross-Origin Resource Sharing is not properly configured."
+              ],
               "force": "MUST",
               "affects": ["Providers"],
-              "terms": ["Machine-Readable"],
+              "terms": ["Likely", "Machine-Readable"],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Clarified expectations for public JSON data to be compatible with standard web frameworks."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -5313,7 +5337,7 @@
             },
             "FRC-CSF-RDY": {
               "name": "FedRAMP Ready Conversion",
-              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification by whichever of the follow dates is later: the expiration of their annual assessment or November 17, 2026 (the legacy FedRAMP Ready status will be entirely removed on December 31, 2027).",
+              "statement": "Providers with FedRAMP Rev5 Ready status MUST convert to a FedRAMP Certification by whichever of the following dates is later: the expiration of their annual assessment or November 17, 2026 (the legacy FedRAMP Ready status will be entirely removed on December 31, 2027).",
               "notes": [
                 "The simplest conversion in most cases would be to a FedRAMP 20x Class A Certification.",
                 "Cloud services that do not wish to convert or do not meet conversion criteria will be renamed Legacy FedRAMP Ready and otherwise retired from FedRAMP Ready."
@@ -5322,6 +5346,10 @@
               "affects": ["Providers"],
               "terms": [],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Adding a missing ing (follow -> following)."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7462,12 +7490,16 @@
                 {
                   "party": "FedRAMP",
                   "method": "form",
-                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52060327520795",
-                  "name": "[For Assessors/Advisors] Marketplace Listing Form"
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=54220455254427",
+                  "name": "[For Assessors] Marketplace Listing Request Form"
                 }
               ],
               "terms": [],
               "updated": [
+                {
+                  "date": "2026-10-10",
+                  "comment": "Updated form name and URL."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7515,11 +7547,15 @@
                   "party": "FedRAMP",
                   "method": "form",
                   "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=52060327520795",
-                  "name": "[For Assessors/Advisors] Marketplace Listing Form"
+                  "name": "[For Advisors] Marketplace Listing Request Form"
                 }
               ],
               "terms": [],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Updated form name."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10036,8 +10072,9 @@
             },
             "VER-EVA-EPA": {
               "name": "Estimate Potential Agency Impact",
-              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the potential agency impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
+              "statement": "Providers MUST evaluate detected vulnerabilities, considering the context of the cloud service offering, to estimate the likely potential agency impact of exploitation on government customers AND assign one of the following Potential Agency Impact N-ratings (PAIN):",
               "following_information_bullets": [
+                "**N0**: Exploitation is extremely unlikely to have any adverse effects on agencies that use the cloud service offering.",
                 "**N1**: Exploitation could be expected to have minimal customer effects on one or more agencies that use the cloud service offering.",
                 "**N2**: Exploitation could be expected to have narrow customer effects on one or more agencies that use the cloud service offering.",
                 "**N3**: Exploitation could be expected to have a disruptive customer effect on one agency that uses the cloud service offering.",
@@ -10050,6 +10087,7 @@
                 "Cloud Service Offering",
                 "Debilitating Customer Effect",
                 "Disruptive Customer Effect",
+                "Likely",
                 "Minimal Customer Effect",
                 "Narrow Customer Effect",
                 "Potential Agency Impact",
@@ -10057,6 +10095,10 @@
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-05",
+                  "comment": "Clarified that likely potential agency impact should be calculated; added PAIN0 to clarify that likely potential agency impact can be entirely mitigated/remediated."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
