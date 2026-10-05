@@ -3188,8 +3188,8 @@
                   }
                 }
               },
-              "affects": ["Providers"],
               "note": "Cryptographic modules include specific algorithms by definition; if an update stream of a cryptographic module adds new algorithms that were not previously validated then those algorithms can not be considered within the scope of update stream usage under these rules as they are new algorithms within the module that have never been validated.",
+              "affects": ["Providers"],
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
                 {
@@ -10087,6 +10087,7 @@
                 "Cloud Service Offering",
                 "Debilitating Customer Effect",
                 "Disruptive Customer Effect",
+                "Likely",
                 "Minimal Customer Effect",
                 "Narrow Customer Effect",
                 "Potential Agency Impact",
