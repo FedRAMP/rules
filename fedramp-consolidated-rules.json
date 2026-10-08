@@ -4220,36 +4220,6 @@
                 }
               ]
             },
-            "FRC-CSX-MOT": {
-              "name": "Metrics Over Time for Key Security Indicators",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers seeking 20x Class A Certification MAY supply historical metrics for Key Security Indicators.",
-                  "force": "MAY"
-                },
-                "b": {
-                  "statement": "Providers seeking 20x Class B Certification SHOULD supply historical metrics for Key Security Indicators.",
-                  "force": "SHOULD"
-                },
-                "c": {
-                  "statement": "Providers seeking 20x Class C Certification MUST supply historical metrics including status from persistent validation over at least the past 6 months for all Key Security Indicators.",
-                  "force": "MUST"
-                },
-                "d": {
-                  "statement": "Providers seeking 20x Class D Certification MUST provide historical metrics including status from persistent validation over at least the past 18 months for all Key Security Indicators.",
-                  "force": "MUST"
-                }
-              },
-              "note": "For initial FedRAMP Certification, providers will need to have mechanisms in place and agree to meet this requirement in the event the cloud service has not been operating with related metrics available for the required period prior to applying for initial certification.",
-              "affects": ["Providers"],
-              "terms": ["Initial Certification", "Persistently", "Validation"],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
             "FRC-CSX-VVR": {
               "name": "Automated Verification and Validation of FedRAMP Rules",
               "varies_by_class": {
@@ -8997,19 +8967,19 @@
                   "force": "MAY"
                 },
                 "b": {
-                  "statement": "Providers with 20x Class B Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
+                  "statement": "Providers with 20x Class B Certifications SHOULD also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
                   "following_information": [
                     "Summary of each metric over the past 30 days",
                     "Summary of metric up to the past year (where available)"
                   ],
-                  "force": "MUST"
+                  "force": "SHOULD"
                 },
                 "c": {
                   "statement": "Providers with 20x Class C Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
                   "following_information": [
                     "Summary of each metric over the past 30 days",
                     "Summary of metric up to the past year (where available)",
-                    "All daily metric data up to the past year (where available)"
+                    "All daily metric data (including status of persistent validation) up to the past year (where available)"
                   ],
                   "force": "MUST"
                 },
@@ -9018,13 +8988,21 @@
                   "force": "MUST"
                 }
               },
+              "note": "For initial FedRAMP Certification, providers will need to have mechanisms in place and agree to meet this requirement in the event the cloud service has not been operating with related metrics available for the required period prior to applying for initial certification.",
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
-              "terms": ["Security Decision Record (SDR)"],
+              "terms": [
+                "Initial Certification",
+                "Security Decision Record (SDR)"
+              ],
               "updated": [
+                {
+                  "date": "2026-10-08",
+                  "comment": "Changed MUST to SHOULD for Class B, added note, clarified persistent validation status should be included."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
