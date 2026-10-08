@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.10.05.01",
-    "last_updated": "2026-10-05",
+    "version": "2026.10.08.01",
+    "last_updated": "2026-10-08",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1025,13 +1025,17 @@
         },
         "FRD-SNT": {
           "term": "SHOULD NOT",
-          "definition": "There may exist valid reasons in particular circumstances when the particular action is acceptable or even useful, but the full implications must be understand and carefully weighed. Parties MUST address such rules in their security documentation by explaining their decisions about how they handle such rules.",
+          "definition": "There may exist valid reasons in particular circumstances when the particular action is acceptable or even useful, but the full implications must be understood and carefully weighed. Parties MUST address such rules in their security documentation by explaining their decisions about how they handle such rules.",
           "note": "This definition only applies when the term is used in all capital letters in FedRAMP materials, otherwise the plain language meaning applies.",
           "tag": "Force of the Rule",
           "alts": [],
           "do_not_link": true,
           "ignore_in_terms": true,
           "updated": [
+            {
+              "date": "2026-10-08",
+              "comment": "Fixed a typo - understood instead of understand."
+            },
             {
               "date": "2026-09-13",
               "comment": "Added force to FedRAMP Definitions for clarity."
@@ -4209,36 +4213,6 @@
               },
               "affects": ["Providers"],
               "terms": ["Persistently", "Validation", "Verification"],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "FRC-CSX-MOT": {
-              "name": "Metrics Over Time for Key Security Indicators",
-              "varies_by_class": {
-                "a": {
-                  "statement": "Providers seeking 20x Class A Certification MAY supply historical metrics for Key Security Indicators.",
-                  "force": "MAY"
-                },
-                "b": {
-                  "statement": "Providers seeking 20x Class B Certification SHOULD supply historical metrics for Key Security Indicators.",
-                  "force": "SHOULD"
-                },
-                "c": {
-                  "statement": "Providers seeking 20x Class C Certification MUST supply historical metrics including status from persistent validation over at least the past 6 months for all Key Security Indicators.",
-                  "force": "MUST"
-                },
-                "d": {
-                  "statement": "Providers seeking 20x Class D Certification MUST provide historical metrics including status from persistent validation over at least the past 18 months for all Key Security Indicators.",
-                  "force": "MUST"
-                }
-              },
-              "note": "For initial FedRAMP Certification, providers will need to have mechanisms in place and agree to meet this requirement in the event the cloud service has not been operating with related metrics available for the required period prior to applying for initial certification.",
-              "affects": ["Providers"],
-              "terms": ["Initial Certification", "Persistently", "Validation"],
               "updated": [
                 {
                   "date": "2026-06-24",
@@ -8993,19 +8967,19 @@
                   "force": "MAY"
                 },
                 "b": {
-                  "statement": "Providers with 20x Class B Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
+                  "statement": "Providers with 20x Class B Certifications SHOULD also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
                   "following_information": [
                     "Summary of each metric over the past 30 days",
                     "Summary of metric up to the past year (where available)"
                   ],
-                  "force": "MUST"
+                  "force": "SHOULD"
                 },
                 "c": {
                   "statement": "Providers with 20x Class C Certifications MUST also include historical metrics in their Security Decision Record, supplying at least the following information for each applicable Key Security Indicator:",
                   "following_information": [
                     "Summary of each metric over the past 30 days",
                     "Summary of metric up to the past year (where available)",
-                    "All daily metric data up to the past year (where available)"
+                    "All daily metric data (including status of persistent validation) up to the past year (where available)"
                   ],
                   "force": "MUST"
                 },
@@ -9014,13 +8988,21 @@
                   "force": "MUST"
                 }
               },
+              "note": "For initial FedRAMP Certification, providers will need to have mechanisms in place and agree to meet this requirement in the event the cloud service has not been operating with related metrics available for the required period prior to applying for initial certification.",
               "affects": ["Providers"],
               "schema": {
                 "name": "FedRAMP Security Decision Record Schema",
                 "url": "https://fedramp.gov/schemas/fedramp-security-decision-record-schema-2026-06-24.json"
               },
-              "terms": ["Security Decision Record (SDR)"],
+              "terms": [
+                "Initial Certification",
+                "Security Decision Record (SDR)"
+              ],
               "updated": [
+                {
+                  "date": "2026-10-08",
+                  "comment": "Changed MUST to SHOULD for Class B, added note, clarified persistent validation status should be included."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
