@@ -3193,7 +3193,7 @@
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
                 {
-                  "date": "2026-10-10",
+                  "date": "2026-10-05",
                   "comment": "Added a note clarifying that new algorithms in update streams of modules are not included in the scope of updates to  validated cryptographic modules."
                 },
                 {
@@ -7497,7 +7497,7 @@
               "terms": [],
               "updated": [
                 {
-                  "date": "2026-10-10",
+                  "date": "2026-10-05",
                   "comment": "Updated form name and URL."
                 },
                 {
