@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.10.08.01",
-    "last_updated": "2026-10-08",
+    "version": "2026.10.13.01",
+    "last_updated": "2026-10-13",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1391,8 +1391,13 @@
               "artifacts": {
                 "all": ["Email address to receive messages from FedRAMP"]
               },
+              "controls": ["si-5"],
               "terms": ["FedRAMP Security Inbox"],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added si-5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -1792,8 +1797,13 @@
               "statement": "Agencies MUST review the Secure Configuration Guides supplied by Providers and configure relevant security settings.",
               "force": "MUST",
               "affects": ["Agencies"],
+              "controls": ["cm-10", "cm-5", "cm-6", "ia-11"],
               "terms": [],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added cm-10, cm-5, cm-6, ia-11."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -2096,6 +2106,7 @@
               },
               "timeframe_type": "months",
               "timeframe_num": 3,
+              "controls": ["ca-7"],
               "terms": [
                 "Accepted Vulnerability",
                 "All Necessary Parties",
@@ -2110,6 +2121,10 @@
                 "Vulnerability"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ca-7."
+                },
                 {
                   "date": "2026-09-13",
                   "comment": "Added (if applicable) to clarify that some of these items are not always required depending on the FedRAMP Certification Type or Class."
@@ -2285,12 +2300,17 @@
                 }
               },
               "affects": ["Providers"],
+              "controls": ["ca-7"],
               "terms": [
                 "All Necessary Parties",
                 "Ongoing Certification",
                 "Quarterly Review"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ca-7."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -2366,8 +2386,13 @@
               "statement": "Providers SHOULD supply additional information in Quarterly Reviews that the provider determines is of interest, use, or otherwise relevant to agencies.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "controls": ["ca-7"],
               "terms": ["Quarterly Review"],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ca-7."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -3144,8 +3169,13 @@
                   "List of cryptographic modules including whether these modules are validated under the NIST Cryptographic Module Validation Program or are update streams of such modules."
                 ]
               },
+              "controls": ["au-9.3", "cm-3.6", "ia-7", "sc-28.1", "sc-8.1"],
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added au-9.3, cm-3.6, ia-7, sc-28.1, sc-8.1."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -3194,8 +3224,13 @@
               },
               "note": "Cryptographic modules include specific algorithms by definition; if an update stream of a cryptographic module adds new algorithms that were not previously validated then those algorithms can not be considered within the scope of update stream usage under these rules as they are new algorithms within the module that have never been validated.",
               "affects": ["Providers"],
+              "controls": ["ac-18", "au-9.3", "ia-7", "sc-28.1", "sc-8.1"],
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ac-18, au-9.3, ia-7, sc-28.1, sc-8.1."
+                },
                 {
                   "date": "2026-10-05",
                   "comment": "Added a note clarifying that new algorithms in update streams of modules are not included in the scope of updates to  validated cryptographic modules."
@@ -3400,11 +3435,16 @@
               },
               "related": ["IVV-IAS-OSA"],
               "affects": ["Providers"],
+              "controls": ["ca-2", "ca-2.1", "ca-2.2", "ca-7.1"],
               "terms": [
                 "Certification Package",
                 "FedRAMP Independent Assessment"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ca-2, ca-2.1, ca-2.2, ca-7.1."
+                },
                 {
                   "date": "2026-06-25",
                   "comment": "Added after official launch to clarify that the provider is required to supply this artifact."
@@ -4212,8 +4252,13 @@
                 }
               },
               "affects": ["Providers"],
+              "controls": ["cm-2.2", "si-6"],
               "terms": ["Persistently", "Validation", "Verification"],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added cm-2.2, si-6."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -4242,6 +4287,7 @@
               },
               "note": "Different rules will be easy to automate for different providers, depending on the implementation, so FedRAMP generally leaves this implementation up to providers based on what makes the most sense for their own business and approach.",
               "affects": ["Providers"],
+              "controls": ["si-6"],
               "terms": [
                 "Persistently",
                 "Security Decision Record (SDR)",
@@ -4249,6 +4295,10 @@
                 "Verification"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added si-6."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -5492,6 +5542,7 @@
                   "An incident log showing an example of one or more incidents being evaluated including the reason for the determination. The log can be from real incidents, simulated incidents, or a combination of sources."
                 ]
               },
+              "controls": ["au-5.2", "ir-4.11"],
               "terms": [
                 "FedRAMP Reportable Incident",
                 "Federal Customer Data",
@@ -5500,6 +5551,10 @@
                 "Promptly"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added au-5.2, ir-4.11."
+                },
                 {
                   "date": "2026-07-02",
                   "comment": "Update terminology from \"Response\" to \"Communication\" in FedRAMP Incident Evaluation rules."
@@ -5783,6 +5838,7 @@
                   "name": "Provider's Trust Center or USDA Connect"
                 }
               ],
+              "controls": ["au-5.2", "ir-5"],
               "terms": [
                 "All Affected Parties",
                 "FedRAMP Reportable Incident",
@@ -5791,6 +5847,10 @@
                 "Responsibly"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added au-5.2, ir-5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -6038,6 +6098,7 @@
                   "name": "Provider's Trust Center or USDA Connect"
                 }
               ],
+              "controls": ["ir-5"],
               "terms": [
                 "All Affected Parties",
                 "FedRAMP Reportable Incident",
@@ -6046,6 +6107,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ir-5."
+                },
                 {
                   "date": "2026-09-13",
                   "comment": "Removed the extra the in all statements."
@@ -6269,6 +6334,7 @@
                   "name": "Provider's Trust Center or USDA Connect"
                 }
               ],
+              "controls": ["ir-5"],
               "terms": [
                 "All Affected Parties",
                 "Final Incident Report (FIR)",
@@ -6276,6 +6342,10 @@
                 "Responsibly"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ir-5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -6467,6 +6537,7 @@
                 "FedRAMP Recognized independent assessment services are listed on the FedRAMP Marketplace."
               ],
               "affects": ["Providers"],
+              "controls": ["ca-2", "ca-2.1", "ca-2.2", "ca-7.1", "ca-7.4"],
               "terms": [
                 "Certification Class",
                 "FedRAMP Independent Assessment",
@@ -6476,6 +6547,10 @@
                 "Verification"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ca-2, ca-2.1, ca-2.2, ca-7.1, ca-7.4."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -6625,6 +6700,7 @@
               "note": "This requires reviewing the actual measures themselves at a technical level, such as reviewing underlying code as appropriate; don't simply review documentation or screenshots.",
               "force": "MUST",
               "affects": ["Assessors"],
+              "controls": [],
               "terms": ["FedRAMP Practices", "Validation"],
               "updated": [
                 {
@@ -7151,6 +7227,7 @@
                   "The code for the automated process used to generate the machine readable output."
                 ]
               },
+              "controls": ["cm-8.4", "ra-3", "si-4.19"],
               "terms": [
                 "Certification Package",
                 "Cloud Service Offering",
@@ -7160,6 +7237,10 @@
                 "Likely"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added cm-8.4, ra-3, si-4.19."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7179,6 +7260,7 @@
                   "The code for the automated process used to generate the machine readable output."
                 ]
               },
+              "controls": ["ac-4", "cm-12", "cm-12.1", "ra-3", "si-4.19"],
               "terms": [
                 "Cloud Service Offering",
                 "Handle",
@@ -7187,6 +7269,10 @@
                 "Third-Party Information Resource"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ac-4, cm-12, cm-12.1, ra-3, si-4.19."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7216,6 +7302,7 @@
                 "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
+              "controls": ["ra-3"],
               "terms": [
                 "Cloud Service Offering",
                 "Federal Customer Data",
@@ -7224,6 +7311,10 @@
                 "Third-Party Information Resource"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-3."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -8012,12 +8103,17 @@
                 "name": "FedRAMP Certification Package Overview (FRC-CSO-PKG)",
                 "url": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json"
               },
+              "controls": ["cm-7"],
               "terms": [
                 "Cloud Service Offering",
                 "Privileged Account",
                 "Top-Level Administrative Account"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added cm-7."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -8323,6 +8419,7 @@
                 "name": "FedRAMP Significant Change Notification (SCN-CSO-INF)",
                 "url": "https://fedramp.gov/schemas/fedramp-significant-change-notifications-schema-2026-06-24.json"
               },
+              "controls": ["cm-4"],
               "terms": [
                 "Adaptive Change",
                 "Certification Class",
@@ -8332,6 +8429,10 @@
                 "Transformative Change"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added cm-4."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -8479,6 +8580,7 @@
               "note": "Procedures for emergency changes should be documented in the FedRAMP Certification Package.",
               "force": "MAY",
               "affects": ["Providers"],
+              "controls": ["ir-4.2"],
               "terms": [
                 "All Necessary Parties",
                 "Certification Package",
@@ -8487,6 +8589,10 @@
                 "Transformative Change"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ir-4.2."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9103,6 +9209,24 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "controls": [
+                "au-5.2",
+                "au-6",
+                "ca-8",
+                "ca-8.1",
+                "ca-8.2",
+                "ra-5",
+                "ra-5.2",
+                "ra-5.3",
+                "ra-5.4",
+                "si-2",
+                "si-3",
+                "si-4.1",
+                "si-4.12",
+                "si-4.18",
+                "si-4.22",
+                "si-5.1"
+              ],
               "terms": [
                 "Cloud Service Offering",
                 "FedRAMP Practices",
@@ -9115,6 +9239,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added au-5.2, au-6, ca-8, ca-8.1, ca-8.2, ra-5, ra-5.2, ra-5.3, ra-5.4, si-2, si-3, si-4.1, si-4.12, si-4.18, si-4.22, si-5.1."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9131,6 +9259,14 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "controls": [
+                "au-5.2",
+                "ir-4.11",
+                "ir-9.3",
+                "ra-7",
+                "si-2",
+                "si-3"
+              ],
               "terms": [
                 "Cloud Service Offering",
                 "Fully Mitigated Vulnerability",
@@ -9144,6 +9280,10 @@
               ],
               "updated": [
                 {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added au-5.2, ir-4.11, ir-9.3, ra-7, si-2, si-3."
+                },
+                {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
@@ -9154,12 +9294,17 @@
               "statement": "Providers MUST treat problems or failures with their vulnerability detection and response processes as vulnerabilities.",
               "force": "MUST",
               "affects": ["Providers"],
+              "controls": ["au-5.2", "si-4", "si-4.1", "si-7.7"],
               "terms": [
                 "Vulnerability",
                 "Vulnerability Detection",
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added au-5.2, si-4, si-4.1, si-7.7."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9189,12 +9334,17 @@
               "statement": "Providers SHOULD use automated services to improve and streamline vulnerability detection and response.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "controls": ["ra-5", "si-2.2", "si-3", "si-4.2", "si-4.5"],
               "terms": [
                 "Vulnerability",
                 "Vulnerability Detection",
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-5, si-2.2, si-3, si-4.2, si-4.5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9206,12 +9356,17 @@
               "statement": "Providers SHOULD automatically perform vulnerability detection on representative samples of new or significantly changed information resources.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "controls": ["ra-5"],
               "terms": [
                 "Information Resource",
                 "Vulnerability",
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9223,12 +9378,17 @@
               "statement": "Providers SHOULD NOT weaken the security of information resources to facilitate vulnerability scanning, detection, or assessment activities.",
               "force": "SHOULD NOT",
               "affects": ["Providers"],
+              "controls": ["ra-5.5", "si-2"],
               "terms": [
                 "Information Resource",
                 "Vulnerability",
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-5.5, si-2."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9240,6 +9400,7 @@
               "statement": "Providers SHOULD NOT deploy or otherwise activate new machine-based information resources with Known Exploited Vulnerabilities.",
               "force": "SHOULD NOT",
               "affects": ["Providers"],
+              "controls": ["ra-5", "si-5"],
               "terms": [
                 "Information Resource",
                 "Known Exploited Vulnerability (KEV)",
@@ -9247,6 +9408,10 @@
                 "Vulnerability"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-5, si-5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9258,6 +9423,7 @@
               "statement": "Providers MAY sample effectively identical information resources, especially machine-based information resources, when performing vulnerability detection UNLESS doing so would decrease the efficiency or effectiveness of vulnerability detection.",
               "force": "MAY",
               "affects": ["Providers"],
+              "controls": ["ra-5.3", "ra-5.5"],
               "terms": [
                 "Information Resource",
                 "Machine-Based (Information Resources)",
@@ -9265,6 +9431,10 @@
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-5.3, ra-5.5."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9322,6 +9492,7 @@
                 }
               },
               "affects": ["Providers"],
+              "controls": ["si-4.22", "si-7", "si-7.1"],
               "terms": [
                 "Drift",
                 "Information Resource",
@@ -9331,6 +9502,10 @@
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added si-4.22, si-7, si-7.1."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -9687,6 +9862,7 @@
               },
               "related": ["VER-EVA-EPA"],
               "affects": ["Providers"],
+              "controls": ["si-2.3"],
               "terms": [
                 "Fully Mitigated Vulnerability",
                 "Likely",
@@ -9696,6 +9872,10 @@
                 "Vulnerability"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added si-2.3."
+                },
                 {
                   "date": "2026-07-01",
                   "comment": "Added relevent terms and related controls. No change to the requirement."
@@ -10065,6 +10245,7 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "controls": ["ra-3"],
               "terms": [
                 "Cloud Service Offering",
                 "Debilitating Customer Effect",
@@ -10077,6 +10258,10 @@
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-3."
+                },
                 {
                   "date": "2026-10-05",
                   "comment": "Clarified that likely potential agency impact should be calculated; added PAIN0 to clarify that likely potential agency impact can be entirely mitigated/remediated."
@@ -10152,6 +10337,7 @@
               ],
               "force": "SHOULD",
               "affects": ["Providers"],
+              "controls": ["ra-9"],
               "terms": [
                 "Cloud Service Offering",
                 "Fully Mitigated Vulnerability",
@@ -10160,6 +10346,10 @@
                 "Vulnerability Detection"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added ra-9."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10177,6 +10367,7 @@
                 "name": "FedRAMP Vulnerability Detail Report (VER-RPT-VDT)",
                 "url": "https://fedramp.gov/schemas/fedramp-vulnerability-detail-report-schema-2026-06-24.json"
               },
+              "controls": ["si-7.2"],
               "terms": [
                 "All Necessary Parties",
                 "Certification Data",
@@ -10188,6 +10379,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added si-7.2."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10221,6 +10416,7 @@
                 "name": "FedRAMP Vulnerability Detail Report (VER-RPT-VDT)",
                 "url": "https://fedramp.gov/schemas/fedramp-vulnerability-detail-report-schema-2026-06-24.json"
               },
+              "controls": ["si-2.3"],
               "terms": [
                 "Accepted Vulnerability",
                 "Cloud Service Offering",
@@ -10236,6 +10432,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-13",
+                  "comment": "Updated control mappings: added si-2.3."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10573,19 +10773,31 @@
           "name": "Reviewing All Training",
           "statement": "The effectiveness of relevant cybersecurity education and training is persistently reviewed, including at least general training for all employees, role-specific training for employees in high risk roles, training for development and engineering staff on secure software delivery, and training for staff involved with incident response or disaster recovery.",
           "controls": [
-            "cp-3",
-            "ir-2",
-            "ps-6",
             "at-2",
             "at-2.2",
             "at-2.3",
+            "at-3",
             "at-3.5",
             "at-4",
+            "cm-11",
+            "cp-3",
+            "cp-3.1",
+            "ir-2",
+            "ir-2.1",
+            "ir-2.2",
             "ir-2.3",
-            "at-3",
+            "ir-9.2",
+            "ir-9.4",
+            "pl-4",
+            "pl-4.1",
+            "ps-6",
             "sr-11.1"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added cm-11, cp-3.1, ir-2.1, ir-2.2, ir-9.2, ir-9.4, pl-4, pl-4.1."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10607,14 +10819,20 @@
           "statement": "Modifications to the cloud service offering are logged and monitored.",
           "controls": [
             "au-2",
+            "ca-7.4",
             "cm-3",
+            "cm-3.1",
             "cm-3.2",
+            "cm-3.6",
             "cm-4.2",
             "cm-6",
-            "cm-8.3",
-            "ma-2"
+            "cm-8.3"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ca-7.4, cm-3.1, cm-3.6; removed ma-2."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10660,8 +10878,12 @@
         "KSI-CMT-VTD": {
           "name": "Validating Throughout Deployment",
           "statement": "Persistent testing and validation of changes throughout deployment is automated.",
-          "controls": ["cm-3", "cm-3.2", "cm-4.2", "si-2"],
+          "controls": ["cm-3", "cm-3.2", "cm-4.2", "cm-6.2", "ir-9.4", "si-2"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added cm-6.2, ir-9.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10681,8 +10903,12 @@
         "KSI-CNA-DFP": {
           "name": "Defining Functionality and Privileges",
           "statement": "The functionality and privileges for infrastructure and services are strictly defined.",
-          "controls": ["cm-2", "si-3"],
+          "controls": ["cm-2", "cm-8.4", "cp-10.4", "ir-9.4", "si-3"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added cm-8.4, cp-10.4, ir-9.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10691,8 +10917,25 @@
         },
         "KSI-CNA-EIS": {
           "name": "Enforcing Intended State",
-          "controls": ["ca-2.1", "ca-7.1"],
+          "controls": [
+            "ca-2.1",
+            "cm-11",
+            "cm-6.2",
+            "cp-10.4",
+            "ir-9.4",
+            "sc-24",
+            "sc-7.18",
+            "si-4.22",
+            "si-7",
+            "si-7.1",
+            "si-7.5",
+            "si-7.7"
+          ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added cm-11, cm-6.2, cp-10.4, ir-9.4, sc-24, sc-7.18, si-4.22, si-7, si-7.1, si-7.5, si-7.7; removed ca-7.1."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10715,8 +10958,12 @@
         "KSI-CNA-IBP": {
           "name": "Implementing Best Practices",
           "statement": "The use and configuration of third-party machine-based information resources is persistently compared against the original provider's best practices and guidance.",
-          "controls": ["ac-17.3", "cm-2", "pl-10"],
+          "controls": ["ac-17.3", "cm-2", "pl-10", "sc-7.18"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added sc-7.18."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10737,17 +10984,22 @@
             "ac-18.3",
             "ac-20.1",
             "ca-9",
+            "sc-10",
+            "sc-7.18",
             "sc-7.3",
             "sc-7.4",
             "sc-7.5",
             "sc-7.8",
             "sc-8",
-            "sc-10",
             "si-10",
             "si-11",
             "si-16"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added sc-7.18."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10762,8 +11014,12 @@
         "KSI-CNA-OFA": {
           "name": "Optimizing for Availability",
           "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately optimized for high availability and rapid recovery.",
-          "controls": [],
+          "controls": ["cp-2.5", "sc-12.1"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added cp-2.5, sc-12.1."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10778,8 +11034,26 @@
         "KSI-CNA-RNT": {
           "name": "Restricting Network Traffic",
           "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately configured to limit inbound and outbound network traffic.",
-          "controls": ["ac-17.3", "ca-9", "cm-7.1", "sc-7.5", "si-8"],
+          "controls": [
+            "ac-17.3",
+            "ca-9",
+            "cm-7.1",
+            "sc-7.10",
+            "sc-7.18",
+            "sc-7.20",
+            "sc-7.21",
+            "sc-7.5",
+            "si-10",
+            "si-4.11",
+            "si-4.18",
+            "si-4.4",
+            "si-8"
+          ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added sc-7.10, sc-7.18, sc-7.20, sc-7.21, si-10, si-4.11, si-4.18, si-4.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10794,8 +11068,12 @@
         "KSI-CNA-RVP": {
           "name": "Reviewing Protections",
           "statement": "The effectiveness of protection against denial of service attacks and other unwanted activity for machine-based information resources is persistently reviewed.",
-          "controls": ["sc-5", "si-8", "si-8.2"],
+          "controls": ["ir-4.2", "sc-5", "sc-7.18", "si-8", "si-8.2"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ir-4.2, sc-7.18."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10813,14 +11091,22 @@
           "controls": [
             "ac-12",
             "ac-17.3",
+            "ac-4.21",
             "ca-9",
+            "cm-11",
+            "sc-10",
             "sc-4",
             "sc-7",
+            "sc-7.20",
+            "sc-7.21",
             "sc-7.7",
-            "sc-8",
-            "sc-10"
+            "sc-8"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-4.21, cm-11, sc-7.20, sc-7.21."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10841,17 +11127,22 @@
           "name": "Automating Account Management",
           "statement": "The lifecycle and privileges of all accounts, roles, and groups are securely managed using automation.",
           "controls": [
+            "ac-2.13",
             "ac-2.2",
             "ac-2.3",
-            "ac-2.13",
             "ac-6.7",
-            "ia-4.4",
             "ia-12",
             "ia-12.2",
             "ia-12.3",
-            "ia-12.5"
+            "ia-12.5",
+            "ia-4.4",
+            "ia-8.4"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ia-8.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10862,21 +11153,29 @@
           "name": "Adopting Passwordless Methods",
           "statement": "Secure passwordless methods are used for user authentication and authorization when feasible, otherwise strong passwords with phishing-resistant MFA is used.",
           "controls": [
-            "ac-3",
-            "ia-5.1",
-            "ia-5.2",
-            "ia-5.6",
-            "ia-6",
             "ac-2",
+            "ac-3",
             "ia-2",
             "ia-2.1",
             "ia-2.2",
+            "ia-2.6",
             "ia-2.8",
             "ia-5",
+            "ia-5.1",
+            "ia-5.2",
+            "ia-5.6",
+            "ia-5.8",
+            "ia-6",
             "ia-8",
+            "ia-8.2",
+            "ia-8.4",
             "sc-23"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ia-2.6, ia-5.8, ia-8.2, ia-8.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10887,42 +11186,64 @@
           "name": "Ensuring Least Privilege",
           "statement": "Identity and access management measures are used and persistently reviewed to ensure each user or device can only access the resources they need.",
           "controls": [
-            "ac-2.5",
-            "ac-2.6",
-            "ac-3",
-            "ac-4",
-            "ac-6",
             "ac-12",
             "ac-14",
             "ac-17",
             "ac-17.1",
             "ac-17.2",
             "ac-17.3",
+            "ac-18.4",
+            "ac-2.11",
+            "ac-2.5",
+            "ac-2.6",
+            "ac-2.7",
+            "ac-2.9",
             "ac-20",
             "ac-20.1",
+            "ac-21",
+            "ac-3",
+            "ac-4",
+            "ac-6",
+            "ac-6.3",
+            "ac-6.8",
+            "au-12.3",
+            "au-6.7",
             "cm-2.7",
+            "cm-5.1",
+            "cm-5.5",
+            "cm-7.2",
             "cm-9",
+            "ia-11",
             "ia-2",
             "ia-3",
             "ia-4",
             "ia-4.4",
             "ia-5.2",
             "ia-5.6",
-            "ia-11",
+            "ir-4.6",
+            "ir-9.4",
             "ps-2",
             "ps-3",
             "ps-4",
             "ps-5",
             "ps-6",
-            "sc-4",
+            "ra-5.5",
+            "sc-2",
             "sc-20",
             "sc-21",
             "sc-22",
             "sc-23",
+            "sc-3",
             "sc-39",
-            "si-3"
+            "sc-4",
+            "si-3",
+            "si-4.19"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-18.4, ac-2.11, ac-2.7, ac-2.9, ac-21, ac-6.3, ac-6.8, au-12.3, au-6.7, cm-5.1, cm-5.5, cm-7.2, ir-4.6, ir-9.4, ra-5.5, sc-2, sc-3, si-4.19."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10934,27 +11255,38 @@
           "name": "Authorizing Just-in-Time",
           "statement": "A least-privileged, role and attribute-based, and just-in-time security authorization model is used and persistently reviewed for all user and non-user accounts and services.",
           "controls": [
+            "ac-17",
+            "ac-17.4",
             "ac-2",
             "ac-2.1",
+            "ac-2.11",
             "ac-2.2",
             "ac-2.3",
             "ac-2.4",
             "ac-2.6",
+            "ac-2.7",
+            "ac-20.1",
+            "ac-21",
             "ac-3",
             "ac-4",
             "ac-5",
             "ac-6",
             "ac-6.1",
+            "ac-6.10",
             "ac-6.2",
+            "ac-6.3",
             "ac-6.5",
             "ac-6.7",
+            "ac-6.8",
             "ac-6.9",
-            "ac-6.10",
             "ac-7",
-            "ac-20.1",
-            "ac-17",
+            "au-10",
+            "au-12.3",
             "au-9.4",
+            "ca-3.6",
             "cm-5",
+            "cm-5.1",
+            "cm-5.5",
             "cm-7",
             "cm-7.2",
             "cm-7.5",
@@ -10962,6 +11294,7 @@
             "ia-4",
             "ia-4.4",
             "ia-7",
+            "ir-4.6",
             "ps-2",
             "ps-3",
             "ps-4",
@@ -10971,9 +11304,14 @@
             "ra-5.5",
             "sc-2",
             "sc-23",
+            "sc-3",
             "sc-39"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-17.4, ac-2.11, ac-2.7, ac-21, ac-6.3, ac-6.8, au-10, au-12.3, ca-3.6, cm-5.1, cm-5.5, ir-4.6, sc-3."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10987,13 +11325,20 @@
           "controls": [
             "ac-2",
             "ac-2.2",
+            "ac-2.9",
             "ac-4",
             "ac-6.5",
+            "au-10",
+            "ia-2.5",
             "ia-3",
             "ia-5.2",
             "ra-5.5"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-2.9, au-10, ia-2.5."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11007,13 +11352,30 @@
           "controls": [
             "ac-2",
             "ac-2.1",
-            "ac-2.3",
+            "ac-2.11",
+            "ac-2.12",
             "ac-2.13",
+            "ac-2.3",
             "ac-7",
+            "au-6.5",
+            "cm-5.1",
+            "cm-6.2",
+            "ir-4.2",
+            "ir-4.6",
             "ps-4",
-            "ps-8"
+            "ps-8",
+            "si-4",
+            "si-4.1",
+            "si-4.19",
+            "si-4.20",
+            "si-4.22",
+            "si-4.4"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-2.11, ac-2.12, au-6.5, cm-5.1, cm-6.2, ir-4.2, ir-4.6, si-4, si-4.1, si-4.19, si-4.20, si-4.22, si-4.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11033,8 +11395,12 @@
         "KSI-INR-AAR": {
           "name": "Generating After Action Reports",
           "statement": "Incident after action reports are generated and lessons learned are persistently incorporated.",
-          "controls": ["ir-3", "ir-4", "ir-4.1", "ir-8"],
+          "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5.1", "ir-8", "ir-9.3"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ir-5.1, ir-9.3."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11048,6 +11414,7 @@
           "controls": [
             "ir-4",
             "ir-4.1",
+            "ir-4.11",
             "ir-6",
             "ir-6.1",
             "ir-6.3",
@@ -11055,9 +11422,14 @@
             "ir-7.1",
             "ir-8",
             "ir-8.1",
+            "ir-9.3",
             "si-4.5"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ir-4.11, ir-9.3."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11068,8 +11440,22 @@
         "KSI-INR-RPI": {
           "name": "Reviewing Past Incidents",
           "statement": "Past incidents are persistently reviewed for patterns or vulnerabilities that were not previously apparent or identified.",
-          "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5", "ir-8"],
+          "controls": [
+            "ir-3",
+            "ir-4",
+            "ir-4.1",
+            "ir-4.11",
+            "ir-4.4",
+            "ir-5",
+            "ir-5.1",
+            "ir-8",
+            "ra-5.8"
+          ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ir-4.11, ir-4.4, ir-5.1, ra-5.8."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11088,8 +11474,12 @@
       "indicators": {
         "KSI-MLA-ALA": {
           "name": "Authorizing Log Access",
-          "controls": ["si-11"],
+          "controls": ["au-12.3", "au-6.7", "si-11"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added au-12.3, au-6.7."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11108,8 +11498,20 @@
         "KSI-MLA-EVC": {
           "name": "Evaluating Configurations",
           "statement": "The configuration of machine-based information resources, especially infrastructure as code, is persistently evaluated and tested.",
-          "controls": ["ca-7", "cm-2", "cm-6", "si-7.7"],
+          "controls": [
+            "ac-19",
+            "ca-7",
+            "cm-2",
+            "cm-6",
+            "cm-6.1",
+            "ra-3",
+            "si-7.7"
+          ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-19, cm-6.1, ra-3."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11125,18 +11527,28 @@
           "name": "Logging Event Types",
           "statement": "A list of information resources and event types that will be logged, monitored, and audited is maintained and persistently reviewed to ensure these activities occur.",
           "controls": [
-            "ac-2.4",
-            "ac-6.9",
             "ac-17.1",
+            "ac-2.4",
             "ac-20.1",
-            "au-2",
-            "au-7.1",
+            "ac-6.9",
+            "au-10",
             "au-12",
+            "au-2",
+            "au-7",
+            "au-7.1",
+            "cm-5.1",
+            "ir-9.4",
+            "si-4.19",
+            "si-4.20",
             "si-4.4",
             "si-4.5",
             "si-7.7"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added au-10, au-7, cm-5.1, ir-9.4, si-4.19, si-4.20."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11150,24 +11562,32 @@
           "controls": [
             "ac-17.1",
             "ac-20.1",
+            "au-11",
+            "au-12.1",
             "au-2",
             "au-3",
             "au-3.1",
             "au-4",
             "au-5",
+            "au-5.1",
             "au-6.1",
             "au-6.3",
+            "au-6.4",
+            "au-6.5",
             "au-7",
             "au-7.1",
             "au-8",
             "au-9",
-            "au-11",
             "ir-4.1",
+            "si-4.16",
             "si-4.2",
-            "si-4.4",
-            "si-7.7"
+            "si-4.4"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added au-12.1, au-5.1, au-6.4, au-6.5, si-4.16; removed si-7.7."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11184,10 +11604,17 @@
             "au-2",
             "au-6",
             "au-6.1",
+            "au-7",
+            "ra-5.8",
             "si-4",
+            "si-4.19",
             "si-4.4"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added au-7, ra-5.8, si-4.19."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11208,15 +11635,21 @@
           "name": "Generating Inventories",
           "statement": "Authoritative sources are used to automatically generate real-time inventories of all information resources when needed.",
           "controls": [
+            "cm-12",
+            "cm-12.1",
             "cm-2.2",
             "cm-7.5",
             "cm-8",
             "cm-8.1",
-            "cm-12",
-            "cm-12.1",
+            "cm-8.2",
+            "cm-8.4",
             "cp-2.8"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added cm-8.2, cm-8.4."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11242,15 +11675,21 @@
           "controls": [
             "ac-5",
             "ca-2",
+            "ca-2.2",
             "cp-2.1",
             "cp-4.1",
             "ir-3.2",
+            "ir-4.11",
             "pm-3",
             "sa-2",
             "sa-3",
             "sr-2.1"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ca-2.2, ir-4.11."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11265,17 +11704,23 @@
             "ac-5",
             "au-3.3",
             "cm-3.4",
+            "ia-5.7",
             "pl-8",
             "pm-7",
+            "ra-9",
             "sa-3",
             "sa-8",
-            "sc-4",
             "sc-18",
+            "sc-4",
             "si-10",
             "si-11",
             "si-16"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ia-5.7, ra-9."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11307,8 +11752,12 @@
         "KSI-RPL-ABO": {
           "name": "Aligning Backups with Objectives",
           "statement": "The alignment of machine-based information resource backups with defined recovery objectives is persistently reviewed.",
-          "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2", "si-12"],
+          "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: removed si-12."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11365,6 +11814,7 @@
           "name": "Testing Recovery Capabilities",
           "statement": "The capability to recover from incidents and contingencies aligned with defined recovery objectives is persistently tested.",
           "controls": [
+            "cp-10",
             "cp-2.1",
             "cp-2.3",
             "cp-4",
@@ -11372,11 +11822,16 @@
             "cp-6",
             "cp-6.1",
             "cp-9.1",
-            "cp-10",
             "ir-3",
-            "ir-3.2"
+            "ir-3.2",
+            "ir-9.3",
+            "sc-12.1"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ir-9.3, sc-12.1."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11397,20 +11852,43 @@
           "name": "Mitigating Supply Chain Risk",
           "statement": "Persistently identify, review, and mitigate potential supply chain risks.",
           "controls": [
+            "ac-19",
             "ac-20",
+            "ca-7.4",
+            "ra-3",
             "ra-3.1",
-            "sa-9",
             "sa-10",
             "sa-11",
+            "sa-11.1",
+            "sa-11.2",
+            "sa-15",
             "sa-15.3",
+            "sa-16",
+            "sa-17",
+            "sa-21",
             "sa-22",
+            "sa-4",
+            "sa-4.1",
+            "sa-4.2",
+            "sa-4.5",
+            "sa-4.9",
+            "sa-9",
+            "sa-9.1",
+            "sa-9.2",
+            "sa-9.5",
+            "sc-18",
             "si-7.1",
+            "si-7.15",
+            "sr-2",
+            "sr-3",
             "sr-5",
-            "sr-6",
-            "ca-7.4",
-            "sc-18"
+            "sr-6"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-19, ra-3, sa-11.1, sa-11.2, sa-15, sa-16, sa-17, sa-21, sa-4, sa-4.1, sa-4.2, sa-4.5, sa-4.9, sa-9.1, sa-9.2, sa-9.5, si-7.15, sr-2, sr-3."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11422,18 +11900,26 @@
           "name": "Monitoring Supply Chain Risk",
           "statement": "Third party software information resources are automatically monitored for upstream vulnerabilities using mechanisms that may include contractual notification requirements or active monitoring services.",
           "controls": [
+            "ac-19",
             "ac-20",
+            "ca-2.3",
             "ca-3",
             "ir-6.3",
             "ps-7",
+            "ra-3",
             "ra-5",
             "sa-9",
             "si-5",
+            "sr-3",
             "sr-5",
             "sr-6",
             "sr-8"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-19, ca-2.3, ra-3, sr-3."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11455,18 +11941,26 @@
           "statement": "The configuration of machine-based information resources is managed using automation and persistently reviewed for drift.",
           "controls": [
             "ac-2.4",
+            "ac-6.8",
             "cm-2",
             "cm-2.2",
             "cm-2.3",
             "cm-6",
             "cm-7.1",
-            "pl-9",
             "pl-10",
+            "pl-9",
             "sa-5",
+            "sc-45",
+            "sc-45.1",
+            "sc-7.18",
             "si-5",
             "sr-10"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-6.8, sc-45, sc-45.1, sc-7.18."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11482,8 +11976,19 @@
         "KSI-SVC-ASM": {
           "name": "Automating Secret Management",
           "statement": "Management, protection, and regular rotation of digital keys, certificates, and other secrets is automated and persistently reviewed.",
-          "controls": ["ac-17.2", "ia-5.2", "ia-5.6", "sc-12", "sc-17"],
+          "controls": [
+            "ac-17.2",
+            "ia-5.2",
+            "ia-5.6",
+            "sc-12",
+            "sc-12.1",
+            "sc-17"
+          ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added sc-12.1."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11495,17 +12000,24 @@
           "name": "Evaluating and Improving Security",
           "statement": "Information resources are persistently evaluated for opportunities to improve security and those improvements are persistently made.",
           "controls": [
-            "cm-7.1",
+            "ca-7.4",
             "cm-12.1",
-            "ma-2",
+            "cm-5.5",
+            "cm-7.1",
+            "ir-9.4",
             "pl-8",
-            "sc-7",
+            "ra-3",
             "sc-39",
+            "sc-7",
             "si-2.2",
             "si-4",
             "sr-10"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ca-7.4, cm-5.5, ir-9.4, ra-3; removed ma-2."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11515,8 +12027,12 @@
         },
         "KSI-SVC-PRR": {
           "name": "Preventing Residual Risk",
-          "controls": ["sc-4"],
+          "controls": ["ac-19", "ir-9.4", "sc-12.1", "sc-4", "sc-7.18"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-19, ir-9.4, sc-12.1, sc-7.18."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11539,8 +12055,12 @@
         },
         "KSI-SVC-RUD": {
           "name": "Removing Unwanted Data",
-          "controls": ["si-12.3", "si-18.4"],
+          "controls": ["ir-9", "si-12.3", "si-18.4", "si-8", "si-8.2"],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ir-9, si-8, si-8.2."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11560,20 +12080,31 @@
           "name": "Securing Information",
           "statement": "Information is encrypted or otherwise secured from unwanted access or modification.",
           "controls": [
-            "ac-1",
+            "ac-11",
+            "ac-11.1",
             "ac-17.2",
+            "ac-19.5",
+            "ac-21",
             "cp-9.8",
-            "sc-8",
-            "sc-8.1",
+            "ir-9.4",
             "sc-13",
             "sc-20",
             "sc-21",
             "sc-22",
             "sc-23",
             "sc-28",
-            "sc-28.1"
+            "sc-28.1",
+            "sc-4",
+            "sc-7.18",
+            "sc-8",
+            "sc-8.1",
+            "si-4.18"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-11, ac-11.1, ac-19.5, ac-21, ir-9.4, sc-4, sc-7.18, si-4.18; removed ac-1."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11582,8 +12113,20 @@
         },
         "KSI-SVC-VCM": {
           "name": "Validating Communications",
-          "controls": ["sc-23", "si-7.1"],
+          "controls": [
+            "ac-10",
+            "ac-17.4",
+            "ac-18",
+            "ac-19",
+            "sc-23",
+            "si-4.22",
+            "si-7.1"
+          ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-10, ac-17.4, ac-18, ac-19, si-4.22."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11608,15 +12151,26 @@
           "name": "Validating Resource Integrity",
           "statement": "Use cryptographic methods to validate the integrity of machine-based information resources.",
           "controls": [
+            "ac-17.4",
+            "ac-18",
+            "ac-19",
+            "au-9.3",
+            "cm-14",
             "cm-2.2",
             "cm-8.3",
             "sc-13",
             "sc-23",
             "si-7",
             "si-7.1",
-            "sr-10"
+            "si-7.15",
+            "sr-10",
+            "sr-11"
           ],
           "updated": [
+            {
+              "date": "2026-10-13",
+              "comment": "Updated control mappings: added ac-17.4, ac-18, ac-19, au-9.3, cm-14, si-7.15, sr-11."
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
