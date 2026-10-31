@@ -3929,7 +3929,6 @@
               "statement": "Providers seeking a Class A FedRAMP Certification SHOULD address the following additional recommended FedRAMP Class A rules (if applicable):",
               "following_information": [
                 "Certification Data Sharing: CDS-CSO-AVR (Availability Reporting)",
-                "Certification Package Overview: CPO-CSF-CPM (Certification Package Maintenance for Rev5)",
                 "Certification Package Overview: CPO-CSX-CPM (Certification Package Maintenance for 20x)",
                 "Incident Evaluation and Communication: IEC-CSO-IIR (Initial Incident Report)",
                 "Incident Evaluation and Communication: IEC-CSO-OIR (Ongoing Incident Reports)",
@@ -3942,7 +3941,6 @@
               ],
               "related": [
                 "CDS-CSO-AVR",
-                "CPO-CSF-CPM",
                 "CPO-CSX-CPM",
                 "IEC-CSO-IIR",
                 "IEC-CSO-OIR",
@@ -3970,6 +3968,10 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-31",
+                  "comment": "CPO-CSF-CPM (Certification Package Maintenance for Rev5) was removed, see https://github.com/FedRAMP/rules/issues/44."
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
