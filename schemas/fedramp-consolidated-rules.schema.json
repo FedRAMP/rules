@@ -916,7 +916,8 @@
         "required": ["date", "comment"],
         "properties": {
           "date": { "type": "string", "format": "date" },
-          "comment": { "type": "string" }
+          "comment": { "type": "string" },
+          "issue": { "type": "string", "format": "uri" }
         },
         "additionalProperties": false
       }

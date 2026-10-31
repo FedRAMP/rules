@@ -716,7 +716,8 @@
           "updated": [
             {
               "date": "2026-10-31",
-              "comment": "Added per https://github.com/FedRAMP/rules/issues/41"
+              "comment": "Added to support the explanation in the rule.",
+              "issue": "https://github.com/FedRAMP/rules/issues/41"
             }
           ]
         },
@@ -3849,6 +3850,7 @@
                 "Collaborative Continuous Monitoring: CCM-OCR-AVL (Report Availability)",
                 "Collaborative Continuous Monitoring: CCM-OCR-NRD (Next Report Date)",
                 "Independent Verification and Validation: IVV-CSX-AIA (Annual Independent Assessments for 20x)",
+                "Security Decision Record: SDR-CSX-KSI (Key Security Indicators)",
                 "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
                 "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
                 "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
@@ -3879,6 +3881,7 @@
                 "IVV-CSX-AIA",
                 "FRC-CSO-PKG",
                 "FRC-CSO-JSN",
+                "SDR-CSX-KSI",
                 "KSI-CMT-LMC",
                 "KSI-CNA-RNT",
                 "KSI-CED-RAT",
@@ -3902,6 +3905,7 @@
                 "Initial Incident Report (IIR)",
                 "Minimum Assessment Scope",
                 "Ongoing Certification Report (OCR)",
+                "Security Decision Record (SDR)",
                 "Trust Center",
                 "Validation",
                 "Verification",
@@ -3910,6 +3914,11 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-10-31",
+                  "comment": "Added SDR-CSX-KSI to list of requirements because folks need a rule that explains how to document the key security indicators!",
+                  "issue": "https://github.com/FedRAMP/rules/issues/45"
+                },
                 {
                   "date": "2026-07-14",
                   "comment": "Clarified that providers MUST address the Key Security Indicators even if they intend to pursue a Rev 5 Program Certification path in the future."
@@ -3970,7 +3979,8 @@
               "updated": [
                 {
                   "date": "2026-10-31",
-                  "comment": "CPO-CSF-CPM (Certification Package Maintenance for Rev5) was removed, see https://github.com/FedRAMP/rules/issues/44."
+                  "comment": "CPO-CSF-CPM (Certification Package Maintenance for Rev5) was removed.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/44"
                 },
                 {
                   "date": "2026-06-24",
@@ -7517,7 +7527,8 @@
               "updated": [
                 {
                   "date": "2026-10-31",
-                  "comment": "Fixed typo per https://github.com/FedRAMP/rules/issues/48"
+                  "comment": "Corrected the name of the form.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/48"
                 },
                 {
                   "date": "2026-06-24",
@@ -11910,7 +11921,8 @@
           "updated": [
             {
               "date": "2026-10-31",
-              "comment": "Changed wording order without any material impact to align with KSI standard language. Was: Persistently identify, review, and mitigate potential supply chain risks. See https://github.com/FedRAMP/rules/issues/42."
+              "comment": "Changed wording order without any material impact to align with KSI standard language. Was: Persistently identify, review, and mitigate potential supply chain risks.",
+              "issue": "https://github.com/FedRAMP/rules/issues/42"
             },
             {
               "date": "2026-10-13",
