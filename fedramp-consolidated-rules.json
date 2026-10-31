@@ -11871,7 +11871,7 @@
       "indicators": {
         "KSI-SCR-MIT": {
           "name": "Mitigating Supply Chain Risk",
-          "statement": "Persistently identify, review, and mitigate potential supply chain risks.",
+          "statement": "Potential supply chain risks are persistently identified, reviewed, and mitigated.",
           "controls": [
             "ac-19",
             "ac-20",
@@ -11906,6 +11906,10 @@
             "sr-6"
           ],
           "updated": [
+            {
+              "date": "2026-10-31",
+              "comment": "Changed wording order without any material impact to align with KSI standard language. Was: Persistently identify, review, and mitigate potential supply chain risks. See https://github.com/FedRAMP/rules/issues/42."
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-19, ra-3, sa-11.1, sa-11.2, sa-15, sa-16, sa-17, sa-21, sa-4, sa-4.1, sa-4.2, sa-4.5, sa-4.9, sa-9.1, sa-9.2, sa-9.5, si-7.15, sr-2, sr-3."
