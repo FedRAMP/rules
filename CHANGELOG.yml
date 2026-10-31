@@ -1,0 +1,20 @@
+fedramp-consolidated-rules:
+  - version: "2026.10.31.01"
+    last_updated: "2026-10-31"
+    rules:
+      - "FRD-MAS (Minimum Assessment Scope): Added to support the explanation in the rule. [#41](https://github.com/FedRAMP/rules/issues/41) (flagged by @ExtremoPenguin in [2026/145](https://github.com/FedRAMP/2026/discussions/145#discussioncomment-18903555))."
+      - "FRC-CLA-MFR (Mandatory FedRAMP Rules for Class A): Added SDR-CSX-KSI to list of requirements because folks need a rule that explains how to document the key security indicators! [#45](https://github.com/FedRAMP/rules/issues/45) (flagged by @tnnrjmsn-eit in [2026/131](https://github.com/FedRAMP/2026/discussions/131#discussioncomment-19227470))."
+      - "FRC-CLA-RFR (Recommended FedRAMP Rules for Class A): CPO-CSF-CPM (Certification Package Maintenance for Rev5) was removed. [#44](https://github.com/FedRAMP/rules/issues/44) (flagged by @tnnrjmsn-eit in [2026/158](https://github.com/FedRAMP/2026/discussions/158#discussioncomment-19205083))."
+      - "FRC-CCL-UCC (Upgrading Certification Class): Updated wording and added a note to more explicitly clarify that upgrading is obtaining a new FedRAMP Certification. [#46](https://github.com/FedRAMP/rules/issues/46) (flagged by @tnnrjmsn-eit in [2026/118](https://github.com/FedRAMP/2026/discussions/118#discussioncomment-19229413))."
+      - "IEC-CSO-IIR (Initial Incident Report): Marked the Trust Center or USDA Connect update to All Necessary Parties as optional in notification metadata. [#47](https://github.com/FedRAMP/rules/issues/47) (the `updated` array was not updated for this change)."
+      - "IEC-CSO-OIR (Ongoing Incident Reports): Marked the Trust Center or USDA Connect update to All Necessary Parties as optional in notification metadata. [#47](https://github.com/FedRAMP/rules/issues/47) (the `updated` array was not updated for this change)."
+      - "IEC-CSO-FIR (Final Incident Report): Marked the Trust Center or USDA Connect update to All Necessary Parties as optional in notification metadata. [#47](https://github.com/FedRAMP/rules/issues/47) (the `updated` array was not updated for this change)."
+      - "MKT-CSO-PML (Provider Marketplace Listing Requests): Corrected the name of the form. [#48](https://github.com/FedRAMP/rules/issues/48) (flagged by @tnnrjmsn-eit in [2026/160](https://github.com/FedRAMP/2026/discussions/160#discussioncomment-19280281))."
+      - "KSI-SCR-MIT (Mitigating Supply Chain Risk): Changed wording order without any material impact to align with KSI standard language. Was: Persistently identify, review, and mitigate potential supply chain risks. [#42](https://github.com/FedRAMP/rules/issues/42)."
+    schema:
+      - "Added optional `issue` URI fields to update-history entries and populated them for six changed definitions, requirements, and indicators."
+      - "Added optional boolean `notification[].optional` fields."
+      - "Extended the shared `class_key` and `class_name` enums with `g` and `G`."
+      - "Clarified that the normative-force enum describes requirements."
+
+

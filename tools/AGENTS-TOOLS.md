@@ -106,8 +106,9 @@ changes, generated files, and staging changes.
 
 ## Changelog Generation
 
-When asked to generate a changelog for the active branch, produce a screen-only
-summary of the branch delta against `main`; do not create a changelog file!
+When asked to generate a changelog for the active branch, produce two separate,
+screen-only outputs of the branch delta against `main`: the Markdown changelog
+and a YAML entry as specified below. Do not create or modify a changelog file!
 
 - Output the changelog as copy/pasteable Markdown. When responding in chat,
   place the changelog itself inside a fenced `markdown` code block; keep any
@@ -164,7 +165,7 @@ summary of the branch delta against `main`; do not create a changelog file!
   - if something is added to `related`
   - if a `reference` or `reference_url` is added/changed/removed
   - changes to `info.version` or `info.last_updated`
-- Use exactly these changelog sections, in this order:
+- Use exactly these Markdown changelog sections, in this order:
   1. `Rules Changes`
      Summarize changes inside `fedramp-consolidated-rules.json` itself. Focus
      on rule, definition, indicator, FRR document, and metadata meaning changes.
@@ -181,3 +182,53 @@ summary of the branch delta against `main`; do not create a changelog file!
   the change is complex enough that a short second sentence prevents ambiguity.
 - Also mention how long it took to run in a separate comment (don't include it in
   the changelog itself)
+
+### YAML Output
+
+After the unchanged Markdown output, print a separate fenced `yaml` code block
+so each format can be copied independently. The YAML contains only the dataset
+changelog: rules and schema/structure changes, without tooling/test changes,
+runtime, explanatory notes, or Markdown section headings.
+
+The destination YAML document has a top-level `fedramp-consolidated-rules` key
+whose value is a sequence of release entries. Output exactly one new sequence
+entry to paste beneath that existing key; **do not repeat the top-level key**.
+No existing changelog file is needed to generate this output. Use this field
+order and structure:
+
+- `version`: the string from `info.version` in the branch-tip rules JSON.
+- `last_updated`: the string from `info.last_updated` in that same JSON, not the
+  date when the changelog is generated.
+- `rules`: a sequence of strings corresponding to the Markdown `Rules Changes`
+  bullets, with the Markdown bullet markers removed.
+- `schema`: a sequence of strings corresponding to the Markdown
+  `Schema And Structure Changes` bullets, with the bullet markers removed.
+
+Reuse the same summaries, grouping, exclusions, IDs, names, issue links,
+acknowledgements, and stale-`updated` notices as the Markdown output. Preserve
+Markdown links and backticks as literal text inside the YAML strings. Do not
+add a `tooling` field. If a category has no changes, use `rules: []` or
+`schema: []` instead of a placeholder string or a null value.
+
+Use spaces, never tabs. Start the release-entry dash with **two leading
+spaces**, align its remaining field names at four spaces, and indent the
+`rules` and `schema` sequence dashes by six spaces. Double-quote all scalar
+values, including the version and date, and escape embedded double quotes,
+backslashes, and line breaks correctly for YAML. Keep each summary on one
+physical line. The copy/paste block must have this indentation (the values
+below are illustrative):
+
+```yaml
+  - version: "2026.10.31.01"
+    last_updated: "2026-10-31"
+    rules:
+      - "FRD-ABC (Example Definition): Summary of the rule change."
+    schema:
+      - "Summary of the schema or structure change."
+```
+
+Before printing, parse the proposed block with a YAML parser after prepending
+`fedramp-consolidated-rules:\n`. Verify that it produces one release entry with
+string `version` and `last_updated` values and string arrays for `rules` and
+`schema`. If parsing cannot be run, disclose that limitation outside both code
+blocks.
