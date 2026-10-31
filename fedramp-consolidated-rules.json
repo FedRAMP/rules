@@ -5868,7 +5868,8 @@
                   "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center",
-                  "name": "Provider's Trust Center or USDA Connect"
+                  "name": "Provider's Trust Center or USDA Connect",
+                  "optional": true
                 }
               ],
               "controls": ["au-5.2", "ir-5"],
@@ -6128,7 +6129,8 @@
                   "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center",
-                  "name": "Provider's Trust Center or USDA Connect"
+                  "name": "Provider's Trust Center or USDA Connect",
+                  "optional": true
                 }
               ],
               "controls": ["ir-5"],
@@ -6364,7 +6366,8 @@
                   "party": "All Necessary Parties",
                   "method": "update",
                   "target": "trust center",
-                  "name": "Provider's Trust Center or USDA Connect"
+                  "name": "Provider's Trust Center or USDA Connect",
+                  "optional": true
                 }
               ],
               "controls": ["ir-5"],
