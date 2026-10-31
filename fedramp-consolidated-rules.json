@@ -708,6 +708,18 @@
             }
           ]
         },
+        "FRD-MAS": {
+          "term": "Minimum Assessment Scope",
+          "definition": "The boundary of the assessment and FedRAMP Certification for the cloud service offering, which effectively defines the cloud service offering itself for the purposes of a FedRAMP Certification Package; anything that is not entirely included in the Minimum Assessment Scope is a third-party information resource.",
+          "note": "The Minimum Assessment Scope ruleset explains how to determine the Minimum Assessment Scope for a cloud service offering.",
+          "alts": ["minimum assessment scope", "MAS"],
+          "updated": [
+            {
+              "date": "2026-10-31",
+              "comment": "Added per https://github.com/FedRAMP/rules/issues/41"
+            }
+          ]
+        },
         "FRD-MST": {
           "term": "MUST",
           "definition": "The rule is an absolute requirement. Parties MUST meet such rules and address them in their security documentation. Failure to follow the rule is a vulnerability likely requiring corrective action and/or the denial of initial or ongoing FedRAMP Certification.",
@@ -2628,6 +2640,7 @@
               "terms": [
                 "Certification Data",
                 "Cloud Service Offering",
+                "Minimum Assessment Scope",
                 "Security Category"
               ],
               "updated": [
@@ -3382,6 +3395,7 @@
                 "Certification Package",
                 "Information Resource",
                 "Initial Incident Report (IIR)",
+                "Minimum Assessment Scope",
                 "Security Category",
                 "Third-Party Information Resource",
                 "Validation",
@@ -3886,6 +3900,7 @@
                 "Incident",
                 "Information Resource",
                 "Initial Incident Report (IIR)",
+                "Minimum Assessment Scope",
                 "Ongoing Certification Report (OCR)",
                 "Trust Center",
                 "Validation",
@@ -4310,7 +4325,7 @@
               "statement": "Providers SHOULD apply ALL Key Security Indicators to ALL aspects of their cloud service offering that are within the FedRAMP Minimum Assessment Scope.",
               "force": "SHOULD",
               "affects": ["Providers"],
-              "terms": ["Cloud Service Offering"],
+              "terms": ["Cloud Service Offering", "Minimum Assessment Scope"],
               "updated": [
                 {
                   "date": "2026-06-24",
@@ -7308,6 +7323,7 @@
                 "Federal Customer Data",
                 "Information Resource",
                 "Initial Incident Report (IIR)",
+                "Minimum Assessment Scope",
                 "Third-Party Information Resource"
               ],
               "updated": [
@@ -7337,7 +7353,8 @@
               "terms": [
                 "Federal Customer Data",
                 "Information Resource",
-                "Initial Incident Report (IIR)"
+                "Initial Incident Report (IIR)",
+                "Minimum Assessment Scope"
               ],
               "updated": [
                 {
