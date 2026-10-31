@@ -11,6 +11,10 @@ import {
   type MetadataFreshnessWarning,
 } from "./src/metadata-freshness";
 import { collectPropertyOrderIssues } from "./src/property-order";
+import {
+  collectReferenceUrlIssues,
+  formatReferenceUrlReport,
+} from "./src/reference-urls";
 import { loadRulesDocument, loadSchemaDocument } from "./src/rules";
 import type { PropertyOrderIssue } from "./src/types";
 
@@ -163,6 +167,8 @@ const propertyOrderIssues = collectPropertyOrderIssues(
 );
 const propertyOrderFailed = propertyOrderIssues.length > 0;
 const finalReports: string[] = [];
+console.log("\nChecking reference URL reachability...");
+const referenceUrlIssues = await collectReferenceUrlIssues(rulesDocument);
 
 if (metadataFreshnessWarnings.length > 0) {
   console.warn(
@@ -196,6 +202,10 @@ if (propertyOrderFailed) {
   finalReports.push(formatPropertyOrderFailureSummary(propertyOrderIssues));
 }
 
+if (referenceUrlIssues.length > 0) {
+  finalReports.push(formatReferenceUrlReport(referenceUrlIssues));
+}
+
 if (finalReports.length > 0) {
   console.error(
     `\n${color("-----", DIM)}\n\n${color(
@@ -206,5 +216,7 @@ if (finalReports.length > 0) {
 }
 
 process.exit(
-  consistencyFailed || propertyOrderFailed ? 1 : (testResult.exitCode ?? 1),
+  consistencyFailed || propertyOrderFailed || referenceUrlIssues.length > 0
+    ? 1
+    : (testResult.exitCode ?? 1),
 );

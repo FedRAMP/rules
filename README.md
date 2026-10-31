@@ -52,5 +52,5 @@ ignore it; installing or running these tools is not required to consume the
 dataset.
 
 FedRAMP developers can use [tools/README.md](tools/README.md) for setup,
-validation, normalization, tests, exports, and Git hooks. Maintenance agents
+validation, normalization, tests, and Git hooks. Maintenance agents
 must also follow [tools/AGENTS-TOOLS.md](tools/AGENTS-TOOLS.md).

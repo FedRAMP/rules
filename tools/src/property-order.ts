@@ -1,5 +1,6 @@
 import type { PropertyOrderIssue, RulesDocument } from "./types";
 import {
+  findArrayItemOrderRule,
   findObjectKeyOrderRule,
   loadOrderConfig,
   type OrderConfig,
@@ -13,6 +14,52 @@ import {
 
 const isRecord = isJsonObject;
 const ORDER_CONFIG = loadOrderConfig();
+
+// Sort a copy and keep ties stable, preserving the source document and the
+// relative order of entries with equal values (including duplicate dates).
+function orderArray(
+  value: unknown[],
+  path: string,
+): {
+  values: unknown[];
+  issue?: PropertyOrderIssue;
+} {
+  const rule = findArrayItemOrderRule(ORDER_CONFIG, path);
+  if (!rule) return { values: value };
+
+  const keyFor = (item: unknown): string =>
+    rule.by === "property"
+      ? (getStringProperty(item, rule.property) ?? "")
+      : String(item);
+  const entries = value.map((item, index) => ({
+    item,
+    index,
+    key: keyFor(item),
+  }));
+  const sorted = [...entries].sort((left, right) => {
+    if (rule.by === "explicit") {
+      const rank = (key: string) => {
+        const index = rule.keys.indexOf(key);
+        return index === -1 ? rule.keys.length : index;
+      };
+      return rank(left.key) - rank(right.key);
+    }
+    const direction = rule.direction === "descending" ? -1 : 1;
+    return direction * left.key.localeCompare(right.key);
+  });
+  return {
+    values: sorted.map(({ item }) => item),
+    ...(sorted.some((entry, index) => entry.index !== index)
+      ? {
+          issue: {
+            path,
+            actualOrder: entries.map(({ key }) => key),
+            expectedOrder: sorted.map(({ key }) => key),
+          },
+        }
+      : {}),
+  };
+}
 
 function getPropertiesSchema(schema: JsonSchema | null): JsonObject | null {
   if (!schema || !isRecord(schema.properties)) {
@@ -199,6 +246,8 @@ function collectIssuesForValue(
   const resolvedSchema = dereferenceSchema(rootSchema, schema);
 
   if (Array.isArray(value)) {
+    const ordered = orderArray(value, path);
+    if (ordered.issue) issues.push(ordered.issue);
     const itemsSchema = getItemsSchema(resolvedSchema);
     if (!itemsSchema) {
       return;
@@ -261,12 +310,14 @@ function reorderValue(
   const resolvedSchema = dereferenceSchema(rootSchema, schema);
 
   if (Array.isArray(value)) {
+    const ordered = orderArray(value, path);
+    if (ordered.issue) issues.push(ordered.issue);
     const itemsSchema = getItemsSchema(resolvedSchema);
     if (!itemsSchema) {
-      return value;
+      return ordered.values;
     }
 
-    return value.map((item, index) =>
+    return ordered.values.map((item, index) =>
       reorderValue(item, itemsSchema, rootSchema, `${path}[${index}]`, issues),
     );
   }

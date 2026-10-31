@@ -107,8 +107,7 @@ changes, generated files, and staging changes.
 ## Changelog Generation
 
 When asked to generate a changelog for the active branch, produce a screen-only
-summary of the branch delta against `main`; do not create a changelog file
-unless the user explicitly asks for one.
+summary of the branch delta against `main`; do not create a changelog file!
 
 - Output the changelog as copy/pasteable Markdown. When responding in chat,
   place the changelog itself inside a fenced `markdown` code block; keep any
@@ -124,8 +123,6 @@ unless the user explicitly asks for one.
 - Treat committed branch changes as the changelog scope by default. Mention
   uncommitted workspace changes separately only when they affect the requested
   analysis or the user asks to include them.
-- Validate the rules file against the schema before relying on automated JSON
-  analysis. If validation cannot be run, say so and continue carefully.
 - Parse JSON with a real JSON parser when comparing
   [fedramp-consolidated-rules.json](../fedramp-consolidated-rules.json) and
   [schemas/fedramp-consolidated-rules.schema.json](../schemas/fedramp-consolidated-rules.schema.json);
@@ -133,46 +130,42 @@ unless the user explicitly asks for one.
   practical.
 - Compare the initial branch state to the final branch state, not commit by
   commit, unless a commit-level explanation is specifically requested.
-- Detect and highlight breaking changes when summarizing underlying changes to
-  [fedramp-consolidated-rules.json](../fedramp-consolidated-rules.json) or the
-  schema. Use the software compatibility meaning of breaking change: a
-  backwards-incompatible change to the machine-readable public contract that
-  would make existing parsers, validators, exporters, queries, or integrations
-  fail, reject previously valid data, silently misread data, or require code
-  changes to continue processing the dataset. Examples include renamed or
-  removed properties such as `primary_key_word` to `force`, changed required
-  fields, changed property types, changed statement shapes, changed ID formats,
-  controlled vocabulary changes that invalidate existing values, renamed
-  top-level sections, renamed applicability or subset bucket keys when those
-  keys are part of the schema contract, or stricter validation rules that reject
-  files accepted by the previous schema.
-- Do not mark rule-content taxonomy changes as breaking merely because a rule,
-  definition, or indicator moves to a different ruleset, process, applicability
-  path, subset, or ID. Treat those as Rules Content Changes and describe the
-  user-visible mapping or migration impact. Only mark such movement as breaking
-  when it also changes the documented data shape, schema vocabulary, required
-  fields, or other machine-readable contract in a way that breaks existing
-  tooling.
-- Mark every breaking change bullet with `**Breaking:**` at the start of the
-  bullet in the relevant changelog section. Include the old shape and the new
-  shape when known, and briefly state the practical impact. For example,
-  changing FRR metadata from `info.labels` to `info.subsets` is breaking
-  because tools or consumers that still look for `labels` will fail to find the
-  declarations and may reject or misread the FRR data until updated.
-- Use stable IDs in every rule-content bullet: `FRD-XXX`, `FRR` requirement IDs
-  such as `VDR-CSO-123`, and `KSI-THEME-KEY`.
-- For each substantively changed rule, definition, or indicator, write one
-  sentence describing the user-visible change. Include additions, removals,
-  renamed terms, wording changes, actor/scope changes, applicability moves,
-  artifact changes, control mappings, examples, notifications, related rule
-  references, external references, timeframes, and class-specific variants.
-- Group purely mechanical metadata churn, such as mass `updated` date resets or
-  property ordering changes, instead of listing every affected rule separately.
-- Separate evidence from inference. When a conclusion comes from schema shape,
-  property names, or structural movement rather than explicit wording, label it
-  as structural.
+- When commit messages mention an issue #, investigate that issue to see if the
+  main comment contains a link to a FedRAMP discussion or comment such as "source"
+  or "credit" or "src" etc., then analyze that
+  discussion link and determine the users involved in the discussion and the link
+  to the most important comment that generated the issue. Then at the end of the
+  update summary add a message acknowledging the github user and their comment,
+  using "(flagged by @github-user in [2026/##](comment))" or similar. If it can't
+  be identified then skip this.
+- For object items changed inside the `fedramp-consolidated-rules.json`
+  such as FRR FRD KSI CTL etc.:
+    - Start with the ID followed by the name in parentheses, i.e. "MKT-FRP-SOF (Scope of FedRAMP):"
+    - Use the most recent `updated` `comment` from the current most recent commit and do
+    - not generate your own summary. If the `updated` date is more than a week in the past
+      then instead generate a summary and at the end add "(the `updated` array was not updated
+      for this change)"
+    - add a link to the `issue` if exists.
+    - add acknowledgements and thread link if it exists
+- Generally, large-scale mechanical changes to the JSON data itself are unexpected
+  and should not happen, but if you notice a situation where a significant number
+  of large-scale changes occur (such as the addition of a new metadata field within
+  the JSON data) then summarize those changes in logical groups instead of listing
+  them item by item. For example, a new object key named `example `being added to
+  every FRD might be summarized as "Every FRD item had a new key added named `example`
+  that [describe the changes]."
+    - This should specifically include when more than 5 items have changes to the
+      `controls` array - just summarize overall the number of items that were changed
+      and that some number of controls were added (or explain the pattern if it is
+      clear, such as the same control being added to a number of items)
+- Do not mention the following specific mechanical changes that aren't important to
+  humans:
+  - if a term is added to `terms`
+  - if something is added to `related`
+  - if a `reference` or `reference_url` is added/changed/removed
+  - changes to `info.version` or `info.last_updated`
 - Use exactly these changelog sections, in this order:
-  1. `Rules Content Changes`
+  1. `Rules Changes`
      Summarize changes inside `fedramp-consolidated-rules.json` itself. Focus
      on rule, definition, indicator, FRR document, and metadata meaning changes.
   2. `Schema And Structure Changes`
@@ -186,5 +179,5 @@ unless the user explicitly asks for one.
      package scripts, test harnesses, and test coverage.
 - Keep bullets simple and high signal. Prefer a single line per bullet unless
   the change is complex enough that a short second sentence prevents ambiguity.
-- End with a brief validation note naming the commands run, such as
-  `bun run check`, or explain why validation was not run.
+- Also mention how long it took to run in a separate comment (don't include it in
+  the changelog itself)

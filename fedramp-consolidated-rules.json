@@ -206,7 +206,7 @@
           "tag": "Certification",
           "alts": ["certification package", "certification packages"],
           "reference": "44 USC § 3607 (b)(8)",
-          "reference_url": "https://fedramp.gov/docs/authority/law/#b-additional-definitions",
+          "reference_url": "https://fedramp.gov/2026/authority/law/#b-additional-definitions",
           "updated": [
             {
               "date": "2026-06-24",
@@ -352,8 +352,6 @@
             "FedRAMP certification report",
             "certification report"
           ],
-          "reference": "FedRAMP Certification Act (44 USC § 3608)",
-          "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
               "date": "2026-06-24",
@@ -374,8 +372,6 @@
             "FedRAMP Authorized",
             "authorized"
           ],
-          "reference": "FedRAMP Certification Act (44 USC § 3608)",
-          "reference_url": "https://www.fedramp.gov/docs/authority/law/#sec-3608-federal-risk-and-authorization-management-program",
           "updated": [
             {
               "date": "2026-06-24",
@@ -1134,8 +1130,6 @@
           "definition": "Confirmation through objective evidence that implemented security capabilities and related certification data are suitable for their intended FedRAMP Certification use and support the expected security outcomes for a cloud service offering.",
           "note": "This adapts the ISO conformity assessment concept of validation to the FedRAMP Certification context.",
           "alts": ["validation", "validate", "validated"],
-          "reference": "ISO/IEC 27001:2022",
-          "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
             {
               "date": "2026-06-24",
@@ -1148,8 +1142,6 @@
           "definition": "Confirmation through objective evidence that specified FedRAMP Practices have been fulfilled for a cloud service offering.",
           "note": "This adapts the ISO conformity assessment concept of verification to the FedRAMP Certification context.",
           "alts": ["verification", "verify", "verified"],
-          "reference": "ISO/IEC 27001:2022",
-          "reference_url": "https://www.iso.org/standard/27001",
           "updated": [
             {
               "date": "2026-06-24",

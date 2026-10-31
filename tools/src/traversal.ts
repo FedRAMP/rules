@@ -2,7 +2,7 @@ import type {
   DefinitionEntry,
   KsiIndicator,
   Requirement,
-  RequirementByClass,
+  RequirementLike,
   RulesDocument,
 } from "./types";
 
@@ -68,16 +68,7 @@ export function visitIndicators(
   visitor: (visit: IndicatorVisit) => void,
 ): void {
   for (const [themeKey, theme] of Object.entries(document.KSI ?? {})) {
-    const indicators = Array.isArray(theme.indicators)
-      ? Object.fromEntries(
-          theme.indicators.map((indicator, index) => [
-            `${theme.id}-${index}`,
-            indicator,
-          ]),
-        )
-      : theme.indicators;
-
-    for (const [id, indicator] of Object.entries(indicators ?? {})) {
+    for (const [id, indicator] of Object.entries(theme.indicators ?? {})) {
       visitor({
         id,
         location: `KSI.${themeKey}.indicators.${id}`,
@@ -87,14 +78,7 @@ export function visitIndicators(
   }
 }
 
-export function getSearchableTextParts(entity: {
-  statement?: string;
-  note?: string;
-  notes?: string[];
-  following_information?: string[];
-  following_information_bullets?: string[];
-  varies_by_class?: RequirementByClass;
-}): string[] {
+export function getSearchableTextParts(entity: RequirementLike): string[] {
   const parts: string[] = [];
 
   if (entity.statement) {
