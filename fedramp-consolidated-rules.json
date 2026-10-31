@@ -4207,15 +4207,21 @@
           "CCL": {
             "FRC-CCL-UCC": {
               "name": "Upgrading Certification Class",
-              "statement": "Providers MUST apply for a new FedRAMP Certification to upgrade their Certification Class; all applicable requirements MUST be met in advance.",
+              "statement": "Providers MUST apply for a new FedRAMP Certification to upgrade their Certification Class; all applicable requirements to obtain the new FedRAMP Certification MUST be met in advance.",
               "notes": [
                 "Upgrade paths include moving from A to B, C, or D; B to C or D; and C to D.",
-                "The preferred path is to incrementally update the implementation and assurance commitments within the current Certification Class until the provider has met all requirements for the target Certification Class, then apply for the new Certification Class."
+                "The preferred path is to incrementally update the implementation and assurance commitments within the current Certification Class until the provider has met all requirements for the target Certification Class, then apply for the new Certification Class.",
+                "All applicable CR26 requirements are based on the obtain deadlines in each CR26 ruleset when applying to obtain a new FedRAMP Certification, even if it is an upgrade. FedRAMP may make case-by-case exceptions based on individual circumstances and critical government need, however, so please contact FedRAMP for guidance when planning an upgrade in 2027."
               ],
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["Certification Class"],
               "updated": [
+                {
+                  "date": "2026-10-31",
+                  "comment": "Updated wording and added a note to more explicitly clarify that upgrading is obtaining a new FedRAMP Certification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/46"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
