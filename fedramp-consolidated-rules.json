@@ -7499,7 +7499,7 @@
             },
             "MKT-CSO-PML": {
               "name": "Provider Marketplace Listing Requests",
-              "statement": "Providers MUST notify FedRAMP using the FedRAMP Marketplace Providing Listing Request Form to request a listing in the FedRAMP Marketplace.",
+              "statement": "Providers MUST notify FedRAMP using the FedRAMP Marketplace Provider Listing Request Form to request a listing in the FedRAMP Marketplace.",
               "note": "FedRAMP does not accept applications for a FedRAMP Marketplace Listing via email!",
               "force": "MUST",
               "affects": ["Providers"],
@@ -7513,6 +7513,10 @@
               ],
               "terms": [],
               "updated": [
+                {
+                  "date": "2026-10-31",
+                  "comment": "Fixed typo per https://github.com/FedRAMP/rules/issues/48"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
