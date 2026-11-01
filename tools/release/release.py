@@ -329,9 +329,10 @@ def publish(github, output, pages, dry_run=False, force=False):
             require(data is not None, f'Missing historical ZIP: {name}')
             archives[name] = read_zip(data, name)
     alias = github.tag('2026')
-    require(alias is None or alias == commit or alias in published_commits
-            or (force and existing is not None),
-            '2026 tag does not point to a known release')
+    # A deleted release can leave its moving tag behind. Explicit force mode
+    # repairs that orphan too, after the newer-release check above has passed.
+    require(force or alias is None or alias == commit or alias in published_commits,
+            '2026 tag does not point to a known release; use force replacement to repair it')
     write_pages(pages, archives)  # Complete validation and Pages staging before mutation.
     if dry_run:
         replacement = (f' Force replacement enabled for {version}: dated tag, release notes, ZIP, '

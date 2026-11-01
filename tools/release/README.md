@@ -135,7 +135,9 @@ latest commit; **Re-run all jobs** retains the original run's commit and inputs.
 With both preview and force checked, the workflow previews the replacement and
 makes no remote changes. With preview unchecked and force checked, it updates
 the dated tag, release name/notes, ZIP, `2026` tag, and Pages collection. Historical
-versions remain intact. It retains the release ID, temporarily makes the release
+versions remain intact. It also repairs a leftover `2026` tag when its release
+record has been deleted. For an existing release, it retains the release ID,
+temporarily makes the release
 a draft, replaces the ZIP, and republishes it as latest. A failed replacement
 can leave it in draft; retry with force enabled to finish.
 

@@ -315,6 +315,26 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(self.github.writes, [])
         self.assertEqual(self.github.tags[V], OLD_SHA)
 
+    def test_force_repairs_orphan_alias_without_existing_release(self):
+        self.prepare(True)
+        for dated_tag_exists in (False, True):
+            with self.subTest(dated_tag_exists=dated_tag_exists):
+                gh = FakeGitHub()
+                gh.tags['2026'] = OLD_SHA
+                if dated_tag_exists:
+                    gh.tags[V] = SHA
+                with self.assertRaisesRegex(ValueError, '2026 tag does not point'):
+                    r.publish(gh, self.output, self.root / f'normal-{dated_tag_exists}')
+                self.assertEqual(gh.writes, [])
+                r.publish(gh, self.output, self.root / f'preview-{dated_tag_exists}',
+                          dry_run=True, force=True)
+                self.assertEqual(gh.writes, [])
+                self.assertEqual(gh.tags['2026'], OLD_SHA)
+                r.publish(gh, self.output, self.root / f'force-{dated_tag_exists}', force=True)
+                self.assertEqual(gh.tags[V], SHA)
+                self.assertEqual(gh.tags['2026'], SHA)
+                self.assertFalse(gh.records[V]['draft'])
+
     def test_force_recovers_after_failed_upload_and_alias_update(self):
         for failure in ('fail_upload', 'fail_alias'):
             with self.subTest(failure=failure):
