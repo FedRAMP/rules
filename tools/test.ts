@@ -1,3 +1,5 @@
+import { createInterface } from "node:readline";
+import { Readable } from "node:stream";
 import {
   collectConsistencyChecks,
   collectFrrSubsetForceOrderWarnings,
@@ -11,10 +13,6 @@ import {
   type MetadataFreshnessWarning,
 } from "./src/metadata-freshness";
 import { collectPropertyOrderIssues } from "./src/property-order";
-import {
-  collectReferenceUrlIssues,
-  formatReferenceUrlReport,
-} from "./src/reference-urls";
 import { loadRulesDocument, loadSchemaDocument } from "./src/rules";
 import type { PropertyOrderIssue } from "./src/types";
 
@@ -142,11 +140,56 @@ function formatFrrUnusedSubsetWarningSummary(
   ].join("\n");
 }
 
-const testResult = Bun.spawnSync({
-  cmd: ["bun", "test"],
+// Approximate local suite timings, fastest first; network checks always last.
+// Discover files separately so newly added suites are never silently omitted.
+const suiteOrder = [
+  "metadata-update",
+  "schema-validation",
+  "effective-dates",
+  "force",
+  "id-alignment",
+  "artifact-applicability",
+  "zz-consistency-report",
+  "types",
+  "reference-urls",
+  "terms",
+  "fix",
+  "formatting",
+  "property-order",
+  "schema",
+];
+function suiteRank(path: string): number {
+  if (path === "tests/reference-url-reachability.test.ts") return Infinity;
+  const rank = suiteOrder.indexOf(path.slice("tests/".length, -".test.ts".length));
+  return rank === -1 ? suiteOrder.length : rank;
+}
+const testFiles = [...new Bun.Glob("tests/**/*.test.ts").scanSync(import.meta.dir)]
+  .sort((a, b) => suiteRank(a) - suiteRank(b) || a.localeCompare(b))
+  .map((path) => `./${path}`);
+
+const testResult = Bun.spawn({
+  cmd: [process.execPath, "test", ...testFiles],
+  cwd: import.meta.dir,
+  env: {
+    ...process.env,
+    ...(process.stderr.isTTY && useColor() ? { FORCE_COLOR: "1" } : {}),
+  },
   stdout: "inherit",
-  stderr: "inherit",
+  stderr: "pipe",
 });
+// Bun reports tests on stderr. Stream its output unchanged except for a blank
+// line separating the counts from the final duration summary.
+const testOutput = createInterface({
+  input: Readable.fromWeb(testResult.stderr),
+  crlfDelay: Infinity,
+});
+for await (const line of testOutput) {
+  if (/^Ran \d+ tests? across \d+ files?\./.test(Bun.stripANSI(line))) {
+    process.stderr.write("\n");
+  }
+  process.stderr.write(`${line}\n`);
+}
+const testExitCode = await testResult.exited;
 
 const rulesDocument = loadRulesDocument();
 const schemaDocument = loadSchemaDocument();
@@ -167,8 +210,6 @@ const propertyOrderIssues = collectPropertyOrderIssues(
 );
 const propertyOrderFailed = propertyOrderIssues.length > 0;
 const finalReports: string[] = [];
-console.log("\nChecking reference URL reachability...");
-const referenceUrlIssues = await collectReferenceUrlIssues(rulesDocument);
 
 if (metadataFreshnessWarnings.length > 0) {
   console.warn(
@@ -202,10 +243,6 @@ if (propertyOrderFailed) {
   finalReports.push(formatPropertyOrderFailureSummary(propertyOrderIssues));
 }
 
-if (referenceUrlIssues.length > 0) {
-  finalReports.push(formatReferenceUrlReport(referenceUrlIssues));
-}
-
 if (finalReports.length > 0) {
   console.error(
     `\n${color("-----", DIM)}\n\n${color(
@@ -216,7 +253,7 @@ if (finalReports.length > 0) {
 }
 
 process.exit(
-  consistencyFailed || propertyOrderFailed || referenceUrlIssues.length > 0
+  consistencyFailed || propertyOrderFailed
     ? 1
-    : (testResult.exitCode ?? 1),
+    : testExitCode,
 );

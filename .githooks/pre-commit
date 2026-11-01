@@ -11,4 +11,4 @@ git add fedramp-consolidated-rules.json schemas/fedramp-consolidated-rules.schem
 
 echo "Running bun check from $repo_root/tools"
 cd "$repo_root/tools"
-bun check
+bun run check

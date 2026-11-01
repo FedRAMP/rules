@@ -63,7 +63,7 @@ These commands inspect the project without rewriting the canonical files:
 | ------------------- | ------------------------------------------------------------------------------ |
 | `bun run check`     | Runs typechecking, then the full test runner if typechecking passes.           |
 | `bun run typecheck` | Runs `tsc --noEmit`.                                                           |
-| `bun run test`      | Runs all Bun tests, checks live reference URLs, then prints final diagnostics. |
+| `bun run test`      | Runs all Bun tests, including live reference URLs, then prints final diagnostics. |
 
 Run `bun run check` for changes to rules, schema, tooling, or tests. Coverage
 includes schema validation, formatting, ID/container alignment, subset
@@ -71,12 +71,18 @@ applicability, effective dates, normative force, terms, property and array
 ordering, artifact applicability, update history, text hygiene, class variants,
 controlled vocabulary, cross-references, and fix behavior.
 
+The runner orders suites approximately fastest to slowest, with live reference
+URL checks last, and separates Bun's final duration summary with a blank line.
+New test files are discovered automatically. This ordering and spacing apply to
+`bun run test` and `bun run check`; direct `bun test` uses Bun's default output.
+
 The runner prints human-readable consistency and property-order failure reports.
 It also reports advisory warnings for metadata freshness, FRR subset force
 ordering, and unused subsets; those warnings alone do not make the command fail.
 
-Reference URL failures appear in the final failure report with the full JSON
-path, original URL, and HTTP status or connection error. The check covers
+Live reference URL checks run in `tests/reference-url-reachability.test.ts`,
+using Bun's standard pass/fail output before the test totals. Failures include
+the full JSON path, original URL, and HTTP status or connection error. The check covers
 `reference_url` and legacy `referenceurl` fields throughout the dataset. It
 follows redirects, tries GET when HEAD returns an unsuccessful status, and
 checks each distinct URL once (ignoring fragments). Four requests run at a time,
@@ -86,7 +92,8 @@ Non-successful responses, including access-denied/rate-limit responses, and
 network failures make the command fail. Access-denied and connection failures
 are reported as unverified reachability, not proof that the URL is broken.
 Notification targets, schema URLs, and URLs embedded in prose are outside this
-check's scope. Run `bun test` for the local unit suite without live URL checks.
+check's scope. `bun test` also includes the live check; select focused unit-test
+files (for example, `bun test tests/reference-urls.test.ts`) to avoid network requests.
 
 Use focused aliases while working:
 
