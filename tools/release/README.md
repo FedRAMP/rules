@@ -11,7 +11,8 @@ from this fork into another repository.
    environment review rules.
 3. Ensure repository/organization policy permits the workflow's `GITHUB_TOKEN`
    to create releases and dated tags and update the `2026` tag. Tag rulesets must
-   permit these operations; the workflow does not bypass rulesets or use a PAT.
+   permit these operations; the workflow uses only `GITHUB_TOKEN` and does not
+   bypass rulesets. No separately created token or Actions secret is configured.
 4. Merge the workflow into the default branch so GitHub exposes its manual Run
    workflow button. Production publication is restricted to `main`.
 
@@ -124,6 +125,16 @@ migration. Rerunning publication of an older root-layout release with this
 helper will reject the changed ZIP bytes by default; use its original workflow
 revision, publish a new version, or explicitly force replacement for testing.
 The new version must be at least as recent as all already published versions.
+
+## Diagnosing GitHub permission failures
+
+This workflow uses only the built-in `GITHUB_TOKEN`. The publishing job requests
+`contents: write`; preview jobs remain read-only. API failures identify the HTTP
+method, endpoint, and GitHub's error response. For a 403, inspect that operation,
+the job's effective token permissions, and applicable repository rules before
+changing authentication. A generic 403 alone does not establish that a separate
+token is required. Do not add `actions: write` as a substitute for workflow-file
+permissions; they are different capabilities.
 
 ## Force replacement for fork testing
 

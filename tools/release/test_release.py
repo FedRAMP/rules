@@ -380,6 +380,17 @@ class ReleaseTests(unittest.TestCase):
             gh.upload(V, Path('asset.zip'), replace=True)
             self.assertIn('--clobber', run.call_args.args[0])
 
+    def test_api_permission_error_identifies_operation_and_response(self):
+        gh = r.GitHub('example/rules')
+        result = type('Result', (), {'returncode': 1, 'stdout': b'{"message": "Additional permission detail"}',
+                                    'stderr': b'gh: Resource not accessible by integration (HTTP 403)'})()
+        with patch('release.subprocess.run', return_value=result):
+            with self.assertRaisesRegex(RuntimeError, 'PATCH repos/example/rules/git/refs/tags/2026.*Additional permission detail'):
+                gh.api('git/refs/tags/2026', 'PATCH', {'sha': SHA, 'force': True})
+            with self.assertRaisesRegex(RuntimeError, 'GET repos/example/rules/releases') as caught:
+                gh.api('releases')
+            self.assertNotIn('RELEASE_TOKEN', str(caught.exception))
+
     def test_release_pagination(self):
         github = r.GitHub('example/rules')
         with patch.object(github, 'api', side_effect=[[{}] * 100, [{}]]) as api:

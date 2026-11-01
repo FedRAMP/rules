@@ -212,7 +212,15 @@ class GitHub:
         if result.returncode:
             if optional and '(HTTP 404)' in result.stderr.decode():
                 return None
-            raise RuntimeError(result.stderr.decode())
+            detail = result.stderr.decode().strip()
+            try:
+                response = json_load(result.stdout)
+            except (ValueError, UnicodeDecodeError):
+                response = {}
+            message = response.get('message', '') if isinstance(response, dict) else ''
+            if message and message not in detail:
+                detail += f' Response: {message}'
+            raise RuntimeError(f'GitHub API {method} repos/{self.repository}/{path}: {detail}')
         return result.stdout if binary else json_load(result.stdout) if result.stdout else None
 
     def releases(self):
