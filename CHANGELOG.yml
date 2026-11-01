@@ -1,6 +1,7 @@
 fedramp-consolidated-rules:
   - version: "2026.10.31.01"
     last_updated: "2026-10-31"
+    release: true
     rules:
       - "FRD-MAS (Minimum Assessment Scope): Added to support the explanation in the rule. [#41](https://github.com/FedRAMP/rules/issues/41) (flagged by @ExtremoPenguin in [2026/145](https://github.com/FedRAMP/2026/discussions/145#discussioncomment-18903555))."
       - "FRC-CLA-MFR (Mandatory FedRAMP Rules for Class A): Added SDR-CSX-KSI to list of requirements because folks need a rule that explains how to document the key security indicators! [#45](https://github.com/FedRAMP/rules/issues/45) (flagged by @tnnrjmsn-eit in [2026/131](https://github.com/FedRAMP/2026/discussions/131#discussioncomment-19227470))."
@@ -16,5 +17,11 @@ fedramp-consolidated-rules:
       - "Added optional boolean `notification[].optional` fields."
       - "Extended the shared `class_key` and `class_name` enums with `g` and `G`."
       - "Clarified that the normative-force enum describes requirements."
-
+    tooling:
+      - "Added reference URL reachability checks to the full test runner and a `test:reference-urls` command, with redirects, HEAD-to-GET fallback, deduplication, timeouts, and tests using mocked responses."
+      - "Extended ordering validation and fixes to configured arrays, including update histories across FRD, FRR, KSI, and CTL; added regression tests for stable sorting, source preservation, and repeat runs."
+      - "Tightened TypeScript types to reflect the local schema, including metadata, class variants, notifications, artifacts, and CTL; removed legacy KSI array handling and added type-contract tests."
+      - "Updated requirement checks to iterate over populated class variants and refreshed term-test fixtures for the stricter types."
+      - "Removed `tools/export-spreadsheet.ts` and the spreadsheet export command."
+      - "Revised maintenance documentation and branch-changelog instructions."
 
