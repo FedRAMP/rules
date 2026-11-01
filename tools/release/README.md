@@ -57,8 +57,9 @@ conflicts, but create no tags, releases, or Pages deployments.
 
 Commit and push the intended dataset, schema, changelog, and workflow changes to
 `main`. Run again on `main` with **dry_run** unchecked to publish. The workflow
-first repeats the preview, then publishes exactly the dispatched commit. Never
-reuse a published version for changed content or a different commit.
+first repeats the preview, then publishes exactly the dispatched commit. By
+default, reusing a published version for changed content or a different commit
+is rejected. Use the explicit replacement option below for fork testing.
 
 CLI equivalents, executed from this repository:
 
@@ -106,7 +107,8 @@ to the current and dated files, newest first. The index uses plain HTML with no
 JavaScript, stylesheets, or external assets. ZIPs, source tools, and release
 notes are not published to Pages.
 
-The dated tag and release remain fixed. The `2026` Git tag and Pages aliases
+The dated tag and release remain fixed unless force replacement is explicitly
+selected. The `2026` Git tag and Pages aliases
 advance to the latest published dated version; there is no rolling `2026`
 GitHub Release. Each deployment reconstructs history from this repository's
 published 2026 release ZIPs, using each version's own schema. It paginates release
@@ -119,9 +121,39 @@ bytes for the version being published also stop publication.
 Each original/minified JSON member is limited to 50 MiB. Previously published four-file ZIPs with files at the archive root remain
 supported when rebuilding Pages history. Other layouts require deliberate
 migration. Rerunning publication of an older root-layout release with this
-helper will reject the changed ZIP bytes; use its original workflow revision
-for that retry, or publish a new version.
+helper will reject the changed ZIP bytes by default; use its original workflow
+revision, publish a new version, or explicitly force replacement for testing.
 The new version must be at least as recent as all already published versions.
+
+## Force replacement for fork testing
+
+The **Force Replace Existing Release, Tag, and Assets** checkbox defaults to off.
+Select it to reissue the newest version from the commit selected at dispatch,
+without incrementing the version. Start a new workflow run on `main` to use the
+latest commit; **Re-run all jobs** retains the original run's commit and inputs.
+
+With both preview and force checked, the workflow previews the replacement and
+makes no remote changes. With preview unchecked and force checked, it updates
+the dated tag, release name/notes, ZIP, `2026` tag, and Pages collection. Historical
+versions remain intact. It retains the release ID, temporarily makes the release
+a draft, replaces the ZIP, and republishes it as latest. A failed replacement
+can leave it in draft; retry with force enabled to finish.
+
+```sh
+# Preview a replacement on this fork:
+gh workflow run release.yml --repo FedRAMP/rules-releasemgt --ref main \
+  -f dry_run=true -f force_replace=true
+# Actually replace the release on this fork:
+gh workflow run release.yml --repo FedRAMP/rules-releasemgt --ref main \
+  -f dry_run=false -f force_replace=true
+```
+
+Force mode still requires valid data, `main`, and `release: true` for publication.
+It refuses to roll back past a newer published version. GitHub-enforced immutable
+releases cannot be replaced, and tag protection rules still apply. Use new
+versions for normal consumer releases: force mode deliberately changes the
+contents behind previously pinned version URLs. The local helper accepts the
+equivalent `--force` flag; it remains read-only unless `--publish` is also passed.
 
 ## Failures and retries
 
@@ -132,7 +164,7 @@ These operations are not one transaction. A failure can leave a tag, draft,
 published release, or advanced alias while Pages still serves the prior data.
 
 Use **Re-run all jobs** on the same run to retain its original commit. Matching
-existing tags, notes, and ZIP bytes are accepted; conflicting state fails rather
+existing tags, notes, and ZIP bytes are accepted; without force, conflicting state fails rather
 than overwriting a published release. Missing uploads on matching drafts are
 resumed. A failed Pages job can also be rerun directly while its Pages artifact
 is available. If it has expired, rerun all jobs to reconstruct it.

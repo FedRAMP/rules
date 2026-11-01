@@ -237,19 +237,22 @@ class GitHub:
             obj = self.api(f"git/tags/{obj['sha']}")['object']
         raise ValueError('Tag nesting too deep')
 
-    def asset(self, release, version):
+    def asset(self, release, version, allow_unfinished=False):
         assets = self.api(f"releases/{release['id']}/assets?per_page=100")
         require(len(assets) <= 1, f'Unexpected assets on {version}')
         if not assets:
             return None
         asset = assets[0]
-        require(asset['name'] == f'{BASE}-{version}.zip' and asset['state'] == 'uploaded',
-                f'Unexpected or incomplete asset on {version}')
+        require(asset['name'] == f'{BASE}-{version}.zip', f'Unexpected asset on {version}')
+        if allow_unfinished and asset['state'] != 'uploaded':
+            return None
+        require(asset['state'] == 'uploaded', f'Incomplete asset on {version}')
         require(asset['size'] <= MAX_FILE * 4, 'Release asset too large')
         return self.api(f"releases/assets/{asset['id']}", binary=True)
 
-    def upload(self, version, path):
-        subprocess.run(['gh', 'release', 'upload', version, str(path), '--repo', self.repository],
+    def upload(self, version, path, replace=False):
+        subprocess.run(['gh', 'release', 'upload', version, str(path), '--repo', self.repository]
+                       + (['--clobber'] if replace else []),
                        check=True, timeout=120)
 
 
@@ -292,7 +295,7 @@ def write_pages(directory, archives):
     (directory / 'index.html').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
-def publish(github, output, pages, dry_run=False):
+def publish(github, output, pages, dry_run=False, force=False):
     manifest = json_load((output / 'manifest.json').read_bytes())
     version, commit = manifest['version'], manifest['commit']
     key = version_key(version)
@@ -301,14 +304,16 @@ def publish(github, output, pages, dry_run=False):
     archives = {version: read_zip(candidate, version)}
     existing = github.api(f'releases/tags/{version}', optional=True)
     target = github.tag(version)
-    require(target in (None, commit), 'Existing version tag points to a different commit')
+    require(force or target in (None, commit), 'Existing version tag points to a different commit')
     existing_asset = None
     if existing:
-        require(target == commit and existing['name'] == version and existing['body'] == notes
-                and not existing['prerelease'], 'Existing release metadata conflicts')
-        existing_asset = github.asset(existing, version)
-        require(existing_asset is None or existing_asset == candidate, 'Existing release asset differs')
-        require(existing['draft'] or existing_asset is not None, 'Published release has no asset')
+        require(not force or not existing.get('immutable', False),
+                'GitHub marks this release immutable; force replacement is unavailable')
+        require(force or (target == commit and existing['name'] == version and existing['body'] == notes
+                and not existing['prerelease']), 'Existing release metadata conflicts')
+        existing_asset = github.asset(existing, version, allow_unfinished=force)
+        require(force or existing_asset is None or existing_asset == candidate, 'Existing release asset differs')
+        require(force or existing['draft'] or existing_asset is not None, 'Published release has no asset')
     published_commits = set()
     for release in github.releases():
         name = release['tag_name']
@@ -316,34 +321,50 @@ def publish(github, output, pages, dry_run=False):
             continue
         require(version_key(name) <= key, 'A newer version is already published; refusing rollback')
         release_commit = github.tag(name)
-        require(release_commit is not None, f'Missing historical tag: {name}')
+        require(release_commit is not None or (force and name == version),
+                f'Missing historical tag: {name}')
         published_commits.add(release_commit)
         if name != version:
             data = github.asset(release, name)
             require(data is not None, f'Missing historical ZIP: {name}')
             archives[name] = read_zip(data, name)
     alias = github.tag('2026')
-    require(alias is None or alias == commit or alias in published_commits,
+    require(alias is None or alias == commit or alias in published_commits
+            or (force and existing is not None),
             '2026 tag does not point to a known release')
     write_pages(pages, archives)  # Complete validation and Pages staging before mutation.
     if dry_run:
-        return 'Dry run: validated notes, ZIP and Pages preview; no tags, releases or deployments changed.'
+        replacement = (f' Force replacement enabled for {version}: dated tag, release notes, ZIP, '
+                       '2026 alias and Pages would be reissued.' if force else '')
+        return ('Dry run: validated notes, ZIP and Pages preview; no tags, releases or deployments changed.'
+                + replacement)
+    if force and existing:
+        # Withdraw the mutable release while replacing its content; retain its ID.
+        github.api(f"releases/{existing['id']}", 'PATCH',
+                   dict(name=version, body=notes, target_commitish=commit, draft=True, prerelease=False))
+        existing['draft'] = True
     if target is None:
         github.api('git/refs', 'POST', {'ref': f'refs/tags/{version}', 'sha': commit})
+    elif force and target != commit:
+        github.api(f'git/refs/tags/{version}', 'PATCH', {'sha': commit, 'force': True})
     if existing is None:
         existing = github.api('releases', 'POST', dict(tag_name=version, target_commitish=commit,
                               name=version, body=notes, draft=True, prerelease=False))
-    if existing_asset is None:
-        github.upload(version, output / manifest['asset'])
+    if force or existing_asset is None:
+        if force:
+            github.upload(version, output / manifest['asset'], replace=True)
+        else:
+            github.upload(version, output / manifest['asset'])
         require(github.asset(existing, version) == candidate, 'Uploaded asset verification failed')
     if existing['draft']:
         github.api(f"releases/{existing['id']}", 'PATCH', {'draft': False, 'make_latest': 'true'})
-    # Existing published releases are immutable; retries only repair distribution pointers.
+    # Normal retries only repair pointers; explicit force mode replaces the selected version.
     if alias is None:
         github.api('git/refs', 'POST', {'ref': 'refs/tags/2026', 'sha': commit})
     elif alias != commit:
         github.api('git/refs/tags/2026', 'PATCH', {'sha': commit, 'force': True})
-    return f'Release {version} published and 2026 tag updated. Pages deployment is pending.'
+    action = 'force-replaced' if force else 'published'
+    return f'Release {version} {action} and 2026 tag updated. Pages deployment is pending.'
 
 
 def summary(output, status):
@@ -369,10 +390,12 @@ def main():
     parser.add_argument('--ref', default='')
     parser.add_argument('--repository', required=True)
     parser.add_argument('--publish', action='store_true')
+    parser.add_argument('--force', action='store_true',
+                        help='Replace the selected version, including its dated tag, notes and ZIP')
     args = parser.parse_args()
     try:
         prepare(args.root, args.output, args.commit, args.publish, args.ref)
-        status = publish(GitHub(args.repository), args.output, args.pages, dry_run=not args.publish)
+        status = publish(GitHub(args.repository), args.output, args.pages, dry_run=not args.publish, force=args.force)
         summary(args.output, status)
     except Exception as error:
         status = f'Failed: {error}. Publication may be partial if this was a real run; inspect tags/releases and rerun the same commit.'

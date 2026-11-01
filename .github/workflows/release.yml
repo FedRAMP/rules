@@ -1,5 +1,5 @@
 name: Release FedRAMP Consolidated Rules
-run-name: ${{ inputs.dry_run && 'Preview FedRAMP Consolidated Rules' || 'Publish FedRAMP Consolidated Rules' }}
+run-name: ${{ inputs.dry_run && (inputs.force_replace && 'Preview Forced Rules Release Replacement' || 'Preview FedRAMP Consolidated Rules') || (inputs.force_replace && 'Force Replace FedRAMP Rules Release' || 'Publish FedRAMP Consolidated Rules') }}
 
 on:
   workflow_dispatch:
@@ -9,6 +9,11 @@ on:
         type: boolean
         required: true
         default: true
+      force_replace:
+        description: Force Replace Existing Release, Tag, and Assets
+        type: boolean
+        required: true
+        default: false
 
 permissions:
   contents: read
@@ -51,12 +56,17 @@ jobs:
           PY
       - name: Generate Release Summary and Preview Assets
         env:
+          FORCE_REPLACE: ${{ inputs.force_replace }}
           GH_TOKEN: ${{ github.token }}
           RELEASE_REPOSITORY: ${{ github.repository }}
           RELEASE_SHA: ${{ github.sha }}
           RELEASE_REF: ${{ github.ref }}
         run: |
-          "$RUNNER_TEMP/release-venv/bin/python" tools/release/release.py \
+          extra_args=()
+          if [[ "$FORCE_REPLACE" == true ]]; then
+            extra_args+=(--force)
+          fi
+          "$RUNNER_TEMP/release-venv/bin/python" tools/release/release.py "${extra_args[@]}" \
             --output "$RUNNER_TEMP/release" --pages "$RUNNER_TEMP/pages" \
             --commit "$RELEASE_SHA" --ref "$RELEASE_REF" --repository "$RELEASE_REPOSITORY"
       - name: Upload Release Notes and ZIP Preview
@@ -94,12 +104,17 @@ jobs:
           "$RUNNER_TEMP/release-venv/bin/pip" install --disable-pip-version-check -r tools/release/requirements.txt
       - name: Publish Validated Rules Release Assets
         env:
+          FORCE_REPLACE: ${{ inputs.force_replace }}
           GH_TOKEN: ${{ github.token }}
           RELEASE_REPOSITORY: ${{ github.repository }}
           RELEASE_SHA: ${{ github.sha }}
           RELEASE_REF: ${{ github.ref }}
         run: |
-          "$RUNNER_TEMP/release-venv/bin/python" tools/release/release.py \
+          extra_args=()
+          if [[ "$FORCE_REPLACE" == true ]]; then
+            extra_args+=(--force)
+          fi
+          "$RUNNER_TEMP/release-venv/bin/python" tools/release/release.py "${extra_args[@]}" \
             --output "$RUNNER_TEMP/release" --pages "$RUNNER_TEMP/pages" \
             --commit "$RELEASE_SHA" --ref "$RELEASE_REF" --repository "$RELEASE_REPOSITORY" --publish
       - name: Upload Complete Versioned Pages Collection

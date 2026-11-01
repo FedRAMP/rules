@@ -48,10 +48,11 @@ class FakeGitHub:
             if name == '2026' and self.fail_alias:
                 raise RuntimeError('Simulated alias failure')
             self.tags[name] = payload['sha']
-        elif path == 'git/refs/tags/2026':
-            if self.fail_alias:
+        elif path.startswith('git/refs/tags/'):
+            name = path.removeprefix('git/refs/tags/')
+            if name == '2026' and self.fail_alias:
                 raise RuntimeError('Simulated alias failure')
-            self.tags['2026'] = payload['sha']
+            self.tags[name] = payload['sha']
         elif path == 'releases':
             record = dict(payload, id=len(self.records) + 1)
             self.records[payload['tag_name']] = record
@@ -65,10 +66,10 @@ class FakeGitHub:
     def tag(self, name):
         return self.tags.get(name)
 
-    def asset(self, record, version):
+    def asset(self, record, version, allow_unfinished=False):
         return self.assets.get(version)
 
-    def upload(self, version, path):
+    def upload(self, version, path, replace=False):
         if self.fail_upload:
             raise RuntimeError('Simulated upload failure')
         self.writes.append(('upload', version))
@@ -288,6 +289,76 @@ class ReleaseTests(unittest.TestCase):
             self.github.records[version] = dict(tag_name=version, draft=False, prerelease=False) | changes
         self.publish(dry_run=True)
         self.assertEqual(len(list((self.root / 'pages').iterdir())), 5)
+
+    def test_force_replaces_current_version_and_preserves_history(self):
+        self.github.seed()
+        historical = self.github.assets[OLD]
+        self.github.seed(V, 'c' * 40)
+        self.github.assets[V] = b'old archive layout'
+        original_id = self.github.records[V]['id']
+        self.prepare(True)
+        r.publish(self.github, self.output, self.root / 'force', force=True)
+        self.assertEqual(self.github.tags[V], SHA)
+        self.assertEqual(self.github.tags['2026'], SHA)
+        self.assertEqual(self.github.records[V]['id'], original_id)
+        self.assertEqual(self.github.records[V]['body'], (self.output / 'release-notes.md').read_text())
+        self.assertFalse(self.github.records[V]['draft'])
+        self.assertEqual(self.github.assets[V], (self.output / f'{r.BASE}-{V}.zip').read_bytes())
+        self.assertEqual(self.github.assets[OLD], historical)
+        self.assertTrue((self.root / 'force' / f'{r.BASE}-{OLD}.json').is_file())
+
+    def test_force_dry_run_previews_conflicts_without_writes(self):
+        self.github.seed(V, OLD_SHA)
+        self.prepare()
+        status = r.publish(self.github, self.output, self.root / 'force', dry_run=True, force=True)
+        self.assertIn('Force replacement enabled', status)
+        self.assertEqual(self.github.writes, [])
+        self.assertEqual(self.github.tags[V], OLD_SHA)
+
+    def test_force_recovers_after_failed_upload_and_alias_update(self):
+        for failure in ('fail_upload', 'fail_alias'):
+            with self.subTest(failure=failure):
+                gh = FakeGitHub()
+                gh.seed(V, OLD_SHA)
+                self.prepare(True)
+                setattr(gh, failure, True)
+                with self.assertRaises(RuntimeError):
+                    r.publish(gh, self.output, self.root / failure, force=True)
+                self.assertEqual(gh.tags[V], SHA)
+                self.assertEqual(gh.tags['2026'], OLD_SHA)
+                setattr(gh, failure, False)
+                r.publish(gh, self.output, self.root / (failure + '-retry'), force=True)
+                self.assertEqual(gh.tags['2026'], SHA)
+                self.assertFalse(gh.records[V]['draft'])
+
+    def test_force_does_not_override_newer_or_immutable_releases(self):
+        self.prepare(True)
+        for immutable in (True, False):
+            gh = FakeGitHub()
+            gh.seed(V, OLD_SHA)
+            if immutable:
+                gh.records[V]['immutable'] = True
+            else:
+                gh.seed('2026.12.01.01')
+            with self.assertRaisesRegex(ValueError, 'immutable|newer version'):
+                r.publish(gh, self.output, self.root / str(immutable), force=True)
+            self.assertEqual(gh.writes, [])
+
+    def test_force_can_retry_an_unfinished_asset_upload(self):
+        gh = r.GitHub('example/rules')
+        asset = dict(name=f'{r.BASE}-{V}.zip', state='starter')
+        with patch.object(gh, 'api', return_value=[asset]):
+            with self.assertRaisesRegex(ValueError, 'Incomplete asset'):
+                gh.asset({'id': 1}, V)
+            self.assertIsNone(gh.asset({'id': 1}, V, allow_unfinished=True))
+
+    def test_upload_replacement_uses_explicit_clobber_flag(self):
+        gh = r.GitHub('example/rules')
+        with patch('release.subprocess.run') as run:
+            gh.upload(V, Path('asset.zip'))
+            self.assertNotIn('--clobber', run.call_args.args[0])
+            gh.upload(V, Path('asset.zip'), replace=True)
+            self.assertIn('--clobber', run.call_args.args[0])
 
     def test_release_pagination(self):
         github = r.GitHub('example/rules')
