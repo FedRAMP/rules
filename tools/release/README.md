@@ -70,7 +70,7 @@ gh workflow run release.yml --ref main -f dry_run=false
 ```
 
 Each release has one uploaded asset:
-`fedramp-consolidated-rules-$VERSION.zip`. It contains exactly four root files:
+`fedramp-consolidated-rules-$VERSION.zip`. It contains exactly four files inside a `fcr-$VERSION/` directory:
 
 - `fedramp-consolidated-rules.json` — unchanged source bytes
 - `fedramp-consolidated-rules.schema.json` — unchanged source bytes from `schemas/`
@@ -100,9 +100,11 @@ $BASE_URL/fedramp-consolidated-rules-2026.11.02.01.json
 $BASE_URL/fedramp-consolidated-rules-2026.11.02.01.schema.json
 ```
 
-Every Pages JSON is minified; the URLs do not add `.min`. Pages contains only
-these JSON files, with no index, ZIP, source tools, or notes. A request to the
-site root may return 404; use the explicit file URLs.
+Every Pages JSON is minified; the URLs do not add `.min`. Pages contains these
+JSON files and a single `index.html` with a brief explanation and relative links
+to the current and dated files, newest first. The index uses plain HTML with no
+JavaScript, stylesheets, or external assets. ZIPs, source tools, and release
+notes are not published to Pages.
 
 The dated tag and release remain fixed. The `2026` Git tag and Pages aliases
 advance to the latest published dated version; there is no rolling `2026`
@@ -114,8 +116,11 @@ Unreleased versions are represented in the notes, not separate files.
 Retain historical releases and their assets: they are the source of Pages
 history. Missing, malformed, or oversized assets stop publication. Conflicting
 bytes for the version being published also stop publication.
-Each original/minified JSON member is limited to 50 MiB. Existing releases with
-older ZIP layouts require deliberate migration before using this workflow.
+Each original/minified JSON member is limited to 50 MiB. Previously published four-file ZIPs with files at the archive root remain
+supported when rebuilding Pages history. Other layouts require deliberate
+migration. Rerunning publication of an older root-layout release with this
+helper will reject the changed ZIP bytes; use its original workflow revision
+for that retry, or publish a new version.
 The new version must be at least as recent as all already published versions.
 
 ## Failures and retries

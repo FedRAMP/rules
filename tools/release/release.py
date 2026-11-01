@@ -121,7 +121,12 @@ def changelog_entries(path, info, publish):
 
 
 def render_notes(entries):
-    lines = []
+    lines = [
+        'For additional information on this release, please review the '
+        '[FedRAMP Consolidated Rules for 2026 Changelog]'
+        '(https://www.fedramp.gov/2026/changelog).',
+        '',
+    ]
     contributors = {}
     for entry in entries:
         lines += [f"## {entry['version']}", '']
@@ -137,12 +142,15 @@ def render_notes(entries):
 
 
 def make_zip(rules, schema):
+    version = json_load(rules)['info']['version']
+    version_key(version)
+    prefix = f'fcr-{version}/'
     buffer = io.BytesIO()
     # Fixed timestamps, permissions and stored bytes make reruns byte-identical.
     with zipfile.ZipFile(buffer, 'w', compression=zipfile.ZIP_STORED) as archive:
         for name, data in [(RULES, rules), (SCHEMA, schema),
                            (MIN_RULES, minify(rules)), (MIN_SCHEMA, minify(schema))]:
-            item = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+            item = zipfile.ZipInfo(prefix + name, date_time=(1980, 1, 1, 0, 0, 0))
             item.create_system = 3
             item.external_attr = 0o100644 << 16
             archive.writestr(item, data)
@@ -150,15 +158,19 @@ def make_zip(rules, schema):
 
 
 def read_zip(data, version):
+    version_key(version)
     require(len(data) <= MAX_FILE * 4, "Release ZIP too large")
     with zipfile.ZipFile(io.BytesIO(data)) as archive:
         names = archive.namelist()
-        require(len(names) == len(FILES) and set(names) == FILES, "Unexpected ZIP contents")
+        # Retain support for previously published four-file, root-level ZIPs.
+        prefix = '' if set(names) == FILES else f'fcr-{version}/'
+        require(len(names) == len(FILES) and set(names) == {prefix + name for name in FILES},
+                "Unexpected ZIP contents")
         for item in archive.infolist():
             require(item.file_size <= MAX_FILE and not item.is_dir() and
                     (item.external_attr >> 16) & 0o170000 in (0, 0o100000),
                     "Unsafe or oversized ZIP entry")
-        files = {name: archive.read(name) for name in names}
+        files = {name: archive.read(prefix + name) for name in FILES}
     validate(files[RULES], files[SCHEMA], version)
     require(files[MIN_RULES] == minify(files[RULES]) and
             files[MIN_SCHEMA] == minify(files[SCHEMA]), "Minified files differ from originals")
@@ -250,6 +262,34 @@ def write_pages(directory, archives):
         (directory / f'{BASE}-{version}.schema.json').write_bytes(files[MIN_SCHEMA])
     (directory / f'{BASE}-2026.json').write_bytes(archives[latest][MIN_RULES])
     (directory / f'{BASE}-2026.schema.json').write_bytes(archives[latest][MIN_SCHEMA])
+    lines = [
+        '<!doctype html>',
+        '<html lang="en">',
+        '<head>',
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        '<title>FedRAMP Consolidated Rules for 2026</title>',
+        '</head>',
+        '<body>',
+        '<h1>FedRAMP Consolidated Rules for 2026</h1>',
+        '<p>Download the machine-readable rules and their JSON Schema. All JSON files are minified.</p>',
+        '<h2>Current Release</h2>',
+        f'<p>Version {latest}. These links update when a new release is published.</p>',
+        '<ul>',
+    ]
+    for suffix in ('.json', '.schema.json'):
+        name = f'{BASE}-2026{suffix}'
+        lines.append(f'<li><a href="{name}">{name}</a></li>')
+    lines += ['</ul>', '<h2>Versioned Releases</h2>',
+              '<p>Use these links to pin a specific release.</p>']
+    for version in sorted(archives, key=version_key, reverse=True):
+        lines += [f'<h3>{version}</h3>', '<ul>']
+        for suffix in ('.json', '.schema.json'):
+            name = f'{BASE}-{version}{suffix}'
+            lines.append(f'<li><a href="{name}">{name}</a></li>')
+        lines.append('</ul>')
+    lines += ['</body>', '</html>']
+    (directory / 'index.html').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
 def publish(github, output, pages, dry_run=False):

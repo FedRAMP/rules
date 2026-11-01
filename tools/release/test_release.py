@@ -162,6 +162,8 @@ class ReleaseTests(unittest.TestCase):
         data = (self.output / manifest['asset']).read_bytes()
         self.prepare()
         self.assertEqual(data, (self.output / manifest['asset']).read_bytes())
+        with zipfile.ZipFile(io.BytesIO(data)) as archive:
+            self.assertEqual(set(archive.namelist()), {f'fcr-{V}/{name}' for name in r.FILES})
         files = r.read_zip(data, V)
         self.assertEqual(set(files), r.FILES)
         self.assertEqual(files[r.RULES], rules())
@@ -189,16 +191,35 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 r.read_zip(data.getvalue(), V)
 
+    def test_legacy_root_archives_and_wrong_version_directory(self):
+        files = r.read_zip(r.make_zip(rules(), SCHEMA), V)
+        for prefix in ('', f'fcr-{OLD}/', '../', f'fcr-{V}/nested/'):
+            with self.subTest(prefix=prefix):
+                data = io.BytesIO()
+                with zipfile.ZipFile(data, 'w') as archive:
+                    for name, content in files.items():
+                        archive.writestr(prefix + name, content)
+                if prefix == '':
+                    self.assertEqual(r.read_zip(data.getvalue(), V), files)
+                else:
+                    with self.assertRaisesRegex(ValueError, 'Unexpected ZIP contents'):
+                        r.read_zip(data.getvalue(), V)
+
     def test_dry_run_does_not_mutate_github(self):
         self.github.seed()
         self.prepare()
         self.publish(dry_run=True)
         self.assertEqual(self.github.writes, [])
         pages = self.root / 'pages'
-        self.assertEqual(len(list(pages.iterdir())), 6)
+        self.assertEqual(len(list(pages.iterdir())), 7)
         self.assertEqual((pages / f'{r.BASE}-2026.json').read_bytes(), r.minify(rules()))
         self.assertEqual((pages / f'{r.BASE}-{OLD}.json').read_bytes(), r.minify(rules(OLD)))
-        self.assertTrue(all(p.suffix == '.json' for p in pages.iterdir()))
+        self.assertTrue(all(p.suffix == '.json' or p.name == 'index.html' for p in pages.iterdir()))
+        index = (pages / 'index.html').read_text()
+        for path in pages.glob('*.json'):
+            self.assertIn(f'href="{path.name}"', index)
+        self.assertLess(index.index(f'<h3>{V}</h3>'), index.index(f'<h3>{OLD}</h3>'))
+        self.assertNotIn('<script', index)
 
     def test_publish_and_idempotent_retry(self):
         self.prepare(True)
@@ -266,7 +287,7 @@ class ReleaseTests(unittest.TestCase):
                                  ('v1.0.0', {})]:
             self.github.records[version] = dict(tag_name=version, draft=False, prerelease=False) | changes
         self.publish(dry_run=True)
-        self.assertEqual(len(list((self.root / 'pages').iterdir())), 4)
+        self.assertEqual(len(list((self.root / 'pages').iterdir())), 5)
 
     def test_release_pagination(self):
         github = r.GitHub('example/rules')
