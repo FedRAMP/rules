@@ -52,5 +52,15 @@ ignore it; installing or running these tools is not required to consume the
 dataset.
 
 FedRAMP developers can use [tools/README.md](tools/README.md) for setup,
-validation, normalization, tests, exports, and Git hooks. Maintenance agents
+validation, normalization, tests, and Git hooks. Maintenance agents
 must also follow [tools/AGENTS-TOOLS.md](tools/AGENTS-TOOLS.md).
+
+## Releases and versioned downloads
+
+Formal releases are published manually through the **Release FedRAMP Consolidated Rules** workflow.
+Each dated release includes a ZIP with the original rules/schema and `.min.json`
+variants. The `2026` tag follows the newest published release. GitHub Pages serves
+minified current (`-2026`) and permanent dated JSON/schema files.
+
+See [the release guide](tools/release/README.md) for previewing, publishing,
+consumer URL patterns, setup, and recovery. Commits alone do not publish releases.

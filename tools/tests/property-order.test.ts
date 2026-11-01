@@ -9,6 +9,8 @@ import { loadOrderConfig } from "../src/order-config";
 import { loadRulesDocument, loadSchemaDocument } from "../src/rules";
 import { requireStringEnum } from "../src/schema-metadata";
 import type { RulesDocument } from "../src/types";
+import { collectAutoFixPlan, applyAutoFixes } from "../src/fix";
+import { collectAuditHistoryIssues } from "../src/consistency";
 
 test("the consolidated rules document follows the configured property order", () => {
   const issues = collectPropertyOrderIssues(
@@ -37,6 +39,70 @@ test("configured FRR subset order covers every schema-allowed subset", () => {
   );
 
   expect([...subsetOrder.keys].sort()).toEqual([...allowedSubsets].sort());
+});
+
+test("order fixes detect and repair histories across FRD, FRR, KSI, and CTL without mutating the source", () => {
+  const document = loadRulesDocument();
+  const schema = loadSchemaDocument();
+  let count = 0;
+  function reverseHistories(value: unknown): void {
+    if (!value || typeof value !== "object") return;
+    for (const [key, child] of Object.entries(value)) {
+      if (key === "updated" && Array.isArray(child) && child.length > 1) {
+        child.reverse();
+        count++;
+      } else reverseHistories(child);
+    }
+  }
+  reverseHistories(document);
+  document.CTL = {
+    AC: {
+      "AC-01": {
+        updated: [
+          { date: "2026-01-01", comment: "Older" },
+          { date: "2026-02-01", comment: "Newer" },
+        ],
+      },
+    },
+  };
+  const original = structuredClone(document);
+  const issues = collectPropertyOrderIssues(document, schema);
+  expect(count).toBeGreaterThan(0);
+  expect(
+    issues.filter((issue) => issue.path.endsWith(".updated")),
+  ).toHaveLength(count + 1);
+  expect(issues).toContainEqual({
+    path: "CTL.AC.AC-01.updated",
+    actualOrder: ["2026-01-01", "2026-02-01"],
+    expectedOrder: ["2026-02-01", "2026-01-01"],
+  });
+  expect(collectAutoFixPlan(document, schema).needsOrderFix).toBe(true);
+  const result = fixPropertyOrder(document, schema);
+  expect(document).toEqual(original);
+  expect(collectPropertyOrderIssues(result.document, schema)).toEqual([]);
+  expect(collectAuditHistoryIssues(result.document)).toEqual([]);
+  expect(fixPropertyOrder(result.document, schema).fixedCount).toBe(0);
+  const auto = applyAutoFixes(structuredClone(document), schema);
+  expect(collectAutoFixPlan(auto.document, schema).needsOrderFix).toBe(false);
+});
+
+test("history sorting preserves equal-date entries and leaves unconfigured arrays in place", () => {
+  const document = loadRulesDocument();
+  const entry = document.FRD.data.all["FRD-ACV"]!;
+  entry.alts = ["z", "a"];
+  entry.updated = [
+    { date: "2026-01-01", comment: "Older" },
+    { date: "2026-02-01", comment: "First at this date" },
+    { date: "2026-02-01", comment: "Second at this date" },
+  ];
+  const fixed = fixPropertyOrder(document, loadSchemaDocument()).document.FRD
+    .data.all["FRD-ACV"]!;
+  expect(fixed.updated.map((entry) => entry.comment)).toEqual([
+    "First at this date",
+    "Second at this date",
+    "Older",
+  ]);
+  expect(fixed.alts).toEqual(["z", "a"]);
 });
 
 test("property order fixes use schema property order as the source of truth", () => {

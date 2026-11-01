@@ -10,7 +10,22 @@ import {
   toDefaultTitleCase,
   type TermSyncChange,
 } from "../src/terms";
-import type { RulesDocument } from "../src/types";
+import type { FrdDocumentInfo, RulesDocument } from "../src/types";
+
+function fixtureInfo(): FrdDocumentInfo {
+  return {
+    name: "Test",
+    short_name: "TST",
+    web_name: "test",
+    purpose: "Test fixture",
+    status: "stable",
+    effective: { is: "required" },
+  };
+}
+
+function fixtureHistory() {
+  return [{ date: "2026-02-04", comment: "Existing note." }];
+}
 
 function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
   return {
@@ -21,7 +36,7 @@ function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
       last_updated: "2026-09-13",
     },
     FRD: {
-      info: {},
+      info: fixtureInfo(),
       data: {
         all: {
           "FRD-MST": {
@@ -31,23 +46,27 @@ function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
               ? {}
               : { ignore_in_terms: ignoreInTerms }),
             definition: "Test definition",
+            updated: fixtureHistory(),
           },
           "FRD-AGY": {
             term: "Agency",
             definition: "Test definition",
+            alts: [],
+            updated: fixtureHistory(),
           },
           "FRD-PVD": {
             term: "Provider",
             alts: ["providers"],
             ignore_in_terms: false,
             definition: "Test definition",
+            updated: fixtureHistory(),
           },
         },
       },
     },
     FRR: {
       MAS: {
-        info: {},
+        info: fixtureInfo(),
         data: {
           all: {
             CSO: {
@@ -57,6 +76,7 @@ function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
                 statement: "Providers MUST notify an agency.",
                 force: "MUST",
                 terms: [],
+                updated: fixtureHistory(),
               },
             },
           },
@@ -69,10 +89,12 @@ function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
         name: "Test theme",
         web_name: "Test theme",
         short_name: "Test",
-        theme: "Test",
+        status: "stable",
         indicators: {
           "KSI-IAM-TST": {
             name: "Test indicator",
+            controls: [],
+            updated: fixtureHistory(),
             varies_by_class: {
               b: { statement: "Providers are required to notify an agency." },
               c: { statement: "Providers are required to notify an agency." },
@@ -89,59 +111,66 @@ test.each([
   ["absent", undefined],
   ["false", false],
   ["true", true],
-] as const)("term sync honors ignore_in_terms=%s for terms and aliases", (_, ignoreInTerms) => {
-  const document = createTermSyncDocument(ignoreInTerms);
-  const expectedTerms = ignoreInTerms === true
-    ? ["Agency", "Provider"]
-    : ["Agency", "MUST", "Provider"];
-  const expectedChanges: TermSyncChange[] = [
-    {
-      id: "MAS-CSO-TST",
-      location: "FRR.MAS.data.all.CSO.MAS-CSO-TST",
-      kind: "requirement",
-      currentTerms: [],
-      nextTerms: expectedTerms,
-    },
-    {
-      id: "KSI-IAM-TST",
-      location: "KSI.IAM.indicators.KSI-IAM-TST",
-      kind: "indicator",
-      currentTerms: [],
-      nextTerms: expectedTerms,
-    },
-  ];
-  const original = structuredClone(document);
+] as const)(
+  "term sync honors ignore_in_terms=%s for terms and aliases",
+  (_, ignoreInTerms) => {
+    const document = createTermSyncDocument(ignoreInTerms);
+    const expectedTerms =
+      ignoreInTerms === true
+        ? ["Agency", "Provider"]
+        : ["Agency", "MUST", "Provider"];
+    const expectedChanges: TermSyncChange[] = [
+      {
+        id: "MAS-CSO-TST",
+        location: "FRR.MAS.data.all.CSO.MAS-CSO-TST",
+        kind: "requirement",
+        currentTerms: [],
+        nextTerms: expectedTerms,
+      },
+      {
+        id: "KSI-IAM-TST",
+        location: "KSI.IAM.indicators.KSI-IAM-TST",
+        kind: "indicator",
+        currentTerms: [],
+        nextTerms: expectedTerms,
+      },
+    ];
+    const original = structuredClone(document);
 
-  expect(collectTermSyncChanges(document)).toEqual(expectedChanges);
-  expect(document).toEqual(original);
-  expect(applyTermSync(document)).toEqual(expectedChanges);
-  expect(collectTermSyncChanges(document)).toEqual([]);
-  expect(applyTermSync(document)).toEqual([]);
-});
+    expect(collectTermSyncChanges(document)).toEqual(expectedChanges);
+    expect(document).toEqual(original);
+    expect(applyTermSync(document)).toEqual(expectedChanges);
+    expect(collectTermSyncChanges(document)).toEqual([]);
+    expect(applyTermSync(document)).toEqual([]);
+  },
+);
 
-test.each(["all", "20x", "rev5"])("term sync removes ignored definitions from %s even when their text still matches", (scope) => {
-  const document = createTermSyncDocument(true);
-  const definitions = document.FRD.data.all!;
-  document.FRD.data = { [scope]: definitions };
-  const requirement = document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!;
-  const indicator = Object.values(document.KSI.IAM!.indicators)[0]!;
-  requirement.terms = ["Agency", "MUST", "Provider"];
-  indicator.varies_by_class = {
-    b: { statement: "This behavior is required." },
-    c: { statement: "This behavior is required." },
-  };
-  indicator.terms = ["MUST"];
+test.each(["all", "20x", "rev5"])(
+  "term sync removes ignored definitions from %s even when their text still matches",
+  (scope) => {
+    const document = createTermSyncDocument(true);
+    const definitions = document.FRD.data.all!;
+    document.FRD.data = { all: {}, [scope]: definitions };
+    const requirement = document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!;
+    const indicator = Object.values(document.KSI.IAM!.indicators)[0]!;
+    requirement.terms = ["Agency", "MUST", "Provider"];
+    indicator.varies_by_class = {
+      b: { statement: "This behavior is required." },
+      c: { statement: "This behavior is required." },
+    };
+    indicator.terms = ["MUST"];
 
-  const changes = collectTermSyncChanges(document);
+    const changes = collectTermSyncChanges(document);
 
-  expect(changes).toHaveLength(2);
-  expect(changes[0]!.nextTerms).toEqual(["Agency", "Provider"]);
-  expect(changes[1]!.nextTerms).toEqual([]);
-  expect(applyTermSync(document)).toEqual(changes);
-  expect(requirement.terms).toEqual(["Agency", "Provider"]);
-  expect(indicator.terms).toEqual([]);
-  expect(collectTermSyncChanges(document)).toEqual([]);
-});
+    expect(changes).toHaveLength(2);
+    expect(changes[0]!.nextTerms).toEqual(["Agency", "Provider"]);
+    expect(changes[1]!.nextTerms).toEqual([]);
+    expect(applyTermSync(document)).toEqual(changes);
+    expect(requirement.terms).toEqual(["Agency", "Provider"]);
+    expect(indicator.terms).toEqual([]);
+    expect(collectTermSyncChanges(document)).toEqual([]);
+  },
+);
 
 test("all FRD terms use the default title casing", () => {
   const changes = collectDefinitionTermTitleChanges(loadRulesDocument());
@@ -154,8 +183,12 @@ test("all terms arrays match the structured term extraction rules", () => {
 });
 
 test("default title casing capitalizes title words while preserving intentional mixed case", () => {
-  expect(toDefaultTitleCase("Top-level administrative account")).toBe("Top-Level Administrative Account");
-  expect(toDefaultTitleCase("FedRAMP Security Inbox")).toBe("FedRAMP Security Inbox");
+  expect(toDefaultTitleCase("Top-level administrative account")).toBe(
+    "Top-Level Administrative Account",
+  );
+  expect(toDefaultTitleCase("FedRAMP Security Inbox")).toBe(
+    "FedRAMP Security Inbox",
+  );
 });
 
 test("definition title fixes update the term without appending to updated history", () => {
@@ -167,12 +200,13 @@ test("definition title fixes update the term without appending to updated histor
       last_updated: "2026-04-12",
     },
     FRD: {
-      info: {},
+      info: fixtureInfo(),
       data: {
         all: {
           "FRD-TLA": {
             term: "Top-level administrative account",
             definition: "Test definition",
+            alts: [],
             updated: [
               {
                 date: "2026-02-04",
@@ -197,7 +231,9 @@ test("definition title fixes update the term without appending to updated histor
       nextTerm: "Top-Level Administrative Account",
     },
   ]);
-  expect(document.FRD.data.all!["FRD-TLA"]!.term).toBe("Top-Level Administrative Account");
+  expect(document.FRD.data.all!["FRD-TLA"]!.term).toBe(
+    "Top-Level Administrative Account",
+  );
   expect(document.FRD.data.all!["FRD-TLA"]!.updated).toEqual([
     {
       date: "2026-02-04",
@@ -215,12 +251,13 @@ test("term sync updates terms without appending to updated history by default", 
       last_updated: "2026-04-12",
     },
     FRD: {
-      info: {},
+      info: fixtureInfo(),
       data: {
         all: {
           "FRD-AGY": {
             term: "Agency",
             definition: "Test definition",
+            updated: fixtureHistory(),
             alts: ["agency"],
           },
         },
@@ -228,7 +265,7 @@ test("term sync updates terms without appending to updated history by default", 
     },
     FRR: {
       MAS: {
-        info: {},
+        info: fixtureInfo(),
         data: {
           all: {
             CSO: {
@@ -256,7 +293,9 @@ test("term sync updates terms without appending to updated history by default", 
   const changes = applyTermSync(document, { entryDate: "2026-04-12" });
 
   expect(changes).toHaveLength(1);
-  expect(document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.terms).toEqual(["Agency"]);
+  expect(document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.terms).toEqual([
+    "Agency",
+  ]);
   expect(document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.updated).toEqual([
     {
       date: "2026-02-04",
@@ -274,12 +313,13 @@ test("term sync prepends an updated entry when comment mode is enabled", () => {
       last_updated: "2026-04-12",
     },
     FRD: {
-      info: {},
+      info: fixtureInfo(),
       data: {
         all: {
           "FRD-AGY": {
             term: "Agency",
             definition: "Test definition",
+            updated: fixtureHistory(),
             alts: ["agency"],
           },
         },
@@ -287,7 +327,7 @@ test("term sync prepends an updated entry when comment mode is enabled", () => {
     },
     FRR: {
       MAS: {
-        info: {},
+        info: fixtureInfo(),
         data: {
           all: {
             CSO: {
@@ -312,7 +352,10 @@ test("term sync prepends an updated entry when comment mode is enabled", () => {
     KSI: {},
   };
 
-  const changes = applyTermSync(document, { addComment: true, entryDate: "2026-04-12" });
+  const changes = applyTermSync(document, {
+    addComment: true,
+    entryDate: "2026-04-12",
+  });
 
   expect(changes).toHaveLength(1);
   expect(document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.updated).toEqual([
@@ -336,12 +379,13 @@ test("term sync appends to an existing comment when comment mode is enabled and 
       last_updated: "2026-04-12",
     },
     FRD: {
-      info: {},
+      info: fixtureInfo(),
       data: {
         all: {
           "FRD-AGY": {
             term: "Agency",
             definition: "Test definition",
+            updated: fixtureHistory(),
             alts: ["agency"],
           },
         },
@@ -349,7 +393,7 @@ test("term sync appends to an existing comment when comment mode is enabled and 
     },
     FRR: {
       MAS: {
-        info: {},
+        info: fixtureInfo(),
         data: {
           all: {
             CSO: {
@@ -374,7 +418,10 @@ test("term sync appends to an existing comment when comment mode is enabled and 
     KSI: {},
   };
 
-  const changes = applyTermSync(document, { addComment: true, entryDate: "2026-04-12" });
+  const changes = applyTermSync(document, {
+    addComment: true,
+    entryDate: "2026-04-12",
+  });
 
   expect(changes).toHaveLength(1);
   expect(document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.updated).toEqual([

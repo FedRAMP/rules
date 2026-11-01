@@ -21,8 +21,9 @@ bun install --frozen-lockfile
 ```
 
 Installation writes local dependencies and may require network access. The
-current check suite uses local files and does not make live rule-schema URL
-requests once dependencies are installed.
+unit tests use local files and mocked HTTP responses. `bun run check` and
+`bun run test` also check live reference URLs, so they require network access.
+They do not fetch rule-schema URLs.
 
 ## Configuration And Implementation
 
@@ -42,13 +43,13 @@ dynamic object keys and array items.
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | Test runner and final reports              | [test.ts](test.ts)                                                                                           |
 | Fix CLI and shared planning/application    | [fix.ts](fix.ts), [src/fix.ts](src/fix.ts)                                                                   |
-| Spreadsheet export                         | [export-spreadsheet.ts](export-spreadsheet.ts)                                                               |
 | Paths and document loading/cloning/writing | [src/config.ts](src/config.ts), [src/rules.ts](src/rules.ts)                                                 |
 | FRD, FRR, and KSI traversal                | [src/traversal.ts](src/traversal.ts)                                                                         |
 | Schema constraints and validation          | [src/schema-metadata.ts](src/schema-metadata.ts), [src/schema-validation.ts](src/schema-validation.ts)       |
 | Consistency checks and metadata freshness  | [src/consistency.ts](src/consistency.ts), [src/metadata-freshness.ts](src/metadata-freshness.ts)             |
 | Property and dynamic ordering              | [src/property-order.ts](src/property-order.ts), [src/order-config.ts](src/order-config.ts)                   |
 | IDs, normative force, and terms            | [src/id-alignment.ts](src/id-alignment.ts), [src/keywords.ts](src/keywords.ts), [src/terms.ts](src/terms.ts) |
+| Reference URL reachability                 | [src/reference-urls.ts](src/reference-urls.ts)                                                               |
 | Types and CLI helpers                      | [src/types.ts](src/types.ts), [src/cli.ts](src/cli.ts)                                                       |
 
 Command definitions are in [package.json](package.json); tests are in
@@ -58,11 +59,11 @@ Command definitions are in [package.json](package.json); tests are in
 
 These commands inspect the project without rewriting the canonical files:
 
-| Command             | Behavior                                                                  |
-| ------------------- | ------------------------------------------------------------------------- |
-| `bun run check`     | Runs typechecking, then the full test runner if typechecking passes.      |
-| `bun run typecheck` | Runs `tsc --noEmit`.                                                      |
-| `bun run test`      | Runs all Bun tests through `test.ts`, then prints additional diagnostics. |
+| Command             | Behavior                                                                       |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `bun run check`     | Runs typechecking, then the full test runner if typechecking passes.           |
+| `bun run typecheck` | Runs `tsc --noEmit`.                                                           |
+| `bun run test`      | Runs all Bun tests, including live reference URLs, then prints final diagnostics. |
 
 Run `bun run check` for changes to rules, schema, tooling, or tests. Coverage
 includes schema validation, formatting, ID/container alignment, subset
@@ -70,28 +71,49 @@ applicability, effective dates, normative force, terms, property and array
 ordering, artifact applicability, update history, text hygiene, class variants,
 controlled vocabulary, cross-references, and fix behavior.
 
+The runner orders suites approximately fastest to slowest, with live reference
+URL checks last, and separates Bun's final duration summary with a blank line.
+New test files are discovered automatically. This ordering and spacing apply to
+`bun run test` and `bun run check`; direct `bun test` uses Bun's default output.
+
 The runner prints human-readable consistency and property-order failure reports.
 It also reports advisory warnings for metadata freshness, FRR subset force
 ordering, and unused subsets; those warnings alone do not make the command fail.
 
+Live reference URL checks run in `tests/reference-url-reachability.test.ts`,
+using Bun's standard pass/fail output before the test totals. Failures include
+the full JSON path, original URL, and HTTP status or connection error. The check covers
+`reference_url` and legacy `referenceurl` fields throughout the dataset. It
+follows redirects, tries GET when HEAD returns an unsuccessful status, and
+checks each distinct URL once (ignoring fragments). Four requests run at a time,
+with a 10-second deadline per URL. Fragment anchors are not validated.
+
+Non-successful responses, including access-denied/rate-limit responses, and
+network failures make the command fail. Access-denied and connection failures
+are reported as unverified reachability, not proof that the URL is broken.
+Notification targets, schema URLs, and URLs embedded in prose are outside this
+check's scope. `bun test` also includes the live check; select focused unit-test
+files (for example, `bun test tests/reference-urls.test.ts`) to avoid network requests.
+
 Use focused aliases while working:
 
-| Command                          | Focus                                                |
-| -------------------------------- | ---------------------------------------------------- |
-| `bun run test:schema`            | Dataset/schema validation and schema contract cases. |
-| `bun run test:schema-validation` | Schema error messages and locations.                 |
-| `bun run test:formatting`        | Prettier formatting of both canonical JSON files.    |
-| `bun run test:ids`               | Requirement ID alignment.                            |
-| `bun run test:effective-dates`   | Certification-specific timing rules.                 |
-| `bun run test:force`             | Statement/force consistency.                         |
-| `bun run test:terms`             | Definition casing and term synchronization.          |
-| `bun run test:order`             | Schema-driven and configured ordering.               |
-| `bun run test:consistency`       | Cross-entry consistency and related reporting.       |
-| `bun run test:fix`               | Fix planning and application.                        |
+| Command                          | Focus                                                       |
+| -------------------------------- | ----------------------------------------------------------- |
+| `bun run test:schema`            | Dataset/schema validation and schema contract cases.        |
+| `bun run test:schema-validation` | Schema error messages and locations.                        |
+| `bun run test:formatting`        | Prettier formatting of both canonical JSON files.           |
+| `bun run test:ids`               | Requirement ID alignment.                                   |
+| `bun run test:effective-dates`   | Certification-specific timing rules.                        |
+| `bun run test:force`             | Statement/force consistency.                                |
+| `bun run test:terms`             | Definition casing and term synchronization.                 |
+| `bun run test:order`             | Schema-driven and configured ordering.                      |
+| `bun run test:consistency`       | Cross-entry consistency and related reporting.              |
+| `bun run test:reference-urls`    | Live reference URL checks with a standalone failure report. |
+| `bun run test:fix`               | Fix planning and application.                               |
 
-Focused aliases invoke Bun directly and do not include the full runner's final
-reports. Artifact-applicability and metadata-warning tests are included in the
-full suite and can also be run directly with `bun test` and their test paths.
+Focused unit-test aliases invoke Bun directly and do not include the full
+runner's final reports. `test:reference-urls` runs the live checker directly.
+Artifact-applicability and metadata-warning tests are included in the full suite and can also be run directly with `bun test` and their test paths.
 
 ## Fixes
 
@@ -148,21 +170,6 @@ has written a separate candidate.
 ID fixes also record entry history and update dataset version/date metadata.
 They do not rewrite references to renamed IDs; inspect references when reviewing
 an ID change.
-
-## Exports
-
-`bun run export` writes `../fedramp-consolidated-rules.xlsx` by default. To choose
-another destination:
-
-```bash
-bun run export -- --output ./fedramp-consolidated-rules.xlsx
-```
-
-The workbook contains `FRD Definitions`, `FRR Requirements`, and `KSI Indicators`
-sheets. Export reads the dataset and writes the spreadsheet without changing the
-rules or schema. Output paths are relative to the current working directory;
-an existing destination file is overwritten. The spreadsheet is a flattened
-view; use the JSON for complete nested information.
 
 ## Git Hooks And CI
 

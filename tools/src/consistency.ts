@@ -7,6 +7,7 @@ import {
 } from "./schema-metadata";
 import { findArrayItemOrderRule, loadOrderConfig } from "./order-config";
 import type {
+  AffectedParty,
   ClassKey,
   DefinitionEntry,
   FrrSubsetDefinition,
@@ -260,16 +261,7 @@ function collectIndicatorEntries(document: RulesDocument): Array<{
   }> = [];
 
   for (const [themeKey, theme] of Object.entries(document.KSI ?? {})) {
-    const indicators = Array.isArray(theme.indicators)
-      ? Object.fromEntries(
-          theme.indicators.map((indicator, index) => [
-            `${theme.id}-${index}`,
-            indicator,
-          ]),
-        )
-      : theme.indicators;
-
-    for (const [id, indicator] of Object.entries(indicators ?? {})) {
+    for (const [id, indicator] of Object.entries(theme.indicators ?? {})) {
       entries.push({
         themeKey,
         id,
@@ -692,7 +684,7 @@ function getSubsetApplicabilityArray(
     return null;
   }
 
-  return value.filter((item): item is string => typeof item === "string");
+  return value.filter((item) => typeof item === "string");
 }
 
 function hasSameStringSet(left: string[], right: string[]): boolean {
@@ -741,9 +733,9 @@ function getRequirementOrderingForce(requirement: Requirement): string | null {
     return requirement.force;
   }
 
-  const classForces = CLASS_KEYS.map(
-    (classKey) => requirement.varies_by_class?.[classKey]?.force,
-  ).filter((force): force is string => typeof force === "string");
+  const classForces = Object.values(requirement.varies_by_class ?? {})
+    .map((entry) => entry.force)
+    .filter((force) => typeof force === "string");
 
   return classForces.sort(compareForces)[0] ?? null;
 }
@@ -954,7 +946,8 @@ export function applyFrrSubsetApplicabilityAffectsFixes(
 
   for (const target of targets) {
     if (target.subset.applicability) {
-      target.subset.applicability.affects = target.expectedAffects;
+      target.subset.applicability.affects =
+        target.expectedAffects as AffectedParty[];
     }
   }
 
@@ -1342,8 +1335,9 @@ function collectRequirementRuleTextParts(
   );
 
   if (requirement.varies_by_class) {
-    for (const classKey of CLASS_KEYS) {
-      const classEntry = requirement.varies_by_class[classKey];
+    for (const [classKey, classEntry] of Object.entries(
+      requirement.varies_by_class,
+    )) {
       const classLocation = `${location}.varies_by_class.${classKey}`;
 
       addText(`${classLocation}.statement`, classEntry?.statement, (value) => {
