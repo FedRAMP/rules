@@ -6,6 +6,7 @@ fedramp-consolidated-rules:
       - "FRD-MAS (Minimum Assessment Scope): Added to support the explanation in the rule. [#41](https://github.com/FedRAMP/rules/issues/41) (flagged by @ExtremoPenguin in [2026/145](https://github.com/FedRAMP/2026/discussions/145#discussioncomment-18903555))."
       - "FRC-CLA-MFR (Mandatory FedRAMP Rules for Class A): Added SDR-CSX-KSI to list of requirements because folks need a rule that explains how to document the key security indicators! [#45](https://github.com/FedRAMP/rules/issues/45) (flagged by @tnnrjmsn-eit in [2026/131](https://github.com/FedRAMP/2026/discussions/131#discussioncomment-19227470))."
       - "FRC-CLA-RFR (Recommended FedRAMP Rules for Class A): CPO-CSF-CPM (Certification Package Maintenance for Rev5) was removed. [#44](https://github.com/FedRAMP/rules/issues/44) (flagged by @tnnrjmsn-eit in [2026/158](https://github.com/FedRAMP/2026/discussions/158#discussioncomment-19205083))."
+      - "FRC-CCL-DCC (Downgrading Certification Class): Fixed a typo in the note to clarify that downgrade should not happen WITHOUT providing advance notification. [#50](https://github.com/FedRAMP/rules/issues/50) (flagged by @StevenCh99 in [2026/158](https://github.com/FedRAMP/2026/discussions/158#discussioncomment-19355033))."
       - "FRC-CCL-UCC (Upgrading Certification Class): Updated wording and added a note to more explicitly clarify that upgrading is obtaining a new FedRAMP Certification. [#46](https://github.com/FedRAMP/rules/issues/46) (flagged by @tnnrjmsn-eit in [2026/118](https://github.com/FedRAMP/2026/discussions/118#discussioncomment-19229413))."
       - "IEC-CSO-IIR (Initial Incident Report): Marked the Trust Center or USDA Connect update to All Necessary Parties as optional in notification metadata in [#47](https://github.com/FedRAMP/rules/issues/47) (flagged by @zeesharfcspab [community/146](https://github.com/FedRAMP/community/discussions/146#discussioncomment-19247352) - the `updated` array was not updated for this change)."
       - "IEC-CSO-OIR (Ongoing Incident Reports): Marked the Trust Center or USDA Connect update to All Necessary Parties as optional in notification metadata. [#47](https://github.com/FedRAMP/rules/issues/47) (flagged by @zeesharfcspab [community/146](https://github.com/FedRAMP/community/discussions/146#discussioncomment-19247352) - the `updated` array was not updated for this change)."
@@ -28,5 +29,6 @@ fedramp-consolidated-rules:
       - "@tnnrjmsn-eit"
       - "@ExtremoPenguin"
       - "@zeesharfcspab"
+      - "@StevenCh99"
 
 

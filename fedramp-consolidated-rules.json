@@ -4225,13 +4225,18 @@
               "statement": "Providers MUST apply for a new FedRAMP Certification to downgrade their Certification Class.",
               "notes": [
                 "Downgrade paths include moving from D to C, B, or A; C to B or A; or B to A.",
-                "FRC-CCL-DNP (Downgrade Notification Period) applies - please DO NOT downgrade Certification Class with providing advance notification to all necessary parties!"
+                "FRC-CCL-DNP (Downgrade Notification Period) applies - please DO NOT downgrade Certification Class without providing advance notification to all necessary parties!"
               ],
               "related": ["FRC-CCL-DNP"],
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["All Necessary Parties", "Certification Class"],
               "updated": [
+                {
+                  "date": "2026-11-02",
+                  "comment": "Fixed a typo in the note to clarify that downgrade should not happen WITHOUT providing advance notification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/50"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
