@@ -1,4 +1,4 @@
-name: Check
+name: (Test) Basic Integration Check
 
 on:
   push:
@@ -8,22 +8,44 @@ permissions:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    name: Basic Integration Check
+    runs-on: ubuntu-26.04
     defaults:
       run:
         working-directory: tools
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
-          bun-version: 1.3.14
+          bun-version: 1.4.4
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
       - name: Run checks
-        run: bun run check
+        shell: bash
+        env:
+          NO_COLOR: "1"
+        run: bun run check 2>&1 | tee "$RUNNER_TEMP/check-output.log"
+
+      - name: Publish check summary
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          {
+            printf '## Check output\n\n'
+            if [[ -f "$RUNNER_TEMP/check-output.log" ]]; then
+              if [[ $(wc -c < "$RUNNER_TEMP/check-output.log") -gt 10000 ]]; then
+                printf 'Output truncated to the last 10 KB. Full output is available in the Run checks log.\n\n'
+              fi
+              printf '````text\n'
+              tail -c 10000 "$RUNNER_TEMP/check-output.log"
+              printf '\n````\n'
+            else
+              printf 'Checks did not produce output. See the preceding steps for setup failures.\n'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,155 @@
+name: Release FedRAMP Consolidated Rules
+run-name: ${{ inputs.dry_run && (inputs.force_replace && 'Preview Forced Rules Release Replacement' || 'Preview FedRAMP Consolidated Rules') || (inputs.force_replace && 'Force Replace FedRAMP Rules Release' || 'Publish FedRAMP Consolidated Rules') }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Preview Release Notes, ZIP Assets, and Pages Without Publishing
+        type: boolean
+        required: true
+        default: true
+      force_replace:
+        description: Force Replace Existing Release, Tag, and Assets
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+
+# One distribution writer at a time. Never interrupt a partially published release.
+concurrency:
+  group: rules-release-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    name: Validate and Preview Rules Release
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    steps:
+      - name: Check Out Dispatched Release Commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Install Python Release Dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/release-venv"
+          "$RUNNER_TEMP/release-venv/bin/pip" install --disable-pip-version-check -r tools/release/requirements.txt
+      - name: Run Release Helper Tests
+        run: '"$RUNNER_TEMP/release-venv/bin/python" -m unittest discover -s tools/release -p "test_*.py"'
+      - name: Validate Rules Release Publication Eligibility
+        if: ${{ !inputs.dry_run }}
+        env:
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          "$RUNNER_TEMP/release-venv/bin/python" - <<'PY'
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, 'tools/release')
+          from release import prepare
+          prepare(Path('.'), Path(os.environ['RUNNER_TEMP']) / 'eligibility',
+                  os.environ['RELEASE_SHA'], True, os.environ['RELEASE_REF'])
+          PY
+      - name: Generate Release Summary and Preview Assets
+        env:
+          FORCE_REPLACE: ${{ inputs.force_replace }}
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_REF: ${{ github.ref }}
+        run: |
+          extra_args=()
+          if [[ "$FORCE_REPLACE" == true ]]; then
+            extra_args+=(--force)
+          fi
+          "$RUNNER_TEMP/release-venv/bin/python" tools/release/release.py "${extra_args[@]}" \
+            --output "$RUNNER_TEMP/release" --pages "$RUNNER_TEMP/pages" \
+            --commit "$RELEASE_SHA" --ref "$RELEASE_REF" --repository "$RELEASE_REPOSITORY"
+      - name: Upload Release Notes and ZIP Preview
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: Rules Release Preview Files
+          path: ${{ runner.temp }}/release/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload Minified Pages Preview Files
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: Minified Pages Preview Files
+          path: ${{ runner.temp }}/pages/
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    name: Publish Rules Release and Update Tags
+    needs: prepare
+    if: ${{ !inputs.dry_run && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check Out Dispatched Release Commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Install Python Release Dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/release-venv"
+          "$RUNNER_TEMP/release-venv/bin/pip" install --disable-pip-version-check -r tools/release/requirements.txt
+      - name: Publish Validated Rules Release Assets
+        env:
+          FORCE_REPLACE: ${{ inputs.force_replace }}
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_REF: ${{ github.ref }}
+        run: |
+          extra_args=()
+          if [[ "$FORCE_REPLACE" == true ]]; then
+            extra_args+=(--force)
+          fi
+          "$RUNNER_TEMP/release-venv/bin/python" tools/release/release.py "${extra_args[@]}" \
+            --output "$RUNNER_TEMP/release" --pages "$RUNNER_TEMP/pages" \
+            --commit "$RELEASE_SHA" --ref "$RELEASE_REF" --repository "$RELEASE_REPOSITORY" --publish
+      - name: Upload Complete Versioned Pages Collection
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/pages
+
+  deploy:
+    name: Deploy Versioned Rules to Pages
+    needs: publish
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Versioned JSON to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        with:
+          timeout: 480000
+      - name: Report GitHub Pages Deployment Result
+        if: ${{ always() }}
+        env:
+          DEPLOY_RESULT: ${{ steps.deployment.outcome }}
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          {
+            printf '## GitHub Pages Deployment Result\n\nResult: %s\n\n' "$DEPLOY_RESULT"
+            if [[ "$DEPLOY_RESULT" == success ]]; then
+              printf 'Pages URL: %s\n' "$PAGE_URL"
+            else
+              printf 'The release and 2026 tag were published, but Pages deployment failed. Rerun this workflow at the same commit to repair distribution.\n'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
