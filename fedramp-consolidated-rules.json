@@ -544,7 +544,7 @@
         },
         "FRD-IIR": {
           "term": "Initial Incident Report (IIR)",
-          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP FedRAMP Incident Evaluation and Communication rules.",
+          "definition": "An initial report about an incident that is supplied by FedRAMP Certified cloud service providers to FedRAMP and agency customers, following FedRAMP Incident Evaluation and Communication rules.",
           "tag": "Incident",
           "alts": [
             "initial incident report",
@@ -3239,7 +3239,7 @@
                 },
                 {
                   "date": "2026-10-05",
-                  "comment": "Added a note clarifying that new algorithms in update streams of modules are not included in the scope of updates to  validated cryptographic modules."
+                  "comment": "Added a note clarifying that new algorithms in update streams of modules are not included in the scope of updates to validated cryptographic modules."
                 },
                 {
                   "date": "2026-06-24",
@@ -8425,7 +8425,7 @@
             "SCN-FRP-CAP": {
               "name": "Corrective Action Plan Conditions",
               "statement": "FedRAMP MAY require providers to delay significant changes beyond the standard Significant Change Notification period and/or submit significant changes for approval in advance as a condition of a formal FedRAMP Corrective Action Plan or other agreement.",
-              "note": "The circumstances and conditions of such a Corrective Action Plan will vary and be documented in the Correcive Action Plan.",
+              "note": "The circumstances and conditions of such a Corrective Action Plan will vary and be documented in the Corrective Action Plan.",
               "force": "MAY",
               "affects": ["FedRAMP"],
               "terms": ["Significant Change"],
@@ -8443,7 +8443,7 @@
               "statement": "Providers MUST evaluate all potential significant changes to determine the type of significant change and follow the appropriate Significant Change Notification rules.",
               "following_information": [
                 "Is it a significant change? --> Continue evaluation and follow the Significant Change Notification rules.",
-                "If it is, is it an FedRAMP Certification class change?  --> This requires a new assessment and cannot be done under the Significant Change Notification rules.",
+                "If it is, is it a FedRAMP Certification class change?  --> This requires a new assessment and cannot be done under the Significant Change Notification rules.",
                 "If it is not, is it a routine recurring change? --> Follow the Routine Recurring Change rules (SCN-RTR Routine Recurring Changes).",
                 "If it is not, is it a transformative change? --> Follow the Transformative Change rules (SCN-TRF Transformative Changes).",
                 "If it is not, then it is an adaptive change --> Follow the Adaptive Change rules (SCN-ADP Adaptive Changes)."
@@ -9918,7 +9918,7 @@
                 },
                 {
                   "date": "2026-07-01",
-                  "comment": "Added relevent terms and related controls. No change to the requirement."
+                  "comment": "Added relevant terms and related controls. No change to the requirement."
                 },
                 {
                   "date": "2026-06-24",
