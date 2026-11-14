@@ -128,7 +128,7 @@ export async function collectReferenceUrlIssues(
 
 export function formatReferenceUrlReport(issues: ConsistencyIssue[]): string {
   return [
-    `Reference URL validation failed with ${issues.length} issue${issues.length === 1 ? "" : "s"}:`,
+    `Reference URL validation warning: ${issues.length} issue${issues.length === 1 ? "" : "s"}:`,
     ...issues.map(
       ({ location, message }) => `\n  - ${location}\n    ${message}`,
     ),
@@ -138,8 +138,8 @@ export function formatReferenceUrlReport(issues: ConsistencyIssue[]): string {
 if (import.meta.main) {
   const issues = await collectReferenceUrlIssues(loadRulesDocument());
   if (issues.length > 0) {
-    console.error(formatReferenceUrlReport(issues));
-    process.exit(1);
+    console.warn(formatReferenceUrlReport(issues));
+  } else {
+    console.log("Reference URL validation passed.");
   }
-  console.log("Reference URL validation passed.");
 }

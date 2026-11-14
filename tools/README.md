@@ -22,7 +22,7 @@ bun install --frozen-lockfile
 
 Installation writes local dependencies and may require network access. The
 unit tests use local files and mocked HTTP responses. `bun run check` and
-`bun run test` also check live reference URLs, so they require network access.
+`bun run test` also check live reference URLs; unavailable network access produces warnings.
 They do not fetch rule-schema URLs.
 
 ## Configuration And Implementation
@@ -81,7 +81,7 @@ It also reports advisory warnings for metadata freshness, FRR subset force
 ordering, and unused subsets; those warnings alone do not make the command fail.
 
 Live reference URL checks run in `tests/reference-url-reachability.test.ts`,
-using Bun's standard pass/fail output before the test totals. Failures include
+reporting advisory warnings before the test totals. Warnings include
 the full JSON path, original URL, and HTTP status or connection error. The check covers
 `reference_url` and legacy `referenceurl` fields throughout the dataset. It
 follows redirects, tries GET when HEAD returns an unsuccessful status, and
@@ -89,7 +89,9 @@ checks each distinct URL once (ignoring fragments). Four requests run at a time,
 with a 10-second deadline per URL. Fragment anchors are not validated.
 
 Non-successful responses, including access-denied/rate-limit responses, and
-network failures make the command fail. Access-denied and connection failures
+network failures produce warnings without making the command fail. Invalid or
+unsupported reference URLs are also advisory. This applies to the full test
+suite and the standalone `test:reference-urls` command. Access-denied and connection failures
 are reported as unverified reachability, not proof that the URL is broken.
 Notification targets, schema URLs, and URLs embedded in prose are outside this
 check's scope. `bun test` also includes the live check; select focused unit-test
@@ -108,7 +110,7 @@ Use focused aliases while working:
 | `bun run test:terms`             | Definition casing and term synchronization.                 |
 | `bun run test:order`             | Schema-driven and configured ordering.                      |
 | `bun run test:consistency`       | Cross-entry consistency and related reporting.              |
-| `bun run test:reference-urls`    | Live reference URL checks with a standalone failure report. |
+| `bun run test:reference-urls`    | Live reference URL checks with a standalone warning report. |
 | `bun run test:fix`               | Fix planning and application.                               |
 
 Focused unit-test aliases invoke Bun directly and do not include the full

@@ -58,7 +58,7 @@ test("references to the same page share a request and retain every failing locat
     "second.referenceurl",
   ]);
   const report = formatReferenceUrlReport(issues);
-  expect(report).toContain("Reference URL validation failed with 2 issues:");
+  expect(report).toContain("Reference URL validation warning: 2 issues:");
   expect(report).toContain("first.reference_url");
   expect(report).toContain("https://example.com/missing#two");
   expect(report).toContain("HTTP 404");
