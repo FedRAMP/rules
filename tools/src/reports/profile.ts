@@ -28,6 +28,7 @@ export function collectProfile(
     if (seen.has(id))
       throw new Error(`Duplicate rule ID ${id} at ${location}.`);
     seen.add(id);
+    if (!requirement.affects.includes("Providers")) return;
     const [, sectionKey, , scopeKey, subsetKey] = location.split(".");
     if (scopeKey !== "all" && scopeKey !== framework) return;
     const info = document.FRR[sectionKey!]!.info;
@@ -69,44 +70,35 @@ export function collectProfile(
   return results;
 }
 
-export function summarizeProfile(rules: ProfileRule[]): string {
-  const order = [
-    "MUST",
-    "MUST NOT",
-    "SHOULD",
-    "SHOULD NOT",
-    "MAY",
-    "unspecified",
-  ] as const;
-  const counts = order
-    .map((force) => ({
-      force,
-      count: rules.filter((rule) => rule.force === force).length,
-    }))
-    .filter(({ count }) => count > 0);
-  return `${rules.length} ${rules.length === 1 ? "rule" : "rules"}${counts.length ? ` (${counts.map(({ force, count }) => `${count} ${force}`).join(", ")})` : ""}`;
-}
+const FORCE_ORDER = [
+  "MUST",
+  "MUST NOT",
+  "SHOULD",
+  "SHOULD NOT",
+  "MAY",
+  "unspecified",
+] as const;
 
 export function renderProfile(
   rules: ProfileRule[],
   className: ClassName,
 ): string {
-  const parties = [...new Set(rules.flatMap((rule) => rule.affects))].sort();
-  const lines = rules.map(
-    (rule) =>
-      `${rule.id} (${rule.name})${rule.force === "unspecified" ? ` [missing Class ${className} statement variant; force unspecified]` : ""}`,
-  );
-  if (parties.length) {
-    lines.push("", "By affected party:");
-    for (const party of parties)
-      lines.push(
-        `${party}: ${summarizeProfile(rules.filter((rule) => rule.affects.includes(party)))}`,
-      );
-    if (rules.some((rule) => rule.affects.length > 1))
-      lines.push(
-        "Party totals overlap: rules affecting multiple parties count under each listed party.",
-      );
+  if (!rules.length) return "0 rules";
+  const lines: string[] = [];
+  for (const force of FORCE_ORDER) {
+    const group = rules.filter((rule) => rule.force === force);
+    if (!group.length) continue;
+    if (lines.length) lines.push("");
+    lines.push(
+      `${force === "unspecified" ? "Unspecified" : force} (${group.length}):`,
+      "",
+    );
+    lines.push(
+      ...group.map(
+        (rule) =>
+          `${rule.id} (${rule.name})${rule.force === "unspecified" ? ` [missing Class ${className} statement variant; force unspecified]` : ""}`,
+      ),
+    );
   }
-  lines.push("", summarizeProfile(rules));
-  return lines.join("\n").trimStart();
+  return lines.join("\n");
 }

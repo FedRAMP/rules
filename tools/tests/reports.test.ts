@@ -2,11 +2,7 @@ import { expect, test } from "bun:test";
 import { loadRulesDocument, loadSchemaDocument } from "../src/rules";
 import { runReport } from "../src/reports";
 import { collectOverall } from "../src/reports/overall";
-import {
-  collectProfile,
-  renderProfile,
-  summarizeProfile,
-} from "../src/reports/profile";
+import { collectProfile, renderProfile } from "../src/reports/profile";
 import type {
   FrrSubsetDefinition,
   Requirement,
@@ -128,23 +124,25 @@ test("class force is selected and missing variants remain counted as unspecified
   expect(results[0]!.force).toBe("unspecified");
   const text = renderProfile(results, "A");
   expect(text).toContain("missing Class A statement variant");
-  expect(text).toContain("Agencies: 1 rule (1 unspecified)");
-  expect(text).toContain("Providers: 1 rule (1 unspecified)");
-  expect(text).toContain("Party totals overlap");
-  expect(text.endsWith("1 rule (1 unspecified)")).toBe(true);
+  expect(text).toStartWith("Unspecified (1):\n\n");
+  expect(text).not.toContain("By affected party:");
   expect(text.match(/AFC-CSO-ONE/g)).toHaveLength(1);
 });
 
-test("primary force only; Everyone remains separate; empty output is explicit", () => {
+test("profiles require Providers in rule affects and count only primary force", () => {
   const d = fixture();
-  d.FRR.AFC!.data.all!.CSO!["AFC-CSO-ONE"]!.affects = ["Everyone"];
   const results = collectProfile(d, "20x", "A");
-  expect(summarizeProfile(results)).toBe("1 rule (1 MAY)");
-  expect(renderProfile(results, "A")).toContain("Everyone: 1 rule (1 MAY)");
+  expect(renderProfile(results, "A")).toBe(
+    "MAY (1):\n\nAFC-CSO-ONE (Fixture rule)",
+  );
+  for (const affects of [["Everyone"], ["Agencies"], ["FedRAMP"]] as const) {
+    d.FRR.AFC!.data.all!.CSO!["AFC-CSO-ONE"]!.affects = [...affects];
+    expect(collectProfile(d, "20x", "A")).toEqual([]);
+  }
   expect(renderProfile([], "A")).toBe("0 rules");
 });
 
-test("force summary includes each distinct force in the specified order", () => {
+test("force headers include counts in the specified order", () => {
   const forces = [
     "MAY",
     "unspecified",
@@ -153,13 +151,18 @@ test("force summary includes each distinct force in the specified order", () => 
     "SHOULD",
     "MUST NOT",
   ] as const;
-  expect(
-    summarizeProfile(
-      forces.map((force) => ({ id: force, name: force, force, affects: [] })),
-    ),
-  ).toBe(
-    "6 rules (1 MUST, 1 MUST NOT, 1 SHOULD, 1 SHOULD NOT, 1 MAY, 1 unspecified)",
+  const text = renderProfile(
+    forces.map((force) => ({ id: force, name: force, force, affects: [] })),
+    "A",
   );
+  expect(text.split("\n").filter((line) => line.endsWith(":"))).toEqual([
+    "MUST (1):",
+    "MUST NOT (1):",
+    "SHOULD (1):",
+    "SHOULD NOT (1):",
+    "MAY (1):",
+    "Unspecified (1):",
+  ]);
 });
 
 test("unresolved subsets and duplicate IDs produce diagnostic errors", () => {
@@ -271,9 +274,7 @@ test("CLI runs requested commands and accepts case-insensitive profile values", 
     expect(result.exitCode).toBe(0);
     const text = result.stdout.toString();
     expect(text).toContain("Dataset:");
-    expect(text).toContain(
-      args[0] === "overall" ? "Controls:" : "By affected party:",
-    );
+    expect(text).toContain(args[0] === "overall" ? "Controls:" : "MUST (");
   }
   for (const args of [
     ["profile", "bad", "a"],

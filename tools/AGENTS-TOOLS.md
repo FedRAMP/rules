@@ -128,13 +128,15 @@ for the full counting and applicability contract.
   common and bucket-specific subset declarations, then extend dimensions with
   `applicability.add`, then remove `applicability.exclude` values.
   Exclusions take precedence over additions. Require explicit type and class membership;
-  empty lists match nothing. Do not silently add actor, path, status, or date
+  empty lists match nothing. Include only rules whose own `affects` contains
+  `Providers`; `Everyone` alone does not match. Do not add path, status, or date
   filters. Unresolved subsets and duplicate rule IDs are errors.
 - Force totals use only primary force, selecting the requested class variant.
+  List rules by force: MUST, MUST NOT, SHOULD, SHOULD NOT, MAY, then unspecified,
+  preserving dataset order within each group. Add a force header above each
+  nonempty group with its count, such as `MUST (41):`, then a blank line; omit empty groups.
   Missing variants remain in totals as `unspecified`, with a visible diagnostic.
-  Party summaries use rule-level `affects`, count multi-party rules under each
-  named party, and keep `Everyone` separate. Overall profile totals count each
-  rule once.
+  Do not append party or force summaries. Print `0 rules` when no rules match.
 - Overall counts FRR rulesets (including empty ones), populated subset buckets
   per ruleset/data scope, FRR rule entries, KSI indicator entries, and CTL
   control entries. Class variants do not multiply entries; absent CTL is zero.

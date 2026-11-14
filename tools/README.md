@@ -75,8 +75,10 @@ and report errors exit nonzero with diagnostics on stderr.
 
 ### Profile
 
-The profile report lists each matching FRR rule as `ID (Name)` in dataset
-order. It considers `data.all` and the requested framework's bucket. Common
+The profile report lists each matching FRR rule as `ID (Name)`, ordered by
+force: MUST, MUST NOT, SHOULD, SHOULD NOT, MAY, then unspecified. Rules retain
+dataset order within each force group, with a force header above each nonempty
+group. It considers `data.all` and the requested framework's bucket. Common
 subset metadata applies to both; framework-specific subset metadata applies
 to rules in that framework's bucket. If both declare a subset, their values
 are combined. A rule's `applicability.add` extends those values;
@@ -84,8 +86,10 @@ are combined. A rule's `applicability.add` extends those values;
 additions. Omitted dimensions retain their combined values. Both type and class must match.
 Empty lists match nothing, and extensions do not cross framework data buckets.
 
-Profiles include all actors and certification paths without filtering status
-or effective dates. They describe type/class matches, not a determination of
+Profiles include only rules whose own `affects` array contains `Providers`,
+including rules that also affect other parties. `Everyone` alone does not
+match this filter. Profiles include all certification paths without filtering
+status or effective dates. They describe type/class matches, not a determination of
 every obligation currently applicable to a particular offering.
 
 Force counts use the primary `force` field, selecting the requested class
@@ -94,10 +98,9 @@ with a diagnostic annotation and counted as `unspecified`. Secondary forces
 within statement text are not separately counted. Missing subset declarations
 or duplicate rule IDs cause an error.
 
-After the rule list, the report shows counts and forces for each party in the
-rules' `affects` arrays. Multi-party rules count under each listed party;
-`Everyone` is a separate category. The final total counts each rule once, for
-example `37 rules (17 MUST, 20 SHOULD)`. Zero-count forces are omitted.
+Each force header includes its rule count, for example `MUST (41):`, followed
+by a blank line and the rules. Empty groups are omitted. There are no trailing
+party or force summaries. A profile with no matches prints `0 rules`.
 
 ### Overall
 

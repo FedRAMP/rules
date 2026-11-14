@@ -40,7 +40,7 @@ export const reports: readonly ReportDefinition[] = [
     name: "profile",
     usage: "bun report profile <type> <class>",
     description:
-      "List FRR rules matching a certification type and class, with force and affected-party totals.",
+      "List provider-affecting FRR rules matching a certification type and class, grouped by force with counts.",
     argumentCount: 2,
     run: ({ document, schema }, args) => {
       const type = enumArgument(
@@ -57,7 +57,7 @@ export const reports: readonly ReportDefinition[] = [
       ) as ClassName;
       return [
         `Profile: ${type} Class ${className}`,
-        "Filters: type and class only; all actors and paths; status and effective dates are not filtered.",
+        "Filters: type, class, and rules affecting Providers; all paths; status and effective dates are not filtered.",
         "",
         renderProfile(collectProfile(document, type, className), className),
       ].join("\n");
