@@ -10400,7 +10400,7 @@
           "RPT": {
             "VER-RPT-PER": {
               "name": "Persistent Reporting",
-              "statement": "Providers MUST report vulnerability detection and response activity (including persistent verification and validation) to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification Data and are subject to FedRAMP Certification Data Sharing rules.",
+              "statement": "Providers MUST responsibly report vulnerability detection and response activity (including persistent verification and validation) to all necessary parties persistently, summarizing ALL activity since the previous report; these reports are FedRAMP Certification Data and are subject to FedRAMP Certification Data Sharing rules.",
               "force": "MUST",
               "affects": ["Providers"],
               "schema": {
@@ -10412,6 +10412,7 @@
                 "All Necessary Parties",
                 "Certification Data",
                 "Persistently",
+                "Responsibly",
                 "Validation",
                 "Verification",
                 "Vulnerability",
@@ -10419,6 +10420,11 @@
                 "Vulnerability Response"
               ],
               "updated": [
+                {
+                  "date": "2026-11-14",
+                  "comment": "Clarified that vulnerability reports must be done responsibly.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/52"
+                },
                 {
                   "date": "2026-10-13",
                   "comment": "Updated control mappings: added si-7.2."
