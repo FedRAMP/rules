@@ -2673,6 +2673,11 @@
               "terms": ["Cloud Service Offering", "Trust Center"],
               "updated": [
                 {
+                  "date": "2026-12-01",
+                  "comment": "Added a Class A variant.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
+                {
                   "date": "2026-10-05",
                   "comment": "Clarified that logo link must be a viewable web image. Added note recommending the involvement of web-based application engineers."
                 },
@@ -2821,6 +2826,11 @@
               ],
               "updated": [
                 {
+                  "date": "2026-12-01",
+                  "comment": "Changed the Class A force to MAY.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
+                {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
@@ -2940,6 +2950,11 @@
                 "Ongoing Certification Report (OCR)"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Changed Class A to MAY, added note clarifying this rule.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -4078,6 +4093,11 @@
               "affects": ["Providers"],
               "terms": ["FedRAMP Independent Assessment", "FedRAMP Recognized"],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Clarified that initial FedRAMP independent assessment is not expected for Class A.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -6801,6 +6821,11 @@
               ],
               "updated": [
                 {
+                  "date": "2026-12-01",
+                  "comment": "Added to Class A and clarified that a FedRAMP independent assessment is not expected for Class A.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
+                {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
                 }
@@ -9046,7 +9071,7 @@
               "updated": [
                 {
                   "date": "2026-12-01",
-                  "comment": "No material change, clarified that an explanation of the rule being implemented (instead of being followed) is necessary to align with standard wording.",
+                  "comment": "No material change, clarified that an explanation of the rule being implemented (instead of being followed) is necessary to align with standard wording and added a Class A variant.",
                   "issue": "https://github.com/FedRAMP/rules/issues/60"
                 },
                 {
@@ -9515,6 +9540,11 @@
                 "Verification"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Changed Class A to SHOULD.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10055,6 +10085,11 @@
                 "Verification"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Added a placeholder Class D variant.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/59"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -10848,6 +10883,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added cm-11, cp-3.1, ir-2.1, ir-2.2, ir-9.2, ir-9.4, pl-4, pl-4.1."
             },
@@ -10889,6 +10929,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ca-7.4, cm-3.1, cm-3.6; removed ma-2."
             },
@@ -10919,6 +10964,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
@@ -10940,6 +10990,11 @@
           "controls": ["cm-3", "cm-3.2", "cm-3.4", "cm-5", "cm-7.1", "cm-9"],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
@@ -10957,6 +11012,11 @@
           },
           "controls": ["cm-3", "cm-3.2", "cm-4.2", "cm-6.2", "ir-9.4", "si-2"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added cm-6.2, ir-9.4."
@@ -10988,6 +11048,11 @@
           },
           "controls": ["cm-2", "cm-8.4", "cp-10.4", "ir-9.4", "si-3"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added cm-8.4, cp-10.4, ir-9.4."
@@ -11023,6 +11088,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes and removed varies_by_class.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added cm-11, cm-6.2, cp-10.4, ir-9.4, sc-24, sc-7.18, si-4.22, si-7, si-7.1, si-7.5, si-7.7; removed ca-7.1."
             },
@@ -11048,6 +11118,11 @@
           },
           "controls": ["ac-17.3", "cm-2", "pl-10", "sc-7.18"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added sc-7.18."
@@ -11091,6 +11166,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added sc-7.18."
             },
@@ -11116,6 +11196,11 @@
           },
           "controls": ["cp-2.5", "sc-12.1"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added cp-2.5, sc-12.1."
@@ -11157,6 +11242,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added sc-7.10, sc-7.18, sc-7.20, sc-7.21, si-10, si-4.11, si-4.18, si-4.4."
             },
@@ -11182,6 +11272,11 @@
           },
           "controls": ["ir-4.2", "sc-5", "sc-7.18", "si-8", "si-8.2"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ir-4.2, sc-7.18."
@@ -11221,6 +11316,11 @@
             "sc-8"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-4.21, cm-11, sc-7.20, sc-7.21."
@@ -11264,6 +11364,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ia-8.4."
             },
@@ -11302,6 +11407,11 @@
             "sc-23"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ia-2.6, ia-5.8, ia-8.2, ia-8.4."
@@ -11377,6 +11487,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-18.4, ac-2.11, ac-2.7, ac-2.9, ac-21, ac-6.3, ac-6.8, au-12.3, au-6.7, cm-5.1, cm-5.5, cm-7.2, ir-4.6, ir-9.4, ra-5.5, sc-2, sc-3, si-4.19."
             },
@@ -11451,6 +11566,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-17.4, ac-2.11, ac-2.7, ac-21, ac-6.3, ac-6.8, au-10, au-12.3, ca-3.6, cm-5.1, cm-5.5, ir-4.6, sc-3."
             },
@@ -11483,6 +11603,11 @@
             "ra-5.5"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-2.9, au-10, ia-2.5."
@@ -11527,6 +11652,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-2.11, ac-2.12, au-6.5, cm-5.1, cm-6.2, ir-4.2, ir-4.6, si-4, si-4.1, si-4.19, si-4.20, si-4.22, si-4.4."
             },
@@ -11557,6 +11687,11 @@
           },
           "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5.1", "ir-8", "ir-9.3"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ir-5.1, ir-9.3."
@@ -11593,6 +11728,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ir-4.11, ir-9.3."
             },
@@ -11625,6 +11765,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ir-4.11, ir-4.4, ir-5.1, ra-5.8."
             },
@@ -11656,6 +11801,11 @@
           "controls": ["au-12.3", "au-6.7", "si-11"],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes and removed varies_by_class.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added au-12.3, au-6.7."
             },
@@ -11685,6 +11835,11 @@
             "si-7.7"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-19, cm-6.1, ra-3."
@@ -11728,6 +11883,11 @@
             "si-7.7"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added au-10, au-7, cm-5.1, ir-9.4, si-4.19, si-4.20."
@@ -11774,6 +11934,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added au-12.1, au-5.1, au-6.4, au-6.5, si-4.16; removed si-7.7."
             },
@@ -11806,6 +11971,11 @@
             "si-4.4"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added au-7, ra-5.8, si-4.19."
@@ -11848,6 +12018,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added cm-8.2, cm-8.4."
             },
@@ -11869,6 +12044,11 @@
           },
           "controls": [],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11899,6 +12079,11 @@
             "sr-2.1"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ca-2.2, ir-4.11."
@@ -11937,6 +12122,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ia-5.7, ra-9."
             },
@@ -11958,6 +12148,11 @@
           },
           "controls": ["ra-5.11"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -11985,6 +12180,11 @@
           },
           "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: removed si-12."
@@ -12029,6 +12229,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
@@ -12046,6 +12251,11 @@
           },
           "controls": ["cp-2.3", "cp-10"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-06-24",
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -12077,6 +12287,11 @@
             "sc-12.1"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ir-9.3, sc-12.1."
@@ -12141,6 +12356,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-31",
               "comment": "Changed wording order without any material impact to align with KSI standard language. Was: Persistently identify, review, and mitigate potential supply chain risks.",
               "issue": "https://github.com/FedRAMP/rules/issues/42"
@@ -12182,6 +12402,11 @@
             "sr-8"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-19, ca-2.3, ra-3, sr-3."
@@ -12230,6 +12455,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-6.8, sc-45, sc-45.1, sc-7.18."
             },
@@ -12263,6 +12493,11 @@
             "sc-17"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added sc-12.1."
@@ -12299,6 +12534,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ca-7.4, cm-5.5, ir-9.4, ra-3; removed ma-2."
             },
@@ -12320,6 +12560,11 @@
           },
           "controls": ["ac-19", "ir-9.4", "sc-12.1", "sc-4", "sc-7.18"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes and removed varies_by_class.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-19, ir-9.4, sc-12.1, sc-7.18."
@@ -12347,6 +12592,11 @@
           },
           "controls": ["ir-9", "si-12.3", "si-18.4", "si-8", "si-8.2"],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes and removed varies_by_class.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ir-9, si-8, si-8.2."
@@ -12390,6 +12640,11 @@
           ],
           "updated": [
             {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
+            {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-11, ac-11.1, ac-19.5, ac-21, ir-9.4, sc-4, sc-7.18, si-4.18; removed ac-1."
             },
@@ -12418,6 +12673,11 @@
             "si-7.1"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes and removed varies_by_class.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-10, ac-17.4, ac-18, ac-19, si-4.22."
@@ -12460,6 +12720,11 @@
             "sr-11"
           ],
           "updated": [
+            {
+              "date": "2026-12-01",
+              "comment": "Added force_by_class attributes.",
+              "issue": "https://github.com/FedRAMP/rules/issues/59"
+            },
             {
               "date": "2026-10-13",
               "comment": "Updated control mappings: added ac-17.4, ac-18, ac-19, au-9.3, cm-14, si-7.15, sr-11."
