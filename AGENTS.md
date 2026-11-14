@@ -88,7 +88,16 @@ and KSI indicators and their class variants do not have a `force` field.
    the entry's common information.
 5. **Respect the force.** In FRR, `MUST` and `MUST NOT` are hard requirements;
    `SHOULD` and `SHOULD NOT` are expected practices with possible justified
-   exceptions; `MAY` is optional or permitted behavior. Interpret KSI through
+   exceptions; `MAY` is optional or permitted behavior. The `force` field
+   identifies the primary force of the rule. A statement may contain a secondary
+   force that applies only in relation to implementing the primary statement;
+   it is not independently enforceable as a standalone requirement. For example,
+   in "Parties MAY do X but MUST do Z if they do," `MAY` is the primary force:
+   X is optional, and Z is required only if X is performed. When parsing or
+   summarizing rules, preserve this relationship rather than extracting the
+   secondary force as an unconditional obligation. See the
+   [discussion of primary and secondary force](https://github.com/FedRAMP/community/discussions/193#discussion-11243198).
+   Interpret KSI through
    its capability statement and applicable process rules without inventing a
    normative force.
 6. **Read the supporting details.** Include following information and bullets,
