@@ -2989,6 +2989,25 @@
                 }
               ]
             },
+            "CDS-TRC-NDA": {
+              "name": "No Required Agreements for FedRAMP",
+              "statement": "Trust centers MUST NOT require FedRAMP to accept an agreement on behalf of the General Services Administration to access FedRAMP Certification Data; this includes non-disclosure agreements, terms of service, license agreements, or any other agreement.",
+              "notes": [
+                "Personnel representing the federal government (including federal employees and contractors) are not allowed sign agreements on behalf of the government unless the agreement has been reviewed and approved by counsel.",
+                "NDAs or similar are not necessary when providing information to the government to protect a company's sensitive information because the Trade Secrets Act of 1948 (18 U.S. Code § 1905) already prohibits the government from unauthorized disclosure of such information and provides criminal penalties for doing so.",
+                "These notes are not legal advice and should not be considered as such, they are simply information provided for awareness; please consider an attorney as appropriate before making any decisions."
+              ],
+              "force": "MUST NOT",
+              "affects": ["Providers"],
+              "terms": ["Certification Data", "Trust Center"],
+              "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Added in response to consistent problems limiting FedRAMP's ability to review applications.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/56"
+                }
+              ]
+            },
             "CDS-TRC-HMR": {
               "name": "Human and Machine-Readable Certification Data",
               "statement": "Trust centers SHOULD make FedRAMP Certification Data available to view and download in both human-readable and machine-readable formats.",
@@ -3025,6 +3044,26 @@
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
+                }
+              ]
+            },
+            "CDS-TRC-NAA": {
+              "name": "No Required Agreements for Agencies",
+              "statement": "Trust centers SHOULD NOT require federal agency representatives to accept an agreement on behalf of their agency to access FedRAMP Certification Data; this includes non-disclosure agreements, terms of service, license agreements, or any other agreement.",
+              "notes": [
+                "This is not a full MUST NOT for agencies because there may be circumstances where an agreement is legally required or appropriate.",
+                "Personnel representing the federal government (including federal employees and contractors) are not allowed sign agreements on behalf of the government unless the agreement has been reviewed and approved by counsel.",
+                "NDAs or similar are not necessary when providing information to the government to protect a company's sensitive information because the Trade Secrets Act of 1948 (18 U.S. Code § 1905) already prohibits the government from unauthorized disclosure of such information and provides criminal penalties for doing so.",
+                "These notes are not legal advice and should not be considered as such, they are simply information provided for awareness; please consider an attorney as appropriate before making any decisions."
+              ],
+              "force": "SHOULD NOT",
+              "affects": ["Providers"],
+              "terms": ["Certification Data", "Trust Center"],
+              "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Added in response to consistent problems limiting agency's ability to review applications.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/56"
                 }
               ]
             }
