@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.11.02.01",
-    "last_updated": "2026-11-02",
+    "version": "2026.11.14.01",
+    "last_updated": "2026-11-14",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1440,14 +1440,13 @@
               "statement": "Providers MUST treat any email originating from an @fedramp.gov or @gsa.gov email address as if it was sent from FedRAMP by default; if such a message is confirmed to originate from someone other than FedRAMP then the FedRAMP Security Inbox rules no longer apply.",
               "force": "MUST",
               "affects": ["Providers"],
-              "artifacts": {
-                "all": [
-                  "Configuration settings for FSI mailbox",
-                  "Automated validation to check FSI mailbox configuration"
-                ]
-              },
               "terms": ["FedRAMP Security Inbox"],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Removed unnecessary artifact specification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/61"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -1488,14 +1487,13 @@
               "note": "Senior security officials are determined by the provider.",
               "force": "MUST",
               "affects": ["Providers"],
-              "artifacts": {
-                "all": [
-                  "Configuration settings for FSI mailbox",
-                  "Automated validation to check FSI mailbox configuration"
-                ]
-              },
               "terms": [],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Removed unnecessary artifact specification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/61"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -7295,8 +7293,7 @@
               "artifacts": {
                 "all": [
                   "A machine readable output containing all required data of the components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
-                  "A human readable explanation of how the machine readable output is derived.",
-                  "The code for the automated process used to generate the machine readable output."
+                  "A human readable explanation of how the machine readable output is derived."
                 ]
               },
               "controls": ["cm-8.4", "ra-3", "si-4.19"],
@@ -7309,6 +7306,11 @@
                 "Likely"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Removed unnecessary artifact specification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/61"
+                },
                 {
                   "date": "2026-10-13",
                   "comment": "Updated control mappings: added cm-8.4, ra-3, si-4.19."
@@ -7328,8 +7330,7 @@
               "artifacts": {
                 "all": [
                   "A machine readable output containing all required data of the permitted connections between components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
-                  "A human readable explanation of how the machine readable output is derived.",
-                  "The code for the automated process used to generate the machine readable output."
+                  "A human readable explanation of how the machine readable output is derived."
                 ]
               },
               "controls": ["ac-4", "cm-12", "cm-12.1", "ra-3", "si-4.19"],
@@ -7341,6 +7342,11 @@
                 "Third-Party Information Resource"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Removed unnecessary artifact specification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/61"
+                },
                 {
                   "date": "2026-10-13",
                   "comment": "Updated control mappings: added ac-4, cm-12, cm-12.1, ra-3, si-4.19."
@@ -7366,8 +7372,7 @@
               "artifacts": {
                 "all": [
                   "A machine readable output containing all required data of the third-party information resources of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
-                  "A human readable explanation of how the machine readable output is derived.",
-                  "The code for the automated process used to generate the machine readable output."
+                  "A human readable explanation of how the machine readable output is derived."
                 ]
               },
               "schema": {
@@ -7384,6 +7389,11 @@
                 "Third-Party Information Resource"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Removed unnecessary artifact specification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/61"
+                },
                 {
                   "date": "2026-10-13",
                   "comment": "Updated control mappings: added ra-3."
@@ -7403,8 +7413,7 @@
               "artifacts": {
                 "all": [
                   "A machine readable output containing all required data of the metadata collected or maintained by the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
-                  "A human readable explanation of how the machine readable output is derived.",
-                  "The code for the automated process used to generate the machine readable output."
+                  "A human readable explanation of how the machine readable output is derived."
                 ]
               },
               "terms": [
@@ -7414,6 +7423,11 @@
                 "Minimum Assessment Scope"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "Removed unnecessary artifact specification.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/61"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
@@ -8245,8 +8259,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Explanation of how to access this information",
-                  "or explanation why this functionality is not available"
+                  "Explanation of how to access this information or explanation why this functionality is not available"
                 ]
               },
               "terms": [
@@ -8269,8 +8282,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Explanation of how to access this information",
-                  "or explanation why this functionality is not available"
+                  "Explanation of how to access this information or explanation why this functionality is not available"
                 ]
               },
               "terms": [
@@ -8291,8 +8303,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Explanation of how to access this information",
-                  "or explanation why this functionality is not available"
+                  "Explanation of how to access this information or explanation why this functionality is not available"
                 ]
               },
               "terms": ["Machine-Readable"],
@@ -8310,8 +8321,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Explanation of how to access this information",
-                  "or explanation why this functionality is not available"
+                  "Explanation of how to access this information or explanation why this functionality is not available"
                 ]
               },
               "terms": [],
@@ -8329,8 +8339,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Explanation of how to access this information",
-                  "or explanation why this functionality is not available"
+                  "Explanation of how to access this information or explanation why this functionality is not available"
                 ]
               },
               "terms": ["Machine-Readable"],
@@ -8348,8 +8357,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Explanation of how to access this information",
-                  "or explanation why this functionality is not available"
+                  "Explanation of how to access this information or explanation why this functionality is not available"
                 ]
               },
               "terms": [
@@ -8491,7 +8499,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Evidence of significant change evaluation including a description fo the change, the determined type, and an explanation for the decision. At least one example must be provided for each type of change. Real examples are prefered but the provider may use fictitious examples as long as the example provides evidence of the decision making process."
+                  "Evidence of significant change evaluation including a description fo the change, the determined type, and an explanation for the decision. At least one example must be provided for each type of change. Real examples are preferred but the provider may use fictitious examples as long as the example provides evidence of the decision making process."
                 ]
               },
               "schema": {
@@ -8952,7 +8960,7 @@
               "affects": ["Providers"],
               "artifacts": {
                 "all": [
-                  "Third Party assesment report OR explanation why a third party assessor was not engaged"
+                  "Third Party assessment report OR explanation why a third party assessor was not engaged"
                 ]
               },
               "examples": [
@@ -10684,8 +10692,7 @@
                   "timeframe_num": 1,
                   "artifacts": {
                     "all": [
-                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format",
-                      "or an explanation of why machine readable content is not being provided"
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format or an explanation of why machine readable content is not being provided"
                     ]
                   }
                 },
@@ -10696,8 +10703,7 @@
                   "timeframe_num": 14,
                   "artifacts": {
                     "all": [
-                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format",
-                      "or an explanation of why machine readable content is not being provided"
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format or an explanation of why machine readable content is not being provided"
                     ]
                   }
                 },
@@ -10708,8 +10714,7 @@
                   "timeframe_num": 7,
                   "artifacts": {
                     "all": [
-                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format",
-                      "or an explanation of why machine readable content is not being provided"
+                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format or an explanation of why machine readable content is not being provided"
                     ]
                   }
                 }
