@@ -151,6 +151,7 @@ export type Requirement = {
   effective_date?: EffectiveDates;
   corrective_actions?: string[];
   affects: AffectedParty[];
+  additional_applicability?: Partial<FrrSubsetApplicability>;
   artifacts?: Artifacts;
   schema?: RuleSchemaReference;
   examples?: Array<{ id: string; key_tests: string[]; examples: string[] }>;

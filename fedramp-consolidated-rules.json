@@ -1232,7 +1232,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -1242,7 +1242,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -2097,6 +2097,9 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "artifacts": {
                 "all": [
                   "Most recent Ongoing Certification Report. If the report is not available, the provider MUST provide a sample report that includes all required information.",
@@ -2143,6 +2146,9 @@
               "statement": "Providers MUST supply the target date for their next Ongoing Certification Report with other public FedRAMP Certification Data.",
               "force": "MUST",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": [
                 "Certification Data",
                 "FedRAMP Certification Report",
@@ -2204,6 +2210,9 @@
               "statement": "Providers MUST NOT irresponsibly disclose sensitive information in an Ongoing Certification Report that would likely have an adverse effect on the cloud service offering.",
               "force": "MUST NOT",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "FedRAMP Certification Report",
@@ -2237,6 +2246,9 @@
               "statement": "Providers MAY responsibly supply some or all of the information an Ongoing Certification Report to the public or other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "force": "MAY",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "FedRAMP Certification Report",
@@ -2303,6 +2315,9 @@
                 }
               },
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "controls": ["ca-7"],
               "terms": [
                 "All Necessary Parties",
@@ -2354,6 +2369,9 @@
               "statement": "Providers MUST NOT irresponsibly disclose sensitive information in a Quarterly Review that would likely have an adverse effect on the cloud service offering.",
               "force": "MUST NOT",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": ["Cloud Service Offering", "Likely", "Quarterly Review"],
               "updated": [
                 {
@@ -2389,6 +2407,9 @@
               "statement": "Providers SHOULD supply additional information in Quarterly Reviews that the provider determines is of interest, use, or otherwise relevant to agencies.",
               "force": "SHOULD",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "controls": ["ca-7"],
               "terms": ["Quarterly Review"],
               "updated": [
@@ -2421,6 +2442,9 @@
               "note": "This is because agencies are less likely to actively participate in meetings with third parties; the cloud service provider's independent assessor should be considered relevant by default.",
               "force": "SHOULD NOT",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": ["Likely", "Quarterly Review"],
               "updated": [
                 {
@@ -2434,6 +2458,9 @@
               "statement": "Providers MAY responsibly supply recordings or transcriptions of Quarterly Reviews to the public or other parties ONLY if the provider removes all agency information (comments, questions, names, etc.) AND determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "force": "MAY",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Likely",
@@ -2452,6 +2479,9 @@
               "statement": "Providers MAY responsibly supply content prepared for a Quarterly Review to the public or other parties if the provider determines doing so will NOT likely have an adverse effect on the cloud service offering.",
               "force": "MAY",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": [
                 "Cloud Service Offering",
                 "Likely",
@@ -2484,7 +2514,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -2504,7 +2534,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -3267,6 +3297,9 @@
               },
               "note": "Cryptographic modules include specific algorithms by definition; if an update stream of a cryptographic module adds new algorithms that were not previously validated then those algorithms can not be considered within the scope of update stream usage under these rules as they are new algorithms within the module that have never been validated.",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "controls": ["ac-18", "au-9.3", "ia-7", "sc-28.1", "sc-8.1"],
               "terms": ["Federal Customer Data", "Validation"],
               "updated": [
@@ -3461,7 +3494,7 @@
               "name": "Overall Summary of Assessment in Certification Package",
               "varies_by_class": {
                 "a": {
-                  "statement": "Providers seeking Class A Certification MAY also include an overall summary of their FedRAMP independent assessment in their Certification Package Overview.",
+                  "statement": "Providers seeking Class A Certification MAY also include an overall summary of their FedRAMP independent assessment in their Certification Package Overview (if applicable).",
                   "force": "MAY"
                 },
                 "b": {
@@ -3479,6 +3512,9 @@
               },
               "related": ["IVV-IAS-OSA"],
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "controls": ["ca-2", "ca-2.1", "ca-2.2", "ca-7.1"],
               "terms": [
                 "Certification Package",
@@ -3673,7 +3709,7 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["B", "C", "D"],
+                "classes": ["A", "B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -3852,226 +3888,6 @@
               "force": "MUST",
               "affects": ["Providers"],
               "terms": ["All Necessary Parties", "Verification"],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "FRC-CLA-MFR": {
-              "name": "Mandatory FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification MUST address all rules in this FedRAMP Class A Certification subset (FRC-CLA) AND the following additional FedRAMP Class A rules; the appropriate artifacts or information mapping for all rules MUST be supplied in the FedRAMP Certification Package.",
-              "following_information": [
-                "FedRAMP Certification: FRC-CSO-PKG (FedRAMP Certification Package)",
-                "FedRAMP Certification: FRC-CSO-JSN (FedRAMP JSON Schemas)",
-                "FedRAMP Certification: FRC-CSO-POP (Pick One Program Certification Type)",
-                "Minimum Assessment Scope: MAS-CSO-IIR (Identify Information Resources)",
-                "Certification Data Sharing: CDS-CSO-PUB (Public Information)",
-                "Certification Data Sharing: CDS-CSO-UTC (Use Trust Centers)",
-                "Certification Data Sharing: CDS-UTC-AAD (Agency Access Denial)",
-                "Addressing FedRAMP Communication: AFC-CSO-INB (Maintain a FedRAMP Security Inbox)",
-                "Addressing FedRAMP Communication: AFC-CSO-RCV (Receive Email Without Disruption)",
-                "Addressing FedRAMP Communication: AFC-CSO-CRA (Complete Required Actions)",
-                "Incident Evaluation and Communication: IEC-CSO-EFR (Evaluate FedRAMP Reportability)",
-                "Incident Evaluation and Communication: IEC-CSO-FIR (Final Incident Report)",
-                "Vulnerability Detection and Response: VDR-CSO-DET (Vulnerability Detection)",
-                "Collaborative Continuous Monitoring: CCM-OCR-AVL (Report Availability)",
-                "Collaborative Continuous Monitoring: CCM-OCR-NRD (Next Report Date)",
-                "Independent Verification and Validation: IVV-CSX-AIA (Annual Independent Assessments for 20x)",
-                "Security Decision Record: SDR-CSX-KSI (Key Security Indicators)",
-                "Key Security Indicators: KSI-CMT-LMC (Logging Changes)",
-                "Key Security Indicators: KSI-CNA-RNT (Restricting Network Traffic)",
-                "Key Security Indicators: KSI-CED-RAT (Reviewing All Training)",
-                "Key Security Indicators: KSI-IAM-AAM (Automating Account Management)",
-                "Key Security Indicators: KSI-IAM-APM (Adopting Passwordless Methods)",
-                "Key Security Indicators: KSI-INR-RIR (Reviewing Incident Response Procedures)",
-                "Key Security Indicators: KSI-SVC-SIN (Securing Information)"
-              ],
-              "notes": [
-                "Some of these specific FedRAMP rules may not have similar counterparts in external frameworks and providers will need to implement new processes to follow these rules.",
-                "In general, for each of these FedRAMP requirements, providers should include a sufficiently detailed summary that reviewers will not need to dig into the related security framework materials to understand the related decisions - just saying \"see SOC 2 report\" is not particularly helpful.",
-                "Information about how the provider addresses the included Key Security Indicators are required to receive a class A certification even if the provider intends to pursue a Rev 5 Program Certification path in the future."
-              ],
-              "related": [
-                "FRC-CSO-POP",
-                "MAS-CSO-IIR",
-                "CDS-CSO-PUB",
-                "CDS-CSO-UTC",
-                "CDS-UTC-AAD",
-                "AFC-CSO-INB",
-                "AFC-CSO-RCV",
-                "AFC-CSO-CRA",
-                "IEC-CSO-EFR",
-                "IEC-CSO-FIR",
-                "VDR-CSO-DET",
-                "CCM-OCR-AVL",
-                "CCM-OCR-NRD",
-                "IVV-CSX-AIA",
-                "FRC-CSO-PKG",
-                "FRC-CSO-JSN",
-                "SDR-CSX-KSI",
-                "KSI-CMT-LMC",
-                "KSI-CNA-RNT",
-                "KSI-CED-RAT",
-                "KSI-IAM-AAM",
-                "KSI-INR-RIR",
-                "KSI-SVC-SIN",
-                "KSI-IAM-APM"
-              ],
-              "force": "MUST",
-              "affects": ["Providers"],
-              "terms": [
-                "Artifacts",
-                "Certification Data",
-                "Certification Package",
-                "Certification Path",
-                "Certification Type",
-                "FedRAMP Security Inbox",
-                "Final Incident Report (FIR)",
-                "Incident",
-                "Information Resource",
-                "Initial Incident Report (IIR)",
-                "Minimum Assessment Scope",
-                "Ongoing Certification Report (OCR)",
-                "Security Decision Record (SDR)",
-                "Trust Center",
-                "Validation",
-                "Verification",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-10-31",
-                  "comment": "Added SDR-CSX-KSI to list of requirements because folks need a rule that explains how to document the key security indicators!",
-                  "issue": "https://github.com/FedRAMP/rules/issues/45"
-                },
-                {
-                  "date": "2026-07-14",
-                  "comment": "Clarified that providers MUST address the Key Security Indicators even if they intend to pursue a Rev 5 Program Certification path in the future."
-                },
-                {
-                  "date": "2026-07-01",
-                  "comment": "Removed reference to Independent Verification and Validation: IVV-CSF-AIA (Annual Independent Assessments for Rev5); Removed CDS-CSO-AVR (Availability Reporting) since this rule is defined as SHOULD and included in FRC-CLA-RFR (Recommended FedRAMP Rules for Class A)"
-                },
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "FRC-CLA-RFR": {
-              "name": "Recommended FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification SHOULD address the following additional recommended FedRAMP Class A rules (if applicable):",
-              "following_information": [
-                "Certification Data Sharing: CDS-CSO-AVR (Availability Reporting)",
-                "Certification Package Overview: CPO-CSX-CPM (Certification Package Maintenance for 20x)",
-                "Incident Evaluation and Communication: IEC-CSO-IIR (Initial Incident Report)",
-                "Incident Evaluation and Communication: IEC-CSO-OIR (Ongoing Incident Reports)",
-                "Vulnerability Detection and Response: VDR-TFR-MVX (Persistent Machine Verification and Validation for 20x)",
-                "Vulnerability Detection and Response: VDR-TFR-PCD (Persistently Complete Detection)",
-                "Vulnerability Detection and Response: VDR-TFR-PDD (Persistent Drift Detection)",
-                "Vulnerability Detection and Response: VDR-TFR-PSD (Persistent Sample Detection)",
-                "Vulnerability Detection and Response: VDR-TFR-PVR (Mitigation and Remediation Expectations)",
-                "Vulnerability Evaluation and Reporting: VER-TFR-EVU (Evaluate Vulnerabilities Quickly)"
-              ],
-              "related": [
-                "CDS-CSO-AVR",
-                "CPO-CSX-CPM",
-                "IEC-CSO-IIR",
-                "IEC-CSO-OIR",
-                "VDR-TFR-MVX",
-                "VDR-TFR-PCD",
-                "VDR-TFR-PDD",
-                "VDR-TFR-PSD",
-                "VDR-TFR-PVR",
-                "VER-TFR-EVU"
-              ],
-              "force": "SHOULD",
-              "affects": ["Providers"],
-              "terms": [
-                "Certification Data",
-                "Certification Package",
-                "Drift",
-                "Incident",
-                "Initial Incident Report (IIR)",
-                "Ongoing Incident Report (OIR)",
-                "Persistently",
-                "Validation",
-                "Verification",
-                "Vulnerability",
-                "Vulnerability Detection",
-                "Vulnerability Response"
-              ],
-              "updated": [
-                {
-                  "date": "2026-10-31",
-                  "comment": "CPO-CSF-CPM (Certification Package Maintenance for Rev5) was removed.",
-                  "issue": "https://github.com/FedRAMP/rules/issues/44"
-                },
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "FRC-CLA-OFR": {
-              "name": "Address Optional FedRAMP Rules for Class A",
-              "statement": "Providers seeking a Class A FedRAMP Certification MAY address the following additional optional FedRAMP Class A rules (if applicable):",
-              "following_information": [
-                "Collaborative Continuous Monitoring: CCM-QTR-MTG (Quarterly Review Meeting)",
-                "Certification Data Sharing: CDS-CSO-PSM (Per-Service Certification Materials)",
-                "Cryptographic Module Use: CMU-CSO-UVM (Using Validated Cryptographic Modules)",
-                "FedRAMP Certification: FRC-APP-FIA (Fresh Independent Assessment)",
-                "Independent Verification and Validation: IVV-CSO-FIA (FedRAMP Independent Assessments)",
-                "Security Decision Record: SDR-CSX-KMT (Key Security Indicator Metrics)",
-                "Vulnerability Evaluation and Reporting: VER-TFR-IRI (Internet-Reachable Incidents)",
-                "Vulnerability Evaluation and Reporting: VER-TFR-MRH (Historical Activity)",
-                "Vulnerability Evaluation and Reporting: VER-TFR-NRI (Non-Internet-Reachable Incidents)"
-              ],
-              "related": [
-                "CCM-QTR-MTG",
-                "CDS-CSO-PSM",
-                "CMU-CSO-UVM",
-                "FRC-APP-FIA",
-                "IVV-CSO-FIA",
-                "SDR-CSX-KMT",
-                "VER-TFR-IRI",
-                "VER-TFR-MRH",
-                "VER-TFR-NRI"
-              ],
-              "force": "MAY",
-              "affects": ["Providers"],
-              "terms": [
-                "Certification Data",
-                "FedRAMP Independent Assessment",
-                "Incident",
-                "Quarterly Review",
-                "Security Decision Record (SDR)",
-                "Validation",
-                "Verification",
-                "Vulnerability"
-              ],
-              "updated": [
-                {
-                  "date": "2026-06-24",
-                  "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
-                }
-              ]
-            },
-            "FRC-CLA-IVV": {
-              "name": "Optional Independent Verification and Validation",
-              "statement": "Providers seeking a FedRAMP Class A Certification MAY have the FedRAMP Certification Package independently verified and validated by a FedRAMP Recognized assessor before submission to FedRAMP.",
-              "force": "MAY",
-              "affects": ["Providers"],
-              "terms": [
-                "Certification Package",
-                "FedRAMP Recognized",
-                "Validation",
-                "Verification"
-              ],
               "updated": [
                 {
                   "date": "2026-06-24",
@@ -5466,7 +5282,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["FedRAMP"]
             }
           },
@@ -5476,7 +5292,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -6575,12 +6391,6 @@
             "IVV-CSO-FIA": {
               "name": "FedRAMP Independent Assessments",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications MAY persistently complete an independent verification and validation assessment of all applicable FedRAMP rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
-                  "force": "MAY",
-                  "timeframe_type": "years",
-                  "timeframe_num": 1
-                },
                 "b": {
                   "statement": "Providers with Class B Certifications MUST persistently complete an independent verification and validation assessment of all applicable FedRAMP rules with a FedRAMP Recognized independent assessment service OR FedRAMP at least once per year; this is a FedRAMP independent assessment.",
                   "force": "MUST",
@@ -6892,6 +6702,9 @@
                 }
               },
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "terms": [
                 "FedRAMP Independent Assessment",
                 "Persistently",
@@ -7290,6 +7103,9 @@
               ],
               "force": "MUST",
               "affects": ["Providers"],
+              "additional_applicability": {
+                "classes": ["A"]
+              },
               "artifacts": {
                 "all": [
                   "A machine readable output containing all required data of the components of the cloud service offering that are likely to handle federal customer data or likely to impact the confidentiality, integrity, or availability of federal customer data handled by the cloud service offering.",
@@ -9012,7 +8828,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -9038,7 +8854,7 @@
               "applicability": {
                 "types": ["20x"],
                 "paths": ["Program"],
-                "classes": ["B", "C", "D"],
+                "classes": ["A", "B", "C", "D"],
                 "affects": ["Providers"]
               }
             }
@@ -9272,7 +9088,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           },
@@ -9282,7 +9098,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": ["B", "C", "D"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
@@ -10674,17 +10490,6 @@
             "VER-TFR-MRH": {
               "name": "Historical Activity",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications MAY make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information MAY be updated persistently, at least once every month.",
-                  "force": "MAY",
-                  "timeframe_type": "months",
-                  "timeframe_num": 1,
-                  "artifacts": {
-                    "all": [
-                      "URL and access instructions for historical vulnerability detection and response activity in machine readable format"
-                    ]
-                  }
-                },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD make all recent historical vulnerability detection and response activity available in JSON format for automated retrieval by all necessary parties (e.g. using an API service or similar); this information SHOULD be updated persistently, at least once every month.",
                   "force": "SHOULD",
@@ -10741,12 +10546,6 @@
             "VER-TFR-EVU": {
               "name": "Evaluate Vulnerabilities Quickly",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications SHOULD evaluate ALL vulnerabilities as required by VER-EVA (Evaluation) within 14 days of detection.",
-                  "force": "SHOULD",
-                  "timeframe_type": "days",
-                  "timeframe_num": 14
-                },
                 "b": {
                   "statement": "Providers with Class B Certifications SHOULD evaluate ALL vulnerabilities as required by VER-EVA (Evaluation) within 7 days of detection.",
                   "force": "SHOULD",
@@ -10778,10 +10577,6 @@
             "VER-TFR-IRI": {
               "name": "Internet-Reachable Incidents",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N3 or below.",
-                  "force": "MAY"
-                },
                 "b": {
                   "statement": "Providers with Class B Certifications MAY treat internet-reachable likely exploitable vulnerabilities where Potential Agency Impact N-rating > 3 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N3 or below.",
                   "force": "MAY"
@@ -10815,10 +10610,6 @@
             "VER-TFR-NRI": {
               "name": "Non-Internet-Reachable Incidents",
               "varies_by_class": {
-                "a": {
-                  "statement": "Providers with Class A Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N4 or below.",
-                  "force": "MAY"
-                },
                 "b": {
                   "statement": "Providers with Class B Certifications MAY treat likely exploitable vulnerabilities that are NOT internet-reachable where Potential Agency Impact N-rating = 5 as a FedRAMP Reportable Incident until they are partially mitigated vulnerabilities at N4 or below.",
                   "force": "MAY"

@@ -280,6 +280,38 @@
       },
       "additionalProperties": false
     },
+    "frr_additional_applicability": {
+      "type": "object",
+      "description": "Additional applicability for this rule. Listed values extend the corresponding subset applicability values. Omitted dimensions retain the subset applicability.",
+      "minProperties": 1,
+      "properties": {
+        "types": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/certification_type" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "paths": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/certification_path" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "classes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/class_name" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "affects": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/affected_party" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
     "frr_info_subsets": {
       "type": "object",
       "propertyNames": { "$ref": "#/$defs/frr_info_subset_name" },
@@ -590,6 +622,9 @@
           "items": { "$ref": "#/$defs/affected_party" },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "additional_applicability": {
+          "$ref": "#/$defs/frr_additional_applicability"
         },
         "artifacts": { "$ref": "#/$defs/artifacts" },
         "schema": { "$ref": "#/$defs/rule_schema" },

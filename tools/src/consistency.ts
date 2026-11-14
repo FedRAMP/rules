@@ -127,6 +127,14 @@ export function collectConsistencyChecks(
       issues: collectFrrSubsetApplicabilityAffectsIssues(document),
     },
     {
+      title: "FRR additional applicability redundancy",
+      issues: collectFrrAdditionalApplicabilityIssues(document),
+    },
+    {
+      title: "FRR class-variant applicability",
+      issues: collectFrrClassVariantApplicabilityIssues(document),
+    },
+    {
       title: "Audit history consistency",
       issues: collectAuditHistoryIssues(document),
     },
@@ -626,6 +634,86 @@ function collectFrrInfoSubsetEntries(
   }
 
   return entries;
+}
+
+export function collectFrrClassVariantApplicabilityIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+  const subsets = collectFrrInfoSubsetEntries(document);
+
+  for (const entry of collectRequirementEntries(document)) {
+    if (!isRecord(entry.requirement.varies_by_class)) continue;
+    const classes = new Set<string>();
+    for (const subset of subsets) {
+      if (
+        subset.sectionKey === entry.sectionKey &&
+        subset.subsetKey === entry.subsetKey &&
+        subset.dataScopeKeys.some((scope) => scope === entry.scopeKey)
+      ) {
+        for (const value of getSubsetApplicabilityArray(
+          subset.subset,
+          "classes",
+        ) ?? []) {
+          classes.add(value);
+        }
+      }
+    }
+    const additional = entry.requirement.additional_applicability?.classes;
+    if (Array.isArray(additional)) {
+      for (const value of additional) classes.add(value);
+    }
+    for (const classKey of CLASS_KEYS) {
+      if (
+        Object.hasOwn(entry.requirement.varies_by_class, classKey) &&
+        !classes.has(classKey.toUpperCase())
+      ) {
+        issues.push(
+          issue(
+            `${entry.location}.varies_by_class.${classKey}`,
+            `Class ${classKey.toUpperCase()} does not apply to this rule through subset applicability or additional_applicability.classes. Applicable classes: ${formatValues([...classes].sort())}.`,
+          ),
+        );
+      }
+    }
+  }
+
+  return issues;
+}
+
+export function collectFrrAdditionalApplicabilityIssues(
+  document: RulesDocument,
+): ConsistencyIssue[] {
+  const issues: ConsistencyIssue[] = [];
+
+  for (const entry of collectFrrInfoSubsetEntries(document)) {
+    for (const scopeKey of entry.dataScopeKeys) {
+      const requirements = entry.section.data?.[scopeKey]?.[entry.subsetKey];
+      for (const [id, requirement] of Object.entries(requirements ?? {})) {
+        const additional = requirement.additional_applicability;
+        if (!isRecord(additional)) continue;
+
+        for (const key of ["types", "paths", "classes", "affects"] as const) {
+          const values = additional[key];
+          if (!Array.isArray(values)) continue;
+          const inherited =
+            getSubsetApplicabilityArray(entry.subset, key) ?? [];
+          values.forEach((value, index) => {
+            if (typeof value === "string" && inherited.includes(value)) {
+              issues.push(
+                issue(
+                  `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}.${id}.additional_applicability.${key}[${index}]`,
+                  `additional applicability value ${JSON.stringify(value)} is redundant with ${entry.location}.applicability.${key}.`,
+                ),
+              );
+            }
+          });
+        }
+      }
+    }
+  }
+
+  return issues;
 }
 
 function collectFrrSubsetRequirementAffects(entry: FrrSubsetDeclarationEntry): {
