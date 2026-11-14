@@ -9071,7 +9071,7 @@
               "name": "FedRAMP Rules",
               "statement": "Providers MUST supply a Security Decision Record, in both human-readable and JSON formats, that includes at least all of the following information for each applicable FedRAMP rule:",
               "following_information": [
-                "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
+                "Explanation of how the rule is implemented, or an explanation of the reason and resulting risk to customers for not implementing the rule; partial implementations must include both.",
                 "Verification that the implementation is appropriate for the rule, or that the reason for not implementing is accepted by a senior official.",
                 "Validation that the implementation is in place and working as intended, or that the reason for not implementing is accepted by a senior official.",
                 "Independent verification.",
@@ -9092,6 +9092,11 @@
                 "Verification"
               ],
               "updated": [
+                {
+                  "date": "2026-12-01",
+                  "comment": "No material change, clarified that an explanation of the rule being implemented (instead of being followed) is necessary to align with standard wording.",
+                  "issue": "https://github.com/FedRAMP/rules/issues/60"
+                },
                 {
                   "date": "2026-06-24",
                   "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
