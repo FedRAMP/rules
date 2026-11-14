@@ -659,11 +659,26 @@ export function collectFrrClassVariantApplicabilityIssues(
         }
       }
     }
-    const additional = entry.requirement.additional_applicability?.classes;
+    const additional = entry.requirement.applicability?.add?.classes;
     if (Array.isArray(additional)) {
       for (const value of additional) classes.add(value);
     }
+    const excluded = entry.requirement.applicability?.exclude?.classes;
+    if (Array.isArray(excluded)) {
+      for (const value of excluded) classes.delete(value);
+    }
     for (const classKey of CLASS_KEYS) {
+      if (
+        classes.has(classKey.toUpperCase()) &&
+        !Object.hasOwn(entry.requirement.varies_by_class, classKey)
+      ) {
+        issues.push(
+          issue(
+            `${entry.location}.varies_by_class.${classKey}`,
+            `Missing class variant: Class ${classKey.toUpperCase()} applies to this rule through subset applicability or applicability.add.classes.`,
+          ),
+        );
+      }
       if (
         Object.hasOwn(entry.requirement.varies_by_class, classKey) &&
         !classes.has(classKey.toUpperCase())
@@ -671,7 +686,12 @@ export function collectFrrClassVariantApplicabilityIssues(
         issues.push(
           issue(
             `${entry.location}.varies_by_class.${classKey}`,
-            `Class ${classKey.toUpperCase()} does not apply to this rule through subset applicability or additional_applicability.classes. Applicable classes: ${formatValues([...classes].sort())}.`,
+            Array.isArray(excluded) &&
+              excluded.includes(
+                classKey.toUpperCase() as (typeof excluded)[number],
+              )
+              ? `Class ${classKey.toUpperCase()} is excluded by applicability.exclude.classes but has a class variant. Applicable classes: ${formatValues([...classes].sort())}.`
+              : `Class ${classKey.toUpperCase()} does not apply to this rule through subset applicability or applicability.add.classes. Applicable classes: ${formatValues([...classes].sort())}.`,
           ),
         );
       }
@@ -690,7 +710,7 @@ export function collectFrrAdditionalApplicabilityIssues(
     for (const scopeKey of entry.dataScopeKeys) {
       const requirements = entry.section.data?.[scopeKey]?.[entry.subsetKey];
       for (const [id, requirement] of Object.entries(requirements ?? {})) {
-        const additional = requirement.additional_applicability;
+        const additional = requirement.applicability?.add;
         if (!isRecord(additional)) continue;
 
         for (const key of ["types", "paths", "classes", "affects"] as const) {
@@ -702,7 +722,7 @@ export function collectFrrAdditionalApplicabilityIssues(
             if (typeof value === "string" && inherited.includes(value)) {
               issues.push(
                 issue(
-                  `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}.${id}.additional_applicability.${key}[${index}]`,
+                  `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}.${id}.applicability.add.${key}[${index}]`,
                   `additional applicability value ${JSON.stringify(value)} is redundant with ${entry.location}.applicability.${key}.`,
                 ),
               );

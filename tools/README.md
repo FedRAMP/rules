@@ -55,6 +55,64 @@ dynamic object keys and array items.
 Command definitions are in [package.json](package.json); tests are in
 [tests/](tests/).
 
+## Reports
+
+Reports read the configured rules and schema, validate the dataset, and print
+plain text without modifying files. Each report includes the dataset version
+and update date. Run these commands from `tools/`:
+
+```sh
+bun report profile 20x a
+bun report profile rev5 c
+bun report overall
+bun report --help
+bun report profile --help
+```
+
+Type and class arguments are case-insensitive and use the local schema's
+allowed values. Missing/extra arguments, unknown values, invalid schema data,
+and report errors exit nonzero with diagnostics on stderr.
+
+### Profile
+
+The profile report lists each matching FRR rule as `ID (Name)` in dataset
+order. It considers `data.all` and the requested framework's bucket. Common
+subset metadata applies to both; framework-specific subset metadata applies
+to rules in that framework's bucket. If both declare a subset, their values
+are combined. A rule's `applicability.add` extends those values;
+`applicability.exclude` then removes listed values, taking precedence over
+additions. Omitted dimensions retain their combined values. Both type and class must match.
+Empty lists match nothing, and extensions do not cross framework data buckets.
+
+Profiles include all actors and certification paths without filtering status
+or effective dates. They describe type/class matches, not a determination of
+every obligation currently applicable to a particular offering.
+
+Force counts use the primary `force` field, selecting the requested class
+variant where present. A matching rule without that class variant is listed
+with a diagnostic annotation and counted as `unspecified`. Secondary forces
+within statement text are not separately counted. Missing subset declarations
+or duplicate rule IDs cause an error.
+
+After the rule list, the report shows counts and forces for each party in the
+rules' `affects` arrays. Multi-party rules count under each listed party;
+`Everyone` is a separate category. The final total counts each rule once, for
+example `37 rules (17 MUST, 20 SHOULD)`. Zero-count forces are omitted.
+
+### Overall
+
+| Total | Counted entries |
+| --- | --- |
+| Rulesets | All FRR process entries, including empty rulesets |
+| Subsets | Nonempty subset buckets in each ruleset/data scope; repeated subset keys in different scopes count separately |
+| Rules | FRR requirement entries; class variants count as one rule |
+| KSIs | Indicator entries across KSI themes |
+| Controls | Control entries across CTL families; absent CTL counts as zero |
+
+The CLI is [report.ts](report.ts); the registry and individual report modules
+are in [src/reports/](src/reports/). See [AGENTS-TOOLS.md](AGENTS-TOOLS.md#reporting-framework)
+for extension guidance.
+
 ## Checks
 
 These commands inspect the project without rewriting the canonical files:
@@ -87,6 +145,13 @@ the full JSON path, original URL, and HTTP status or connection error. The check
 follows redirects, tries GET when HEAD returns an unsuccessful status, and
 checks each distinct URL once (ignoring fragments). Four requests run at a time,
 with a 10-second deadline per URL. Fragment anchors are not validated.
+
+The test skips live requests for one hour after a completed run, including runs
+with warnings. It stores the completion time and a hash of the sorted, distinct
+URL strings in `node_modules/.cache/reference-url-check`. Changed URLs trigger
+an immediate check; missing or unreadable cache files also trigger a check.
+Fresh CI installations have no cache. Run `bun run test:reference-urls` to check
+immediately without using the cache, or delete the cache file to reset it.
 
 Non-successful responses, including access-denied/rate-limit responses, and
 network failures produce warnings without making the command fail. Invalid or

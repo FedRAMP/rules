@@ -102,7 +102,10 @@ export type RequirementLevel = {
   artifacts?: Artifacts;
 } & ScalarTimeframe;
 
-export type RequirementByClass = ClassVariants<RequirementLevel>;
+export type RequirementByClass = {
+  [Key in ClassKey]: Record<Key, RequirementLevel> &
+    Partial<Record<ClassKey, RequirementLevel>>;
+}[ClassKey];
 
 // A deliberately partial view shared by text/history helpers; it is not a
 // declaration of the allowed fields on a KSI indicator or FRR requirement.
@@ -151,7 +154,10 @@ export type Requirement = {
   effective_date?: EffectiveDates;
   corrective_actions?: string[];
   affects: AffectedParty[];
-  additional_applicability?: Partial<FrrSubsetApplicability>;
+  applicability?: {
+    add?: Partial<FrrSubsetApplicability>;
+    exclude?: Partial<FrrSubsetApplicability>;
+  };
   artifacts?: Artifacts;
   schema?: RuleSchemaReference;
   examples?: Array<{ id: string; key_tests: string[]; examples: string[] }>;

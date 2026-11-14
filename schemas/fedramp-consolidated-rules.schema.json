@@ -280,9 +280,18 @@
       },
       "additionalProperties": false
     },
-    "frr_additional_applicability": {
+    "frr_rule_applicability": {
       "type": "object",
-      "description": "Additional applicability for this rule. Listed values extend the corresponding subset applicability values. Omitted dimensions retain the subset applicability.",
+      "description": "Rule-specific changes to subset applicability. Add values first, then remove excluded values. Omitted dimensions retain their subset applicability.",
+      "minProperties": 1,
+      "properties": {
+        "add": { "$ref": "#/$defs/frr_applicability_changes" },
+        "exclude": { "$ref": "#/$defs/frr_applicability_changes" }
+      },
+      "additionalProperties": false
+    },
+    "frr_applicability_changes": {
+      "type": "object",
       "minProperties": 1,
       "properties": {
         "types": {
@@ -549,24 +558,35 @@
       "required": ["name", "affects", "updated"],
       "oneOf": [
         {
-          "properties": { "statement": {}, "force": {} },
+          "properties": {
+            "statement": {},
+            "force": {}
+          },
           "required": ["statement", "force"],
           "not": {
-            "properties": { "varies_by_class": {} },
+            "properties": {
+              "varies_by_class": {}
+            },
             "required": ["varies_by_class"]
           }
         },
         {
-          "properties": { "varies_by_class": {} },
+          "properties": {
+            "varies_by_class": {}
+          },
           "required": ["varies_by_class"],
           "not": {
             "anyOf": [
               {
-                "properties": { "statement": {} },
+                "properties": {
+                  "statement": {}
+                },
                 "required": ["statement"]
               },
               {
-                "properties": { "force": {} },
+                "properties": {
+                  "force": {}
+                },
                 "required": ["force"]
               }
             ]
@@ -578,7 +598,7 @@
         "statement": { "type": "string" },
         "varies_by_class": {
           "type": "object",
-          "required": ["b", "c"],
+          "minProperties": 1,
           "properties": {
             "a": { "$ref": "#/$defs/frr_requirement_level" },
             "b": { "$ref": "#/$defs/frr_requirement_level" },
@@ -614,18 +634,14 @@
           "type": "array",
           "items": { "type": "string" }
         },
-        "force": {
-          "$ref": "#/$defs/force_enum"
-        },
+        "force": { "$ref": "#/$defs/force_enum" },
         "affects": {
           "type": "array",
           "items": { "$ref": "#/$defs/affected_party" },
           "minItems": 1,
           "uniqueItems": true
         },
-        "additional_applicability": {
-          "$ref": "#/$defs/frr_additional_applicability"
-        },
+        "applicability": { "$ref": "#/$defs/frr_rule_applicability" },
         "artifacts": { "$ref": "#/$defs/artifacts" },
         "schema": { "$ref": "#/$defs/rule_schema" },
         "examples": {
@@ -635,8 +651,14 @@
             "required": ["id", "key_tests", "examples"],
             "properties": {
               "id": { "type": "string" },
-              "key_tests": { "type": "array", "items": { "type": "string" } },
-              "examples": { "type": "array", "items": { "type": "string" } }
+              "key_tests": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "examples": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
             },
             "additionalProperties": false
           }
@@ -666,7 +688,10 @@
           "items": { "$ref": "#/$defs/control_id" },
           "uniqueItems": true
         },
-        "terms": { "type": "array", "items": { "type": "string" } },
+        "terms": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "updated": { "$ref": "#/$defs/updated_list" }
       },
       "dependentRequired": {
@@ -678,7 +703,9 @@
         "timeframe_type": {
           "oneOf": [
             {
-              "properties": { "timeframe_num": {} },
+              "properties": {
+                "timeframe_num": {}
+              },
               "required": ["timeframe_num"]
             },
             {

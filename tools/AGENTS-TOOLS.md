@@ -104,6 +104,44 @@ Metadata freshness, subset force order, and unused subset warnings are advisory;
 they do not authorize rules edits. Review the final diff for unintended data
 changes, generated files, and staging changes.
 
+## Reporting Framework
+
+`bun report` lists available reports; `bun report profile 20x a` and
+`bun report profile rev5 c` list matching FRR rules, and `bun report overall`
+prints dataset totals. Run from `tools/`; see [README.md](README.md#reports)
+for the full counting and applicability contract.
+
+- Keep [report.ts](report.ts) as the thin CLI: stdout for completed reports,
+  stderr and a nonzero exit for errors. Reports are read-only and must not
+  invoke fixers, write canonical files, or require network access.
+- Register each report explicitly in [src/reports/index.ts](src/reports/index.ts)
+  with its name, usage, description, argument count, and runner. The shared
+  runner handles help, loading through existing configuration helpers, schema
+  validation, and dataset metadata. Read schema-owned argument vocabularies
+  through `src/schema-metadata.ts`.
+- Add small report modules under `src/reports/`; separate calculations from
+  text rendering. Reuse `src/traversal.ts` for requirement/indicator traversal.
+  Add fixture tests and command examples when introducing reports. Extend
+  `overall` by adding calculated fields and rendering labels with documented
+  counting semantics rather than embedding calculations in the CLI.
+- Profile matching considers shared and matching-framework data only. Combine
+  common and bucket-specific subset declarations, then extend dimensions with
+  `applicability.add`, then remove `applicability.exclude` values.
+  Exclusions take precedence over additions. Require explicit type and class membership;
+  empty lists match nothing. Do not silently add actor, path, status, or date
+  filters. Unresolved subsets and duplicate rule IDs are errors.
+- Force totals use only primary force, selecting the requested class variant.
+  Missing variants remain in totals as `unspecified`, with a visible diagnostic.
+  Party summaries use rule-level `affects`, count multi-party rules under each
+  named party, and keep `Everyone` separate. Overall profile totals count each
+  rule once.
+- Overall counts FRR rulesets (including empty ones), populated subset buckets
+  per ruleset/data scope, FRR rule entries, KSI indicator entries, and CTL
+  control entries. Class variants do not multiply entries; absent CTL is zero.
+- Test helpers with in-memory fixtures or cloned documents. Test CLI behavior
+  and schema failure without modifying configured files. Run focused report
+  tests, then `bun run check`, and separate existing findings from regressions.
+
 ## Changelog Generation
 
 When asked to generate a changelog for the active branch, produce two separate,
