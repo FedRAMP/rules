@@ -1,7 +1,40 @@
 import { expect, test } from "bun:test";
 import type { ErrorObject } from "ajv";
 
-import { formatSchemaErrors } from "../src/schema-validation";
+import {
+  formatSchemaErrors,
+  formatSchemaFailureSummary,
+  validateSchema,
+} from "../src/schema-validation";
+import { loadRulesDocument } from "../src/rules";
+
+test("schema failure summary includes missing KSI force and all other schema errors", () => {
+  const document = loadRulesDocument();
+  const indicator = document.KSI.MLA!.indicators["KSI-MLA-EVC"]!;
+  Reflect.deleteProperty(indicator, "force_by_class");
+  Reflect.deleteProperty(indicator, "statement");
+  const result = validateSchema(document);
+  const summary = formatSchemaFailureSummary(result);
+  expect(summary).toContain(
+    "KSI.MLA.indicators.KSI-MLA-EVC is missing required property force_by_class.",
+  );
+  expect(summary).toContain(
+    "KSI.MLA.indicators.KSI-MLA-EVC is missing required property statement.",
+  );
+  for (const message of result.humanReadableErrors) {
+    expect(summary).toContain(`  - ${message}`);
+  }
+});
+
+test("valid schema results produce no failure summary", () => {
+  expect(
+    formatSchemaFailureSummary({
+      valid: true,
+      errors: [],
+      humanReadableErrors: [],
+    }),
+  ).toBeNull();
+});
 
 test("schema errors include the full document location", () => {
   const errors: ErrorObject[] = [

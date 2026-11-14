@@ -25,6 +25,17 @@ export function validateSchema(
   };
 }
 
+export function formatSchemaFailureSummary(
+  result: ReturnType<typeof validateSchema>,
+): string | null {
+  if (result.valid) return null;
+  const count = result.humanReadableErrors.length;
+  return [
+    `Schema validation failed with ${count} ${count === 1 ? "issue" : "issues"}:`,
+    ...result.humanReadableErrors.map((message) => `  - ${message}`),
+  ].join("\n");
+}
+
 export function formatSchemaErrors(
   errors: ErrorObject[],
   document: unknown,

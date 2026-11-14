@@ -134,7 +134,8 @@ URL checks last, and separates Bun's final duration summary with a blank line.
 New test files are discovered automatically. This ordering and spacing apply to
 `bun run test` and `bun run check`; direct `bun test` uses Bun's default output.
 
-The runner prints human-readable consistency and property-order failure reports.
+The runner prints human-readable schema, consistency, and property-order failure
+reports after the test totals, including full paths for schema errors.
 It also reports advisory warnings for metadata freshness, FRR subset force
 ordering, and unused subsets; those warnings alone do not make the command fail.
 

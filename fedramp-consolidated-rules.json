@@ -10697,6 +10697,12 @@
         "KSI-CED-RAT": {
           "name": "Reviewing All Training",
           "statement": "The effectiveness of relevant cybersecurity education and training is persistently reviewed, including at least general training for all employees, role-specific training for employees in high risk roles, training for development and engineering staff on secure software delivery, and training for staff involved with incident response or disaster recovery.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "at-2",
             "at-2.2",
@@ -10742,6 +10748,12 @@
         "KSI-CMT-LMC": {
           "name": "Logging Changes",
           "statement": "Modifications to the cloud service offering are logged and monitored.",
+          "force_by_class": {
+            "a": "MUST",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "au-2",
             "ca-7.4",
@@ -10768,6 +10780,12 @@
         "KSI-CMT-RMV": {
           "name": "Redeploying vs Modifying",
           "statement": "Changes to machine-based information resources are executed through the redeployment of version controlled resources rather than direct modification wherever reasonable.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "cm-2",
             "cm-3",
@@ -10791,6 +10809,12 @@
         "KSI-CMT-RVP": {
           "name": "Reviewing Change Procedures",
           "statement": "The effectiveness of documented change management procedures is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["cm-3", "cm-3.2", "cm-3.4", "cm-5", "cm-7.1", "cm-9"],
           "updated": [
             {
@@ -10803,6 +10827,12 @@
         "KSI-CMT-VTD": {
           "name": "Validating Throughout Deployment",
           "statement": "Persistent testing and validation of changes throughout deployment is automated.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["cm-3", "cm-3.2", "cm-4.2", "cm-6.2", "ir-9.4", "si-2"],
           "updated": [
             {
@@ -10828,6 +10858,12 @@
         "KSI-CNA-DFP": {
           "name": "Defining Functionality and Privileges",
           "statement": "The functionality and privileges for infrastructure and services are strictly defined.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["cm-2", "cm-8.4", "cp-10.4", "ir-9.4", "si-3"],
           "updated": [
             {
@@ -10842,6 +10878,13 @@
         },
         "KSI-CNA-EIS": {
           "name": "Enforcing Intended State",
+          "statement": "Automated services are used to persistently assess the security of all machine-based information resources and automatically enforce their intended operational state.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MAY",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ca-2.1",
             "cm-11",
@@ -10866,14 +10909,6 @@
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
-          "varies_by_class": {
-            "b": {
-              "statement": "**Optional:** Automated services are used to persistently assess the security of all machine-based information resources and automatically enforce their intended operational state."
-            },
-            "c": {
-              "statement": "Automated services are used to persistently assess the security of all machine-based information resources and automatically enforce their intended operational state."
-            }
-          },
           "terms": [
             "Information Resource",
             "Machine-Based (Information Resources)",
@@ -10883,6 +10918,12 @@
         "KSI-CNA-IBP": {
           "name": "Implementing Best Practices",
           "statement": "The use and configuration of third-party machine-based information resources is persistently compared against the original provider's best practices and guidance.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["ac-17.3", "cm-2", "pl-10", "sc-7.18"],
           "updated": [
             {
@@ -10903,6 +10944,12 @@
         "KSI-CNA-MAT": {
           "name": "Minimizing Attack Surface",
           "statement": "Machine-based information resources are persistently reviewed to ensure they have a minimal attack surface and that lateral movement is minimized if compromised.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17.3",
             "ac-18.1",
@@ -10939,6 +10986,12 @@
         "KSI-CNA-OFA": {
           "name": "Optimizing for Availability",
           "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately optimized for high availability and rapid recovery.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["cp-2.5", "sc-12.1"],
           "updated": [
             {
@@ -10959,6 +11012,12 @@
         "KSI-CNA-RNT": {
           "name": "Restricting Network Traffic",
           "statement": "Machine-based information resources are persistently reviewed to ensure they are appropriately configured to limit inbound and outbound network traffic.",
+          "force_by_class": {
+            "a": "MUST",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17.3",
             "ca-9",
@@ -10993,6 +11052,12 @@
         "KSI-CNA-RVP": {
           "name": "Reviewing Protections",
           "statement": "The effectiveness of protection against denial of service attacks and other unwanted activity for machine-based information resources is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["ir-4.2", "sc-5", "sc-7.18", "si-8", "si-8.2"],
           "updated": [
             {
@@ -11013,6 +11078,12 @@
         "KSI-CNA-ULN": {
           "name": "Using Logical Networking",
           "statement": "Logical networking and related capabilities are used and persistently reviewed to enforce traffic flow controls.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-12",
             "ac-17.3",
@@ -11051,6 +11122,12 @@
         "KSI-IAM-AAM": {
           "name": "Automating Account Management",
           "statement": "The lifecycle and privileges of all accounts, roles, and groups are securely managed using automation.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-2.13",
             "ac-2.2",
@@ -11077,6 +11154,12 @@
         "KSI-IAM-APM": {
           "name": "Adopting Passwordless Methods",
           "statement": "Secure passwordless methods are used for user authentication and authorization when feasible, otherwise strong passwords with phishing-resistant MFA is used.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-2",
             "ac-3",
@@ -11110,6 +11193,12 @@
         "KSI-IAM-ELP": {
           "name": "Ensuring Least Privilege",
           "statement": "Identity and access management measures are used and persistently reviewed to ensure each user or device can only access the resources they need.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-12",
             "ac-14",
@@ -11179,6 +11268,12 @@
         "KSI-IAM-JIT": {
           "name": "Authorizing Just-in-Time",
           "statement": "A least-privileged, role and attribute-based, and just-in-time security authorization model is used and persistently reviewed for all user and non-user accounts and services.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17",
             "ac-17.4",
@@ -11247,6 +11342,12 @@
         "KSI-IAM-SNU": {
           "name": "Securing Non-User Authentication",
           "statement": "Appropriately secure authentication methods are used and persistently reviewed for non-user accounts and services.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-2",
             "ac-2.2",
@@ -11274,6 +11375,12 @@
         "KSI-IAM-SUS": {
           "name": "Responding to Suspicious Activity",
           "statement": "Accounts with privileged access are disabled or otherwise secured in response to suspicious activity.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-2",
             "ac-2.1",
@@ -11320,6 +11427,12 @@
         "KSI-INR-AAR": {
           "name": "Generating After Action Reports",
           "statement": "Incident after action reports are generated and lessons learned are persistently incorporated.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["ir-3", "ir-4", "ir-4.1", "ir-5.1", "ir-8", "ir-9.3"],
           "updated": [
             {
@@ -11336,6 +11449,12 @@
         "KSI-INR-RIR": {
           "name": "Reviewing Incident Response Procedures",
           "statement": "The effectiveness of documented incident response procedures is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ir-4",
             "ir-4.1",
@@ -11365,6 +11484,12 @@
         "KSI-INR-RPI": {
           "name": "Reviewing Past Incidents",
           "statement": "Past incidents are persistently reviewed for patterns or vulnerabilities that were not previously apparent or identified.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ir-3",
             "ir-4",
@@ -11399,6 +11524,13 @@
       "indicators": {
         "KSI-MLA-ALA": {
           "name": "Authorizing Log Access",
+          "statement": "A least-privileged, role and attribute-based, and just-in-time access authorization model is used and persistently reviewed for access to log data based on organizationally defined data sensitivity.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MAY",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["au-12.3", "au-6.7", "si-11"],
           "updated": [
             {
@@ -11410,19 +11542,17 @@
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
-          "varies_by_class": {
-            "b": {
-              "statement": "**Optional:** A least-privileged, role and attribute-based, and just-in-time access authorization model is used and persistently reviewed for access to log data based on organizationally defined data sensitivity."
-            },
-            "c": {
-              "statement": "A least-privileged, role and attribute-based, and just-in-time access authorization model is used and persistently reviewed for access to log data based on organizationally defined data sensitivity."
-            }
-          },
           "terms": ["Persistently"]
         },
         "KSI-MLA-EVC": {
           "name": "Evaluating Configurations",
           "statement": "The configuration of machine-based information resources, especially infrastructure as code, is persistently evaluated and tested.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MAY",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-19",
             "ca-7",
@@ -11451,6 +11581,12 @@
         "KSI-MLA-LET": {
           "name": "Logging Event Types",
           "statement": "A list of information resources and event types that will be logged, monitored, and audited is maintained and persistently reviewed to ensure these activities occur.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17.1",
             "ac-2.4",
@@ -11484,6 +11620,12 @@
         "KSI-MLA-OSM": {
           "name": "Operating SIEM Capability",
           "statement": "A Security Information and Event Management (SIEM) or similar system(s) is used and persistently reviewed for centralized, tamper-resistant logging of events, activities, and changes.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17.1",
             "ac-20.1",
@@ -11523,6 +11665,12 @@
         "KSI-MLA-RVL": {
           "name": "Reviewing Logs",
           "statement": "Logs are persistently reviewed and audited.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-2.4",
             "ac-6.9",
@@ -11559,6 +11707,12 @@
         "KSI-PIY-GIV": {
           "name": "Generating Inventories",
           "statement": "Authoritative sources are used to automatically generate real-time inventories of all information resources when needed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "cm-12",
             "cm-12.1",
@@ -11585,6 +11739,12 @@
         "KSI-PIY-RES": {
           "name": "Reviewing Executive Support",
           "statement": "Executive support for achieving the provider's security goals is persistently reviewed and demonstrated.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [],
           "updated": [
             {
@@ -11597,6 +11757,12 @@
         "KSI-PIY-RIS": {
           "name": "Reviewing Investments in Security",
           "statement": "The effectiveness of the provider's investments in achieving security goals is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-5",
             "ca-2",
@@ -11625,6 +11791,12 @@
         "KSI-PIY-RSD": {
           "name": "Reviewing Security in the SDLC",
           "statement": "The effectiveness of building security and privacy considerations into the Software Development Lifecycle and aligning with CISA Secure By Design principles is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-5",
             "au-3.3",
@@ -11656,6 +11828,12 @@
         "KSI-PIY-RVD": {
           "name": "Reviewing Vulnerability Disclosures",
           "statement": "The effectiveness of the provider's vulnerability disclosure program is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["ra-5.11"],
           "updated": [
             {
@@ -11677,6 +11855,12 @@
         "KSI-RPL-ABO": {
           "name": "Aligning Backups with Objectives",
           "statement": "The alignment of machine-based information resource backups with defined recovery objectives is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["cm-2.3", "cp-6", "cp-9", "cp-10", "cp-10.2"],
           "updated": [
             {
@@ -11697,6 +11881,12 @@
         "KSI-RPL-ARP": {
           "name": "Aligning Recovery Plan",
           "statement": "The alignment of recovery plans with defined recovery objectives is persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "cp-2",
             "cp-2.1",
@@ -11726,6 +11916,12 @@
         "KSI-RPL-RRO": {
           "name": "Reviewing Recovery Objectives",
           "statement": "The desired Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) are defined and persistently reviewed for alignment with the provider's business needs and capabilities.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["cp-2.3", "cp-10"],
           "updated": [
             {
@@ -11738,6 +11934,12 @@
         "KSI-RPL-TRC": {
           "name": "Testing Recovery Capabilities",
           "statement": "The capability to recover from incidents and contingencies aligned with defined recovery objectives is persistently tested.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "cp-10",
             "cp-2.1",
@@ -11776,6 +11978,12 @@
         "KSI-SCR-MIT": {
           "name": "Mitigating Supply Chain Risk",
           "statement": "Potential supply chain risks are persistently identified, reviewed, and mitigated.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-19",
             "ac-20",
@@ -11829,6 +12037,12 @@
         "KSI-SCR-MON": {
           "name": "Monitoring Supply Chain Risk",
           "statement": "Third party software information resources are automatically monitored for upstream vulnerabilities using mechanisms that may include contractual notification requirements or active monitoring services.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-19",
             "ac-20",
@@ -11869,6 +12083,12 @@
         "KSI-SVC-ACM": {
           "name": "Automating Configuration Management",
           "statement": "The configuration of machine-based information resources is managed using automation and persistently reviewed for drift.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-2.4",
             "ac-6.8",
@@ -11906,6 +12126,12 @@
         "KSI-SVC-ASM": {
           "name": "Automating Secret Management",
           "statement": "Management, protection, and regular rotation of digital keys, certificates, and other secrets is automated and persistently reviewed.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17.2",
             "ia-5.2",
@@ -11929,6 +12155,12 @@
         "KSI-SVC-EIS": {
           "name": "Evaluating and Improving Security",
           "statement": "Information resources are persistently evaluated for opportunities to improve security and those improvements are persistently made.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ca-7.4",
             "cm-12.1",
@@ -11957,6 +12189,13 @@
         },
         "KSI-SVC-PRR": {
           "name": "Preventing Residual Risk",
+          "statement": "Plans, procedures, and the state of information resources are persistently reviewed after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MAY",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["ac-19", "ir-9.4", "sc-12.1", "sc-4", "sc-7.18"],
           "updated": [
             {
@@ -11968,14 +12207,6 @@
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
-          "varies_by_class": {
-            "b": {
-              "statement": "**Optional:** Plans, procedures, and the state of information resources are persistently reviewed after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
-            },
-            "c": {
-              "statement": "Plans, procedures, and the state of information resources are persistently reviewed after making changes to limit and remove unwanted residual elements that would likely negatively affect the confidentiality, integrity, or availability of federal customer data."
-            }
-          },
           "terms": [
             "Federal Customer Data",
             "Information Resource",
@@ -11985,6 +12216,13 @@
         },
         "KSI-SVC-RUD": {
           "name": "Removing Unwanted Data",
+          "statement": "Unwanted federal customer data is removed promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MAY",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": ["ir-9", "si-12.3", "si-18.4", "si-8", "si-8.2"],
           "updated": [
             {
@@ -11996,19 +12234,17 @@
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
-          "varies_by_class": {
-            "b": {
-              "statement": "**Optional:** Unwanted federal customer data is removed promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
-            },
-            "c": {
-              "statement": "Unwanted federal customer data is removed promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate; this typically applies when a customer spills information or when a customer seeks to remove information from a service due to a change in usage."
-            }
-          },
           "terms": ["Federal Customer Data", "Promptly"]
         },
         "KSI-SVC-SIN": {
           "name": "Securing Information",
           "statement": "Information is encrypted or otherwise secured from unwanted access or modification.",
+          "force_by_class": {
+            "a": "MUST",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-11",
             "ac-11.1",
@@ -12043,6 +12279,13 @@
         },
         "KSI-SVC-VCM": {
           "name": "Validating Communications",
+          "statement": "The authenticity and integrity of communications between machine-based information resources is persistently validated using automation.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MAY",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-10",
             "ac-17.4",
@@ -12062,14 +12305,6 @@
               "comment": "Official launch of the FedRAMP Consolidated Rules for 2026."
             }
           ],
-          "varies_by_class": {
-            "b": {
-              "statement": "**Optional:** The authenticity and integrity of communications between machine-based information resources is persistently validated using automation."
-            },
-            "c": {
-              "statement": "The authenticity and integrity of communications between machine-based information resources is persistently validated using automation."
-            }
-          },
           "terms": [
             "Information Resource",
             "Machine-Based (Information Resources)",
@@ -12080,6 +12315,12 @@
         "KSI-SVC-VRI": {
           "name": "Validating Resource Integrity",
           "statement": "Use cryptographic methods to validate the integrity of machine-based information resources.",
+          "force_by_class": {
+            "a": "MAY",
+            "b": "MUST",
+            "c": "MUST",
+            "d": "MUST"
+          },
           "controls": [
             "ac-17.4",
             "ac-18",

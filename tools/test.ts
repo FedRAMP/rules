@@ -14,6 +14,10 @@ import {
 } from "./src/metadata-freshness";
 import { collectPropertyOrderIssues } from "./src/property-order";
 import { loadRulesDocument, loadSchemaDocument } from "./src/rules";
+import {
+  formatSchemaFailureSummary,
+  validateSchema,
+} from "./src/schema-validation";
 import type { PropertyOrderIssue } from "./src/types";
 
 const RED = "\x1b[31m";
@@ -160,10 +164,14 @@ const suiteOrder = [
 ];
 function suiteRank(path: string): number {
   if (path === "tests/reference-url-reachability.test.ts") return Infinity;
-  const rank = suiteOrder.indexOf(path.slice("tests/".length, -".test.ts".length));
+  const rank = suiteOrder.indexOf(
+    path.slice("tests/".length, -".test.ts".length),
+  );
   return rank === -1 ? suiteOrder.length : rank;
 }
-const testFiles = [...new Bun.Glob("tests/**/*.test.ts").scanSync(import.meta.dir)]
+const testFiles = [
+  ...new Bun.Glob("tests/**/*.test.ts").scanSync(import.meta.dir),
+]
   .sort((a, b) => suiteRank(a) - suiteRank(b) || a.localeCompare(b))
   .map((path) => `./${path}`);
 
@@ -193,6 +201,7 @@ const testExitCode = await testResult.exited;
 
 const rulesDocument = loadRulesDocument();
 const schemaDocument = loadSchemaDocument();
+const schemaValidation = validateSchema(rulesDocument, schemaDocument);
 const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
   rulesDocument,
   latestCommitMetadata(),
@@ -235,6 +244,11 @@ if (frrUnusedSubsetWarnings.length > 0) {
   );
 }
 
+const schemaReport = formatSchemaFailureSummary(schemaValidation);
+if (schemaReport) {
+  finalReports.push(schemaReport);
+}
+
 if (consistencyFailed) {
   finalReports.push(formatConsistencyFailureSummary(consistencyChecks));
 }
@@ -253,7 +267,7 @@ if (finalReports.length > 0) {
 }
 
 process.exit(
-  consistencyFailed || propertyOrderFailed
+  !schemaValidation.valid || consistencyFailed || propertyOrderFailed
     ? 1
     : testExitCode,
 );

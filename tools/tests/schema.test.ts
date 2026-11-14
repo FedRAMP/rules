@@ -1,4 +1,6 @@
 import { expect, test } from "bun:test";
+import Ajv2020 from "ajv/dist/2020";
+import addFormats from "ajv-formats";
 
 import { validateSchema } from "../src/schema-validation";
 import {
@@ -94,12 +96,6 @@ function hasSingleRequirementStatement(entity: MutableRuleEntity): boolean {
   );
 }
 
-function hasSingleIndicatorStatement(entity: MutableRuleEntity): boolean {
-  return (
-    typeof entity.statement === "string" && !isRecord(entity.varies_by_class)
-  );
-}
-
 function hasClassSpecificStatement(entity: MutableRuleEntity): boolean {
   return (
     isRecord(entity.varies_by_class) && typeof entity.statement !== "string"
@@ -115,27 +111,6 @@ function findFrrRequirement(
 
   visitRequirements(document, ({ requirement }) => {
     const entity = requirement as unknown as MutableRuleEntity;
-    if (!match && predicate(entity)) {
-      match = entity;
-    }
-  });
-
-  if (!match) {
-    throw new Error(`Expected the rules document to contain ${description}.`);
-  }
-
-  return match;
-}
-
-function findKsiIndicator(
-  document: RulesDocument,
-  predicate: (entity: MutableRuleEntity) => boolean,
-  description: string,
-): MutableRuleEntity {
-  let match: MutableRuleEntity | undefined;
-
-  visitIndicators(document, ({ indicator }) => {
-    const entity = indicator as unknown as MutableRuleEntity;
     if (!match && predicate(entity)) {
       match = entity;
     }
@@ -596,38 +571,74 @@ test("the schema rejects FRR requirements that mix top-level and class-specific 
   );
 });
 
-test("the schema rejects KSI indicators that mix top-level and class-specific statements", () => {
-  const singleStatementDocument = cloneDocument(loadRulesDocument());
-  findKsiIndicator(
-    singleStatementDocument,
-    hasSingleIndicatorStatement,
-    "a KSI indicator with a top-level statement",
-  ).varies_by_class = {
-    b: {
-      statement:
-        "This invalid class-specific statement should not be allowed next to a top-level statement.",
-    },
-    c: {
-      statement:
-        "This invalid class-specific statement should not be allowed next to a top-level statement.",
-    },
-  };
-
-  expectSchemaRejects(
-    "KSI branch guard for single-statement indicator with varies_by_class",
-    singleStatementDocument,
-  );
-
-  const classSpecificDocument = cloneDocument(loadRulesDocument());
-  findKsiIndicator(
-    classSpecificDocument,
-    hasClassSpecificStatement,
-    "a KSI indicator with class-specific statements",
-  ).statement =
-    "This invalid top-level statement should not be allowed next to varies_by_class.";
-
-  expectSchemaRejects(
-    "KSI branch guard for class-specific indicator with top-level statement",
-    classSpecificDocument,
-  );
+test("every current KSI requires a statement and complete class forces and rejects legacy variants", () => {
+  const source = loadRulesDocument();
+  const schema = loadSchemaDocument() as { $defs: Record<string, unknown> };
+  const ajv = new Ajv2020({ strict: true, allErrors: true });
+  addFormats(ajv as any);
+  const validate = ajv.compile({
+    $defs: schema.$defs,
+    $ref: "#/$defs/ksi_indicator",
+  });
+  const check = (value: unknown) => ({
+    valid: Boolean(validate(value)),
+    errors: validate.errors ?? [],
+  });
+  let count = 0;
+  visitIndicators(source, ({ indicator, location }) => {
+    count++;
+    const baseline = check(indicator);
+    expect(baseline.errors, location).toEqual([]);
+    for (const field of ["statement", "force_by_class"] as const) {
+      const candidate = structuredClone(indicator);
+      Reflect.deleteProperty(candidate, field);
+      expect(
+        check(candidate).errors.some(
+          (error) =>
+            error.keyword === "required" &&
+            error.params.missingProperty === field,
+        ),
+        `${location}.${field}`,
+      ).toBe(true);
+    }
+    for (const key of Object.keys(indicator.force_by_class)) {
+      const missing = structuredClone(indicator);
+      Reflect.deleteProperty(missing.force_by_class, key);
+      expect(
+        check(missing).errors.some(
+          (error) =>
+            error.keyword === "required" &&
+            error.params.missingProperty === key,
+        ),
+        `${location}.force_by_class.${key}`,
+      ).toBe(true);
+    }
+    expect(
+      check({
+        ...indicator,
+        force_by_class: { ...indicator.force_by_class, a: "INVALID" },
+      }).valid,
+      location,
+    ).toBe(false);
+    expect(
+      check({
+        ...indicator,
+        force_by_class: { ...indicator.force_by_class, e: "MUST" },
+      }).valid,
+      location,
+    ).toBe(false);
+    const legacy = check({
+      ...indicator,
+      varies_by_class: { b: { statement: indicator.statement } },
+    });
+    expect(
+      legacy.errors.some(
+        (error) =>
+          error.keyword === "additionalProperties" &&
+          error.params.additionalProperty === "varies_by_class",
+      ),
+      location,
+    ).toBe(true);
+  });
+  expect(count).toBeGreaterThan(0);
 });

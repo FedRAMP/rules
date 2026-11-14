@@ -789,32 +789,27 @@
     },
     "ksi_indicator": {
       "type": "object",
-      "required": ["name", "controls", "updated"],
-      "oneOf": [
-        {
-          "properties": { "statement": {} },
-          "required": ["statement"],
-          "not": {
-            "properties": { "varies_by_class": {} },
-            "required": ["varies_by_class"]
-          }
-        },
-        {
-          "properties": { "varies_by_class": {} },
-          "required": ["varies_by_class"],
-          "not": {
-            "anyOf": [
-              {
-                "properties": { "statement": {} },
-                "required": ["statement"]
-              }
-            ]
-          }
-        }
+      "required": [
+        "name",
+        "statement",
+        "force_by_class",
+        "controls",
+        "updated"
       ],
       "properties": {
         "name": { "type": "string" },
         "statement": { "type": "string" },
+        "force_by_class": {
+          "type": "object",
+          "required": ["a", "b", "c", "d"],
+          "properties": {
+            "a": { "$ref": "#/$defs/force_enum" },
+            "b": { "$ref": "#/$defs/force_enum" },
+            "c": { "$ref": "#/$defs/force_enum" },
+            "d": { "$ref": "#/$defs/force_enum" }
+          },
+          "additionalProperties": false
+        },
         "controls": {
           "type": "array",
           "items": { "$ref": "#/$defs/control_id" },
@@ -824,27 +819,7 @@
         "reference_url": { "type": "string", "format": "uri" },
         "updated": { "$ref": "#/$defs/updated_list" },
         "artifacts": { "$ref": "#/$defs/artifacts" },
-        "varies_by_class": {
-          "type": "object",
-          "required": ["b", "c"],
-          "properties": {
-            "a": { "$ref": "#/$defs/ksi_indicator_level" },
-            "b": { "$ref": "#/$defs/ksi_indicator_level" },
-            "c": { "$ref": "#/$defs/ksi_indicator_level" },
-            "d": { "$ref": "#/$defs/ksi_indicator_level" }
-          },
-          "additionalProperties": false
-        },
         "terms": { "type": "array", "items": { "type": "string" } }
-      },
-      "additionalProperties": false
-    },
-    "ksi_indicator_level": {
-      "type": "object",
-      "required": ["statement"],
-      "properties": {
-        "statement": { "type": "string" },
-        "artifacts": { "$ref": "#/$defs/artifacts" }
       },
       "additionalProperties": false
     },

@@ -27,7 +27,6 @@ export type TimeframeType =
   | "months"
   | "years";
 export type Artifacts = Partial<Record<ApplicabilityKey, string[]>>;
-export type ClassVariants<T> = { b: T; c: T } & Partial<Record<"a" | "d", T>>;
 
 export interface UpdatedEntry {
   date: string;
@@ -171,23 +170,17 @@ export type Requirement = {
     | { statement?: never; force?: never; varies_by_class: RequirementByClass }
   );
 
-export interface KsiIndicatorLevel {
-  statement: string;
-  artifacts?: Artifacts;
-}
-
 export type KsiIndicator = {
   name: string;
+  statement: string;
+  force_by_class: Record<"a" | "b" | "c" | "d", Force>;
   controls: string[];
   reference?: string;
   reference_url?: string;
   updated: UpdatedEntry[];
   artifacts?: Artifacts;
   terms?: string[];
-} & (
-  | { statement: string; varies_by_class?: never }
-  | { statement?: never; varies_by_class: ClassVariants<KsiIndicatorLevel> }
-);
+};
 
 export interface KsiTheme {
   id: string;

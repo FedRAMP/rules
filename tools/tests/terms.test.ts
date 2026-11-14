@@ -95,10 +95,8 @@ function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
             name: "Test indicator",
             controls: [],
             updated: fixtureHistory(),
-            varies_by_class: {
-              b: { statement: "Providers are required to notify an agency." },
-              c: { statement: "Providers are required to notify an agency." },
-            },
+            statement: "Providers are required to notify an agency.",
+            force_by_class: { a: "MAY", b: "MUST", c: "MUST", d: "MUST" },
             terms: [],
           },
         },
@@ -154,10 +152,7 @@ test.each(["all", "20x", "rev5"])(
     const requirement = document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!;
     const indicator = Object.values(document.KSI.IAM!.indicators)[0]!;
     requirement.terms = ["Agency", "MUST", "Provider"];
-    indicator.varies_by_class = {
-      b: { statement: "This behavior is required." },
-      c: { statement: "This behavior is required." },
-    };
+    indicator.statement = "This behavior is required.";
     indicator.terms = ["MUST"];
 
     const changes = collectTermSyncChanges(document);

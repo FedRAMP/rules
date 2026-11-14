@@ -19,10 +19,11 @@ type TypeContracts = [
     "a" extends keyof NonNullable<ControlData["varies_by_class"]> ? false : true
   >,
   Assert<{} extends NonNullable<Requirement["varies_by_class"]> ? false : true>,
+  Assert<"varies_by_class" extends keyof KsiIndicator ? false : true>,
+  Assert<{} extends Pick<KsiIndicator, "statement"> ? false : true>,
+  Assert<{} extends Pick<KsiIndicator, "force_by_class"> ? false : true>,
   Assert<
-    { b: { statement: string } } extends NonNullable<
-      KsiIndicator["varies_by_class"]
-    >
+    { b: "MUST"; c: "MUST" } extends KsiIndicator["force_by_class"]
       ? false
       : true
   >,
@@ -125,20 +126,17 @@ test("typed definitions, class variants, artifacts, metadata, and controls satis
           "KSI-TST-ONE": {
             name: "Indicator",
             statement: "A capability.",
+            force_by_class: { a: "MAY", b: "MUST", c: "MUST", d: "MUST" },
             controls: [],
             updated,
           },
           "KSI-TST-TWO": {
-            name: "Variants",
+            name: "Class-specific force",
+            statement: "A capability.",
+            force_by_class: { a: "MAY", b: "SHOULD", c: "MUST", d: "MUST" },
             controls: [],
             updated,
-            varies_by_class: {
-              b: {
-                statement: "A capability.",
-                artifacts: { "20x": ["Evidence"] },
-              },
-              c: { statement: "A capability." },
-            },
+            artifacts: { "20x": ["Evidence"] },
           },
         },
       },

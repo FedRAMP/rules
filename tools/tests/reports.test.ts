@@ -203,6 +203,7 @@ test("overall counts populated buckets and entries, including empty rulesets", (
         "KSI-IAM-ONE": {
           name: "Indicator",
           statement: "Statement",
+          force_by_class: { a: "MAY", b: "MUST", c: "MUST", d: "MUST" },
           controls: [],
           updated: [],
         },
