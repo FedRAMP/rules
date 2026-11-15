@@ -3645,7 +3645,7 @@
         "web_name": "fedramp-certification",
         "purpose": "This ruleset explains how cloud service offerings obtain and maintain FedRAMP Certification across certification classes and paths.",
         "status": "stable",
-        "tag": "other",
+        "tag": "core",
         "subsets": {
           "CSO": {
             "name": "General Provider Responsibilities",
@@ -7236,7 +7236,7 @@
         "web_name": "marketplace-listing",
         "purpose": "The Marketplace Listing rules define how FedRAMP decides which cloud service offerings, assessors, and advisors may be listed in the FedRAMP Marketplace. These rules help agencies and other customers rely on the Marketplace as a consistent source of eligible services and supporting organizations, while requiring listed organizations to supply accurate, accessible, and machine-readable information.",
         "status": "stable",
-        "tag": "other",
+        "tag": "core",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
@@ -7577,7 +7577,7 @@
         "web_name": "fedramp-recognition",
         "purpose": "The FedRAMP Recognition of independent assessment services rules explain the requirements for assessors to obtain and maintain FedRAMP Recognition in order to support the FedRAMP Certification process.",
         "status": "stable",
-        "tag": "other",
+        "tag": "recognition",
         "effective": {
           "is": "required",
           "current_status": "Consolidated Rules for 2026",
