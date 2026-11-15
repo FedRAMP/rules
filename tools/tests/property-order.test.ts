@@ -58,6 +58,12 @@ test("order fixes detect and repair histories across FRD, FRR, KSI, and CTL with
   document.CTL = {
     AC: {
       "AC-01": {
+        varies_by_class: {
+          b: { force: "MUST" },
+          c: { force: "MUST" },
+          d: { force: "MUST" },
+        },
+        assess_yearly_by_class: { b: false, c: false, d: false },
         updated: [
           { date: "2026-01-01", comment: "Older" },
           { date: "2026-02-01", comment: "Newer" },

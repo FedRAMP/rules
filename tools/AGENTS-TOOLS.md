@@ -76,6 +76,54 @@ If asked to edit the rules:
   can be the requested result when it exposes a data issue; report the issue
   with stable IDs and paths without changing the canonical rules to make it pass.
 
+## Class Metadata Maintenance
+
+Use the [class contract](../README.md#class-specific-metadata) and the
+[implementation guide](README.md#class-content) when changing class-dependent
+content or its consumers.
+
+- FRR and KSI permit partial `varies_by_class.a/b/c/d` entries alongside
+  top-level defaults. Resolve each field independently: replace whole arrays
+  and objects, and inherit only omitted fields. Missing class entries inherit
+  common content. Validate required effective statements and forces, rather
+  than requiring every variant to repeat them. Keep identity and history
+  outside overrides.
+- FRR alone permits `varies_by_class.<class>.applicable`. Compare explicitly
+  with true or false; omission inherits subset membership. Do not conflate
+  `MAY` with exclusion. KSI and CTL reject this flag. Do not restore
+  `force_by_class`, rule-level `applicability`, or class-level `applies` or
+  `applicability.add`/`applicability.exclude`. Subset applicability is unchanged.
+- Reuse [src/class-content.ts](src/class-content.ts) for FRR/KSI resolution.
+  Schema validation checks stored fields; [src/schema-validation.ts](src/schema-validation.ts)
+  also checks required effective content and timeframe dependencies after
+  inheritance. Raw JSON Schema validation does not perform all cross-entry checks.
+- Every CTL entry requires `varies_by_class.b/c/d.force` (`MUST` or `MAY`) and
+  top-level `assess_yearly_by_class.b/c/d` booleans. Derive force from
+  `FRR.FRC.data.rev5.CSF.FRC-CSF-BSL.varies_by_class.<class>.rev5_controls_list`:
+  listed means MUST, unlisted means MAY. Derive annual flags from
+  `FRR.IVV.data.rev5.CSF.IVV-CSF-AIA.varies_by_class.<class>.rev5_controls_list`:
+  listed means true, unlisted means false. Keep all three entries even when
+  values match; CTL does not use a top-level force default.
+- Normalize source enhancement notation (`AC-02 (01)` to `AC-02-01`) without
+  conflating enhancements with base controls. Source-listed controls must have
+  CTL entries; metadata-only entries are valid. Preserve existing common and
+  class-specific guidance, parameters, and histories. Do not impose FRR/KSI
+  whole-field replacement semantics on CTL guidance or parameters.
+- Keep [src/control-metadata.ts](src/control-metadata.ts) registered in the
+  consistency checks and [tests/control-metadata.test.ts](tests/control-metadata.test.ts)
+  in the integrated suite. Both force and annual-flag mismatches, missing CTL
+  entries, and missing source lists must fail. The final runner summary reports
+  class counts and mismatches with source-linked diagnostics.
+- Treat the two FRR source rules as authoritative. Never edit them merely to
+  make CTL metadata pass validation. An authorized source change requires
+  corresponding derived metadata updates and checks; a metadata-only change
+  must preserve source rules. There is no automatic CTL synchronization fixer.
+- When reorganizing content, compare effective values and applicability before
+  and after, and account for every existing variant field. Term extraction
+  reads top-level supporting text but only statements inside class variants;
+  moving supporting text can change derived terms. Do not silently alter terms
+  or other metadata while deduplicating content.
+
 ## Commands And Side Effects
 
 Run maintenance commands from `tools/`; consult [README.md](README.md) for the
@@ -125,17 +173,20 @@ for the full counting and applicability contract.
   `overall` by adding calculated fields and rendering labels with documented
   counting semantics rather than embedding calculations in the CLI.
 - Profile matching considers shared and matching-framework data only. Combine
-  common and bucket-specific subset declarations, then extend dimensions with
-  `applicability.add`, then remove `applicability.exclude` values.
-  Exclusions take precedence over additions. Require explicit type and class membership;
+  common and bucket-specific subset declarations, then apply per-class
+  `varies_by_class.<class>.applicable: true` or `applicable: false`.
+  Omitting `applicable` inherits subset applicability. Other dimensions stay inherited.
+  Require explicit type and class membership;
   empty lists match nothing. Include only rules whose own `affects` contains
   `Providers`; `Everyone` alone does not match. Do not add path, status, or date
   filters. Unresolved subsets and duplicate rule IDs are errors.
-- Force totals use only primary force, selecting the requested class variant.
+- Force totals use only primary force, resolving the requested class override
+  against the top-level force.
   List rules by force: MUST, MUST NOT, SHOULD, SHOULD NOT, MAY, then unspecified,
   preserving dataset order within each group. Add a force header above each
   nonempty group with its count, such as `MUST (41):`, then a blank line; omit empty groups.
-  Missing variants remain in totals as `unspecified`, with a visible diagnostic.
+  Missing effective forces remain in collector totals as `unspecified`, with
+  a visible diagnostic; report validation rejects incomplete effective content.
   Do not append party or force summaries. Print `0 rules` when no rules match.
 - Overall counts FRR rulesets (including empty ones), populated subset buckets
   per ruleset/data scope, FRR rule entries, KSI indicator entries, and CTL

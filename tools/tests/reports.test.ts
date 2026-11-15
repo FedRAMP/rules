@@ -56,7 +56,7 @@ test("profile combines shared and matching buckets, without crossing framework b
   section.data["20x"] = { CSX: { "AFC-CSX-TWO": rule() } };
   section.data.rev5 = {
     CSF: {
-      "AFC-CSF-THR": rule({ applicability: { add: { types: ["20x"] } } }),
+      "AFC-CSF-THR": rule(),
     },
   };
   expect(collectProfile(d, "20x", "A").map((r) => r.id)).toEqual([
@@ -68,35 +68,27 @@ test("profile combines shared and matching buckets, without crossing framework b
   ]);
 });
 
-test("additional applicability extends dimensions; omitted dimensions remain inherited", () => {
+test("class additions preserve inherited types and common force", () => {
   const d = fixture();
   const r = d.FRR.AFC!.data.all!.CSO!["AFC-CSO-ONE"]!;
-  (r.applicability ??= {}).add = { types: ["Rev5"], classes: ["C"] };
-  expect(collectProfile(d, "Rev5", "C")).toHaveLength(1);
+  r.varies_by_class = { c: { applicable: true } };
+  expect(collectProfile(d, "20x", "C")[0]!.force).toBe("MAY");
   expect(collectProfile(d, "20x", "A")).toHaveLength(1);
-  (r.applicability ??= {}).add = { classes: ["C"] };
   expect(collectProfile(d, "Rev5", "C")).toHaveLength(0);
-  expect(collectProfile(d, "20x", "C")).toHaveLength(1);
   d.FRR.AFC!.info.subsets!.CSO = subset([], []);
   expect(collectProfile(d, "20x", "C")).toHaveLength(0);
-  (r.applicability ??= {}).add = { types: ["20x"], classes: ["C"] };
-  expect(collectProfile(d, "20x", "C")).toHaveLength(1);
 });
 
-test("profile exclusions remove types and classes after additions", () => {
+test("class exclusions remove only the selected class", () => {
   const d = fixture();
   const r = d.FRR.AFC!.data.all!.CSO!["AFC-CSO-ONE"]!;
-  (r.applicability ??= {}).add = { types: ["Rev5"], classes: ["C"] };
-  (r.applicability ??= {}).exclude = { classes: ["A"] };
+  r.varies_by_class = {
+    c: { applicable: true, force: "MUST" },
+    a: { applicable: false },
+  };
   expect(collectProfile(d, "20x", "A")).toEqual([]);
-  expect(collectProfile(d, "20x", "C")).toHaveLength(1);
-  (r.applicability ??= {}).exclude = { types: ["20x"] };
-  expect(collectProfile(d, "20x", "C")).toEqual([]);
-  expect(collectProfile(d, "Rev5", "C")).toHaveLength(1);
-  (r.applicability ??= {}).exclude = { types: ["Rev5"], classes: ["C"] };
-  expect(collectProfile(d, "Rev5", "A")).toEqual([]);
-  expect(collectProfile(d, "20x", "C")).toEqual([]);
-  expect(collectProfile(d, "20x", "A")).toHaveLength(1);
+  expect(collectProfile(d, "20x", "C")[0]!.force).toBe("MUST");
+  expect(collectProfile(d, "Rev5", "C")).toEqual([]);
 });
 
 test("common and framework subset declarations combine for framework rules", () => {
@@ -123,7 +115,7 @@ test("class force is selected and missing variants remain counted as unspecified
   const results = collectProfile(d, "20x", "A");
   expect(results[0]!.force).toBe("unspecified");
   const text = renderProfile(results, "A");
-  expect(text).toContain("missing Class A statement variant");
+  expect(text).toContain("missing effective Class A force");
   expect(text).toStartWith("Unspecified (1):\n\n");
   expect(text).not.toContain("By affected party:");
   expect(text.match(/AFC-CSO-ONE/g)).toHaveLength(1);
@@ -206,7 +198,12 @@ test("overall counts populated buckets and entries, including empty rulesets", (
         "KSI-IAM-ONE": {
           name: "Indicator",
           statement: "Statement",
-          force_by_class: { a: "MAY", b: "MUST", c: "MUST", d: "MUST" },
+          varies_by_class: {
+            a: { force: "MAY" },
+            b: { force: "MUST" },
+            c: { force: "MUST" },
+            d: { force: "MUST" },
+          },
           controls: [],
           updated: [],
         },
@@ -221,7 +218,19 @@ test("overall counts populated buckets and entries, including empty rulesets", (
     controls: 0,
   });
   d.CTL = {
-    AC: { "AC-1": {}, "AC-2": { varies_by_class: { b: {}, c: {} } } },
+    AC: Object.fromEntries(
+      ["AC-01", "AC-02"].map((id) => [
+        id,
+        {
+          varies_by_class: {
+            b: { force: "MUST" as const },
+            c: { force: "MUST" as const },
+            d: { force: "MUST" as const },
+          },
+          assess_yearly_by_class: { b: false, c: false, d: false },
+        },
+      ]),
+    ),
     AU: {},
   };
   expect(collectOverall(d).controls).toBe(2);

@@ -1,3 +1,9 @@
+import { collectControlMetadataIssues } from "./control-metadata";
+import {
+  getApplicableClasses,
+  getRuleSubsets,
+  resolveClassContent,
+} from "./class-content";
 import { visitIndicators, visitRequirements } from "./traversal";
 import { loadSchemaDocument } from "./rules";
 import {
@@ -9,6 +15,7 @@ import { findArrayItemOrderRule, loadOrderConfig } from "./order-config";
 import type {
   AffectedParty,
   ClassKey,
+  ClassName,
   DefinitionEntry,
   FrrSubsetDefinition,
   KsiIndicator,
@@ -106,6 +113,10 @@ export function collectConsistencyChecks(
   document: RulesDocument,
 ): ConsistencyCheck[] {
   return [
+    {
+      title: "Rev5 control metadata",
+      issues: collectControlMetadataIssues(document),
+    },
     {
       title: "Unique rule IDs",
       issues: collectDuplicateRuleIdIssues(document),
@@ -640,64 +651,26 @@ export function collectFrrClassVariantApplicabilityIssues(
   document: RulesDocument,
 ): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
-  const subsets = collectFrrInfoSubsetEntries(document);
-
-  for (const entry of collectRequirementEntries(document)) {
-    if (!isRecord(entry.requirement.varies_by_class)) continue;
-    const classes = new Set<string>();
-    for (const subset of subsets) {
-      if (
-        subset.sectionKey === entry.sectionKey &&
-        subset.subsetKey === entry.subsetKey &&
-        subset.dataScopeKeys.some((scope) => scope === entry.scopeKey)
-      ) {
-        for (const value of getSubsetApplicabilityArray(
-          subset.subset,
-          "classes",
-        ) ?? []) {
-          classes.add(value);
-        }
-      }
-    }
-    const additional = entry.requirement.applicability?.add?.classes;
-    if (Array.isArray(additional)) {
-      for (const value of additional) classes.add(value);
-    }
-    const excluded = entry.requirement.applicability?.exclude?.classes;
-    if (Array.isArray(excluded)) {
-      for (const value of excluded) classes.delete(value);
-    }
-    for (const classKey of CLASS_KEYS) {
-      if (
-        classes.has(classKey.toUpperCase()) &&
-        !Object.hasOwn(entry.requirement.varies_by_class, classKey)
-      ) {
+  for (const { requirement, location } of collectRequirementEntries(document)) {
+    const classes = getApplicableClasses(
+      requirement,
+      getRuleSubsets(document, location),
+    );
+    for (const name of classes) {
+      const key = name.toLowerCase() as ClassKey;
+      const content = resolveClassContent(requirement, key);
+      const missing = ["statement", "force"].filter(
+        (field) => typeof content[field as "statement" | "force"] !== "string",
+      );
+      if (missing.length)
         issues.push(
           issue(
-            `${entry.location}.varies_by_class.${classKey}`,
-            `Missing class variant: Class ${classKey.toUpperCase()} applies to this rule through subset applicability or applicability.add.classes.`,
+            `${location}.varies_by_class.${key}`,
+            `Class ${name} is applicable but has no effective ${missing.join(" or ")} after inheritance.`,
           ),
         );
-      }
-      if (
-        Object.hasOwn(entry.requirement.varies_by_class, classKey) &&
-        !classes.has(classKey.toUpperCase())
-      ) {
-        issues.push(
-          issue(
-            `${entry.location}.varies_by_class.${classKey}`,
-            Array.isArray(excluded) &&
-              excluded.includes(
-                classKey.toUpperCase() as (typeof excluded)[number],
-              )
-              ? `Class ${classKey.toUpperCase()} is excluded by applicability.exclude.classes but has a class variant. Applicable classes: ${formatValues([...classes].sort())}.`
-              : `Class ${classKey.toUpperCase()} does not apply to this rule through subset applicability or applicability.add.classes. Applicable classes: ${formatValues([...classes].sort())}.`,
-          ),
-        );
-      }
     }
   }
-
   return issues;
 }
 
@@ -705,34 +678,27 @@ export function collectFrrAdditionalApplicabilityIssues(
   document: RulesDocument,
 ): ConsistencyIssue[] {
   const issues: ConsistencyIssue[] = [];
-
-  for (const entry of collectFrrInfoSubsetEntries(document)) {
-    for (const scopeKey of entry.dataScopeKeys) {
-      const requirements = entry.section.data?.[scopeKey]?.[entry.subsetKey];
-      for (const [id, requirement] of Object.entries(requirements ?? {})) {
-        const additional = requirement.applicability?.add;
-        if (!isRecord(additional)) continue;
-
-        for (const key of ["types", "paths", "classes", "affects"] as const) {
-          const values = additional[key];
-          if (!Array.isArray(values)) continue;
-          const inherited =
-            getSubsetApplicabilityArray(entry.subset, key) ?? [];
-          values.forEach((value, index) => {
-            if (typeof value === "string" && inherited.includes(value)) {
-              issues.push(
-                issue(
-                  `FRR.${entry.sectionKey}.data.${scopeKey}.${entry.subsetKey}.${id}.applicability.add.${key}[${index}]`,
-                  `additional applicability value ${JSON.stringify(value)} is redundant with ${entry.location}.applicability.${key}.`,
-                ),
-              );
-            }
-          });
-        }
+  for (const { requirement, location } of collectRequirementEntries(document)) {
+    const subsets = getRuleSubsets(document, location);
+    const inherited = new Set(
+      subsets.flatMap((subset) => subset.applicability.classes),
+    );
+    for (const [key, variant] of Object.entries(
+      requirement.varies_by_class ?? {},
+    )) {
+      if (
+        variant.applicable === true &&
+        inherited.has(key.toUpperCase() as ClassName)
+      ) {
+        issues.push(
+          issue(
+            `${location}.varies_by_class.${key}.applicable`,
+            `Class ${key.toUpperCase()} is already included by subset applicability.`,
+          ),
+        );
       }
     }
   }
-
   return issues;
 }
 
@@ -837,13 +803,14 @@ function compareForces(left: string, right: string): number {
 }
 
 function getRequirementOrderingForce(requirement: Requirement): string | null {
-  if (typeof requirement.force === "string") {
-    return requirement.force;
-  }
-
-  const classForces = Object.values(requirement.varies_by_class ?? {})
-    .map((entry) => entry.force)
-    .filter((force) => typeof force === "string");
+  const classForces = [
+    requirement.force,
+    ...Object.values(requirement.varies_by_class ?? {}).map(
+      (entry) => entry.force,
+    ),
+  ].filter(
+    (force): force is NonNullable<typeof force> => typeof force === "string",
+  );
 
   return classForces.sort(compareForces)[0] ?? null;
 }
@@ -1462,6 +1429,10 @@ function collectRequirementRuleTextParts(
       addTextList(
         `${classLocation}.following_information`,
         classEntry?.following_information,
+      );
+      addTextList(
+        `${classLocation}.following_information_bullets`,
+        classEntry?.following_information_bullets,
       );
     }
   }

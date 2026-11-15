@@ -96,12 +96,6 @@ function hasSingleRequirementStatement(entity: MutableRuleEntity): boolean {
   );
 }
 
-function hasClassSpecificStatement(entity: MutableRuleEntity): boolean {
-  return (
-    isRecord(entity.varies_by_class) && typeof entity.statement !== "string"
-  );
-}
-
 function findFrrRequirement(
   document: RulesDocument,
   predicate: (entity: MutableRuleEntity) => boolean,
@@ -534,45 +528,18 @@ test("the schema keeps common-only info properties out of certification blocks",
   );
 });
 
-test("the schema rejects FRR requirements that mix top-level and class-specific statements", () => {
-  const singleStatementDocument = cloneDocument(loadRulesDocument());
-  const singleStatementRequirement = findFrrRequirement(
-    singleStatementDocument,
+test("FRR allows partial class overrides alongside common content", () => {
+  const document = cloneDocument(loadRulesDocument());
+  const rule = findFrrRequirement(
+    document,
     hasSingleRequirementStatement,
-    "an FRR requirement with a top-level statement",
+    "a common statement",
   );
-  singleStatementRequirement.varies_by_class = {
-    b: {
-      statement: singleStatementRequirement.statement,
-      force: singleStatementRequirement.force,
-    },
-    c: {
-      statement: singleStatementRequirement.statement,
-      force: singleStatementRequirement.force,
-    },
-  };
-
-  expectSchemaRejects(
-    "FRR branch guard for single-statement requirement with varies_by_class",
-    singleStatementDocument,
-  );
-
-  const classSpecificDocument = cloneDocument(loadRulesDocument());
-  findFrrRequirement(
-    classSpecificDocument,
-    hasClassSpecificStatement,
-    "an FRR requirement with class-specific statements",
-  ).statement =
-    "This invalid top-level statement should not be allowed next to varies_by_class.";
-
-  expectSchemaRejects(
-    "FRR branch guard for class-specific requirement with top-level statement",
-    classSpecificDocument,
-  );
+  rule.varies_by_class = { a: { note: "A note" }, b: { force: "MAY" } };
+  expectSchemaAccepts("partial override", document);
 });
 
-test("every current KSI requires a statement and complete class forces and rejects legacy variants", () => {
-  const source = loadRulesDocument();
+test("KSI requires effective statements and forces for A-D and rejects legacy forces", () => {
   const schema = loadSchemaDocument() as { $defs: Record<string, unknown> };
   const ajv = new Ajv2020({ strict: true, allErrors: true });
   addFormats(ajv as any);
@@ -580,65 +547,79 @@ test("every current KSI requires a statement and complete class forces and rejec
     $defs: schema.$defs,
     $ref: "#/$defs/ksi_indicator",
   });
-  const check = (value: unknown) => ({
-    valid: Boolean(validate(value)),
-    errors: validate.errors ?? [],
+  visitIndicators(loadRulesDocument(), ({ indicator }) => {
+    expect(validate(indicator)).toBe(true);
+    expect(validate({ ...indicator, force_by_class: { a: "MAY" } })).toBe(
+      false,
+    );
   });
-  let count = 0;
-  visitIndicators(source, ({ indicator, location }) => {
-    count++;
-    const baseline = check(indicator);
-    expect(baseline.errors, location).toEqual([]);
-    for (const field of ["statement", "force_by_class"] as const) {
-      const candidate = structuredClone(indicator);
-      Reflect.deleteProperty(candidate, field);
-      expect(
-        check(candidate).errors.some(
-          (error) =>
-            error.keyword === "required" &&
-            error.params.missingProperty === field,
-        ),
-        `${location}.${field}`,
-      ).toBe(true);
-    }
-    for (const key of Object.keys(indicator.force_by_class)) {
-      const missing = structuredClone(indicator);
-      Reflect.deleteProperty(missing.force_by_class, key);
-      expect(
-        check(missing).errors.some(
-          (error) =>
-            error.keyword === "required" &&
-            error.params.missingProperty === key,
-        ),
-        `${location}.force_by_class.${key}`,
-      ).toBe(true);
-    }
-    expect(
-      check({
-        ...indicator,
-        force_by_class: { ...indicator.force_by_class, a: "INVALID" },
-      }).valid,
-      location,
-    ).toBe(false);
-    expect(
-      check({
-        ...indicator,
-        force_by_class: { ...indicator.force_by_class, e: "MUST" },
-      }).valid,
-      location,
-    ).toBe(false);
-    const legacy = check({
-      ...indicator,
-      varies_by_class: { b: { statement: indicator.statement } },
-    });
-    expect(
-      legacy.errors.some(
-        (error) =>
-          error.keyword === "additionalProperties" &&
-          error.params.additionalProperty === "varies_by_class",
-      ),
-      location,
-    ).toBe(true);
+  const common = {
+    name: "Fixture",
+    statement: "Capability",
+    force: "MUST",
+    controls: [],
+    updated: [{ date: "2026-11-15", comment: "Fixture" }],
+  };
+  expect(validate(common)).toBe(true);
+  expect(
+    validate({ ...common, varies_by_class: { a: { force: "MAY" } } }),
+  ).toBe(true);
+  expect(
+    validate({ ...common, varies_by_class: { e: { force: "MAY" } } }),
+  ).toBe(false);
+  expect(
+    validate({ ...common, varies_by_class: { a: { force: "INVALID" } } }),
+  ).toBe(false);
+  const variants = Object.fromEntries(
+    ["a", "b", "c", "d"].map((c) => [
+      c,
+      { statement: "Capability", force: "MUST" },
+    ]),
+  );
+  const onlyVariants = {
+    name: "Fixture",
+    controls: [],
+    updated: common.updated,
+    varies_by_class: variants,
+  };
+  expect(validate(onlyVariants)).toBe(true);
+  delete variants.a;
+  expect(validate(onlyVariants)).toBe(false);
+});
+
+test("class overrides replace entire fields and inherit missing fields", async () => {
+  const { resolveClassContent } = await import("../src/class-content");
+  const rule = {
+    statement: "Common",
+    force: "MUST" as const,
+    artifacts: { all: ["Common"], rev5: ["Rev5"] },
+    following_information: ["One", "Two"],
+    varies_by_class: {
+      a: { artifacts: { all: [] }, following_information: [] },
+    },
+  };
+  expect(resolveClassContent(rule, "a")).toEqual({
+    statement: "Common",
+    force: "MUST",
+    artifacts: { all: [] },
+    following_information: [],
   });
-  expect(count).toBeGreaterThan(0);
+  expect(resolveClassContent(rule, "b").artifacts).toEqual(rule.artifacts);
+});
+
+test("timeframe dependencies are validated after class inheritance", () => {
+  const document = loadRulesDocument();
+  const rule = findFrrRequirement(
+    document,
+    hasSingleRequirementStatement,
+    "a common statement",
+  );
+  Object.assign(rule, {
+    timeframe_type: "days",
+    timeframe_num: 10,
+    varies_by_class: { a: { timeframe_num: 20 } },
+  });
+  expectSchemaAccepts("inherited timeframe type", document);
+  Reflect.deleteProperty(rule, "timeframe_type");
+  expectSchemaRejects("missing effective timeframe type", document);
 });

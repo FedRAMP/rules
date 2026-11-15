@@ -1,3 +1,9 @@
+import {
+  getApplicableClasses,
+  getRuleSubsets,
+  resolveClassContent,
+} from "./class-content";
+import type { ClassKey } from "./types";
 import { visitRequirements } from "./traversal";
 import { loadSchemaDocument } from "./rules";
 import { requireStringEnum } from "./schema-metadata";
@@ -38,14 +44,15 @@ export function findForceIssues(document: RulesDocument): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
 
   visitRequirements(document, ({ id, location, requirement }) => {
-    issues.push(...validateRequirementObject(requirement, id, location));
-
-    for (const [classKey, classEntry] of Object.entries(
-      requirement.varies_by_class ?? {},
-    )) {
+    const classes = getApplicableClasses(
+      requirement,
+      getRuleSubsets(document, location),
+    );
+    for (const className of classes) {
+      const classKey = className.toLowerCase() as ClassKey;
       issues.push(
         ...validateRequirementObject(
-          classEntry,
+          resolveClassContent(requirement, classKey),
           id,
           `${location}.varies_by_class.${classKey}`,
         ),

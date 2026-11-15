@@ -1,3 +1,4 @@
+import { getApplicableClasses, resolveClassContent } from "../class-content";
 import { visitRequirements } from "../traversal";
 import type {
   AffectedParty,
@@ -43,23 +44,10 @@ export function collectProfile(
     const types = new Set(
       declarations.flatMap((entry) => entry.applicability.types),
     );
-    const classes = new Set(
-      declarations.flatMap((entry) => entry.applicability.classes),
-    );
-    for (const value of requirement.applicability?.add?.types ?? [])
-      types.add(value);
-    for (const value of requirement.applicability?.add?.classes ?? [])
-      classes.add(value);
-    for (const value of requirement.applicability?.exclude?.types ?? [])
-      types.delete(value);
-    for (const value of requirement.applicability?.exclude?.classes ?? [])
-      classes.delete(value);
+    const classes = getApplicableClasses(requirement, declarations);
     if (!types.has(type) || !classes.has(className)) return;
-    const force = requirement.varies_by_class
-      ? (requirement.varies_by_class[
-          classKey as keyof typeof requirement.varies_by_class
-        ]?.force ?? "unspecified")
-      : requirement.force;
+    const force =
+      resolveClassContent(requirement, classKey).force ?? "unspecified";
     results.push({
       id,
       name: requirement.name,
@@ -96,7 +84,7 @@ export function renderProfile(
     lines.push(
       ...group.map(
         (rule) =>
-          `${rule.id} (${rule.name})${rule.force === "unspecified" ? ` [missing Class ${className} statement variant; force unspecified]` : ""}`,
+          `${rule.id} (${rule.name})${rule.force === "unspecified" ? ` [missing effective Class ${className} force; force unspecified]` : ""}`,
       ),
     );
   }

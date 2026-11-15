@@ -18,7 +18,12 @@ function fixture() {
       affects: ["Providers"],
     },
   };
-  const rule = { applicability: { add: { classes: ["A", "B"] } } };
+  const rule = {
+    varies_by_class: {
+      a: { applicable: true },
+      b: { applicable: true },
+    },
+  };
   return {
     FRR: {
       ABC: {
@@ -32,40 +37,19 @@ function fixture() {
 test("additional applicability reports overlapping values even alongside new values", () => {
   expect(collectFrrAdditionalApplicabilityIssues(fixture())).toEqual([
     {
-      location: "FRR.ABC.data.all.CSO.ABC-CSO-AAA.applicability.add.classes[1]",
-      message:
-        'additional applicability value "B" is redundant with FRR.ABC.info.subsets.CSO.applicability.classes.',
+      location:
+        "FRR.ABC.data.all.CSO.ABC-CSO-AAA.varies_by_class.b.applicable",
+      message: "Class B is already included by subset applicability.",
     },
   ]);
 });
 
-test("additional applicability checks every dimension and permits new values or an absent field", () => {
+test("class additions permit new values or no override", () => {
   const document = fixture();
   const rule = document.FRR.ABC!.data.all!.CSO!["ABC-CSO-AAA"]!;
-  (rule.applicability ??= {}).add = {
-    types: ["20x"],
-    paths: ["Program"],
-    classes: ["A", "B"],
-    affects: ["Providers"],
-  };
-  expect(
-    collectFrrAdditionalApplicabilityIssues(document).map(
-      (issue) => issue.location,
-    ),
-  ).toEqual([
-    "FRR.ABC.data.all.CSO.ABC-CSO-AAA.applicability.add.types[0]",
-    "FRR.ABC.data.all.CSO.ABC-CSO-AAA.applicability.add.paths[0]",
-    "FRR.ABC.data.all.CSO.ABC-CSO-AAA.applicability.add.classes[1]",
-    "FRR.ABC.data.all.CSO.ABC-CSO-AAA.applicability.add.affects[0]",
-  ]);
-  (rule.applicability ??= {}).add = {
-    types: ["Rev5"],
-    paths: ["Agency"],
-    classes: ["A"],
-    affects: ["Agencies"],
-  };
+  rule.varies_by_class = { a: { applicable: true } };
   expect(collectFrrAdditionalApplicabilityIssues(document)).toEqual([]);
-  delete rule.applicability?.add;
+  delete rule.varies_by_class;
   expect(collectFrrAdditionalApplicabilityIssues(document)).toEqual([]);
 });
 
@@ -88,7 +72,9 @@ test("additional applicability uses common and matching framework subsets only",
     collectFrrAdditionalApplicabilityIssues(document).map(
       (issue) => issue.location,
     ),
-  ).toEqual(["FRR.ABC.data.20x.CSO.ABC-CSO-AAA.applicability.add.classes[1]"]);
+  ).toEqual([
+    "FRR.ABC.data.20x.CSO.ABC-CSO-AAA.varies_by_class.b.applicable",
+  ]);
   section.info.rev5 = { subsets: { CSO: subset } } as NonNullable<
     typeof section.info.rev5
   >;
@@ -98,8 +84,8 @@ test("additional applicability uses common and matching framework subsets only",
 test("redundant additional applicability reaches the standard consistency report", () => {
   const document = cloneDocument(loadRulesDocument());
   const section = document.FRR.MAS!;
-  (section.data.all!.CSO!["MAS-CSO-IIR"]!.applicability ??= {}).add = {
-    classes: ["A"],
+  section.data.all!.CSO!["MAS-CSO-IIR"]!.varies_by_class = {
+    a: { applicable: true },
   };
   section.info.subsets!.CSO!.applicability.classes = ["A", "B", "C", "D"];
   const checks = collectConsistencyChecks(document);
@@ -107,9 +93,9 @@ test("redundant additional applicability reaches the standard consistency report
     (check) => check.title === "FRR additional applicability redundancy",
   );
   expect(check?.issues).toContainEqual({
-    location: "FRR.MAS.data.all.CSO.MAS-CSO-IIR.applicability.add.classes[0]",
-    message:
-      'additional applicability value "A" is redundant with FRR.MAS.info.subsets.CSO.applicability.classes.',
+    location:
+      "FRR.MAS.data.all.CSO.MAS-CSO-IIR.varies_by_class.a.applicable",
+    message: "Class A is already included by subset applicability.",
   });
   expect(formatConsistencyReport(checks)).toContain(
     "FRR additional applicability redundancy",

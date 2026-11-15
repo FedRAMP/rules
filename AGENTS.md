@@ -11,8 +11,10 @@ Use these two authoritative files:
 
 Default to read-only analysis. Parse the JSON with a real JSON parser and
 validate it against the local schema before relying on automated analysis.
-If validation fails or cannot be run, disclose that limitation and avoid
-unsupported conclusions. Read the relevant entries with their surrounding
+Schema validation alone does not resolve FRR applicability or prove CTL/source
+agreement. Apply the class-resolution and source-comparison steps below when
+those affect the analysis. If validation fails or cannot be run, disclose that
+limitation and avoid unsupported conclusions. Read the relevant entries with their surrounding
 metadata; this guide is a navigation aid, not a substitute for the source.
 
 The `tools/` directory is only relevant to FedRAMP developers during project
@@ -31,11 +33,22 @@ the optional `CTL` section:
 | `FRD`            | Controlled definitions and their metadata                               | `FRD.data.<applicability>.<definition ID>`                     |
 | `FRR`            | Process documents, requirements, and recommendations                    | `FRR.<process>.data.<applicability>.<subset>.<requirement ID>` |
 | `KSI`            | Security themes and indicators                                          | `KSI.<theme>.indicators.<indicator ID>`                        |
-| `CTL` (optional) | Control guidance and parameters                                         | `CTL.<family>.<control ID>`                                    |
+| `CTL` (optional) | Control guidance, parameters, baseline forces, and annual assessment flags | `CTL.<family>.<control ID>` |
 
-For `CTL`, read each control's common `guidance` and `parameters` and any
-`varies_by_class` entries. Schema support does not imply that every optional
-field or class variant is populated; inspect the JSON before drawing conclusions.
+For `CTL`, read each control's common `guidance` and `parameters`, its
+`varies_by_class.b/c/d.force`, and `assess_yearly_by_class.b/c/d`. Baseline forces
+are `MUST` for controls listed in FRC-CSF-BSL for that class and `MAY` otherwise.
+Annual assessment flags are true for controls listed in IVV-CSF-AIA for that
+class and false otherwise. Those rules remain the sources of truth. Source
+notation `AC-02 (01)` maps to CTL key `AC-02-01`. Preserve common and
+class-specific guidance and parameters when reading these metadata fields.
+Every CTL entry requires all three class forces and all three annual booleans;
+`assess_yearly_by_class` is outside `varies_by_class`. A false annual flag means
+absence from IVV-CSF-AIA's list, not exemption from other assessments. Compare
+against `FRR.FRC.data.rev5.CSF.FRC-CSF-BSL` and
+`FRR.IVV.data.rev5.CSF.IVV-CSF-AIA`, using each rule's
+`varies_by_class.<class>.rev5_controls_list`. Metadata-only CTL entries are valid;
+missing guidance does not imply a missing control.
 
 **Definitions:** IDs follow `FRD-XXX`, such as `FRD-ACV`. Read `term`,
 `definition`, `alts`, and any notes or references. Use the FRD meaning whenever
@@ -55,7 +68,8 @@ Requirement IDs are object keys.
 Indicator IDs follow `KSI-THEME-KEY`, such as `KSI-CED-RAT` at
 `KSI.CED.indicators.KSI-CED-RAT`. Theme metadata, including `status`, lives
 directly on the theme. KSI does not use FRR's `info`/`data`/subset hierarchy,
-and KSI indicators and their class variants do not have a `force` field.
+and KSI indicators use a top-level `force` with optional class overrides, or
+class-specific forces.
 
 ## Interpret Applicability And Meaning
 
@@ -78,14 +92,24 @@ and KSI indicators and their class variants do not have a `force` field.
    warnings, and the separate obtain, maintain, optional-adoption, and grace
    dates. Check entry-level and class-specific `effective_date` where present.
    Neither `stable` nor an update date alone establishes current applicability.
-4. **Select the statement shape.** FRR has either top-level `statement` and
-   `force`, or `varies_by_class` with statements and forces inside each class.
-   KSI has either a top-level `statement` or class-specific statements.
-   Class keys are lowercase `a`, `b`, `c`, and `d`; not all are necessarily
-   present. Do not invent missing variants or copy another class's statement.
-   Read class-specific following information, notes, artifacts, control lists,
-   effective dates, and timeframes where the schema permits them, together with
-   the entry's common information.
+4. **Resolve class overrides.** FRR and KSI use optional `varies_by_class`
+   entries keyed by lowercase `a`, `b`, `c`, and `d`. Each supplied field
+   replaces the entire top-level field, including objects and arrays; omitted
+   fields inherit the top-level value. A missing class entry inherits common
+   content and does not imply exclusion. A field absent at both levels stays
+   absent. Do not copy another class's content. Each applicable FRR class and
+   every KSI class A–D must have an effective statement and force.
+   This applies to statements, forces, following information, notes, schema
+   references, artifacts, control lists, effective dates, and timeframes.
+   For FRR, start with subset applicability and apply
+   `varies_by_class.<class>.applicable: true` or `applicable: false` when
+   present: true includes the class, false excludes it, and omission inherits
+   subset membership. Null and empty strings are invalid. Rule-level
+   type/path/actor adjustments are not supported. KSI and CTL do not accept
+   `applicable`; a `MAY` force is not an exclusion. CTL uses explicit forces
+   for classes B–D and separate annual-assessment flags, alongside common and class-specific
+   guidance and parameters; do not apply FRR/KSI replacement semantics to CTL
+   without a separate contract.
 5. **Respect the force.** In FRR, `MUST` and `MUST NOT` are hard requirements;
    `SHOULD` and `SHOULD NOT` are expected practices with possible justified
    exceptions; `MAY` is optional or permitted behavior. The `force` field
@@ -97,15 +121,20 @@ and KSI indicators and their class variants do not have a `force` field.
    summarizing rules, preserve this relationship rather than extracting the
    secondary force as an unconditional obligation. See the
    [discussion of primary and secondary force](https://github.com/FedRAMP/community/discussions/193#discussion-11243198).
-   Interpret KSI through
-   its capability statement and applicable process rules without inventing a
-   normative force.
+   For KSI, read the effective `force` after class inheritance together with
+   its capability statement and applicable process rules.
 6. **Read the supporting details.** Include following information and bullets,
    notes, examples, corrective actions, notifications, references, related IDs,
    and timeframes as relevant. Consult `info.default_artifacts.FRR` or
    `info.default_artifacts.KSI` and applicable entry/class `artifacts` buckets
    (`all`, `20x`, `rev5`). Control mappings and artifact lists are analysis
    signals; they do not replace the statement or prove implementation.
+
+The current contract does not use `force_by_class`, rule-level `applicability`,
+or class-level `applies` or `applicability.add`/`applicability.exclude`. Historical
+comments may mention them. FRD has no structured class overrides. See the
+[root README](README.md#class-specific-metadata) for examples and the distinction
+between stored-schema validation and effective-content validation.
 
 ## Produce Traceable Analysis
 

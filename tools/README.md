@@ -44,6 +44,8 @@ dynamic object keys and array items.
 | Test runner and final reports              | [test.ts](test.ts)                                                                                           |
 | Fix CLI and shared planning/application    | [fix.ts](fix.ts), [src/fix.ts](src/fix.ts)                                                                   |
 | Paths and document loading/cloning/writing | [src/config.ts](src/config.ts), [src/rules.ts](src/rules.ts)                                                 |
+| FRR/KSI class resolution | [src/class-content.ts](src/class-content.ts) |
+| CTL source agreement | [src/control-metadata.ts](src/control-metadata.ts) |
 | FRD, FRR, and KSI traversal                | [src/traversal.ts](src/traversal.ts)                                                                         |
 | Schema constraints and validation          | [src/schema-metadata.ts](src/schema-metadata.ts), [src/schema-validation.ts](src/schema-validation.ts)       |
 | Consistency checks and metadata freshness  | [src/consistency.ts](src/consistency.ts), [src/metadata-freshness.ts](src/metadata-freshness.ts)             |
@@ -54,6 +56,74 @@ dynamic object keys and array items.
 
 Command definitions are in [package.json](package.json); tests are in
 [tests/](tests/).
+
+## Class Content
+
+FRR and KSI share optional class content overrides in `varies_by_class.a` through
+`.d`. Each supplied field replaces the whole inherited value; nested objects
+are not merged and arrays are not concatenated. Missing fields inherit common
+content. Class-only statements and forces remain valid when every applicable
+class has effective content. KSI requires effective statements and forces for
+A–D and does not support `applicable`. FRD has no structured class overrides. CTL uses
+the separate contract below.
+
+The shared override fields are `statement`, `following_information`,
+`following_information_bullets`, `force`, `notes`, `schema`, `note`, `artifacts`,
+`timeframe_type`, `timeframe_num`, `timeframe_num_min`, `timeframe_num_max`,
+`rev5_controls_list`, `pain_timeframes`, and `effective_date`. These are also
+allowed as top-level defaults. Names, identity, and history are not overridden.
+FRR additionally permits `applicable` in each class entry. True includes that
+class, false excludes it, and omission inherits subset membership. Omission
+must not be converted to false through a truthiness check; null and empty
+strings are invalid. Class `force` and class membership are separate concepts.
+
+Use [src/class-content.ts](src/class-content.ts) for FRR/KSI field resolution
+and FRR class membership. It removes `applicable` from resolved content.
+Do not use this resolver for CTL guidance or parameters. See the
+[root README](../README.md#class-specific-metadata) for consumer examples.
+
+Legacy `force_by_class`, rule-level `applicability`, and class-level `applies`
+or `applicability.add`/`applicability.exclude` are rejected. Subset applicability
+is unchanged. Historical comments retain the terminology used when written.
+
+The JSON Schema validates stored fields and KSI statement/force coverage.
+`validateSchema` also resolves FRR subset/class applicability and validates
+required effective statements, forces, and timeframe dependencies after
+inheritance. A class can override a timeframe number while inheriting its type.
+Raw JSON Schema validation alone does not perform this cross-entry resolution.
+
+Term extraction retains its existing scope: top-level statements and supporting
+text, plus class-specific statements. It does not newly index class-specific
+supporting text. Shared supporting text remains in its existing variants when
+lifting it would change derived term lists.
+
+### Rev5 Control Metadata
+
+Every CTL entry has `varies_by_class.b/c/d.force` (`MUST` or `MAY`) and
+`assess_yearly_by_class.b/c/d` (booleans). The force is `MUST` exactly when the
+control appears in `FRC-CSF-BSL.varies_by_class.<class>.rev5_controls_list`;
+otherwise it is `MAY`. The full source rule is
+`FRR.FRC.data.rev5.CSF.FRC-CSF-BSL`. The annual flag is true exactly when the
+control appears in
+`FRR.IVV.data.rev5.CSF.IVV-CSF-AIA.varies_by_class.<class>.rev5_controls_list`.
+False means absence from that list, not exemption from other assessments.
+All three class forces and annual booleans are mandatory; the annual object
+is outside `varies_by_class`, and CTL has no top-level force or `applicable`.
+Control enhancement IDs are normalized from source notation such as `AC-02 (01)` to CTL keys such as `AC-02-01`.
+
+`bun run check` includes `tests/control-metadata.test.ts` and a read-only
+consistency check against both source rules. Missing controls, missing source
+lists, missing metadata, and incorrect forces or annual flags fail validation.
+The final output includes class totals and the mismatch count; failures name
+the control field and source rule. Metadata-only entries cover source-listed
+controls without inventing guidance, parameters, or history. Common guidance
+and parameters remain valid alongside class metadata. The checker is
+[src/control-metadata.ts](src/control-metadata.ts); it is registered with
+[src/consistency.ts](src/consistency.ts). The final runner summary includes
+control count, issue count, MUST/MAY totals, and annual-assessment totals by
+class. Run the focused suite with `bun test tests/control-metadata.test.ts`;
+use `bun run check` for integrated final diagnostics. Checks do not rewrite
+sources or derived metadata.
 
 ## Reports
 
@@ -81,10 +151,11 @@ dataset order within each force group, with a force header above each nonempty
 group. It considers `data.all` and the requested framework's bucket. Common
 subset metadata applies to both; framework-specific subset metadata applies
 to rules in that framework's bucket. If both declare a subset, their values
-are combined. A rule's `applicability.add` extends those values;
-`applicability.exclude` then removes listed values, taking precedence over
-additions. Omitted dimensions retain their combined values. Both type and class must match.
-Empty lists match nothing, and extensions do not cross framework data buckets.
+are combined. `varies_by_class.<class>.applicable: true` includes a class;
+`applicable: false` excludes it. Omit `applicable` to inherit subset applicability;
+null and empty strings are invalid. Types, paths,
+and actors cannot be adjusted per rule. Both type and class must match.
+Empty lists match nothing, and class additions do not cross framework data buckets.
 
 Profiles include only rules whose own `affects` array contains `Providers`,
 including rules that also affect other parties. `Everyone` alone does not
@@ -93,8 +164,10 @@ status or effective dates. They describe type/class matches, not a determination
 every obligation currently applicable to a particular offering.
 
 Force counts use the primary `force` field, selecting the requested class
-variant where present. A matching rule without that class variant is listed
-with a diagnostic annotation and counted as `unspecified`. Secondary forces
+override where present and otherwise inheriting the top-level force. A matching
+rule without an effective force is counted as `unspecified` by the collector;
+the report runner rejects missing required effective content during validation.
+Secondary forces
 within statement text are not separately counted. Missing subset declarations
 or duplicate rule IDs cause an error.
 
@@ -130,7 +203,7 @@ Run `bun run check` for changes to rules, schema, tooling, or tests. Coverage
 includes schema validation, formatting, ID/container alignment, subset
 applicability, effective dates, normative force, terms, property and array
 ordering, artifact applicability, update history, text hygiene, class variants,
-controlled vocabulary, cross-references, and fix behavior.
+controlled vocabulary, cross-references, CTL/source agreement, and fix behavior.
 
 The runner orders suites approximately fastest to slowest, with live reference
 URL checks last, and separates Bun's final duration summary with a blank line.
@@ -139,6 +212,8 @@ New test files are discovered automatically. This ordering and spacing apply to
 
 The runner prints human-readable schema, consistency, and property-order failure
 reports after the test totals, including full paths for schema errors.
+A final Rev5 control summary reports class force and annual-assessment totals
+and the mismatch count. CTL/source mismatches fail the command.
 It also reports advisory warnings for metadata freshness, FRR subset force
 ordering, and unused subsets; those warnings alone do not make the command fail.
 

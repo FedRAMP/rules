@@ -11,12 +11,13 @@ import { loadRulesDocument } from "../src/rules";
 test("schema failure summary includes missing KSI force and all other schema errors", () => {
   const document = loadRulesDocument();
   const indicator = document.KSI.MLA!.indicators["KSI-MLA-EVC"]!;
-  Reflect.deleteProperty(indicator, "force_by_class");
+  Reflect.deleteProperty(indicator, "force");
+  Reflect.deleteProperty(indicator, "varies_by_class");
   Reflect.deleteProperty(indicator, "statement");
   const result = validateSchema(document);
   const summary = formatSchemaFailureSummary(result);
   expect(summary).toContain(
-    "KSI.MLA.indicators.KSI-MLA-EVC is missing required property force_by_class.",
+    "KSI.MLA.indicators.KSI-MLA-EVC is missing required property force.",
   );
   expect(summary).toContain(
     "KSI.MLA.indicators.KSI-MLA-EVC is missing required property statement.",

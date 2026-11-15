@@ -98,10 +98,9 @@ export function getSearchableTextParts(entity: RequirementLike): string[] {
   }
   if (entity.varies_by_class) {
     for (const classEntry of Object.values(entity.varies_by_class)) {
-      const statement = classEntry?.statement;
-      if (statement) {
-        parts.push(statement);
-      }
+      // Preserve the term-extraction contract: class statements are searchable;
+      // supporting fields are searched only at the top level.
+      if (classEntry?.statement) parts.push(classEntry.statement);
     }
   }
 

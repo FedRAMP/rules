@@ -65,19 +65,6 @@ export interface EffectiveEntry {
   signup_url?: string;
 }
 
-type ScalarTimeframe =
-  | { timeframe_type: TimeframeType; timeframe_num: number }
-  | { timeframe_type?: never; timeframe_num?: never };
-
-type RequirementTimeframe =
-  | (ScalarTimeframe & { timeframe_num_min?: never; timeframe_num_max?: never })
-  | {
-      timeframe_type: TimeframeType;
-      timeframe_num?: never;
-      timeframe_num_min: number;
-      timeframe_num_max: number;
-    };
-
 export interface PainTimeframeEntry {
   timeframe_type: TimeframeType;
   timeframe_num: number;
@@ -89,22 +76,30 @@ export type PainTimeframes = Record<
   Record<string, PainTimeframeEntry>
 >;
 
-export type RequirementLevel = {
-  statement: string;
+export type ContentClassKey = "a" | "b" | "c" | "d";
+export interface ClassContent {
+  statement?: string;
   following_information?: string[];
+  following_information_bullets?: string[];
   rev5_controls_list?: Record<string, string[]>;
   note?: string;
   notes?: string[];
-  force: Force;
+  force?: Force;
   effective_date?: EffectiveDates;
   pain_timeframes?: PainTimeframes;
   artifacts?: Artifacts;
-} & ScalarTimeframe;
-
-export type RequirementByClass = {
-  [Key in ClassKey]: Record<Key, RequirementLevel> &
-    Partial<Record<ClassKey, RequirementLevel>>;
-}[ClassKey];
+  schema?: RuleSchemaReference;
+  timeframe_type?: TimeframeType;
+  timeframe_num?: number;
+  timeframe_num_min?: number;
+  timeframe_num_max?: number;
+}
+export type RequirementLevel = ClassContent & {
+  applicable?: boolean;
+};
+export type RequirementByClass = Partial<
+  Record<ContentClassKey, RequirementLevel>
+>;
 
 // A deliberately partial view shared by text/history helpers; it is not a
 // declaration of the allowed fields on a KSI indicator or FRR requirement.
@@ -116,7 +111,7 @@ export interface RequirementLike {
   following_information_bullets?: string[];
   terms?: string[];
   updated?: UpdatedEntry[];
-  varies_by_class?: Partial<Record<ClassKey, { statement: string }>>;
+  varies_by_class?: Partial<Record<ContentClassKey, ClassContent>>;
 }
 
 export interface RuleSchemaReference {
@@ -153,10 +148,6 @@ export type Requirement = {
   effective_date?: EffectiveDates;
   corrective_actions?: string[];
   affects: AffectedParty[];
-  applicability?: {
-    add?: Partial<FrrSubsetApplicability>;
-    exclude?: Partial<FrrSubsetApplicability>;
-  };
   artifacts?: Artifacts;
   schema?: RuleSchemaReference;
   examples?: Array<{ id: string; key_tests: string[]; examples: string[] }>;
@@ -164,21 +155,15 @@ export type Requirement = {
   controls?: string[];
   terms?: string[];
   updated: UpdatedEntry[];
-} & RequirementTimeframe &
-  (
-    | { statement: string; force: Force; varies_by_class?: never }
-    | { statement?: never; force?: never; varies_by_class: RequirementByClass }
-  );
+} & ClassContent & { varies_by_class?: RequirementByClass };
 
-export type KsiIndicator = {
+export type KsiIndicator = ClassContent & {
   name: string;
-  statement: string;
-  force_by_class: Record<"a" | "b" | "c" | "d", Force>;
+  varies_by_class?: Partial<Record<ContentClassKey, ClassContent>>;
   controls: string[];
   reference?: string;
   reference_url?: string;
   updated: UpdatedEntry[];
-  artifacts?: Artifacts;
   terms?: string[];
 };
 
@@ -238,7 +223,11 @@ export interface ControlClassData {
 }
 
 export interface ControlData extends ControlClassData {
-  varies_by_class?: Partial<Record<"b" | "c" | "d", ControlClassData>>;
+  varies_by_class: Record<
+    "b" | "c" | "d",
+    ControlClassData & { force: "MUST" | "MAY" }
+  >;
+  assess_yearly_by_class: Record<"b" | "c" | "d", boolean>;
   updated?: UpdatedEntry[];
 }
 

@@ -1,3 +1,4 @@
+import { formatControlMetadataSummary } from "./src/control-metadata";
 import { createInterface } from "node:readline";
 import { Readable } from "node:stream";
 import {
@@ -263,6 +264,15 @@ if (finalReports.length > 0) {
       "⚠️ 🙈",
       `${BOLD}${RED}`,
     )}\n\n${finalReports.map((report) => report.trimEnd()).join("\n\n")}\n\n`,
+  );
+}
+
+const controlCheck = consistencyChecks.find(
+  (check) => check.title === "Rev5 control metadata",
+);
+if (rulesDocument.CTL && controlCheck) {
+  console.log(
+    `\n${formatControlMetadataSummary(rulesDocument, controlCheck.issues)}\n`,
   );
 }
 

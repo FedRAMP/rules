@@ -11,21 +11,18 @@ import type {
 // Compile-time regressions: these must not become accepted public shapes again.
 type Assert<T extends true> = T;
 type TypeContracts = [
-  Assert<"force" extends keyof KsiIndicator ? false : true>,
+  Assert<"force" extends keyof KsiIndicator ? true : false>,
   Assert<"theme" extends keyof KsiTheme ? false : true>,
   Assert<{} extends Pick<KsiTheme, "status"> ? false : true>,
   Assert<KsiIndicator[] extends KsiTheme["indicators"] ? false : true>,
   Assert<
     "a" extends keyof NonNullable<ControlData["varies_by_class"]> ? false : true
   >,
-  Assert<{} extends NonNullable<Requirement["varies_by_class"]> ? false : true>,
-  Assert<"varies_by_class" extends keyof KsiIndicator ? false : true>,
-  Assert<{} extends Pick<KsiIndicator, "statement"> ? false : true>,
-  Assert<{} extends Pick<KsiIndicator, "force_by_class"> ? false : true>,
+  Assert<"varies_by_class" extends keyof KsiIndicator ? true : false>,
+  Assert<"force_by_class" extends keyof KsiIndicator ? false : true>,
+  Assert<"applicability" extends keyof Requirement ? false : true>,
   Assert<
-    { b: "MUST"; c: "MUST" } extends KsiIndicator["force_by_class"]
-      ? false
-      : true
+    "g" extends keyof NonNullable<Requirement["varies_by_class"]> ? false : true
   >,
 ];
 
@@ -126,14 +123,24 @@ test("typed definitions, class variants, artifacts, metadata, and controls satis
           "KSI-TST-ONE": {
             name: "Indicator",
             statement: "A capability.",
-            force_by_class: { a: "MAY", b: "MUST", c: "MUST", d: "MUST" },
+            varies_by_class: {
+              a: { force: "MAY" },
+              b: { force: "MUST" },
+              c: { force: "MUST" },
+              d: { force: "MUST" },
+            },
             controls: [],
             updated,
           },
           "KSI-TST-TWO": {
             name: "Class-specific force",
             statement: "A capability.",
-            force_by_class: { a: "MAY", b: "SHOULD", c: "MUST", d: "MUST" },
+            varies_by_class: {
+              a: { force: "MAY" },
+              b: { force: "SHOULD" },
+              c: { force: "MUST" },
+              d: { force: "MUST" },
+            },
             controls: [],
             updated,
             artifacts: { "20x": ["Evidence"] },
@@ -145,8 +152,14 @@ test("typed definitions, class variants, artifacts, metadata, and controls satis
       AC: {
         "AC-01": {
           guidance: ["Guidance"],
+          assess_yearly_by_class: { b: false, c: true, d: true },
           varies_by_class: {
-            b: { parameters: [{ parameterId: "p1", value: "value" }] },
+            b: {
+              force: "MUST",
+              parameters: [{ parameterId: "p1", value: "value" }],
+            },
+            c: { force: "MUST" },
+            d: { force: "MUST" },
           },
           updated,
         },

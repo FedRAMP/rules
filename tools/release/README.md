@@ -85,6 +85,14 @@ have fixed metadata and use stored compression so reruns produce identical ZIP
 bytes across environments. GitHub also provides its automatic full-repository
 source archives; consumers should choose the named distribution asset.
 
+For changes to class metadata, run the integrated `bun run check` from `tools/`
+before publishing. Packaging's JSON Schema validation does not establish all
+FRR/KSI effective-content constraints or CTL agreement with FRC-CSF-BSL and
+IVV-CSF-AIA. The [current class contract](../../README.md#class-specific-metadata)
+describes the field names and resolution rules; consumers of older releases
+must use those releases' accompanying schemas rather than assume the current
+layout applies to every version.
+
 ## Consumer URLs and history
 
 With `BASE_URL` set to this repository's Pages URL (shown by the deployment job),

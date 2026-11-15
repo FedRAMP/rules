@@ -1,3 +1,15 @@
+import {
+  getApplicableClasses,
+  getRuleSubsets,
+  resolveClassContent,
+} from "./class-content";
+import { visitRequirements, visitIndicators } from "./traversal";
+import type {
+  ClassKey,
+  ClassContent,
+  ContentClassKey,
+  RulesDocument,
+} from "./types";
 import Ajv2020 from "ajv/dist/2020";
 import addFormats from "ajv-formats";
 import type { AnySchema, ErrorObject } from "ajv";
@@ -16,12 +28,53 @@ export function validateSchema(
 
   const schema = schemaDocument as AnySchema;
   const validate = ajv.compile(schema);
-  const valid = validate(document);
+  const structurallyValid = validate(document);
+  const errors = [...(validate.errors ?? [])];
+  if (structurallyValid) {
+    const effective = ajv.compile({
+      $defs: (schemaDocument as { $defs: unknown }).$defs,
+      $ref: "#/$defs/effective_rule_content",
+    });
+    const check = (
+      entry: ClassContent & {
+        varies_by_class?: Partial<Record<ContentClassKey, ClassContent>>;
+      },
+      location: string,
+      classes: string[],
+    ) => {
+      for (const name of classes) {
+        const key = name.toLowerCase() as ClassKey;
+        if (!effective(resolveClassContent(entry, key))) {
+          for (const error of effective.errors ?? []) {
+            errors.push({
+              ...error,
+              instancePath: `/${location.replaceAll(".", "/")}/varies_by_class/${key}${error.instancePath}`,
+            });
+          }
+        }
+      }
+    };
+    visitRequirements(
+      document as RulesDocument,
+      ({ requirement, location }) => {
+        const subsets = getRuleSubsets(document as RulesDocument, location);
+        const classes = subsets.length
+          ? [...getApplicableClasses(requirement, subsets)]
+          : requirement.varies_by_class
+            ? Object.keys(requirement.varies_by_class)
+            : ["a"];
+        check(requirement, location, classes);
+      },
+    );
+    visitIndicators(document as RulesDocument, ({ indicator, location }) =>
+      check(indicator, location, ["a", "b", "c", "d"]),
+    );
+  }
 
   return {
-    valid: Boolean(valid),
-    errors: validate.errors ?? [],
-    humanReadableErrors: formatSchemaErrors(validate.errors ?? [], document),
+    valid: errors.length === 0,
+    errors,
+    humanReadableErrors: formatSchemaErrors(errors, document),
   };
 }
 
@@ -38,21 +91,13 @@ export function formatSchemaFailureSummary(
 
 export function formatSchemaErrors(
   errors: ErrorObject[],
-  document: unknown,
+  _document: unknown,
 ): string[] {
   const messages: string[] = [];
   const errorsByPath = Map.groupBy(errors, (error) => error.instancePath);
 
   for (const [instancePath, pathErrors] of errorsByPath) {
-    const value = getValueAtJsonPointer(document, instancePath);
     const location = formatJsonPointerLocation(instancePath);
-
-    if (hasOwn(value, "varies_by_class") && hasOwn(value, "force")) {
-      messages.push(
-        `${location} has both varies_by_class and top-level force, and that's not allowed. Put force inside each varies_by_class entry instead.`,
-      );
-      continue;
-    }
 
     const propertyNameMessage = formatPropertyNameErrors(pathErrors, location);
     if (propertyNameMessage) {
@@ -158,24 +203,6 @@ function formatList(values: string[]): string {
   return values.join(", ");
 }
 
-function getValueAtJsonPointer(document: unknown, pointer: string): unknown {
-  if (pointer === "") {
-    return document;
-  }
-
-  return pointer
-    .slice(1)
-    .split("/")
-    .map(unescapeJsonPointerSegment)
-    .reduce<unknown>((current, segment) => {
-      if (current === null || typeof current !== "object") {
-        return undefined;
-      }
-
-      return (current as Record<string, unknown>)[segment];
-    }, document);
-}
-
 function formatJsonPointerLocation(pointer: string): string {
   if (pointer === "") {
     return "Document";
@@ -199,12 +226,4 @@ function formatLocationSegment(segment: string, index: number): string {
 
 function unescapeJsonPointerSegment(segment: string): string {
   return segment.replaceAll("~1", "/").replaceAll("~0", "~");
-}
-
-function hasOwn(value: unknown, property: string): boolean {
-  return (
-    value !== null &&
-    typeof value === "object" &&
-    Object.hasOwn(value, property)
-  );
 }

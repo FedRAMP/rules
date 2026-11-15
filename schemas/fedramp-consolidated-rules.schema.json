@@ -88,7 +88,10 @@
             "guidance": {
               "type": "array",
               "description": "Guidance strings that apply uniformly across all classes",
-              "items": { "type": "string", "minLength": 1 },
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
               "minItems": 1
             },
             "parameters": {
@@ -99,24 +102,57 @@
                 "required": ["parameterId", "value"],
                 "additionalProperties": false,
                 "properties": {
-                  "parameterId": { "type": "string", "minLength": 1 },
-                  "value": { "type": "string", "minLength": 1 }
+                  "parameterId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "value": {
+                    "type": "string",
+                    "minLength": 1
+                  }
                 }
               },
               "minItems": 1
             },
             "varies_by_class": {
               "type": "object",
-              "description": "Per-class parameters and guidance",
+              "description": "Class-specific baseline force, parameters, and guidance",
               "additionalProperties": false,
               "properties": {
-                "b": { "$ref": "#/$defs/classData" },
-                "c": { "$ref": "#/$defs/classData" },
-                "d": { "$ref": "#/$defs/classData" }
-              }
+                "b": {
+                  "$ref": "#/$defs/classData"
+                },
+                "c": {
+                  "$ref": "#/$defs/classData"
+                },
+                "d": {
+                  "$ref": "#/$defs/classData"
+                }
+              },
+              "required": ["b", "c", "d"]
             },
-            "updated": { "$ref": "#/$defs/updated_list" }
-          }
+            "assess_yearly_by_class": {
+              "type": "object",
+              "description": "Annual assessment membership from IVV-CSF-AIA",
+              "required": ["b", "c", "d"],
+              "properties": {
+                "b": {
+                  "type": "boolean"
+                },
+                "c": {
+                  "type": "boolean"
+                },
+                "d": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "updated": {
+              "$ref": "#/$defs/updated_list"
+            }
+          },
+          "required": ["varies_by_class", "assess_yearly_by_class"]
         }
       }
     }
@@ -125,12 +161,19 @@
   "$defs": {
     "classData": {
       "type": "object",
-      "description": "Class-specific parameters and guidance",
+      "description": "Class-specific baseline force, parameters, and guidance",
       "additionalProperties": false,
       "properties": {
+        "force": {
+          "type": "string",
+          "enum": ["MUST", "MAY"]
+        },
         "guidance": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 },
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
           "minItems": 1
         },
         "parameters": {
@@ -140,13 +183,20 @@
             "required": ["parameterId", "value"],
             "additionalProperties": false,
             "properties": {
-              "parameterId": { "type": "string", "minLength": 1 },
-              "value": { "type": "string", "minLength": 1 }
+              "parameterId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           },
           "minItems": 1
         }
-      }
+      },
+      "required": ["force"]
     },
     "frd_document_info": {
       "type": "object",
@@ -269,47 +319,6 @@
         "classes": {
           "type": "array",
           "items": { "$ref": "#/$defs/class_name" },
-          "uniqueItems": true
-        },
-        "affects": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/affected_party" },
-          "minItems": 1,
-          "uniqueItems": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "frr_rule_applicability": {
-      "type": "object",
-      "description": "Rule-specific changes to subset applicability. Add values first, then remove excluded values. Omitted dimensions retain their subset applicability.",
-      "minProperties": 1,
-      "properties": {
-        "add": { "$ref": "#/$defs/frr_applicability_changes" },
-        "exclude": { "$ref": "#/$defs/frr_applicability_changes" }
-      },
-      "additionalProperties": false
-    },
-    "frr_applicability_changes": {
-      "type": "object",
-      "minProperties": 1,
-      "properties": {
-        "types": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/certification_type" },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "paths": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/certification_path" },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "classes": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/class_name" },
-          "minItems": 1,
           "uniqueItems": true
         },
         "affects": {
@@ -556,43 +565,6 @@
     "frr_requirement": {
       "type": "object",
       "required": ["name", "affects", "updated"],
-      "oneOf": [
-        {
-          "properties": {
-            "statement": {},
-            "force": {}
-          },
-          "required": ["statement", "force"],
-          "not": {
-            "properties": {
-              "varies_by_class": {}
-            },
-            "required": ["varies_by_class"]
-          }
-        },
-        {
-          "properties": {
-            "varies_by_class": {}
-          },
-          "required": ["varies_by_class"],
-          "not": {
-            "anyOf": [
-              {
-                "properties": {
-                  "statement": {}
-                },
-                "required": ["statement"]
-              },
-              {
-                "properties": {
-                  "force": {}
-                },
-                "required": ["force"]
-              }
-            ]
-          }
-        }
-      ],
       "properties": {
         "name": { "type": "string" },
         "statement": { "type": "string" },
@@ -622,10 +594,7 @@
           "items": { "type": "string" },
           "minItems": 2
         },
-        "related": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
+        "related": { "type": "array", "items": { "type": "string" } },
         "reference": { "type": "string" },
         "reference_url": { "type": "string", "format": "uri" },
         "reference_url_web_name": { "type": "string" },
@@ -641,7 +610,6 @@
           "minItems": 1,
           "uniqueItems": true
         },
-        "applicability": { "$ref": "#/$defs/frr_rule_applicability" },
         "artifacts": { "$ref": "#/$defs/artifacts" },
         "schema": { "$ref": "#/$defs/rule_schema" },
         "examples": {
@@ -651,14 +619,8 @@
             "required": ["id", "key_tests", "examples"],
             "properties": {
               "id": { "type": "string" },
-              "key_tests": {
-                "type": "array",
-                "items": { "type": "string" }
-              },
-              "examples": {
-                "type": "array",
-                "items": { "type": "string" }
-              }
+              "key_tests": { "type": "array", "items": { "type": "string" } },
+              "examples": { "type": "array", "items": { "type": "string" } }
             },
             "additionalProperties": false
           }
@@ -688,64 +650,53 @@
           "items": { "$ref": "#/$defs/control_id" },
           "uniqueItems": true
         },
-        "terms": {
-          "type": "array",
-          "items": { "type": "string" }
+        "terms": { "type": "array", "items": { "type": "string" } },
+        "updated": { "$ref": "#/$defs/updated_list" },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" }
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": ["statement", "force"],
+          "properties": { "statement": {}, "force": {} }
         },
-        "updated": { "$ref": "#/$defs/updated_list" }
-      },
-      "dependentRequired": {
-        "timeframe_num": ["timeframe_type"],
-        "timeframe_num_min": ["timeframe_type", "timeframe_num_max"],
-        "timeframe_num_max": ["timeframe_type", "timeframe_num_min"]
-      },
-      "dependentSchemas": {
-        "timeframe_type": {
-          "oneOf": [
-            {
-              "properties": {
-                "timeframe_num": {}
-              },
-              "required": ["timeframe_num"]
-            },
-            {
-              "properties": {
-                "timeframe_num_min": {},
-                "timeframe_num_max": {}
-              },
-              "required": ["timeframe_num_min", "timeframe_num_max"]
-            }
-          ]
+        {
+          "required": ["varies_by_class"],
+          "properties": { "varies_by_class": {} }
         }
-      },
-      "additionalProperties": false
+      ]
     },
     "frr_requirement_level": {
       "type": "object",
-      "required": ["force", "statement"],
+      "minProperties": 1,
       "properties": {
         "statement": { "type": "string" },
         "following_information": {
           "type": "array",
           "items": { "type": "string" }
         },
-        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
-        "note": { "type": "string" },
+        "following_information_bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "force": { "$ref": "#/$defs/force_enum" },
         "notes": {
           "type": "array",
           "items": { "type": "string" },
           "minItems": 2
         },
-        "force": { "$ref": "#/$defs/force_enum" },
-        "effective_date": { "$ref": "#/$defs/effective_dates" },
+        "schema": { "$ref": "#/$defs/rule_schema" },
+        "note": { "type": "string" },
+        "artifacts": { "$ref": "#/$defs/artifacts" },
         "timeframe_type": { "$ref": "#/$defs/timeframe_type" },
         "timeframe_num": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_min": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_max": { "$ref": "#/$defs/positive_number" },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
         "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
-        "artifacts": { "$ref": "#/$defs/artifacts" }
-      },
-      "dependentRequired": {
-        "timeframe_type": ["timeframe_num"],
-        "timeframe_num": ["timeframe_type"]
+        "effective_date": { "$ref": "#/$defs/effective_dates" },
+        "applicable": { "type": "boolean" }
       },
       "additionalProperties": false
     },
@@ -789,27 +740,10 @@
     },
     "ksi_indicator": {
       "type": "object",
-      "required": [
-        "name",
-        "statement",
-        "force_by_class",
-        "controls",
-        "updated"
-      ],
+      "required": ["name", "controls", "updated"],
       "properties": {
         "name": { "type": "string" },
         "statement": { "type": "string" },
-        "force_by_class": {
-          "type": "object",
-          "required": ["a", "b", "c", "d"],
-          "properties": {
-            "a": { "$ref": "#/$defs/force_enum" },
-            "b": { "$ref": "#/$defs/force_enum" },
-            "c": { "$ref": "#/$defs/force_enum" },
-            "d": { "$ref": "#/$defs/force_enum" }
-          },
-          "additionalProperties": false
-        },
         "controls": {
           "type": "array",
           "items": { "$ref": "#/$defs/control_id" },
@@ -819,9 +753,213 @@
         "reference_url": { "type": "string", "format": "uri" },
         "updated": { "$ref": "#/$defs/updated_list" },
         "artifacts": { "$ref": "#/$defs/artifacts" },
-        "terms": { "type": "array", "items": { "type": "string" } }
+        "terms": { "type": "array", "items": { "type": "string" } },
+        "following_information": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "following_information_bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "force": { "$ref": "#/$defs/force_enum" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
+        "schema": { "$ref": "#/$defs/rule_schema" },
+        "note": { "type": "string" },
+        "timeframe_type": { "$ref": "#/$defs/timeframe_type" },
+        "timeframe_num": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_min": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_max": { "$ref": "#/$defs/positive_number" },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
+        "effective_date": { "$ref": "#/$defs/effective_dates" },
+        "varies_by_class": {
+          "type": "object",
+          "minProperties": 1,
+          "properties": {
+            "a": { "$ref": "#/$defs/class_content" },
+            "b": { "$ref": "#/$defs/class_content" },
+            "c": { "$ref": "#/$defs/class_content" },
+            "d": { "$ref": "#/$defs/class_content" }
+          },
+          "additionalProperties": false
+        }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "anyOf": [
+            { "required": ["statement"], "properties": { "statement": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["a"],
+                  "properties": {
+                    "a": {
+                      "type": "object",
+                      "required": ["statement"],
+                      "properties": { "statement": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["force"], "properties": { "force": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["a"],
+                  "properties": {
+                    "a": {
+                      "type": "object",
+                      "required": ["force"],
+                      "properties": { "force": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["statement"], "properties": { "statement": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["b"],
+                  "properties": {
+                    "b": {
+                      "type": "object",
+                      "required": ["statement"],
+                      "properties": { "statement": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["force"], "properties": { "force": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["b"],
+                  "properties": {
+                    "b": {
+                      "type": "object",
+                      "required": ["force"],
+                      "properties": { "force": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["statement"], "properties": { "statement": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["c"],
+                  "properties": {
+                    "c": {
+                      "type": "object",
+                      "required": ["statement"],
+                      "properties": { "statement": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["force"], "properties": { "force": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["c"],
+                  "properties": {
+                    "c": {
+                      "type": "object",
+                      "required": ["force"],
+                      "properties": { "force": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["statement"], "properties": { "statement": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["d"],
+                  "properties": {
+                    "d": {
+                      "type": "object",
+                      "required": ["statement"],
+                      "properties": { "statement": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["force"], "properties": { "force": {} } },
+            {
+              "required": ["varies_by_class"],
+              "properties": {
+                "varies_by_class": {
+                  "type": "object",
+                  "required": ["d"],
+                  "properties": {
+                    "d": {
+                      "type": "object",
+                      "required": ["force"],
+                      "properties": { "force": {} }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
     },
     "default_artifacts": {
       "type": "object",
@@ -959,6 +1097,91 @@
         },
         "additionalProperties": false
       }
+    },
+    "effective_rule_content": {
+      "type": "object",
+      "required": ["statement", "force"],
+      "properties": {
+        "statement": { "type": "string" },
+        "following_information": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "following_information_bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "force": { "$ref": "#/$defs/force_enum" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
+        "schema": { "$ref": "#/$defs/rule_schema" },
+        "note": { "type": "string" },
+        "artifacts": { "$ref": "#/$defs/artifacts" },
+        "timeframe_type": { "$ref": "#/$defs/timeframe_type" },
+        "timeframe_num": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_min": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_max": { "$ref": "#/$defs/positive_number" },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
+        "effective_date": { "$ref": "#/$defs/effective_dates" }
+      },
+      "dependentRequired": {
+        "timeframe_num": ["timeframe_type"],
+        "timeframe_num_min": ["timeframe_type", "timeframe_num_max"],
+        "timeframe_num_max": ["timeframe_type", "timeframe_num_min"]
+      },
+      "dependentSchemas": {
+        "timeframe_type": {
+          "oneOf": [
+            {
+              "properties": { "timeframe_num": {} },
+              "required": ["timeframe_num"]
+            },
+            {
+              "properties": {
+                "timeframe_num_min": {},
+                "timeframe_num_max": {}
+              },
+              "required": ["timeframe_num_min", "timeframe_num_max"]
+            }
+          ]
+        }
+      }
+    },
+    "class_content": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "statement": { "type": "string" },
+        "following_information": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "following_information_bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "force": { "$ref": "#/$defs/force_enum" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2
+        },
+        "schema": { "$ref": "#/$defs/rule_schema" },
+        "note": { "type": "string" },
+        "artifacts": { "$ref": "#/$defs/artifacts" },
+        "timeframe_type": { "$ref": "#/$defs/timeframe_type" },
+        "timeframe_num": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_min": { "$ref": "#/$defs/positive_number" },
+        "timeframe_num_max": { "$ref": "#/$defs/positive_number" },
+        "rev5_controls_list": { "$ref": "#/$defs/rev5_controls_list" },
+        "pain_timeframes": { "$ref": "#/$defs/pain_timeframes" },
+        "effective_date": { "$ref": "#/$defs/effective_dates" }
+      },
+      "additionalProperties": false
     }
   }
 }

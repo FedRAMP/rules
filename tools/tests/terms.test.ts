@@ -96,7 +96,7 @@ function createTermSyncDocument(ignoreInTerms?: boolean): RulesDocument {
             controls: [],
             updated: fixtureHistory(),
             statement: "Providers are required to notify an agency.",
-            force_by_class: { a: "MAY", b: "MUST", c: "MUST", d: "MUST" },
+            varies_by_class: { a: { force: "MAY" }, b: { force: "MUST" }, c: { force: "MUST" }, d: { force: "MUST" } },
             terms: [],
           },
         },
