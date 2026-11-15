@@ -3691,9 +3691,9 @@
             "name": "Changing Certification Class",
             "description": "These rules apply to cloud service providers when changing their FedRAMP Certification Class.",
             "applicability": {
-              "types": ["Rev5"],
-              "paths": ["Agency"],
-              "classes": ["B", "C", "D"],
+              "types": ["Rev5", "20x"],
+              "paths": ["Program", "Agency"],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
