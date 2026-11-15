@@ -349,6 +349,57 @@ test("FRR unused subset warnings detect subset declarations without rules", () =
   ]);
 });
 
+test.each(["all", "20x", "rev5"] as const)(
+  "FRR unused subset warnings detect missing %s subsets",
+  (scope) => {
+    const subsets = {
+      CSO: { name: "Provider", description: "Provider subset." },
+    };
+    const document = {
+      FRR: {
+        ABC: {
+          info: scope === "all" ? { subsets } : { [scope]: { subsets } },
+          data: { all: {}, "20x": {}, rev5: {} },
+        },
+      },
+    } as unknown as RulesDocument;
+    const expectedWarnings = [
+      {
+        location: `FRR.ABC.info.${scope === "all" ? "" : `${scope}.`}subsets.CSO`,
+        message:
+          "subset CSO is declared but has no corresponding rules in FRR.ABC.data.",
+      },
+    ];
+
+    expect(collectFrrUnusedSubsetWarnings(document)).toEqual(expectedWarnings);
+
+    // A missing data bucket must also produce a warning.
+    delete document.FRR.ABC!.data[scope];
+    expect(collectFrrUnusedSubsetWarnings(document)).toEqual(expectedWarnings);
+
+    const requirements = {
+      "ABC-CSO-001": {
+        name: "Provider Rule",
+        statement: "Providers MUST do the thing.",
+        force: "MUST" as const,
+        affects: ["Providers" as const],
+        updated: [],
+      },
+    };
+    const otherScope = scope === "20x" ? "rev5" : "20x";
+    document.FRR.ABC!.data[otherScope] = { CSO: requirements };
+
+    // Common declarations can be used in any scope; framework declarations
+    // must have rules in their own framework's data bucket.
+    expect(collectFrrUnusedSubsetWarnings(document)).toEqual(
+      scope === "all" ? [] : expectedWarnings,
+    );
+
+    document.FRR.ABC!.data[scope] = { CSO: requirements };
+    expect(collectFrrUnusedSubsetWarnings(document)).toEqual([]);
+  },
+);
+
 test("FRR subset force order warnings detect out-of-order groups", () => {
   const document = {
     FRR: {
