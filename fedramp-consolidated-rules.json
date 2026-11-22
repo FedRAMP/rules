@@ -2,8 +2,8 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.11.14.01",
-    "last_updated": "2026-11-14",
+    "version": "2026.12.03.01",
+    "last_updated": "2026-12-03",
     "default_artifacts": {
       "FRR": [
         "Explanation of how the rule is followed, or an explanation of the reason and resulting risk to customers for not following the rule.",
@@ -1438,7 +1438,7 @@
               "terms": ["FedRAMP Security Inbox"],
               "updated": [
                 {
-                  "date": "2026-12-04",
+                  "date": "2026-12-03",
                   "comment": "Added notification method to clarify that providers who use their public security email do not need to notify FedRAMP separately from updating CDS-CSO-PUB Public Information.",
                   "issue": "https://github.com/FedRAMP/rules/issues/63"
                 },
@@ -3847,7 +3847,7 @@
               ],
               "updated": [
                 {
-                  "date": "2026-12-04",
+                  "date": "2026-12-03",
                   "comment": "Clarified that the entire SDR Ruleset is applicable, not just a specific top-level SDR rule.",
                   "issue": "https://github.com/FedRAMP/rules/issues/62"
                 },
@@ -7351,7 +7351,7 @@
             "applicability": {
               "types": ["20x", "Rev5"],
               "paths": ["Program", "Agency"],
-              "classes": [],
+              "classes": ["A", "B", "C", "D"],
               "affects": ["Providers"]
             }
           }
