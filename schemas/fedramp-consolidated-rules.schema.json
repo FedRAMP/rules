@@ -639,6 +639,7 @@
               "method": { "$ref": "#/$defs/notification_method" },
               "target": { "type": "string" },
               "name": { "type": "string" },
+              "note": { "type": "string" },
               "url": { "type": "string", "format": "uri" },
               "optional": { "type": "boolean" }
             },
