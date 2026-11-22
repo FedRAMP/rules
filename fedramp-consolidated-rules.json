@@ -1422,17 +1422,17 @@
               "notification": [
                 {
                   "party": "FedRAMP",
-                  "method": "form",
-                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51829466938011",
-                  "name": "[CSP] Notification of Changes",
-                  "note": "(if FedRAMP Security Inbox is not publicly listed in the CDS-CSO-PUB Public Information)"
-                },
-                {
-                  "party": "FedRAMP",
                   "method": "update",
                   "target": "CDS-CSO-PUB (Public Information)",
                   "name": "CDS-CSO-PUB (Public Information)",
-                  "note": "(providers should not fill out the Notification of Changes form if their FedRAMP Security Inbox is their standard security email since FedRAMP will update automatically using the CDS-CSO-PUB Public Information)"
+                  "note": "FedRAMP will automatically update the FedRAMP Security Inbox using the information in CDS-CSO-PUB (Public Information) without any additional action needed by the provider."
+                },
+                {
+                  "party": "FedRAMP",
+                  "method": "form",
+                  "target": "https://help.fedramp.gov/hc/en-us/requests/new?ticket_form_id=51829466938011",
+                  "name": "[CSP] Notification of Changes",
+                  "note": "This only applies if the FedRAMP Security Inbox is not publicly listed in CDS-CSO-PUB (Public Information)! Otherwise updating CDS-CSO-PUB (Public Information) is sufficient."
                 }
               ],
               "terms": ["FedRAMP Security Inbox"],
