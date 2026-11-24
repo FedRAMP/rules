@@ -35,23 +35,6 @@ function ensureUpdatedEntry(
   target.updated = [updated, entry];
 }
 
-export function incrementVersion(version: string): string {
-  const [mainVersion, suffix] = version.split("-", 2);
-  const parts = (mainVersion ?? "").split(".");
-
-  if (parts.length < 3) {
-    return version;
-  }
-
-  const patch = Number(parts[2]);
-  if (Number.isNaN(patch)) {
-    return version;
-  }
-
-  parts[2] = String(patch + 1);
-  return suffix ? `${parts.join(".")}-${suffix}` : parts.join(".");
-}
-
 function processDataBlock(
   dataBlock: Record<string, unknown>,
   entryDate: string,
@@ -179,7 +162,6 @@ export function fixIdAlignment(
   ).length;
 
   if (options.updateDocument && fixedCount > 0) {
-    document.info.version = incrementVersion(document.info.version);
     document.info.last_updated = options.entryDate;
   }
 

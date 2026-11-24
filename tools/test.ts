@@ -10,6 +10,7 @@ import {
 } from "./src/consistency";
 import {
   collectMetadataFreshnessWarnings,
+  collectVersionIncrementWarnings,
   latestCommitMetadata,
   type MetadataFreshnessWarning,
 } from "./src/metadata-freshness";
@@ -203,10 +204,10 @@ const testExitCode = await testResult.exited;
 const rulesDocument = loadRulesDocument();
 const schemaDocument = loadSchemaDocument();
 const schemaValidation = validateSchema(rulesDocument, schemaDocument);
-const metadataFreshnessWarnings = collectMetadataFreshnessWarnings(
-  rulesDocument,
-  latestCommitMetadata(),
-);
+const metadataFreshnessWarnings = [
+  ...collectMetadataFreshnessWarnings(rulesDocument, latestCommitMetadata()),
+  ...collectVersionIncrementWarnings(rulesDocument),
+];
 const frrSubsetForceOrderWarnings =
   collectFrrSubsetForceOrderWarnings(rulesDocument);
 const frrUnusedSubsetWarnings = collectFrrUnusedSubsetWarnings(rulesDocument);

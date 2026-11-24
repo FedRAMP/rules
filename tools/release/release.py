@@ -21,7 +21,8 @@ SCHEMA = f"{BASE}.schema.json"
 MIN_RULES = f"{BASE}.min.json"
 MIN_SCHEMA = f"{BASE}.schema.min.json"
 FILES = {RULES, SCHEMA, MIN_RULES, MIN_SCHEMA}
-VERSION = re.compile(r"2026\.\d{2}\.\d{2}(?:\.\d{2,})?")
+CURRENT_VERSION = re.compile(r"CR26\.v([0-9]{2}|[1-9][0-9]{2,})")
+DATED_VERSION = re.compile(r"2026\.\d{2}\.\d{2}(?:\.\d{2,})?")
 MAX_FILE = 50 * 1024 * 1024
 
 
@@ -59,11 +60,22 @@ def json_load(data):
 
 
 def version_key(version):
-    require(isinstance(version, str) and VERSION.fullmatch(version),
-            f"Invalid 2026 version: {version!r}")
+    require(isinstance(version, str), f"Invalid 2026 version: {version!r}")
+    minor = CURRENT_VERSION.fullmatch(version)
+    if minor:
+        return (1, int(minor[1]))
+    require(DATED_VERSION.fullmatch(version), f"Invalid 2026 version: {version!r}")
     parts = tuple(map(int, version.split('.')))
     dt.date(*parts[:3])
-    return parts[:3] + (parts[3] if len(parts) == 4 else 0,)
+    return (0, *parts[:3], parts[3] if len(parts) == 4 else 0)
+
+
+def validate_update_date(version, value):
+    require(isinstance(value, str), "last_updated must be a quoted date")
+    date = dt.date.fromisoformat(value)
+    require(value == date.isoformat(), "Expected YYYY-MM-DD for last_updated")
+    if DATED_VERSION.fullmatch(version):
+        require(version[:10].replace('.', '-') == value, "Version and last_updated dates differ")
 
 
 def minify(data):
@@ -78,8 +90,8 @@ def validate(rules, schema, version):
     Draft202012Validator(contract, format_checker=FormatChecker(),
                          registry=Registry()).validate(document)
     require(document['info']['version'] == version, "Archive/dataset version mismatch")
-    date = dt.date.fromisoformat(document['info']['last_updated'])
-    require(date == dt.date(*version_key(version)[:3]), "Version and last_updated dates differ")
+    version_key(version)
+    validate_update_date(version, document['info']['last_updated'])
     return document
 
 
@@ -99,9 +111,7 @@ def changelog_entries(path, info, publish):
         require(previous is None or previous > key, "Versions must be unique and newest first")
         previous = key
         require(type(entry['release']) is bool, "release must be a boolean")
-        require(isinstance(entry['last_updated'], str), "last_updated must be a quoted string")
-        require(dt.date.fromisoformat(entry['last_updated']) == dt.date(*key[:3]),
-                "Changelog date must match version date")
+        validate_update_date(entry['version'], entry['last_updated'])
         for field in ('rules', 'schema', 'tooling', 'contributors'):
             values = entry.get(field, [])
             require(isinstance(values, list) and all(isinstance(x, str) and x.strip() for x in values),
@@ -184,6 +194,7 @@ def prepare(root, output, commit, publish=False, ref=''):
     schema = (root / 'schemas' / SCHEMA).read_bytes()
     info = json_load(rules)['info']
     validate(rules, schema, info['version'])
+    require(CURRENT_VERSION.fullmatch(info['version']), 'New releases require a version such as CR26.v33')
     entries = changelog_entries(root / 'CHANGELOG.yml', info, publish)
     output.mkdir(parents=True, exist_ok=True)
     filename = f"{BASE}-{info['version']}.zip"
@@ -325,7 +336,7 @@ def publish(github, output, pages, dry_run=False, force=False):
     published_commits = set()
     for release in github.releases():
         name = release['tag_name']
-        if release['draft'] or release['prerelease'] or not VERSION.fullmatch(name):
+        if release['draft'] or release['prerelease'] or not (CURRENT_VERSION.fullmatch(name) or DATED_VERSION.fullmatch(name)):
             continue
         require(version_key(name) <= key, 'A newer version is already published; refusing rollback')
         release_commit = github.tag(name)
@@ -343,7 +354,7 @@ def publish(github, output, pages, dry_run=False, force=False):
             '2026 tag does not point to a known release; use force replacement to repair it')
     write_pages(pages, archives)  # Complete validation and Pages staging before mutation.
     if dry_run:
-        replacement = (f' Force replacement enabled for {version}: dated tag, release notes, ZIP, '
+        replacement = (f' Force replacement enabled for {version}: version tag, release notes, ZIP, '
                        '2026 alias and Pages would be reissued.' if force else '')
         return ('Dry run: validated notes, ZIP and Pages preview; no tags, releases or deployments changed.'
                 + replacement)
@@ -400,7 +411,7 @@ def main():
     parser.add_argument('--repository', required=True)
     parser.add_argument('--publish', action='store_true')
     parser.add_argument('--force', action='store_true',
-                        help='Replace the selected version, including its dated tag, notes and ZIP')
+                        help='Replace the selected version, including its version tag, notes and ZIP')
     args = parser.parse_args()
     try:
         prepare(args.root, args.output, args.commit, args.publish, args.ref)

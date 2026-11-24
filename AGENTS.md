@@ -166,6 +166,6 @@ Use these resources when the analysis needs information beyond this dataset:
 
 Cite the specific page, discussion, or comment when using external context,
 and distinguish participant opinions or proposals from published requirements.
-Compare source commits and dates with the dataset version; generated content
+Compare source revisions with `info.version` and dates with `info.last_updated`; generated content
 and discussions may describe a different revision. Report discrepancies rather
 than silently replacing local rule content with external text.

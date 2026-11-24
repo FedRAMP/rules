@@ -12,19 +12,25 @@ import release as r
 
 SHA = 'a' * 40
 OLD_SHA = 'b' * 40
-V = '2026.11.02.01'
+V = 'CR26.v33'
 OLD = '2026.10.01.01'
 SCHEMA = json.dumps({'$schema': 'https://json-schema.org/draft/2020-12/schema',
                      'type': 'object', 'required': ['info']}).encode()
 
 
+def fixture_date(version):
+    if version.startswith('CR26.v'):
+        return '2026-11-02'
+    return version[:10].replace('.', '-')
+
+
 def rules(version=V):
-    return json.dumps({'info': {'version': version, 'last_updated': version[:10].replace('.', '-')}},
+    return json.dumps({'info': {'version': version, 'last_updated': fixture_date(version)}},
                       indent=2).encode()
 
 
 def entry(version=V, released=True):
-    return dict(version=version, last_updated=version[:10].replace('.', '-'), release=released,
+    return dict(version=version, last_updated=fixture_date(version), release=released,
                 rules=['Rule [link](https://example.com)'], schema=['Schema change'],
                 tooling=['Hidden tooling'], contributors=['@Example'])
 
@@ -108,11 +114,11 @@ class ReleaseTests(unittest.TestCase):
         return r.publish(self.github, self.output, self.root / directory, dry_run)
 
     def test_rollup_boundary_and_contributors(self):
-        pending = entry('2026.11.01.01', False)
+        pending = entry('CR26.v32', False)
         pending['contributors'] = ['@example', '@Another']
         self.set_entries([entry(), pending, entry(OLD), entry('2026.09.01.01', False)])
         manifest = self.prepare()
-        self.assertEqual(manifest['included_versions'], [V, '2026.11.01.01'])
+        self.assertEqual(manifest['included_versions'], [V, 'CR26.v32'])
         notes = (self.output / 'release-notes.md').read_text()
         self.assertIn('@Example, @Another', notes)
         self.assertNotIn('Hidden tooling', notes)
@@ -120,7 +126,7 @@ class ReleaseTests(unittest.TestCase):
         self.assertIn('[link](https://example.com)', notes)
 
     def test_first_release_includes_all_pending_entries(self):
-        self.set_entries([entry(), entry('2026.11.01.01', False), entry(OLD, False)])
+        self.set_entries([entry(), entry('CR26.v32', False), entry(OLD, False)])
         self.assertEqual(len(self.prepare()['included_versions']), 3)
 
     def test_release_and_branch_eligibility(self):
@@ -155,6 +161,12 @@ class ReleaseTests(unittest.TestCase):
             r.json_load('{"a": 1, "a": 2}')
 
     def test_numeric_version_order(self):
+        self.assertGreater(r.version_key('CR26.v100'), r.version_key('CR26.v99'))
+        self.assertGreater(r.version_key('CR26.v01'), r.version_key(OLD))
+        for version in ('CR26.33', 'CR26.v1', 'CR26.v001', 'CR26.v33-preview'):
+            with self.subTest(version=version), self.assertRaises(ValueError):
+                r.version_key(version)
+
         self.assertGreater(r.version_key('2026.11.02.100'), r.version_key('2026.11.02.99'))
         self.assertEqual(r.version_key('2026.11.02'), r.version_key('2026.11.02.00'))
 
@@ -272,7 +284,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_newer_release_and_missing_history_block_before_writes(self):
         self.prepare(True)
-        for version in (OLD, '2026.12.01.01'):
+        for version in (OLD, 'CR26.v34'):
             gh = FakeGitHub()
             gh.seed(version)
             if version == OLD:
@@ -283,8 +295,8 @@ class ReleaseTests(unittest.TestCase):
 
     def test_ignore_drafts_prereleases_and_unrelated_tags(self):
         self.prepare()
-        for version, changes in [('2026.12.01.01', {'draft': True}),
-                                 ('2026.12.02.01', {'prerelease': True}),
+        for version, changes in [('CR26.v34', {'draft': True}),
+                                 ('CR26.v35', {'prerelease': True}),
                                  ('v1.0.0', {})]:
             self.github.records[version] = dict(tag_name=version, draft=False, prerelease=False) | changes
         self.publish(dry_run=True)
@@ -317,20 +329,20 @@ class ReleaseTests(unittest.TestCase):
 
     def test_force_repairs_orphan_alias_without_existing_release(self):
         self.prepare(True)
-        for dated_tag_exists in (False, True):
-            with self.subTest(dated_tag_exists=dated_tag_exists):
+        for version_tag_exists in (False, True):
+            with self.subTest(version_tag_exists=version_tag_exists):
                 gh = FakeGitHub()
                 gh.tags['2026'] = OLD_SHA
-                if dated_tag_exists:
+                if version_tag_exists:
                     gh.tags[V] = SHA
                 with self.assertRaisesRegex(ValueError, '2026 tag does not point'):
-                    r.publish(gh, self.output, self.root / f'normal-{dated_tag_exists}')
+                    r.publish(gh, self.output, self.root / f'normal-{version_tag_exists}')
                 self.assertEqual(gh.writes, [])
-                r.publish(gh, self.output, self.root / f'preview-{dated_tag_exists}',
+                r.publish(gh, self.output, self.root / f'preview-{version_tag_exists}',
                           dry_run=True, force=True)
                 self.assertEqual(gh.writes, [])
                 self.assertEqual(gh.tags['2026'], OLD_SHA)
-                r.publish(gh, self.output, self.root / f'force-{dated_tag_exists}', force=True)
+                r.publish(gh, self.output, self.root / f'force-{version_tag_exists}', force=True)
                 self.assertEqual(gh.tags[V], SHA)
                 self.assertEqual(gh.tags['2026'], SHA)
                 self.assertFalse(gh.records[V]['draft'])
@@ -359,7 +371,7 @@ class ReleaseTests(unittest.TestCase):
             if immutable:
                 gh.records[V]['immutable'] = True
             else:
-                gh.seed('2026.12.01.01')
+                gh.seed('CR26.v34')
             with self.assertRaisesRegex(ValueError, 'immutable|newer version'):
                 r.publish(gh, self.output, self.root / str(immutable), force=True)
             self.assertEqual(gh.writes, [])

@@ -1,5 +1,5 @@
 fedramp-consolidated-rules:
-  - version: "2026.12.03.01"
+  - version: "CR26.v33"
     last_updated: "2026-12-03"
     release: true
     rules:

@@ -140,7 +140,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
     info: {
       title: "Test",
       description: "Test",
-      version: "1.0.0",
+      version: "CR26.v09",
       last_updated: "2026-04-12",
     },
     FRD: {
@@ -242,7 +242,7 @@ test("auto-fix applies ID, term, related, subset-affects, and property-order fix
   expect(result.relatedRuleFixedCount).toBe(1);
   expect(result.subsetApplicabilityAffectsFixedCount).toBe(1);
   expect(result.propertyOrderFixedCount).toBe(1);
-  expect(result.document.info.version).toBe("1.0.1");
+  expect(result.document.info.version).toBe("CR26.v09");
   expect(result.document.info.last_updated).toBe("2026-04-19");
   expect(result.document.FRD.data.all!["FRD-AGY"]!.term).toBe("Agency");
   expect(result.document.FRR.MAS!.data.all!.CSO!["MAS-CSO-TST"]!.terms).toEqual(

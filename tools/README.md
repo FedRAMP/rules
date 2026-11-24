@@ -313,9 +313,17 @@ applying authorized changes to the canonical files, run `bun run check` again.
 Checks still read the canonical paths in the configuration, even when a fixer
 has written a separate candidate.
 
-ID fixes also record entry history and update dataset version/date metadata.
-They do not rewrite references to renamed IDs; inspect references when reviewing
+When the ID fixer renames one or more keys, it records each rename in entry history
+and sets `info.last_updated` to the entry date. The entry date defaults to the existing
+`info.last_updated` and can be overridden with `--date`.
+The fixer does not rewrite references to renamed IDs; inspect references when reviewing
 an ID change.
+
+Only a maintainer increments `info.version`. The check warns when the working
+rules have changed since the last committed rules snapshot without a higher minor
+version. It also checks the latest committed rules update when the working copy
+matches it. Formatting and changes to `info.last_updated` alone do not require
+a version bump.
 
 ## Git Hooks And CI
 

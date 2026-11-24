@@ -10,7 +10,7 @@ from this fork into another repository.
 2. Allow the `github-pages` environment to deploy from `main`. Retain any desired
    environment review rules.
 3. Ensure repository/organization policy permits the workflow's `GITHUB_TOKEN`
-   to create releases and dated tags and update the `2026` tag. Tag rulesets must
+   to create releases and version tags and update the `2026` tag. Tag rulesets must
    permit these operations; the workflow uses only `GITHUB_TOKEN` and does not
    bypass rulesets. No separately created token or Actions secret is configured.
 4. Merge the workflow into the default branch so GitHub exposes its manual Run
@@ -25,15 +25,14 @@ in `requirements.txt`; Python 3.13 or newer is required.
 
 ## Prepare a version
 
-Edit the rules metadata and prepend an entry to `CHANGELOG.yml`. Versions are
-`2026.MM.DD` or `2026.MM.DD.NN`, with a valid calendar date and an optional numeric
-revision of at least two digits. No `v` prefix is added. Date and revision
-components are compared numerically. An omitted revision is equivalent to zero;
-do not record both an omitted revision and `.00` for the same date.
+Edit the rules metadata and prepend an entry to `CHANGELOG.yml`. New versions use
+`CR26.v##`. Manually increment the minor number with each update, padding single digits
+with a leading zero. After `CR26.v99` comes `CR26.v100`.
 
 The changelog is newest first. Its latest `version` and quoted `last_updated`
-must match the rules JSON; the date must match the version's date. The workflow
-uses the recorded date and never rewrites it to the execution date.
+must match the rules JSON. Record the update date separately as `YYYY-MM-DD`.
+Historical dated versions retain their original tags, filenames, and date
+checks. All CR26 versions sort after those historical releases.
 
 Each entry requires `version`, `last_updated`, boolean `release`, and string
 arrays `rules` and `schema`. Optional `tooling` and `contributors` are string
@@ -106,19 +105,19 @@ $BASE_URL/fedramp-consolidated-rules-2026.schema.json
 Pinned files, for example:
 
 ```text
-$BASE_URL/fedramp-consolidated-rules-2026.11.02.01.json
-$BASE_URL/fedramp-consolidated-rules-2026.11.02.01.schema.json
+$BASE_URL/fedramp-consolidated-rules-CR26.v33.json
+$BASE_URL/fedramp-consolidated-rules-CR26.v33.schema.json
 ```
 
 Every Pages JSON is minified; the URLs do not add `.min`. Pages contains these
 JSON files and a single `index.html` with a brief explanation and relative links
-to the current and dated files, newest first. The index uses plain HTML with no
+to the current and versioned files, newest first. The index uses plain HTML with no
 JavaScript, stylesheets, or external assets. ZIPs, source tools, and release
 notes are not published to Pages.
 
-The dated tag and release remain fixed unless force replacement is explicitly
+The version tag and release remain fixed unless force replacement is explicitly
 selected. The `2026` Git tag and Pages aliases
-advance to the latest published dated version; there is no rolling `2026`
+advance to the latest published version; there is no rolling `2026`
 GitHub Release. Each deployment reconstructs history from this repository's
 published 2026 release ZIPs, using each version's own schema. It paginates release
 discovery and excludes drafts, prereleases, and unrelated tag formats.
@@ -153,7 +152,7 @@ latest commit; **Re-run all jobs** retains the original run's commit and inputs.
 
 With both preview and force checked, the workflow previews the replacement and
 makes no remote changes. With preview unchecked and force checked, it updates
-the dated tag, release name/notes, ZIP, `2026` tag, and Pages collection. Historical
+the version tag, release name/notes, ZIP, `2026` tag, and Pages collection. Historical
 versions remain intact. It also repairs a leftover `2026` tag when its release
 record has been deleted. For an existing release, it retains the release ID,
 temporarily makes the release
@@ -179,7 +178,7 @@ equivalent `--force` flag; it remains read-only unless `--publish` is also passe
 ## Failures and retries
 
 Preparation stages and validates all ZIPs and Pages files before remote writes.
-Publication creates the dated tag, creates a draft release, uploads and verifies
+Publication creates the version tag, creates a draft release, uploads and verifies
 the ZIP, publishes the release as latest, advances `2026`, and deploys Pages.
 These operations are not one transaction. A failure can leave a tag, draft,
 published release, or advanced alias while Pages still serves the prior data.
@@ -194,7 +193,7 @@ Do not manually edit published notes or assets if you want automatic retries to
 succeed. A partial/unrecognized upload fails for inspection instead of being
 automatically deleted. If another newer version has already shipped, rerun that
 newer version to repair Pages. Correct released content by publishing a new
-dated version, rather than moving dated tags or rolling `2026` backward.
+version, rather than moving version tags or rolling `2026` backward.
 
 ## Local checks
 

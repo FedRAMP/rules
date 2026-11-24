@@ -2,7 +2,7 @@
   "info": {
     "title": "FedRAMP Consolidated Rules for 2026",
     "description": "This datafile contains the Consolidated Rules for FedRAMP in structured machine-readable text. It includes definitions, requirements, recommendations, and key security indicators.",
-    "version": "2026.12.03.01",
+    "version": "CR26.v33",
     "last_updated": "2026-12-03",
     "default_artifacts": {
       "FRR": [

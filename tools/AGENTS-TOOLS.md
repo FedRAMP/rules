@@ -287,7 +287,9 @@ entry to paste beneath that existing key; **do not repeat the top-level key**.
 No existing changelog file is needed to generate this output. Use this field
 order and structure:
 
-- `version`: the string from `info.version` in the branch-tip rules JSON.
+- `version`: copy `info.version` from the branch-tip rules JSON. New versions use
+  `CR26.v##`. Only a human maintainer increments the minor number. Checks may warn when
+  an update needs a new version. Fixers and agents must preserve `info.version`.
 - `last_updated`: the string from `info.last_updated` in that same JSON, not the
   date when the changelog is generated.
 - `release`: the boolean `false` for a new interim entry; maintainers set it to
@@ -314,7 +316,7 @@ physical line. The copy/paste block must have this indentation (the values
 below are illustrative):
 
 ```yaml
-  - version: "2026.10.31.01"
+  - version: "CR26.v33"
     last_updated: "2026-10-31"
     release: false
     rules:
